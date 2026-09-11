@@ -1,12 +1,13 @@
 # قالب مواصفات تطبيق جديد — مختبر التطبيق 360
 
-هذا القالب هو عقد بدء أي محادثة مستقلة لبناء تطبيق واحد. الهدف: **ممارسة قوية + حدود واضحة + إعادة استخدام محسوبة + عدم تلويث بقية المستودع.**
+هذا القالب هو عقد بدء أي محادثة مستقلة لبناء تطبيق واحد. الهدف: **ممارسة قوية + حدود واضحة + إعادة استخدام محسوبة + هوية تثبيت مستقلة + عدم تلويث بقية المستودع.**
 
 ## 1. ما الذي يجب قراءته أولًا؟
 
 - `docs/FRAMEWORK_AR.md`
 - `docs/ARCHITECTURE_AR.md`
 - `docs/DEPENDENCY_POLICY_AR.md`
+- `docs/PWA_OFFLINE_POLICY_AR.md`
 - `data/catalog.json`
 - `data/goals.json`
 - `data/capabilities.json`
@@ -19,9 +20,9 @@
 
 - اعمل داخل `apps/<AGE>/<SLUG>/` فقط، إلا إذا كان المطلوب Extraction واضحًا إلى `packages/`, `resources/`, أو `services/`.
 - لا تستورد كودًا من تطبيق آخر.
+- لا تنشئ مسارًا ثانيًا أو Alias أو مجلد توافق لنفس التطبيق.
 - لا تنسخ مكتبة موجودة في Package مشتركة.
 - لا تضف Backend فقط لأن ذلك ممكن؛ أضفه عند وجود سبب تقني حقيقي.
-- المسار `/1-4/` Legacy redirect فقط؛ تطبيق الرسم الرسمي في `apps/1-4/drawing-writing-foundations/`.
 
 ## 3. بطاقة التطبيق قبل التنفيذ
 
@@ -35,6 +36,7 @@ kind: <goal_aligned|modern_extension|hybrid>
 priority: <1|2|3>
 depth: <lite|standard|advanced|expert>
 runtime_profile: <static-web|legacy-web|pwa|hybrid-web-service>
+offline_mode: <offline-first|offline-partial|online-required>
 goal_keys:
   - <goal-key>
 capabilities:
@@ -42,6 +44,8 @@ capabilities:
 bundles:
   - <bundle-id>
 entry_path: apps/<age>/<slug>/index.html
+manifest_path: apps/<age>/<slug>/manifest.webmanifest
+icon_path: apps/<age>/<slug>/icon.svg
 ```
 
 ## 4. النتيجة العملية
@@ -72,8 +76,6 @@ entry_path: apps/<age>/<slug>/index.html
 
 ### Difficulty تربوي
 
-يمكن أن يحتوي التطبيق على درجات ممارسة مستقلة عن Depth التقني:
-
 ```text
 1. نموذج وإرشاد قوي
 2. مساعدة جزئية
@@ -100,15 +102,48 @@ entry_path: apps/<age>/<slug>/index.html
 
 إذا احتاج التطبيق Build أو Node tooling:
 
-- أضف `package.json` داخل التطبيق.
-- Dependency الخاصة بالتطبيق تسجل هناك.
+- Dependency الخاصة بالتطبيق تسجل في `package.json` الخاص به.
 - نفذ `pnpm install` من **جذر المستودع**.
 - استخدم `workspace:*` لأي Package داخلية.
 - لا تنشئ lockfile خاصًا بالتطبيق.
 
 إذا احتجت Backend، أنشئ `services/<service>/` كWorkspace مستقل بدل وضع Secrets في Frontend.
 
-## 9. تجربة المستخدم
+## 9. PWA والتثبيت والتحديث
+
+التطبيق المتصفحي المستقل يجب أن يملك:
+
+```text
+manifest.webmanifest
+icon.svg
+sw.js
+```
+
+ويجب تحديد:
+
+- هل الحلقة الأساسية `offline-first` أم `offline-partial` أم `online-required`؟
+- ما الملفات التي تدخل App shell؟
+- ما الملفات التي تحمل Lazy؟
+- ما الاستراتيجية الحرجة: Network-first أم Cache-first؟
+- كيف يتفعل Service Worker الجديد دون Refresh loop؟
+- كيف يظهر زر التثبيت أو التعليمات البديلة؟
+
+ابدأ من `apps/_template/` ولا تعيد اختراع طبقة PWA في كل تطبيق.
+
+## 10. هوية التطبيق والشعار
+
+كل تطبيق يملك `icon.svg` خاصًا به. لا تستخدم شعار البوابة نفسه كتطبيق فردي.
+
+الشعار:
+
+- واضح في الحجم الصغير.
+- يعكس مهارة التطبيق.
+- يحمل لون الفئة أو Accent مناسبًا.
+- يبقى داخل Safe area ليعمل كـmaskable icon.
+
+القالب يولد هوية أولية؛ بعد نضج التطبيق يمكن تحسين الأيقونة مع إبقاء اسم الملف والعقد ثابتين.
+
+## 11. تجربة المستخدم
 
 حدد:
 
@@ -116,14 +151,14 @@ entry_path: apps/<age>/<slug>/index.html
 - أقل عدد خطوات لبدء الممارسة.
 - العودة/الإغلاق.
 - التقدم والحفظ.
-- Offline إن كان مطلوبًا.
+- Offline behavior.
 - الصوت وFallback.
 - RTL/LTR.
 - Keyboard/Touch/Mouse حسب الفئة.
 - Accessibility والأحجام المناسبة للعمر.
-- سلوك Portrait/Landscape إذا كان مهمًا.
+- Portrait/Landscape إذا كان مهمًا.
 
-## 10. Compatibility Matrix
+## 12. Compatibility Matrix
 
 ```yaml
 mobile: true
@@ -137,14 +172,14 @@ minimum_test_targets:
 
 إذا كان `legacy_android_required: true` يجب تحديد الجهاز/الفئة المتوقعة ومسارات Fallback. لا نحمل Polyfills Legacy على كل تطبيقات المنصة.
 
-## 11. الصوت والوسائط
+## 13. الصوت والوسائط
 
 - TTS لا يكون نقطة فشل وحيدة إذا كان الصوت أساسيًا.
 - Recorded audio وPCM fallback يضافان فقط عند الحاجة.
 - لا تنسخ حزم صوت تطبيق الرسم مباشرة إلى تطبيق آخر؛ إذا ظهر مستهلك ثانٍ، نفذ Resource/Package extraction رسميًا.
 - الوسائط الكبيرة تُحمّل عند الطلب قدر الإمكان.
 
-## 12. الخصوصية والأمان
+## 14. الخصوصية والأمان
 
 - Local-first افتراضيًا.
 - لا ترسل اسم الطفل/صوته/رسمه لخدمة خارجية لمجرد تحسين UX.
@@ -152,14 +187,17 @@ minimum_test_targets:
 - استخدم بيانات وهمية في محاكاة المال/الحسابات/الاحتيال.
 - لا تخزن Secrets في GitHub أو Frontend.
 
-## 13. الملفات الأساسية
+## 15. الملفات الأساسية
 
 ```text
 apps/<age>/<slug>/
 ├─ index.html
 ├─ app.json
 ├─ package.json
-└─ README.md
+├─ README.md
+├─ manifest.webmanifest
+├─ icon.svg
+└─ sw.js
 ```
 
 اختياري حسب الحاجة:
@@ -171,15 +209,13 @@ audio/
 data/
 tooling/
 test/
-manifest.json
-sw.js
 ```
 
-## 14. app.json المقترح
+## 16. app.json المقترح
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "id": "...",
   "slug": "...",
   "title_ar": "...",
@@ -189,36 +225,38 @@ sw.js
   "kind": "goal_aligned",
   "goal_keys": [],
   "entry_path": "apps/8-12/.../index.html",
+  "manifest_path": "apps/8-12/.../manifest.webmanifest",
+  "icon_path": "apps/8-12/.../icon.svg",
   "runtime_profile": "static-web",
   "depth": "lite",
-  "capabilities": ["storage.local"],
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": ["storage.local", "pwa.offline"],
   "bundles": ["static-core"],
-  "practice_model_ar": "مهمة ← محاولة ← تغذية راجعة ← تكرار",
-  "compatibility": {
-    "mobile": true,
-    "tablet": true,
-    "desktop": true,
-    "legacy_android_required": false
-  }
+  "practice_model_ar": "مهمة ← محاولة ← تغذية راجعة ← تكرار"
 }
 ```
 
-## 15. Definition of Done
+## 17. Definition of Done
 
 قبل `live`:
 
-- [ ] المسار المباشر يعمل.
+- [ ] المسار الرسمي `apps/<age>/<slug>/` يعمل مباشرة ولا يوجد له مسار موازٍ.
 - [ ] حلقة الممارسة مكتملة من البداية للنهاية.
 - [ ] `app.json` مطابق لما تم بناؤه فعليًا.
+- [ ] Manifest وIcon وService Worker موجودة.
+- [ ] التثبيت يعمل أو توجد تعليمات بديلة واضحة.
+- [ ] Offline يعمل وفق المستوى المعلن.
+- [ ] تحديث SW يصل للإصدار الجديد دون Refresh loop.
 - [ ] لا اعتماد على ملفات تطبيق آخر.
 - [ ] Dependencies مسجلة في Workspace الصحيح.
-- [ ] القدرات/Bundles المعلنة حقيقية وليست مجرد قائمة تجميلية.
+- [ ] القدرات/Bundles المعلنة حقيقية.
 - [ ] الأجهزة المطلوبة مختبرة.
 - [ ] fallbacks الحرجة تعمل.
 - [ ] الخصوصية والأمان موثقان.
 - [ ] `data/catalog.json` محدث.
 - [ ] `node tooling/validate-platform.js` ينجح.
 
-## 16. Prompt جاهز لمحادثة جديدة
+## 18. Prompt جاهز لمحادثة جديدة
 
-> اعمل داخل مستودع `saddamalkhatabi/app360` على تطبيق `<TITLE>` للفئة `<AGE>` ومساره `apps/<AGE>/<SLUG>/`. اقرأ أولًا `docs/FRAMEWORK_AR.md` و`docs/ARCHITECTURE_AR.md` و`docs/DEPENDENCY_POLICY_AR.md` و`docs/APP_SPEC_TEMPLATE_AR.md` و`data/catalog.json` و`data/goals.json` و`data/capabilities.json`. طوّر هذا التطبيق فقط. الهدف العملي هو `<PRACTICE OUTCOME>`. اربطه بالـgoal keys `<GOALS>` وحدد Depth وRuntime profile والCapabilities قبل اختيار المكتبات. لا تنسخ كودًا أو أصولًا من تطبيق آخر؛ إذا ظهر احتياج مشترك حقيقي استخرج Package/Resource/Service وفق إطار المنصة. بعد التنفيذ حدّث الكتالوج وشغّل `node tooling/validate-platform.js`.
+> اعمل داخل مستودع `saddamalkhatabi/app360` على تطبيق `<TITLE>` للفئة `<AGE>` ومساره الرسمي الوحيد `apps/<AGE>/<SLUG>/`. اقرأ أولًا `docs/FRAMEWORK_AR.md` و`docs/ARCHITECTURE_AR.md` و`docs/DEPENDENCY_POLICY_AR.md` و`docs/PWA_OFFLINE_POLICY_AR.md` و`docs/APP_SPEC_TEMPLATE_AR.md` و`data/catalog.json` و`data/goals.json` و`data/capabilities.json`. طوّر هذا التطبيق فقط. الهدف العملي هو `<PRACTICE OUTCOME>`. اربطه بالـgoal keys `<GOALS>` وحدد Depth وRuntime profile وOffline mode والCapabilities قبل اختيار المكتبات. لا تنسخ كودًا أو أصولًا من تطبيق آخر؛ إذا ظهر احتياج مشترك حقيقي استخرج Package/Resource/Service وفق إطار المنصة. اجعل التطبيق قابلاً للتثبيت بهوية وشعار مستقل وتحديث آمن، ثم حدّث الكتالوج وشغّل `node tooling/validate-platform.js`.
