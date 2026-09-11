@@ -1,12 +1,13 @@
 {
-  "build": 17,
+  "build": 18,
   "updated": "2026-09-11",
-  "audioPack": "noor+colors-v15-legacy-multiformat",
+  "audioPack": "noor+colors-v18-embedded-pcm",
   "legacyAudio": [
+    "embedded-u8-pcm",
     "mp3",
     "ogg",
     "wav"
   ],
-  "audioEngine": "V17 HTMLAudio + WebAudio decode fallback",
+  "audioEngine": "V18 embedded PCM via WebAudio, then decodeAudioData/HTMLAudio fallbacks",
   "refreshPolicy": "upgrade-only, one automatic refresh per target build"
 }
