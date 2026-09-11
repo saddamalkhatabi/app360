@@ -1,5 +1,5 @@
-var CACHE='app360-1-4-v18';
-var SHELL=['./manifest.json','./sync-v10-extra.js','./ui-v11.js?v=12','./audio-pcm-v18.js?v=18','./audio-v18.js?v=18','./version.json'];
+var CACHE='app360-1-4-v19';
+var SHELL=['./manifest.json','./sync-v10-extra.js','./ui-v11.js?v=19','./audio-pcm-v18.js?v=18','./audio-v18.js?v=18','./version.json'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}));self.skipWaiting&&self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k!==CACHE&&k.indexOf('app360-1-4-')===0)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
 self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});

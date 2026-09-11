@@ -1,5 +1,5 @@
 {
-  "build": 18,
+  "build": 19,
   "updated": "2026-09-11",
   "audioPack": "noor+colors-v18-embedded-pcm",
   "legacyAudio": [
@@ -9,5 +9,7 @@
     "wav"
   ],
   "audioEngine": "V18 embedded PCM via WebAudio, then decodeAudioData/HTMLAudio fallbacks",
-  "refreshPolicy": "upgrade-only, one automatic refresh per target build"
+  "refreshPolicy": "upgrade-only, one automatic refresh per target build",
+  "ui": "compact-child-drawing-v19",
+  "layout": "status toast + top glyph + larger drawing board"
 }
