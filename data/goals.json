@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-09-12",
+  "source_note_ar": "مفاتيح الأهداف مستخلصة من حقول criteria في حزم عمال Safe Reels 360 لكل فئة عمرية. goal key هو المرجع الثابت للربط البرمجي، والعنوان العربي مخصص للعرض في مختبر التطبيق 360.",
+  "source_bundles": {
+    "1-4": "safe-reels-ai-workers-reels-2026-08-28-03-02-36",
+    "4-8": "safe-reels-ai-workers-standard-2026-08-29-01-56-13",
+    "8-12": "safe-reels-ai-workers-standard-2026-08-29-14-37-19",
+    "12-16": "safe-reels-ai-workers-standard-2026-08-29-19-09-57",
+    "16-24": "safe-reels-ai-workers-standard-2026-08-31-17-11-02",
+    "24-45": "safe-reels-ai-workers-standard-2026-08-31-20-39-20",
+    "45-60": "safe-reels-ai-workers-standard-2026-08-31-21-56-56",
+    "60-80": "safe-reels-ai-workers-standard-2026-09-01-15-15-01"
+  },
+  "age_groups": {
+    "1-4": [
+      {"role":"learner","key":"learner-1-4-first-words-expressive-language","title_ar":"الكلمات الأولى واللغة التعبيرية"},
+      {"role":"learner","key":"learner-1-4-shared-attention-imitation-simple-instructions","title_ar":"الانتباه المشترك والتقليد واتباع التعليمات البسيطة"},
+      {"role":"learner","key":"learner-1-4-early-emotions-calm-and-co-regulation","title_ar":"المشاعر المبكرة والهدوء والتنظيم المشترك"},
+      {"role":"learner","key":"learner-1-4-safe-sensory-motor-play","title_ar":"اللعب الحسي والحركي الآمن"},
+      {"role":"learner","key":"learner-1-4-routines-independence-first-attempts","title_ar":"الروتين والاستقلالية والمحاولات الأولى"},
+      {"role":"coach","key":"coach-1-4-language-rich-play-responsive-interaction","title_ar":"اللعب الغني باللغة والتفاعل المستجيب"},
+      {"role":"coach","key":"coach-1-4-co-regulation-transitions-and-tantrum-support","title_ar":"التنظيم المشترك والانتقالات ودعم نوبات الغضب"},
+      {"role":"coach","key":"coach-1-4-safe-play-activity-design-and-independence","title_ar":"تصميم اللعب الآمن وبناء الاستقلالية المبكرة"},
+      {"role":"learner","key":"learner-1-4-confidence-first-attempts-and-kind-persistence","title_ar":"الثقة والمحاولات الأولى والمثابرة اللطيفة"},
+      {"role":"coach","key":"coach-1-4-screen-co-viewing-attention-and-offline-alternatives","title_ar":"المشاهدة المشتركة والانتباه وبدائل الشاشة"}
+    ],
+    "4-8": [
+      {"role":"learner","key":"learner-4-8-early-reading-phonics-and-fluency","title_ar":"القراءة المبكرة وأصوات الحروف والطلاقة"},
+      {"role":"learner","key":"learner-4-8-early-math-patterns-and-problem-solving","title_ar":"الرياضيات المبكرة والأنماط وحل المشكلات"},
+      {"role":"learner","key":"learner-4-8-active-play-screen-balance-and-body-control","title_ar":"اللعب النشط وتوازن الشاشة والتحكم بالجسم"},
+      {"role":"learner","key":"learner-4-8-emotional-regulation-friendship-and-cooperation","title_ar":"تنظيم المشاعر والصداقة والتعاون"},
+      {"role":"learner","key":"learner-4-8-curiosity-science-and-first-maker-projects","title_ar":"الفضول والعلوم والمشروعات الأولى"},
+      {"role":"coach","key":"coach-4-8-channel-energy-focus-and-transitions","title_ar":"توجيه الطاقة والتركيز والانتقالات"},
+      {"role":"coach","key":"coach-4-8-positive-behavior-routines-and-independence","title_ar":"السلوك الإيجابي والروتين والاستقلالية"},
+      {"role":"coach","key":"coach-4-8-teach-through-play-projects-and-feedback","title_ar":"التعليم باللعب والمشروعات والتغذية الراجعة"},
+      {"role":"learner","key":"learner-4-8-creativity-art-storytelling-and-expression","title_ar":"الإبداع والفن والسرد والتعبير"},
+      {"role":"coach","key":"coach-4-8-early-literacy-numeracy-and-learning-support","title_ar":"دعم القراءة والحساب والتعلم المبكر"}
+    ],
+    "8-12": [
+      {"role":"learner","key":"learner-8-12-reading-comprehension-study-and-summary","title_ar":"الفهم القرائي والدراسة والتلخيص"},
+      {"role":"learner","key":"learner-8-12-math-reasoning-and-multi-step-problems","title_ar":"الاستدلال الرياضي والمسائل متعددة الخطوات"},
+      {"role":"learner","key":"learner-8-12-stem-maker-coding-and-design-thinking","title_ar":"العلوم والصنع والبرمجة والتفكير التصميمي"},
+      {"role":"learner","key":"learner-8-12-digital-safety-media-literacy-and-online-choices","title_ar":"الأمان الرقمي والوعي الإعلامي والاختيارات على الإنترنت"},
+      {"role":"learner","key":"learner-8-12-communication-empathy-responsibility-and-self-management","title_ar":"التواصل والتعاطف والمسؤولية وإدارة الذات"},
+      {"role":"coach","key":"coach-8-12-independent-learning-growth-mindset-and-feedback","title_ar":"التعلم المستقل وعقلية النمو والتغذية الراجعة"},
+      {"role":"coach","key":"coach-8-12-project-based-stem-and-inquiry-facilitation","title_ar":"تيسير المشروعات والعلوم والاستقصاء"},
+      {"role":"coach","key":"coach-8-12-digital-citizenship-media-and-safety-guidance","title_ar":"إرشاد المواطنة الرقمية والوعي الإعلامي والأمان"},
+      {"role":"learner","key":"learner-8-12-healthy-routines-movement-sleep-and-screen-balance","title_ar":"العادات الصحية والحركة والنوم وتوازن الشاشة"},
+      {"role":"coach","key":"coach-8-12-social-emotional-conflict-and-belonging-support","title_ar":"دعم المشاعر وحل الخلاف والانتماء"}
+    ],
+    "12-16": [
+      {"role":"learner","key":"learner-12-16-study-systems-exam-preparation-and-self-management","title_ar":"أنظمة الدراسة والاستعداد للاختبارات وإدارة الذات"},
+      {"role":"learner","key":"learner-12-16-critical-media-ai-literacy-and-information-verification","title_ar":"الوعي النقدي بالإعلام والذكاء الاصطناعي والتحقق من المعلومات"},
+      {"role":"learner","key":"learner-12-16-emotional-resilience-stress-sleep-and-screen-balance","title_ar":"المرونة النفسية وإدارة الضغط والنوم والتوازن الرقمي"},
+      {"role":"learner","key":"learner-12-16-assertive-communication-teamwork-and-conflict-resolution","title_ar":"التواصل الواثق والعمل الجماعي وحل الخلافات"},
+      {"role":"learner","key":"learner-12-16-projects-entrepreneurship-and-career-exploration","title_ar":"المشروعات وريادة الأعمال واستكشاف المهن"},
+      {"role":"coach","key":"coach-12-16-motivation-feedback-relationship-and-boundaries","title_ar":"التحفيز والتغذية الراجعة والعلاقة والحدود مع المراهق"},
+      {"role":"coach","key":"coach-12-16-digital-safety-ai-and-media-mentoring","title_ar":"إرشاد الأمان الرقمي والذكاء الاصطناعي والإعلام للمراهقين"},
+      {"role":"coach","key":"coach-12-16-project-career-and-strengths-guidance","title_ar":"توجيه المشروعات والمهن ونقاط القوة"},
+      {"role":"learner","key":"learner-12-16-financial-literacy-consumer-awareness-and-first-budget","title_ar":"الثقافة المالية ووعي المستهلك والميزانية الأولى"},
+      {"role":"coach","key":"coach-12-16-study-executive-function-and-habit-support","title_ar":"دعم الدراسة والوظائف التنفيذية والعادات"}
+    ],
+    "16-24": [
+      {"role":"learner","key":"learner-16-24-learning-systems-deep-work-and-focus","title_ar":"أنظمة التعلم والعمل العميق والتركيز"},
+      {"role":"learner","key":"learner-16-24-ai-assisted-creation-verification-and-automation","title_ar":"الإبداع والتحقق والأتمتة بمساعدة الذكاء الاصطناعي"},
+      {"role":"learner","key":"learner-16-24-career-readiness-job-search-interview-and-portfolio","title_ar":"الاستعداد المهني والبحث عن عمل والمقابلات وملف الإنجاز"},
+      {"role":"learner","key":"learner-16-24-financial-literacy-budgeting-saving-and-first-income","title_ar":"الثقافة المالية والميزانية والادخار والدخل الأول"},
+      {"role":"learner","key":"learner-16-24-communication-public-speaking-networking-and-project-leadership","title_ar":"التواصل والإلقاء وبناء العلاقات وقيادة المشروعات"},
+      {"role":"coach","key":"coach-16-24-goal-coaching-evidence-and-iterative-cycles","title_ar":"تدريب الأهداف والأدلة ودورات التحسين"},
+      {"role":"coach","key":"coach-16-24-career-mentoring-and-portfolio-feedback","title_ar":"الإرشاد المهني ومراجعة ملف الإنجاز"},
+      {"role":"coach","key":"coach-16-24-ai-enabled-learning-design-and-verification","title_ar":"تصميم التعلم المدعوم بالذكاء الاصطناعي والتحقق"},
+      {"role":"learner","key":"learner-16-24-entrepreneurship-prototyping-and-real-world-projects","title_ar":"ريادة الأعمال والنمذجة والمشروعات الواقعية"},
+      {"role":"coach","key":"coach-16-24-wellbeing-stress-burnout-and-sustainable-performance-support","title_ar":"دعم الرفاه والضغط والاحتراق والأداء المستدام"}
+    ],
+    "24-45": [
+      {"role":"learner","key":"learner-24-45-deliberate-practice-productivity-and-focus","title_ar":"الممارسة المتعمدة والإنتاجية والتركيز"},
+      {"role":"learner","key":"learner-24-45-strategic-thinking-decisions-and-problem-solving","title_ar":"التفكير الاستراتيجي والقرارات وحل المشكلات"},
+      {"role":"learner","key":"learner-24-45-leadership-team-communication-and-delegation","title_ar":"القيادة والتواصل مع الفريق والتفويض"},
+      {"role":"learner","key":"learner-24-45-personal-finance-investing-and-side-business-basics","title_ar":"أساسيات المال الشخصي والاستثمار والمشروعات الجانبية"},
+      {"role":"learner","key":"learner-24-45-parenting-family-communication-and-healthy-routines","title_ar":"التربية والتواصل الأسري والعادات الصحية"},
+      {"role":"coach","key":"coach-24-45-training-design-baseline-measurement-and-improvement","title_ar":"تصميم التدريب وخط الأساس والقياس والتحسين"},
+      {"role":"coach","key":"coach-24-45-performance-coaching-leadership-and-accountability","title_ar":"تدريب الأداء والقيادة والمساءلة"},
+      {"role":"coach","key":"coach-24-45-parent-educator-coaching-and-family-learning-design","title_ar":"تدريب الوالدين وتصميم التعلم الأسري"},
+      {"role":"learner","key":"learner-24-45-stress-energy-sleep-movement-and-sustainable-health-routines","title_ar":"الضغط والطاقة والنوم والحركة والعادات الصحية المستدامة"},
+      {"role":"coach","key":"coach-24-45-ai-productivity-workflow-and-human-review","title_ar":"الذكاء الاصطناعي والإنتاجية وسير العمل والمراجعة البشرية"}
+    ],
+    "45-60": [
+      {"role":"learner","key":"learner-45-60-strength-mobility-balance-and-healthy-ageing","title_ar":"القوة والحركة والتوازن والشيخوخة الصحية"},
+      {"role":"learner","key":"learner-45-60-digital-confidence-ai-tools-and-online-safety","title_ar":"الثقة الرقمية وأدوات الذكاء الاصطناعي والأمان على الإنترنت"},
+      {"role":"learner","key":"learner-45-60-knowledge-transfer-mentoring-and-documentation","title_ar":"نقل الخبرة والإرشاد وتوثيق المعرفة"},
+      {"role":"learner","key":"learner-45-60-career-transition-second-act-and-purposeful-projects","title_ar":"الانتقال المهني والمرحلة الثانية والمشروعات ذات المعنى"},
+      {"role":"learner","key":"learner-45-60-retirement-financial-planning-and-risk-awareness","title_ar":"التخطيط المالي للتقاعد والوعي بالمخاطر"},
+      {"role":"coach","key":"coach-45-60-experience-based-mentoring-and-reflective-practice","title_ar":"الإرشاد القائم على الخبرة والممارسة التأملية"},
+      {"role":"coach","key":"coach-45-60-adult-digital-learning-and-ai-adoption","title_ar":"التعلم الرقمي للبالغين وتبني الذكاء الاصطناعي"},
+      {"role":"coach","key":"coach-45-60-healthy-habits-mobility-and-functional-ability-support","title_ar":"دعم العادات الصحية والحركة والقدرة الوظيفية"},
+      {"role":"learner","key":"learner-45-60-emotional-wellbeing-relationships-and-life-meaning","title_ar":"الرفاه العاطفي والعلاقات والمعنى في المرحلة الوسطى"},
+      {"role":"coach","key":"coach-45-60-career-transition-succession-and-knowledge-continuity","title_ar":"الانتقال المهني والتعاقب واستمرارية المعرفة"}
+    ],
+    "60-80": [
+      {"role":"learner","key":"learner-60-80-active-mind-lifelong-learning-and-curiosity","title_ar":"نشاط العقل والتعلم المستمر والفضول"},
+      {"role":"learner","key":"learner-60-80-digital-independence-scam-safety-and-online-services","title_ar":"الاستقلالية الرقمية والحماية من الاحتيال والخدمات الإلكترونية"},
+      {"role":"learner","key":"learner-60-80-balance-mobility-strength-and-fall-prevention-awareness","title_ar":"التوازن والحركة والقوة والوعي بالوقاية من السقوط"},
+      {"role":"learner","key":"learner-60-80-social-connection-meaning-and-emotional-wellbeing","title_ar":"التواصل الاجتماعي والمعنى والرفاه العاطفي"},
+      {"role":"learner","key":"learner-60-80-memory-stories-family-history-and-legacy","title_ar":"الذاكرة والقصص وتاريخ الأسرة ونقل الإرث"},
+      {"role":"coach","key":"coach-60-80-respectful-paced-instruction-and-cognitive-load","title_ar":"الإرشاد المتدرج باحترام وتقليل الحمل المعرفي"},
+      {"role":"coach","key":"coach-60-80-digital-inclusion-safety-and-confidence-support","title_ar":"دعم الشمول الرقمي والأمان والثقة"},
+      {"role":"coach","key":"coach-60-80-healthy-ageing-activity-social-engagement-and-routine-support","title_ar":"دعم الشيخوخة الصحية والنشاط والتفاعل الاجتماعي والروتين"},
+      {"role":"learner","key":"learner-60-80-daily-independence-routines-and-practical-life-skills","title_ar":"الاستقلال اليومي والروتين ومهارات الحياة العملية"},
+      {"role":"coach","key":"coach-60-80-reminiscence-storytelling-family-connection-and-legacy-facilitation","title_ar":"تيسير الذكريات والسرد والتواصل الأسري ونقل الإرث"}
+    ]
+  }
+}
