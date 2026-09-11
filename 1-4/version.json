@@ -1,11 +1,9 @@
 {
-  "build": 16,
+  "build": 15,
+  "currentAppBuild": 16,
   "updated": "2026-09-11",
   "audioPack": "noor+colors-v15-legacy-multiformat",
-  "legacyAudio": [
-    "mp3",
-    "ogg",
-    "wav"
-  ],
-  "refreshPolicy": "upgrade-only, one automatic refresh per target build"
+  "legacyAudio": ["mp3", "ogg", "wav"],
+  "refreshPolicy": "safe staged updates; never refresh-loop stale clients",
+  "note": "V16 is live. Auto-refresh target remains 15 for this transition so cached V15 clients stop looping. Future releases will use the guarded V16+ updater."
 }
