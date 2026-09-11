@@ -7,6 +7,7 @@ const contracts = require(path.join(root, 'packages/contracts/src/index.cjs'));
 
 function readJson(rel) { return JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8')); }
 function exists(rel) { return fs.existsSync(path.join(root, rel)); }
+function listDirs(rel) { const p=path.join(root,rel); return fs.existsSync(p)?fs.readdirSync(p,{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name):[]; }
 let failed = false;
 function fail(msg) { failed = true; console.error('FAIL:', msg); }
 function ok(msg) { console.log('OK:', msg); }
@@ -115,6 +116,29 @@ if (!exists('pnpm-workspace.yaml')) fail('missing pnpm-workspace.yaml');
 if (!exists('pnpm-lock.yaml')) fail('missing shared pnpm-lock.yaml');
 if (!exists('packages/contracts/package.json')) fail('missing contracts workspace package');
 
+// Workspace package identity and lockfile hygiene.
+const workspacePkgs = [];
+for (const age of listDirs('apps')) {
+  if (age === '_template') continue;
+  for (const slug of listDirs(`apps/${age}`)) {
+    const rel = `apps/${age}/${slug}/package.json`;
+    if (exists(rel)) workspacePkgs.push(rel);
+  }
+}
+for (const name of listDirs('packages')) if (exists(`packages/${name}/package.json`)) workspacePkgs.push(`packages/${name}/package.json`);
+for (const name of listDirs('services')) if (name !== '_template' && exists(`services/${name}/package.json`)) workspacePkgs.push(`services/${name}/package.json`);
+const packageNames = new Set();
+for (const rel of workspacePkgs) {
+  const pkg = readJson(rel);
+  if (!pkg.name) fail(`workspace package has no name: ${rel}`);
+  else if (packageNames.has(pkg.name)) fail(`duplicate workspace package name: ${pkg.name}`);
+  else packageNames.add(pkg.name);
+  const dir = path.dirname(rel);
+  for (const lock of ['pnpm-lock.yaml','package-lock.json','yarn.lock']) if (exists(`${dir}/${lock}`)) fail(`nested lockfile is not allowed: ${dir}/${lock}`);
+  if (exists(`${dir}/node_modules`)) fail(`node_modules must not be committed inside workspace: ${dir}`);
+}
+ok(`${workspacePkgs.length} workspace package manifests, unique names and no nested lockfiles`);
+
 for (const app of apps.filter(x => x.status === 'live' && x.href && x.href.indexOf('apps/') === 0)) {
   const appDir = path.dirname(app.href.split('?')[0].split('#')[0]);
   const manifestRel = `${appDir}/app.json`;
@@ -130,6 +154,13 @@ for (const app of apps.filter(x => x.status === 'live' && x.href && x.href.index
   for (const cap of manifest.capabilities || []) if (!capabilities.has(cap)) fail(`app.json ${app.id} references unknown capability ${cap}`);
   for (const b of manifest.bundles || []) if (!bundles.has(b)) fail(`app.json ${app.id} references unknown bundle ${b}`);
 }
+
+// The historical /1-4 path is a compatibility gateway only; prevent source duplication from returning.
+const legacyAllowed = new Set(['README.md','index.html','manifest.json','sw.js','version.json']);
+if (exists('1-4')) {
+  for (const name of fs.readdirSync(path.join(root,'1-4'))) if (!legacyAllowed.has(name)) fail(`legacy 1-4 gateway contains app source again: 1-4/${name}`);
+}
+ok('legacy /1-4 remains redirect-only');
 
 const counts = {};
 for (const app of apps) counts[app.age_group] = (counts[app.age_group] || 0) + 1;
