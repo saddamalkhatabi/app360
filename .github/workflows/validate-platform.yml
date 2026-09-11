@@ -7,8 +7,15 @@ on:
       - 'ages/**'
       - 'apps/**'
       - 'assets/**'
+      - 'bundles/**'
       - 'data/**'
       - 'docs/**'
+      - 'packages/**'
+      - 'services/**'
+      - 'tooling/**'
+      - 'package.json'
+      - 'pnpm-workspace.yaml'
+      - '.npmrc'
       - '.github/scripts/validate-platform.js'
       - '.github/workflows/validate-platform.yml'
   pull_request:
@@ -17,8 +24,15 @@ on:
       - 'ages/**'
       - 'apps/**'
       - 'assets/**'
+      - 'bundles/**'
       - 'data/**'
       - 'docs/**'
+      - 'packages/**'
+      - 'services/**'
+      - 'tooling/**'
+      - 'package.json'
+      - 'pnpm-workspace.yaml'
+      - '.npmrc'
       - '.github/scripts/validate-platform.js'
       - '.github/workflows/validate-platform.yml'
   workflow_dispatch:
@@ -34,5 +48,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Validate catalog, goals, age pages and live routes
-        run: node .github/scripts/validate-platform.js
+      - name: Validate platform architecture, catalogs and live routes
+        run: node tooling/validate-platform.js
