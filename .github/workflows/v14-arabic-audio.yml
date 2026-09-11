@@ -1,0 +1,155 @@
+name: V14 Arabic Voice Packs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v14-arabic-audio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install neural speech generator
+        run: python -m pip install --disable-pip-version-check edge-tts
+      - name: Generate Noor and colors Arabic MP3 packs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p '1-4/audio/نور' '1-4/audio/colors'
+          rm -f 1-4/audio/نور/color-*.mp3 1-4/audio/colors/*.mp3
+          python - <<'PY'
+          import asyncio, json
+          from pathlib import Path
+          import edge_tts
+
+          root=Path('1-4/audio')
+          noor=root/'نور'
+          colors_dir=root/'colors'
+          noor.mkdir(parents=True,exist_ok=True)
+          colors_dir.mkdir(parents=True,exist_ok=True)
+
+          noor_voice='ar-EG-SalmaNeural'
+          color_voice='ar-SA-ZariyahNeural'
+          noor_items=[
+            ('test','test','مرحبا يا نور، هذا اختبار للصوت المسجل'),
+            ('cheer-01','cheer','أحسنتِ يا نور'),
+            ('cheer-02','cheer','رائع يا نور'),
+            ('cheer-03','cheer','ممتاز يا نور'),
+            ('cheer-04','cheer','عمل جميل يا نور'),
+            ('cheer-05','cheer','استمري يا نور'),
+            ('cheer-06','cheer','أبدعتِ يا نور'),
+            ('cheer-07','cheer','محاولة جميلة يا نور'),
+            ('cheer-08','cheer','تقدم رائع يا نور'),
+          ]
+          colors=[
+            ('red','أحمر'),('blue','أزرق'),('green','أخضر'),('yellow','أصفر'),
+            ('orange','برتقالي'),('purple','بنفسجي'),('pink','وردي'),('brown','بني'),
+            ('black','أسود'),('gray','رمادي')
+          ]
+
+          async def make(text, voice, path, rate='-5%'):
+              c=edge_tts.Communicate(text=text, voice=voice, rate=rate, volume='+0%')
+              await c.save(str(path))
+
+          async def main():
+              for fid,kind,text in noor_items:
+                  await make(text,noor_voice,noor/(fid+'.mp3'),'-6%')
+              for fid,name in colors:
+                  await make(name,color_voice,colors_dir/('color-'+fid+'.mp3'),'-8%')
+          asyncio.run(main())
+
+          reg={
+            'version':14,
+            'voices':{
+              'noor':{'engine':'Microsoft Neural via edge-tts','voice':noor_voice,'style':'warm female Arabic'},
+              'colors':{'engine':'Microsoft Neural via edge-tts','voice':color_voice,'style':'clear MSA Arabic'}
+            },
+            'colors':[],
+            'users':{
+              'نور':{
+                'aliases':['Noor','noor'],
+                'gender':'girl',
+                'folder':'audio/نور',
+                'clips':[]
+              }
+            }
+          }
+          for fid,kind,text in noor_items:
+              aliases=[]
+              if fid=='test': aliases=['مرحبا يا نور هذا اختبار للصوت المسجل','مرحبا يا نور هذا اختبار للصوت العربي','أحسنت يا نور الصوت يعمل على الحاسوب']
+              elif fid=='cheer-01': aliases=['أحسنتي يا نور','أحسنت يا نور']
+              elif fid=='cheer-06': aliases=['أبدعتي يا نور','أبدعت يا نور']
+              reg['users']['نور']['clips'].append({'id':fid,'kind':kind,'text':text,'aliases':aliases,'file':f'audio/نور/{fid}.mp3'})
+          for fid,name in colors:
+              reg['colors'].append({
+                'id':'color-'+fid,
+                'kind':'color',
+                'name':name,
+                'text':'اللون '+name,
+                'aliases':[name,'لون '+name],
+                'file':f'audio/colors/color-{fid}.mp3'
+              })
+          (root/'registry.json').write_text(json.dumps(reg,ensure_ascii=False,indent=2),encoding='utf-8')
+          (root/'README.md').write_text('''# Arabic audio packs\n\n- `نور/`: user-specific encouragement and test clips.\n- `colors/`: shared Arabic color pronunciations used for every user.\n- `registry.json`: maps names, phrases and aliases to files.\n\nTo add another child, create `audio/<name>/`, add MP3 clips, then add that child under `users` in `registry.json`. The app uses device TTS first in Auto mode and falls back to these files when TTS is unavailable or fails.\n''',encoding='utf-8')
+          PY
+      - name: Patch app to V14 and make color clicks fall back to recorded audio
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('1-4/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('لوحة الطفل - امسك القلم وارسم v13','لوحة الطفل - امسك القلم وارسم v14')
+          s=s.replace('var LOCAL=13;','var LOCAL=14;')
+          s=s.replace('audio-v13.js?v=13','audio-v14.js?v=14')
+          s=s.replace("speakSmart(colors[i].name,false)","speakSmart('اللون '+colors[i].name,true)")
+          p.write_text(s,encoding='utf-8')
+
+          Path('1-4/version.json').write_text(json.dumps({'build':14,'updated':'2026-09-11','audioPack':'noor+colors-v14'},ensure_ascii=False,indent=2),encoding='utf-8')
+
+          p=Path('1-4/sw.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("app360-1-4-v13","app360-1-4-v14")
+          s=s.replace("'./audio-v13.js?v=13'","'./audio-v14.js?v=14'")
+          s=s.replace("/1-4/audio-v13.js","/1-4/audio-v14.js")
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate V14 audio packs and integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s 1-4/audio/registry.json
+          test -s 1-4/audio/نور/test.mp3
+          test -s 1-4/audio/نور/cheer-08.mp3
+          test -s 1-4/audio/colors/color-red.mp3
+          test -s 1-4/audio/colors/color-gray.mp3
+          test -s 1-4/audio-v14.js
+          grep -q 'audio-v14.js?v=14' 1-4/index.html
+          grep -q "speakSmart('اللون '+colors\[i\].name,true)" 1-4/index.html
+          grep -q 'app360-1-4-v14' 1-4/sw.js
+          python - <<'PY'
+          import json, pathlib
+          j=json.loads(pathlib.Path('1-4/audio/registry.json').read_text(encoding='utf-8'))
+          assert j['version']==14
+          assert len(j['colors'])==10
+          assert len(j['users']['نور']['clips'])==9
+          for c in j['colors']: assert pathlib.Path('1-4',c['file']).stat().st_size>3000
+          for c in j['users']['نور']['clips']: assert pathlib.Path('1-4',c['file']).stat().st_size>3000
+          PY
+      - name: Commit V14 generated assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/v14-arabic-audio.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A 1-4 .github/workflows/v14-arabic-audio.yml
+          git commit -m 'Add V14 separate Arabic Noor and color voice packs'
+          git push
