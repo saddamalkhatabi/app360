@@ -1,5 +1,5 @@
 {
-  "version": 14,
+  "version": 15,
   "voices": {
     "noor": {
       "engine": "Microsoft Neural via edge-tts",
@@ -22,7 +22,12 @@
         "أحمر",
         "لون أحمر"
       ],
-      "file": "audio/colors/color-red.mp3"
+      "file": "audio/colors/color-red.mp3",
+      "files": {
+        "mp3": "audio/colors/color-red.mp3",
+        "ogg": "audio/colors/color-red.ogg",
+        "wav": "audio/colors/color-red.wav"
+      }
     },
     {
       "id": "color-blue",
@@ -33,7 +38,12 @@
         "أزرق",
         "لون أزرق"
       ],
-      "file": "audio/colors/color-blue.mp3"
+      "file": "audio/colors/color-blue.mp3",
+      "files": {
+        "mp3": "audio/colors/color-blue.mp3",
+        "ogg": "audio/colors/color-blue.ogg",
+        "wav": "audio/colors/color-blue.wav"
+      }
     },
     {
       "id": "color-green",
@@ -44,7 +54,12 @@
         "أخضر",
         "لون أخضر"
       ],
-      "file": "audio/colors/color-green.mp3"
+      "file": "audio/colors/color-green.mp3",
+      "files": {
+        "mp3": "audio/colors/color-green.mp3",
+        "ogg": "audio/colors/color-green.ogg",
+        "wav": "audio/colors/color-green.wav"
+      }
     },
     {
       "id": "color-yellow",
@@ -55,7 +70,12 @@
         "أصفر",
         "لون أصفر"
       ],
-      "file": "audio/colors/color-yellow.mp3"
+      "file": "audio/colors/color-yellow.mp3",
+      "files": {
+        "mp3": "audio/colors/color-yellow.mp3",
+        "ogg": "audio/colors/color-yellow.ogg",
+        "wav": "audio/colors/color-yellow.wav"
+      }
     },
     {
       "id": "color-orange",
@@ -66,7 +86,12 @@
         "برتقالي",
         "لون برتقالي"
       ],
-      "file": "audio/colors/color-orange.mp3"
+      "file": "audio/colors/color-orange.mp3",
+      "files": {
+        "mp3": "audio/colors/color-orange.mp3",
+        "ogg": "audio/colors/color-orange.ogg",
+        "wav": "audio/colors/color-orange.wav"
+      }
     },
     {
       "id": "color-purple",
@@ -77,7 +102,12 @@
         "بنفسجي",
         "لون بنفسجي"
       ],
-      "file": "audio/colors/color-purple.mp3"
+      "file": "audio/colors/color-purple.mp3",
+      "files": {
+        "mp3": "audio/colors/color-purple.mp3",
+        "ogg": "audio/colors/color-purple.ogg",
+        "wav": "audio/colors/color-purple.wav"
+      }
     },
     {
       "id": "color-pink",
@@ -88,7 +118,12 @@
         "وردي",
         "لون وردي"
       ],
-      "file": "audio/colors/color-pink.mp3"
+      "file": "audio/colors/color-pink.mp3",
+      "files": {
+        "mp3": "audio/colors/color-pink.mp3",
+        "ogg": "audio/colors/color-pink.ogg",
+        "wav": "audio/colors/color-pink.wav"
+      }
     },
     {
       "id": "color-brown",
@@ -99,7 +134,12 @@
         "بني",
         "لون بني"
       ],
-      "file": "audio/colors/color-brown.mp3"
+      "file": "audio/colors/color-brown.mp3",
+      "files": {
+        "mp3": "audio/colors/color-brown.mp3",
+        "ogg": "audio/colors/color-brown.ogg",
+        "wav": "audio/colors/color-brown.wav"
+      }
     },
     {
       "id": "color-black",
@@ -110,7 +150,12 @@
         "أسود",
         "لون أسود"
       ],
-      "file": "audio/colors/color-black.mp3"
+      "file": "audio/colors/color-black.mp3",
+      "files": {
+        "mp3": "audio/colors/color-black.mp3",
+        "ogg": "audio/colors/color-black.ogg",
+        "wav": "audio/colors/color-black.wav"
+      }
     },
     {
       "id": "color-gray",
@@ -121,14 +166,25 @@
         "رمادي",
         "لون رمادي"
       ],
-      "file": "audio/colors/color-gray.mp3"
+      "file": "audio/colors/color-gray.mp3",
+      "files": {
+        "mp3": "audio/colors/color-gray.mp3",
+        "ogg": "audio/colors/color-gray.ogg",
+        "wav": "audio/colors/color-gray.wav"
+      }
     }
   ],
   "users": {
     "نور": {
       "aliases": [
         "Noor",
-        "noor"
+        "Noour",
+        "Nour",
+        "Nur",
+        "noor",
+        "noour",
+        "nour",
+        "nur"
       ],
       "gender": "girl",
       "folder": "audio/نور",
@@ -142,7 +198,12 @@
             "مرحبا يا نور هذا اختبار للصوت العربي",
             "أحسنت يا نور الصوت يعمل على الحاسوب"
           ],
-          "file": "audio/نور/test.mp3"
+          "file": "audio/noor/test.mp3",
+          "files": {
+            "mp3": "audio/noor/test.mp3",
+            "ogg": "audio/noor/test.ogg",
+            "wav": "audio/noor/test.wav"
+          }
         },
         {
           "id": "cheer-01",
@@ -152,35 +213,60 @@
             "أحسنتي يا نور",
             "أحسنت يا نور"
           ],
-          "file": "audio/نور/cheer-01.mp3"
+          "file": "audio/noor/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-01.mp3",
+            "ogg": "audio/noor/cheer-01.ogg",
+            "wav": "audio/noor/cheer-01.wav"
+          }
         },
         {
           "id": "cheer-02",
           "kind": "cheer",
           "text": "رائع يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-02.mp3"
+          "file": "audio/noor/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-02.mp3",
+            "ogg": "audio/noor/cheer-02.ogg",
+            "wav": "audio/noor/cheer-02.wav"
+          }
         },
         {
           "id": "cheer-03",
           "kind": "cheer",
           "text": "ممتاز يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-03.mp3"
+          "file": "audio/noor/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-03.mp3",
+            "ogg": "audio/noor/cheer-03.ogg",
+            "wav": "audio/noor/cheer-03.wav"
+          }
         },
         {
           "id": "cheer-04",
           "kind": "cheer",
           "text": "عمل جميل يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-04.mp3"
+          "file": "audio/noor/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-04.mp3",
+            "ogg": "audio/noor/cheer-04.ogg",
+            "wav": "audio/noor/cheer-04.wav"
+          }
         },
         {
           "id": "cheer-05",
           "kind": "cheer",
           "text": "استمري يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-05.mp3"
+          "file": "audio/noor/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-05.mp3",
+            "ogg": "audio/noor/cheer-05.ogg",
+            "wav": "audio/noor/cheer-05.wav"
+          }
         },
         {
           "id": "cheer-06",
@@ -190,23 +276,49 @@
             "أبدعتي يا نور",
             "أبدعت يا نور"
           ],
-          "file": "audio/نور/cheer-06.mp3"
+          "file": "audio/noor/cheer-06.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-06.mp3",
+            "ogg": "audio/noor/cheer-06.ogg",
+            "wav": "audio/noor/cheer-06.wav"
+          }
         },
         {
           "id": "cheer-07",
           "kind": "cheer",
           "text": "محاولة جميلة يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-07.mp3"
+          "file": "audio/noor/cheer-07.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-07.mp3",
+            "ogg": "audio/noor/cheer-07.ogg",
+            "wav": "audio/noor/cheer-07.wav"
+          }
         },
         {
           "id": "cheer-08",
           "kind": "cheer",
           "text": "تقدم رائع يا نور",
           "aliases": [],
-          "file": "audio/نور/cheer-08.mp3"
+          "file": "audio/noor/cheer-08.mp3",
+          "files": {
+            "mp3": "audio/noor/cheer-08.mp3",
+            "ogg": "audio/noor/cheer-08.ogg",
+            "wav": "audio/noor/cheer-08.wav"
+          }
         }
-      ]
+      ],
+      "legacy_folder": "audio/noor"
     }
+  },
+  "compatibility": {
+    "legacy_android": true,
+    "formats": [
+      "mp3",
+      "ogg",
+      "wav"
+    ],
+    "ascii_paths": true,
+    "strategy": "recorded-first on Android 4.x/old browsers; manual override always available"
   }
 }
