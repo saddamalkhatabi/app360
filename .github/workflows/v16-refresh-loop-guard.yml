@@ -25,10 +25,9 @@ jobs:
           p=Path('1-4/index.html')
           s=p.read_text(encoding='utf-8')
           s=s.replace('لوحة الطفل - امسك القلم وارسم v15','لوحة الطفل - امسك القلم وارسم v16')
-          # Replace the whole force-update block with a one-refresh-only, upgrade-only guard.
           pat=r'<script id="forceUpdateV13">.*?</script>'
           repl='''<script id="forceUpdateV16">(function(){var LOCAL=16;try{var x=new XMLHttpRequest();x.open('GET','version.json?_='+(+new Date()),true);x.onreadystatechange=function(){if(x.readyState!==4||x.status<200||x.status>=300)return;try{var j=JSON.parse(x.responseText),b=parseInt(j.build,10)||LOCAL,m=/[?&]v=(\\d+)/.exec(location.search||''),q=m?parseInt(m[1],10):0;if(b>LOCAL&&q!==b){try{if(window.caches)caches.keys().then(function(ks){for(var i=0;i<ks.length;i++)caches.delete(ks[i])})}catch(e){}try{if(navigator.serviceWorker&&navigator.serviceWorker.getRegistration)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.update()})}catch(e){}var base=location.href.split('?')[0].split('#')[0];location.replace(base+'?v='+b+'&refresh='+(+new Date()))}}catch(e){}};x.send(null)}catch(e){}})();</script>'''
-          s2,n=re.subn(pat,repl,s,count=1,flags=re.S)
+          s2,n=re.subn(pat,lambda m: repl,s,count=1,flags=re.S)
           if n!=1:
               raise SystemExit('force update block not found')
           s=s2.replace('audio-v15.js?v=15','audio-v15.js?v=16')
