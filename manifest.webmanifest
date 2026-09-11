@@ -1,0 +1,29 @@
+{
+  "id": "./",
+  "name": "مختبر التطبيق 360 - الريلز الآمن 360",
+  "short_name": "التطبيق 360",
+  "description": "التطبيق العملي لنظام الريلز الآمن 360: تطبيقات تعلم وممارسة حسب الفئات العمرية.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f3f8f7",
+  "theme_color": "#0f8f8a",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "assets/brand/app360-lab-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {"name": "الفئة 1-4", "short_name": "1-4", "url": "ages/1-4/index.html"},
+    {"name": "الفئة 8-12", "short_name": "8-12", "url": "ages/8-12/index.html"},
+    {"name": "كل التطبيقات", "short_name": "التطبيقات", "url": "index.html#ages"}
+  ]
+}
