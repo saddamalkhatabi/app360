@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-09-12",
+  "principle_ar": "التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
+  "capabilities": [
+    {"id":"practice.core","type":"package","scope":"shared","maturity":"planned","description_ar":"نواة حلقات الممارسة: مهمة، محاولة، تغذية راجعة، تكرار وتدرج."},
+    {"id":"storage.local","type":"package","scope":"shared","maturity":"planned","description_ar":"حفظ محلي موحد مع نسخ Schema وترحيل آمن."},
+    {"id":"audio.tts","type":"package","scope":"shared","maturity":"candidate","description_ar":"نطق آلي مع اختيار الصوت واختبار الدعم."},
+    {"id":"audio.recorded","type":"asset","scope":"shared-candidate","maturity":"candidate","description_ar":"تشغيل ملفات مسجلة واختيار الملف حسب الاسم/اللغة/الموقف."},
+    {"id":"audio.legacy-pcm","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"Fallback PCM/WebAudio للأجهزة القديمة؛ يستخرج كحزمة عند ظهور مستهلك ثانٍ."},
+    {"id":"pwa.offline","type":"package","scope":"shared","maturity":"candidate","description_ar":"التثبيت، Service Worker، التحديث، offline shell، واستراتيجيات الكاش."},
+    {"id":"compat.legacy-web","type":"package","scope":"shared","maturity":"candidate","description_ar":"طبقة توافق للمتصفحات القديمة وTouch Events وES5 عند الحاجة."},
+    {"id":"sync.peer","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"جلسات مباشرة Peer/WebRTC؛ لا تستخرج قبل احتياج تطبيق ثانٍ."},
+    {"id":"evaluation.heuristic","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"تقييم تعليمي تقريبي غير تشخيصي/غير سلطوي لأداء الممارسة."},
+    {"id":"media.recorder","type":"package","scope":"shared","maturity":"planned","description_ar":"تسجيل صوت/صورة/فيديو محلي عندما تحتاجه ممارسة فعلية."},
+    {"id":"ai.gateway","type":"service","scope":"server","maturity":"planned","description_ar":"بوابة موحدة لمزودي AI، تحمي المفاتيح وتطبق سياسات الخصوصية والتحقق والتكلفة."},
+    {"id":"tts.render","type":"service","scope":"server","maturity":"planned","description_ar":"توليد ملفات صوت عربية/إنجليزية وإدارتها كأصول قابلة لإعادة الاستخدام."},
+    {"id":"progress.sync","type":"service","scope":"server","maturity":"planned","description_ar":"مزامنة تقدم المستخدم بين الأجهزة عند الحاجة، مع local-first افتراضيًا."},
+    {"id":"media.process","type":"service","scope":"server","maturity":"planned","description_ar":"تحويل/ضغط/تهيئة وسائط أو توليد مشتقات دون تكرار ffmpeg داخل كل مشروع."},
+    {"id":"content.registry","type":"service","scope":"server-or-static","maturity":"planned","description_ar":"واجهة موحدة لمحتوى التمارين والأصول عندما تصبح التطبيقات كثيرة وتحتاج نشرًا مركزيًا."},
+    {"id":"telemetry.events","type":"service","scope":"server","maturity":"planned","description_ar":"أحداث استخدام محدودة الخصوصية لقياس نجاح الممارسة لا لمراقبة المستخدم."}
+  ],
+  "promotion_rule": {
+    "package": "استخرج إلى package عندما يوجد مستهلك ثانٍ أو عقد ثابت للمنصة.",
+    "service": "أنشئ service عندما يلزم سر خادم، معالجة ثقيلة، مشاركة حالة، أو مورد مركزي بين تطبيقات.",
+    "asset": "انقل الأصول إلى مكتبة مشتركة فقط عندما ستستهلكها عدة تطبيقات ويكون مسار النسخ والترخيص واضحًا."
+  }
+}
