@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "id": "a1-drawing-writing",
+  "slug": "drawing-writing-foundations",
+  "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
+  "age_group": "1-4",
+  "version": 22,
+  "status": "live",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-1-4-safe-sensory-motor-play",
+    "learner-1-4-routines-independence-first-attempts",
+    "learner-1-4-confidence-first-attempts-and-kind-persistence",
+    "coach-1-4-safe-play-activity-design-and-independence"
+  ],
+  "entry_path": "apps/1-4/drawing-writing-foundations/index.html",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "bundles": [
+    "legacy-child",
+    "collaborative"
+  ],
+  "capabilities": [
+    "storage.local",
+    "audio.tts",
+    "audio.recorded",
+    "audio.legacy-pcm",
+    "pwa.offline",
+    "compat.legacy-web",
+    "sync.peer",
+    "evaluation.heuristic"
+  ],
+  "practice_model_ar": "شاهد النموذج ← تتبع ← جرّب وحدك ← تشجيع ← كرر",
+  "compatibility": {
+    "mobile": true,
+    "tablet": true,
+    "desktop": true,
+    "legacy_android_required": true,
+    "known_legacy_target": "Big TAB HD / Android 4.4.x class devices"
+  },
+  "ownership": {
+    "app_specific_code_stays_here": true,
+    "shared_extraction_policy": "extract only when a second real consumer exists"
+  }
+}

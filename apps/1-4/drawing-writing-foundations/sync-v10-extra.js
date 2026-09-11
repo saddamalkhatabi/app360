@@ -9,7 +9,7 @@ function clean(s){return(''+(s||'')).toUpperCase().replace(/[^A-Z0-9_-]/g,'').su
 function code(){var a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='',i;for(i=0;i<6;i++)s+=a.charAt(Math.floor(Math.random()*a.length));return s}
 function uname(){return(core.getUserName&&core.getUserName())||'مستخدم'}
 function hostId(c){return'pkdraw10-'+clean(c).toLowerCase()}
-function baseUrl(){return /^https?:$/i.test(location.protocol)?location.href.split('?')[0].split('#')[0]:'https://raw.githack.com/saddamalkhatabi/app360/main/1-4/index.html'}
+function baseUrl(){return /^https?:$/i.test(location.protocol)?location.href.split('?')[0].split('#')[0]:'https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/drawing-writing-foundations/index.html'}
 function shareUrl(){return baseUrl()+'?room='+encodeURIComponent(room)}
 function stat(s){statusEl.innerHTML=esc(s);badge.innerHTML='المزامنة: '+esc(s)}
 function admin(){return role==='host'||(connected&&adminMode==='all')}

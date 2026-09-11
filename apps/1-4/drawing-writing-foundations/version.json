@@ -1,0 +1,20 @@
+{
+  "build": 22,
+  "updated": "2026-09-12",
+  "audioPack": "20-yemeni-male+20-yemeni-female+noor+colors-v21",
+  "legacyAudio": [
+    "embedded-u8-pcm",
+    "mp3",
+    "ogg",
+    "wav"
+  ],
+  "audioEngine": "V21 lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks",
+  "refreshPolicy": "upgrade-only, one automatic refresh per target build",
+  "ui": "compact-child-drawing-v19",
+  "layout": "status toast + top glyph + larger drawing board",
+  "maleNamePacks": 20,
+  "femaleNamePacks": 20,
+  "appId": "a1-drawing-writing",
+  "canonicalPath": "apps/1-4/drawing-writing-foundations/",
+  "migration": "V22 monorepo canonical path migration; learning behavior preserved"
+}
