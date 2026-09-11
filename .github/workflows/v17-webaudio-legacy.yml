@@ -1,0 +1,67 @@
+name: V17 Legacy WebAudio
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v17-webaudio-legacy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch app to V17
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('1-4/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('لوحة الطفل - امسك القلم وارسم v16','لوحة الطفل - امسك القلم وارسم v17')
+          s=s.replace('var LOCAL=16','var LOCAL=17')
+          s=s.replace('<script src="audio-v15.js?v=16"></script>','<script src="audio-v17.js?v=17"></script>')
+          p.write_text(s,encoding='utf-8')
+          Path('1-4/version.json').write_text(json.dumps({
+            'build':17,
+            'updated':'2026-09-11',
+            'audioPack':'noor+colors-v15-legacy-multiformat',
+            'legacyAudio':['mp3','ogg','wav'],
+            'audioEngine':'V17 HTMLAudio + WebAudio decode fallback',
+            'refreshPolicy':'upgrade-only, one automatic refresh per target build'
+          },ensure_ascii=False,indent=2),encoding='utf-8')
+          sw=Path('1-4/sw.js')
+          t=sw.read_text(encoding='utf-8')
+          t=t.replace("var CACHE='app360-1-4-v16'","var CACHE='app360-1-4-v17'")
+          t=t.replace("'./audio-v15.js?v=16'","'./audio-v17.js?v=17'")
+          t=t.replace("u.indexOf('/1-4/audio-v15.js')>=0","u.indexOf('/1-4/audio-v17.js')>=0")
+          sw.write_text(t,encoding='utf-8')
+          PY
+      - name: Validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check 1-4/audio-v17.js
+          grep -q 'audio-v17.js?v=17' 1-4/index.html
+          grep -q 'var LOCAL=17' 1-4/index.html
+          grep -q 'app360-1-4-v17' 1-4/sw.js
+          python - <<'PY'
+          import json
+          j=json.load(open('1-4/version.json',encoding='utf-8'))
+          assert j['build']==17
+          print('V17 validation OK')
+          PY
+      - name: Commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-4/index.html 1-4/sw.js 1-4/version.json
+          git commit -m "Use WebAudio fallback for recorded audio on old tablets"
+          git push
