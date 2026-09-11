@@ -1,4 +1,4 @@
-var CACHE='app360-1-4-v11';
+var CACHE='app360-1-4-v12';
 var FILES=['./','./index.html','./manifest.json','./sync-v10-extra.js','./ui-v11.js'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(FILES)}));self.skipWaiting&&self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k!==CACHE)return caches.delete(k)}))}));self.clients&&self.clients.claim&&self.clients.claim()});
