@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "id": "a1-drawing-writing",
   "slug": "drawing-writing-foundations",
   "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
   "age_group": "1-4",
-  "version": 22,
+  "version": 23,
   "status": "live",
   "kind": "hybrid",
   "goal_keys": [
@@ -14,12 +14,13 @@
     "coach-1-4-safe-play-activity-design-and-independence"
   ],
   "entry_path": "apps/1-4/drawing-writing-foundations/index.html",
+  "manifest_path": "apps/1-4/drawing-writing-foundations/manifest.json",
+  "icon_path": "apps/1-4/drawing-writing-foundations/icon.svg",
   "runtime_profile": "legacy-web",
   "depth": "advanced",
-  "bundles": [
-    "legacy-child",
-    "collaborative"
-  ],
+  "offline_mode": "offline-first",
+  "update_policy": "network-first-critical-assets+service-worker-auto-activation",
+  "bundles": ["legacy-child", "collaborative"],
   "capabilities": [
     "storage.local",
     "audio.tts",
@@ -37,6 +38,11 @@
     "desktop": true,
     "legacy_android_required": true,
     "known_legacy_target": "Big TAB HD / Android 4.4.x class devices"
+  },
+  "branding": {
+    "icon": "icon.svg",
+    "theme_color": "#0f8f8a",
+    "accent_color": "#ffd54f"
   },
   "ownership": {
     "app_specific_code_stays_here": true,
