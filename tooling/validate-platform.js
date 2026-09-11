@@ -24,6 +24,7 @@ else ok('canonical age groups');
 for (const age of AGE_GROUPS) {
   if (!exists(`ages/${age}/index.html`)) fail(`missing age page ${age}`);
   if (!goals.age_groups || !Array.isArray(goals.age_groups[age]) || !goals.age_groups[age].length) fail(`missing goals for ${age}`);
+  if (exists(age)) fail(`obsolete top-level age/app route must not exist: ${age}/`);
 }
 
 const allGoals = new Map();
@@ -96,9 +97,11 @@ for (const app of apps) {
   for (const cap of app.capabilities || []) if (!capabilities.has(cap)) fail(`app ${app.id} references unknown capability ${cap}`);
   for (const b of app.bundles || []) if (!bundles.has(b)) fail(`app ${app.id} references unknown bundle ${b}`);
   if (app.status === 'live') {
+    const expectedPrefix = `apps/${app.age_group}/${app.slug}/`;
     if (!app.href) fail(`live app without href: ${app.id}`);
     else {
       const clean = app.href.split('?')[0].split('#')[0];
+      if (!clean.startsWith(expectedPrefix)) fail(`live app must use canonical apps/<age>/<slug>/ route: ${app.id} -> ${clean}`);
       if (!exists(clean)) fail(`live href missing: ${app.id} -> ${clean}`);
     }
     if (app.manifest && !exists(app.manifest)) fail(`app manifest missing: ${app.id} -> ${app.manifest}`);
@@ -111,10 +114,9 @@ for (const [key, goal] of allGoals) if (!coverage.get(key)) uncovered.push(`${go
 if (uncovered.length) fail('reference goals without roadmap coverage:\n - ' + uncovered.join('\n - '));
 else ok(`all ${allGoals.size} goals covered by roadmap`);
 
-if (!exists('package.json')) fail('missing root package.json');
-if (!exists('pnpm-workspace.yaml')) fail('missing pnpm-workspace.yaml');
-if (!exists('pnpm-lock.yaml')) fail('missing shared pnpm-lock.yaml');
-if (!exists('packages/contracts/package.json')) fail('missing contracts workspace package');
+for (const rel of ['package.json','pnpm-workspace.yaml','pnpm-lock.yaml','packages/contracts/package.json']) if (!exists(rel)) fail(`missing workspace foundation: ${rel}`);
+for (const rel of ['manifest.webmanifest','sw.js','assets/brand/app360-lab-icon.svg','assets/brand/app360-lab-logo.svg','assets/js/pwa-install.js']) if (!exists(rel)) fail(`missing portal PWA asset: ${rel}`);
+ok('portal PWA foundation present');
 
 // Workspace package identity and lockfile hygiene.
 const workspacePkgs = [];
@@ -153,14 +155,10 @@ for (const app of apps.filter(x => x.status === 'live' && x.href && x.href.index
   if (!DEPTH_LEVELS.includes(manifest.depth)) fail(`live app missing/invalid depth: ${app.id}`);
   for (const cap of manifest.capabilities || []) if (!capabilities.has(cap)) fail(`app.json ${app.id} references unknown capability ${cap}`);
   for (const b of manifest.bundles || []) if (!bundles.has(b)) fail(`app.json ${app.id} references unknown bundle ${b}`);
+  for (const rel of [manifest.manifest_path,manifest.icon_path,`${appDir}/sw.js`]) if (!rel || !exists(rel)) fail(`live app PWA asset missing for ${app.id}: ${rel||'(undefined)'}`);
+  if ((manifest.capabilities||[]).includes('pwa.offline') && !manifest.offline_mode) fail(`live offline-capable app must declare offline_mode: ${app.id}`);
 }
-
-// The historical /1-4 path is a compatibility gateway only; prevent source duplication from returning.
-const legacyAllowed = new Set(['README.md','index.html','manifest.json','sw.js','version.json']);
-if (exists('1-4')) {
-  for (const name of fs.readdirSync(path.join(root,'1-4'))) if (!legacyAllowed.has(name)) fail(`legacy 1-4 gateway contains app source again: 1-4/${name}`);
-}
-ok('legacy /1-4 remains redirect-only');
+ok('live app manifests, icons, service workers and runtime contracts verified');
 
 const counts = {};
 for (const app of apps) counts[app.age_group] = (counts[app.age_group] || 0) + 1;
