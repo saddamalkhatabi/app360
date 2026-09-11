@@ -2,12 +2,13 @@
 
 Monorepo للتطبيقات العملية لمنظومة **الريلز الآمن 360**، مصمم للانتقال من المشاهدة إلى **الممارسة ثم الإتقان**، وللنمو من تطبيقات HTML خفيفة إلى أدوات متقدمة وخدمات Node.js وAI من دون تكرار غير منضبط.
 
-## الدخول
+## الدخول الرسمي
 
-- الواجهة الرئيسية: `index.html`
+- البوابة الرئيسية: `index.html`
 - بوابات الفئات: `ages/<age-group>/index.html`
-- تطبيق الرسم والكتابة العامل: `apps/1-4/drawing-writing-foundations/index.html`
-- `/1-4/` بوابة توافق للروابط القديمة فقط.
+- تطبيق الرسم والكتابة: `apps/1-4/drawing-writing-foundations/index.html`
+
+لا توجد مسارات تطبيقات قديمة أو بوابات توافق موازية؛ `apps/<age>/<slug>/` هو المسار الرسمي الوحيد لأي تطبيق.
 
 الفئات:
 
@@ -26,13 +27,28 @@ ages/       بوابات العرض حسب العمر
 tooling/    أدوات Monorepo
 ```
 
-المصدر الرسمي لتطبيق الرسم ومسك القلم أصبح:
+## PWA وOffline-first
+
+البوابة الرئيسية نفسها PWA قابلة للتثبيت، وتخزن Shell البوابة وبيانات الفهرس وصفحات الأعمار للعمل بعد أول فتح قدر الإمكان.
+
+كل تطبيق مستقل جديد يُنشأ افتراضيًا مع:
+
+- `manifest.webmanifest`
+- `icon.svg` فريد للتطبيق
+- `sw.js`
+- زر تثبيت وتحديث
+- Offline shell
+- تحديث تلقائي للـService Worker مع Network-first للصفحات الحرجة
+
+التطبيقات البسيطة يفضل أن تكون **Offline-first**. التطبيقات التي تعتمد على AI أو خدمات مركزية تعمل محليًا فيما يمكن عمله محليًا، وتعلن بوضوح أي جزء يحتاج اتصالًا.
+
+المصدر الرسمي لتطبيق الرسم ومسك القلم:
 
 ```text
 apps/1-4/drawing-writing-foundations/
 ```
 
-وله `app.json` و`package.json` وREADME وصوته وPWA والمزامنة داخل Boundary واضح.
+وله `app.json` و`package.json` وREADME وصوت وPWA ومزامنة داخل Boundary واضح.
 
 ## مصادر الحقيقة
 
@@ -58,13 +74,13 @@ pnpm workspaces:list
 
 ## بناء تطبيق جديد
 
-المسار القياسي:
+المسار القياسي الوحيد:
 
 ```text
 apps/<age-group>/<app-slug>/
 ```
 
-يمكن إنشاء Workspace أولي:
+يمكن إنشاء Workspace أولي جاهز للتثبيت وOffline:
 
 ```bash
 pnpm new:app -- 8-12 stem-code-maker "مختبر STEM والبرمجة والصنع"
@@ -83,11 +99,9 @@ pnpm inspect:app -- drawing-writing-foundations
 - `docs/FRAMEWORK_AR.md` — قواعد العمل اليومية.
 - `docs/ARCHITECTURE_AR.md` — الطبقات واتجاه Dependencies ومستويات العمق.
 - `docs/DEPENDENCY_POLICY_AR.md` — سياسة pnpm والمكتبات المشتركة ومنع الهدر.
+- `docs/PWA_OFFLINE_POLICY_AR.md` — التثبيت، Offline، التحديث، والشعارات.
 - `docs/APP_SPEC_TEMPLATE_AR.md` — قالب محادثة/مواصفات تطبيق مستقل.
 - `docs/ROADMAP_AR.md` — منطق الأولوية.
-- `packages/README.md` — متى نستخرج Package مشتركة.
-- `services/README.md` — متى نبني Service.
-- `resources/README.md` — متى يصبح الأصل Resource مشتركًا.
 
 ## التحقق
 
