@@ -1,0 +1,29 @@
+# Node / package managers
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-error.log*
+
+# Builds and caches
+dist/
+build/
+.cache/
+.tmp/
+coverage/
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local generated artifacts
+artifacts/
+reports/local/
