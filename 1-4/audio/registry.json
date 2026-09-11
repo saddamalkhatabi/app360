@@ -1,6 +1,129 @@
 {
-  "version": 13,
-  "generated_voice": "ar-SA-ZariyahNeural",
+  "version": 14,
+  "voices": {
+    "noor": {
+      "engine": "Microsoft Neural via edge-tts",
+      "voice": "ar-EG-SalmaNeural",
+      "style": "warm female Arabic"
+    },
+    "colors": {
+      "engine": "Microsoft Neural via edge-tts",
+      "voice": "ar-SA-ZariyahNeural",
+      "style": "clear MSA Arabic"
+    }
+  },
+  "colors": [
+    {
+      "id": "color-red",
+      "kind": "color",
+      "name": "أحمر",
+      "text": "اللون أحمر",
+      "aliases": [
+        "أحمر",
+        "لون أحمر"
+      ],
+      "file": "audio/colors/color-red.mp3"
+    },
+    {
+      "id": "color-blue",
+      "kind": "color",
+      "name": "أزرق",
+      "text": "اللون أزرق",
+      "aliases": [
+        "أزرق",
+        "لون أزرق"
+      ],
+      "file": "audio/colors/color-blue.mp3"
+    },
+    {
+      "id": "color-green",
+      "kind": "color",
+      "name": "أخضر",
+      "text": "اللون أخضر",
+      "aliases": [
+        "أخضر",
+        "لون أخضر"
+      ],
+      "file": "audio/colors/color-green.mp3"
+    },
+    {
+      "id": "color-yellow",
+      "kind": "color",
+      "name": "أصفر",
+      "text": "اللون أصفر",
+      "aliases": [
+        "أصفر",
+        "لون أصفر"
+      ],
+      "file": "audio/colors/color-yellow.mp3"
+    },
+    {
+      "id": "color-orange",
+      "kind": "color",
+      "name": "برتقالي",
+      "text": "اللون برتقالي",
+      "aliases": [
+        "برتقالي",
+        "لون برتقالي"
+      ],
+      "file": "audio/colors/color-orange.mp3"
+    },
+    {
+      "id": "color-purple",
+      "kind": "color",
+      "name": "بنفسجي",
+      "text": "اللون بنفسجي",
+      "aliases": [
+        "بنفسجي",
+        "لون بنفسجي"
+      ],
+      "file": "audio/colors/color-purple.mp3"
+    },
+    {
+      "id": "color-pink",
+      "kind": "color",
+      "name": "وردي",
+      "text": "اللون وردي",
+      "aliases": [
+        "وردي",
+        "لون وردي"
+      ],
+      "file": "audio/colors/color-pink.mp3"
+    },
+    {
+      "id": "color-brown",
+      "kind": "color",
+      "name": "بني",
+      "text": "اللون بني",
+      "aliases": [
+        "بني",
+        "لون بني"
+      ],
+      "file": "audio/colors/color-brown.mp3"
+    },
+    {
+      "id": "color-black",
+      "kind": "color",
+      "name": "أسود",
+      "text": "اللون أسود",
+      "aliases": [
+        "أسود",
+        "لون أسود"
+      ],
+      "file": "audio/colors/color-black.mp3"
+    },
+    {
+      "id": "color-gray",
+      "kind": "color",
+      "name": "رمادي",
+      "text": "اللون رمادي",
+      "aliases": [
+        "رمادي",
+        "لون رمادي"
+      ],
+      "file": "audio/colors/color-gray.mp3"
+    }
+  ],
   "users": {
     "نور": {
       "aliases": [
@@ -24,8 +147,11 @@
         {
           "id": "cheer-01",
           "kind": "cheer",
-          "text": "أحسنتي يا نور",
-          "aliases": [],
+          "text": "أحسنتِ يا نور",
+          "aliases": [
+            "أحسنتي يا نور",
+            "أحسنت يا نور"
+          ],
           "file": "audio/نور/cheer-01.mp3"
         },
         {
@@ -59,8 +185,11 @@
         {
           "id": "cheer-06",
           "kind": "cheer",
-          "text": "أبدعتي يا نور",
-          "aliases": [],
+          "text": "أبدعتِ يا نور",
+          "aliases": [
+            "أبدعتي يا نور",
+            "أبدعت يا نور"
+          ],
           "file": "audio/نور/cheer-06.mp3"
         },
         {
@@ -76,76 +205,6 @@
           "text": "تقدم رائع يا نور",
           "aliases": [],
           "file": "audio/نور/cheer-08.mp3"
-        },
-        {
-          "id": "color-red",
-          "kind": "color",
-          "text": "اللون أحمر",
-          "aliases": [],
-          "file": "audio/نور/color-red.mp3"
-        },
-        {
-          "id": "color-blue",
-          "kind": "color",
-          "text": "اللون أزرق",
-          "aliases": [],
-          "file": "audio/نور/color-blue.mp3"
-        },
-        {
-          "id": "color-green",
-          "kind": "color",
-          "text": "اللون أخضر",
-          "aliases": [],
-          "file": "audio/نور/color-green.mp3"
-        },
-        {
-          "id": "color-yellow",
-          "kind": "color",
-          "text": "اللون أصفر",
-          "aliases": [],
-          "file": "audio/نور/color-yellow.mp3"
-        },
-        {
-          "id": "color-orange",
-          "kind": "color",
-          "text": "اللون برتقالي",
-          "aliases": [],
-          "file": "audio/نور/color-orange.mp3"
-        },
-        {
-          "id": "color-purple",
-          "kind": "color",
-          "text": "اللون بنفسجي",
-          "aliases": [],
-          "file": "audio/نور/color-purple.mp3"
-        },
-        {
-          "id": "color-pink",
-          "kind": "color",
-          "text": "اللون وردي",
-          "aliases": [],
-          "file": "audio/نور/color-pink.mp3"
-        },
-        {
-          "id": "color-brown",
-          "kind": "color",
-          "text": "اللون بني",
-          "aliases": [],
-          "file": "audio/نور/color-brown.mp3"
-        },
-        {
-          "id": "color-black",
-          "kind": "color",
-          "text": "اللون أسود",
-          "aliases": [],
-          "file": "audio/نور/color-black.mp3"
-        },
-        {
-          "id": "color-gray",
-          "kind": "color",
-          "text": "اللون رمادي",
-          "aliases": [],
-          "file": "audio/نور/color-gray.mp3"
         }
       ]
     }
