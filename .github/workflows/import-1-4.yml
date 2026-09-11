@@ -1,0 +1,52 @@
+name: Import 1-4 Drawing App
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-1-4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy current 1-4 app from source project
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p 1-4
+          SRC="https://raw.githubusercontent.com/saddamalkhatabi/kamaran.github.io/master/pen"
+          curl -fsSL "$SRC/index.html" -o 1-4/index.html
+          curl -fsSL "$SRC/manifest.json" -o 1-4/manifest.json
+          curl -fsSL "$SRC/sw.js" -o 1-4/sw.js
+          curl -fsSL "$SRC/sync-v10-extra.js" -o 1-4/sync-v10-extra.js
+
+          # Keep this new project independent from kamaran.github.io fallbacks.
+          sed -i 's#https://raw.githack.com/saddamalkhatabi/kamaran.github.io/master/pen/index.html#https://raw.githack.com/saddamalkhatabi/app360/main/1-4/index.html#g' 1-4/sync-v10-extra.js
+          sed -i "s/noor-draw-v10/app360-1-4-v10/g" 1-4/sw.js
+
+      - name: Validate imported files
+        shell: bash
+        run: |
+          test -s 1-4/index.html
+          test -s 1-4/manifest.json
+          test -s 1-4/sw.js
+          test -s 1-4/sync-v10-extra.js
+          grep -q 'sync-v10-extra.js' 1-4/index.html
+
+      - name: Commit imported app
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-4
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Add 1-4 drawing and collaborative app"
+            git push
+          fi
