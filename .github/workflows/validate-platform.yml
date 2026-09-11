@@ -11,9 +11,11 @@ on:
       - 'data/**'
       - 'docs/**'
       - 'packages/**'
+      - 'resources/**'
       - 'services/**'
       - 'tooling/**'
       - 'package.json'
+      - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
       - '.npmrc'
       - '.github/scripts/validate-platform.js'
@@ -28,9 +30,11 @@ on:
       - 'data/**'
       - 'docs/**'
       - 'packages/**'
+      - 'resources/**'
       - 'services/**'
       - 'tooling/**'
       - 'package.json'
+      - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
       - '.npmrc'
       - '.github/scripts/validate-platform.js'
@@ -48,5 +52,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.15.1 --activate
+          pnpm --version
+      - name: Verify shared workspace lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Validate platform architecture, catalogs and live routes
-        run: node tooling/validate-platform.js
+        run: pnpm validate
