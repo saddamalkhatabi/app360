@@ -1,0 +1,13 @@
+(function(){
+'use strict';
+var d=document,reg=null,promptEvent=null,reloading=false;
+function id(x){return d.getElementById(x)}
+function installed(){return (window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}
+function message(t){var n=id('appPwaNotice');if(!n)return;n.innerHTML=t;n.style.display='block';clearTimeout(message.t);message.t=setTimeout(function(){n.style.display='none'},3500)}
+function install(){if(promptEvent){try{promptEvent.prompt();promptEvent.userChoice.then(function(){promptEvent=null})}catch(e){}}else if(installed())message('التطبيق مثبت بالفعل.');else message('اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية» من قائمة المتصفح.')}
+function update(){if(!reg){message('التحديث التلقائي غير متاح في هذا المتصفح.');return}message('جارٍ التحقق من التحديث…');try{reg.update().then(function(){if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});else message('أنت تستخدم أحدث إصدار متاح.')}).catch(function(){message('تعذر التحقق الآن؛ سيعاد تلقائياً عند توفر الاتصال.')})}catch(e){message('تعذر التحقق الآن.')}}
+window.addEventListener('beforeinstallprompt',function(e){try{e.preventDefault();promptEvent=e;var b=id('installAppBtn');if(b&&!installed())b.style.display='inline-block'}catch(x){}});
+window.addEventListener('appinstalled',function(){promptEvent=null;var b=id('installAppBtn');if(b)b.style.display='none';message('تم تثبيت التطبيق.')});
+function start(){var b=id('installAppBtn'),u=id('updateAppBtn');if(b){b.onclick=install;if(installed())b.style.display='none'}if(u)u.onclick=update;if(!('serviceWorker'in navigator)||location.protocol.indexOf('http')!==0)return;navigator.serviceWorker.addEventListener('controllerchange',function(){if(reloading)return;reloading=true;setTimeout(function(){location.reload()},180)});navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'}).then(function(r){reg=r;if(r.waiting)r.waiting.postMessage({type:'SKIP_WAITING'});r.addEventListener('updatefound',function(){var w=r.installing;if(w)w.addEventListener('statechange',function(){if(w.state==='installed'&&navigator.serviceWorker.controller)try{w.postMessage({type:'SKIP_WAITING'})}catch(e){}})});setTimeout(function(){try{r.update()}catch(e){}},800)}).catch(function(){});window.addEventListener('focus',function(){try{if(reg)reg.update()}catch(e){}},false)}
+if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',start,false);else start();
+})();
