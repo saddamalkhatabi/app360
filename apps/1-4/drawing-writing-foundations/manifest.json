@@ -1,12 +1,24 @@
 {
-  "name": "لوحة الطفل - تعليم الرسم والكتابة",
+  "id": "./",
+  "name": "لوحة الطفل - الرسم والكتابة المبكرة",
   "short_name": "لوحة الطفل",
+  "description": "تطبيق عملي لتعلم مسك القلم وتتبع الخطوط والأشكال والحروف والأرقام والرسم الحر ضمن مختبر التطبيق 360.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#0f8f8a",
   "orientation": "any",
   "lang": "ar",
-  "dir": "rtl"
+  "dir": "rtl",
+  "categories": ["education", "kids"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
