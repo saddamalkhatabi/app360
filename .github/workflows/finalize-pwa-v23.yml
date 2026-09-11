@@ -1,0 +1,50 @@
+name: Finalize canonical PWA V23
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-pwa-v23.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Patch canonical drawing app metadata and cache versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('apps/1-4/drawing-writing-foundations/index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('لوحة الطفل - امسك القلم وارسم v21','لوحة الطفل - امسك القلم وارسم v23')
+          s=s.replace("<link rel=\"manifest\" href=\"manifest.json\">", "<link rel=\"manifest\" href=\"manifest.json?v=23\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"icon-192.png\">\n<link rel=\"apple-touch-icon\" href=\"icon-192.png\">")
+          s=s.replace('var LOCAL=21;','var LOCAL=23;')
+          s=s.replace("navigator.serviceWorker.register('sw.js?v=13'", "navigator.serviceWorker.register('sw.js?v=23'")
+          p.write_text(s,encoding='utf-8')
+
+          c=Path('data/catalog.json')
+          s=c.read_text(encoding='utf-8')
+          s=s.replace('apps/1-4/drawing-writing-foundations/index.html?v=22','apps/1-4/drawing-writing-foundations/index.html?v=23')
+          c.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate canonical framework
+        run: node tooling/validate-platform.js
+      - name: Remove this one-time workflow
+        run: rm .github/workflows/finalize-pwa-v23.yml
+      - name: Commit finalization
+        run: |
+          git config user.name "app360-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Finalize canonical drawing PWA V23 and remove one-time workflow"
+          git push
