@@ -1,15 +1,16 @@
 {
-  "build": 19,
+  "build": 20,
   "updated": "2026-09-11",
-  "audioPack": "noor+colors-v18-embedded-pcm",
+  "audioPack": "20-yemeni-male-names+noor+colors-v20",
   "legacyAudio": [
     "embedded-u8-pcm",
     "mp3",
     "ogg",
     "wav"
   ],
-  "audioEngine": "V18 embedded PCM via WebAudio, then decodeAudioData/HTMLAudio fallbacks",
+  "audioEngine": "V20 lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks",
   "refreshPolicy": "upgrade-only, one automatic refresh per target build",
   "ui": "compact-child-drawing-v19",
-  "layout": "status toast + top glyph + larger drawing board"
+  "layout": "status toast + top glyph + larger drawing board",
+  "maleNamePacks": 20
 }

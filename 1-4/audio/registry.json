@@ -1,5 +1,5 @@
 {
-  "version": 15,
+  "version": 20,
   "voices": {
     "noor": {
       "engine": "Microsoft Neural via edge-tts",
@@ -10,6 +10,15 @@
       "engine": "Microsoft Neural via edge-tts",
       "voice": "ar-SA-ZariyahNeural",
       "style": "clear MSA Arabic"
+    },
+    "yemen_male_names": {
+      "engine": "Microsoft Neural via edge-tts",
+      "preferred_voice": "ar-YE-SalehNeural",
+      "fallback_voices": [
+        "ar-SA-HamedNeural",
+        "ar-EG-ShakirNeural"
+      ],
+      "style": "warm male Arabic for children"
     }
   },
   "colors": [
@@ -309,6 +318,2216 @@
         }
       ],
       "legacy_folder": "audio/noor"
+    },
+    "محمد": {
+      "aliases": [
+        "Mohammed",
+        "Mohammad",
+        "Mohamed",
+        "Muhammad",
+        "mohammed",
+        "mohammad",
+        "mohamed",
+        "muhammad"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/mohammed",
+      "slug": "mohammed",
+      "pcm_script": "audio/pcm/mohammed.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا محمد، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا محمد هذا اختبار للصوت المسجل",
+            "مرحبا يا محمد هذا اختبار للصوت العربي",
+            "مرحبا يا Mohammed هذا اختبار للصوت المسجل",
+            "مرحبا يا Mohammad هذا اختبار للصوت المسجل",
+            "مرحبا يا Mohamed هذا اختبار للصوت المسجل",
+            "مرحبا يا Muhammad هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/mohammed/test.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/test.mp3",
+            "ogg": "audio/names/mohammed/test.ogg",
+            "wav": "audio/names/mohammed/test.wav"
+          },
+          "pcmKey": "mohammed:test",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا محمد",
+          "aliases": [],
+          "file": "audio/names/mohammed/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/cheer-01.mp3",
+            "ogg": "audio/names/mohammed/cheer-01.ogg",
+            "wav": "audio/names/mohammed/cheer-01.wav"
+          },
+          "pcmKey": "mohammed:cheer-01",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا محمد",
+          "aliases": [],
+          "file": "audio/names/mohammed/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/cheer-02.mp3",
+            "ogg": "audio/names/mohammed/cheer-02.ogg",
+            "wav": "audio/names/mohammed/cheer-02.wav"
+          },
+          "pcmKey": "mohammed:cheer-02",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا محمد",
+          "aliases": [],
+          "file": "audio/names/mohammed/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/cheer-03.mp3",
+            "ogg": "audio/names/mohammed/cheer-03.ogg",
+            "wav": "audio/names/mohammed/cheer-03.wav"
+          },
+          "pcmKey": "mohammed:cheer-03",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا محمد",
+          "aliases": [],
+          "file": "audio/names/mohammed/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/cheer-04.mp3",
+            "ogg": "audio/names/mohammed/cheer-04.ogg",
+            "wav": "audio/names/mohammed/cheer-04.wav"
+          },
+          "pcmKey": "mohammed:cheer-04",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا محمد",
+          "aliases": [],
+          "file": "audio/names/mohammed/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/mohammed/cheer-05.mp3",
+            "ogg": "audio/names/mohammed/cheer-05.ogg",
+            "wav": "audio/names/mohammed/cheer-05.wav"
+          },
+          "pcmKey": "mohammed:cheer-05",
+          "pcmPack": "mohammed",
+          "pcmScript": "audio/pcm/mohammed.js"
+        }
+      ]
+    },
+    "أحمد": {
+      "aliases": [
+        "Ahmed",
+        "Ahmad",
+        "ahmed",
+        "ahmad"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/ahmed",
+      "slug": "ahmed",
+      "pcm_script": "audio/pcm/ahmed.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا أحمد، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا أحمد هذا اختبار للصوت المسجل",
+            "مرحبا يا أحمد هذا اختبار للصوت العربي",
+            "مرحبا يا Ahmed هذا اختبار للصوت المسجل",
+            "مرحبا يا Ahmad هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/ahmed/test.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/test.mp3",
+            "ogg": "audio/names/ahmed/test.ogg",
+            "wav": "audio/names/ahmed/test.wav"
+          },
+          "pcmKey": "ahmed:test",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا أحمد",
+          "aliases": [],
+          "file": "audio/names/ahmed/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/cheer-01.mp3",
+            "ogg": "audio/names/ahmed/cheer-01.ogg",
+            "wav": "audio/names/ahmed/cheer-01.wav"
+          },
+          "pcmKey": "ahmed:cheer-01",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا أحمد",
+          "aliases": [],
+          "file": "audio/names/ahmed/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/cheer-02.mp3",
+            "ogg": "audio/names/ahmed/cheer-02.ogg",
+            "wav": "audio/names/ahmed/cheer-02.wav"
+          },
+          "pcmKey": "ahmed:cheer-02",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا أحمد",
+          "aliases": [],
+          "file": "audio/names/ahmed/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/cheer-03.mp3",
+            "ogg": "audio/names/ahmed/cheer-03.ogg",
+            "wav": "audio/names/ahmed/cheer-03.wav"
+          },
+          "pcmKey": "ahmed:cheer-03",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا أحمد",
+          "aliases": [],
+          "file": "audio/names/ahmed/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/cheer-04.mp3",
+            "ogg": "audio/names/ahmed/cheer-04.ogg",
+            "wav": "audio/names/ahmed/cheer-04.wav"
+          },
+          "pcmKey": "ahmed:cheer-04",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا أحمد",
+          "aliases": [],
+          "file": "audio/names/ahmed/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/ahmed/cheer-05.mp3",
+            "ogg": "audio/names/ahmed/cheer-05.ogg",
+            "wav": "audio/names/ahmed/cheer-05.wav"
+          },
+          "pcmKey": "ahmed:cheer-05",
+          "pcmPack": "ahmed",
+          "pcmScript": "audio/pcm/ahmed.js"
+        }
+      ]
+    },
+    "عبدالله": {
+      "aliases": [
+        "Abdullah",
+        "Abdallah",
+        "Abd Allah",
+        "abdullah",
+        "abdallah",
+        "abd allah"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/abdullah",
+      "slug": "abdullah",
+      "pcm_script": "audio/pcm/abdullah.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عبدالله، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عبدالله هذا اختبار للصوت المسجل",
+            "مرحبا يا عبدالله هذا اختبار للصوت العربي",
+            "مرحبا يا Abdullah هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdallah هذا اختبار للصوت المسجل",
+            "مرحبا يا Abd Allah هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/abdullah/test.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/test.mp3",
+            "ogg": "audio/names/abdullah/test.ogg",
+            "wav": "audio/names/abdullah/test.wav"
+          },
+          "pcmKey": "abdullah:test",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عبدالله",
+          "aliases": [],
+          "file": "audio/names/abdullah/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/cheer-01.mp3",
+            "ogg": "audio/names/abdullah/cheer-01.ogg",
+            "wav": "audio/names/abdullah/cheer-01.wav"
+          },
+          "pcmKey": "abdullah:cheer-01",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عبدالله",
+          "aliases": [],
+          "file": "audio/names/abdullah/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/cheer-02.mp3",
+            "ogg": "audio/names/abdullah/cheer-02.ogg",
+            "wav": "audio/names/abdullah/cheer-02.wav"
+          },
+          "pcmKey": "abdullah:cheer-02",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عبدالله",
+          "aliases": [],
+          "file": "audio/names/abdullah/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/cheer-03.mp3",
+            "ogg": "audio/names/abdullah/cheer-03.ogg",
+            "wav": "audio/names/abdullah/cheer-03.wav"
+          },
+          "pcmKey": "abdullah:cheer-03",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عبدالله",
+          "aliases": [],
+          "file": "audio/names/abdullah/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/cheer-04.mp3",
+            "ogg": "audio/names/abdullah/cheer-04.ogg",
+            "wav": "audio/names/abdullah/cheer-04.wav"
+          },
+          "pcmKey": "abdullah:cheer-04",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عبدالله",
+          "aliases": [],
+          "file": "audio/names/abdullah/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/abdullah/cheer-05.mp3",
+            "ogg": "audio/names/abdullah/cheer-05.ogg",
+            "wav": "audio/names/abdullah/cheer-05.wav"
+          },
+          "pcmKey": "abdullah:cheer-05",
+          "pcmPack": "abdullah",
+          "pcmScript": "audio/pcm/abdullah.js"
+        }
+      ]
+    },
+    "عبدالرحمن": {
+      "aliases": [
+        "Abdulrahman",
+        "Abdul Rahman",
+        "Abdelrahman",
+        "Abdurrahman",
+        "abdulrahman",
+        "abdul rahman",
+        "abdelrahman",
+        "abdurrahman"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/abdulrahman",
+      "slug": "abdulrahman",
+      "pcm_script": "audio/pcm/abdulrahman.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عبدالرحمن، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عبدالرحمن هذا اختبار للصوت المسجل",
+            "مرحبا يا عبدالرحمن هذا اختبار للصوت العربي",
+            "مرحبا يا Abdulrahman هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdul Rahman هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdelrahman هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdurrahman هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/abdulrahman/test.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/test.mp3",
+            "ogg": "audio/names/abdulrahman/test.ogg",
+            "wav": "audio/names/abdulrahman/test.wav"
+          },
+          "pcmKey": "abdulrahman:test",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عبدالرحمن",
+          "aliases": [],
+          "file": "audio/names/abdulrahman/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/cheer-01.mp3",
+            "ogg": "audio/names/abdulrahman/cheer-01.ogg",
+            "wav": "audio/names/abdulrahman/cheer-01.wav"
+          },
+          "pcmKey": "abdulrahman:cheer-01",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عبدالرحمن",
+          "aliases": [],
+          "file": "audio/names/abdulrahman/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/cheer-02.mp3",
+            "ogg": "audio/names/abdulrahman/cheer-02.ogg",
+            "wav": "audio/names/abdulrahman/cheer-02.wav"
+          },
+          "pcmKey": "abdulrahman:cheer-02",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عبدالرحمن",
+          "aliases": [],
+          "file": "audio/names/abdulrahman/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/cheer-03.mp3",
+            "ogg": "audio/names/abdulrahman/cheer-03.ogg",
+            "wav": "audio/names/abdulrahman/cheer-03.wav"
+          },
+          "pcmKey": "abdulrahman:cheer-03",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عبدالرحمن",
+          "aliases": [],
+          "file": "audio/names/abdulrahman/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/cheer-04.mp3",
+            "ogg": "audio/names/abdulrahman/cheer-04.ogg",
+            "wav": "audio/names/abdulrahman/cheer-04.wav"
+          },
+          "pcmKey": "abdulrahman:cheer-04",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عبدالرحمن",
+          "aliases": [],
+          "file": "audio/names/abdulrahman/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/abdulrahman/cheer-05.mp3",
+            "ogg": "audio/names/abdulrahman/cheer-05.ogg",
+            "wav": "audio/names/abdulrahman/cheer-05.wav"
+          },
+          "pcmKey": "abdulrahman:cheer-05",
+          "pcmPack": "abdulrahman",
+          "pcmScript": "audio/pcm/abdulrahman.js"
+        }
+      ]
+    },
+    "علي": {
+      "aliases": [
+        "Ali",
+        "ali"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/ali",
+      "slug": "ali",
+      "pcm_script": "audio/pcm/ali.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا علي، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا علي هذا اختبار للصوت المسجل",
+            "مرحبا يا علي هذا اختبار للصوت العربي",
+            "مرحبا يا Ali هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/ali/test.mp3",
+          "files": {
+            "mp3": "audio/names/ali/test.mp3",
+            "ogg": "audio/names/ali/test.ogg",
+            "wav": "audio/names/ali/test.wav"
+          },
+          "pcmKey": "ali:test",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا علي",
+          "aliases": [],
+          "file": "audio/names/ali/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/ali/cheer-01.mp3",
+            "ogg": "audio/names/ali/cheer-01.ogg",
+            "wav": "audio/names/ali/cheer-01.wav"
+          },
+          "pcmKey": "ali:cheer-01",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا علي",
+          "aliases": [],
+          "file": "audio/names/ali/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/ali/cheer-02.mp3",
+            "ogg": "audio/names/ali/cheer-02.ogg",
+            "wav": "audio/names/ali/cheer-02.wav"
+          },
+          "pcmKey": "ali:cheer-02",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا علي",
+          "aliases": [],
+          "file": "audio/names/ali/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/ali/cheer-03.mp3",
+            "ogg": "audio/names/ali/cheer-03.ogg",
+            "wav": "audio/names/ali/cheer-03.wav"
+          },
+          "pcmKey": "ali:cheer-03",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا علي",
+          "aliases": [],
+          "file": "audio/names/ali/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/ali/cheer-04.mp3",
+            "ogg": "audio/names/ali/cheer-04.ogg",
+            "wav": "audio/names/ali/cheer-04.wav"
+          },
+          "pcmKey": "ali:cheer-04",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا علي",
+          "aliases": [],
+          "file": "audio/names/ali/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/ali/cheer-05.mp3",
+            "ogg": "audio/names/ali/cheer-05.ogg",
+            "wav": "audio/names/ali/cheer-05.wav"
+          },
+          "pcmKey": "ali:cheer-05",
+          "pcmPack": "ali",
+          "pcmScript": "audio/pcm/ali.js"
+        }
+      ]
+    },
+    "يوسف": {
+      "aliases": [
+        "Yousef",
+        "Yusuf",
+        "Youssef",
+        "Yousuf",
+        "yousef",
+        "yusuf",
+        "youssef",
+        "yousuf"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/yousef",
+      "slug": "yousef",
+      "pcm_script": "audio/pcm/yousef.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا يوسف، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا يوسف هذا اختبار للصوت المسجل",
+            "مرحبا يا يوسف هذا اختبار للصوت العربي",
+            "مرحبا يا Yousef هذا اختبار للصوت المسجل",
+            "مرحبا يا Yusuf هذا اختبار للصوت المسجل",
+            "مرحبا يا Youssef هذا اختبار للصوت المسجل",
+            "مرحبا يا Yousuf هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/yousef/test.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/test.mp3",
+            "ogg": "audio/names/yousef/test.ogg",
+            "wav": "audio/names/yousef/test.wav"
+          },
+          "pcmKey": "yousef:test",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا يوسف",
+          "aliases": [],
+          "file": "audio/names/yousef/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/cheer-01.mp3",
+            "ogg": "audio/names/yousef/cheer-01.ogg",
+            "wav": "audio/names/yousef/cheer-01.wav"
+          },
+          "pcmKey": "yousef:cheer-01",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا يوسف",
+          "aliases": [],
+          "file": "audio/names/yousef/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/cheer-02.mp3",
+            "ogg": "audio/names/yousef/cheer-02.ogg",
+            "wav": "audio/names/yousef/cheer-02.wav"
+          },
+          "pcmKey": "yousef:cheer-02",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا يوسف",
+          "aliases": [],
+          "file": "audio/names/yousef/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/cheer-03.mp3",
+            "ogg": "audio/names/yousef/cheer-03.ogg",
+            "wav": "audio/names/yousef/cheer-03.wav"
+          },
+          "pcmKey": "yousef:cheer-03",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا يوسف",
+          "aliases": [],
+          "file": "audio/names/yousef/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/cheer-04.mp3",
+            "ogg": "audio/names/yousef/cheer-04.ogg",
+            "wav": "audio/names/yousef/cheer-04.wav"
+          },
+          "pcmKey": "yousef:cheer-04",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا يوسف",
+          "aliases": [],
+          "file": "audio/names/yousef/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/yousef/cheer-05.mp3",
+            "ogg": "audio/names/yousef/cheer-05.ogg",
+            "wav": "audio/names/yousef/cheer-05.wav"
+          },
+          "pcmKey": "yousef:cheer-05",
+          "pcmPack": "yousef",
+          "pcmScript": "audio/pcm/yousef.js"
+        }
+      ]
+    },
+    "عبدالملك": {
+      "aliases": [
+        "Abdulmalik",
+        "Abdul Malik",
+        "Abdelmalek",
+        "Abdel Malik",
+        "abdulmalik",
+        "abdul malik",
+        "abdelmalek",
+        "abdel malik"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/abdulmalik",
+      "slug": "abdulmalik",
+      "pcm_script": "audio/pcm/abdulmalik.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عبدالملك، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عبدالملك هذا اختبار للصوت المسجل",
+            "مرحبا يا عبدالملك هذا اختبار للصوت العربي",
+            "مرحبا يا Abdulmalik هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdul Malik هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdelmalek هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdel Malik هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/abdulmalik/test.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/test.mp3",
+            "ogg": "audio/names/abdulmalik/test.ogg",
+            "wav": "audio/names/abdulmalik/test.wav"
+          },
+          "pcmKey": "abdulmalik:test",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عبدالملك",
+          "aliases": [],
+          "file": "audio/names/abdulmalik/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/cheer-01.mp3",
+            "ogg": "audio/names/abdulmalik/cheer-01.ogg",
+            "wav": "audio/names/abdulmalik/cheer-01.wav"
+          },
+          "pcmKey": "abdulmalik:cheer-01",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عبدالملك",
+          "aliases": [],
+          "file": "audio/names/abdulmalik/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/cheer-02.mp3",
+            "ogg": "audio/names/abdulmalik/cheer-02.ogg",
+            "wav": "audio/names/abdulmalik/cheer-02.wav"
+          },
+          "pcmKey": "abdulmalik:cheer-02",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عبدالملك",
+          "aliases": [],
+          "file": "audio/names/abdulmalik/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/cheer-03.mp3",
+            "ogg": "audio/names/abdulmalik/cheer-03.ogg",
+            "wav": "audio/names/abdulmalik/cheer-03.wav"
+          },
+          "pcmKey": "abdulmalik:cheer-03",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عبدالملك",
+          "aliases": [],
+          "file": "audio/names/abdulmalik/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/cheer-04.mp3",
+            "ogg": "audio/names/abdulmalik/cheer-04.ogg",
+            "wav": "audio/names/abdulmalik/cheer-04.wav"
+          },
+          "pcmKey": "abdulmalik:cheer-04",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عبدالملك",
+          "aliases": [],
+          "file": "audio/names/abdulmalik/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/abdulmalik/cheer-05.mp3",
+            "ogg": "audio/names/abdulmalik/cheer-05.ogg",
+            "wav": "audio/names/abdulmalik/cheer-05.wav"
+          },
+          "pcmKey": "abdulmalik:cheer-05",
+          "pcmPack": "abdulmalik",
+          "pcmScript": "audio/pcm/abdulmalik.js"
+        }
+      ]
+    },
+    "صدام": {
+      "aliases": [
+        "Saddam",
+        "saddam"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/saddam",
+      "slug": "saddam",
+      "pcm_script": "audio/pcm/saddam.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا صدام، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا صدام هذا اختبار للصوت المسجل",
+            "مرحبا يا صدام هذا اختبار للصوت العربي",
+            "مرحبا يا Saddam هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/saddam/test.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/test.mp3",
+            "ogg": "audio/names/saddam/test.ogg",
+            "wav": "audio/names/saddam/test.wav"
+          },
+          "pcmKey": "saddam:test",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا صدام",
+          "aliases": [],
+          "file": "audio/names/saddam/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/cheer-01.mp3",
+            "ogg": "audio/names/saddam/cheer-01.ogg",
+            "wav": "audio/names/saddam/cheer-01.wav"
+          },
+          "pcmKey": "saddam:cheer-01",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا صدام",
+          "aliases": [],
+          "file": "audio/names/saddam/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/cheer-02.mp3",
+            "ogg": "audio/names/saddam/cheer-02.ogg",
+            "wav": "audio/names/saddam/cheer-02.wav"
+          },
+          "pcmKey": "saddam:cheer-02",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا صدام",
+          "aliases": [],
+          "file": "audio/names/saddam/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/cheer-03.mp3",
+            "ogg": "audio/names/saddam/cheer-03.ogg",
+            "wav": "audio/names/saddam/cheer-03.wav"
+          },
+          "pcmKey": "saddam:cheer-03",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا صدام",
+          "aliases": [],
+          "file": "audio/names/saddam/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/cheer-04.mp3",
+            "ogg": "audio/names/saddam/cheer-04.ogg",
+            "wav": "audio/names/saddam/cheer-04.wav"
+          },
+          "pcmKey": "saddam:cheer-04",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا صدام",
+          "aliases": [],
+          "file": "audio/names/saddam/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/saddam/cheer-05.mp3",
+            "ogg": "audio/names/saddam/cheer-05.ogg",
+            "wav": "audio/names/saddam/cheer-05.wav"
+          },
+          "pcmKey": "saddam:cheer-05",
+          "pcmPack": "saddam",
+          "pcmScript": "audio/pcm/saddam.js"
+        }
+      ]
+    },
+    "غيث": {
+      "aliases": [
+        "Ghaith",
+        "Gaith",
+        "Ghayth",
+        "ghaith",
+        "gaith",
+        "ghayth"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/ghaith",
+      "slug": "ghaith",
+      "pcm_script": "audio/pcm/ghaith.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا غيث، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا غيث هذا اختبار للصوت المسجل",
+            "مرحبا يا غيث هذا اختبار للصوت العربي",
+            "مرحبا يا Ghaith هذا اختبار للصوت المسجل",
+            "مرحبا يا Gaith هذا اختبار للصوت المسجل",
+            "مرحبا يا Ghayth هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/ghaith/test.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/test.mp3",
+            "ogg": "audio/names/ghaith/test.ogg",
+            "wav": "audio/names/ghaith/test.wav"
+          },
+          "pcmKey": "ghaith:test",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا غيث",
+          "aliases": [],
+          "file": "audio/names/ghaith/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/cheer-01.mp3",
+            "ogg": "audio/names/ghaith/cheer-01.ogg",
+            "wav": "audio/names/ghaith/cheer-01.wav"
+          },
+          "pcmKey": "ghaith:cheer-01",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا غيث",
+          "aliases": [],
+          "file": "audio/names/ghaith/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/cheer-02.mp3",
+            "ogg": "audio/names/ghaith/cheer-02.ogg",
+            "wav": "audio/names/ghaith/cheer-02.wav"
+          },
+          "pcmKey": "ghaith:cheer-02",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا غيث",
+          "aliases": [],
+          "file": "audio/names/ghaith/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/cheer-03.mp3",
+            "ogg": "audio/names/ghaith/cheer-03.ogg",
+            "wav": "audio/names/ghaith/cheer-03.wav"
+          },
+          "pcmKey": "ghaith:cheer-03",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا غيث",
+          "aliases": [],
+          "file": "audio/names/ghaith/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/cheer-04.mp3",
+            "ogg": "audio/names/ghaith/cheer-04.ogg",
+            "wav": "audio/names/ghaith/cheer-04.wav"
+          },
+          "pcmKey": "ghaith:cheer-04",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا غيث",
+          "aliases": [],
+          "file": "audio/names/ghaith/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/ghaith/cheer-05.mp3",
+            "ogg": "audio/names/ghaith/cheer-05.ogg",
+            "wav": "audio/names/ghaith/cheer-05.wav"
+          },
+          "pcmKey": "ghaith:cheer-05",
+          "pcmPack": "ghaith",
+          "pcmScript": "audio/pcm/ghaith.js"
+        }
+      ]
+    },
+    "صالح": {
+      "aliases": [
+        "Saleh",
+        "Salih",
+        "saleh",
+        "salih"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/saleh",
+      "slug": "saleh",
+      "pcm_script": "audio/pcm/saleh.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا صالح، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا صالح هذا اختبار للصوت المسجل",
+            "مرحبا يا صالح هذا اختبار للصوت العربي",
+            "مرحبا يا Saleh هذا اختبار للصوت المسجل",
+            "مرحبا يا Salih هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/saleh/test.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/test.mp3",
+            "ogg": "audio/names/saleh/test.ogg",
+            "wav": "audio/names/saleh/test.wav"
+          },
+          "pcmKey": "saleh:test",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا صالح",
+          "aliases": [],
+          "file": "audio/names/saleh/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/cheer-01.mp3",
+            "ogg": "audio/names/saleh/cheer-01.ogg",
+            "wav": "audio/names/saleh/cheer-01.wav"
+          },
+          "pcmKey": "saleh:cheer-01",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا صالح",
+          "aliases": [],
+          "file": "audio/names/saleh/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/cheer-02.mp3",
+            "ogg": "audio/names/saleh/cheer-02.ogg",
+            "wav": "audio/names/saleh/cheer-02.wav"
+          },
+          "pcmKey": "saleh:cheer-02",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا صالح",
+          "aliases": [],
+          "file": "audio/names/saleh/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/cheer-03.mp3",
+            "ogg": "audio/names/saleh/cheer-03.ogg",
+            "wav": "audio/names/saleh/cheer-03.wav"
+          },
+          "pcmKey": "saleh:cheer-03",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا صالح",
+          "aliases": [],
+          "file": "audio/names/saleh/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/cheer-04.mp3",
+            "ogg": "audio/names/saleh/cheer-04.ogg",
+            "wav": "audio/names/saleh/cheer-04.wav"
+          },
+          "pcmKey": "saleh:cheer-04",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا صالح",
+          "aliases": [],
+          "file": "audio/names/saleh/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/saleh/cheer-05.mp3",
+            "ogg": "audio/names/saleh/cheer-05.ogg",
+            "wav": "audio/names/saleh/cheer-05.wav"
+          },
+          "pcmKey": "saleh:cheer-05",
+          "pcmPack": "saleh",
+          "pcmScript": "audio/pcm/saleh.js"
+        }
+      ]
+    },
+    "يحيى": {
+      "aliases": [
+        "Yahya",
+        "Yehya",
+        "yahya",
+        "yehya"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/yahya",
+      "slug": "yahya",
+      "pcm_script": "audio/pcm/yahya.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا يحيى، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا يحيى هذا اختبار للصوت المسجل",
+            "مرحبا يا يحيى هذا اختبار للصوت العربي",
+            "مرحبا يا Yahya هذا اختبار للصوت المسجل",
+            "مرحبا يا Yehya هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/yahya/test.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/test.mp3",
+            "ogg": "audio/names/yahya/test.ogg",
+            "wav": "audio/names/yahya/test.wav"
+          },
+          "pcmKey": "yahya:test",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا يحيى",
+          "aliases": [],
+          "file": "audio/names/yahya/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/cheer-01.mp3",
+            "ogg": "audio/names/yahya/cheer-01.ogg",
+            "wav": "audio/names/yahya/cheer-01.wav"
+          },
+          "pcmKey": "yahya:cheer-01",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا يحيى",
+          "aliases": [],
+          "file": "audio/names/yahya/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/cheer-02.mp3",
+            "ogg": "audio/names/yahya/cheer-02.ogg",
+            "wav": "audio/names/yahya/cheer-02.wav"
+          },
+          "pcmKey": "yahya:cheer-02",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا يحيى",
+          "aliases": [],
+          "file": "audio/names/yahya/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/cheer-03.mp3",
+            "ogg": "audio/names/yahya/cheer-03.ogg",
+            "wav": "audio/names/yahya/cheer-03.wav"
+          },
+          "pcmKey": "yahya:cheer-03",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا يحيى",
+          "aliases": [],
+          "file": "audio/names/yahya/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/cheer-04.mp3",
+            "ogg": "audio/names/yahya/cheer-04.ogg",
+            "wav": "audio/names/yahya/cheer-04.wav"
+          },
+          "pcmKey": "yahya:cheer-04",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا يحيى",
+          "aliases": [],
+          "file": "audio/names/yahya/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/yahya/cheer-05.mp3",
+            "ogg": "audio/names/yahya/cheer-05.ogg",
+            "wav": "audio/names/yahya/cheer-05.wav"
+          },
+          "pcmKey": "yahya:cheer-05",
+          "pcmPack": "yahya",
+          "pcmScript": "audio/pcm/yahya.js"
+        }
+      ]
+    },
+    "إبراهيم": {
+      "aliases": [
+        "Ibrahim",
+        "Ebrahim",
+        "ibrahim",
+        "ebrahim"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/ibrahim",
+      "slug": "ibrahim",
+      "pcm_script": "audio/pcm/ibrahim.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا إبراهيم، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا إبراهيم هذا اختبار للصوت المسجل",
+            "مرحبا يا إبراهيم هذا اختبار للصوت العربي",
+            "مرحبا يا Ibrahim هذا اختبار للصوت المسجل",
+            "مرحبا يا Ebrahim هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/ibrahim/test.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/test.mp3",
+            "ogg": "audio/names/ibrahim/test.ogg",
+            "wav": "audio/names/ibrahim/test.wav"
+          },
+          "pcmKey": "ibrahim:test",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا إبراهيم",
+          "aliases": [],
+          "file": "audio/names/ibrahim/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/cheer-01.mp3",
+            "ogg": "audio/names/ibrahim/cheer-01.ogg",
+            "wav": "audio/names/ibrahim/cheer-01.wav"
+          },
+          "pcmKey": "ibrahim:cheer-01",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا إبراهيم",
+          "aliases": [],
+          "file": "audio/names/ibrahim/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/cheer-02.mp3",
+            "ogg": "audio/names/ibrahim/cheer-02.ogg",
+            "wav": "audio/names/ibrahim/cheer-02.wav"
+          },
+          "pcmKey": "ibrahim:cheer-02",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا إبراهيم",
+          "aliases": [],
+          "file": "audio/names/ibrahim/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/cheer-03.mp3",
+            "ogg": "audio/names/ibrahim/cheer-03.ogg",
+            "wav": "audio/names/ibrahim/cheer-03.wav"
+          },
+          "pcmKey": "ibrahim:cheer-03",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا إبراهيم",
+          "aliases": [],
+          "file": "audio/names/ibrahim/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/cheer-04.mp3",
+            "ogg": "audio/names/ibrahim/cheer-04.ogg",
+            "wav": "audio/names/ibrahim/cheer-04.wav"
+          },
+          "pcmKey": "ibrahim:cheer-04",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا إبراهيم",
+          "aliases": [],
+          "file": "audio/names/ibrahim/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/ibrahim/cheer-05.mp3",
+            "ogg": "audio/names/ibrahim/cheer-05.ogg",
+            "wav": "audio/names/ibrahim/cheer-05.wav"
+          },
+          "pcmKey": "ibrahim:cheer-05",
+          "pcmPack": "ibrahim",
+          "pcmScript": "audio/pcm/ibrahim.js"
+        }
+      ]
+    },
+    "عمر": {
+      "aliases": [
+        "Omar",
+        "Umar",
+        "omar",
+        "umar"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/omar",
+      "slug": "omar",
+      "pcm_script": "audio/pcm/omar.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عمر، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عمر هذا اختبار للصوت المسجل",
+            "مرحبا يا عمر هذا اختبار للصوت العربي",
+            "مرحبا يا Omar هذا اختبار للصوت المسجل",
+            "مرحبا يا Umar هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/omar/test.mp3",
+          "files": {
+            "mp3": "audio/names/omar/test.mp3",
+            "ogg": "audio/names/omar/test.ogg",
+            "wav": "audio/names/omar/test.wav"
+          },
+          "pcmKey": "omar:test",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عمر",
+          "aliases": [],
+          "file": "audio/names/omar/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/omar/cheer-01.mp3",
+            "ogg": "audio/names/omar/cheer-01.ogg",
+            "wav": "audio/names/omar/cheer-01.wav"
+          },
+          "pcmKey": "omar:cheer-01",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عمر",
+          "aliases": [],
+          "file": "audio/names/omar/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/omar/cheer-02.mp3",
+            "ogg": "audio/names/omar/cheer-02.ogg",
+            "wav": "audio/names/omar/cheer-02.wav"
+          },
+          "pcmKey": "omar:cheer-02",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عمر",
+          "aliases": [],
+          "file": "audio/names/omar/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/omar/cheer-03.mp3",
+            "ogg": "audio/names/omar/cheer-03.ogg",
+            "wav": "audio/names/omar/cheer-03.wav"
+          },
+          "pcmKey": "omar:cheer-03",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عمر",
+          "aliases": [],
+          "file": "audio/names/omar/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/omar/cheer-04.mp3",
+            "ogg": "audio/names/omar/cheer-04.ogg",
+            "wav": "audio/names/omar/cheer-04.wav"
+          },
+          "pcmKey": "omar:cheer-04",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عمر",
+          "aliases": [],
+          "file": "audio/names/omar/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/omar/cheer-05.mp3",
+            "ogg": "audio/names/omar/cheer-05.ogg",
+            "wav": "audio/names/omar/cheer-05.wav"
+          },
+          "pcmKey": "omar:cheer-05",
+          "pcmPack": "omar",
+          "pcmScript": "audio/pcm/omar.js"
+        }
+      ]
+    },
+    "خالد": {
+      "aliases": [
+        "Khaled",
+        "Khalid",
+        "khaled",
+        "khalid"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/khaled",
+      "slug": "khaled",
+      "pcm_script": "audio/pcm/khaled.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا خالد، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا خالد هذا اختبار للصوت المسجل",
+            "مرحبا يا خالد هذا اختبار للصوت العربي",
+            "مرحبا يا Khaled هذا اختبار للصوت المسجل",
+            "مرحبا يا Khalid هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/khaled/test.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/test.mp3",
+            "ogg": "audio/names/khaled/test.ogg",
+            "wav": "audio/names/khaled/test.wav"
+          },
+          "pcmKey": "khaled:test",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا خالد",
+          "aliases": [],
+          "file": "audio/names/khaled/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/cheer-01.mp3",
+            "ogg": "audio/names/khaled/cheer-01.ogg",
+            "wav": "audio/names/khaled/cheer-01.wav"
+          },
+          "pcmKey": "khaled:cheer-01",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا خالد",
+          "aliases": [],
+          "file": "audio/names/khaled/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/cheer-02.mp3",
+            "ogg": "audio/names/khaled/cheer-02.ogg",
+            "wav": "audio/names/khaled/cheer-02.wav"
+          },
+          "pcmKey": "khaled:cheer-02",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا خالد",
+          "aliases": [],
+          "file": "audio/names/khaled/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/cheer-03.mp3",
+            "ogg": "audio/names/khaled/cheer-03.ogg",
+            "wav": "audio/names/khaled/cheer-03.wav"
+          },
+          "pcmKey": "khaled:cheer-03",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا خالد",
+          "aliases": [],
+          "file": "audio/names/khaled/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/cheer-04.mp3",
+            "ogg": "audio/names/khaled/cheer-04.ogg",
+            "wav": "audio/names/khaled/cheer-04.wav"
+          },
+          "pcmKey": "khaled:cheer-04",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا خالد",
+          "aliases": [],
+          "file": "audio/names/khaled/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/khaled/cheer-05.mp3",
+            "ogg": "audio/names/khaled/cheer-05.ogg",
+            "wav": "audio/names/khaled/cheer-05.wav"
+          },
+          "pcmKey": "khaled:cheer-05",
+          "pcmPack": "khaled",
+          "pcmScript": "audio/pcm/khaled.js"
+        }
+      ]
+    },
+    "حسن": {
+      "aliases": [
+        "Hassan",
+        "Hasan",
+        "hassan",
+        "hasan"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/hassan",
+      "slug": "hassan",
+      "pcm_script": "audio/pcm/hassan.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا حسن، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا حسن هذا اختبار للصوت المسجل",
+            "مرحبا يا حسن هذا اختبار للصوت العربي",
+            "مرحبا يا Hassan هذا اختبار للصوت المسجل",
+            "مرحبا يا Hasan هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/hassan/test.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/test.mp3",
+            "ogg": "audio/names/hassan/test.ogg",
+            "wav": "audio/names/hassan/test.wav"
+          },
+          "pcmKey": "hassan:test",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا حسن",
+          "aliases": [],
+          "file": "audio/names/hassan/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/cheer-01.mp3",
+            "ogg": "audio/names/hassan/cheer-01.ogg",
+            "wav": "audio/names/hassan/cheer-01.wav"
+          },
+          "pcmKey": "hassan:cheer-01",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا حسن",
+          "aliases": [],
+          "file": "audio/names/hassan/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/cheer-02.mp3",
+            "ogg": "audio/names/hassan/cheer-02.ogg",
+            "wav": "audio/names/hassan/cheer-02.wav"
+          },
+          "pcmKey": "hassan:cheer-02",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا حسن",
+          "aliases": [],
+          "file": "audio/names/hassan/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/cheer-03.mp3",
+            "ogg": "audio/names/hassan/cheer-03.ogg",
+            "wav": "audio/names/hassan/cheer-03.wav"
+          },
+          "pcmKey": "hassan:cheer-03",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا حسن",
+          "aliases": [],
+          "file": "audio/names/hassan/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/cheer-04.mp3",
+            "ogg": "audio/names/hassan/cheer-04.ogg",
+            "wav": "audio/names/hassan/cheer-04.wav"
+          },
+          "pcmKey": "hassan:cheer-04",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا حسن",
+          "aliases": [],
+          "file": "audio/names/hassan/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/hassan/cheer-05.mp3",
+            "ogg": "audio/names/hassan/cheer-05.ogg",
+            "wav": "audio/names/hassan/cheer-05.wav"
+          },
+          "pcmKey": "hassan:cheer-05",
+          "pcmPack": "hassan",
+          "pcmScript": "audio/pcm/hassan.js"
+        }
+      ]
+    },
+    "حسين": {
+      "aliases": [
+        "Hussein",
+        "Hussain",
+        "Husayn",
+        "hussein",
+        "hussain",
+        "husayn"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/hussein",
+      "slug": "hussein",
+      "pcm_script": "audio/pcm/hussein.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا حسين، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا حسين هذا اختبار للصوت المسجل",
+            "مرحبا يا حسين هذا اختبار للصوت العربي",
+            "مرحبا يا Hussein هذا اختبار للصوت المسجل",
+            "مرحبا يا Hussain هذا اختبار للصوت المسجل",
+            "مرحبا يا Husayn هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/hussein/test.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/test.mp3",
+            "ogg": "audio/names/hussein/test.ogg",
+            "wav": "audio/names/hussein/test.wav"
+          },
+          "pcmKey": "hussein:test",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا حسين",
+          "aliases": [],
+          "file": "audio/names/hussein/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/cheer-01.mp3",
+            "ogg": "audio/names/hussein/cheer-01.ogg",
+            "wav": "audio/names/hussein/cheer-01.wav"
+          },
+          "pcmKey": "hussein:cheer-01",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا حسين",
+          "aliases": [],
+          "file": "audio/names/hussein/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/cheer-02.mp3",
+            "ogg": "audio/names/hussein/cheer-02.ogg",
+            "wav": "audio/names/hussein/cheer-02.wav"
+          },
+          "pcmKey": "hussein:cheer-02",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا حسين",
+          "aliases": [],
+          "file": "audio/names/hussein/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/cheer-03.mp3",
+            "ogg": "audio/names/hussein/cheer-03.ogg",
+            "wav": "audio/names/hussein/cheer-03.wav"
+          },
+          "pcmKey": "hussein:cheer-03",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا حسين",
+          "aliases": [],
+          "file": "audio/names/hussein/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/cheer-04.mp3",
+            "ogg": "audio/names/hussein/cheer-04.ogg",
+            "wav": "audio/names/hussein/cheer-04.wav"
+          },
+          "pcmKey": "hussein:cheer-04",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا حسين",
+          "aliases": [],
+          "file": "audio/names/hussein/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/hussein/cheer-05.mp3",
+            "ogg": "audio/names/hussein/cheer-05.ogg",
+            "wav": "audio/names/hussein/cheer-05.wav"
+          },
+          "pcmKey": "hussein:cheer-05",
+          "pcmPack": "hussein",
+          "pcmScript": "audio/pcm/hussein.js"
+        }
+      ]
+    },
+    "عبدالعزيز": {
+      "aliases": [
+        "Abdulaziz",
+        "Abdul Aziz",
+        "Abdelaziz",
+        "abdulaziz",
+        "abdul aziz",
+        "abdelaziz"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/abdulaziz",
+      "slug": "abdulaziz",
+      "pcm_script": "audio/pcm/abdulaziz.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عبدالعزيز، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عبدالعزيز هذا اختبار للصوت المسجل",
+            "مرحبا يا عبدالعزيز هذا اختبار للصوت العربي",
+            "مرحبا يا Abdulaziz هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdul Aziz هذا اختبار للصوت المسجل",
+            "مرحبا يا Abdelaziz هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/abdulaziz/test.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/test.mp3",
+            "ogg": "audio/names/abdulaziz/test.ogg",
+            "wav": "audio/names/abdulaziz/test.wav"
+          },
+          "pcmKey": "abdulaziz:test",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عبدالعزيز",
+          "aliases": [],
+          "file": "audio/names/abdulaziz/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/cheer-01.mp3",
+            "ogg": "audio/names/abdulaziz/cheer-01.ogg",
+            "wav": "audio/names/abdulaziz/cheer-01.wav"
+          },
+          "pcmKey": "abdulaziz:cheer-01",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عبدالعزيز",
+          "aliases": [],
+          "file": "audio/names/abdulaziz/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/cheer-02.mp3",
+            "ogg": "audio/names/abdulaziz/cheer-02.ogg",
+            "wav": "audio/names/abdulaziz/cheer-02.wav"
+          },
+          "pcmKey": "abdulaziz:cheer-02",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عبدالعزيز",
+          "aliases": [],
+          "file": "audio/names/abdulaziz/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/cheer-03.mp3",
+            "ogg": "audio/names/abdulaziz/cheer-03.ogg",
+            "wav": "audio/names/abdulaziz/cheer-03.wav"
+          },
+          "pcmKey": "abdulaziz:cheer-03",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عبدالعزيز",
+          "aliases": [],
+          "file": "audio/names/abdulaziz/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/cheer-04.mp3",
+            "ogg": "audio/names/abdulaziz/cheer-04.ogg",
+            "wav": "audio/names/abdulaziz/cheer-04.wav"
+          },
+          "pcmKey": "abdulaziz:cheer-04",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عبدالعزيز",
+          "aliases": [],
+          "file": "audio/names/abdulaziz/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/abdulaziz/cheer-05.mp3",
+            "ogg": "audio/names/abdulaziz/cheer-05.ogg",
+            "wav": "audio/names/abdulaziz/cheer-05.wav"
+          },
+          "pcmKey": "abdulaziz:cheer-05",
+          "pcmPack": "abdulaziz",
+          "pcmScript": "audio/pcm/abdulaziz.js"
+        }
+      ]
+    },
+    "حمزة": {
+      "aliases": [
+        "Hamza",
+        "hamza"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/hamza",
+      "slug": "hamza",
+      "pcm_script": "audio/pcm/hamza.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا حمزة، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا حمزة هذا اختبار للصوت المسجل",
+            "مرحبا يا حمزة هذا اختبار للصوت العربي",
+            "مرحبا يا Hamza هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/hamza/test.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/test.mp3",
+            "ogg": "audio/names/hamza/test.ogg",
+            "wav": "audio/names/hamza/test.wav"
+          },
+          "pcmKey": "hamza:test",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا حمزة",
+          "aliases": [],
+          "file": "audio/names/hamza/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/cheer-01.mp3",
+            "ogg": "audio/names/hamza/cheer-01.ogg",
+            "wav": "audio/names/hamza/cheer-01.wav"
+          },
+          "pcmKey": "hamza:cheer-01",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا حمزة",
+          "aliases": [],
+          "file": "audio/names/hamza/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/cheer-02.mp3",
+            "ogg": "audio/names/hamza/cheer-02.ogg",
+            "wav": "audio/names/hamza/cheer-02.wav"
+          },
+          "pcmKey": "hamza:cheer-02",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا حمزة",
+          "aliases": [],
+          "file": "audio/names/hamza/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/cheer-03.mp3",
+            "ogg": "audio/names/hamza/cheer-03.ogg",
+            "wav": "audio/names/hamza/cheer-03.wav"
+          },
+          "pcmKey": "hamza:cheer-03",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا حمزة",
+          "aliases": [],
+          "file": "audio/names/hamza/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/cheer-04.mp3",
+            "ogg": "audio/names/hamza/cheer-04.ogg",
+            "wav": "audio/names/hamza/cheer-04.wav"
+          },
+          "pcmKey": "hamza:cheer-04",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا حمزة",
+          "aliases": [],
+          "file": "audio/names/hamza/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/hamza/cheer-05.mp3",
+            "ogg": "audio/names/hamza/cheer-05.ogg",
+            "wav": "audio/names/hamza/cheer-05.wav"
+          },
+          "pcmKey": "hamza:cheer-05",
+          "pcmPack": "hamza",
+          "pcmScript": "audio/pcm/hamza.js"
+        }
+      ]
+    },
+    "معاذ": {
+      "aliases": [
+        "Moaz",
+        "Muadh",
+        "Muath",
+        "Moaaz",
+        "moaz",
+        "muadh",
+        "muath",
+        "moaaz"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/moaz",
+      "slug": "moaz",
+      "pcm_script": "audio/pcm/moaz.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا معاذ، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا معاذ هذا اختبار للصوت المسجل",
+            "مرحبا يا معاذ هذا اختبار للصوت العربي",
+            "مرحبا يا Moaz هذا اختبار للصوت المسجل",
+            "مرحبا يا Muadh هذا اختبار للصوت المسجل",
+            "مرحبا يا Muath هذا اختبار للصوت المسجل",
+            "مرحبا يا Moaaz هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/moaz/test.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/test.mp3",
+            "ogg": "audio/names/moaz/test.ogg",
+            "wav": "audio/names/moaz/test.wav"
+          },
+          "pcmKey": "moaz:test",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا معاذ",
+          "aliases": [],
+          "file": "audio/names/moaz/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/cheer-01.mp3",
+            "ogg": "audio/names/moaz/cheer-01.ogg",
+            "wav": "audio/names/moaz/cheer-01.wav"
+          },
+          "pcmKey": "moaz:cheer-01",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا معاذ",
+          "aliases": [],
+          "file": "audio/names/moaz/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/cheer-02.mp3",
+            "ogg": "audio/names/moaz/cheer-02.ogg",
+            "wav": "audio/names/moaz/cheer-02.wav"
+          },
+          "pcmKey": "moaz:cheer-02",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا معاذ",
+          "aliases": [],
+          "file": "audio/names/moaz/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/cheer-03.mp3",
+            "ogg": "audio/names/moaz/cheer-03.ogg",
+            "wav": "audio/names/moaz/cheer-03.wav"
+          },
+          "pcmKey": "moaz:cheer-03",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا معاذ",
+          "aliases": [],
+          "file": "audio/names/moaz/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/cheer-04.mp3",
+            "ogg": "audio/names/moaz/cheer-04.ogg",
+            "wav": "audio/names/moaz/cheer-04.wav"
+          },
+          "pcmKey": "moaz:cheer-04",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا معاذ",
+          "aliases": [],
+          "file": "audio/names/moaz/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/moaz/cheer-05.mp3",
+            "ogg": "audio/names/moaz/cheer-05.ogg",
+            "wav": "audio/names/moaz/cheer-05.wav"
+          },
+          "pcmKey": "moaz:cheer-05",
+          "pcmPack": "moaz",
+          "pcmScript": "audio/pcm/moaz.js"
+        }
+      ]
+    },
+    "عمار": {
+      "aliases": [
+        "Ammar",
+        "ammar"
+      ],
+      "gender": "boy",
+      "folder": "audio/names/ammar",
+      "slug": "ammar",
+      "pcm_script": "audio/pcm/ammar.js",
+      "clips": [
+        {
+          "id": "test",
+          "kind": "test",
+          "text": "مرحبا يا عمار، هذا اختبار للصوت المسجل",
+          "aliases": [
+            "مرحبا يا عمار هذا اختبار للصوت المسجل",
+            "مرحبا يا عمار هذا اختبار للصوت العربي",
+            "مرحبا يا Ammar هذا اختبار للصوت المسجل"
+          ],
+          "file": "audio/names/ammar/test.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/test.mp3",
+            "ogg": "audio/names/ammar/test.ogg",
+            "wav": "audio/names/ammar/test.wav"
+          },
+          "pcmKey": "ammar:test",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        },
+        {
+          "id": "cheer-01",
+          "kind": "cheer",
+          "text": "أحسنت يا عمار",
+          "aliases": [],
+          "file": "audio/names/ammar/cheer-01.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/cheer-01.mp3",
+            "ogg": "audio/names/ammar/cheer-01.ogg",
+            "wav": "audio/names/ammar/cheer-01.wav"
+          },
+          "pcmKey": "ammar:cheer-01",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        },
+        {
+          "id": "cheer-02",
+          "kind": "cheer",
+          "text": "رائع يا عمار",
+          "aliases": [],
+          "file": "audio/names/ammar/cheer-02.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/cheer-02.mp3",
+            "ogg": "audio/names/ammar/cheer-02.ogg",
+            "wav": "audio/names/ammar/cheer-02.wav"
+          },
+          "pcmKey": "ammar:cheer-02",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        },
+        {
+          "id": "cheer-03",
+          "kind": "cheer",
+          "text": "ممتاز يا عمار",
+          "aliases": [],
+          "file": "audio/names/ammar/cheer-03.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/cheer-03.mp3",
+            "ogg": "audio/names/ammar/cheer-03.ogg",
+            "wav": "audio/names/ammar/cheer-03.wav"
+          },
+          "pcmKey": "ammar:cheer-03",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        },
+        {
+          "id": "cheer-04",
+          "kind": "cheer",
+          "text": "استمر يا عمار",
+          "aliases": [],
+          "file": "audio/names/ammar/cheer-04.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/cheer-04.mp3",
+            "ogg": "audio/names/ammar/cheer-04.ogg",
+            "wav": "audio/names/ammar/cheer-04.wav"
+          },
+          "pcmKey": "ammar:cheer-04",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        },
+        {
+          "id": "cheer-05",
+          "kind": "cheer",
+          "text": "أبدعت يا عمار",
+          "aliases": [],
+          "file": "audio/names/ammar/cheer-05.mp3",
+          "files": {
+            "mp3": "audio/names/ammar/cheer-05.mp3",
+            "ogg": "audio/names/ammar/cheer-05.ogg",
+            "wav": "audio/names/ammar/cheer-05.wav"
+          },
+          "pcmKey": "ammar:cheer-05",
+          "pcmPack": "ammar",
+          "pcmScript": "audio/pcm/ammar.js"
+        }
+      ]
     }
   },
   "compatibility": {
@@ -319,6 +2538,30 @@
       "wav"
     ],
     "ascii_paths": true,
-    "strategy": "recorded-first on Android 4.x/old browsers; manual override always available"
-  }
+    "strategy": "recorded-first on Android 4.x/old browsers; manual override always available",
+    "dynamic_pcm_name_packs": true,
+    "name_pack_strategy": "load only the selected user PCM pack on old browsers, then MP3/OGG/WAV fallbacks"
+  },
+  "common_male_names_yemen": [
+    "محمد",
+    "أحمد",
+    "عبدالله",
+    "عبدالرحمن",
+    "علي",
+    "يوسف",
+    "عبدالملك",
+    "صدام",
+    "غيث",
+    "صالح",
+    "يحيى",
+    "إبراهيم",
+    "عمر",
+    "خالد",
+    "حسن",
+    "حسين",
+    "عبدالعزيز",
+    "حمزة",
+    "معاذ",
+    "عمار"
+  ]
 }
