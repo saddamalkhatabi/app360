@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "id": "replace-with-unique-id",
   "slug": "replace-with-kebab-case-slug",
   "title_ar": "اسم التطبيق",
@@ -9,24 +9,27 @@
   "kind": "goal_aligned",
   "goal_keys": [],
   "entry_path": "apps/8-12/replace-with-kebab-case-slug/index.html",
+  "manifest_path": "apps/8-12/replace-with-kebab-case-slug/manifest.webmanifest",
+  "icon_path": "apps/8-12/replace-with-kebab-case-slug/icon.svg",
   "runtime_profile": "static-web",
   "depth": "lite",
-  "capabilities": [
-    "storage.local"
-  ],
-  "bundles": [
-    "static-core"
-  ],
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": ["storage.local", "pwa.offline"],
+  "bundles": ["static-core"],
   "practice_model_ar": "مهمة ← محاولة ← تغذية راجعة ← تصحيح ← تكرار",
+  "branding": {
+    "icon": "icon.svg",
+    "theme_color": "#0f8f8a",
+    "accent_color": "#ffd54f",
+    "unique_per_app": true
+  },
   "compatibility": {
     "mobile": true,
     "tablet": true,
     "desktop": true,
     "legacy_android_required": false,
-    "minimum_test_targets": [
-      "modern Chrome",
-      "modern Android tablet"
-    ]
+    "minimum_test_targets": ["modern Chrome", "modern Android tablet"]
   },
   "privacy": {
     "local_first": true,
