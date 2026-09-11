@@ -9,12 +9,24 @@
   "kind": "goal_aligned",
   "goal_keys": [],
   "entry_path": "apps/8-12/replace-with-kebab-case-slug/index.html",
+  "runtime_profile": "static-web",
+  "depth": "lite",
+  "capabilities": [
+    "storage.local"
+  ],
+  "bundles": [
+    "static-core"
+  ],
   "practice_model_ar": "مهمة ← محاولة ← تغذية راجعة ← تصحيح ← تكرار",
   "compatibility": {
     "mobile": true,
     "tablet": true,
     "desktop": true,
-    "legacy_android_required": false
+    "legacy_android_required": false,
+    "minimum_test_targets": [
+      "modern Chrome",
+      "modern Android tablet"
+    ]
   },
   "privacy": {
     "local_first": true,
