@@ -4,15 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#0f8f8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>اسم التطبيق | مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;background:#f3f8f7;color:#17343a}.app{max-width:920px;margin:auto;padding:16px}.head{background:#0f8f8a;color:#fff;padding:14px;border-radius:16px}.head h1{margin:0;font-size:24px}.practice{margin-top:14px;background:#fff;border:1px solid #d9e7e6;border-radius:16px;padding:16px}.action{min-height:46px;border:0;border-radius:12px;padding:8px 15px;background:#ffd54f;color:#493a00;font:bold 15px Tahoma,Arial,sans-serif}.muted{color:#657a7f;font-size:13px}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;background:#f3f8f7;color:#17343a}.app{max-width:920px;margin:auto;padding:16px}.head{background:#0f8f8a;color:#fff;padding:14px;border-radius:16px}.head-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.app-icon{width:58px;height:58px;border-radius:16px;background:#fff}.head h1{margin:0;font-size:24px}.head-actions{display:flex;gap:7px;margin-inline-start:auto;flex-wrap:wrap}.head-actions button{min-height:38px;border:1px solid rgba(255,255,255,.45);border-radius:10px;background:rgba(255,255,255,.13);color:#fff;font:bold 12px Tahoma,Arial,sans-serif;padding:6px 10px}.head-actions .install{background:#ffd54f;color:#493a00;border-color:#ffd54f}.practice{margin-top:14px;background:#fff;border:1px solid #d9e7e6;border-radius:16px;padding:16px}.action{min-height:46px;border:0;border-radius:12px;padding:8px 15px;background:#ffd54f;color:#493a00;font:bold 15px Tahoma,Arial,sans-serif}.muted{color:#657a7f;font-size:13px}.pwa-note{display:none;position:fixed;left:12px;right:12px;bottom:12px;max-width:520px;margin:auto;background:#17343a;color:#fff;padding:10px 13px;border-radius:12px;font-size:12px;box-shadow:0 8px 26px rgba(0,0,0,.25)}
 </style>
 </head>
 <body>
 <main class="app">
-<header class="head"><h1>اسم التطبيق</h1><div>مختبر التطبيق 360 · الفئة العمرية</div></header>
-<section class="practice"><h2>ابدأ الممارسة</h2><p class="muted">استبدل هذا القالب بحلقة الممارسة الحقيقية المحددة في مواصفات التطبيق.</p><button class="action" type="button">ابدأ</button></section>
+<header class="head"><div class="head-row"><img class="app-icon" src="icon.svg" alt=""><div><h1>اسم التطبيق</h1><div>مختبر التطبيق 360 · الفئة العمرية</div></div><div class="head-actions"><button id="installAppBtn" class="install" type="button">⬇ تثبيت التطبيق</button><button id="updateAppBtn" type="button">↻ تحديث</button></div></div></header>
+<section class="practice"><h2>ابدأ الممارسة</h2><p class="muted">استبدل هذا القالب بحلقة الممارسة الحقيقية المحددة في مواصفات التطبيق. القالب جاهز للعمل دون اتصال بعد أول فتح ويمكن تثبيته كتطبيق مستقل.</p><button class="action" type="button">ابدأ</button></section>
 </main>
+<div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
+<script src="../../../assets/js/app-pwa.js?v=1"></script>
 </body>
 </html>
