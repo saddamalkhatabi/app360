@@ -26,47 +26,43 @@
 ```text
 app360/
 ├─ index.html
+├─ manifest.webmanifest
+├─ sw.js
 ├─ ages/<age>/index.html
-├─ apps/<age>/<slug>/              # التطبيقات الفعلية
+├─ apps/<age>/<slug>/              # التطبيقات الفعلية فقط
 ├─ packages/                       # كود مشترك reusable
 ├─ services/                       # Node/API/AI/media services
 ├─ resources/                      # shared media/data packs
 ├─ bundles/                        # capability compositions
 ├─ data/                           # catalog/goals/capabilities
-├─ assets/                         # Platform shell assets
+├─ assets/                         # Platform shell + branding + shared client helpers
 ├─ tooling/                        # أدوات المستودع المشتركة
 ├─ docs/                           # العقود والخطط
 ├─ package.json
 ├─ pnpm-workspace.yaml
-└─ 1-4/                            # Compatibility gateway فقط
+└─ pnpm-lock.yaml
 ```
 
-المعمارية التفصيلية في `docs/ARCHITECTURE_AR.md`، وسياسة المكتبات في `docs/DEPENDENCY_POLICY_AR.md`.
+**لا توجد مسارات قديمة موازية للتطبيقات.** المسار الرسمي الوحيد لأي تطبيق هو `apps/<age>/<slug>/`.
+
+المعمارية التفصيلية في `docs/ARCHITECTURE_AR.md`، وسياسة المكتبات في `docs/DEPENDENCY_POLICY_AR.md`، وسياسة PWA في `docs/PWA_OFFLINE_POLICY_AR.md`.
 
 ## 4. التطبيق الأول في مكانه الرسمي
 
-تطبيق الرسم ومسك القلم والكتابة المبكرة أصبح مصدره الرسمي:
+تطبيق الرسم ومسك القلم والكتابة المبكرة مصدره الرسمي الوحيد:
 
 ```text
 apps/1-4/drawing-writing-foundations/
 ```
 
-ويملك `app.json` و`package.json` وREADME وصوته وPWA والمزامنة داخله.
-
-المسار القديم:
-
-```text
-1-4/
-```
-
-لم يعد مصدر التطبيق؛ هو بوابة توافق فقط حتى تستمر الروابط القديمة وPWA السابق في الوصول إلى المسار الجديد. **لا تضف أي Feature جديدة داخل `1-4/`.**
+ويملك `app.json` و`package.json` وREADME وصوته وPWA والمزامنة داخله. لا ننشئ له Alias أو Compatibility Gateway جديدًا.
 
 ## 5. استقلال التطبيقات
 
 كل تطبيق يجب أن يمكن تطويره في محادثة مستقلة:
 
 1. لا يستورد ملفات من تطبيق آخر.
-2. يملك `app.json`, `package.json`, `README.md`.
+2. يملك `app.json`, `package.json`, `README.md` وهوية PWA عندما يكون تطبيقًا مستقلاً.
 3. بياناته وموارده الخاصة تبقى داخله.
 4. إذا احتاج تطبيق ثانٍ نفس الكود، نستخرج الجزء المشترك إلى `packages/`.
 5. إذا احتاج تطبيق ثانٍ نفس الأصول، ننقلها إلى `resources/` عبر Migration واضحة.
@@ -119,9 +115,23 @@ apps/1-4/drawing-writing-foundations/
 
 دعم الأجهزة القديمة يُعزل في تطبيقات وحزم تحتاجه؛ لا نجبر كل المنصة الحديثة على ES5. تطبيق الرسم الحالي يعلن `legacy-web` لأنه يدعم Big TAB HD وأجهزة مشابهة.
 
-## 9. Capabilities وBundles
+## 9. PWA وOffline والتحديث
 
-التطبيق لا يختار Dependencies مباشرة كمفهوم تصميم؛ يعلن قدراته:
+البوابة الرئيسية نفسها PWA قابلة للتثبيت. وكل تطبيق مستقل جديد يبدأ من قالب يحتوي Manifest وIcon وService Worker.
+
+المستويات الرسمية:
+
+- `offline-first`: الحلقة الأساسية تعمل كاملة محليًا بعد أول فتح.
+- `offline-partial`: الممارسة الأساسية محلية وبعض الخدمات تحتاج إنترنت.
+- `online-required`: يستخدم فقط عندما تكون الوظيفة الأساسية نفسها مرتبطة بخدمة بعيدة.
+
+ملفات HTML/JSON الحرجة تستخدم Network-first أو تحققًا دوريًا، بينما الأصول الثابتة يمكن Cacheها. تحديث Service Worker لا يسمح بحلقة Refresh؛ التفعيل يتم مرة واحدة ثم إعادة تحميل مضبوطة.
+
+التفاصيل الإلزامية في `docs/PWA_OFFLINE_POLICY_AR.md`.
+
+## 10. Capabilities وBundles
+
+التطبيق يعلن قدراته:
 
 ```json
 {
@@ -138,9 +148,9 @@ apps/1-4/drawing-writing-foundations/
 - `ai-assisted`
 - `full-learning`
 
-الحزم اليوم عقود معمارية؛ ومع توسع المشروع نستطيع جعل Tooling يحلها تلقائيًا إلى Packages/Services/Assets المطلوبة.
+الحزم عقود معمارية؛ ومع توسع المشروع نستطيع جعل Tooling يحلها تلقائيًا إلى Packages/Services/Assets المطلوبة.
 
-## 10. Node.js وMonorepo
+## 11. Node.js وMonorepo
 
 أي مشروع Node داخل App أو Service يدخل Workspace الجذر:
 
@@ -150,9 +160,9 @@ pnpm install
 pnpm --filter <workspace-name> dev
 ```
 
-لا نبني `node_modules` منفصل يدويًا لكل إضافة. لدينا إدارة مركزية وLockfile واحد عند التثبيت، مع dedupe ومخزن pnpm المشترك. ومع ذلك نسمح بإصدار Dependency مختلف إذا كان التوافق يفرضه؛ لا نكسر تطبيق Legacy فقط لتحقيق توحيد شكلي.
+لا نبني `node_modules` منفصل يدويًا لكل إضافة. لدينا إدارة مركزية وLockfile واحد، مع dedupe ومخزن pnpm المشترك. ومع ذلك نسمح بإصدار Dependency مختلف إذا كان التوافق يفرضه؛ لا نكسر تطبيق Legacy فقط لتحقيق توحيد شكلي.
 
-## 11. دورة بناء التطبيق
+## 12. دورة بناء التطبيق
 
 ```text
 هدف/حاجة
@@ -160,6 +170,7 @@ pnpm --filter <workspace-name> dev
 → Practice loop
 → Feedback
 → تدرج صعوبة
+→ Offline/Install/Update profile
 → حفظ/مزامنة عند الحاجة
 → اختبار الأجهزة
 → تحديث catalog
@@ -168,7 +179,7 @@ pnpm --filter <workspace-name> dev
 
 التطبيق ليس مقالة ولا Quiz معلومات فقط. الأفضل أن ينتج فعلًا أو Artifact: رسم، نطق، تلخيص، قرار، نموذج، مشروع، ميزانية افتراضية، تسجيل، ترتيب، تجربة خارج الشاشة، إلخ.
 
-## 12. العلاقة مع الأهداف
+## 13. العلاقة مع الأهداف
 
 `goal_keys` تستخدم مفاتيح موجودة في `data/goals.json` ومن نفس العمر.
 
@@ -178,28 +189,29 @@ pnpm --filter <workspace-name> dev
 
 لا نعدل الهدف الأصلي فقط كي نجبر فكرة جديدة على المطابقة.
 
-## 13. التطبيقات الحساسة
+## 14. التطبيقات الحساسة
 
 - الصحة: تعليم وممارسة عامة؛ لا تشخيص أو علاج.
 - المال: محاكاة وتعليم؛ لا توصيات مالية شخصية.
 - الأطفال: لا Dark Patterns، ولا جمع بيانات زائد، ولا زيادة وقت الشاشة عندما يمكن تحويل المهمة للواقع.
 - AI: لا نضع Secrets في Frontend، والمخرجات المهمة لها تحقق بشري أو مصادر حسب السياق.
 
-## 14. محادثة تطوير جديدة
+## 15. محادثة تطوير جديدة
 
 لبناء تطبيق مستقل اقرأ بالترتيب:
 
 1. `docs/FRAMEWORK_AR.md`
 2. `docs/ARCHITECTURE_AR.md`
-3. `docs/APP_SPEC_TEMPLATE_AR.md`
-4. `data/catalog.json`
-5. `data/goals.json`
-6. `data/capabilities.json`
-7. `apps/<age>/<slug>/app.json` وREADME إن كان موجودًا
+3. `docs/PWA_OFFLINE_POLICY_AR.md`
+4. `docs/APP_SPEC_TEMPLATE_AR.md`
+5. `data/catalog.json`
+6. `data/goals.json`
+7. `data/capabilities.json`
+8. `apps/<age>/<slug>/app.json` وREADME إن كان موجودًا
 
 ثم اعمل داخل Boundary التطبيق فقط. إذا اكتشفت كودًا مشتركًا، لا تنسخه؛ اقترح/نفذ Extraction واضحة بعد فحص المستهلك الآخر.
 
-## 15. التحقق الآلي
+## 16. التحقق الآلي
 
 الأمر الرسمي:
 
@@ -207,10 +219,10 @@ pnpm --filter <workspace-name> dev
 node tooling/validate-platform.js
 ```
 
-ويفحص العقود الأساسية، الفئات، الأهداف، تغطية الأهداف، القدرات، Bundles، الروابط الحية، وتوفر `app.json` و`package.json` للتطبيقات الحية داخل Workspaces.
+ويفحص العقود الأساسية، الفئات، الأهداف، تغطية الأهداف، القدرات، Bundles، الروابط الحية، Workspaces، وملفات PWA للتطبيقات الحية.
 
 يوجد GitHub Action باسم `Validate App 360 Lab` لتشغيله عند تغييرات المنصة.
 
-## 16. مبدأ العمل طويل المدى
+## 17. مبدأ العمل طويل المدى
 
-لا نعيد كتابة التطبيقات كلما ظهرت تقنية جديدة. نحافظ على **App identity + goal keys + contracts**، ونبدل implementation أو نستخرج Packages/Services تدريجيًا. بذلك نستطيع بناء أدوات خفيفة جدًا وأخرى عميقة وقوية داخل إطار واحد، من دون تكرار أو تشابك غير منضبط.
+لا نعيد كتابة التطبيقات كلما ظهرت تقنية جديدة. نحافظ على **App identity + goal keys + contracts + canonical path**، ونبدل implementation أو نستخرج Packages/Services تدريجيًا. بذلك نستطيع بناء أدوات خفيفة جدًا وأخرى عميقة وقوية داخل إطار واحد، من دون تكرار أو تشابك غير منضبط.
