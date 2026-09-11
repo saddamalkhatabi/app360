@@ -1,7 +1,7 @@
 {
   "name": "app360-monorepo",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "مختبر التطبيق 360 - practical learning applications monorepo for Safe Reels 360",
   "packageManager": "pnpm@10.15.1",
   "engines": {
@@ -11,6 +11,8 @@
     "validate": "node tooling/validate-platform.js",
     "check": "pnpm run validate",
     "workspaces:list": "pnpm -r list --depth -1",
+    "new:app": "node tooling/scaffold-app.js",
+    "inspect:app": "node tooling/inspect-app.js",
     "clean:workspace": "node tooling/clean-workspace.js"
   }
 }
