@@ -1,0 +1,58 @@
+name: Child UI V11
+
+on:
+  push:
+    paths:
+      - '.github/workflows/child-ui-v11.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch 1-4 app
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('1-4/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('لوحة الطفل - امسك القلم وارسم v10','لوحة الطفل - امسك القلم وارسم v11')
+          s = s.replace("if(arabicVoices.length)return arabicVoices[0];return null}", "if(arabicVoices.length)return arabicVoices[0];if(voices.length){for(var j=0;j<voices.length;j++)if(voices[j]&&voices[j].default)return voices[j];return voices[0]}return null}")
+          s = s.replace("if(v&&isArabicVoice(v))attempts.push({lang:v.lang||'ar-SA',voice:v,label:'الصوت العربي المختار'});", "if(v)attempts.push({lang:isArabicVoice(v)?(v.lang||'ar-SA'):'ar-SA',voice:v,label:isArabicVoice(v)?'الصوت العربي المختار':'صوت المتصفح المتاح'});")
+          s = s.replace("speechSynthesis.speak(u);timer=setTimeout", "if(speechSynthesis.paused&&speechSynthesis.resume)speechSynthesis.resume();speechSynthesis.speak(u);timer=setTimeout")
+          if '<script src="ui-v11.js"></script>' not in s:
+              s = s.replace('<script src="sync-v10-extra.js"></script>', '<script src="sync-v10-extra.js"></script>\n<script src="ui-v11.js"></script>')
+          s = s.replace('التطبيق V7 يجرب الصوت العربي', 'التطبيق V11 يجرب الصوت العربي')
+          p.write_text(s,encoding='utf-8')
+
+          sw = Path('1-4/sw.js')
+          t = sw.read_text(encoding='utf-8')
+          t = t.replace("var CACHE='app360-1-4-v10';", "var CACHE='app360-1-4-v11';")
+          t = t.replace("'./sync-v10-extra.js']", "'./sync-v10-extra.js','./ui-v11.js']")
+          sw.write_text(t,encoding='utf-8')
+
+      - name: Validate
+        shell: bash
+        run: |
+          grep -q 'ui-v11.js' 1-4/index.html
+          grep -q 'v11' 1-4/index.html
+          grep -q 'ui-v11.js' 1-4/sw.js
+          test -s 1-4/ui-v11.js
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-4/index.html 1-4/sw.js 1-4/ui-v11.js
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Improve child UI, drawing focus mode, and desktop voice compatibility"
+            git push
+          fi
