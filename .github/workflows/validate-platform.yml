@@ -1,0 +1,38 @@
+name: Validate App 360 Lab
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'ages/**'
+      - 'apps/**'
+      - 'assets/**'
+      - 'data/**'
+      - 'docs/**'
+      - '.github/scripts/validate-platform.js'
+      - '.github/workflows/validate-platform.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'ages/**'
+      - 'apps/**'
+      - 'assets/**'
+      - 'data/**'
+      - 'docs/**'
+      - '.github/scripts/validate-platform.js'
+      - '.github/workflows/validate-platform.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate catalog, goals, age pages and live routes
+        run: node .github/scripts/validate-platform.js
