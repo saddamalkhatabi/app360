@@ -1,0 +1,77 @@
+name: Rebuild App360 Brand V10
+
+on:
+  push:
+    branches:
+      - brand-v10-stop
+    paths:
+      - 'assets/brand/app360-lab-logo-source.png'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: brand-v10-stop
+      - name: Install image tooling
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y imagemagick fonts-dejavu-core
+      - name: Generate exact optimized assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC='assets/brand/app360-lab-logo-source.png'
+          TMP='/tmp/app360-brand-v10'
+          mkdir -p "$TMP"
+
+          # Preserve the approved artwork, remove only the inner section of the left gold rule,
+          # then add 360 beside the existing subtitle so it reads: الريلز الآمن 360.
+          convert "$SRC" \
+            -alpha set \
+            -fill 'rgba(0,0,0,0)' -draw 'rectangle 300,1010 430,1100' \
+            -font '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' \
+            -pointsize 54 -fill '#0298A7' -draw "text 308,1076 '360'" \
+            "$TMP/master.png"
+
+          # High-DPI portal logo: sharp at 300–360 CSS px without carrying the 1254px source to clients.
+          convert "$TMP/master.png" -trim +repage -bordercolor none -border 24 \
+            -resize '720x720>' -strip -define png:compression-level=9 \
+            'assets/brand/app360-lab-logo-transparent.png'
+
+          convert 'assets/brand/app360-lab-logo-transparent.png' \
+            -quality 92 'assets/brand/app360-lab-logo-transparent.webp'
+
+          # Emblem-only mark for the dark header. Wide asset avoids the visual clipping of the old square icon.
+          convert "$TMP/master.png" -crop 1120x760+67+40 +repage -trim +repage \
+            -bordercolor none -border 24 "$TMP/emblem.png"
+          convert "$TMP/emblem.png" -resize '300x180>' -strip -define png:compression-level=9 \
+            'assets/brand/app360-lab-header-mark.png'
+
+          # PWA icons from the same approved emblem with safe transparent padding.
+          convert "$TMP/emblem.png" -gravity center -background none -extent 1150x1150 \
+            -resize 512x512 -strip -define png:compression-level=9 \
+            'assets/brand/app360-lab-icon-512.png'
+          for s in 192 180 64 32; do
+            convert 'assets/brand/app360-lab-icon-512.png' -resize "${s}x${s}" -strip \
+              -define png:compression-level=9 "assets/brand/app360-lab-icon-${s}.png"
+          done
+          cp 'assets/brand/app360-lab-icon-64.png' 'assets/brand/favicon-64.png'
+          cp 'assets/brand/app360-lab-icon-32.png' 'assets/brand/favicon-32.png'
+          convert 'assets/brand/favicon-64.png' 'assets/brand/favicon-32.png' 'assets/brand/favicon.ico'
+
+          identify 'assets/brand/app360-lab-logo-transparent.png' \
+                   'assets/brand/app360-lab-header-mark.png' \
+                   'assets/brand/app360-lab-icon-512.png'
+
+      - name: Commit generated assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/brand/
+          git commit -m 'Generate optimized v10 brand assets from approved source' || exit 0
+          git push origin HEAD:brand-v10-stop
