@@ -23,7 +23,7 @@ function bind(){
   if(standalone())show(b,false);
   if(!('serviceWorker'in navigator)||location.protocol.indexOf('http')!==0)return;
   navigator.serviceWorker.addEventListener('controllerchange',function(){if(reloading)return;reloading=true;note('وصل تحديث جديد. يتم فتح الإصدار الأحدث الآن…','good');setTimeout(function(){location.reload()},250)});
-  navigator.serviceWorker.register('sw.js?v=1',{scope:'./',updateViaCache:'none'}).then(function(r){
+  navigator.serviceWorker.register('sw.js?v=2',{scope:'./',updateViaCache:'none'}).then(function(r){
     reg=r;
     if(r.waiting)activateWaiting();
     r.addEventListener('updatefound',function(){var w=r.installing;if(!w)return;w.addEventListener('statechange',function(){if(w.state==='installed'&&navigator.serviceWorker.controller){note('تم تنزيل تحديث جديد؛ يتم تفعيله الآن.','good');try{w.postMessage({type:'SKIP_WAITING'})}catch(e){}}})});
