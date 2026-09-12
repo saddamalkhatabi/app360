@@ -118,17 +118,16 @@ for (const rel of ['package.json','pnpm-workspace.yaml','pnpm-lock.yaml','packag
 for (const rel of [
   'manifest.webmanifest',
   'sw.js',
-  'assets/brand/app360-lab-logo.webp',
+  'assets/brand/app360-lab-mark.svg',
   'assets/brand/app360-lab-icon-180.png',
   'assets/brand/app360-lab-icon-192.png',
   'assets/brand/app360-lab-icon-512.png',
   'assets/brand/favicon-32.png',
   'assets/brand/favicon-64.png',
-  'assets/brand/favicon.ico',
   'assets/brand/app360-lab-og.jpg',
   'assets/js/pwa-install.js'
 ]) if (!exists(rel)) fail(`missing portal PWA/brand asset: ${rel}`);
-ok('portal PWA and approved raster brand foundation present');
+ok('portal PWA and transparent brand foundation present');
 
 // Workspace package identity and lockfile hygiene.
 const workspacePkgs = [];
