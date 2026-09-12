@@ -1,10 +1,11 @@
-var CACHE='app360-portal-v4';
+var CACHE='app360-portal-v5';
 var CORE=[
-  './','./index.html','./manifest.webmanifest?v=4',
+  './','./index.html','./manifest.webmanifest?v=5',
   './assets/css/lab360.css?v=3',
   './assets/js/lab360.js?v=2','./assets/js/pwa-install.js?v=1',
-  './assets/brand/app360-lab-logo.webp?v=4',
-  './assets/brand/app360-lab-icon-192.png?v=4','./assets/brand/app360-lab-icon-512.png?v=4',
+  './assets/brand/app360-lab-logo.webp?v=5',
+  './assets/brand/app360-lab-icon-180.png?v=5','./assets/brand/app360-lab-icon-192.png?v=5','./assets/brand/app360-lab-icon-512.png?v=5',
+  './assets/brand/favicon-32.png?v=5','./assets/brand/favicon-64.png?v=5','./assets/brand/favicon.ico?v=5','./assets/brand/app360-lab-og.jpg?v=5',
   './data/catalog.json','./data/goals.json',
   './ages/1-4/index.html','./ages/4-8/index.html','./ages/8-12/index.html','./ages/12-16/index.html',
   './ages/16-24/index.html','./ages/24-45/index.html','./ages/45-60/index.html','./ages/60-80/index.html'
