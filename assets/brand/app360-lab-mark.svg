@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">مختبر التطبيق 360</title>
+  <desc id="desc">رمز شفاف يجمع التشغيل والتعلم العملي والتقدم بزاوية 360</desc>
+  <defs>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16C5D0"/>
+      <stop offset="0.46" stop-color="#0A9BA8"/>
+      <stop offset="1" stop-color="#064F61"/>
+    </linearGradient>
+    <linearGradient id="tealDeep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0DB9C4"/>
+      <stop offset="1" stop-color="#064657"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD94A"/>
+      <stop offset="0.58" stop-color="#F4C027"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="orbit" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10B9C4"/>
+      <stop offset="0.52" stop-color="#1BB8AF"/>
+      <stop offset="0.78" stop-color="#EACB35"/>
+      <stop offset="1" stop-color="#F4A916"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#063F4B" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft)">
+    <!-- symbolic 360 arcs: open, not a closed outer ring -->
+    <path d="M158 101c30-17 70-26 111-26" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M286 75c31 2 59 10 82 24" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+    <text x="226" y="105" text-anchor="middle" font-family="Arial,DejaVu Sans,sans-serif" font-size="64" font-weight="800" fill="url(#tealDeep)">360</text>
+
+    <!-- play / practical application window -->
+    <rect x="107" y="132" width="244" height="214" rx="54" fill="none" stroke="url(#teal)" stroke-width="34"/>
+    <path d="M202 192c0-12 13-20 24-13l82 54c10 7 10 22 0 29l-82 54c-11 7-24-1-24-14z" fill="url(#tealDeep)"/>
+
+    <!-- learner / doer figure -->
+    <circle cx="362" cy="174" r="36" fill="url(#teal)"/>
+    <path d="M342 222c19-21 42-32 65-43 10-5 18 8 13 18-18 37-31 72-45 111-7 20-22 44-42 55-23 12-58 9-83 1 44-13 69-45 75-76 5-25 2-48 17-66z" fill="url(#tealDeep)"/>
+    <path d="M396 218c24-34 42-69 58-104" fill="none" stroke="url(#teal)" stroke-width="26" stroke-linecap="round"/>
+
+    <!-- achievement star -->
+    <path d="M459 48l13 28 31 4-23 22 6 31-27-15-28 15 6-31-23-22 31-4z" fill="url(#gold)"/>
+
+    <!-- 360 practical-motion swoosh -->
+    <path d="M58 356c65 48 163 65 258 52 62-8 116-29 153-63-22 61-91 105-181 118-99 14-205-9-266-67-17-16-10-38 36-40z" fill="url(#orbit)"/>
+    <path d="M389 330c29-28 47-61 55-98" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
