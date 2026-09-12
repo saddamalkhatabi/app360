@@ -17,18 +17,32 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: brand-v10-stop
-      - name: Decode optimized approved logo
+      - name: Install image tooling
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y imagemagick fonts-dejavu-core
+      - name: Decode and finalize approved logo
         shell: bash
         run: |
           set -euo pipefail
-          cat assets/brand/v10parts/part-* | base64 -d > assets/brand/app360-lab-logo-v10.webp
-          test -s assets/brand/app360-lab-logo-v10.webp
-          file assets/brand/app360-lab-logo-v10.webp
-      - name: Commit decoded logo and remove transport parts
+          cat assets/brand/v10parts/part-* | base64 -d > /tmp/app360-base.webp
+          test -s /tmp/app360-base.webp
+          identify /tmp/app360-base.webp
+
+          # Remove the old tiny 360 that sat inside the left gold rule,
+          # then put a clean teal 360 beside the existing Arabic subtitle.
+          convert /tmp/app360-base.webp \
+            -alpha on -channel A -fill black -draw 'rectangle 145,516 228,560' +channel \
+            -font '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' \
+            -pointsize 30 -fill '#0096A5' -draw "text 150,546 '360'" \
+            -quality 94 assets/brand/app360-lab-logo-v10.webp
+
+          identify assets/brand/app360-lab-logo-v10.webp
+      - name: Commit finalized logo and remove transport parts
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add assets/brand/app360-lab-logo-v10.webp
           git rm -r assets/brand/v10parts
-          git commit -m 'Add optimized exact v10 portal logo' || exit 0
+          git commit -m 'Add finalized high-resolution v10 portal logo' || exit 0
           git push origin HEAD:brand-v10-stop
