@@ -11,7 +11,7 @@ function statusAr(s){return s==='live'?'يعمل الآن':s==='planned'?'مخط
 function kindAr(k){return k==='goal_aligned'?'مرتبط بالأهداف':k==='modern_extension'?'إضافة عصرية':'هجين ومعزز'}
 function joinText(a){return a&&a.join?a.join(' '):''}
 function contains(a,v){var i;if(!a)return false;for(i=0;i<a.length;i++)if(a[i]===v)return true;return false}
-function applyPortalBrand(){var bm=d.querySelector?d.querySelector('.brand-mark'):null;if(bm)bm.innerHTML='<img src="'+esc(rootPath('assets/brand/app360-lab-icon-192.png?v=7'))+'" alt="">';if(!byId('brandV7Css')){var l=d.createElement('link');l.id='brandV7Css';l.rel='stylesheet';l.href=rootPath('assets/css/brand-v7.css?v=7');(d.head||d.getElementsByTagName('head')[0]).appendChild(l)}}
+function applyPortalBrand(){var bm=d.querySelector?d.querySelector('.brand-mark'):null;if(bm)bm.innerHTML='<img src="'+esc(rootPath('assets/brand/app360-lab-icon-192.png?v=9'))+'" alt="">';if(!byId('brandV7Css')){var l=d.createElement('link');l.id='brandV7Css';l.rel='stylesheet';l.href=rootPath('assets/css/brand-v7.css?v=9');(d.head||d.getElementsByTagName('head')[0]).appendChild(l)}}
 var catalog=null,goals=null,activeStatus='all',page=attr('data-page','home'),age=attr('data-age','');
 function appSearchText(a){return norm([a.title_ar,a.description_ar,a.practice_model,a.age_group,joinText(a.tags),joinText(a.goal_keys),kindAr(a.kind),statusAr(a.status)].join(' '))}
 function appHref(a){if(!a.href)return'';return rootPath(a.href)}
