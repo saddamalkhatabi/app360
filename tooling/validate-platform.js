@@ -118,7 +118,7 @@ for (const rel of ['package.json','pnpm-workspace.yaml','pnpm-lock.yaml','packag
 for (const rel of [
   'manifest.webmanifest',
   'sw.js',
-  'assets/brand/app360-lab-mark.svg',
+  'assets/brand/app360-lab-logo-transparent.png',
   'assets/brand/app360-lab-icon-180.png',
   'assets/brand/app360-lab-icon-192.png',
   'assets/brand/app360-lab-icon-512.png',
@@ -127,9 +127,8 @@ for (const rel of [
   'assets/brand/app360-lab-og.jpg',
   'assets/js/pwa-install.js'
 ]) if (!exists(rel)) fail(`missing portal PWA/brand asset: ${rel}`);
-ok('portal PWA and transparent brand foundation present');
+ok('portal PWA and exact approved transparent brand foundation present');
 
-// Workspace package identity and lockfile hygiene.
 const workspacePkgs = [];
 for (const age of listDirs('apps')) {
   if (age === '_template') continue;
