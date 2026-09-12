@@ -3,6 +3,7 @@ name: Validate App 360 Lab
 on:
   push:
     paths:
+      - 'README.md'
       - 'index.html'
       - 'ages/**'
       - 'apps/**'
@@ -22,6 +23,7 @@ on:
       - '.github/workflows/validate-platform.yml'
   pull_request:
     paths:
+      - 'README.md'
       - 'index.html'
       - 'ages/**'
       - 'apps/**'
