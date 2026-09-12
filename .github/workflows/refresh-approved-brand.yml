@@ -1,0 +1,49 @@
+name: Refresh approved App 360 brand assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-approved-brand.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate branded PWA icons from approved logo
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
+          SRC='assets/brand/app360-lab-logo.webp'
+          TMP='/tmp/app360-brand-mark.png'
+          convert "$SRC" -crop 646x517+127+68 +repage -background white -gravity center -extent 646x646 "$TMP"
+          convert "$TMP" -resize 512x512 -colors 256 -define png:compression-level=9 assets/brand/app360-lab-icon-512.png
+          convert "$TMP" -resize 192x192 -colors 256 -define png:compression-level=9 assets/brand/app360-lab-icon-192.png
+          convert "$TMP" -resize 180x180 -colors 256 -define png:compression-level=9 assets/brand/app360-lab-icon-180.png
+          convert "$TMP" -resize 64x64 -colors 256 -define png:compression-level=9 assets/brand/favicon-64.png
+          convert "$TMP" -resize 32x32 -colors 256 -define png:compression-level=9 assets/brand/favicon-32.png
+      - name: Remove obsolete generated brand variants
+        shell: bash
+        run: |
+          rm -f assets/brand/app360-lab-icon.svg assets/brand/app360-lab-logo.svg
+      - name: Remove one-time workflow
+        shell: bash
+        run: rm -f .github/workflows/refresh-approved-brand.yml
+      - name: Commit refreshed brand files
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            git commit -m 'Generate approved App 360 logo icons and clean old brand assets'
+            git push
+          fi
