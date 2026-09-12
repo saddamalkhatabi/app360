@@ -27,8 +27,10 @@ jobs:
           from pathlib import Path
           p=Path('assets/brand')
           im=Image.open(p/'app360-lab-logo.webp').convert('RGB')
-          # Approved logo is 900x900. Crop the emblem only, then center it on a square white canvas.
-          mark=im.crop((127,68,773,585))
+          w,h=im.size
+          # Crop only the approved central emblem; coordinates are proportional so the source can be optimized/resized.
+          box=(round(w*.14),round(h*.075),round(w*.86),round(h*.58))
+          mark=im.crop(box)
           side=max(mark.size)
           canvas=Image.new('RGB',(side,side),'white')
           canvas.paste(mark,((side-mark.width)//2,(side-mark.height)//2))
