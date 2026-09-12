@@ -11,6 +11,7 @@ function statusAr(s){return s==='live'?'يعمل الآن':s==='planned'?'مخط
 function kindAr(k){return k==='goal_aligned'?'مرتبط بالأهداف':k==='modern_extension'?'إضافة عصرية':'هجين ومعزز'}
 function joinText(a){return a&&a.join?a.join(' '):''}
 function contains(a,v){var i;if(!a)return false;for(i=0;i<a.length;i++)if(a[i]===v)return true;return false}
+function applyBrand(){var marks=d.querySelectorAll?d.querySelectorAll('.brand-mark'):[],i;for(i=0;i<marks.length;i++){var img=marks[i].getElementsByTagName('img')[0];if(!img){marks[i].innerHTML='<img src="'+esc(rootPath('assets/brand/app360-lab-mark.svg?v=6'))+'" alt="">'}else if(img.src&&img.src.indexOf('app360-lab-mark.svg')<0){img.src=rootPath('assets/brand/app360-lab-mark.svg?v=6')}}}
 var catalog=null,goals=null,activeStatus='all',page=attr('data-page','home'),age=attr('data-age','');
 function appSearchText(a){return norm([a.title_ar,a.description_ar,a.practice_model,a.age_group,joinText(a.tags),joinText(a.goal_keys),kindAr(a.kind),statusAr(a.status)].join(' '))}
 function appHref(a){if(!a.href)return'';return rootPath(a.href)}
@@ -28,6 +29,6 @@ function renderAgeHeader(){var g=ageInfo();if(!g)return;var t=byId('ageTitle'),p
 function statusFilters(){var box=byId('statusFilters');if(!box)return;var bs=box.getElementsByTagName('button'),i;for(i=0;i<bs.length;i++)bs[i].onclick=function(){activeStatus=this.getAttribute('data-status')||'all';var j;for(j=0;j<bs.length;j++)bs[j].className='filter-btn'+(bs[j]===this?' on':'');renderApps()}}
 function bindSearch(){var s=byId('appSearch');if(s){s.onkeyup=renderApps;s.onchange=renderApps}}
 function renderStats(){if(!catalog)return;var apps=catalog.apps||[],live=0,planned=0,idea=0,i;for(i=0;i<apps.length;i++){if(apps[i].status==='live')live++;else if(apps[i].status==='planned')planned++;else idea++}var a=byId('totalApps'),b=byId('liveApps'),c=byId('plannedApps');if(a)a.innerHTML=apps.length;if(b)b.innerHTML=live;if(c)c.innerHTML=planned+idea}
-function init(){var cu=attr('data-catalog',rootPath('data/catalog.json')),gu=attr('data-goals',rootPath('data/goals.json'));loadJson(cu,function(e,c){if(e){var x=byId('appGrid');if(x)x.innerHTML='<div class="empty">تعذر تحميل فهرس التطبيقات. إذا كنت دون اتصال افتح البوابة مرة واحدة أثناء الاتصال ليتم حفظها.</div>';return}catalog=c;loadJson(gu,function(ge,g){goals=ge?{age_groups:{}}:g;if(page==='home'){renderAges();renderStats()}else{renderAgeHeader();renderGoals()}statusFilters();bindSearch();renderApps()})})}
+function init(){applyBrand();var cu=attr('data-catalog',rootPath('data/catalog.json')),gu=attr('data-goals',rootPath('data/goals.json'));loadJson(cu,function(e,c){if(e){var x=byId('appGrid');if(x)x.innerHTML='<div class="empty">تعذر تحميل فهرس التطبيقات. إذا كنت دون اتصال افتح البوابة مرة واحدة أثناء الاتصال ليتم حفظها.</div>';return}catalog=c;loadJson(gu,function(ge,g){goals=ge?{age_groups:{}}:g;if(page==='home'){renderAges();renderStats()}else{renderAgeHeader();renderGoals()}statusFilters();bindSearch();renderApps()})})}
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',init,false);else init();
 })();
