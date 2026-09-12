@@ -1,0 +1,69 @@
+name: Render transparent App 360 brand
+
+on:
+  push:
+    paths:
+      - '.github/workflows/render-transparent-brand.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SVG renderer and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin
+          python -m pip install --quiet pillow
+      - name: Render transparent icons and social preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC='assets/brand/app360-lab-mark.svg'
+          rsvg-convert -w 512 -h 512 "$SRC" -o assets/brand/app360-lab-icon-512.png
+          rsvg-convert -w 192 -h 192 "$SRC" -o assets/brand/app360-lab-icon-192.png
+          rsvg-convert -w 180 -h 180 "$SRC" -o assets/brand/app360-lab-icon-180.png
+          rsvg-convert -w 64 -h 64 "$SRC" -o assets/brand/favicon-64.png
+          rsvg-convert -w 32 -h 32 "$SRC" -o assets/brand/favicon-32.png
+          python - <<'PY'
+          from PIL import Image, ImageDraw
+          from pathlib import Path
+          p=Path('assets/brand')
+          i64=Image.open(p/'favicon-64.png').convert('RGBA')
+          i64.save(p/'favicon.ico',format='ICO',sizes=[(64,64),(32,32),(16,16)])
+          icon=Image.open(p/'app360-lab-icon-512.png').convert('RGBA')
+          w,h=1200,630
+          bg=Image.new('RGBA',(w,h),(248,251,251,255))
+          draw=ImageDraw.Draw(bg)
+          for y in range(h):
+              t=y/max(1,h-1)
+              c=tuple(int((1-t)*a+t*b) for a,b in zip((248,251,251),(228,247,247)))+(255,)
+              draw.line((0,y,w,y),fill=c)
+          mark=icon.resize((410,410),Image.Resampling.LANCZOS)
+          bg.alpha_composite(mark,(w-470,110))
+          # simple brand bands; text remains rendered by the site itself, avoiding font mismatch in preview generation
+          draw.rounded_rectangle((90,185,650,445),radius=42,fill=(255,255,255,220),outline=(207,231,232,255),width=3)
+          draw.rectangle((90,425,650,445),fill=(244,192,39,255))
+          bg.convert('RGB').save(p/'app360-lab-og.jpg',quality=90,optimize=True)
+          PY
+          rm -f assets/brand/app360-lab-logo.webp
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/render-transparent-brand.yml
+      - name: Commit transparent brand outputs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            git commit -m 'Generate transparent App 360 icons and remove white logo asset'
+            git push
+          fi
