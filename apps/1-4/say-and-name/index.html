@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0f8f8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>كلماتي مع أشيائي: اسمع وأشر وسمِّ | مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
+<main class="app" id="mainContent">
+  <header class="head">
+    <div class="head-row">
+      <img class="app-icon" src="icon.svg" alt="">
+      <div class="head-copy">
+        <div class="eyebrow">مختبر التطبيق 360 · من 1 إلى 4 سنوات</div>
+        <h1>كلماتي مع أشيائي</h1>
+        <p>اسمع · أشر · سمِّ · واستخدم الكلمة في اللعب الحقيقي</p>
+      </div>
+      <div class="head-actions">
+        <button id="installAppBtn" class="install" type="button">⬇ تثبيت</button>
+        <button id="updateAppBtn" type="button">↻ تحديث</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="storageBanner" class="banner warn" hidden role="status" aria-live="polite">
+    الحفظ الدائم غير متاح في هذا المتصفح. سيستمر النشاط مؤقتًا ويمكنك تصدير السجل قبل الإغلاق.
+  </section>
+
+  <nav class="tabs" aria-label="أقسام التطبيق">
+    <button class="tab is-active" id="tabPractice" type="button" data-view="practice">اللعب اللغوي</button>
+    <button class="tab" id="tabLog" type="button" data-view="log">سجل المواقف <span id="logCount" class="count">0</span></button>
+    <button class="tab" id="tabGuide" type="button" data-view="guide">للمرافق</button>
+  </nav>
+
+  <section id="practiceView" class="view" aria-labelledby="practiceTitle">
+    <div id="startPanel" class="panel hero-panel">
+      <div class="hero-grid">
+        <div>
+          <span class="pill">جلسة قصيرة خارج الشاشة قدر الإمكان</span>
+          <h2 id="practiceTitle">اختَر الأشياء الموجودة حولكم</h2>
+          <p class="lead">سترى 12 صورة لأشياء مألوفة. اختر منها ما تستطيعون الإشارة إليه أو العثور عليه في الواقع، ثم ابدأوا جولة قصيرة.</p>
+          <div class="rule-card">
+            <strong>المهم:</strong> الإشارة استجابة صحيحة. لا نطلب من الطفل أن ينطق كي “ينجح”.
+          </div>
+        </div>
+        <div class="mini-steps" aria-label="خطوات النشاط">
+          <div><b>1</b><span>اسمع الاسم</span></div>
+          <div><b>2</b><span>ابحث عن الشيء</span></div>
+          <div><b>3</b><span>انتظر الاستجابة</span></div>
+          <div><b>4</b><span>وسّعها بلطف</span></div>
+        </div>
+      </div>
+      <div class="selection-head">
+        <div><strong id="selectionStatus">اختر 3 أشياء على الأقل</strong><span>يمكن اختيار حتى 12 شيئًا</span></div>
+        <button id="selectAllBtn" class="ghost" type="button">اختيار الكل</button>
+      </div>
+      <div id="wordGrid" class="word-grid" aria-live="polite"></div>
+      <div class="sticky-actions">
+        <button id="startSessionBtn" class="primary big" type="button" disabled>ابدأ الجولة</button>
+      </div>
+    </div>
+
+    <div id="sessionPanel" hidden>
+      <div class="session-top panel compact">
+        <button id="backToSelectionBtn" class="ghost" type="button">‹ تغيير الاختيار</button>
+        <div class="progress-wrap" aria-label="تقدم الجولة">
+          <div class="progress-label"><span id="progressText">1 من 1</span><span id="sessionSavedState">غير محفوظ بعد</span></div>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+      </div>
+
+      <article class="practice-card panel" aria-live="polite">
+        <div class="word-stage">
+          <div class="picture-shell"><img id="practiceImage" alt=""></div>
+          <div class="word-copy">
+            <span class="pill soft">الخطوة الأولى</span>
+            <h2 id="practiceWord">—</h2>
+            <p id="practiceHint" class="muted"></p>
+            <div class="audio-actions">
+              <button id="speakBtn" class="sound primary" type="button">🔊 اسمع الاسم</button>
+              <button id="facilitatorModeBtn" class="ghost" type="button">👤 سأقولها بنفسي</button>
+            </div>
+            <p id="audioStatus" class="micro" aria-live="polite">إذا لم يتوفر صوت عربي على الجهاز، قل الكلمة أنت ببطء وبشكل طبيعي.</p>
+          </div>
+        </div>
+
+        <div class="real-world-callout">
+          <div class="real-icon" aria-hidden="true">🏠</div>
+          <div><strong>الآن اتركوا الصورة قليلًا</strong><p>ابحثوا عن الشيء الحقيقي أو أشيروا إليه في المكان. اتبع اهتمام الطفل بدل تحويلها إلى اختبار.</p></div>
+        </div>
+
+        <section class="response-block" aria-labelledby="responseTitle">
+          <div class="section-head"><div><span class="pill soft">الخطوة الثانية</span><h3 id="responseTitle">ماذا فعل الطفل؟</h3></div><span class="micro">اختر الأقرب فقط</span></div>
+          <div id="responseButtons" class="response-grid">
+            <button type="button" data-response="pointed"><span>👆</span><b>أشار</b><small>أشار إلى الشيء أو الصورة</small></button>
+            <button type="button" data-response="imitated"><span>👄</span><b>قلّد</b><small>حاول صوتًا أو جزءًا من الكلمة</small></button>
+            <button type="button" data-response="said"><span>💬</span><b>قال الكلمة</b><small>قال الكلمة أو كلمة قريبة منها</small></button>
+            <button type="button" data-response="used"><span>🤲</span><b>طلب أو استخدم</b><small>استعمل الكلمة أو الإشارة لحاجة حقيقية</small></button>
+            <button type="button" data-response="not-yet"><span>🌱</span><b>ليس بعد</b><small>شاهد أو ابتعد أو لم يستجب الآن</small></button>
+          </div>
+        </section>
+
+        <section id="coachCard" class="coach-card" hidden aria-labelledby="coachTitle">
+          <div class="coach-head"><div class="coach-avatar" aria-hidden="true">🫶</div><div><span class="pill light">للمرافق</span><h3 id="coachTitle">انتظر… ثم وسّع</h3></div></div>
+          <ol>
+            <li><strong>اتبع اهتمامه:</strong> علّق على الشيء الذي ينظر إليه أو يلمسه.</li>
+            <li><strong>انتظر بضع ثوانٍ:</strong> لا تملأ كل الصمت بالكلام.</li>
+            <li><strong>وسّع استجابته:</strong> أضف كلمة واحدة أو جملة قصيرة فقط.</li>
+          </ol>
+          <div class="expansion-box"><span>مثال مناسب الآن</span><strong id="expansionExample">—</strong></div>
+          <div class="field-grid">
+            <label><span>ما فعله أو قاله الطفل؟ <em>اختياري</em></span><input id="childNote" type="text" maxlength="120" placeholder="مثال: أشار وقال كـ..."></label>
+            <label><span>ماذا قلت بعده؟ <em>اختياري</em></span><input id="adultExpansion" type="text" maxlength="120" placeholder="مثال: كرة... أريد الكرة"></label>
+          </div>
+          <fieldset class="assist"><legend>مقدار المساعدة</legend>
+            <label><input type="radio" name="assist" value="none"> بدون مساعدة</label>
+            <label><input type="radio" name="assist" value="hint" checked> تلميح بسيط</label>
+            <label><input type="radio" name="assist" value="model"> نموذج كامل من المرافق</label>
+          </fieldset>
+          <div class="coach-actions">
+            <button id="saveAttemptBtn" class="primary big" type="button">حفظ الموقف والانتقال</button>
+            <button id="skipAttemptBtn" class="ghost" type="button">تخطي هذه الصورة</button>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <section id="finishPanel" class="panel finish" hidden aria-live="polite">
+      <div class="finish-mark">✓</div>
+      <span class="pill">انتهت الجولة</span>
+      <h2>وثّقتم مواقف تواصل، لا درجات</h2>
+      <p id="finishSummary" class="lead"></p>
+      <div id="finishStats" class="finish-stats"></div>
+      <p class="muted">يمكنكم التوقف هنا. التكرار في مواقف الحياة اليومية أهم من إطالة الجلسة أمام الشاشة.</p>
+      <div class="finish-actions">
+        <button id="openFinishedLogBtn" class="primary" type="button">فتح سجل الجولة</button>
+        <button id="newSessionBtn" class="ghost" type="button">جولة جديدة</button>
+      </div>
+    </section>
+  </section>
+
+  <section id="logView" class="view" hidden aria-labelledby="logTitle">
+    <div class="panel">
+      <div class="section-head split">
+        <div><span class="pill">سجل المرافق</span><h2 id="logTitle">مواقف التواصل المحفوظة</h2><p class="muted">السجل وصفي فقط ولا يحسب درجة للنطق أو التطور.</p></div>
+        <div class="toolbar"><button id="exportJsonBtn" class="ghost" type="button">تصدير JSON</button><button id="exportTxtBtn" class="ghost" type="button">تصدير نص</button></div>
+      </div>
+      <div id="logEmpty" class="empty"><div>🗂️</div><strong>لا توجد جولات محفوظة بعد</strong><p>ابدأوا جولة قصيرة وسجّلوا استجابة واحدة على الأقل.</p></div>
+      <div id="sessionList" class="session-list"></div>
+    </div>
+  </section>
+
+  <section id="guideView" class="view" hidden aria-labelledby="guideTitle">
+    <div class="panel guide">
+      <span class="pill">بطاقة مرافق</span>
+      <h2 id="guideTitle">اجعل اللغة جزءًا من اللعب، لا امتحانًا</h2>
+      <div class="guide-grid">
+        <article><span>👀</span><h3>لاحظ</h3><p>ابدأ بما ينظر إليه الطفل أو يلمسه فعلًا.</p></article>
+        <article><span>🗣️</span><h3>سمِّ</h3><p>قل كلمة قصيرة وواضحة مرة أو مرتين، بلا ضغط للتكرار.</p></article>
+        <article><span>⏳</span><h3>انتظر</h3><p>امنحه وقتًا للإشارة أو النظر أو المحاولة قبل أن تتكلم مجددًا.</p></article>
+        <article><span>➕</span><h3>وسّع</h3><p>إذا قال «كرة»، يمكنك أن تقول «كرة كبيرة» أو «أريد الكرة» بحسب الموقف.</p></article>
+      </div>
+      <div class="safety-note"><strong>هذا التطبيق ليس أداة تشخيص.</strong> إذا كانت لديك مخاوف حقيقية بشأن السمع أو التواصل أو التطور، فناقشها مع مختص مؤهل بدل الاعتماد على نتيجة داخل التطبيق.</div>
+      <h3>الصوت والخصوصية</h3>
+      <p>يحاول التطبيق استخدام صوت عربي الموجود على الجهاز لنطق اسم الشيء. إذا لم يتوفر، يطلب من المرافق قول الكلمة بنفسه. لا يستخدم الميكروفون ولا يسجل صوت الطفل ولا يرسل أي بيانات إلى خادم.</p>
+    </div>
+  </section>
+</main>
+
+<div id="detailDialog" class="dialog-backdrop" hidden>
+  <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <button id="closeDetailBtn" class="dialog-close" type="button" aria-label="إغلاق">×</button>
+    <div id="detailContent"></div>
+  </section>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
+<script src="app-core.js?v=2" defer></script>
+<script src="app.js?v=2" defer></script>
+<script src="../../../assets/js/app-pwa.js?v=1" defer></script>
+</body>
+</html>

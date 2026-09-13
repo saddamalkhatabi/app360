@@ -4,9 +4,9 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 1,
+  "version": 3,
   "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-first-words-expressive-language",
@@ -21,12 +21,24 @@
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
     "storage.local",
+    "audio.tts",
     "pwa.offline"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختيار مجموعة من 12 صورة لأشياء مألوفة ← تشغيل اسم الصورة ثم البحث عن الشيء الحقيقي ← لوحة مرافق: انتظر الاستجابة ثم وسّع الكلمة",
+  "practice_model_ar": "اختر أشياء مألوفة من 12 صورة ← اسمع الاسم وابحث عن الشيء الحقيقي ← انتظر استجابة الطفل ← سجّل الإشارة أو التقليد أو الكلمة ← وسّع الاستجابة بكلمة قصيرة",
+  "data_contract": {
+    "storage_key": "app360:a1-first-words:schema-1.1:sessions",
+    "artifact": "communication-situation-log",
+    "stores_child_audio": false,
+    "exports": ["json", "txt"]
+  },
+  "audio": {
+    "word_strategy": "browser Arabic TTS when available, facilitator verbal model otherwise",
+    "local_cues": ["audio/cues/listen.wav", "audio/cues/saved.wav"],
+    "microphone": false
+  },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md"
 }

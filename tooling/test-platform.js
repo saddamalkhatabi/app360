@@ -37,11 +37,19 @@ test('rejects unsupported delivery and mismatched local identity', () => {
   invalidCatalog(c => { c.apps[1].goal_links[0].delivery = 'available_with_facilitator'; }, /unbuilt app claims delivered goal/);
   invalidCatalog(c => { c.apps[1].id = 'wrong-identity'; }, /contract id mismatch/);
 });
-test('scaffold continues a plan, preserves its contract/docs, and refuses a second run', () => {
-  const rel = 'apps/1-4/say-and-name';
+test('scaffold continues a blueprint-only plan, preserves its contract/docs, and refuses a second run', () => {
+  const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog.json'), 'utf8'));
+  const candidate = catalog.apps.find(a => {
+    if (a.status === 'live') return false;
+    const p = path.join(root, 'apps', a.age_group, a.slug, 'app.json');
+    if (!fs.existsSync(p)) return false;
+    try { return JSON.parse(fs.readFileSync(p, 'utf8')).scaffold_state === 'blueprint-only'; } catch (_) { return false; }
+  });
+  assert.ok(candidate, 'expected at least one blueprint-only planned app');
+  const rel = `apps/${candidate.age_group}/${candidate.slug}`;
   const manifest = JSON.parse(fs.readFileSync(path.join(root, rel, 'app.json')));
   const spec = fs.readFileSync(path.join(root, rel, 'BUILD_SPEC.md'), 'utf8');
-  const args = ['1-4', 'say-and-name', manifest.title_ar];
+  const args = [candidate.age_group, candidate.slug, manifest.title_ar];
   const first = run('tooling/scaffold-app.js', args);
   assert.equal(first.status, 0, first.stdout+first.stderr);
   const next = JSON.parse(fs.readFileSync(path.join(root, rel, 'app.json')));
