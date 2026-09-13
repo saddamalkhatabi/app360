@@ -4,7 +4,7 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 5,
+  "version": 6,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -19,17 +19,11 @@
   "depth": "standard",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
-  "capabilities": [
-    "storage.local",
-    "audio.tts",
-    "pwa.offline"
-  ],
-  "bundles": [
-    "static-core"
-  ],
+  "capabilities": ["storage.local", "audio.tts", "pwa.offline"],
+  "bundles": ["static-core"],
   "practice_model_ar": "مكتبة مرئية وصوتية مصنفة ← عرض عام أو تصنيف محدد ← تنقل باللمس أو الأسهم أو المؤشر ← نطق اختياري ← تنقل تلقائي داخل التصنيف أو بين جميع التصنيفات ← ربط الصورة بالشيء الحقيقي عند الإمكان",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:viewer-v5",
+    "storage_key": "app360:a1-first-words:viewer-v6",
     "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
     "exports": []
@@ -37,6 +31,11 @@
   "audio": {
     "word_strategy": "browser Arabic TTS when enabled and available; visual browsing remains usable without audio",
     "microphone": false
+  },
+  "runtime_resilience": {
+    "data_loader": "XHR with embedded fallback dataset",
+    "image_loader": "SVG symbols are copied into the document at runtime with external sprite fallback",
+    "legacy_fetch_dependency": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md"
