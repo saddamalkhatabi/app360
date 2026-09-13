@@ -1,13 +1,14 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "engine": "edge-tts",
   "edge_tts_version": "7.2.8",
   "voice": "ar-SA-ZariyahNeural",
   "rate": "-8%",
   "unique_words": 985,
   "mapped_files": 985,
-  "generated_this_run": 985,
-  "skipped_existing": 0,
-  "dedupe_rule": "one MP3 per exact Arabic display word across all four levels",
+  "sense_specific_files": 2,
+  "generated_this_run": 2,
+  "skipped_existing": 985,
+  "dedupe_rule": "one MP3 per exact Arabic display word, except true homographs with distinct semantic pronunciation",
   "fallback": "browser TTS only when a bundled file is unavailable"
 }
