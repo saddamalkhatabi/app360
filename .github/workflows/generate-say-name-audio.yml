@@ -1,0 +1,79 @@
+name: Generate Say and Name Arabic Audio
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/generate-say-name-audio.yml
+      - apps/1-4/say-and-name/tools/generate_edge_audio.py
+      - apps/1-4/say-and-name/data/levels-inline-v8.js
+
+permissions:
+  contents: write
+
+concurrency:
+  group: say-and-name-edge-audio
+  cancel-in-progress: false
+
+jobs:
+  generate-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Edge TTS
+        run: python -m pip install --upgrade pip edge-tts==7.2.8
+
+      - name: Generate one Arabic MP3 per unique word
+        run: >-
+          python apps/1-4/say-and-name/tools/generate_edge_audio.py
+          --voice ar-SA-ZariyahNeural
+          --rate=-8%
+          --concurrency 3
+
+      - name: Verify generated map and files
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          root = Path('apps/1-4/say-and-name')
+          text = (root/'data/audio-map.js').read_text(encoding='utf-8').strip()
+          assert text.startswith('window.APP360_AUDIO_MAP=') and text.endswith(';')
+          mapping = json.loads(text[len('window.APP360_AUDIO_MAP='):-1])
+          assert mapping, 'audio map is empty'
+          missing = []
+          for word, rel in mapping.items():
+              p = root / rel
+              if not p.exists() or p.stat().st_size <= 900:
+                  missing.append((word, rel))
+          assert not missing, f'missing/invalid audio files: {missing[:10]}'
+          manifest = json.loads((root/'audio/edge-manifest.json').read_text(encoding='utf-8'))
+          assert manifest['mapped_files'] == len(mapping)
+          print('verified audio files:', len(mapping))
+          print('voice:', manifest['voice'])
+          PY
+
+      - name: Commit generated audio bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/say-and-name/audio/edge \
+                  apps/1-4/say-and-name/audio/edge-manifest.json \
+                  apps/1-4/say-and-name/data/audio-map.js
+          if git diff --cached --quiet; then
+            echo "No new audio files to commit."
+            exit 0
+          fi
+          git commit -m "Generate Arabic word audio with Edge TTS"
+          git push origin HEAD:main
