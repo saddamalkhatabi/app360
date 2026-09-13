@@ -4,7 +4,7 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 7,
+  "version": 8,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -27,15 +27,15 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← بطاقات مرئية واضحة ← تنقل يدوي أو تلقائي ← نطق عربي عند التوفر ← استخدام الشيء الحقيقي مع البطاقة كلما أمكن",
+  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← بطاقات مرئية واضحة ← تنقل يدوي أو تلقائي ← تشغيل متوافق مع المتصفحات القديمة مع بيانات احتياطية داخلية ← نطق عربي عند التوفر",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:viewer-v7",
+    "storage_key": "app360:a1-first-words:viewer-v8",
     "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
     "exports": []
   },
   "audio": {
-    "word_strategy": "Prefer bundled recorded audio when available for each word, otherwise fall back to browser Arabic TTS when available",
+    "word_strategy": "Prefer bundled recorded audio when available later; browser Arabic TTS remains optional fallback",
     "microphone": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
