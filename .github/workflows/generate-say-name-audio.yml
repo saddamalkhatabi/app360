@@ -35,45 +35,52 @@ jobs:
       - name: Install Edge TTS
         run: python -m pip install --upgrade pip edge-tts==7.2.8
 
-      - name: Generate one Arabic MP3 per unique word
+      - name: Generate Arabic MP3 bundle
         run: >-
           python apps/1-4/say-and-name/tools/generate_edge_audio.py
           --voice ar-SA-ZariyahNeural
           --rate=-8%
           --concurrency 3
 
-      - name: Verify generated map and files
+      - name: Verify generated maps and files
         run: |
           python - <<'PY'
-          import json, re
+          import json
           from pathlib import Path
           root = Path('apps/1-4/say-and-name')
-          text = (root/'data/audio-map.js').read_text(encoding='utf-8').strip()
-          assert text.startswith('window.APP360_AUDIO_MAP=') and text.endswith(';')
-          mapping = json.loads(text[len('window.APP360_AUDIO_MAP='):-1])
+          def load_map(path, marker):
+              text = path.read_text(encoding='utf-8').strip()
+              assert text.startswith(marker) and text.endswith(';')
+              return json.loads(text[len(marker):-1])
+          mapping = load_map(root/'data/audio-map.js', 'window.APP360_AUDIO_MAP=')
+          senses = load_map(root/'data/audio-sense-map.js', 'window.APP360_AUDIO_SENSE_MAP=')
           assert mapping, 'audio map is empty'
-          missing = []
-          for word, rel in mapping.items():
-              p = root / rel
-              if not p.exists() or p.stat().st_size <= 900:
-                  missing.append((word, rel))
-          assert not missing, f'missing/invalid audio files: {missing[:10]}'
+          assert 'الجسم\u0001ظهر' in senses, 'body/back sense audio missing'
+          assert 'الوقت\u0001ظهر' in senses, 'noon sense audio missing'
+          for table in (mapping, senses):
+              for key, rel in table.items():
+                  p = root / rel
+                  assert p.exists() and p.stat().st_size > 900, (key, rel)
           manifest = json.loads((root/'audio/edge-manifest.json').read_text(encoding='utf-8'))
           assert manifest['mapped_files'] == len(mapping)
-          print('verified audio files:', len(mapping))
+          assert manifest['sense_specific_files'] == len(senses)
+          print('verified Arabic exact files:', len(mapping))
+          print('verified Arabic sense files:', len(senses))
           print('voice:', manifest['voice'])
           PY
 
-      - name: Commit generated audio bundle
+      - name: Commit generated Arabic audio bundle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add apps/1-4/say-and-name/audio/edge \
+                  apps/1-4/say-and-name/audio/edge-sense \
                   apps/1-4/say-and-name/audio/edge-manifest.json \
-                  apps/1-4/say-and-name/data/audio-map.js
+                  apps/1-4/say-and-name/data/audio-map.js \
+                  apps/1-4/say-and-name/data/audio-sense-map.js
           if git diff --cached --quiet; then
-            echo "No new audio files to commit."
+            echo "No new Arabic audio files to commit."
             exit 0
           fi
-          git commit -m "Generate Arabic word audio with Edge TTS"
+          git commit -m "Fix Arabic homograph audio for vocabulary app"
           git push origin HEAD:main
