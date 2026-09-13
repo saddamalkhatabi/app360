@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/generate-say-name-english.yml
       - apps/1-4/say-and-name/tools/generate_english_content.py
+      - apps/1-4/say-and-name/tools/generate_english_content_v2.py
       - apps/1-4/say-and-name/data/levels-inline-v8.js
 
 permissions:
@@ -47,9 +48,9 @@ jobs:
           asyncio.run(main())
           PY
 
-      - name: Translate vocabulary and generate deduplicated English MP3 files
+      - name: Translate vocabulary slowly and generate deduplicated English MP3 files
         run: >-
-          python apps/1-4/say-and-name/tools/generate_english_content.py
+          python apps/1-4/say-and-name/tools/generate_english_content_v2.py
           --voice en-US-JennyNeural
           --rate=-8%
           --concurrency 4
