@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/generate-say-name-english.yml
       - apps/1-4/say-and-name/tools/generate_english_argos.py
+      - apps/1-4/say-and-name/tools/generate_english_argos_v2.py
       - apps/1-4/say-and-name/data/levels-inline-v8.js
 
 permissions:
@@ -51,7 +52,7 @@ jobs:
         env:
           ARGOS_DEVICE_TYPE: cpu
         run: >-
-          python apps/1-4/say-and-name/tools/generate_english_argos.py
+          python apps/1-4/say-and-name/tools/generate_english_argos_v2.py
           --voice en-US-JennyNeural
           --rate=-8%
           --concurrency 4
