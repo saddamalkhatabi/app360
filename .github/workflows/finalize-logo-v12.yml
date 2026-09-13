@@ -25,7 +25,8 @@ jobs:
         run: |
           set -euo pipefail
           T='assets/brand/.transport-v12'
-          cat \
+          : > /tmp/app360-logo-source.webp
+          for f in \
             "$T/logo-00" \
             "$T/logo-01" \
             "$T/logo-02a" \
@@ -41,9 +42,9 @@ jobs:
             "$T/parts-24-25" \
             "$T/parts-26-27" \
             "$T/parts-28-29" \
-            "$T/parts-30-31" \
-            | tr -d '\r\n\t ' > /tmp/app360-logo.b64
-          base64 -d /tmp/app360-logo.b64 > /tmp/app360-logo-source.webp
+            "$T/parts-30-31"; do
+              tr -d '\r\n\t ' < "$f" | base64 -d >> /tmp/app360-logo-source.webp
+          done
           identify /tmp/app360-logo-source.webp
           test "$(stat -c%s /tmp/app360-logo-source.webp)" -lt 300000
           cp /tmp/app360-logo-source.webp assets/brand/app360-lab-logo.webp
