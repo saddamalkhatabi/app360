@@ -4,7 +4,7 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 3,
+  "version": 5,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -27,16 +27,15 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر أشياء مألوفة من 12 صورة ← اسمع الاسم وابحث عن الشيء الحقيقي ← انتظر استجابة الطفل ← سجّل الإشارة أو التقليد أو الكلمة ← وسّع الاستجابة بكلمة قصيرة",
+  "practice_model_ar": "مكتبة مرئية وصوتية مصنفة ← عرض عام أو تصنيف محدد ← تنقل باللمس أو الأسهم أو المؤشر ← نطق اختياري ← تنقل تلقائي داخل التصنيف أو بين جميع التصنيفات ← ربط الصورة بالشيء الحقيقي عند الإمكان",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:schema-1.1:sessions",
-    "artifact": "communication-situation-log",
+    "storage_key": "app360:a1-first-words:viewer-v5",
+    "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
-    "exports": ["json", "txt"]
+    "exports": []
   },
   "audio": {
-    "word_strategy": "browser Arabic TTS when available, facilitator verbal model otherwise",
-    "local_cues": ["audio/cues/listen.wav", "audio/cues/saved.wav"],
+    "word_strategy": "browser Arabic TTS when enabled and available; visual browsing remains usable without audio",
     "microphone": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
