@@ -5,25 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
-<title>كلماتي مع أشيائي - مكتبة الأشياء المصنفة</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>كلماتي مع أشيائي | مختبر التطبيق 360</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 <main class="app">
   <header class="hero">
     <div class="hero-top">
       <div class="logo" aria-hidden="true">🧠</div>
-      <div>
+      <div style="min-width:0;flex:1">
         <div style="font-size:13px;opacity:.9">مختبر التطبيق 360 · من 1 إلى 4 سنوات</div>
         <h1>مكتبتي الأولى للأشياء والمعرفة</h1>
-        <p>تعرّف إلى الأشياء المهمة من حولك حسب التصنيف أو بشكل عام. استمع للاسم، تنقّل باللمس أو الأسهم، وشغّل الحركة التلقائية مع النطق أو بدون نطق.</p>
-        <div class="head-actions"><button id="installAppBtn" class="install" type="button">⬇ تثبيت</button><button id="updateAppBtn" type="button">↻ تحديث</button></div><div class="badges">
+        <p>شاهد الصورة، اسمع الاسم، وتنقّل بين الأشياء حسب التصنيف أو بشكل عام.</p>
+        <div class="head-actions">
+          <button id="installAppBtn" class="install" type="button">⬇ تثبيت</button>
+          <button id="updateAppBtn" type="button">↻ تحديث</button>
+        </div>
+        <div class="badges">
           <span class="badge">عرض عام أو حسب التصنيف</span>
           <span class="badge">تنقل تلقائي أو يدوي</span>
-          <span class="badge">نطق قابل للتفعيل أو الإيقاف</span>
-          <span class="badge">ملائم للشاشة الكبيرة واللمس</span>
+          <span class="badge">نطق قابل للتفعيل والإيقاف</span>
+          <span class="badge">لمس وأسهم وشاشة كبيرة</span>
         </div>
       </div>
     </div>
@@ -34,11 +39,11 @@
       <div class="panel-head">
         <div>
           <h2>بطاقات المعرفة المصنفة</h2>
-          <p>يمكن للطفل مشاهدة الشيء أو الكائن أو الأداة ثم سماع الاسم العربي. التصنيفات الأساسية هي المنزل، مخلوقات الطبيعة، الحيوانات، الفواكه، ومعها أدوات ومهن كقسم ثانوي جميل للمعرفة.</p>
+          <p>اختر التصنيف أو العرض العام. التصنيفات الأساسية: المنزل، مخلوقات الطبيعة، الحيوانات، الفواكه، ومعها أدوات ومهن كقسم معرفي ثانوي.</p>
         </div>
         <div class="segment" id="displayModeSegment" aria-label="طريقة العرض">
-          <button class="is-active" data-mode="category">حسب التصنيف</button>
-          <button data-mode="all">عرض عام</button>
+          <button class="is-active" type="button" data-mode="category">حسب التصنيف</button>
+          <button type="button" data-mode="all">عرض عام</button>
         </div>
       </div>
 
@@ -47,45 +52,43 @@
       <div class="toolbar">
         <div class="control">
           <h4>الحركة والتشغيل التلقائي</h4>
-          <p>يمكن جعل البطاقات تتنقل تلقائيًا داخل التصنيف الحالي أو في العرض العام.</p>
+          <p>شغّل الانتقال التلقائي داخل التصنيف أو بين كل التصنيفات.</p>
           <div class="inline">
-            <button id="autoplayToggle" class="toggle">تشغيل التنقل التلقائي</button>
+            <button id="autoplayToggle" class="toggle" type="button">تشغيل التنقل التلقائي</button>
             <select id="autoplaySpeed" class="option" aria-label="سرعة التنقل التلقائي">
-              <option value="2500">سريع</option>
-              <option value="4000" selected>متوسط</option>
-              <option value="6000">هادئ</option>
+              <option value="2500">سريع</option><option value="4000" selected>متوسط</option><option value="6000">هادئ</option>
             </select>
           </div>
         </div>
         <div class="control">
           <h4>الصوت والتنقل</h4>
-          <p>يمكن تفعيل النطق أو إيقافه، والتنقل بالأسهم أو اللمس أو المفاتيح من لوحة المفاتيح.</p>
+          <p>فعّل أو أوقف النطق، واستخدم الأسهم أو اللمس أو ملء الشاشة.</p>
           <div class="inline">
-            <button id="speechToggle" class="toggle is-active">النطق مفعّل</button>
-            <button id="shuffleBtn" class="action">مجموعة منوّعة</button>
-            <button id="fullscreenBtn" class="action">ملء الشاشة</button>
+            <button id="speechToggle" class="toggle is-active" type="button">النطق مفعّل</button>
+            <button id="shuffleBtn" class="action" type="button">🎲 منوّع</button>
+            <button id="fullscreenBtn" class="action" type="button">⛶ ملء الشاشة</button>
           </div>
         </div>
         <div class="control">
-          <h4>التحكم بالمجموعة المعروضة</h4>
-          <p>اختر التنقل في جميع الكلمات أو فقط في التصنيف المحدد حاليًا.</p>
+          <h4>نطاق الحركة</h4>
+          <p>اختر هل التنقل يتحرك داخل التصنيف الحالي أم في كل البطاقات.</p>
           <div class="inline" id="scopeSegment">
-            <button class="toggle is-active" data-scope="current">التصنيف الحالي</button>
-            <button class="toggle" data-scope="all">كل التصنيفات</button>
+            <button class="toggle is-active" type="button" data-scope="current">التصنيف الحالي</button>
+            <button class="toggle" type="button" data-scope="all">كل التصنيفات</button>
           </div>
         </div>
         <div class="control">
           <h4>شريط التنقل السريع</h4>
-          <p>حرّك المؤشر للوصول بسرعة إلى أي بطاقة داخل المسار الحالي.</p>
+          <p>حرّك المؤشر للوصول مباشرة إلى أي بطاقة في المسار الحالي.</p>
           <div class="range-row">
-            <input id="itemRange" type="range" min="0" max="0" value="0">
+            <input id="itemRange" type="range" min="0" max="0" value="0" aria-label="التنقل بين البطاقات">
             <span id="rangeLabel">1 / 1</span>
           </div>
         </div>
       </div>
 
       <div class="stage-wrap">
-        <button class="nav-btn" id="prevBtn" aria-label="السابق">›</button>
+        <button class="nav-btn" id="prevBtn" type="button" aria-label="السابق">›</button>
         <article class="stage" id="stage" tabindex="0" aria-live="polite">
           <div class="stage-header">
             <div class="stage-tags">
@@ -93,7 +96,7 @@
               <span class="tag" id="modeTag">حسب التصنيف</span>
               <span class="tag" id="playTag">يدوي</span>
             </div>
-            <button class="stage-sound" id="speakBtn">🔊 انطق الاسم</button>
+            <button class="stage-sound" id="speakBtn" type="button">🔊 انطق الاسم</button>
           </div>
 
           <div class="illustration-shell">
@@ -103,8 +106,8 @@
           </div>
 
           <div class="title-box">
-            <div id="itemName" class="item-name">كوب</div>
-            <p id="itemHint" class="item-tip">استخدم الشيء الحقيقي إن أمكن، أو أشِر إلى الصورة وتحدث عنه بكلمة بسيطة.</p>
+            <div id="itemName" class="item-name">—</div>
+            <p id="itemHint" class="item-tip">يتم تحميل البطاقة الآن…</p>
             <div class="item-meta">
               <span class="meta" id="positionMeta">1 من 1</span>
               <span class="meta" id="scopeMeta">التنقل داخل التصنيف</span>
@@ -112,43 +115,36 @@
             </div>
           </div>
         </article>
-        <button class="nav-btn" id="nextBtn" aria-label="التالي">‹</button>
+        <button class="nav-btn" id="nextBtn" type="button" aria-label="التالي">‹</button>
       </div>
 
       <div class="panel" style="margin-top:16px;padding:14px">
         <div class="panel-head">
-          <div>
-            <h3>كل البطاقات في المسار الحالي</h3>
-            <p>انقر أي بطاقة لفتحها مباشرة. كل بطاقة لها صورة مصممة خاصة بها مع لون وتمييز بصري.</p>
-          </div>
-          <div class="inline">
-            <button class="action" id="speakCurrentThumb">نطق البطاقة الحالية</button>
-          </div>
+          <div><h3>كل البطاقات في المسار الحالي</h3><p>اضغط أي بطاقة لفتحها مباشرة وسماع اسمها عند تفعيل النطق.</p></div>
+          <div class="inline"><button class="action" id="speakCurrentThumb" type="button">🔊 نطق البطاقة الحالية</button></div>
         </div>
-        <div class="thumb-grid" id="thumbGrid"></div>
+        <div class="thumb-grid" id="thumbGrid"><div class="side-note">جارٍ تحميل البطاقات…</div></div>
       </div>
     </section>
-
-
   </div>
+
   <section class="panel facilitator-panel">
     <details>
       <summary>إرشاد مختصر للمرافق — اختياري وثانوي</summary>
       <div class="facilitator-grid">
-        <article><b>لاحظ</b><span>ابدأ بما يلفت اهتمام الطفل بدل تحويل العرض إلى اختبار.</span></article>
-        <article><b>سمِّ</b><span>قل الاسم مرة أو مرتين فقط، واترك مساحة للنظر أو الإشارة.</span></article>
-        <article><b>اربط</b><span>إذا كان الشيء الحقيقي موجودًا، قارنه بالصورة بصورة طبيعية.</span></article>
-        <article><b>وسّع</b><span>أضف جملة قصيرة عند الحاجة، مثل: هذه تفاحة حمراء.</span></article>
+        <article><b>لاحظ</b><span>ابدأ بما يلفت اهتمام الطفل.</span></article>
+        <article><b>سمِّ</b><span>قل الاسم مرة أو مرتين بلا ضغط.</span></article>
+        <article><b>اربط</b><span>قارن الصورة بالشيء الحقيقي عندما يتوفر.</span></article>
+        <article><b>وسّع</b><span>أضف جملة قصيرة فقط عند الحاجة.</span></article>
       </div>
     </details>
   </section>
 
   <div class="footer">مختبر التطبيق 360 · مكتبة مرئية وصوتية مصنفة للأطفال من 1 إلى 4 سنوات.</div>
 </main>
-
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
-<script src="app.js?v=5" defer></script>
+<script src="app.js?v=6" defer></script>
 <script src="../../../assets/js/app-pwa.js?v=1" defer></script>
 </body>
 </html>
