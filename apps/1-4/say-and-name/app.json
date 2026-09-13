@@ -5,8 +5,8 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
   "version": 3,
-  "status": "live",
-  "scaffold_state": "implemented",
+  "status": "planned",
+  "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-first-words-expressive-language",
@@ -32,17 +32,11 @@
     "storage_key": "app360:a1-first-words:schema-1.1:sessions",
     "artifact": "communication-situation-log",
     "stores_child_audio": false,
-    "exports": [
-      "json",
-      "txt"
-    ]
+    "exports": ["json", "txt"]
   },
   "audio": {
     "word_strategy": "browser Arabic TTS when available, facilitator verbal model otherwise",
-    "local_cues": [
-      "audio/cues/listen.wav",
-      "audio/cues/saved.wav"
-    ],
+    "local_cues": ["audio/cues/listen.wav", "audio/cues/saved.wav"],
     "microphone": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
