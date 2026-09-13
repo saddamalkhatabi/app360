@@ -4,7 +4,7 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 6,
+  "version": 7,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -16,26 +16,27 @@
   "manifest_path": "apps/1-4/say-and-name/manifest.webmanifest",
   "icon_path": "apps/1-4/say-and-name/icon.svg",
   "runtime_profile": "static-web",
-  "depth": "standard",
+  "depth": "expanded",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
-  "capabilities": ["storage.local", "audio.tts", "pwa.offline"],
-  "bundles": ["static-core"],
-  "practice_model_ar": "مكتبة مرئية وصوتية مصنفة ← عرض عام أو تصنيف محدد ← تنقل باللمس أو الأسهم أو المؤشر ← نطق اختياري ← تنقل تلقائي داخل التصنيف أو بين جميع التصنيفات ← ربط الصورة بالشيء الحقيقي عند الإمكان",
+  "capabilities": [
+    "storage.local",
+    "audio.tts",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← بطاقات مرئية واضحة ← تنقل يدوي أو تلقائي ← نطق عربي عند التوفر ← استخدام الشيء الحقيقي مع البطاقة كلما أمكن",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:viewer-v6",
+    "storage_key": "app360:a1-first-words:viewer-v7",
     "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
     "exports": []
   },
   "audio": {
-    "word_strategy": "browser Arabic TTS when enabled and available; visual browsing remains usable without audio",
+    "word_strategy": "Prefer bundled recorded audio when available for each word, otherwise fall back to browser Arabic TTS when available",
     "microphone": false
-  },
-  "runtime_resilience": {
-    "data_loader": "XHR with embedded fallback dataset",
-    "image_loader": "SVG symbols are copied into the document at runtime with external sprite fallback",
-    "legacy_fetch_dependency": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md"
