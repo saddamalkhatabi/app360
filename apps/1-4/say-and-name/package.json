@@ -1,0 +1,8 @@
+{
+  "name": "@app360/app-say-and-name",
+  "version": "0.2.0",
+  "private": true,
+  "description": "كلماتي مع أشيائي: اسمع وأشر وسمِّ - App 360 Lab",
+  "app360": {"appId": "a1-first-words","ageGroup": "1-4","runtimeProfile": "static-web"},
+  "scripts": {"validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); JSON.parse(require('fs').readFileSync('data/words.json','utf8')); console.log('say-and-name data OK')\""}
+}
