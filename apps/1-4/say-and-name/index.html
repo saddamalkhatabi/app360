@@ -9,7 +9,7 @@
 <title>كلماتي مع أشيائي | 4 مستويات</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
@@ -18,39 +18,43 @@
     <div class="hero-main">
       <img class="app-icon" src="icon.svg" alt="">
       <div class="hero-copy">
-        <div class="eyebrow">مختبر التطبيق 360 · من عمر 2 إلى 5 سنوات</div>
-        <h1>كلماتي مع أشيائي</h1>
-        <p>مكتبة تعلم مصنفة عبر أربعة مستويات. اختر المستوى، ثم التصنيف، ثم تنقل بين الكلمات يدويًا أو تلقائيًا.</p>
+        <div class="eyebrow" data-i18n="eyebrow">مختبر التطبيق 360 · من عمر 2 إلى 5 سنوات</div>
+        <h1 data-i18n="title">كلماتي مع أشيائي</h1>
+        <p data-i18n="heroDesc">مكتبة تعلم مصنفة عبر أربعة مستويات. اختر المستوى، ثم التصنيف، ثم تنقل بين الكلمات يدويًا أو تلقائيًا.</p>
       </div>
       <div class="head-actions">
-        <button id="installAppBtn" class="install" type="button">⬇ تثبيت</button>
-        <button id="updateAppBtn" type="button">↻ تحديث</button>
+        <div id="languageSwitch" class="language-switch" aria-label="Language / اللغة">
+          <button class="is-active" type="button" data-lang="ar">العربية</button>
+          <button type="button" data-lang="en">English</button>
+        </div>
+        <button id="installAppBtn" class="install" type="button" data-i18n="install">⬇ تثبيت</button>
+        <button id="updateAppBtn" type="button" data-i18n="update">↻ تحديث</button>
       </div>
     </div>
     <div class="hero-badges">
-      <span>4 مستويات</span>
-      <span>تصنيفات كثيرة</span>
-      <span>تنقل بالسحب والأسهم</span>
-      <span>ملفات صوت عربية عند توفرها</span>
+      <span data-i18n="badgeLevels">4 مستويات</span>
+      <span data-i18n="badgeCategories">تصنيفات كثيرة</span>
+      <span data-i18n="badgeTouch">تنقل بالسحب والأسهم</span>
+      <span data-i18n="badgeAudio">صوت عربي وإنجليزي واضح</span>
     </div>
   </header>
 
   <section class="panel library">
     <div class="section-head">
       <div>
-        <span class="pill">مستويات الكلمات</span>
-        <h2>تعلّم الأشياء والأسماء بالتدرج</h2>
-        <p>يعرض كل مستوى كلماته الخاصة به مع كلمات المستويات التي قبله. يمكن العرض حسب التصنيف أو عرض عام منوّع.</p>
+        <span class="pill" data-i18n="pill">مستويات الكلمات</span>
+        <h2 data-i18n="sectionTitle">تعلّم الأشياء والأسماء بالتدرج</h2>
+        <p data-i18n="sectionDesc">يعرض كل مستوى كلماته الخاصة به مع كلمات المستويات التي قبله. يمكن العرض حسب التصنيف أو عرض عام منوّع.</p>
       </div>
       <div class="view-switch" id="viewSwitch" aria-label="طريقة العرض">
-        <button type="button" class="is-active" data-view="category">حسب التصنيف</button>
-        <button type="button" data-view="all">عرض عام</button>
+        <button type="button" class="is-active" data-view="category" data-i18n="byCategory">حسب التصنيف</button>
+        <button type="button" data-view="all" data-i18n="allView">عرض عام</button>
       </div>
     </div>
 
     <div class="control-band">
       <div>
-        <label class="control-label">المستوى</label>
+        <label class="control-label" data-i18n="level">المستوى</label>
         <div id="levelTabs" class="level-tabs" aria-label="المستويات"></div>
       </div>
       <div class="summary-card">
@@ -63,39 +67,39 @@
 
     <div class="controls-grid">
       <article class="control-card">
-        <h3>الحركة التلقائية</h3>
-        <p>شغّل التنقل التلقائي داخل التصنيف الحالي أو في العرض العام.</p>
+        <h3 data-i18n="autoTitle">الحركة التلقائية</h3>
+        <p data-i18n="autoDesc">شغّل التنقل التلقائي داخل التصنيف الحالي أو في العرض العام.</p>
         <div class="control-row">
-          <button id="autoplayToggle" class="toggle" type="button">تشغيل التنقل التلقائي</button>
+          <button id="autoplayToggle" class="toggle" type="button" data-i18n="autoOn">تشغيل التنقل التلقائي</button>
           <select id="autoplaySpeed" aria-label="سرعة التنقل">
-            <option value="2500">سريع</option>
-            <option value="4000" selected>متوسط</option>
-            <option value="6000">هادئ</option>
+            <option value="2500" data-i18n="fast">سريع</option>
+            <option value="4000" selected data-i18n="medium">متوسط</option>
+            <option value="6000" data-i18n="slow">هادئ</option>
           </select>
         </div>
       </article>
       <article class="control-card">
-        <h3>الصوت</h3>
-        <p>يفضل التطبيق ملفًا صوتيًا عربيًا مسجلًا لكل كلمة، ويستخدم نطق الجهاز فقط إذا لم يوجد الملف.</p>
+        <h3 data-i18n="audioTitle">الصوت</h3>
+        <p data-i18n="audioDesc">يستخدم التطبيق ملفًا صوتيًا مسجلاً للكلمة، ثم نطق الجهاز كاحتياط فقط.</p>
         <div class="control-row">
           <button id="speechToggle" class="toggle is-active" type="button">الصوت مفعّل</button>
-          <button id="speakNowBtn" class="ghost" type="button">🔊 انطق الآن</button>
+          <button id="speakNowBtn" class="ghost" type="button" data-i18n="speakNow">🔊 انطق الآن</button>
         </div>
       </article>
       <article class="control-card">
-        <h3>نطاق الحركة</h3>
-        <p>حدد هل الحركة داخل التصنيف الحالي أو بين جميع كلمات المستوى المختار.</p>
+        <h3 data-i18n="scopeTitle">نطاق الحركة</h3>
+        <p data-i18n="scopeDesc">حدد هل الحركة داخل التصنيف الحالي أو بين جميع كلمات المستوى المختار.</p>
         <div id="scopeSwitch" class="control-row">
-          <button class="toggle is-active" type="button" data-scope="current">التصنيف الحالي</button>
-          <button class="toggle" type="button" data-scope="all">كل كلمات المستوى</button>
+          <button class="toggle is-active" type="button" data-scope="current" data-i18n="scopeCurrent">التصنيف الحالي</button>
+          <button class="toggle" type="button" data-scope="all" data-i18n="scopeAll">كل كلمات المستوى</button>
         </div>
       </article>
       <article class="control-card">
-        <h3>خيارات إضافية</h3>
-        <p>منوّع يعرض كلمات من جميع التصنيفات، وملء الشاشة مناسب للتابلت.</p>
+        <h3 data-i18n="extraTitle">خيارات إضافية</h3>
+        <p data-i18n="extraDesc">منوّع يعرض كلمات من جميع التصنيفات، وملء الشاشة مناسب للتابلت.</p>
         <div class="control-row">
-          <button id="fullscreenBtn" class="ghost" type="button">⛶ ملء الشاشة</button>
-          <button id="mixedBtn" class="ghost" type="button">🎲 منوّع</button>
+          <button id="fullscreenBtn" class="ghost" type="button" data-i18n="fullscreen">⛶ ملء الشاشة</button>
+          <button id="mixedBtn" class="ghost" type="button" data-i18n="mixed">🎲 منوّع</button>
         </div>
       </article>
     </div>
@@ -110,7 +114,7 @@
             <span id="scopeTag" class="tag soft"></span>
             <span id="autoplayTag" class="tag soft">يدوي</span>
           </div>
-          <button id="stageSpeakBtn" class="sound-button" type="button">🔊 انطق الكلمة</button>
+          <button id="stageSpeakBtn" class="sound-button" type="button" data-i18n="speakWord">🔊 انطق الكلمة</button>
         </div>
         <button id="pictureButton" class="picture-button" type="button" aria-label="نطق الكلمة الحالية">
           <img id="itemImage" alt="">
@@ -130,8 +134,8 @@
 
     <div class="grid-head">
       <div>
-        <h3>بطاقات سريعة من المسار الحالي</h3>
-        <p id="gridMeta">يعرض التطبيق نافذة من البطاقات القريبة لتخفيف الحمل على الأجهزة الضعيفة.</p>
+        <h3 data-i18n="cardsTitle">بطاقات سريعة من المسار الحالي</h3>
+        <p id="gridMeta" data-i18n="cardsDesc">يعرض التطبيق نافذة من البطاقات القريبة لتخفيف الحمل على الأجهزة الضعيفة.</p>
       </div>
       <span id="visibleCount" class="count-badge">0 كلمة</span>
     </div>
@@ -140,23 +144,25 @@
 
   <section class="panel facilitator">
     <details>
-      <summary>إرشاد مختصر للمرافق — اختياري</summary>
+      <summary data-i18n="facSummary">إرشاد مختصر للمرافق — اختياري</summary>
       <div class="facilitator-grid">
-        <article><b>ابدأ بالأسهل</b><span>في كل مستوى ابدأ بما هو مألوف جدًا للطفل ثم وسّع الكلمات لاحقًا.</span></article>
-        <article><b>استخدم الواقع</b><span>إن وجد الشيء الحقيقي فأشِر إليه مع البطاقة بدل الاكتفاء بالشاشة.</span></article>
-        <article><b>لا تجعلها اختبارًا</b><span>الهدف هو الفهم والإشارة والتسمية بلطف، لا الضغط على الطفل.</span></article>
-        <article><b>كرّر بهدوء</b><span>التكرار القصير المنتظم أفضل من الجلسة الطويلة.</span></article>
+        <article><b data-i18n="fac1t">ابدأ بالأسهل</b><span data-i18n="fac1">في كل مستوى ابدأ بما هو مألوف جدًا للطفل ثم وسّع الكلمات لاحقًا.</span></article>
+        <article><b data-i18n="fac2t">استخدم الواقع</b><span data-i18n="fac2">إن وجد الشيء الحقيقي فأشِر إليه مع البطاقة بدل الاكتفاء بالشاشة.</span></article>
+        <article><b data-i18n="fac3t">لا تجعلها اختبارًا</b><span data-i18n="fac3">الهدف هو الفهم والإشارة والتسمية بلطف، لا الضغط على الطفل.</span></article>
+        <article><b data-i18n="fac4t">كرّر بهدوء</b><span data-i18n="fac4">التكرار القصير المنتظم أفضل من الجلسة الطويلة.</span></article>
       </div>
     </details>
   </section>
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
-<script src="data/levels-inline-v8.js?v=9"></script>
-<script src="data/visuals.js?v=9"></script>
-<script src="data/audio-map.js?v=9"></script>
-<script src="audio-edge-v9.js?v=9"></script>
-<script src="runtime-v8.js?v=9"></script>
+<script src="data/levels-inline-v8.js?v=10"></script>
+<script src="data/visuals.js?v=10"></script>
+<script src="data/audio-map.js?v=10"></script>
+<script src="data/audio-sense-map.js?v=10"></script>
+<script src="data/translations-en.js?v=10"></script>
+<script src="data/audio-map-en.js?v=10"></script>
+<script src="runtime-v10.js?v=10"></script>
 <script src="../../../assets/js/app-pwa.js?v=1"></script>
 </body>
 </html>
