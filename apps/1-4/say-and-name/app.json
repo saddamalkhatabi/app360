@@ -4,7 +4,7 @@
   "slug": "say-and-name",
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "age_group": "1-4",
-  "version": 8,
+  "version": 9,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -21,21 +21,26 @@
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
     "storage.local",
+    "audio.files",
     "audio.tts",
     "pwa.offline"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← بطاقات مرئية واضحة ← تنقل يدوي أو تلقائي ← تشغيل متوافق مع المتصفحات القديمة مع بيانات احتياطية داخلية ← نطق عربي عند التوفر",
+  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← بطاقات مرئية واضحة ← تنقل يدوي أو تلقائي ← تشغيل متوافق مع المتصفحات القديمة ← ملف نطق عربي مستقل لكل كلمة فريدة عند توفره ← نطق الجهاز احتياطي فقط",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:viewer-v8",
+    "storage_key": "app360:a1-first-words:viewer-v9",
     "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
     "exports": []
   },
   "audio": {
-    "word_strategy": "Prefer bundled recorded audio when available later; browser Arabic TTS remains optional fallback",
+    "preferred_engine": "edge-tts generated MP3 bundle",
+    "preferred_voice": "ar-SA-ZariyahNeural",
+    "rate": "-8%",
+    "dedupe_rule": "one MP3 per exact Arabic display word across all four levels",
+    "word_strategy": "Bundled MP3 first; browser Arabic TTS only when the bundled word file is unavailable",
     "microphone": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
