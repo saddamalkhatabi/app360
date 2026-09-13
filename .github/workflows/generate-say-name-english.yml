@@ -7,8 +7,8 @@ on:
       - main
     paths:
       - .github/workflows/generate-say-name-english.yml
-      - apps/1-4/say-and-name/tools/generate_english_argos.py
-      - apps/1-4/say-and-name/tools/generate_english_argos_v2.py
+      - apps/1-4/say-and-name/tools/generate_english_content.py
+      - apps/1-4/say-and-name/tools/generate_english_content_v3.py
       - apps/1-4/say-and-name/data/levels-inline-v8.js
 
 permissions:
@@ -33,8 +33,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install offline translation and Edge TTS tools
-        run: python -m pip install --upgrade pip edge-tts==7.2.8 argostranslate==1.11.0
+      - name: Install translation and Edge TTS tools
+        run: python -m pip install --upgrade pip edge-tts==7.2.8 deep-translator==1.11.4
 
       - name: Verify preferred English voice exists
         run: |
@@ -48,16 +48,14 @@ jobs:
           asyncio.run(main())
           PY
 
-      - name: Translate locally and generate deduplicated English MP3 files
-        env:
-          ARGOS_DEVICE_TYPE: cpu
+      - name: Translate reviewed vocabulary and generate deduplicated English MP3 files
         run: >-
-          python apps/1-4/say-and-name/tools/generate_english_argos_v2.py
+          python apps/1-4/say-and-name/tools/generate_english_content_v3.py
           --voice en-US-JennyNeural
           --rate=-8%
           --concurrency 4
 
-      - name: Verify English meanings and audio bundle
+      - name: Verify English labels, meanings and audio bundle
         run: |
           python - <<'PY'
           import json, re
@@ -79,13 +77,44 @@ jobs:
               'السماء والفضاء\u0001أرض':'Earth',
               'الألعاب\u0001كرة':'Ball',
               'الرياضيات والأشكال\u0001كرة':'Sphere',
-              'المدرسة\u0001فصل':'Classroom'
+              'المدرسة\u0001فصل':'Classroom',
+              'الأسرة والأشخاص\u0001خال':'Uncle',
+              'الأسرة والأشخاص\u0001ابنة':'Daughter',
+              'الجسم\u0001حاجب':'Eyebrow',
+              'الجسم\u0001خد':'Cheek',
+              'الجسم\u0001ذقن':'Chin',
+              'الجسم\u0001رقبة':'Neck',
+              'الجسم\u0001كتف':'Shoulder',
+              'الجسم\u0001ذراع':'Arm',
+              'الجسم\u0001كوع':'Elbow',
+              'الجسم\u0001معصم':'Wrist',
+              'الجسم\u0001صدر':'Chest',
+              'الجسم\u0001ركبة':'Knee',
+              'الجسم\u0001كعب':'Heel',
+              'الجسم\u0001أظافر':'Nails',
+              'الحواس\u0001نظر':'Sight',
+              'الحواس\u0001سمع':'Hearing',
+              'الحواس\u0001شم':'Smell',
+              'الحواس\u0001تذوق':'Taste',
+              'الحواس\u0001لمس':'Touch',
+              'المهن\u0001عالم':'Scientist',
+              'التكنولوجيا\u0001فأرة':'Mouse',
+              'أجزاء الحيوان\u0001قرن':'Horn',
+              'الأشكال\u0001معين':'Diamond'
           }
           for key, expected in checks.items():
               assert w.get(key) == expected, (key, w.get(key), expected)
-          assert len(w) > 950, len(w)
-          assert len(data['categories']) > 70, len(data['categories'])
+          assert len(w) >= 1190, len(w)
+          assert len(data['categories']) >= 100, len(data['categories'])
           assert not any(re.search(r'[\u0600-\u06FF]', value) for value in w.values())
+          suspicious = []
+          banned_exact = {'Clear','Here','Deaf','Like a','A needle','Kneel','Son'}
+          for key, value in w.items():
+              if value in banned_exact:
+                  suspicious.append((key,value))
+              if not value.strip() or len(value) > 55:
+                  suspicious.append((key,value))
+          assert not suspicious, suspicious[:20]
           audio_text = (root/'data/audio-map-en.js').read_text(encoding='utf-8').strip()
           amarker = 'window.APP360_AUDIO_MAP_EN='
           assert audio_text.startswith(amarker) and audio_text.endswith(';')
@@ -100,13 +129,14 @@ jobs:
           manifest=json.loads((root/'audio/edge-en-manifest.json').read_text(encoding='utf-8'))
           assert manifest['mapped_files']==len(audio)
           assert manifest['voice']=='en-US-JennyNeural'
+          assert manifest['rate']=='-8%'
           print('English context entries:',len(w))
           print('English categories:',len(data['categories']))
           print('Unique English MP3 files:',len(audio))
           print('Voice:',manifest['voice'])
           PY
 
-      - name: Commit English vocabulary and audio bundle
+      - name: Commit reviewed English vocabulary and audio bundle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -119,6 +149,6 @@ jobs:
             echo "No new English content to commit."
             exit 0
           fi
-          git commit -m "Generate English vocabulary and Edge TTS audio"
+          git commit -m "Regenerate reviewed English vocabulary and audio"
           git pull --rebase origin main
           git push origin HEAD:main
