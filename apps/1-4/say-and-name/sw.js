@@ -1,5 +1,5 @@
-var CACHE='app360-app-say-and-name-v7';
-var SHELL=["./","./index.html","./styles.css?v=7","./app.js?v=7","./manifest.webmanifest","./icon.svg","./icon-192.png","./icon-512.png","./app.json","./data/levels.js?v=7","./data/visuals.js?v=7","../../../assets/js/app-pwa.js?v=1"];
+var CACHE='app360-app-say-and-name-v8';
+var SHELL=["./","./index.html","./styles.css?v=8","./runtime-v8.js?v=8","./manifest.webmanifest","./icon.svg","./icon-192.png","./icon-512.png","./app.json","./data/levels-inline-v8.js?v=8","./data/visuals.js?v=8","../../../assets/js/app-pwa.js?v=1"];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}));if(self.skipWaiting)self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-say-and-name-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
 self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});
