@@ -1,0 +1,9 @@
+.language-switch{display:flex;gap:4px;padding:3px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28)}
+.language-switch button{min-height:36px!important;padding:6px 10px!important;border:0!important;background:transparent!important;color:#fff!important;border-radius:10px!important;font-weight:800;cursor:pointer}
+.language-switch button.is-active{background:#fff!important;color:#0a6966!important;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+html[dir="ltr"] body{font-family:Arial,Tahoma,sans-serif}
+html[dir="ltr"] .hero-main,html[dir="ltr"] .section-head,html[dir="ltr"] .stage-top,html[dir="ltr"] .grid-head{text-align:left}
+html[dir="ltr"] .category-chip,html[dir="ltr"] .word-copy,html[dir="ltr"] .thumb-card{text-align:center}
+html[dir="ltr"] .head-actions{margin-left:auto;margin-right:0}
+html[dir="rtl"] .head-actions{margin-right:auto;margin-left:0}
+@media(max-width:760px){.language-switch{order:-1}.head-actions{align-items:center}.language-switch button{flex:1}}
