@@ -1,6 +1,6 @@
-var CACHE='app360-app-say-and-name-v2';
+var CACHE='app360-app-say-and-name-v3';
 var SHELL=['./','./index.html','./styles.css?v=2','./app-core.js?v=2','./app.js?v=2','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./app.json','./data/words.json','./audio/cues/listen.wav','./audio/cues/saved.wav','../../../assets/js/app-pwa.js?v=1','./assets/objects/ball.svg','./assets/objects/cup.svg','./assets/objects/spoon.svg','./assets/objects/book.svg','./assets/objects/shoe.svg','./assets/objects/banana.svg','./assets/objects/apple.svg','./assets/objects/car.svg','./assets/objects/cat.svg','./assets/objects/chair.svg','./assets/objects/toothbrush.svg','./assets/objects/water.svg'];
-self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}))});
+self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}));if(self.skipWaiting)self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-say-and-name-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
 self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});
 function same(req){try{return new URL(req.url).origin===self.location.origin}catch(e){return false}}
