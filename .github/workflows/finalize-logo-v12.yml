@@ -1,4 +1,4 @@
-name: Finalize exact App360 logo V12
+name: Finalize approved App360 logo
 
 on:
   push:
@@ -16,31 +16,43 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Diagnose and rebuild exact approved logo
+
+      - name: Decode exact approved original logo
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          import base64, pathlib, string
-          root=pathlib.Path('assets/brand/.transport-v12')
-          names=['logo-00','logo-01','logo-02a','part-09','part-10','part-11','parts-12-13','parts-14-15','parts-16-17','parts-18-19','parts-20-21','parts-22-23','parts-24-25','parts-26-27','parts-28-29','parts-30-31']
-          allowed=set(string.ascii_letters+string.digits+'+/=')
-          chunks=[]
-          for name in names:
-              s=(root/name).read_text(errors='replace')
-              c=''.join(s.split())
-              bad=sorted(set(c)-allowed)
-              print(name,'len',len(c),'mod4',len(c)%4,'eq',c.count('='),'bad',repr(''.join(bad)),'head',c[:8],'tail',c[-12:])
-              chunks.append(c)
-          data=''.join(chunks)
-          print('TOTAL',len(data),'mod4',len(data)%4,'eq',data.count('='))
-          print('eq positions', [i for i,x in enumerate(data) if x=='='][:20], 'last', [i for i,x in enumerate(data) if x=='='][-20:])
-          filtered=''.join(ch for ch in data if ch in allowed and ch!='=')
-          filtered += '='*((4-len(filtered)%4)%4)
-          print('FILTERED',len(filtered),'mod4',len(filtered)%4)
-          raw=base64.b64decode(filtered, validate=False)
-          pathlib.Path('/tmp/app360-logo-source.webp').write_bytes(raw)
-          print('decoded bytes',len(raw),'head',raw[:12])
-          PY
-          file /tmp/app360-logo-source.webp
-          test "$(head -c4 /tmp/app360-logo-source.webp)" = 'RIFF'
+          base64 -d assets/brand/.transport-v14/logo.b64 > /tmp/app360-lab-logo.webp
+          test "$(stat -c%s /tmp/app360-lab-logo.webp)" = "112798"
+          test "$(head -c4 /tmp/app360-lab-logo.webp)" = "RIFF"
+          file /tmp/app360-lab-logo.webp
+          cp /tmp/app360-lab-logo.webp assets/brand/app360-lab-logo.webp
+
+      - name: Refresh portal and PWA to V14
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed -i 's/v=11/v=14/g' index.html manifest.webmanifest sw.js assets/js/pwa-install.js assets/js/lab360.js
+          for f in ages/*/index.html; do
+            sed -i 's/lab360\.css?v=1/lab360.css?v=14/g; s/lab360\.js?v=1/lab360.js?v=14/g' "$f"
+          done
+          grep -q 'app360-lab-logo.webp?v=14' index.html
+          grep -q "app360-portal-v14" sw.js
+          grep -q "sw.js?v=14" assets/js/pwa-install.js
+          grep -q 'app360-lab-icon-192.png?v=14' assets/js/lab360.js
+
+      - name: Remove temporary transport and workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf assets/brand/.transport-v12 assets/brand/.transport-v14
+          rm -f .github/workflows/finalize-logo-v12.yml
+
+      - name: Commit final portal logo
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Use approved original App360 logo and refresh portal cache v14'
+          git push origin HEAD:main
