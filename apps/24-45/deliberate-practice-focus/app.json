@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-practice",
+  "slug": "deliberate-practice-focus",
+  "title_ar": "ورشة إتقان: مهارة ومحاولة وتغذية راجعة",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-deliberate-practice-productivity-and-focus",
+    "coach-24-45-training-design-baseline-measurement-and-improvement"
+  ],
+  "entry_path": "apps/24-45/deliberate-practice-focus/index.html",
+  "manifest_path": "apps/24-45/deliberate-practice-focus/manifest.webmanifest",
+  "icon_path": "apps/24-45/deliberate-practice-focus/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "قالب مهارة وخط أساس ← محاولة وملاحظة مرتبطة بجزء من الناتج ← تدريب مركز وإعادة قياس ومراجعة مدرب",
+  "blueprint_path": "apps/24-45/deliberate-practice-focus/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/deliberate-practice-focus/PROMPT_AR.md"
+}

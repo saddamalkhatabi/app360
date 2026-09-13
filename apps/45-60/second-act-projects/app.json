@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-second",
+  "slug": "second-act-projects",
+  "title_ar": "مشروع المرحلة التالية: جرّب قبل التوسع",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-45-60-career-transition-second-act-and-purposeful-projects",
+    "coach-45-60-career-transition-succession-and-knowledge-continuity"
+  ],
+  "entry_path": "apps/45-60/second-act-projects/index.html",
+  "manifest_path": "apps/45-60/second-act-projects/manifest.webmanifest",
+  "icon_path": "apps/45-60/second-act-projects/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "خريطة خبرة وحاجة ومهمة تجربة ← خطة أسبوع ونموذج خدمة ← مراجعة تجربة وخطة نقل مسؤوليات مع مرشد",
+  "blueprint_path": "apps/45-60/second-act-projects/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/second-act-projects/PROMPT_AR.md"
+}

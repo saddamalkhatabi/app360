@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-money",
+  "slug": "first-income-budget",
+  "title_ar": "أول دخل: مصروف ثابت ودخل متغير",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-financial-literacy-budgeting-saving-and-first-income"
+  ],
+  "entry_path": "apps/16-24/first-income-budget/index.html",
+  "manifest_path": "apps/16-24/first-income-budget/manifest.webmanifest",
+  "icon_path": "apps/16-24/first-income-budget/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 حالات لدخل منتظم ومتغير ← بنود دخل ومصروف واحتياطي ← سيناريو انخفاض دخل ومقارنة خطتين",
+  "blueprint_path": "apps/16-24/first-income-budget/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/first-income-budget/PROMPT_AR.md"
+}

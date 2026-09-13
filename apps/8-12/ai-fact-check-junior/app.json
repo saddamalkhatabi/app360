@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-ai-check",
+  "slug": "ai-fact-check-junior",
+  "title_ar": "محقق الإجابات: ابحث عن الدليل",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-8-12-digital-safety-media-literacy-and-online-choices",
+    "coach-8-12-digital-citizenship-media-and-safety-guidance"
+  ],
+  "entry_path": "apps/8-12/ai-fact-check-junior/index.html",
+  "manifest_path": "apps/8-12/ai-fact-check-junior/manifest.webmanifest",
+  "icon_path": "apps/8-12/ai-fact-check-junior/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "8 حالات عامة قصيرة بلا دردشة مفتوحة ← مقارنة إجابة بمصدرين مع التاريخ ← صياغة تصحيح ومناقشة مرافق",
+  "blueprint_path": "apps/8-12/ai-fact-check-junior/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/ai-fact-check-junior/PROMPT_AR.md"
+}

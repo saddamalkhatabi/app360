@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-routine",
+  "slug": "my-little-routine",
+  "title_ar": "أستطيع خطوة: روتيني المصور",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-routines-independence-first-attempts",
+    "learner-1-4-confidence-first-attempts-and-kind-persistence",
+    "coach-1-4-safe-play-activity-design-and-independence"
+  ],
+  "entry_path": "apps/1-4/my-little-routine/index.html",
+  "manifest_path": "apps/1-4/my-little-routine/manifest.webmanifest",
+  "icon_path": "apps/1-4/my-little-routine/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار أحد 3 روتينات وتعديل الصور ← عرض خطوة واحدة كبيرة ← تسجيل بمساعدة أو وحدي وإعادة المحاولة",
+  "blueprint_path": "apps/1-4/my-little-routine/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md"
+}

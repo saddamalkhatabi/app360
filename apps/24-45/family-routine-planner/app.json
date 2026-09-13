@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-family",
+  "slug": "family-routine-planner",
+  "title_ar": "اتفاق أسرتنا: روتين وتعلم مشترك",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-parenting-family-communication-and-healthy-routines",
+    "coach-24-45-parent-educator-coaching-and-family-learning-design"
+  ],
+  "entry_path": "apps/24-45/family-routine-planner/index.html",
+  "manifest_path": "apps/24-45/family-routine-planner/manifest.webmanifest",
+  "icon_path": "apps/24-45/family-routine-planner/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "قالب اجتماع قصير واختيار مسؤولية ← لوحة أدوار وخطوات نشاط خارج الشاشة ← مراجعة مع الأسرة وإرشاد والدين اختياري",
+  "blueprint_path": "apps/24-45/family-routine-planner/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/family-routine-planner/PROMPT_AR.md"
+}

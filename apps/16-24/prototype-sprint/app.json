@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-startup",
+  "slug": "prototype-sprint",
+  "title_ar": "نموذج يخدم مستخدمًا: دورة اختبار مشروع",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-entrepreneurship-prototyping-and-real-world-projects",
+    "coach-16-24-goal-coaching-evidence-and-iterative-cycles"
+  ],
+  "entry_path": "apps/16-24/prototype-sprint/index.html",
+  "manifest_path": "apps/16-24/prototype-sprint/manifest.webmanifest",
+  "icon_path": "apps/16-24/prototype-sprint/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تحديد مستخدم وافتراض وقياس نجاح ← خطة نموذج وتجربة مع مواد متاحة ← مراجعة مدرب لنتيجة التجربة والدورة التالية",
+  "blueprint_path": "apps/16-24/prototype-sprint/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/prototype-sprint/PROMPT_AR.md"
+}

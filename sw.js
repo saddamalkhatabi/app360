@@ -1,8 +1,8 @@
-var CACHE='app360-portal-v11';
+var CACHE='app360-portal-v16';
 var CORE=[
   './','./index.html?v=11','./manifest.webmanifest?v=11',
-  './assets/css/lab360.css?v=11',
-  './assets/js/lab360.js?v=11','./assets/js/pwa-install.js?v=11',
+  './assets/css/lab360.css?v=16',
+  './assets/js/lab360.js?v=16','./assets/js/pwa-install.js?v=16',
   './assets/brand/app360-lab-logo.webp?v=11',
   './assets/brand/app360-lab-icon-32.png?v=11','./assets/brand/app360-lab-icon-180.png?v=11','./assets/brand/app360-lab-icon-192.png?v=11','./assets/brand/app360-lab-icon-512.png?v=11',
   './data/catalog.json','./data/goals.json',

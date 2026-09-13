@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-ai",
+  "slug": "ai-workflow-human-review",
+  "title_ar": "سير عمل موثوق: مسودة ومراجعة واعتماد",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "coach-24-45-ai-productivity-workflow-and-human-review",
+    "learner-24-45-deliberate-practice-productivity-and-focus"
+  ],
+  "entry_path": "apps/24-45/ai-workflow-human-review/index.html",
+  "manifest_path": "apps/24-45/ai-workflow-human-review/manifest.webmanifest",
+  "icon_path": "apps/24-45/ai-workflow-human-review/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "حالة تلخيص محضر وهمي أو تصنيف طلبات ← محرر مراحل ومدخل ومخرج ومسؤول ← اختبار أخطاء وتحديد نقطة موافقة بشرية",
+  "blueprint_path": "apps/24-45/ai-workflow-human-review/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/ai-workflow-human-review/PROMPT_AR.md"
+}

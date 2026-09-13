@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-health",
+  "slug": "sustainable-energy-routines",
+  "title_ar": "عادة قابلة للاستمرار: تجربة أسبوعية",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-stress-energy-sleep-movement-and-sustainable-health-routines"
+  ],
+  "entry_path": "apps/24-45/sustainable-energy-routines/index.html",
+  "manifest_path": "apps/24-45/sustainable-energy-routines/manifest.webmanifest",
+  "icon_path": "apps/24-45/sustainable-energy-routines/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار عادة يحددها المستخدم ← تذكير محلي اختياري وسجل وصفي ← مراجعة أسبوع وتعديل موقف البداية",
+  "blueprint_path": "apps/24-45/sustainable-energy-routines/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/sustainable-energy-routines/PROMPT_AR.md"
+}

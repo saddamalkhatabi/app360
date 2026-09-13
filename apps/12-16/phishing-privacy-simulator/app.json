@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a12-cyber",
+  "slug": "phishing-privacy-simulator",
+  "title_ar": "غرفة الأمان: رسالة وصلاحية وتحقق",
+  "age_group": "12-16",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "coach-12-16-digital-safety-ai-and-media-mentoring",
+    "learner-12-16-critical-media-ai-literacy-and-information-verification"
+  ],
+  "entry_path": "apps/12-16/phishing-privacy-simulator/index.html",
+  "manifest_path": "apps/12-16/phishing-privacy-simulator/manifest.webmanifest",
+  "icon_path": "apps/12-16/phishing-privacy-simulator/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "10 مواقف وروابط تدريبية معطلة ← تعديل جمهور منشور وصلاحيات وهمية ← دليل مرشد لمناقشة الاستعجال وانتحال الهوية",
+  "blueprint_path": "apps/12-16/phishing-privacy-simulator/BUILD_SPEC.md",
+  "prompt_path": "apps/12-16/phishing-privacy-simulator/PROMPT_AR.md"
+}

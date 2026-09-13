@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-focus",
+  "slug": "deep-work-sprints",
+  "title_ar": "جلسة إنجاز: حدد ناتجًا وأغلق المشتتات",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-learning-systems-deep-work-and-focus",
+    "coach-16-24-goal-coaching-evidence-and-iterative-cycles"
+  ],
+  "entry_path": "apps/16-24/deep-work-sprints/index.html",
+  "manifest_path": "apps/16-24/deep-work-sprints/manifest.webmanifest",
+  "icon_path": "apps/16-24/deep-work-sprints/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تعريف ناتج ومعيار إتمام ← جلسة قابلة للإيقاف وتدوين مشتت دون إشعارات مزعجة ← مراجعة ناتج وملاحظة مدرب اختيارية",
+  "blueprint_path": "apps/16-24/deep-work-sprints/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/deep-work-sprints/PROMPT_AR.md"
+}

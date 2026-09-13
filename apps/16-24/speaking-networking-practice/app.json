@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-speaking",
+  "slug": "speaking-networking-practice",
+  "title_ar": "تحدث ثم حسّن: عرض وتعريف ومتابعة",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-communication-public-speaking-networking-and-project-leadership"
+  ],
+  "entry_path": "apps/16-24/speaking-networking-practice/index.html",
+  "manifest_path": "apps/16-24/speaking-networking-practice/manifest.webmanifest",
+  "icon_path": "apps/16-24/speaking-networking-practice/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 قوالب تعريف وعرض وطلب تواصل ← تسجيل محلي اختياري أو ملاحظات مستمع ← معيار مراجعة ومحرر رسالة متابعة",
+  "blueprint_path": "apps/16-24/speaking-networking-practice/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/speaking-networking-practice/PROMPT_AR.md"
+}

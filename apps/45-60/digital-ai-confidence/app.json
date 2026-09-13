@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-digital",
+  "slug": "digital-ai-confidence",
+  "title_ar": "أنجزها رقميًا: ملفات وبحث ومساعد ذكي",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-45-60-digital-confidence-ai-tools-and-online-safety",
+    "coach-45-60-adult-digital-learning-and-ai-adoption"
+  ],
+  "entry_path": "apps/45-60/digital-ai-confidence/index.html",
+  "manifest_path": "apps/45-60/digital-ai-confidence/manifest.webmanifest",
+  "icon_path": "apps/45-60/digital-ai-confidence/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 مهمات داخل واجهات وهمية آمنة ← نموذج خطوة ثم محاولة مستقلة ← بطاقة مدرب تقلل التلميحات تدريجيًا",
+  "blueprint_path": "apps/45-60/digital-ai-confidence/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/digital-ai-confidence/PROMPT_AR.md"
+}

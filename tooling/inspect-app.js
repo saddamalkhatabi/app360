@@ -22,7 +22,7 @@ for (const age of Object.keys(goals.age_groups || {})) for (const g of goals.age
 const capMap = new Map((caps.capabilities || []).map(c => [c.id, c]));
 const result = {
   app,
-  goals: (app.goal_keys || []).map(k => ({key:k, ...(goalMap.get(k) || {missing:true})})),
+  goals: (app.goal_keys || []).map(k => ({key:k, ...(goalMap.get(k) || {missing:true}), ...((app.goal_links || []).find(l => l.goal_key === k) || {})})),
   capabilities: (app.capabilities || []).map(k => ({id:k, ...(capMap.get(k) || {missing:true})})),
   bundles: [],
   local_manifest: null

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-leadership",
+  "slug": "leadership-delegation-sim",
+  "title_ar": "فوّض بوضوح: تكليف ومتابعة وحوار",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-leadership-team-communication-and-delegation",
+    "coach-24-45-performance-coaching-leadership-and-accountability"
+  ],
+  "entry_path": "apps/24-45/leadership-delegation-sim/index.html",
+  "manifest_path": "apps/24-45/leadership-delegation-sim/manifest.webmanifest",
+  "icon_path": "apps/24-45/leadership-delegation-sim/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 حالات تفويض وتغذية راجعة ← محرر النتيجة والحدود والموارد ← حدث عائق وبطاقة مراجعة مدرب",
+  "blueprint_path": "apps/24-45/leadership-delegation-sim/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/leadership-delegation-sim/PROMPT_AR.md"
+}

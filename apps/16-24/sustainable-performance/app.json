@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-wellbeing",
+  "slug": "sustainable-performance",
+  "title_ar": "حملي الأسبوعي: إنجاز يمكن الاستمرار فيه",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-16-24-wellbeing-stress-burnout-and-sustainable-performance-support",
+    "learner-16-24-learning-systems-deep-work-and-focus"
+  ],
+  "entry_path": "apps/16-24/sustainable-performance/index.html",
+  "manifest_path": "apps/16-24/sustainable-performance/manifest.webmanifest",
+  "icon_path": "apps/16-24/sustainable-performance/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "رسم التزامات الأسبوع دون بيانات صحية إلزامية ← اختيار مهمة أساسية وحدود توقف ← مراجعة أسبوع ومحادثة مدرب اختيارية",
+  "blueprint_path": "apps/16-24/sustainable-performance/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/sustainable-performance/PROMPT_AR.md"
+}

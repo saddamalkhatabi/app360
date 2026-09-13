@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-maker",
+  "slug": "stem-code-maker",
+  "title_ar": "صمّم لعبة: حدث وقاعدة واختبار",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-8-12-stem-maker-coding-and-design-thinking",
+    "coach-8-12-project-based-stem-and-inquiry-facilitation"
+  ],
+  "entry_path": "apps/8-12/stem-code-maker/index.html",
+  "manifest_path": "apps/8-12/stem-code-maker/manifest.webmanifest",
+  "icon_path": "apps/8-12/stem-code-maker/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "محرر مشهد وأوامر أحداث دون تنفيذ كود حر ← 3 مشروعات: جمع عناصر ومتاهة ونقاط ← سجل خطأ وإصلاح وبطاقة استقصاء للمدرب",
+  "blueprint_path": "apps/8-12/stem-code-maker/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/stem-code-maker/PROMPT_AR.md"
+}

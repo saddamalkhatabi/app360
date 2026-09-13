@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a12-media",
+  "slug": "media-ai-verification",
+  "title_ar": "ملف التحقق: ادعاء ومصدر وسياق",
+  "age_group": "12-16",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-12-16-critical-media-ai-literacy-and-information-verification",
+    "coach-12-16-digital-safety-ai-and-media-mentoring"
+  ],
+  "entry_path": "apps/12-16/media-ai-verification/index.html",
+  "manifest_path": "apps/12-16/media-ai-verification/manifest.webmanifest",
+  "icon_path": "apps/12-16/media-ai-verification/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "8 حالات محلية عن علوم وحياة عامة ← جدول ادعاءات ومصدر أصلي وسياق ← محرر نتيجة وبطاقة مراجعة للمرشد",
+  "blueprint_path": "apps/12-16/media-ai-verification/BUILD_SPEC.md",
+  "prompt_path": "apps/12-16/media-ai-verification/PROMPT_AR.md"
+}

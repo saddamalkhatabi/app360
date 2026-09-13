@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-story",
+  "slug": "story-art-studio",
+  "title_ar": "قصتي المصورة: بداية ومشكلة وحل",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-creativity-art-storytelling-and-expression",
+    "coach-4-8-teach-through-play-projects-and-feedback"
+  ],
+  "entry_path": "apps/4-8/story-art-studio/index.html",
+  "manifest_path": "apps/4-8/story-art-studio/manifest.webmanifest",
+  "icon_path": "apps/4-8/story-art-studio/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "محرر مشاهد بشخصيات أصلية ← ترتيب المشاهد مع تسجيل اختياري ← مراجعة مع المرافق: أين تغير الحدث ثم تعديل النهاية",
+  "blueprint_path": "apps/4-8/story-art-studio/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/story-art-studio/PROMPT_AR.md"
+}

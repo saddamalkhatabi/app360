@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-math",
+  "slug": "multi-step-reasoning",
+  "title_ar": "خطط رحلتك: مسائل وقرارات حسابية",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-8-12-math-reasoning-and-multi-step-problems",
+    "coach-8-12-independent-learning-growth-mindset-and-feedback"
+  ],
+  "entry_path": "apps/8-12/multi-step-reasoning/index.html",
+  "manifest_path": "apps/8-12/multi-step-reasoning/manifest.webmanifest",
+  "icon_path": "apps/8-12/multi-step-reasoning/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 مسائل ببيانات وهمية قابلة للتغيير ← دفتر خطوات مع وحدات وعمليات ← فحص القيود ثم بطاقة سؤال إرشادي للمدرب",
+  "blueprint_path": "apps/8-12/multi-step-reasoning/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/multi-step-reasoning/PROMPT_AR.md"
+}

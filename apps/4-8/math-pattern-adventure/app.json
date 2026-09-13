@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-math",
+  "slug": "math-pattern-adventure",
+  "title_ar": "متجري المصور: عدّ وكوّن نمطًا",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-early-math-patterns-and-problem-solving",
+    "coach-4-8-early-literacy-numeracy-and-learning-support"
+  ],
+  "entry_path": "apps/4-8/math-pattern-adventure/index.html",
+  "manifest_path": "apps/4-8/math-pattern-adventure/manifest.webmanifest",
+  "icon_path": "apps/4-8/math-pattern-adventure/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "12 طلبًا بالعد والمقارنة والتجميع ← تمثيل بقطع مرئية يمكن إضافتها وإزالتها ← لوحة مرافق لاختيار خطأ العد أو النمط وإعادة التمثيل",
+  "blueprint_path": "apps/4-8/math-pattern-adventure/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/math-pattern-adventure/PROMPT_AR.md"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-mentor",
+  "slug": "mentor-reflective-practice",
+  "title_ar": "جلسة إرشاد: سؤال وتجربة ومراجعة",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-45-60-experience-based-mentoring-and-reflective-practice"
+  ],
+  "entry_path": "apps/45-60/mentor-reflective-practice/index.html",
+  "manifest_path": "apps/45-60/mentor-reflective-practice/manifest.webmanifest",
+  "icon_path": "apps/45-60/mentor-reflective-practice/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تحديد سؤال المسترشد وهدفه ← صياغة أسئلة وخيارات لا أوامر ← اتفاق تجربة ومراجعة حدود الدور",
+  "blueprint_path": "apps/45-60/mentor-reflective-practice/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/mentor-reflective-practice/PROMPT_AR.md"
+}

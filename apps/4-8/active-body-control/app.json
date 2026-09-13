@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-active",
+  "slug": "active-body-control",
+  "title_ar": "مسار الحركة: تحرك ثم استعد",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-active-play-screen-balance-and-body-control",
+    "coach-4-8-channel-energy-focus-and-transitions"
+  ],
+  "entry_path": "apps/4-8/active-body-control/index.html",
+  "manifest_path": "apps/4-8/active-body-control/manifest.webmanifest",
+  "icon_path": "apps/4-8/active-body-control/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 بطاقات حركة وبدائل جلوس ← ترتيب محطتين أو ثلاث خارج الشاشة ← بطاقة انتقال للمرافق وتسجيل وصفي اختياري",
+  "blueprint_path": "apps/4-8/active-body-control/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/active-body-control/PROMPT_AR.md"
+}

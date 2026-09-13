@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-phonics",
+  "slug": "phonics-reading-play",
+  "title_ar": "ورشة الكلمات: من الصوت إلى القراءة",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-early-reading-phonics-and-fluency",
+    "coach-4-8-early-literacy-numeracy-and-learning-support"
+  ],
+  "entry_path": "apps/4-8/phonics-reading-play/index.html",
+  "manifest_path": "apps/4-8/phonics-reading-play/manifest.webmanifest",
+  "icon_path": "apps/4-8/phonics-reading-play/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "12 نشاط صوت ومزج في العربية ومجموعة إنجليزية منفصلة ← ترتيب الحروف بلمس أو أزرار ثم سماع النموذج ← بطاقة مرافق تحدد الصوت الذي يحتاج إعادة تدريب",
+  "blueprint_path": "apps/4-8/phonics-reading-play/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/phonics-reading-play/PROMPT_AR.md"
+}

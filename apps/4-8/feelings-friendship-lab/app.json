@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-friends",
+  "slug": "feelings-friendship-lab",
+  "title_ar": "نلعب معًا: أدوار ومشاركة وحل خلاف",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-emotional-regulation-friendship-and-cooperation",
+    "coach-4-8-positive-behavior-routines-and-independence"
+  ],
+  "entry_path": "apps/4-8/feelings-friendship-lab/index.html",
+  "manifest_path": "apps/4-8/feelings-friendship-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/feelings-friendship-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 مواقف يومية متعددة النتائج ← تجربة رد ثم تمثيله مع شخص آخر ← بطاقة مرافق لوصف السلوك والاتفاق التالي",
+  "blueprint_path": "apps/4-8/feelings-friendship-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/feelings-friendship-lab/PROMPT_AR.md"
+}

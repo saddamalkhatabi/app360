@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-coach",
+  "slug": "respectful-learning-coach",
+  "title_ar": "رافق دون أن تنوب: ورشة تعليم خطوة",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-60-80-respectful-paced-instruction-and-cognitive-load",
+    "coach-60-80-digital-inclusion-safety-and-confidence-support"
+  ],
+  "entry_path": "apps/60-80/respectful-learning-coach/index.html",
+  "manifest_path": "apps/60-80/respectful-learning-coach/manifest.webmanifest",
+  "icon_path": "apps/60-80/respectful-learning-coach/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار مهمة وتجزئتها ← نموذج تعليم واحد وانتظار ومحاولة ← تسجيل مواطن الغموض وإعادة تصميم الخطوة",
+  "blueprint_path": "apps/60-80/respectful-learning-coach/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/respectful-learning-coach/PROMPT_AR.md"
+}
