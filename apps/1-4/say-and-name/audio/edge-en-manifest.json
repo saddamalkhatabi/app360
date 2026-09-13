@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "translation_engine": "Argos Translate offline ar→en",
+  "translation_model": "translate-ar_en-1_0",
+  "audio_engine": "edge-tts",
+  "edge_tts_version": "7.2.8",
+  "voice": "en-US-JennyNeural",
+  "rate": "-8%",
+  "context_entries": 1193,
+  "categories": 110,
+  "unique_english_terms": 934,
+  "mapped_files": 934,
+  "dedupe_rule": "one English MP3 per unique final English display term across all four levels; context-specific meanings retain distinct English terms",
+  "semantic_overrides": "enabled for Arabic homographs and category-sensitive meanings",
+  "fallback": "browser English TTS only when bundled MP3 is unavailable"
+}
