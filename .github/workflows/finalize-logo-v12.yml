@@ -16,52 +16,31 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Install image tooling
-        run: sudo apt-get update -qq && sudo apt-get install -y imagemagick webp
-
-      - name: Rebuild exact approved logo from staged transport
+      - name: Diagnose and rebuild exact approved logo
         shell: bash
         run: |
           set -euo pipefail
-          T='assets/brand/.transport-v12'
-          cat \
-            "$T/logo-00" "$T/logo-01" "$T/logo-02a" \
-            "$T/part-09" "$T/part-10" "$T/part-11" \
-            "$T/parts-12-13" "$T/parts-14-15" "$T/parts-16-17" \
-            "$T/parts-18-19" "$T/parts-20-21" "$T/parts-22-23" \
-            "$T/parts-24-25" "$T/parts-26-27" "$T/parts-28-29" "$T/parts-30-31" \
-            | tr -d '\r\n\t ' | base64 --ignore-garbage -d > /tmp/app360-logo-source.webp
-          identify /tmp/app360-logo-source.webp
-          test "$(stat -c%s /tmp/app360-logo-source.webp)" -lt 300000
-          cp /tmp/app360-logo-source.webp assets/brand/app360-lab-logo.webp
-          identify -format 'final=%m %wx%h %[channels] bytes=%b\n' assets/brand/app360-lab-logo.webp
-
-      - name: Move portal and PWA cache to V12
-        shell: bash
-        run: |
-          set -euo pipefail
-          sed -i 's/v=11/v=12/g' index.html manifest.webmanifest sw.js assets/js/pwa-install.js assets/js/lab360.js
-          for f in ages/*/index.html; do
-            sed -i 's/lab360\.css?v=1/lab360.css?v=12/g; s/lab360\.js?v=1/lab360.js?v=12/g' "$f"
-          done
-          grep -q 'app360-lab-logo.webp?v=12' index.html
-          grep -q "app360-portal-v12" sw.js
-          grep -q "sw.js?v=12" assets/js/pwa-install.js
-
-      - name: Remove staging transport and this one-time workflow
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf assets/brand/.transport-v12
-          rm -f .github/workflows/finalize-logo-v12.yml
-
-      - name: Commit final exact logo V12
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Use exact approved App360 logo and refresh portal cache v12'
-          git push origin HEAD:main
+          python3 - <<'PY'
+          import base64, pathlib, string
+          root=pathlib.Path('assets/brand/.transport-v12')
+          names=['logo-00','logo-01','logo-02a','part-09','part-10','part-11','parts-12-13','parts-14-15','parts-16-17','parts-18-19','parts-20-21','parts-22-23','parts-24-25','parts-26-27','parts-28-29','parts-30-31']
+          allowed=set(string.ascii_letters+string.digits+'+/=')
+          chunks=[]
+          for name in names:
+              s=(root/name).read_text(errors='replace')
+              c=''.join(s.split())
+              bad=sorted(set(c)-allowed)
+              print(name,'len',len(c),'mod4',len(c)%4,'eq',c.count('='),'bad',repr(''.join(bad)),'head',c[:8],'tail',c[-12:])
+              chunks.append(c)
+          data=''.join(chunks)
+          print('TOTAL',len(data),'mod4',len(data)%4,'eq',data.count('='))
+          print('eq positions', [i for i,x in enumerate(data) if x=='='][:20], 'last', [i for i,x in enumerate(data) if x=='='][-20:])
+          filtered=''.join(ch for ch in data if ch in allowed and ch!='=')
+          filtered += '='*((4-len(filtered)%4)%4)
+          print('FILTERED',len(filtered),'mod4',len(filtered)%4)
+          raw=base64.b64decode(filtered, validate=False)
+          pathlib.Path('/tmp/app360-logo-source.webp').write_bytes(raw)
+          print('decoded bytes',len(raw),'head',raw[:12])
+          PY
+          file /tmp/app360-logo-source.webp
+          test "$(head -c4 /tmp/app360-logo-source.webp)" = 'RIFF'
