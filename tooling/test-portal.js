@@ -48,7 +48,8 @@ test('portal renders all goal names, explanations and canonical plan links', () 
   }
   assert.deepEqual(urls, ['./data/catalog.json', './data/goals.json', './data/live-overrides.json']);
   assert.equal((html.match(/>فتح التطبيق<\/a>/g) || []).length, 2);
-  assert.ok(html.includes('./apps/1-4/say-and-name/index.html?v=3'));
+  const firstWords = liveOverrides.apps.find(a => a.id === 'a1-first-words');
+  assert.ok(firstWords && html.includes('./'+firstWords.href));
 });
 test('Arabic goal search and every age page filter the catalog', () => {
   const { elements } = portal();
