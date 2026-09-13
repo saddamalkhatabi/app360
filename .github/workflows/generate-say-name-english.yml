@@ -1,0 +1,107 @@
+name: Generate Say and Name English Content
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/generate-say-name-english.yml
+      - apps/1-4/say-and-name/tools/generate_english_content.py
+      - apps/1-4/say-and-name/data/levels-inline-v8.js
+
+permissions:
+  contents: write
+
+concurrency:
+  group: say-and-name-edge-english
+  cancel-in-progress: false
+
+jobs:
+  generate-english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install translation and Edge TTS tools
+        run: python -m pip install --upgrade pip edge-tts==7.2.8 deep-translator==1.11.4
+
+      - name: Verify preferred English voice exists
+        run: |
+          python - <<'PY'
+          import asyncio, edge_tts
+          async def main():
+              voices = await edge_tts.list_voices()
+              names = {v['ShortName'] for v in voices}
+              assert 'en-US-JennyNeural' in names, 'preferred English voice missing'
+              print('Using en-US-JennyNeural')
+          asyncio.run(main())
+          PY
+
+      - name: Translate vocabulary and generate deduplicated English MP3 files
+        run: >-
+          python apps/1-4/say-and-name/tools/generate_english_content.py
+          --voice en-US-JennyNeural
+          --rate=-8%
+          --concurrency 4
+
+      - name: Verify English translations and audio
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          root = Path('apps/1-4/say-and-name')
+          text = (root/'data/translations-en.js').read_text(encoding='utf-8').strip()
+          marker = 'window.APP360_EN='
+          assert text.startswith(marker) and text.endswith(';')
+          data = json.loads(text[len(marker):-1])
+          assert data['categories'] and data['words']
+          assert data['words']['الجسم\u0001ظهر'] == 'Back'
+          assert data['words']['الوقت\u0001ظهر'] == 'Noon'
+          assert data['words']['النباتات\u0001ساق'] == 'Stem'
+          assert data['words']['الجسم\u0001ساق'] == 'Leg'
+          assert data['words']['الحديقة\u0001ورقة'] == 'Leaf'
+          assert data['words']['أشياء يومية\u0001ورقة'] == 'Paper'
+          assert not any(re.search(r'[\u0600-\u06FF]', v) for v in data['words'].values())
+          audio_text = (root/'data/audio-map-en.js').read_text(encoding='utf-8').strip()
+          amarker = 'window.APP360_AUDIO_MAP_EN='
+          audio = json.loads(audio_text[len(amarker):-1])
+          assert audio
+          missing=[]
+          for term, rel in audio.items():
+              p=root/rel
+              if not p.exists() or p.stat().st_size<=900: missing.append((term,rel))
+          assert not missing, missing[:10]
+          manifest=json.loads((root/'audio/edge-en-manifest.json').read_text(encoding='utf-8'))
+          assert manifest['mapped_files']==len(audio)
+          print('English categories:',len(data['categories']))
+          print('English context words:',len(data['words']))
+          print('English MP3 files:',len(audio))
+          print('Voice:',manifest['voice'])
+          PY
+
+      - name: Commit English vocabulary and audio bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/say-and-name/data/translations-en.json \
+                  apps/1-4/say-and-name/data/translations-en.js \
+                  apps/1-4/say-and-name/data/audio-map-en.js \
+                  apps/1-4/say-and-name/audio/edge-en \
+                  apps/1-4/say-and-name/audio/edge-en-manifest.json
+          if git diff --cached --quiet; then
+            echo "No new English content to commit."
+            exit 0
+          fi
+          git commit -m "Generate English vocabulary and Edge TTS audio"
+          git pull --rebase origin main
+          git push origin HEAD:main
