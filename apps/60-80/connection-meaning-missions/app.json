@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-social",
+  "slug": "connection-meaning-missions",
+  "title_ar": "لقاء له غاية: تواصل وتبادل خبرة",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-social-connection-meaning-and-emotional-wellbeing",
+    "coach-60-80-healthy-ageing-activity-social-engagement-and-routine-support"
+  ],
+  "entry_path": "apps/60-80/connection-meaning-missions/index.html",
+  "manifest_path": "apps/60-80/connection-meaning-missions/manifest.webmanifest",
+  "icon_path": "apps/60-80/connection-meaning-missions/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار نوع لقاء وموضوع ← قائمة تجهيز وتذكير اختياري محلي ← مراجعة مع مرافق حول سهولة المشاركة",
+  "blueprint_path": "apps/60-80/connection-meaning-missions/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/connection-meaning-missions/PROMPT_AR.md"
+}

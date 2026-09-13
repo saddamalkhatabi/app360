@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-routine",
+  "slug": "focus-routine-board",
+  "title_ar": "لوحة يومي: مهمة ومسؤولية واستراحة",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-4-8-channel-energy-focus-and-transitions",
+    "coach-4-8-positive-behavior-routines-and-independence"
+  ],
+  "entry_path": "apps/4-8/focus-routine-board/index.html",
+  "manifest_path": "apps/4-8/focus-routine-board/manifest.webmanifest",
+  "icon_path": "apps/4-8/focus-routine-board/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 قوالب قابلة للتعديل ← عرض الآن وبعده وتنبيه اختياري ← مراجعة المرافق لما بدأه الطفل بنفسه",
+  "blueprint_path": "apps/4-8/focus-routine-board/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/focus-routine-board/PROMPT_AR.md"
+}

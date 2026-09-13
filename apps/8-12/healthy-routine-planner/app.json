@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-habits",
+  "slug": "healthy-routine-planner",
+  "title_ar": "أسبوع متوازن: جرّب عادة واحدة",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-8-12-healthy-routines-movement-sleep-and-screen-balance",
+    "coach-8-12-independent-learning-growth-mindset-and-feedback"
+  ],
+  "entry_path": "apps/8-12/healthy-routine-planner/index.html",
+  "manifest_path": "apps/8-12/healthy-routine-planner/manifest.webmanifest",
+  "icon_path": "apps/8-12/healthy-routine-planner/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار عادة وموقف تذكير ← تسجيل تم أو لم يتم مع سبب اختياري ← مراجعة ذاتية وسؤال مدرب عن تعديل البيئة",
+  "blueprint_path": "apps/8-12/healthy-routine-planner/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/healthy-routine-planner/PROMPT_AR.md"
+}

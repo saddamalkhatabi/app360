@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a12-talk",
+  "slug": "assertive-teamwork-sim",
+  "title_ar": "اتفاق الفريق: تحدث بوضوح وتفاوض",
+  "age_group": "12-16",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-12-16-assertive-communication-teamwork-and-conflict-resolution",
+    "coach-12-16-motivation-feedback-relationship-and-boundaries"
+  ],
+  "entry_path": "apps/12-16/assertive-teamwork-sim/index.html",
+  "manifest_path": "apps/12-16/assertive-teamwork-sim/manifest.webmanifest",
+  "icon_path": "apps/12-16/assertive-teamwork-sim/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 سيناريوهات تأخر أو اختلاف أولويات ← محرر موقف وشعور وطلب وحدود ← تمثيل مع زميل وملاحظات مرشد",
+  "blueprint_path": "apps/12-16/assertive-teamwork-sim/BUILD_SPEC.md",
+  "prompt_path": "apps/12-16/assertive-teamwork-sim/PROMPT_AR.md"
+}

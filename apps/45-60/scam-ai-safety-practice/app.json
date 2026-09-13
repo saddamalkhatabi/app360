@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-scam",
+  "slug": "scam-ai-safety-practice",
+  "title_ar": "توقف وتحقق: احتيال الرسائل وانتحال الهوية",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-45-60-digital-confidence-ai-tools-and-online-safety",
+    "coach-45-60-adult-digital-learning-and-ai-adoption"
+  ],
+  "entry_path": "apps/45-60/scam-ai-safety-practice/index.html",
+  "manifest_path": "apps/45-60/scam-ai-safety-practice/manifest.webmanifest",
+  "icon_path": "apps/45-60/scam-ai-safety-practice/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "10 مواقف سليمة ومشبوهة بلا روابط فعالة ← اختيار تحقق مستقل أو رفض أو طلب مساعدة ← وضع مدرب يشرح قرينة واحدة ثم يعيد التجربة",
+  "blueprint_path": "apps/45-60/scam-ai-safety-practice/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/scam-ai-safety-practice/PROMPT_AR.md"
+}

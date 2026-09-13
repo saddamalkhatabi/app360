@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-reading",
+  "slug": "comprehension-summary-lab",
+  "title_ar": "أقرأ وأثبت: ورشة الفهم والتلخيص",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-8-12-reading-comprehension-study-and-summary",
+    "coach-8-12-independent-learning-growth-mindset-and-feedback"
+  ],
+  "entry_path": "apps/8-12/comprehension-summary-lab/index.html",
+  "manifest_path": "apps/8-12/comprehension-summary-lab/manifest.webmanifest",
+  "icon_path": "apps/8-12/comprehension-summary-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 نصوص عامة عربية وإنجليزية منفصلة ← تحديد الفكرة وجمل الدليل ومحرر ملخص ← مقارنة بنموذج ومعيار مراجعة للمدرب",
+  "blueprint_path": "apps/8-12/comprehension-summary-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/comprehension-summary-lab/PROMPT_AR.md"
+}

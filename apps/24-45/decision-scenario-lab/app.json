@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-decisions",
+  "slug": "decision-scenario-lab",
+  "title_ar": "دفتر القرار: بدائل وافتراضات ومراجعة",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-strategic-thinking-decisions-and-problem-solving"
+  ],
+  "entry_path": "apps/24-45/decision-scenario-lab/index.html",
+  "manifest_path": "apps/24-45/decision-scenario-lab/manifest.webmanifest",
+  "icon_path": "apps/24-45/decision-scenario-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 حالات تشغيلية غير حساسة ← جدول بدائل ومعايير وأدلة وأوزان ← تجربة تغير عامل ثم موعد مراجعة",
+  "blueprint_path": "apps/24-45/decision-scenario-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/decision-scenario-lab/PROMPT_AR.md"
+}

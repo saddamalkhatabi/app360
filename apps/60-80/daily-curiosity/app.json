@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-curiosity",
+  "slug": "daily-curiosity",
+  "title_ar": "أتعلم شيئًا وأستخدمه: مشروع فضول صغير",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-active-mind-lifelong-learning-and-curiosity",
+    "coach-60-80-respectful-paced-instruction-and-cognitive-load"
+  ],
+  "entry_path": "apps/60-80/daily-curiosity/index.html",
+  "manifest_path": "apps/60-80/daily-curiosity/manifest.webmanifest",
+  "icon_path": "apps/60-80/daily-curiosity/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 مشروعات قصيرة بنص كبير ← نموذج ثم محاولة وبديل بلا صوت ← بطاقة مرافق لتجزئة الخطوة وتقليل التلميح",
+  "blueprint_path": "apps/60-80/daily-curiosity/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/daily-curiosity/PROMPT_AR.md"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-screen-move",
+  "slug": "screen-to-move",
+  "title_ar": "لنلعب الآن: بديل الشاشة مع المرافق",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "coach-1-4-screen-co-viewing-attention-and-offline-alternatives",
+    "learner-1-4-safe-sensory-motor-play"
+  ],
+  "entry_path": "apps/1-4/screen-to-move/index.html",
+  "manifest_path": "apps/1-4/screen-to-move/manifest.webmanifest",
+  "icon_path": "apps/1-4/screen-to-move/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار موضوع شاهدناه كالألوان أو الحيوانات ← عرض 6 بدائل واقعية ومستلزماتها ← وضع انتهاء واضح دون مطالبة بالعودة أو إثبات الأداء",
+  "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/screen-to-move/PROMPT_AR.md"
+}

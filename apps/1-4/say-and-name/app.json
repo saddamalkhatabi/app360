@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-first-words",
+  "slug": "say-and-name",
+  "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-first-words-expressive-language",
+    "coach-1-4-language-rich-play-responsive-interaction"
+  ],
+  "entry_path": "apps/1-4/say-and-name/index.html",
+  "manifest_path": "apps/1-4/say-and-name/manifest.webmanifest",
+  "icon_path": "apps/1-4/say-and-name/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار مجموعة من 12 صورة لأشياء مألوفة ← تشغيل اسم الصورة ثم البحث عن الشيء الحقيقي ← لوحة مرافق: انتظر الاستجابة ثم وسّع الكلمة",
+  "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md"
+}

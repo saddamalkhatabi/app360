@@ -8,7 +8,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "validate": "node tooling/validate-platform.js",
+    "validate": "node tooling/validate-platform.js && node tooling/build-blueprints.js --check",
+    "blueprints": "node tooling/build-blueprints.js",
+    "test": "node --test tooling/test-platform.js tooling/test-portal.js",
     "check": "pnpm run validate",
     "workspaces:list": "pnpm -r list --depth -1",
     "new:app": "node tooling/scaffold-app.js",

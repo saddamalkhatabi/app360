@@ -29,7 +29,7 @@ app360/
 ├─ manifest.webmanifest
 ├─ sw.js
 ├─ ages/<age>/index.html
-├─ apps/<age>/<slug>/              # التطبيقات الفعلية فقط
+├─ apps/<age>/<slug>/              # التطبيق أو عقد خطته قبل التنفيذ
 ├─ packages/                       # كود مشترك reusable
 ├─ services/                       # Node/API/AI/media services
 ├─ resources/                      # shared media/data packs
@@ -182,6 +182,10 @@ pnpm --filter <workspace-name> dev
 ## 13. العلاقة مع الأهداف
 
 `goal_keys` تستخدم مفاتيح موجودة في `data/goals.json` ومن نفس العمر.
+
+كل مفتاح له سجل واحد في `goal_links` يوضح `rationale_ar` (النشاط ومساهمته المحددة)، و`evidence_ar` (ناتج أو سلوك نلاحظه)، و`delivery` (مخطط أو متاح بمشاركة المرافق). لا تربط هدف المدرب بمجرد وجود طفل يستخدم التطبيق؛ اشرح فعل المدرب نفسه. العنوان المرجعي والدور يقرآن من goals.json ولا يكرران داخل السجل.
+
+`blueprint` في الكتالوج هو مصدر الناتج وخطوات MVP والقبول والملاءمة. يشغّل `node tooling/build-blueprints.js` لتوليد BUILD_SPEC.md وPROMPT_AR.md ودليل APP_BUILD_INDEX_AR.md. مجلد `blueprint-only` يحوي خطة وعقدًا فقط؛ لا رابط تشغيل ولا ادعاء PWA جاهزة. يبدأ التنفيذ بأداة scaffold-app التي تحفظ الهوية والخطة وتضيف الملفات التشغيلية مرة واحدة. لا تعدّل ملفات الخطط المشتقة يدويًا، ولا يُعاد توليد ملفات التطبيق الحي.
 
 - `goal_aligned`: يخدم هدفًا مباشرة.
 - `modern_extension`: مهارة عصرية مهمة لا تحتاج هدفًا مطابقًا حرفيًا.

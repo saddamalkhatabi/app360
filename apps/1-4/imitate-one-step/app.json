@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-imitate",
+  "slug": "imitate-one-step",
+  "title_ar": "دوري ودورك: قلّد حركة واحدة",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-shared-attention-imitation-simple-instructions",
+    "coach-1-4-language-rich-play-responsive-interaction"
+  ],
+  "entry_path": "apps/1-4/imitate-one-step/index.html",
+  "manifest_path": "apps/1-4/imitate-one-step/manifest.webmanifest",
+  "icon_path": "apps/1-4/imitate-one-step/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار 8 بطاقات مثل ضع المكعب في السلة ← عرض نموذج واحد ثم إخفاء الشاشة ← تبادل الأدوار وتسجيل مقدار المساعدة",
+  "blueprint_path": "apps/1-4/imitate-one-step/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/imitate-one-step/PROMPT_AR.md"
+}

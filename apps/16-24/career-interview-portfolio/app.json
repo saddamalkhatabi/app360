@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-career",
+  "slug": "career-interview-portfolio",
+  "title_ar": "ملف إنجازي: دليل ومقابلة تجريبية",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-career-readiness-job-search-interview-and-portfolio",
+    "coach-16-24-career-mentoring-and-portfolio-feedback"
+  ],
+  "entry_path": "apps/16-24/career-interview-portfolio/index.html",
+  "manifest_path": "apps/16-24/career-interview-portfolio/manifest.webmanifest",
+  "icon_path": "apps/16-24/career-interview-portfolio/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "محرر مشكلة ودور وعمل ونتيجة ← 6 أسئلة مقابلة وتسجيل اختياري ← مراجعة مرشد تربط كل ادعاء بدليل",
+  "blueprint_path": "apps/16-24/career-interview-portfolio/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/career-interview-portfolio/PROMPT_AR.md"
+}

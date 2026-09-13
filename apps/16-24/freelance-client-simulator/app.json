@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-freelance",
+  "slug": "freelance-client-simulator",
+  "title_ar": "عميل افتراضي: من الطلب إلى التسليم",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-16-24-career-readiness-job-search-interview-and-portfolio",
+    "learner-16-24-communication-public-speaking-networking-and-project-leadership",
+    "learner-16-24-entrepreneurship-prototyping-and-real-world-projects"
+  ],
+  "entry_path": "apps/16-24/freelance-client-simulator/index.html",
+  "manifest_path": "apps/16-24/freelance-client-simulator/manifest.webmanifest",
+  "icon_path": "apps/16-24/freelance-client-simulator/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 طلبات في تصميم أو كتابة أو تحليل ← أسئلة توضيح وتحديد تسليم ومعايير قبول ← حدث تغيير وتفاوض وتسليم عينة",
+  "blueprint_path": "apps/16-24/freelance-client-simulator/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/freelance-client-simulator/PROMPT_AR.md"
+}

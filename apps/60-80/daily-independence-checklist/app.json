@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-routine",
+  "slug": "daily-independence-checklist",
+  "title_ar": "خطوات يومي: أجهز وأراجع وأستقل",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-daily-independence-routines-and-practical-life-skills",
+    "coach-60-80-respectful-paced-instruction-and-cognitive-load"
+  ],
+  "entry_path": "apps/60-80/daily-independence-checklist/index.html",
+  "manifest_path": "apps/60-80/daily-independence-checklist/manifest.webmanifest",
+  "icon_path": "apps/60-80/daily-independence-checklist/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 قوالب غير طبية مع صور اختيارية ← عرض خطوة وتأكيد ورجوع ← بطاقة مرافق لاختيار تلميح واحد ثم إزالته",
+  "blueprint_path": "apps/60-80/daily-independence-checklist/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/daily-independence-checklist/PROMPT_AR.md"
+}

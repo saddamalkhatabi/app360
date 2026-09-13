@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-sensory",
+  "slug": "sensory-motion-missions",
+  "title_ar": "سلة الاكتشاف: فرز ولمس ونقل",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-safe-sensory-motor-play",
+    "coach-1-4-safe-play-activity-design-and-independence"
+  ],
+  "entry_path": "apps/1-4/sensory-motion-missions/index.html",
+  "manifest_path": "apps/1-4/sensory-motion-missions/manifest.webmanifest",
+  "icon_path": "apps/1-4/sensory-motion-missions/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "قائمة تجهيز للمرافق ومساحة آمنة ← 6 مهمات بفرز خاصية واحدة ← تسجيل التجربة ثم اقتراح تعديل واحد",
+  "blueprint_path": "apps/1-4/sensory-motion-missions/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/sensory-motion-missions/PROMPT_AR.md"
+}

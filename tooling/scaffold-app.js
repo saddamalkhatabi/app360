@@ -29,20 +29,32 @@ const primary = palette[age] || '#0f8f8a';
 const root = path.resolve(__dirname, '..');
 const template = path.join(root, 'apps', '_template');
 const target = path.join(root, 'apps', age, slug);
+let blueprint = null;
 if (fs.existsSync(target)) {
-  console.error('Target already exists:', path.relative(root, target));
-  process.exit(1);
+  const manifestFile = path.join(target, 'app.json');
+  const allowed = ['app.json', 'README.md', 'BUILD_SPEC.md', 'PROMPT_AR.md'];
+  if (fs.existsSync(manifestFile)) blueprint = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+  if (!blueprint || blueprint.scaffold_state !== 'blueprint-only' || blueprint.age_group !== age || blueprint.slug !== slug || fs.readdirSync(target).some(name => !allowed.includes(name))) {
+    console.error('Target already contains implementation; refusing to overwrite:', path.relative(root, target));
+    process.exit(1);
+  }
 }
 fs.mkdirSync(path.dirname(target), {recursive:true});
-fs.cpSync(template, target, {recursive:true});
+fs.cpSync(template, target, {recursive:true, force:false, errorOnExist:false});
 
 const relBase = `apps/${age}/${slug}`;
 const appPath = path.join(target, 'app.json');
 const app = JSON.parse(fs.readFileSync(appPath, 'utf8'));
 app.id = `app-${age}-${slug}`;
+if (blueprint) app.id = blueprint.id;
 app.slug = slug;
 app.title_ar = title;
 app.age_group = age;
+if (blueprint) {
+  app.scaffold_state = 'implementation-started';
+  // Goal keys and planned runtime/capabilities come from the existing contract.
+  app.title_ar = blueprint.title_ar;
+}
 app.entry_path = `${relBase}/index.html`;
 app.manifest_path = `${relBase}/manifest.webmanifest`;
 app.icon_path = `${relBase}/icon.svg`;

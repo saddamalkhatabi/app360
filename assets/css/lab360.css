@@ -2,3 +2,22 @@
 /* APP360 BRAND V11 START */
 .topbar{overflow:visible}.brand-mark{width:88px!important;height:66px!important;flex:0 0 88px!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important}.brand-mark img{width:80px!important;height:60px!important;max-width:80px!important;max-height:60px!important;object-fit:contain!important;object-position:center!important;display:block!important;transform:none!important;filter:drop-shadow(0 3px 5px rgba(0,0,0,.18))}.hero-brand-side{min-height:330px}.hero-logo-wrap{position:relative;z-index:1;width:min(340px,100%)}.hero-brand-side .hero-original-logo{width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;display:block!important;transform:none!important;background:transparent!important;filter:drop-shadow(0 14px 24px rgba(6,89,105,.13))}.footer-mark{width:64px!important;height:64px!important;object-fit:contain!important;transform:none!important;background:transparent!important}@media(max-width:1040px){.hero-logo-wrap{width:min(300px,100%)}.hero-brand-side{min-height:270px}}@media(max-width:760px){.brand-mark{width:76px!important;height:58px!important;flex-basis:76px!important}.brand-mark img{width:68px!important;height:54px!important;max-width:68px!important;max-height:54px!important}.hero-logo-wrap{width:min(300px,88vw)}.hero-brand-side{min-height:auto}}
 /* APP360 BRAND V11 END */
+
+/* Goal explanations stay inside their card; no modal or scroll trap. */
+.app-card .actions{flex-wrap:wrap;margin-top:14px}
+.goal-toggle,.plan-toggle{font:13px Tahoma,Arial,sans-serif;line-height:1.5;min-height:44px;border:1px solid #99cbce;border-radius:12px;padding:9px 12px;cursor:pointer;color:#065969;background:#edfafa}
+.plan-toggle{background:#fff;border-color:#cfdcdd}
+.goal-toggle[aria-expanded="true"],.plan-toggle[aria-expanded="true"]{background:#065969;color:#fff}
+.goal-toggle:focus,.plan-toggle:focus,.plan-links a:focus{outline:3px solid #bb8900;outline-offset:3px}
+.app-detail{margin-top:16px;padding-top:12px;border-top:1px solid #cfe7e8;overflow-wrap:anywhere}
+.app-detail h4{margin:10px 0 8px;font-size:16px;color:#063f4b}
+.app-detail h5{margin:9px 0;font-size:15px;color:#063f4b;line-height:1.7}
+.app-detail p{font-size:14px;color:#405b62;line-height:1.9}
+.app-detail ul{padding-inline-start:22px;font-size:14px;color:#405b62}
+.app-detail li{margin-bottom:9px}
+.goal-relationship{margin-top:12px;padding:14px;background:#f5faf9;border:1px solid #d7e8e6;border-radius:13px}
+.goal-relationship p:last-child{margin-bottom:0}
+.app-detail .plan-status{padding:10px;border-right:3px solid #d4ab23;background:#fff9e4}
+.plan-links{display:flex;flex-wrap:wrap;gap:12px}
+.plan-links a{display:inline-block;min-height:44px;padding:9px 0;color:#065969;text-underline-offset:3px}
+@media(max-width:760px){.goal-toggle,.plan-toggle{flex:1 1 auto}.goal-relationship{padding:12px}.app-detail p,.app-detail li{font-size:15px}}

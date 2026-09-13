@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-retirement",
+  "slug": "retirement-risk-learning",
+  "title_ar": "مستقبل بفرضيات واضحة: محاكي التدفق والمخاطر",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-45-60-retirement-financial-planning-and-risk-awareness"
+  ],
+  "entry_path": "apps/45-60/retirement-risk-learning/index.html",
+  "manifest_path": "apps/45-60/retirement-risk-learning/manifest.webmanifest",
+  "icon_path": "apps/45-60/retirement-risk-learning/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 أمثلة بلا بيانات شخصية ← إدخال فرضيات مرئية مع الوحدات ← مقارنة سيناريو أساسي ومصروف أعلى ودخل أقل",
+  "blueprint_path": "apps/45-60/retirement-risk-learning/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/retirement-risk-learning/PROMPT_AR.md"
+}

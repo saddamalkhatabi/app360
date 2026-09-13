@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a1-calm",
+  "slug": "calm-with-me",
+  "title_ar": "مشاعري معك: أحتاج مساعدة",
+  "age_group": "1-4",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-early-emotions-calm-and-co-regulation",
+    "coach-1-4-co-regulation-transitions-and-tantrum-support"
+  ],
+  "entry_path": "apps/1-4/calm-with-me/index.html",
+  "manifest_path": "apps/1-4/calm-with-me/manifest.webmanifest",
+  "icon_path": "apps/1-4/calm-with-me/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "عرض 4 مشاعر بصور محايدة ← اختيار مساعدة مثل قرب المرافق أو مكان أهدأ ← إعداد بطاقة الآن وبعد ذلك للمرافق",
+  "blueprint_path": "apps/1-4/calm-with-me/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/calm-with-me/PROMPT_AR.md"
+}

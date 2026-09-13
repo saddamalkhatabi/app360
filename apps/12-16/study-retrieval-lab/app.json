@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a12-study",
+  "slug": "study-retrieval-lab",
+  "title_ar": "استرجع وطبّق: دفتر التعلم الذاتي",
+  "age_group": "12-16",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-12-16-study-systems-exam-preparation-and-self-management",
+    "coach-12-16-study-executive-function-and-habit-support"
+  ],
+  "entry_path": "apps/12-16/study-retrieval-lab/index.html",
+  "manifest_path": "apps/12-16/study-retrieval-lab/manifest.webmanifest",
+  "icon_path": "apps/12-16/study-retrieval-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "إنشاء حزمة من نص يملكه المستخدم أو مثال عام ← محاولة مغلقة ثم كشف مرجع الإجابة ← جدولة محلية ومتابعة مدرب لخطة المراجعة",
+  "blueprint_path": "apps/12-16/study-retrieval-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/12-16/study-retrieval-lab/PROMPT_AR.md"
+}

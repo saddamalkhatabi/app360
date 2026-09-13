@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-scam",
+  "slug": "qr-otp-scam-simulator",
+  "title_ar": "رمز التحقق ليس للمشاركة: محاكاة آمنة",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-60-80-digital-independence-scam-safety-and-online-services",
+    "coach-60-80-digital-inclusion-safety-and-confidence-support"
+  ],
+  "entry_path": "apps/60-80/qr-otp-scam-simulator/index.html",
+  "manifest_path": "apps/60-80/qr-otp-scam-simulator/manifest.webmanifest",
+  "icon_path": "apps/60-80/qr-otp-scam-simulator/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "8 سيناريوهات بأزرار كبيرة وبيانات وهمية ← مقارنة استخدام رمز داخل خدمة بدأتَها بطلب شخص للرمز ← بطاقة مرافق لتكرار حالة جديدة دون لوم",
+  "blueprint_path": "apps/60-80/qr-otp-scam-simulator/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/qr-otp-scam-simulator/PROMPT_AR.md"
+}

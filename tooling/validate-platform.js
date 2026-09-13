@@ -87,6 +87,32 @@ for (const app of apps) {
   if (app.runtime_profile && !RUNTIME_PROFILES.includes(app.runtime_profile)) fail(`invalid runtime profile ${app.id}: ${app.runtime_profile}`);
   if (!app.title_ar || !app.description_ar || !app.practice_model) fail(`incomplete practical metadata on ${app.id}`);
   const goalKeys = app.goal_keys || [];
+  if (new Set(goalKeys).size !== goalKeys.length) fail(`duplicate goal keys: ${app.id}`);
+  const links = app.goal_links || [];
+  if (links.length !== goalKeys.length || new Set(links.map(l => l.goal_key)).size !== links.length) fail(`goal explanation count/uniqueness mismatch: ${app.id}`);
+  for (const link of links) {
+    if (!goalKeys.includes(link.goal_key)) fail(`explanation for unlinked goal: ${app.id} -> ${link.goal_key}`);
+    if (link.relationship !== 'supports' || !link.rationale_ar?.trim() || !link.evidence_ar?.trim()) fail(`incomplete goal explanation: ${app.id} -> ${link.goal_key}`);
+    if (!['planned', 'available_with_facilitator'].includes(link.delivery)) fail(`invalid goal delivery: ${app.id}`);
+    if (app.status !== 'live' && link.delivery !== 'planned') fail(`unbuilt app claims delivered goal: ${app.id}`);
+  }
+  const blueprint = app.blueprint;
+  if (!blueprint || !blueprint.output_ar || !blueprint.audience_ar || !blueprint.age_adaptation_ar || !blueprint.boundary_ar || !Array.isArray(blueprint.mvp_steps_ar) || blueprint.mvp_steps_ar.length < 3 || !Array.isArray(blueprint.acceptance_ar) || blueprint.acceptance_ar.length < 2) fail(`incomplete build blueprint: ${app.id}`);
+  for (const ref of blueprint?.reference_ids || []) if (!(catalog.design_references || []).some(r => r.id === ref)) fail(`unknown design reference: ${app.id} -> ${ref}`);
+  const base = `apps/${app.age_group}/${app.slug}`;
+  for (const [field, name] of [['blueprint_path','BUILD_SPEC.md'],['prompt_path','PROMPT_AR.md']]) {
+    if (app[field] !== `${base}/${name}` || !exists(app[field])) fail(`missing/noncanonical ${field}: ${app.id}`);
+  }
+  if (app.status !== 'live') {
+    if (app.href) fail(`unbuilt app must not offer a launch href: ${app.id}`);
+    const rel = `${base}/app.json`;
+    if (!exists(rel)) fail(`planned app missing local contract: ${app.id}`);
+    else {
+      const local = readJson(rel);
+      for (const field of ['id','slug','age_group','status']) if (local[field] !== app[field]) fail(`planned catalog/contract ${field} mismatch: ${app.id}`);
+      if (JSON.stringify(local.goal_keys) !== JSON.stringify(goalKeys)) fail(`planned catalog/contract goals mismatch: ${app.id}`);
+    }
+  }
   if (app.kind !== 'modern_extension' && !goalKeys.length) fail(`non-extension app has no goals: ${app.id}`);
   for (const key of goalKeys) {
     const goal = allGoals.get(key);
@@ -118,16 +144,14 @@ for (const rel of ['package.json','pnpm-workspace.yaml','pnpm-lock.yaml','packag
 for (const rel of [
   'manifest.webmanifest',
   'sw.js',
-  'assets/brand/app360-lab-logo-transparent.png',
+  'assets/brand/app360-lab-logo.webp',
   'assets/brand/app360-lab-icon-180.png',
   'assets/brand/app360-lab-icon-192.png',
   'assets/brand/app360-lab-icon-512.png',
-  'assets/brand/favicon-32.png',
-  'assets/brand/favicon-64.png',
-  'assets/brand/app360-lab-og.jpg',
+  'assets/brand/app360-lab-icon-32.png',
   'assets/js/pwa-install.js'
 ]) if (!exists(rel)) fail(`missing portal PWA/brand asset: ${rel}`);
-ok('portal PWA and exact approved transparent brand foundation present');
+ok('portal PWA/brand checks use the current WebP logo and PNG icons referenced by index.html');
 
 const workspacePkgs = [];
 for (const age of listDirs('apps')) {

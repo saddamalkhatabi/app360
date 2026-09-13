@@ -63,3 +63,5 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Validate platform architecture, catalogs and live routes
         run: pnpm validate
+      - name: Test goal integrity and safe plan scaffolding
+        run: pnpm test

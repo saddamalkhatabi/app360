@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a16-ai",
+  "slug": "ai-creation-automation-lab",
+  "title_ar": "ابنِ سير عمل: أنشئ وتحقق وأتمت",
+  "age_group": "16-24",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-16-24-ai-assisted-creation-verification-and-automation",
+    "coach-16-24-ai-enabled-learning-design-and-verification"
+  ],
+  "entry_path": "apps/16-24/ai-creation-automation-lab/index.html",
+  "manifest_path": "apps/16-24/ai-creation-automation-lab/manifest.webmanifest",
+  "icon_path": "apps/16-24/ai-creation-automation-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 مهام محلية: تلخيص وتصنيف واستخراج حقول ← محرر مدخل وتعليمات ومخرج يدوي أو مثال معد مسبقًا ← قواعد تحقق ومراجعة بشرية ثم إعادة التجربة",
+  "blueprint_path": "apps/16-24/ai-creation-automation-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/16-24/ai-creation-automation-lab/PROMPT_AR.md"
+}

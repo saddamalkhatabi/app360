@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-balance",
+  "slug": "balance-mobility-awareness",
+  "title_ar": "مكان آمن وحركة مناسبة: خطة مع المرافق",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-balance-mobility-strength-and-fall-prevention-awareness",
+    "coach-60-80-healthy-ageing-activity-social-engagement-and-routine-support"
+  ],
+  "entry_path": "apps/60-80/balance-mobility-awareness/index.html",
+  "manifest_path": "apps/60-80/balance-mobility-awareness/manifest.webmanifest",
+  "icon_path": "apps/60-80/balance-mobility-awareness/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "قائمة إضاءة وممرات وعوائق ومساندة ← بطاقات محتوى حركي يعتمدها مختص قبل النشر ← اختيار بديل وسجل مرافق وصفي",
+  "blueprint_path": "apps/60-80/balance-mobility-awareness/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/balance-mobility-awareness/PROMPT_AR.md"
+}

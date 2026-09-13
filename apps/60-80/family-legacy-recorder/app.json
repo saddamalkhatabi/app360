@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-legacy",
+  "slug": "family-legacy-recorder",
+  "title_ar": "حكايتي بصوتي: أرشيف الأسرة الخاص",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-memory-stories-family-history-and-legacy",
+    "coach-60-80-reminiscence-storytelling-family-connection-and-legacy-facilitation"
+  ],
+  "entry_path": "apps/60-80/family-legacy-recorder/index.html",
+  "manifest_path": "apps/60-80/family-legacy-recorder/manifest.webmanifest",
+  "icon_path": "apps/60-80/family-legacy-recorder/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "أسئلة مفتوحة غير ملزمة ← تسجيل محلي أو كتابة مع عنوان وزمان تقريبي ← مراجعة صاحب القصة وحذف وتصدير مع دليل مرافق",
+  "blueprint_path": "apps/60-80/family-legacy-recorder/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/family-legacy-recorder/PROMPT_AR.md"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-maker",
+  "slug": "first-maker-lab",
+  "title_ar": "اصنع واختبر: جسري الورقي",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-curiosity-science-and-first-maker-projects",
+    "coach-4-8-teach-through-play-projects-and-feedback"
+  ],
+  "entry_path": "apps/4-8/first-maker-lab/index.html",
+  "manifest_path": "apps/4-8/first-maker-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/first-maker-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "قائمة مواد ومكان عمل بإشراف المرافق ← توقع ثم بناء نموذج واختباره ← مقارنة شكلين وبطاقة سؤال للمرافق دون إعطاء الحل",
+  "blueprint_path": "apps/4-8/first-maker-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/first-maker-lab/PROMPT_AR.md"
+}

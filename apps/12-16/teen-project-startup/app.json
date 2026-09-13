@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a12-project",
+  "slug": "teen-project-startup",
+  "title_ar": "مشروعي الأول: مشكلة وتجربة صغيرة",
+  "age_group": "12-16",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-12-16-projects-entrepreneurship-and-career-exploration",
+    "coach-12-16-project-career-and-strengths-guidance"
+  ],
+  "entry_path": "apps/12-16/teen-project-startup/index.html",
+  "manifest_path": "apps/12-16/teen-project-startup/manifest.webmanifest",
+  "icon_path": "apps/12-16/teen-project-startup/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تحديد المشكلة والمستخدم وافتراض واحد ← خطة مواد ومهام ونموذج منخفض التكلفة ← اختبار وتعديل وتوجيه مرشد",
+  "blueprint_path": "apps/12-16/teen-project-startup/BUILD_SPEC.md",
+  "prompt_path": "apps/12-16/teen-project-startup/PROMPT_AR.md"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-meaning",
+  "slug": "meaning-relationships-journal",
+  "title_ar": "مشروع ذو معنى: علاقة ومساهمة وخطوة",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-45-60-emotional-wellbeing-relationships-and-life-meaning",
+    "coach-45-60-experience-based-mentoring-and-reflective-practice"
+  ],
+  "entry_path": "apps/45-60/meaning-relationships-journal/index.html",
+  "manifest_path": "apps/45-60/meaning-relationships-journal/manifest.webmanifest",
+  "icon_path": "apps/45-60/meaning-relationships-journal/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختيار قيمة وفعل قريب قابل للتنفيذ ← خطة موعد وموارد وحدود شخصية ← تأمل اختياري وسؤال مرشد عن التعلم",
+  "blueprint_path": "apps/45-60/meaning-relationships-journal/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/meaning-relationships-journal/PROMPT_AR.md"
+}

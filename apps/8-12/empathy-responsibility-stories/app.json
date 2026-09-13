@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-empathy",
+  "slug": "empathy-responsibility-stories",
+  "title_ar": "فريقنا يحل الخلاف: ورشة أدوار",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-8-12-communication-empathy-responsibility-and-self-management",
+    "coach-8-12-social-emotional-conflict-and-belonging-support"
+  ],
+  "entry_path": "apps/8-12/empathy-responsibility-stories/index.html",
+  "manifest_path": "apps/8-12/empathy-responsibility-stories/manifest.webmanifest",
+  "icon_path": "apps/8-12/empathy-responsibility-stories/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "6 خلافات في مشروع أو لعبة ← بطاقات وجهات نظر ومحرر اتفاق ← لوحة مرافق لمراجعة الإنصاف وإصلاح الخلاف",
+  "blueprint_path": "apps/8-12/empathy-responsibility-stories/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/empathy-responsibility-stories/PROMPT_AR.md"
+}

@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <meta name="theme-color" content="#0A9BA8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -19,7 +19,7 @@
 <link rel="manifest" href="manifest.webmanifest?v=11">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/app360-lab-icon-32.png?v=11">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/app360-lab-icon-180.png?v=11">
-<link rel="stylesheet" href="assets/css/lab360.css?v=11">
+<link rel="stylesheet" href="assets/css/lab360.css?v=16">
 </head>
 <body data-page="home" data-root="." data-catalog="data/catalog.json" data-goals="data/goals.json">
 <header class="topbar"><div class="shell topbar-shell"><a class="brand" href="index.html" aria-label="مختبر التطبيق 360"><span class="brand-mark"><img src="assets/brand/app360-lab-icon-192.png?v=11" alt=""></span><span><b>مختبر التطبيق 360</b><small>التطبيق العملي لنظام الريلز الآمن 360</small></span></a><div class="portal-controls"><button id="installPortalBtn" class="install-action" type="button">⬇ تثبيت المختبر</button><button id="checkUpdateBtn" class="update-action" type="button">↻ تحديث</button></div></div></header>
@@ -27,12 +27,12 @@
 <main>
 <section class="section"><div class="shell"><h2>ابحث في مختبر التطبيقات</h2><p class="section-lead">ابحث باسم المهارة أو التطبيق أو الهدف أو كلمات مثل: الذكاء الاصطناعي، الرسم، المال، التوازن، القراءة، القيادة.</p><div class="search-box"><span class="search-icon">🔎</span><label class="sr-only" for="appSearch">بحث التطبيقات</label><input id="appSearch" type="search" autocomplete="off" placeholder="اكتب اسم مهارة أو تطبيق..." /></div><div id="statusFilters" class="filters"><button class="filter-btn on" data-status="all">الكل</button><button class="filter-btn" data-status="live">يعمل الآن</button><button class="filter-btn" data-status="planned">مخطط للبناء</button><button class="filter-btn" data-status="idea">بنك الأفكار</button></div><div id="resultCount"></div></div></section>
 <section class="section age-section" id="ages"><div class="shell"><h2>الفئات العمرية</h2><p class="section-lead">لكل فئة واجهة مستقلة قابلة للفتح مباشرة والبحث داخل تطبيقاتها، مع أهداف Safe Reels 360 المرجعية الخاصة بها.</p><div id="ageGrid" class="age-grid"><div class="empty">جارٍ تحميل الفئات العمرية…</div></div></div></section>
-<section class="section"><div class="shell"><h2>كل التطبيقات والخطط</h2><p class="section-lead">التطبيقات العاملة تظهر أولًا، ثم التطبيقات المخطط لها، ثم أفكار التوسعة العصرية. التطبيق الذي يحمل شعارًا مستقلًا ومسار PWA يمكن تثبيته منفردًا.</p><div id="appGrid" class="app-grid"><div class="empty">جارٍ تحميل فهرس التطبيقات…</div></div></div></section>
+<section class="section"><div class="shell"><h2>كل التطبيقات والخطط</h2><p class="section-lead">التطبيق الجاهز يظهر أولًا. اضغط عدد الأهداف لمعرفة مساهمة التطبيق في كل هدف، أو افتح خطته للاطلاع على الناتج وخطوات البناء. التطبيقات المخططة لم تُنفذ بعد.</p><div id="appGrid" class="app-grid"><div class="empty">جارٍ تحميل فهرس التطبيقات…</div></div></div></section>
 <section class="section"><div class="shell"><div class="note"><b>قاعدة المختبر:</b> الفيديو يعرّف ويوضح، أما التطبيق فيحوّل الهدف إلى فعل وممارسة وتغذية راجعة وتكرار. التطبيقات البسيطة تُبنى Offline-first متى أمكن، والخدمات الثقيلة تُضاف فقط عندما تحتاجها الممارسة فعلاً.</div></div></section>
 </main>
-<footer class="footer"><div class="shell footer-shell"><img src="assets/brand/app360-lab-icon-192.png?v=11" alt="" class="footer-mark"><div><strong>مختبر التطبيق 360</strong><div>التطبيق العملي لنظام الريلز الآمن 360</div><div><a href="docs/FRAMEWORK_AR.md">إطار العمل</a> · <a href="docs/APP_SPEC_TEMPLATE_AR.md">قالب بناء تطبيق جديد</a></div></div></div></footer>
+<footer class="footer"><div class="shell footer-shell"><img src="assets/brand/app360-lab-icon-192.png?v=11" alt="" class="footer-mark"><div><strong>مختبر التطبيق 360</strong><div>التطبيق العملي لنظام الريلز الآمن 360</div><div><a href="docs/APP_BUILD_INDEX_AR.md">دليل بناء التطبيقات</a> · <a href="docs/FRAMEWORK_AR.md">إطار العمل</a> · <a href="docs/APP_SPEC_TEMPLATE_AR.md">قالب بناء تطبيق جديد</a></div></div></div></footer>
 <div id="pwaNotice" class="pwa-notice" role="status" aria-live="polite"></div>
-<script src="assets/js/lab360.js?v=11"></script>
-<script src="assets/js/pwa-install.js?v=11"></script>
+<script src="assets/js/lab360.js?v=16"></script>
+<script src="assets/js/pwa-install.js?v=16"></script>
 </body>
 </html>

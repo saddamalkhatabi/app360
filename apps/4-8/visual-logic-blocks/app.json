@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-logic",
+  "slug": "visual-logic-blocks",
+  "title_ar": "برمج رحلة: أوامر وصحح الخطأ",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "hybrid",
+  "goal_keys": [
+    "learner-4-8-early-math-patterns-and-problem-solving",
+    "learner-4-8-curiosity-science-and-first-maker-projects"
+  ],
+  "entry_path": "apps/4-8/visual-logic-blocks/index.html",
+  "manifest_path": "apps/4-8/visual-logic-blocks/manifest.webmanifest",
+  "icon_path": "apps/4-8/visual-logic-blocks/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "8 شبكات تبدأ بأمرين دون نص ← محرر أوامر بأزرار تشغيل وتراجع ← إنشاء شبكة خاصة وتكرار نمط أوامر",
+  "blueprint_path": "apps/4-8/visual-logic-blocks/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/visual-logic-blocks/PROMPT_AR.md"
+}

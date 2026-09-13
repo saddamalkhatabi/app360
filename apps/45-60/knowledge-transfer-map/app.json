@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.1",
+  "id": "a45-knowledge",
+  "slug": "knowledge-transfer-map",
+  "title_ar": "خبرة قابلة للنقل: دليل مهمة من تجربتك",
+  "age_group": "45-60",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-45-60-knowledge-transfer-mentoring-and-documentation",
+    "coach-45-60-experience-based-mentoring-and-reflective-practice",
+    "coach-45-60-career-transition-succession-and-knowledge-continuity"
+  ],
+  "entry_path": "apps/45-60/knowledge-transfer-map/index.html",
+  "manifest_path": "apps/45-60/knowledge-transfer-map/manifest.webmanifest",
+  "icon_path": "apps/45-60/knowledge-transfer-map/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "محرر خطوات وقرارات وأمثلة ← جلسة تجربة الدليل بقائمة ملاحظة ← تعديل وتعيين مالك معرفة وخطوة تسليم",
+  "blueprint_path": "apps/45-60/knowledge-transfer-map/BUILD_SPEC.md",
+  "prompt_path": "apps/45-60/knowledge-transfer-map/PROMPT_AR.md"
+}

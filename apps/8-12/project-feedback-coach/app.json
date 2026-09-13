@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a8-coach",
+  "slug": "project-feedback-coach",
+  "title_ar": "دفتر مدرب المشروع: سؤال وتجربة وتحسين",
+  "age_group": "8-12",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-8-12-project-based-stem-and-inquiry-facilitation",
+    "coach-8-12-independent-learning-growth-mindset-and-feedback"
+  ],
+  "entry_path": "apps/8-12/project-feedback-coach/index.html",
+  "manifest_path": "apps/8-12/project-feedback-coach/manifest.webmanifest",
+  "icon_path": "apps/8-12/project-feedback-coach/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "إنشاء مشروع ومعيار بسيط للنجاح ← تسجيل توقع وتجربة ونتيجة ← اختيار سؤال ومقارنة نسخة أولى بمعدلة",
+  "blueprint_path": "apps/8-12/project-feedback-coach/BUILD_SPEC.md",
+  "prompt_path": "apps/8-12/project-feedback-coach/PROMPT_AR.md"
+}

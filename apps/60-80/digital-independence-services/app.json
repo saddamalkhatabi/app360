@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a60-digital",
+  "slug": "digital-independence-services",
+  "title_ar": "خدماتي بثقة: تدريب خطوة بخطوة",
+  "age_group": "60-80",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-60-80-digital-independence-scam-safety-and-online-services",
+    "coach-60-80-digital-inclusion-safety-and-confidence-support"
+  ],
+  "entry_path": "apps/60-80/digital-independence-services/index.html",
+  "manifest_path": "apps/60-80/digital-independence-services/manifest.webmanifest",
+  "icon_path": "apps/60-80/digital-independence-services/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 مهمات خدمة مع بيانات وهمية ← نموذج خطوة ثم إعادة مستقلة بأزرار كبيرة ← وضع مرافق يراجع البيانات دون تنفيذ بدل المستخدم",
+  "blueprint_path": "apps/60-80/digital-independence-services/BUILD_SPEC.md",
+  "prompt_path": "apps/60-80/digital-independence-services/PROMPT_AR.md"
+}

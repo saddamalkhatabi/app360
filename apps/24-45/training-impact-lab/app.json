@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-training",
+  "slug": "training-impact-lab",
+  "title_ar": "أثر التدريب: قبل وبعد وتطبيق في العمل",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "coach-24-45-training-design-baseline-measurement-and-improvement",
+    "coach-24-45-performance-coaching-leadership-and-accountability"
+  ],
+  "entry_path": "apps/24-45/training-impact-lab/index.html",
+  "manifest_path": "apps/24-45/training-impact-lab/manifest.webmanifest",
+  "icon_path": "apps/24-45/training-impact-lab/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تعريف سلوك ومؤشر ومهمة متكافئة ← تسجيل خط أساس ومحاولة لاحقة ← متابعة تطبيق في العمل ومحادثة أداء",
+  "blueprint_path": "apps/24-45/training-impact-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/training-impact-lab/PROMPT_AR.md"
+}

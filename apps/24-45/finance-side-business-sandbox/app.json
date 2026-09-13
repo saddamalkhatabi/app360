@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.1",
+  "id": "a24-finance",
+  "slug": "finance-side-business-sandbox",
+  "title_ar": "جدوى صغيرة: ميزانية وتكلفة ونقطة تعادل",
+  "age_group": "24-45",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-24-45-personal-finance-investing-and-side-business-basics"
+  ],
+  "entry_path": "apps/24-45/finance-side-business-sandbox/index.html",
+  "manifest_path": "apps/24-45/finance-side-business-sandbox/manifest.webmanifest",
+  "icon_path": "apps/24-45/finance-side-business-sandbox/icon.svg",
+  "runtime_profile": "static-web",
+  "depth": "standard",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "3 حالات بعملة تدريبية دون منتجات مالية ← محرر سعر وتكاليف ثابتة ومتغيرة ← حساب تعادل وتجربة تغير الطلب مع شرح الافتراضات",
+  "blueprint_path": "apps/24-45/finance-side-business-sandbox/BUILD_SPEC.md",
+  "prompt_path": "apps/24-45/finance-side-business-sandbox/PROMPT_AR.md"
+}
