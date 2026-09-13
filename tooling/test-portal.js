@@ -9,7 +9,8 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const catalog = require('../data/catalog.json');
 const goals = require('../data/goals.json');
-function portal({ age = '', missingGoals = false, catalogData = catalog } = {}) {
+const liveOverrides = require('../data/live-overrides.json');
+function portal({ age = '', missingGoals = false, catalogData = catalog, overrideData = liveOverrides } = {}) {
   const elements = {};
   const element = (id, attrs = {}) => elements[id] = {
     innerHTML: '', value: '', style: {}, className: '', attrs,
@@ -23,9 +24,11 @@ function portal({ age = '', missingGoals = false, catalogData = catalog } = {}) 
   class XHR {
     open(method, url) { this.url = url; urls.push(url); }
     send() {
-      this.readyState = 4; const isGoals = this.url.endsWith('goals.json');
+      this.readyState = 4;
+      const isGoals = this.url.endsWith('goals.json');
+      const isOverrides = this.url.endsWith('live-overrides.json');
       this.status = isGoals && missingGoals ? 503 : 200;
-      this.responseText = JSON.stringify(isGoals ? goals : catalogData);
+      this.responseText = JSON.stringify(isOverrides ? overrideData : (isGoals ? goals : catalogData));
       this.onreadystatechange();
     }
   }
@@ -43,8 +46,9 @@ test('portal renders all goal names, explanations and canonical plan links', () 
     assert.ok(html.includes(a.blueprint_path));
     assert.ok(html.includes(a.prompt_path));
   }
-  assert.deepEqual(urls, ['./data/catalog.json', './data/goals.json']);
-  assert.equal((html.match(/>فتح التطبيق<\/a>/g) || []).length, 1);
+  assert.deepEqual(urls, ['./data/catalog.json', './data/goals.json', './data/live-overrides.json']);
+  assert.equal((html.match(/>فتح التطبيق<\/a>/g) || []).length, 2);
+  assert.ok(html.includes('./apps/1-4/say-and-name/index.html?v=3'));
 });
 test('Arabic goal search and every age page filter the catalog', () => {
   const { elements } = portal();
