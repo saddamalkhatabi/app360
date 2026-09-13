@@ -25,26 +25,13 @@ jobs:
         run: |
           set -euo pipefail
           T='assets/brand/.transport-v12'
-          : > /tmp/app360-logo-source.webp
-          for f in \
-            "$T/logo-00" \
-            "$T/logo-01" \
-            "$T/logo-02a" \
-            "$T/part-09" \
-            "$T/part-10" \
-            "$T/part-11" \
-            "$T/parts-12-13" \
-            "$T/parts-14-15" \
-            "$T/parts-16-17" \
-            "$T/parts-18-19" \
-            "$T/parts-20-21" \
-            "$T/parts-22-23" \
-            "$T/parts-24-25" \
-            "$T/parts-26-27" \
-            "$T/parts-28-29" \
-            "$T/parts-30-31"; do
-              tr -d '\r\n\t ' < "$f" | base64 -d >> /tmp/app360-logo-source.webp
-          done
+          cat \
+            "$T/logo-00" "$T/logo-01" "$T/logo-02a" \
+            "$T/part-09" "$T/part-10" "$T/part-11" \
+            "$T/parts-12-13" "$T/parts-14-15" "$T/parts-16-17" \
+            "$T/parts-18-19" "$T/parts-20-21" "$T/parts-22-23" \
+            "$T/parts-24-25" "$T/parts-26-27" "$T/parts-28-29" "$T/parts-30-31" \
+            | tr -d '\r\n\t ' | base64 --ignore-garbage -d > /tmp/app360-logo-source.webp
           identify /tmp/app360-logo-source.webp
           test "$(stat -c%s /tmp/app360-logo-source.webp)" -lt 300000
           cp /tmp/app360-logo-source.webp assets/brand/app360-lab-logo.webp
