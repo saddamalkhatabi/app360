@@ -1,0 +1,42 @@
+name: Validate Say and Name v17
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/1-4/say-and-name/**'
+      - '.github/workflows/validate-say-name-v17.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JavaScript syntax
+        run: node --check apps/1-4/say-and-name/runtime-v17.js
+      - name: Validate bilingual controls and cache references
+        run: |
+          grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
+          grep -q 'data-voice="both"' apps/1-4/say-and-name/index.html
+          grep -q 'runtime-v17.js?v=17' apps/1-4/say-and-name/index.html
+          grep -q "app360-app-say-and-name-v17" apps/1-4/say-and-name/sw.js
+          ! grep -q 'level1-photo-layer' apps/1-4/say-and-name/sw.js
+      - name: Confirm RawGitHack preview refreshed
+        shell: bash
+        run: |
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html'
+          ok=0
+          for i in {1..18}; do
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v17.js?v=17' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
+              echo 'RawGitHack preview is on v17.'
+              ok=1
+              break
+            fi
+            echo "Preview still stale; retry $i/18"
+            sleep 10
+          done
+          test "$ok" = 1
