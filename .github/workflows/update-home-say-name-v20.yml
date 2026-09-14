@@ -15,240 +15,109 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update catalog, metadata and portal UI
+      - name: Apply portal and metadata updates
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import json, re
-
           root=Path('.')
           appdir=root/'apps/1-4/say-and-name'
 
-          # ---------- authoritative catalog entry ----------
           p=root/'data/catalog.json'
           data=json.loads(p.read_text(encoding='utf-8'))
           data['updated']='2026-09-15'
-          target=None
-          for a in data.get('apps',[]):
-              if a.get('id')=='a1-first-words':
-                  target=a
-                  break
-          if not target:
-              raise SystemExit('a1-first-words not found in catalog')
-
-          target.update({
-              'status':'live',
-              'href':'apps/1-4/say-and-name/index.html?v=19',
-              'description_ar':'مكتبة تعلم بصري وصوتي بأربعة مستويات تراكمية: صور واضحة للمفردات، تصنيفات منظمة، عرض عربي أو English أو اللغتين معًا، ونطق عربي أو إنجليزي أو متتابع، مع مراجعة عشوائية وإرشاد للمربي والطفل. ورغم أن التطبيق مصمم أساسًا للفئة 1–4، تستطيع الفئات الأكبر استخدام وضع English بسهولة كمراجعة عملية للمفردات الأساسية والنطق.',
-              'practice_model':'اختر لغة العرض والنطق ← اختر المستوى والتصنيف ← انظر للصورة وحاول الإشارة أو التسمية ← استمع للكلمة ← كررها أو اربطها بشيء حقيقي ← تنقل بين الكلمات أو راجع بعشر كلمات عشوائية من تصنيفات متنوعة',
-              'goal_keys':[
-                  'learner-1-4-first-words-expressive-language',
-                  'learner-1-4-shared-attention-imitation-simple-instructions',
-                  'coach-1-4-language-rich-play-responsive-interaction'
-              ],
-              'tags':['كلمات','مفردات','نطق','صور','عربي','English','ثنائي اللغة','استماع','إشارة','مراجعة عشوائية'],
-              'runtime_profile':'static-web',
-              'depth':'expanded',
-              'offline_mode':'offline-first',
-              'capabilities':['storage.local','audio.files','audio.tts','i18n.ar-en','pwa.offline']
-          })
+          target=next((x for x in data.get('apps',[]) if x.get('id')=='a1-first-words'),None)
+          if target is None: raise SystemExit('a1-first-words not found')
+          target['status']='live'
+          target['href']='apps/1-4/say-and-name/index.html?v=19'
+          target['description_ar']='مكتبة تعلم بصري وصوتي بأربعة مستويات تراكمية: صور واضحة للمفردات، تصنيفات منظمة، عرض عربي أو English أو اللغتين معًا، ونطق عربي أو إنجليزي أو متتابع، مع مراجعة عشوائية وإرشاد للمربي والطفل. ورغم أن التطبيق مصمم أساسًا للفئة 1–4، تستطيع الفئات الأكبر استخدام وضع English بسهولة كمراجعة عملية للمفردات الأساسية والنطق.'
+          target['practice_model']='اختر لغة العرض والنطق ← اختر المستوى والتصنيف ← انظر للصورة وحاول الإشارة أو التسمية ← استمع للكلمة ← كررها أو اربطها بشيء حقيقي ← تنقل بين الكلمات أو راجع بعشر كلمات عشوائية من تصنيفات متنوعة'
+          target['goal_keys']=['learner-1-4-first-words-expressive-language','learner-1-4-shared-attention-imitation-simple-instructions','coach-1-4-language-rich-play-responsive-interaction']
+          target['tags']=['كلمات','مفردات','نطق','صور','عربي','English','ثنائي اللغة','استماع','إشارة','مراجعة عشوائية']
+          target['runtime_profile']='static-web'
+          target['depth']='expanded'
+          target['offline_mode']='offline-first'
+          target['capabilities']=['storage.local','audio.files','audio.tts','i18n.ar-en','pwa.offline']
           target['goal_links']=[
-              {
-                  'goal_key':'learner-1-4-first-words-expressive-language',
-                  'relationship':'supports',
-                  'rationale_ar':'يعرض التطبيق صورة واضحة واسمًا منطوقًا، ثم يتيح للطفل الإشارة أو الاختيار أو محاولة التسمية والتكرار؛ وبذلك تتحول المفردة من مشاهدة إلى استخدام تعبيري بسيط داخل موقف مشترك مع المرافق.',
-                  'evidence_ar':'يلاحظ المرافق استجابة مفهومة مثل الإشارة الصحيحة أو اختيار البطاقة أو محاولة نطق أو تسمية الكلمة، دون تحويلها إلى درجة تشخيصية.',
-                  'delivery':'available_with_facilitator'
-              },
-              {
-                  'goal_key':'learner-1-4-shared-attention-imitation-simple-instructions',
-                  'relationship':'supports',
-                  'rationale_ar':'يمكن للمرافق استخدام البطاقة في أوامر قصيرة مثل «أشر إلى…» و«أين…؟» و«قل…»، فيجمع النشاط بين الانتباه المشترك واتباع تعليمة بسيطة وتقليد الاسم المسموع.',
-                  'evidence_ar':'استجابة الطفل لتعليمة قصيرة مرتبطة بالصورة، أو انتقال نظره وإشارته بين المرافق والصورة أو الشيء الحقيقي، أو تقليده جزءًا من الكلمة أو الكلمة كاملة.',
-                  'delivery':'available_with_facilitator'
-              },
-              {
-                  'goal_key':'coach-1-4-language-rich-play-responsive-interaction',
-                  'relationship':'supports',
-                  'rationale_ar':'التعليمات المدمجة توجه المرافق إلى الانتظار قبل تشغيل الصوت، والاستجابة لمحاولة الطفل، وتوسيع الكلمة وربط الصورة بشيء واقعي؛ وهو استخدام مستجيب وغني باللغة بدل العرض السلبي.',
-                  'evidence_ar':'يطبق المرافق دورة «انظر ← فكّر ← سمِّ/أشر ← استمع ← كرّر» ويضيف كلمة أو وصفًا قصيرًا مناسبًا بعد استجابة الطفل.',
-                  'delivery':'available_with_facilitator'
-              }
+            {'goal_key':'learner-1-4-first-words-expressive-language','relationship':'supports','rationale_ar':'يعرض التطبيق صورة واضحة واسمًا منطوقًا، ثم يتيح للطفل الإشارة أو الاختيار أو محاولة التسمية والتكرار؛ وبذلك تتحول المفردة من مشاهدة إلى استخدام تعبيري بسيط داخل موقف مشترك مع المرافق.','evidence_ar':'يلاحظ المرافق استجابة مفهومة مثل الإشارة الصحيحة أو اختيار البطاقة أو محاولة نطق أو تسمية الكلمة، دون تحويلها إلى درجة تشخيصية.','delivery':'available_with_facilitator'},
+            {'goal_key':'learner-1-4-shared-attention-imitation-simple-instructions','relationship':'supports','rationale_ar':'يمكن للمرافق استخدام البطاقة في أوامر قصيرة مثل «أشر إلى…» و«أين…؟» و«قل…»، فيجمع النشاط بين الانتباه المشترك واتباع تعليمة بسيطة وتقليد الاسم المسموع.','evidence_ar':'استجابة الطفل لتعليمة قصيرة مرتبطة بالصورة، أو انتقال نظره وإشارته بين المرافق والصورة أو الشيء الحقيقي، أو تقليده جزءًا من الكلمة أو الكلمة كاملة.','delivery':'available_with_facilitator'},
+            {'goal_key':'coach-1-4-language-rich-play-responsive-interaction','relationship':'supports','rationale_ar':'التعليمات المدمجة توجه المرافق إلى الانتظار قبل تشغيل الصوت، والاستجابة لمحاولة الطفل، وتوسيع الكلمة وربط الصورة بشيء واقعي؛ وهو استخدام مستجيب وغني باللغة بدل العرض السلبي.','evidence_ar':'يطبق المرافق دورة «انظر ← فكّر ← سمِّ/أشر ← استمع ← كرّر» ويضيف كلمة أو وصفًا قصيرًا مناسبًا بعد استجابة الطفل.','delivery':'available_with_facilitator'}
           ]
           target['blueprint']={
-              'version':2,
-              'output_ar':'جلسة مفردات بصرية وسمعية قابلة للتكرار ينتج عنها استجابة ذات معنى: إشارة أو اختيار أو تسمية أو تقليد، مع ملاحظة وصفية من المرافق عند الحاجة، بلا تشخيص أو درجة آلية للنطق.',
-              'mvp_steps_ar':[
-                  'اختيار العربية أو English أو العرض الثنائي، مع إمكانية ضبط لغة النطق بصورة مستقلة.',
-                  'اختيار واحد من أربعة مستويات تراكمية ثم فتح أول تصنيف خاص بالمستوى مباشرة.',
-                  'عرض صورة المفردة واسمها بوضوح مع نطق مسجل مفضل وTTS كخيار احتياطي.',
-                  'التنقل السابق/التالي من شاشة التعلم أو من أسفل البطاقات، مع إمكانية تكبير شاشة العرض.',
-                  'استخدام «متنوع عشوائي 10» لمراجعة عشر مفردات من تصنيفات متنوعة.',
-                  'استخدام زر التعليمات للمربي والمعلم أو للطفل الواعي، مع جولة إرشادية داخل الواجهة.',
-                  'العمل كتطبيق PWA مع تحديثات تلقائية ودعم Offline-first بعد التحميل الأول.'
-              ],
-              'scenarios_ar':[
-                  'طفل صغير مع مرافق: يختار المرافق تصنيفًا مألوفًا، يطلب من الطفل أن يشير أو يسمي، ثم يشغل الصوت ويبحثان عن الشيء الحقيقي إن أمكن.',
-                  'تعلم عربي–إنجليزي: عرض اللغتين مع نطقهما بالتتابع لمقارنة الاسم العربي والإنجليزي لنفس الصورة.',
-                  'مراجعة إنجليزية للفئات الأكبر: اختيار English للعرض والنطق واستخدام التصنيفات والصور كمراجعة سهلة للمفردات الأساسية والنطق؛ وهي أداة مفردات وليست منهج لغة كاملًا.',
-                  'مراجعة متنوعة: تشغيل «متنوع عشوائي 10» بعد التعلم للتنقل بين مفردات من أصناف مختلفة.',
-                  'استخدام معلم أو مربٍ: اختيار التصنيف، إتاحة محاولة قبل الصوت، ثم توسيع الاستجابة بجملة قصيرة أو شيء واقعي.',
-                  'اتصال محدود: بعد الفتح الأول يمكن استخدام أغلب تجربة الصور والواجهة عبر PWA Offline-first، مع بقاء بعض وظائف الصوت الاحتياطية مرتبطة بقدرات الجهاز.'
-              ],
-              'acceptance_ar':[
-                  'يعرض التطبيق الصورة الصحيحة للمفردة ويبدل النص بين العربية وEnglish أو كليهما دون كسر التخطيط.',
-                  'يمكن ضبط النطق للعربية أو الإنجليزية أو اللغتين بالتتابع بصورة مستقلة عن لغة العرض.',
-                  'تغيير المستوى يفتح أول تصنيف تابع لذلك المستوى، واختيار التصنيف ينقل المستخدم إلى شاشة التعلم.',
-                  'الوضع العشوائي يعرض عشر مفردات متنوعة ويدعم التنقل العشوائي بينها.',
-                  'التعليمات والجولة الإرشادية تعمل للمربي والمعلم وللطفل الواعي.',
-                  'التطبيق المثبت أو المفتوح سابقًا يتحقق من وجود نسخة أحدث ويحدث Service Worker دون الاعتماد على حذف الكاش يدويًا.'
-              ],
-              'audience_ar':'الطفل في الفئة 1–4 مع مرافق بالغ بوصفه الاستخدام الأساسي. ويمكن للطفل الأكبر أو المتعلم الأكبر استخدام الواجهة منفردًا كمراجعة بصرية وسمعية للمفردات، خصوصًا عند اختيار English.',
-              'age_adaptation_ar':'في الأعمار الأصغر تكون الشاشة أداة للمرافق ويكفي أن تكون الاستجابة إشارة أو اختيارًا؛ ثم تتدرج إلى تقليد الاسم والتسمية. في الأعمار الأكبر يمكن زيادة الاستقلالية، واستخدام وضع English للمراجعة السريعة وربط الصورة بالنطق والاسم الإنجليزي، دون ادعاء أنه بديل عن منهج متكامل للغة.',
-              'feedback_ar':'لا توجد درجة تشخيصية. التغذية الراجعة الأساسية هي نجاح التواصل والمحاولة والتكرار، ويلاحظ المرافق ما إذا كانت الاستجابة إشارة أو اختيارًا أو تسمية وما مقدار المساعدة المطلوبة.',
-              'data_model':['display_language','voice_language','level','category','navigation_mode','speech_enabled','autoplay_speed'],
-              'boundary_ar':'لا يشخص التطبيق تأخر اللغة ولا يقيم مخارج الحروف آليًا ولا يسجل صوت الطفل. وضع English مخصص لتعلم ومراجعة المفردات الأساسية والنطق وليس منهجًا شاملًا للقواعد أو المحادثة.',
-              'reference_ids':['serve-return'],
-              'design_basis_ar':'تنفيذ فعلي داخل مختبر التطبيق 360 يجمع الصورة والصوت والتدرج والمراجعة والإرشاد، مع فصل واضح بين الممارسة التعليمية وبين أي ادعاء علاجي أو تشخيصي.'
+            'version':2,
+            'output_ar':'جلسة مفردات بصرية وسمعية قابلة للتكرار ينتج عنها استجابة ذات معنى: إشارة أو اختيار أو تسمية أو تقليد، مع ملاحظة وصفية من المرافق عند الحاجة، بلا تشخيص أو درجة آلية للنطق.',
+            'mvp_steps_ar':['اختيار العربية أو English أو العرض الثنائي، مع إمكانية ضبط لغة النطق بصورة مستقلة.','اختيار واحد من أربعة مستويات تراكمية ثم فتح أول تصنيف خاص بالمستوى مباشرة.','عرض صورة المفردة واسمها بوضوح مع نطق مسجل مفضل وTTS كخيار احتياطي.','التنقل السابق/التالي من شاشة التعلم أو من أسفل البطاقات، مع إمكانية تكبير شاشة العرض.','استخدام «متنوع عشوائي 10» لمراجعة عشر مفردات من تصنيفات متنوعة.','استخدام زر التعليمات للمربي والمعلم أو للطفل الواعي، مع جولة إرشادية داخل الواجهة.','العمل كتطبيق PWA مع تحديثات تلقائية ودعم Offline-first بعد التحميل الأول.'],
+            'scenarios_ar':['طفل صغير مع مرافق: يختار المرافق تصنيفًا مألوفًا، يطلب من الطفل أن يشير أو يسمي، ثم يشغل الصوت ويبحثان عن الشيء الحقيقي إن أمكن.','تعلم عربي–إنجليزي: عرض اللغتين مع نطقهما بالتتابع لمقارنة الاسم العربي والإنجليزي لنفس الصورة.','مراجعة إنجليزية للفئات الأكبر: اختيار English للعرض والنطق واستخدام التصنيفات والصور كمراجعة سهلة للمفردات الأساسية والنطق؛ وهي أداة مفردات وليست منهج لغة كاملًا.','مراجعة متنوعة: تشغيل «متنوع عشوائي 10» بعد التعلم للتنقل بين مفردات من أصناف مختلفة.','استخدام معلم أو مربٍ: اختيار التصنيف، إتاحة محاولة قبل الصوت، ثم توسيع الاستجابة بجملة قصيرة أو شيء واقعي.','اتصال محدود: بعد الفتح الأول يمكن استخدام أغلب تجربة الصور والواجهة عبر PWA Offline-first، مع بقاء بعض وظائف الصوت الاحتياطية مرتبطة بقدرات الجهاز.'],
+            'acceptance_ar':['يعرض التطبيق الصورة الصحيحة للمفردة ويبدل النص بين العربية وEnglish أو كليهما دون كسر التخطيط.','يمكن ضبط النطق للعربية أو الإنجليزية أو اللغتين بالتتابع بصورة مستقلة عن لغة العرض.','تغيير المستوى يفتح أول تصنيف تابع لذلك المستوى، واختيار التصنيف ينقل المستخدم إلى شاشة التعلم.','الوضع العشوائي يعرض عشر مفردات متنوعة ويدعم التنقل العشوائي بينها.','التعليمات والجولة الإرشادية تعمل للمربي والمعلم وللطفل الواعي.','التطبيق المثبت أو المفتوح سابقًا يتحقق من وجود نسخة أحدث ويحدث Service Worker دون الاعتماد على حذف الكاش يدويًا.'],
+            'audience_ar':'الطفل في الفئة 1–4 مع مرافق بالغ بوصفه الاستخدام الأساسي. ويمكن للطفل الأكبر أو المتعلم الأكبر استخدام الواجهة منفردًا كمراجعة بصرية وسمعية للمفردات، خصوصًا عند اختيار English.',
+            'age_adaptation_ar':'في الأعمار الأصغر تكون الشاشة أداة للمرافق ويكفي أن تكون الاستجابة إشارة أو اختيارًا؛ ثم تتدرج إلى تقليد الاسم والتسمية. في الأعمار الأكبر يمكن زيادة الاستقلالية، واستخدام وضع English للمراجعة السريعة وربط الصورة بالنطق والاسم الإنجليزي، دون ادعاء أنه بديل عن منهج متكامل للغة.',
+            'feedback_ar':'لا توجد درجة تشخيصية. التغذية الراجعة الأساسية هي نجاح التواصل والمحاولة والتكرار، ويلاحظ المرافق ما إذا كانت الاستجابة إشارة أو اختيارًا أو تسمية وما مقدار المساعدة المطلوبة.',
+            'data_model':['display_language','voice_language','level','category','navigation_mode','speech_enabled','autoplay_speed'],
+            'boundary_ar':'لا يشخص التطبيق تأخر اللغة ولا يقيم مخارج الحروف آليًا ولا يسجل صوت الطفل. وضع English مخصص لتعلم ومراجعة المفردات الأساسية والنطق وليس منهجًا شاملًا للقواعد أو المحادثة.',
+            'reference_ids':['serve-return'],
+            'design_basis_ar':'تنفيذ فعلي داخل مختبر التطبيق 360 يجمع الصورة والصوت والتدرج والمراجعة والإرشاد، مع فصل واضح بين الممارسة التعليمية وبين أي ادعاء علاجي أو تشخيصي.'
           }
           target['blueprint_path']='apps/1-4/say-and-name/BUILD_SPEC.md'
           target['prompt_path']='apps/1-4/say-and-name/PROMPT_AR.md'
           p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-          # ---------- app.json ----------
           p=appdir/'app.json'
-          a=json.loads(p.read_text(encoding='utf-8'))
-          a.update({
-              'version':19,
-              'status':'live',
-              'scaffold_state':'live',
-              'goal_keys':target['goal_keys'],
-              'practice_model_ar':target['practice_model'],
-              'update_policy':'service-worker-auto-activation-and-focus-check'
-          })
-          a.setdefault('data_contract',{})['storage_key']='app360:say-name:v19'
-          a['extended_use_ar']='يمكن للفئات الأكبر استخدام وضع English للعرض والنطق أو العرض الثنائي لمراجعة المفردات الأساسية بصريًا وسمعيًا؛ هذا استخدام توسعي وليس منهج لغة كاملًا.'
-          p.write_text(json.dumps(a,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          app=json.loads(p.read_text(encoding='utf-8'))
+          app['version']=19
+          app['status']='live'
+          app['scaffold_state']='live'
+          app['goal_keys']=target['goal_keys']
+          app['practice_model_ar']=target['practice_model']
+          app['update_policy']='service-worker-auto-activation-and-focus-check'
+          app.setdefault('data_contract',{})['storage_key']='app360:say-name:v19'
+          app['extended_use_ar']='يمكن للفئات الأكبر استخدام وضع English للعرض والنطق أو العرض الثنائي لمراجعة المفردات الأساسية بصريًا وسمعيًا؛ هذا استخدام توسعي وليس منهج لغة كاملًا.'
+          p.write_text(json.dumps(app,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-          # ---------- live overrides ----------
           p=root/'data/live-overrides.json'
-          o=json.loads(p.read_text(encoding='utf-8'))
-          o['updated']='2026-09-15'
-          for r in o.get('apps',[]):
-              if r.get('id')=='a1-first-words':
-                  r['status']='live'
-                  r['href']='apps/1-4/say-and-name/index.html?v=19'
-                  r['capabilities']=target['capabilities']
-                  r['goal_delivery']='available_with_facilitator'
-          p.write_text(json.dumps(o,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          over=json.loads(p.read_text(encoding='utf-8'))
+          over['updated']='2026-09-15'
+          for row in over.get('apps',[]):
+              if row.get('id')=='a1-first-words':
+                  row['status']='live'; row['href']='apps/1-4/say-and-name/index.html?v=19'; row['capabilities']=target['capabilities']; row['goal_delivery']='available_with_facilitator'
+          p.write_text(json.dumps(over,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-          # ---------- live BUILD_SPEC source document ----------
-          p=appdir/'BUILD_SPEC.md'
-          p.write_text('''# كلماتي مع أشيائي: اسمع وأشر وسمِّ
+          spec_lines=['# كلماتي مع أشيائي: اسمع وأشر وسمِّ','','- الفئة الأساسية: 1–4','- الهوية: `a1-first-words`','- المسار: `apps/1-4/say-and-name/`','- الحالة: **يعمل الآن**','- الإصدار التشغيلي: **19**','','## الفكرة الحالية','','تطبيق مفردات بصري وصوتي بأربعة مستويات تراكمية. يعرض صورة واضحة للمفهوم، ويسمح بالعربية أو English أو اللغتين معًا، مع اختيار مستقل للغة النطق، وتصنيفات منظمة، ومراجعة عشوائية، وتعليمات موجهة للمربي أو للطفل الواعي.','','## الناتج العملي','','استجابة تواصل ذات معنى: إشارة، اختيار، تقليد أو تسمية. لا توجد درجة تشخيصية للنطق ولا تسجيل صوت إلزامي.','','## سيناريوهات الاستخدام','','1. **طفل صغير مع مرافق:** اختر تصنيفًا مألوفًا، اطلب الإشارة أو التسمية قبل تشغيل الصوت، ثم اربط الصورة بشيء حقيقي إن أمكن.','2. **عربي + English:** اعرض الاسمين معًا واختر نطق اللغتين بالتتابع للمقارنة والتثبيت.','3. **تعلم English للفئات الأكبر:** اختر English للعرض والنطق واستخدم الصور والتصنيفات للمراجعة السريعة للمفردات والنطق. هذا ليس منهج قواعد أو محادثة كاملًا.','4. **مراجعة عشوائية:** استخدم «متنوع عشوائي 10» بعد التعلم لمراجعة كلمات من تصنيفات مختلفة.','5. **مربٍ أو معلم:** استخدم التعليمات والجولة المدمجة، وانتظر محاولة المتعلم قبل تشغيل الاسم ثم وسّع الاستجابة بكلمة أو جملة قصيرة.','6. **اتصال محدود:** بعد التحميل الأول تعمل الواجهة والصور وفق Offline-first عبر PWA، مع TTS احتياطي وفق قدرات الجهاز.','','## الارتباط بالأهداف','','### الكلمات الأولى واللغة التعبيرية','يعرض صورة واسمًا منطوقًا ثم يتيح الإشارة أو الاختيار أو التسمية والتكرار. الملاحظة المقبولة هي استجابة تواصل مفهومة، لا درجة آلية.','','### الانتباه المشترك والتقليد واتباع التعليمات البسيطة','يمكن للمرافق استخدام أوامر قصيرة مثل «أشر إلى…» و«أين…؟» و«قل…»، مع متابعة انتباه الطفل وتقليده للاسم.','','### اللعب الغني باللغة والتفاعل المستجيب — للمربي/المدرب','التعليمات المدمجة تشجع الانتظار قبل الصوت، والاستجابة للمحاولة، وتوسيع الكلمة وربطها بواقع الطفل.','','## القبول التشغيلي','','- الصور مرتبطة بالمفردات ويعمل العرض بالعربية أو English أو كليهما.','- لغة النطق مستقلة: عربي أو English أو اللغتان بالتتابع.','- تغيير المستوى يفتح أول تصنيف خاص به.','- اختيار التصنيف ينقل المستخدم إلى شاشة التعلم.','- المراجعة العشوائية تعرض عشر مفردات متنوعة.','- زر التعليمات يقدم مسارًا للمربي/المعلم ومسارًا للطفل الواعي مع جولة داخل التطبيق.','- التحديثات تتحقق تلقائيًا عند الفتح والعودة للتطبيق وتفعّل Service Worker الجديد.','','## الحدود','','لا تشخيص لتأخر اللغة، ولا تقييم آلي لمخارج الحروف، ولا ادعاء بأن وضع English منهج لغة شامل. الهدف ممارسة المفردات والاستماع والإشارة والتسمية والتكرار بطريقة بسيطة وآمنة.']
+          (appdir/'BUILD_SPEC.md').write_text('\n'.join(spec_lines)+'\n',encoding='utf-8')
 
-- الفئة الأساسية: 1–4
-- الهوية: `a1-first-words`
-- المسار: `apps/1-4/say-and-name/`
-- الحالة: **يعمل الآن**
-- الإصدار التشغيلي: **19**
-
-## الفكرة الحالية
-
-تطبيق مفردات بصري وصوتي بأربعة مستويات تراكمية. يعرض صورة واضحة للمفهوم، ويسمح بالعربية أو English أو اللغتين معًا، مع اختيار مستقل للغة النطق، وتصنيفات منظمة، ومراجعة عشوائية، وتعليمات موجهة للمربي أو للطفل الواعي.
-
-## الناتج العملي
-
-استجابة تواصل ذات معنى: إشارة، اختيار، تقليد أو تسمية. لا توجد درجة تشخيصية للنطق ولا تسجيل صوت إلزامي.
-
-## سيناريوهات الاستخدام
-
-1. **طفل صغير مع مرافق:** اختر تصنيفًا مألوفًا، اطلب الإشارة أو التسمية قبل تشغيل الصوت، ثم اربط الصورة بشيء حقيقي إن أمكن.
-2. **عربي + English:** اعرض الاسمين معًا واختر نطق اللغتين بالتتابع للمقارنة والتثبيت.
-3. **تعلم English للفئات الأكبر:** اختر English للعرض والنطق واستخدم الصور والتصنيفات للمراجعة السريعة للمفردات والنطق. هذا ليس منهج قواعد أو محادثة كاملًا.
-4. **مراجعة عشوائية:** استخدم «متنوع عشوائي 10» بعد التعلم لمراجعة كلمات من تصنيفات مختلفة.
-5. **مربٍ أو معلم:** استخدم التعليمات والجولة المدمجة، وانتظر محاولة المتعلم قبل تشغيل الاسم ثم وسّع الاستجابة بكلمة أو جملة قصيرة.
-6. **اتصال محدود:** بعد التحميل الأول تعمل الواجهة والصور وفق Offline-first عبر PWA، مع TTS احتياطي وفق قدرات الجهاز.
-
-## الارتباط بالأهداف
-
-### الكلمات الأولى واللغة التعبيرية
-يعرض صورة واسمًا منطوقًا ثم يتيح الإشارة أو الاختيار أو التسمية والتكرار. الملاحظة المقبولة هي استجابة تواصل مفهومة، لا درجة آلية.
-
-### الانتباه المشترك والتقليد واتباع التعليمات البسيطة
-يمكن للمرافق استخدام أوامر قصيرة مثل «أشر إلى…» و«أين…؟» و«قل…»، مع متابعة انتباه الطفل وتقليده للاسم.
-
-### اللعب الغني باللغة والتفاعل المستجيب — للمربي/المدرب
-التعليمات المدمجة تشجع الانتظار قبل الصوت، والاستجابة للمحاولة، وتوسيع الكلمة وربطها بواقع الطفل.
-
-## القبول التشغيلي
-
-- الصور مرتبطة بالمفردات ويعمل العرض بالعربية أو English أو كليهما.
-- لغة النطق مستقلة: عربي أو English أو اللغتان بالتتابع.
-- تغيير المستوى يفتح أول تصنيف خاص به.
-- اختيار التصنيف ينقل المستخدم إلى شاشة التعلم.
-- المراجعة العشوائية تعرض عشر مفردات متنوعة.
-- زر التعليمات يقدم مسارًا للمربي/المعلم ومسارًا للطفل الواعي مع جولة داخل التطبيق.
-- التحديثات تتحقق تلقائيًا عند الفتح والعودة للتطبيق وتفعّل Service Worker الجديد.
-
-## الحدود
-
-لا تشخيص لتأخر اللغة، ولا تقييم آلي لمخارج الحروف، ولا ادعاء بأن وضع English منهج لغة شامل. الهدف ممارسة المفردات والاستماع والإشارة والتسمية والتكرار بطريقة بسيطة وآمنة.
-''',encoding='utf-8')
-
-          # ---------- portal JS: SweetAlert details, hide build links for live ----------
           p=root/'assets/js/lab360.js'
-          s=p.read_text(encoding='utf-8')
+          js=p.read_text(encoding='utf-8')
+          goal_fn="function goalPanel(a){var h='<div class=\"modal-detail-content\">',keys=a.goal_keys||[],links=a.goal_links||[],i,j,g,l;h+='<p class=\"detail-intro\">الارتباط يوضح مساهمة محددة في الهدف، وليس ادعاء تغطية كل أجزائه. '+(a.status==='live'?'الممارسة الحالية متاحة الآن، وتفاصيل المساهمة موضحة لكل هدف.':'هذه ممارسة مخططة تُنفذ عند بناء التطبيق.')+'</p>';if(!keys.length)h+='<p>لا يوجد هدف مرجعي مرتبط حاليًا.</p>';for(i=0;i<keys.length;i++){g=findGoal(keys[i]);l=null;for(j=0;j<links.length;j++)if(links[j].goal_key===keys[i]){l=links[j];break}h+='<div class=\"goal-relationship modal-goal\"><span class=\"goal-chip '+esc(g?g.role:'')+'\">'+(g?(g.role==='coach'?'هدف المدرب':'هدف المتعلم'):'هدف مرتبط')+'</span><h5>'+esc(g?g.title_ar:keys[i])+'</h5>';if(l)h+='<p><b>المساهمة العملية:</b> '+esc(l.rationale_ar)+'</p><p><b>ما الذي نلاحظه؟</b> '+esc(l.evidence_ar)+'</p>';else h+='<p>لم يوثق تفسير هذا الارتباط بعد.</p>';h+='</div>'}return h+'</div>'}"
+          js=re.sub(r'function goalPanel\(a\)\{.*?\}\nfunction planPanel',goal_fn+'\nfunction planPanel',js,flags=re.S)
+          plan_fn="function planPanel(a){var b=a.blueprint;if(!b)return '<div class=\"modal-detail-content\"><p>لا توجد خطة موثقة لهذا التطبيق حاليًا.</p></div>';var h='<div class=\"modal-detail-content\"><h4>الناتج العملي</h4><p>'+esc(b.output_ar||'')+'</p>';if(b.audience_ar)h+='<p><b>المستخدم:</b> '+esc(b.audience_ar)+'</p>';h+='<h4>المكونات والخطوات</h4>'+listHtml(b.mvp_steps_ar);if(b.scenarios_ar&&b.scenarios_ar.length)h+='<h4>سيناريوهات الاستخدام</h4>'+listHtml(b.scenarios_ar);if(b.age_adaptation_ar)h+='<h4>ملاءمة الفئة والتدرج</h4><p>'+esc(b.age_adaptation_ar)+'</p>';if(b.acceptance_ar&&b.acceptance_ar.length)h+='<h4>كيف نراجع نجاح التنفيذ؟</h4>'+listHtml(b.acceptance_ar);h+='<p class=\"plan-status\">'+(a.status==='live'?'التطبيق يعمل الآن؛ هذه الخطة تصف النسخة الفعلية وسيناريوهات استخدامها الحالية.':'الخطة جاهزة للبناء؛ التطبيق لم ينفذ بعد.')+'</p>';if(a.status!=='live'){h+='<div class=\"plan-links\">';if(a.blueprint_path)h+='<a href=\"'+esc(rootPath(a.blueprint_path))+'\">مواصفات البناء</a>';if(a.prompt_path)h+='<a href=\"'+esc(rootPath(a.prompt_path))+'\">مطالبة البناء</a>';h+='</div>'}return h+'</div>'}"
+          js=re.sub(r'function planPanel\(a\)\{.*?\}\nfunction bindDetails',plan_fn+'\nfunction bindDetails',js,flags=re.S)
+          helpers="function findAppById(id){var a=catalog&&catalog.apps||[],i;for(i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null}\nvar swalWait=[],swalLoading=false;\nfunction ensureSwal(cb){if(window.Swal){cb();return}swalWait.push(cb);if(swalLoading)return;swalLoading=true;var l=d.createElement('link');l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css';d.head.appendChild(l);var sc=d.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js';sc.onload=function(){swalLoading=false;var q=swalWait.slice();swalWait=[];for(var i=0;i<q.length;i++)q[i]()};sc.onerror=function(){swalLoading=false;swalWait=[];alert('تعذر فتح نافذة التفاصيل الآن. حاول مرة أخرى.')};d.head.appendChild(sc)}\nfunction openAppDetail(type,a){if(!a)return;ensureSwal(function(){var isGoals=type==='goals',title=(isGoals?'الأهداف المرتبطة — ':'خطة التطبيق — ')+a.title_ar,html=isGoals?goalPanel(a):planPanel(a);window.Swal.fire({title:title,html:html,width:'min(940px,96vw)',showCloseButton:true,confirmButtonText:'إغلاق',focusConfirm:false,customClass:{popup:'app360-detail-popup',htmlContainer:'app360-detail-container'}})})}\nfunction bindDetails(){var grid=byId('appGrid');if(!grid)return;grid.onclick=function(e){var t=(e||window.event).target||(e||window.event).srcElement;while(t&&t!==grid){if(t.getAttribute&&t.getAttribute('data-detail')){openAppDetail(t.getAttribute('data-detail'),findAppById(t.getAttribute('data-app')));return}t=t.parentNode}}}"
+          js=re.sub(r'function bindDetails\(\)\{.*?\}\nfunction appHref',helpers+'\nfunction appHref',js,flags=re.S)
+          card="function appCard(a){var h='<article class=\"app-card\" data-status=\"'+esc(a.status)+'\">',ico=appIcon(a),offline=a.status==='live'&&contains(a.capabilities,'pwa.offline');h+='<div class=\"app-badges\"><span class=\"badge status-'+esc(a.status)+'\">'+esc(statusAr(a.status))+'</span><span class=\"badge kind-'+esc(a.kind)+'\">'+esc(kindAr(a.kind))+'</span>'+(a.priority?'<span class=\"badge\">أولوية '+esc(a.priority)+'</span>':'')+(offline?'<span class=\"offline-chip\">⚡ دون اتصال</span>':'')+'</div>';h+='<div class=\"app-title-row\">'+(ico?'<img class=\"app-logo\" src=\"'+esc(ico)+'\" alt=\"\">':'')+'<h3>'+esc(a.title_ar)+'</h3></div><p>'+esc(a.description_ar)+'</p>';if(a.practice_model)h+='<div class=\"practice\"><b>نمط الممارسة:</b> '+esc(a.practice_model)+'</div>';h+='<div class=\"app-badges\">';var tags=a.tags||[],i;for(i=0;i<tags.length&&i<6;i++)h+='<span class=\"badge\">'+esc(tags[i])+'</span>';h+='</div><div class=\"actions\">';if(a.status==='live'&&a.href)h+='<a class=\"btn\" href=\"'+esc(appHref(a))+'\">فتح التطبيق</a>';else h+='<span class=\"btn disabled\">'+(a.status==='planned'?'مخطط للبناء':'في بنك الأفكار')+'</span>';h+='<button type=\"button\" class=\"goal-toggle\" data-detail=\"goals\" data-app=\"'+esc(a.id)+'\" aria-label=\"عرض الأهداف المرتبطة بتطبيق '+esc(a.title_ar)+'\">'+esc((a.goal_keys||[]).length)+' هدف مرتبط</button>';if(a.blueprint)h+='<button type=\"button\" class=\"plan-toggle\" data-detail=\"plan\" data-app=\"'+esc(a.id)+'\">خطة التطبيق</button>';h+='</div></article>';return h}"
+          js=re.sub(r'function appCard\(a\)\{.*?\}\nfunction filteredApps',card+'\nfunction filteredApps',js,flags=re.S)
+          p.write_text(js,encoding='utf-8')
 
-          goal_fn=r'''function goalPanel(a){var h='<div class="modal-detail-content">',keys=a.goal_keys||[],links=a.goal_links||[],i,j,g,l;h+='<p class="detail-intro">الارتباط يوضح مساهمة محددة في الهدف، وليس ادعاء تغطية كل أجزائه. '+(a.status==='live'?'الممارسة الحالية متاحة الآن، وتفاصيل المساهمة موضحة لكل هدف.':'هذه ممارسة مخططة تُنفذ عند بناء التطبيق.')+'</p>';if(!keys.length)h+='<p>لا يوجد هدف مرجعي مرتبط حاليًا.</p>';for(i=0;i<keys.length;i++){g=findGoal(keys[i]);l=null;for(j=0;j<links.length;j++)if(links[j].goal_key===keys[i]){l=links[j];break}h+='<div class="goal-relationship modal-goal"><span class="goal-chip '+esc(g?g.role:'')+'">'+(g?(g.role==='coach'?'هدف المدرب':'هدف المتعلم'):'هدف مرتبط')+'</span><h5>'+esc(g?g.title_ar:keys[i])+'</h5>';if(l)h+='<p><b>المساهمة العملية:</b> '+esc(l.rationale_ar)+'</p><p><b>ما الذي نلاحظه؟</b> '+esc(l.evidence_ar)+'</p>';else h+='<p>لم يوثق تفسير هذا الارتباط بعد.</p>';h+='</div>'}return h+'</div>'}'''
-          s=re.sub(r'function goalPanel\(a\)\{.*?\}\nfunction planPanel',goal_fn+'\nfunction planPanel',s,flags=re.S)
-
-          plan_fn=r'''function planPanel(a){var b=a.blueprint;if(!b)return '<div class="modal-detail-content"><p>لا توجد خطة موثقة لهذا التطبيق حاليًا.</p></div>';var h='<div class="modal-detail-content"><h4>الناتج العملي</h4><p>'+esc(b.output_ar||'')+'</p>';if(b.audience_ar)h+='<p><b>المستخدم:</b> '+esc(b.audience_ar)+'</p>';h+='<h4>المكونات والخطوات</h4>'+listHtml(b.mvp_steps_ar);if(b.scenarios_ar&&b.scenarios_ar.length)h+='<h4>سيناريوهات الاستخدام</h4>'+listHtml(b.scenarios_ar);if(b.age_adaptation_ar)h+='<h4>ملاءمة الفئة والتدرج</h4><p>'+esc(b.age_adaptation_ar)+'</p>';if(b.acceptance_ar&&b.acceptance_ar.length)h+='<h4>كيف نراجع نجاح التنفيذ؟</h4>'+listHtml(b.acceptance_ar);h+='<p class="plan-status">'+(a.status==='live'?'التطبيق يعمل الآن؛ هذه الخطة تصف النسخة الفعلية وسيناريوهات استخدامها الحالية.':'الخطة جاهزة للبناء؛ التطبيق لم ينفذ بعد.')+'</p>';if(a.status!=='live'){h+='<div class="plan-links">';if(a.blueprint_path)h+='<a href="'+esc(rootPath(a.blueprint_path))+'">مواصفات البناء</a>';if(a.prompt_path)h+='<a href="'+esc(rootPath(a.prompt_path))+'">مطالبة البناء</a>';h+='</div>'}return h+'</div>'}'''
-          s=re.sub(r'function planPanel\(a\)\{.*?\}\nfunction bindDetails',plan_fn+'\nfunction bindDetails',s,flags=re.S)
-
-          modal_helpers=r'''function findAppById(id){var a=catalog&&catalog.apps||[],i;for(i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null}
-var swalWait=[],swalLoading=false;
-function ensureSwal(cb){if(window.Swal){cb();return}swalWait.push(cb);if(swalLoading)return;swalLoading=true;var l=d.createElement('link');l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css';d.head.appendChild(l);var sc=d.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js';sc.onload=function(){swalLoading=false;var q=swalWait.slice();swalWait=[];for(var i=0;i<q.length;i++)q[i]()};sc.onerror=function(){swalLoading=false;swalWait=[];alert('تعذر فتح نافذة التفاصيل الآن. حاول مرة أخرى.')};d.head.appendChild(sc)}
-function openAppDetail(type,a){if(!a)return;ensureSwal(function(){var isGoals=type==='goals',title=(isGoals?'الأهداف المرتبطة — ':'خطة التطبيق — ')+a.title_ar,html=isGoals?goalPanel(a):planPanel(a);window.Swal.fire({title:title,html:html,width:'min(940px,96vw)',showCloseButton:true,confirmButtonText:'إغلاق',focusConfirm:false,customClass:{popup:'app360-detail-popup',htmlContainer:'app360-detail-container'}})})}
-function bindDetails(){var grid=byId('appGrid');if(!grid)return;grid.onclick=function(e){var t=(e||window.event).target||(e||window.event).srcElement;while(t&&t!==grid){if(t.getAttribute&&t.getAttribute('data-detail')){openAppDetail(t.getAttribute('data-detail'),findAppById(t.getAttribute('data-app')));return}t=t.parentNode}}}'''
-          s=re.sub(r'function bindDetails\(\)\{.*?\}\nfunction appHref',modal_helpers+'\nfunction appHref',s,flags=re.S)
-
-          appcard=r'''function appCard(a){var h='<article class="app-card" data-status="'+esc(a.status)+'">',ico=appIcon(a),offline=a.status==='live'&&contains(a.capabilities,'pwa.offline');h+='<div class="app-badges"><span class="badge status-'+esc(a.status)+'">'+esc(statusAr(a.status))+'</span><span class="badge kind-'+esc(a.kind)+'">'+esc(kindAr(a.kind))+'</span>'+(a.priority?'<span class="badge">أولوية '+esc(a.priority)+'</span>':'')+(offline?'<span class="offline-chip">⚡ دون اتصال</span>':'')+'</div>';h+='<div class="app-title-row">'+(ico?'<img class="app-logo" src="'+esc(ico)+'" alt="">':'')+'<h3>'+esc(a.title_ar)+'</h3></div><p>'+esc(a.description_ar)+'</p>';if(a.practice_model)h+='<div class="practice"><b>نمط الممارسة:</b> '+esc(a.practice_model)+'</div>';h+='<div class="app-badges">';var tags=a.tags||[],i;for(i=0;i<tags.length&&i<6;i++)h+='<span class="badge">'+esc(tags[i])+'</span>';h+='</div><div class="actions">';if(a.status==='live'&&a.href)h+='<a class="btn" href="'+esc(appHref(a))+'">فتح التطبيق</a>';else h+='<span class="btn disabled">'+(a.status==='planned'?'مخطط للبناء':'في بنك الأفكار')+'</span>';h+='<button type="button" class="goal-toggle" data-detail="goals" data-app="'+esc(a.id)+'" aria-label="عرض الأهداف المرتبطة بتطبيق '+esc(a.title_ar)+'">'+esc((a.goal_keys||[]).length)+' هدف مرتبط</button>';if(a.blueprint)h+='<button type="button" class="plan-toggle" data-detail="plan" data-app="'+esc(a.id)+'">خطة التطبيق</button>';h+='</div></article>';return h}'''
-          s=re.sub(r'function appCard\(a\)\{.*?\}\nfunction filteredApps',appcard+'\nfunction filteredApps',s,flags=re.S)
-          p.write_text(s,encoding='utf-8')
-
-          # ---------- portal CSS ----------
           p=root/'assets/css/lab360.css'
           css=p.read_text(encoding='utf-8')
           marker='/* portal modal details v18 */'
           if marker not in css:
-              css+='''\n/* portal modal details v18 */\n.swal2-popup.app360-detail-popup{border-radius:24px!important;text-align:right!important}.app360-detail-container{padding-top:2px!important}.modal-detail-content{text-align:right;color:#17343a;line-height:1.85}.modal-detail-content h4{margin:16px 0 6px;color:#087d86}.modal-detail-content h5{margin:7px 0 5px;font-size:16px}.modal-detail-content ul{margin:6px 0 12px;padding-right:22px}.modal-detail-content li{margin:5px 0}.detail-intro{background:#eefafa;border:1px solid #cae9e7;border-radius:14px;padding:10px 12px}.modal-goal{border:1px solid #dce9e8;border-radius:16px;background:#fbfefd;padding:12px;margin:10px 0}.modal-goal p{margin:5px 0}.plan-status{background:#fff7d7;border:1px solid #f0dd8d;border-radius:13px;padding:9px 11px}.app360-detail-popup .plan-links{display:flex;gap:8px;flex-wrap:wrap}.app360-detail-popup .plan-links a{display:inline-flex;padding:8px 11px;border-radius:10px;background:#edf8f7;color:#087d86;text-decoration:none;font-weight:800}@media(max-width:640px){.swal2-popup.app360-detail-popup{width:96vw!important;padding:14px!important}.modal-detail-content{font-size:13px}.modal-detail-content ul{padding-right:18px}}\n'''
+              css+='\n'+marker+'\n.swal2-popup.app360-detail-popup{border-radius:24px!important;text-align:right!important}.app360-detail-container{padding-top:2px!important}.modal-detail-content{text-align:right;color:#17343a;line-height:1.85}.modal-detail-content h4{margin:16px 0 6px;color:#087d86}.modal-detail-content h5{margin:7px 0 5px;font-size:16px}.modal-detail-content ul{margin:6px 0 12px;padding-right:22px}.modal-detail-content li{margin:5px 0}.detail-intro{background:#eefafa;border:1px solid #cae9e7;border-radius:14px;padding:10px 12px}.modal-goal{border:1px solid #dce9e8;border-radius:16px;background:#fbfefd;padding:12px;margin:10px 0}.modal-goal p{margin:5px 0}.plan-status{background:#fff7d7;border:1px solid #f0dd8d;border-radius:13px;padding:9px 11px}.app360-detail-popup .plan-links{display:flex;gap:8px;flex-wrap:wrap}.app360-detail-popup .plan-links a{display:inline-flex;padding:8px 11px;border-radius:10px;background:#edf8f7;color:#087d86;text-decoration:none;font-weight:800}@media(max-width:640px){.swal2-popup.app360-detail-popup{width:96vw!important;padding:14px!important}.modal-detail-content{font-size:13px}.modal-detail-content ul{padding-right:18px}}\n'
           p.write_text(css,encoding='utf-8')
 
-          # ---------- root index copy/cache versions ----------
           p=root/'index.html'
-          s=p.read_text(encoding='utf-8')
-          if 'app360-home-v18-20260915' not in s:
-              s=s.replace('<title>مختبر التطبيق 360 - الريلز الآمن 360</title>','<meta name="app360-build" content="app360-home-v18-20260915">\n<title>مختبر التطبيق 360 - الريلز الآمن 360</title>')
-          s=s.replace('assets/css/lab360.css?v=16','assets/css/lab360.css?v=17')
-          s=s.replace('assets/js/lab360.js?v=17','assets/js/lab360.js?v=18')
-          old='التطبيق الجاهز يظهر أولًا. اضغط عدد الأهداف لمعرفة مساهمة التطبيق في كل هدف، أو افتح خطته للاطلاع على الناتج وخطوات البناء. التطبيقات المخططة لم تُنفذ بعد.'
-          new='التطبيق الجاهز يظهر أولًا. اضغط «الأهداف المرتبطة» أو «خطة التطبيق» لعرض التفاصيل في نافذة واضحة دون مغادرة الصفحة. بعد تفعيل التطبيق لا نعرض مطالبة البناء أو مواصفاته كإجراء للمستخدم؛ تبقى وثائق البناء داخل المشروع للتوثيق فقط.'
-          s=s.replace(old,new)
-          p.write_text(s,encoding='utf-8')
+          html=p.read_text(encoding='utf-8')
+          if 'app360-home-v18-20260915' not in html: html=html.replace('<title>مختبر التطبيق 360 - الريلز الآمن 360</title>','<meta name="app360-build" content="app360-home-v18-20260915">\n<title>مختبر التطبيق 360 - الريلز الآمن 360</title>')
+          html=html.replace('assets/css/lab360.css?v=16','assets/css/lab360.css?v=17').replace('assets/js/lab360.js?v=17','assets/js/lab360.js?v=18')
+          html=html.replace('التطبيق الجاهز يظهر أولًا. اضغط عدد الأهداف لمعرفة مساهمة التطبيق في كل هدف، أو افتح خطته للاطلاع على الناتج وخطوات البناء. التطبيقات المخططة لم تُنفذ بعد.','التطبيق الجاهز يظهر أولًا. اضغط «الأهداف المرتبطة» أو «خطة التطبيق» لعرض التفاصيل في نافذة واضحة دون مغادرة الصفحة. بعد تفعيل التطبيق لا نعرض مطالبة البناء أو مواصفاته كإجراء للمستخدم؛ تبقى وثائق البناء داخل المشروع للتوثيق فقط.')
+          p.write_text(html,encoding='utf-8')
 
-          # ---------- root service worker ----------
           p=root/'sw.js'
-          s=p.read_text(encoding='utf-8')
-          s=s.replace("app360-portal-v17","app360-portal-v18")
-          s=s.replace("./index.html?v=12","./index.html?v=13")
-          s=s.replace("./assets/css/lab360.css?v=16","./assets/css/lab360.css?v=17")
-          s=s.replace("./assets/js/lab360.js?v=17","./assets/js/lab360.js?v=18")
-          p.write_text(s,encoding='utf-8')
+          sw=p.read_text(encoding='utf-8').replace('app360-portal-v17','app360-portal-v18').replace('./index.html?v=12','./index.html?v=13').replace('./assets/css/lab360.css?v=16','./assets/css/lab360.css?v=17').replace('./assets/js/lab360.js?v=17','./assets/js/lab360.js?v=18')
+          p.write_text(sw,encoding='utf-8')
           PY
 
-      - name: Validate updated portal
+      - name: Validate
         shell: bash
         run: |
           set -euo pipefail
@@ -261,7 +130,7 @@ function bindDetails(){var grid=byId('appGrid');if(!grid)return;grid.onclick=fun
           grep -q 'data-detail="goals"' assets/js/lab360.js
           grep -q "a.status!=='live'" assets/js/lab360.js
 
-      - name: Commit changes
+      - name: Commit and push
         shell: bash
         run: |
           set -euo pipefail
@@ -269,10 +138,10 @@ function bindDetails(){var grid=byId('appGrid');if(!grid)return;grid.onclick=fun
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git rm -f .github/workflows/update-home-say-name-v20.yml
           git add index.html sw.js assets/js/lab360.js assets/css/lab360.css data/catalog.json data/live-overrides.json apps/1-4/say-and-name/app.json apps/1-4/say-and-name/BUILD_SPEC.md .github/workflows/update-home-say-name-v20.yml
-          git commit -m 'Refresh App 360 home with live Say and Name plan and modal details'
+          git commit -m 'Refresh App 360 home with live Say and Name details'
           git push
 
-      - name: Verify RawGitHack home refresh
+      - name: Verify RawGitHack
         shell: bash
         run: |
           set -euo pipefail
@@ -285,5 +154,4 @@ function bindDetails(){var grid=byId('appGrid');if(!grid)return;grid.onclick=fun
             fi
             sleep 4
           done
-          echo 'RawGitHack home did not expose the update in time'
           exit 1
