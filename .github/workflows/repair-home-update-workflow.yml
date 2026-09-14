@@ -1,0 +1,36 @@
+name: Repair App 360 home update workflow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-home-update-workflow.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair and retrigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/update-home-say-name-v20.yml')
+          s=p.read_text(encoding='utf-8')
+          old="git add index.html sw.js assets/js/lab360.js assets/css/lab360.css data/catalog.json data/live-overrides.json apps/1-4/say-and-name/app.json apps/1-4/say-and-name/BUILD_SPEC.md .github/workflows/update-home-say-name-v20.yml"
+          if old not in s:
+              raise SystemExit('target git add line not found')
+          s=s.replace(old,'git add -A')
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -f .github/workflows/repair-home-update-workflow.yml
+          git add -A
+          git commit -m 'Repair App 360 home update workflow commit step'
+          git push
