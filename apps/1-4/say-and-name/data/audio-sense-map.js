@@ -1,1 +1,1 @@
-window.APP360_AUDIO_SENSE_MAP={"الجسم\u0001ظهر":"audio/edge-sense/s_79c10610d3bb8f57b229.mp3","الوقت\u0001ظهر":"audio/edge-sense/s_b4c7238db56fd06b00f0.mp3"};
+window.APP360_AUDIO_SENSE_MAP={"\u0627\u0644\u062c\u0633\u0645\u0001\u0638\u0647\u0631":"audio/edge-sense/s_79c10610d3bb8f57b229.mp3","\u0627\u0644\u0648\u0642\u062a\u0001\u0638\u0647\u0631":"audio/edge-sense/s_b4c7238db56fd06b00f0.mp3"};
