@@ -74,7 +74,7 @@ function loadMapAndStart(){
   var s=document.createElement('script');
   s.src='data/word-images-map.js?v=14';
   s.onload=start;
-  s.onerror=start;
+  s.onerror=start; // keep the old generated SVGs working until the image bundle is installed.
   document.head.appendChild(s);
 }
 loadMapAndStart();
