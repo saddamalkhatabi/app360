@@ -31,16 +31,17 @@ jobs:
           set -euo pipefail
           ROOT="apps/1-4/say-and-name"
           ZIP="$ROOT/assets/level1/level1-100-designed-webp.zip"
-          PARTS="$ROOT/assets/level1/upload-parts"
+          PARTS="$ROOT/assets/level1/upload-parts-v2"
+          OLD_PARTS="$ROOT/assets/level1/upload-parts"
           READY="$ROOT/assets/level1/upload-ready.txt"
           OUT="$ROOT/assets/level1/designed-100"
           TMP="$(mktemp -d)"
-          EXPECTED_SHA="b2d0de7063503d4de8d5e21350474f850b8f1186d46c9bff0e31499fd7fd69c5"
+          EXPECTED_SHA="2480cdccb7d8a95363f2f2e50f278c83d5482fd53cd2aa72cc942ec8fd3b1239"
 
           if [ ! -f "$ZIP" ] && [ -f "$READY" ]; then
             test -d "$PARTS"
             COUNT_PARTS="$(find "$PARTS" -maxdepth 1 -type f -name 'part-*.b64' | wc -l | tr -d ' ')"
-            test "$COUNT_PARTS" = "52"
+            test "$COUNT_PARTS" = "36"
             cat "$PARTS"/part-*.b64 | base64 -d > "$ZIP"
           fi
 
@@ -83,7 +84,7 @@ jobs:
           PY
 
           rm -f "$ZIP" "$READY"
-          rm -rf "$PARTS"
+          rm -rf "$PARTS" "$OLD_PARTS"
 
       - name: Commit extracted images
         shell: bash
@@ -92,7 +93,8 @@ jobs:
           ROOT="apps/1-4/say-and-name"
           OUT="$ROOT/assets/level1/designed-100"
           ZIP="$ROOT/assets/level1/level1-100-designed-webp.zip"
-          PARTS="$ROOT/assets/level1/upload-parts"
+          PARTS="$ROOT/assets/level1/upload-parts-v2"
+          OLD_PARTS="$ROOT/assets/level1/upload-parts"
           READY="$ROOT/assets/level1/upload-ready.txt"
           if [ ! -d "$OUT" ]; then
             exit 0
@@ -100,7 +102,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$OUT"
-          git add -A "$ZIP" "$PARTS" "$READY" || true
+          git add -A "$ZIP" "$PARTS" "$OLD_PARTS" "$READY" || true
           if git diff --cached --quiet; then
             echo "Designed images are already up to date."
             exit 0
