@@ -5,12 +5,13 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "title_en": "My Words & Things: Listen, Point & Name",
   "age_group": "1-4",
-  "version": 10,
-  "status": "planned",
-  "scaffold_state": "implementation-started",
+  "version": 19,
+  "status": "live",
+  "scaffold_state": "live",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-first-words-expressive-language",
+    "learner-1-4-shared-attention-imitation-simple-instructions",
     "coach-1-4-language-rich-play-responsive-interaction"
   ],
   "entry_path": "apps/1-4/say-and-name/index.html",
@@ -18,9 +19,12 @@
   "icon_path": "apps/1-4/say-and-name/icon.svg",
   "runtime_profile": "static-web",
   "depth": "expanded",
-  "languages": ["ar", "en-US"],
+  "languages": [
+    "ar",
+    "en-US"
+  ],
   "offline_mode": "offline-first",
-  "update_policy": "service-worker-auto-activation",
+  "update_policy": "service-worker-auto-activation-and-focus-check",
   "capabilities": [
     "storage.local",
     "audio.files",
@@ -28,10 +32,12 @@
     "i18n.ar-en",
     "pwa.offline"
   ],
-  "bundles": ["static-core"],
-  "practice_model_ar": "أربعة مستويات تراكمية ← اختيار العربية أو الإنجليزية ← اختيار مستوى ← اختيار تصنيف أو عرض عام ← صور مرتبطة بالمفهوم والسياق ← تنقل يدوي أو تلقائي ← ملفات MP3 مفضلة لكل لغة ← نطق الجهاز احتياطي فقط",
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر لغة العرض والنطق ← اختر المستوى والتصنيف ← انظر للصورة وحاول الإشارة أو التسمية ← استمع للكلمة ← كررها أو اربطها بشيء حقيقي ← تنقل بين الكلمات أو راجع بعشر كلمات عشوائية من تصنيفات متنوعة",
   "data_contract": {
-    "storage_key": "app360:a1-first-words:viewer-v10",
+    "storage_key": "app360:say-name:v19",
     "artifact": "viewer-preferences-only",
     "stores_child_audio": false,
     "exports": []
@@ -46,5 +52,6 @@
     "microphone": false
   },
   "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
-  "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md"
+  "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md",
+  "extended_use_ar": "يمكن للفئات الأكبر استخدام وضع English للعرض والنطق أو العرض الثنائي لمراجعة المفردات الأساسية بصريًا وسمعيًا؛ هذا استخدام توسعي وليس منهج لغة كاملًا."
 }
