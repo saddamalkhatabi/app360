@@ -1,0 +1,99 @@
+name: Cleanup Say and Name legacy images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cleanup-say-name-legacy-images.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-say-name-legacy-images
+  cancel-in-progress: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify final image library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          test -d "$ROOT/assets/word-images"
+          test -f "$ROOT/data/word-images-map.js"
+          test -f "$ROOT/data/word-images-manifest.json"
+          COUNT="$(find "$ROOT/assets/word-images" -maxdepth 1 -type f -name 'w*.webp' | wc -l | tr -d ' ')"
+          echo "Final image count: $COUNT"
+          test "$COUNT" = "985"
+
+      - name: Switch app to final image library and remove legacy assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('apps/1-4/say-and-name/index.html')
+          lines=p.read_text(encoding='utf-8').splitlines()
+          result=[]
+          inserted=False
+          for line in lines:
+              if 'data/level1-designed-map.js' in line:
+                  continue
+              if 'assets/level1/family-sprite-part-' in line:
+                  continue
+              if 'level1-photo-layer.js' in line:
+                  indent=line[:len(line)-len(line.lstrip())]
+                  result.append(indent+'<script src="data/word-images-map.js?v=15"></script>')
+                  result.append(indent+'<script src="level1-photo-layer.js?v=15"></script>')
+                  inserted=True
+                  continue
+              result.append(line)
+          if not inserted:
+              raise SystemExit('Could not find level1-photo-layer.js script tag')
+          p.write_text('\n'.join(result)+'\n', encoding='utf-8')
+          PY
+
+          rm -rf "$ROOT/assets/level1"
+          rm -f "$ROOT/data/level1-designed-map.js"
+          rm -f ".github/workflows/unpack-say-name-level1-images.yml"
+          rm -f ".github/workflows/cleanup-say-name-legacy-images.yml"
+
+      - name: Validate cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          test ! -e "$ROOT/assets/level1"
+          test ! -e "$ROOT/data/level1-designed-map.js"
+          test ! -e ".github/workflows/unpack-say-name-level1-images.yml"
+          grep -q 'data/word-images-map.js?v=15' "$ROOT/index.html"
+          grep -q 'level1-photo-layer.js?v=15' "$ROOT/index.html"
+          ! grep -q 'family-sprite-part' "$ROOT/index.html"
+          ! grep -q 'level1-designed-map.js' "$ROOT/index.html"
+          COUNT="$(find "$ROOT/assets/word-images" -maxdepth 1 -type f -name 'w*.webp' | wc -l | tr -d ' ')"
+          test "$COUNT" = "985"
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to clean."
+            exit 0
+          fi
+          git commit -m "Use final Say and Name image library and remove legacy assets"
+          git pull --rebase origin main
+          git push origin HEAD:main
