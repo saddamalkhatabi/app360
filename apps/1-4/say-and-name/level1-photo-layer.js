@@ -48,7 +48,7 @@ function resolveAr(label){label=String(label||'').trim();if(levelOne[label])retu
 function applyImage(img,label){
   if(!img)return;var ar=resolveAr(label);if(!ar){img.classList.remove('level1-real-photo');return;}
   var url=photoUrl(ar);if(img.dataset.photoWord===ar&&img.getAttribute('src')===url)return;
-  if(!img.dataset.fallbackSrc||img.dataset.fallbackSrc.indexOf('loremflickr.com')>=0)img.dataset.fallbackSrc=img.getAttribute('src')||'';
+  var current=img.getAttribute('src')||'';if(current&&current!==url&&current.indexOf('loremflickr.com')<0)img.dataset.fallbackSrc=current;else if(!img.dataset.fallbackSrc)img.dataset.fallbackSrc=current;
   img.dataset.photoWord=ar;img.classList.add('level1-real-photo');img.onerror=function(){var fb=this.dataset.fallbackSrc;if(fb&&this.getAttribute('src')!==fb){this.onerror=null;this.setAttribute('src',fb);this.classList.remove('level1-real-photo');}};img.setAttribute('src',url);
 }
 var busy=false;
