@@ -32,15 +32,18 @@ jobs:
           ZIP="$ROOT/assets/level1/level1-100-designed-webp.zip"
           OUT="$ROOT/assets/level1/designed-100"
           TMP="$(mktemp -d)"
+          EXPECTED_SHA="b2d0de7063503d4de8d5e21350474f850b8f1186d46c9bff0e31499fd7fd69c5"
 
           if [ ! -f "$ZIP" ]; then
             echo "Image ZIP not present yet; nothing to unpack."
             exit 0
           fi
 
-          echo "Bundle SHA256: $(sha256sum "$ZIP" | awk '{print $1}')"
-          unzip -q "$ZIP" -d "$TMP"
+          ACTUAL_SHA="$(sha256sum "$ZIP" | awk '{print $1}')"
+          echo "Bundle SHA256: $ACTUAL_SHA"
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
 
+          unzip -q "$ZIP" -d "$TMP"
           test -d "$TMP/images"
           COUNT="$(find "$TMP/images" -maxdepth 1 -type f -name '*.webp' | wc -l | tr -d ' ')"
           test "$COUNT" = "100"
@@ -60,7 +63,8 @@ jobs:
           images=sorted(out.glob('*.webp'))
           assert len(images)==100, len(images)
           names={p.name for p in images}
-          listed={x['file'] for x in manifest['images']}
+          assert isinstance(manifest,dict) and len(manifest)==100, len(manifest)
+          listed={entry['file'] for entry in manifest.values()}
           assert names==listed, (len(names),len(listed),sorted(names-listed)[:5],sorted(listed-names)[:5])
           map_text=(root/'data/level1-designed-map.js').read_text(encoding='utf-8')
           mapped=set(re.findall(r':"([^"]+\.webp)"',map_text))
@@ -68,18 +72,22 @@ jobs:
           print('Verified designed images:',len(images))
           PY
 
+          rm -f "$ZIP"
+
       - name: Commit extracted images
         shell: bash
         run: |
           set -euo pipefail
           ROOT="apps/1-4/say-and-name"
           OUT="$ROOT/assets/level1/designed-100"
+          ZIP="$ROOT/assets/level1/level1-100-designed-webp.zip"
           if [ ! -d "$OUT" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$OUT"
+          git add -A "$ZIP"
           if git diff --cached --quiet; then
             echo "Designed images are already up to date."
             exit 0
