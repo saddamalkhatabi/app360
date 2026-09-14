@@ -1,0 +1,71 @@
+name: Convert Say and Name Images for Legacy Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/convert-say-name-legacy-images.yml
+      - apps/1-4/say-and-name/tools/convert_images_legacy.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: say-and-name-legacy-images
+  cancel-in-progress: true
+
+jobs:
+  convert-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow==11.3.0
+
+      - name: Convert WebP word images to baseline JPEG and brand logo to PNG
+        run: python apps/1-4/say-and-name/tools/convert_images_legacy.py
+
+      - name: Verify no WebP remains in word image map
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('apps/1-4/say-and-name')
+          text=(root/'data/word-images-map.js').read_text(encoding='utf-8').strip()
+          marker='window.APP360_WORD_IMAGE_MAP='
+          data=json.loads(text[len(marker):-1])
+          assert data, 'empty map'
+          assert all(str(v).lower().endswith('.jpg') for v in data.values())
+          missing=[v for v in data.values() if not (root/'assets/word-images'/v).exists()]
+          assert not missing, missing[:10]
+          assert Path('assets/brand/app360-lab-logo.png').exists()
+          print('Legacy JPEG images:',len(data))
+          PY
+
+      - name: Commit legacy-compatible images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A apps/1-4/say-and-name/assets/word-images \
+                     apps/1-4/say-and-name/data/word-images-map.js \
+                     assets/brand/app360-lab-logo.png \
+                     index.html
+          if git diff --cached --quiet; then
+            echo "No image compatibility changes to commit."
+            exit 0
+          fi
+          git commit -m "Convert Say and Name images for legacy Android"
+          git pull --rebase origin main
+          git push origin HEAD:main
