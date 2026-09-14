@@ -1,0 +1,108 @@
+name: Unpack Say and Name Complete Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/1-4/say-and-name/say-and-name-GitHub-ready-985-images.zip
+      - .github/workflows/unpack-say-name-complete-images.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: say-name-complete-images
+  cancel-in-progress: true
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate and unpack complete image library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          ZIP="$ROOT/say-and-name-GitHub-ready-985-images.zip"
+          TMP="$(mktemp -d)"
+
+          if [ ! -f "$ZIP" ]; then
+            echo "Bundle not present; nothing to unpack."
+            exit 0
+          fi
+
+          echo "ZIP SHA256: $(sha256sum "$ZIP" | awk '{print $1}')"
+          unzip -q "$ZIP" -d "$TMP"
+
+          test -d "$TMP/assets/word-images"
+          test -f "$TMP/data/word-images-map.js"
+          test -f "$TMP/data/word-images-manifest.json"
+          test -f "$TMP/level1-photo-layer.js"
+
+          COUNT="$(find "$TMP/assets/word-images" -maxdepth 1 -type f -name '*.webp' | wc -l | tr -d ' ')"
+          echo "WebP count in bundle: $COUNT"
+          test "$COUNT" = "985"
+
+          python - <<'PY'
+          from pathlib import Path
+          import json, re
+          tmp=Path(r'__TMP__')
+          PY
+
+          rm -rf "$ROOT/assets/word-images"
+          mkdir -p "$ROOT/assets/word-images" "$ROOT/data"
+          cp "$TMP"/assets/word-images/*.webp "$ROOT/assets/word-images/"
+          cp "$TMP/data/word-images-map.js" "$ROOT/data/word-images-map.js"
+          cp "$TMP/data/word-images-manifest.json" "$ROOT/data/word-images-manifest.json"
+          cp "$TMP/level1-photo-layer.js" "$ROOT/level1-photo-layer.js"
+          [ ! -f "$TMP/INSTALL_IMAGES_AR.txt" ] || cp "$TMP/INSTALL_IMAGES_AR.txt" "$ROOT/INSTALL_IMAGES_AR.txt"
+          [ ! -f "$TMP/IMAGE_LIBRARY_AUDIT_AR.txt" ] || cp "$TMP/IMAGE_LIBRARY_AUDIT_AR.txt" "$ROOT/IMAGE_LIBRARY_AUDIT_AR.txt"
+
+          python - <<'PY'
+          from pathlib import Path
+          import json, re
+          root=Path('apps/1-4/say-and-name')
+          images=sorted((root/'assets/word-images').glob('*.webp'))
+          assert len(images)==985, len(images)
+          manifest=json.loads((root/'data/word-images-manifest.json').read_text(encoding='utf-8'))
+          assert int(manifest.get('count',0))==985, manifest.get('count')
+          text=(root/'data/word-images-map.js').read_text(encoding='utf-8')
+          mapped=set(re.findall(r'"(w\d{4}\.webp)"', text))
+          assert len(mapped)==985, len(mapped)
+          existing={p.name for p in images}
+          assert mapped==existing, (len(mapped),len(existing),sorted(mapped-existing)[:5],sorted(existing-mapped)[:5])
+          layer=(root/'level1-photo-layer.js').read_text(encoding='utf-8')
+          assert 'APP360_WORD_IMAGE_MAP' in layer
+          assert "assets/word-images/" in layer
+          print('Verified complete image library:', len(images))
+          PY
+
+          rm -f "$ZIP"
+
+      - name: Commit extracted image library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$ROOT/assets/word-images" \
+                  "$ROOT/data/word-images-map.js" \
+                  "$ROOT/data/word-images-manifest.json" \
+                  "$ROOT/level1-photo-layer.js" \
+                  "$ROOT/INSTALL_IMAGES_AR.txt" \
+                  "$ROOT/IMAGE_LIBRARY_AUDIT_AR.txt" 2>/dev/null || true
+          git add -A "$ROOT/say-and-name-GitHub-ready-985-images.zip" || true
+          if git diff --cached --quiet; then
+            echo "Complete image library is already up to date."
+            exit 0
+          fi
+          git commit -m "Unpack complete Say and Name image library"
+          git pull --rebase origin main
+          git push origin HEAD:main
