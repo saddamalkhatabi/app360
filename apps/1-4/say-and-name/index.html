@@ -6,27 +6,35 @@
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="app360-build" content="say-and-name-v17-20260914">
 <title>كلماتي مع أشيائي | 4 مستويات</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="stylesheet" href="styles.css?v=10">
-<link rel="stylesheet" href="bilingual-v10.css?v=10">
+<link rel="manifest" href="manifest.webmanifest?v=17">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=17">
+<link rel="stylesheet" href="styles.css?v=17">
+<link rel="stylesheet" href="bilingual-v10.css?v=17">
 </head>
-<body>
+<body data-build="v17">
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
 <main class="app" id="mainContent">
   <header class="hero">
     <div class="hero-main">
-      <img class="app-icon" src="icon.svg" alt="">
+      <img class="app-icon" src="icon.svg?v=17" alt="">
       <div class="hero-copy">
         <div class="eyebrow" data-i18n="eyebrow">مختبر التطبيق 360 · من عمر 2 إلى 5 سنوات</div>
         <h1 data-i18n="title">كلماتي مع أشيائي</h1>
-        <p data-i18n="heroDesc">مكتبة تعلم مصنفة عبر أربعة مستويات. اختر المستوى، ثم التصنيف، ثم تنقل بين الكلمات يدويًا أو تلقائيًا.</p>
+        <p data-i18n="heroDesc">مكتبة تعلم مصنفة عبر أربعة مستويات. اختر لغة العرض والصوت، ثم المستوى والتصنيف.</p>
       </div>
       <div class="head-actions">
-        <div id="languageSwitch" class="language-switch" aria-label="Language / اللغة">
-          <button class="is-active" type="button" data-lang="ar">العربية</button>
-          <button type="button" data-lang="en">English</button>
+        <div class="switch-block">
+          <span class="switch-label">لغة العرض</span>
+          <div id="languageSwitch" class="language-switch" aria-label="لغة عرض الكلمات">
+            <button class="is-active" type="button" data-lang="ar">العربية</button>
+            <button type="button" data-lang="en">English</button>
+            <button type="button" data-lang="both">العربية + English</button>
+          </div>
         </div>
         <button id="installAppBtn" class="install" type="button" data-i18n="install">⬇ تثبيت</button>
         <button id="updateAppBtn" type="button" data-i18n="update">↻ تحديث</button>
@@ -36,7 +44,7 @@
       <span data-i18n="badgeLevels">4 مستويات</span>
       <span data-i18n="badgeCategories">تصنيفات كثيرة</span>
       <span data-i18n="badgeTouch">تنقل بالسحب والأسهم</span>
-      <span data-i18n="badgeAudio">صوت عربي وإنجليزي واضح</span>
+      <span data-i18n="badgeAudio">عرض ونطق عربي وإنجليزي</span>
     </div>
   </header>
 
@@ -45,7 +53,7 @@
       <div>
         <span class="pill" data-i18n="pill">مستويات الكلمات</span>
         <h2 data-i18n="sectionTitle">تعلّم الأشياء والأسماء بالتدرج</h2>
-        <p data-i18n="sectionDesc">يعرض كل مستوى كلماته الخاصة به مع كلمات المستويات التي قبله. يمكن العرض حسب التصنيف أو عرض عام منوّع.</p>
+        <p data-i18n="sectionDesc">يمكن عرض العربية أو الإنجليزية أو اللغتين معًا، مع تحكم مستقل في لغة النطق.</p>
       </div>
       <div class="view-switch" id="viewSwitch" aria-label="طريقة العرض">
         <button type="button" class="is-active" data-view="category" data-i18n="byCategory">حسب التصنيف</button>
@@ -79,10 +87,18 @@
           </select>
         </div>
       </article>
-      <article class="control-card">
-        <h3 data-i18n="audioTitle">الصوت</h3>
-        <p data-i18n="audioDesc">يستخدم التطبيق ملفًا صوتيًا مسجلاً للكلمة، ثم نطق الجهاز كاحتياط فقط.</p>
-        <div class="control-row">
+      <article class="control-card audio-card">
+        <h3 data-i18n="audioTitle">الصوت والنطق</h3>
+        <p data-i18n="audioDesc">اختر العربية أو الإنجليزية أو اللغتين على التوالي. الإعداد الافتراضي يتبع لغة العرض.</p>
+        <div class="voice-row">
+          <span class="voice-caption">لغة النطق: <b id="voiceModeText">العربية</b></span>
+          <div id="voiceSwitch" class="voice-switch" aria-label="لغة النطق">
+            <button class="voice-option is-active" type="button" data-voice="ar">العربية</button>
+            <button class="voice-option" type="button" data-voice="en">English</button>
+            <button class="voice-option" type="button" data-voice="both">العربية + English</button>
+          </div>
+        </div>
+        <div class="control-row audio-actions">
           <button id="speechToggle" class="toggle is-active" type="button">الصوت مفعّل</button>
           <button id="speakNowBtn" class="ghost" type="button" data-i18n="speakNow">🔊 انطق الآن</button>
         </div>
@@ -157,14 +173,14 @@
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
-<script src="data/levels-inline-v8.js?v=10"></script>
-<script src="data/visuals.js?v=10"></script>
-<script src="data/audio-map.js?v=10"></script>
-<script src="data/audio-sense-map.js?v=10"></script>
-<script src="data/translations-en.js?v=10"></script>
-<script src="data/audio-map-en.js?v=10"></script>
-<script src="data/word-images-map.js?v=16"></script>
-<script src="runtime-v10.js?v=16"></script>
+<script src="data/levels-inline-v8.js?v=17"></script>
+<script src="data/visuals.js?v=17"></script>
+<script src="data/audio-map.js?v=17"></script>
+<script src="data/audio-sense-map.js?v=17"></script>
+<script src="data/translations-en.js?v=17"></script>
+<script src="data/audio-map-en.js?v=17"></script>
+<script src="data/word-images-map.js?v=17"></script>
+<script src="runtime-v17.js?v=17"></script>
 <script src="../../../assets/js/app-pwa.js?v=1"></script>
 </body>
 </html>
