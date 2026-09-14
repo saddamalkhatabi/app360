@@ -9,129 +9,84 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="app360-build" content="say-and-name-v17-20260914">
-<title>كلماتي مع أشيائي | 4 مستويات</title>
-<link rel="manifest" href="manifest.webmanifest?v=17">
-<link rel="icon" type="image/svg+xml" href="icon.svg?v=17">
-<link rel="stylesheet" href="styles.css?v=17">
-<link rel="stylesheet" href="bilingual-v10.css?v=17">
+<meta name="app360-build" content="say-and-name-v18-20260915">
+<title>كلماتي مع أشيائي | App 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=18">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=18">
+<link rel="stylesheet" href="styles-v18.css?v=18">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css">
 </head>
-<body data-build="v17">
+<body data-build="v18">
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
 <main class="app" id="mainContent">
-  <header class="hero">
+  <header class="hero hero-v18">
     <div class="hero-main">
-      <img class="app-icon" src="icon.svg?v=17" alt="">
+      <img class="app-icon" src="icon.svg?v=18" alt="">
       <div class="hero-copy">
-        <div class="eyebrow" data-i18n="eyebrow">مختبر التطبيق 360 · من عمر 2 إلى 5 سنوات</div>
+        <div class="eyebrow" data-i18n="eyebrow">مختبر التطبيق 360 · تعلم بالصورة والصوت</div>
         <h1 data-i18n="title">كلماتي مع أشيائي</h1>
-        <p data-i18n="heroDesc">مكتبة تعلم مصنفة عبر أربعة مستويات. اختر لغة العرض والصوت، ثم المستوى والتصنيف.</p>
+        <p data-i18n="heroDesc">اختر المستوى والتصنيف، شاهد الصورة، ثم استمع وسمِّ. ويمكن عرض العربية والإنجليزية معًا.</p>
+        <div class="hero-badges">
+          <span>🖼️ <b data-i18n="clearImage">صورة واضحة</b></span>
+          <span>🔊 <b data-i18n="listenName">استمع وسمِّ</b></span>
+          <span>🌍 عربي + English</span>
+        </div>
       </div>
       <div class="head-actions">
-        <div class="switch-block">
-          <span class="switch-label">لغة العرض</span>
+        <div class="switch-block display-block">
+          <span class="switch-label" data-i18n="displayLanguage">لغة العرض</span>
           <div id="languageSwitch" class="language-switch" aria-label="لغة عرض الكلمات">
             <button class="is-active" type="button" data-lang="ar">العربية</button>
             <button type="button" data-lang="en">English</button>
-            <button type="button" data-lang="both">العربية + English</button>
+            <button type="button" data-lang="both">عربي + English</button>
           </div>
         </div>
-        <button id="installAppBtn" class="install" type="button" data-i18n="install">⬇ تثبيت</button>
-        <button id="updateAppBtn" type="button" data-i18n="update">↻ تحديث</button>
+        <div class="hero-tools">
+          <button id="advancedSettingsBtn" class="settings-btn" type="button">⚙ <span data-i18n="settings">الإعدادات</span></button>
+          <button id="installAppBtn" class="install" type="button">⬇ <span data-i18n="install">تثبيت</span></button>
+          <button id="updateAppBtn" class="quiet-btn" type="button">↻ <span data-i18n="update">تحديث</span></button>
+        </div>
       </div>
-    </div>
-    <div class="hero-badges">
-      <span data-i18n="badgeLevels">4 مستويات</span>
-      <span data-i18n="badgeCategories">تصنيفات كثيرة</span>
-      <span data-i18n="badgeTouch">تنقل بالسحب والأسهم</span>
-      <span data-i18n="badgeAudio">عرض ونطق عربي وإنجليزي</span>
     </div>
   </header>
 
-  <section class="panel library">
-    <div class="section-head">
-      <div>
-        <span class="pill" data-i18n="pill">مستويات الكلمات</span>
-        <h2 data-i18n="sectionTitle">تعلّم الأشياء والأسماء بالتدرج</h2>
-        <p data-i18n="sectionDesc">يمكن عرض العربية أو الإنجليزية أو اللغتين معًا، مع تحكم مستقل في لغة النطق.</p>
+  <section class="panel learn-panel">
+    <div class="level-zone">
+      <div class="level-zone-copy">
+        <span class="section-kicker" data-i18n="chooseLevel">اختر المستوى</span>
+        <h2 id="levelTitle">المستوى 1 — عمر 2</h2>
+        <p id="levelSummary">جاري تحميل الكلمات…</p>
+      </div>
+      <div id="levelTabs" class="level-tabs" aria-label="المستويات"></div>
+    </div>
+
+    <div class="browse-bar">
+      <div class="browse-copy">
+        <h3 data-i18n="categories">التصنيفات</h3>
+        <p data-i18n="categoriesHint">تظهر تصنيفات المستوى المختار أولًا، ثم التصنيفات السابقة.</p>
       </div>
       <div class="view-switch" id="viewSwitch" aria-label="طريقة العرض">
-        <button type="button" class="is-active" data-view="category" data-i18n="byCategory">حسب التصنيف</button>
-        <button type="button" data-view="all" data-i18n="allView">عرض عام</button>
+        <button type="button" class="is-active" data-view="category">📚 <span data-i18n="categoryView">حسب التصنيف</span></button>
+        <button type="button" data-view="random">🎲 <span data-i18n="randomView">متنوع عشوائي 10</span></button>
       </div>
     </div>
 
-    <div class="control-band">
-      <div>
-        <label class="control-label" data-i18n="level">المستوى</label>
-        <div id="levelTabs" class="level-tabs" aria-label="المستويات"></div>
-      </div>
-      <div class="summary-card">
-        <div id="levelTitle" class="summary-title">المستوى 1 — عمر 2</div>
-        <div id="levelSummary" class="summary-meta">جاري تحميل الكلمات…</div>
-      </div>
-    </div>
-
-    <div id="categoryChips" class="category-chips" aria-label="التصنيفات"></div>
-
-    <div class="controls-grid">
-      <article class="control-card">
-        <h3 data-i18n="autoTitle">الحركة التلقائية</h3>
-        <p data-i18n="autoDesc">شغّل التنقل التلقائي داخل التصنيف الحالي أو في العرض العام.</p>
-        <div class="control-row">
-          <button id="autoplayToggle" class="toggle" type="button" data-i18n="autoOn">تشغيل التنقل التلقائي</button>
-          <select id="autoplaySpeed" aria-label="سرعة التنقل">
-            <option value="2500" data-i18n="fast">سريع</option>
-            <option value="4000" selected data-i18n="medium">متوسط</option>
-            <option value="6000" data-i18n="slow">هادئ</option>
-          </select>
-        </div>
-      </article>
-      <article class="control-card audio-card">
-        <h3 data-i18n="audioTitle">الصوت والنطق</h3>
-        <p data-i18n="audioDesc">اختر العربية أو الإنجليزية أو اللغتين على التوالي. الإعداد الافتراضي يتبع لغة العرض.</p>
-        <div class="voice-row">
-          <span class="voice-caption">لغة النطق: <b id="voiceModeText">العربية</b></span>
-          <div id="voiceSwitch" class="voice-switch" aria-label="لغة النطق">
-            <button class="voice-option is-active" type="button" data-voice="ar">العربية</button>
-            <button class="voice-option" type="button" data-voice="en">English</button>
-            <button class="voice-option" type="button" data-voice="both">العربية + English</button>
-          </div>
-        </div>
-        <div class="control-row audio-actions">
-          <button id="speechToggle" class="toggle is-active" type="button">الصوت مفعّل</button>
-          <button id="speakNowBtn" class="ghost" type="button" data-i18n="speakNow">🔊 انطق الآن</button>
-        </div>
-      </article>
-      <article class="control-card">
-        <h3 data-i18n="scopeTitle">نطاق الحركة</h3>
-        <p data-i18n="scopeDesc">حدد هل الحركة داخل التصنيف الحالي أو بين جميع كلمات المستوى المختار.</p>
-        <div id="scopeSwitch" class="control-row">
-          <button class="toggle is-active" type="button" data-scope="current" data-i18n="scopeCurrent">التصنيف الحالي</button>
-          <button class="toggle" type="button" data-scope="all" data-i18n="scopeAll">كل كلمات المستوى</button>
-        </div>
-      </article>
-      <article class="control-card">
-        <h3 data-i18n="extraTitle">خيارات إضافية</h3>
-        <p data-i18n="extraDesc">منوّع يعرض كلمات من جميع التصنيفات، وملء الشاشة مناسب للتابلت.</p>
-        <div class="control-row">
-          <button id="fullscreenBtn" class="ghost" type="button" data-i18n="fullscreen">⛶ ملء الشاشة</button>
-          <button id="mixedBtn" class="ghost" type="button" data-i18n="mixed">🎲 منوّع</button>
-        </div>
-      </article>
-    </div>
+    <div id="categoryChips" class="category-groups" aria-label="التصنيفات"></div>
 
     <div class="stage-shell">
-      <button id="prevBtn" class="arrow" type="button" aria-label="السابق">›</button>
+      <button id="prevBtn" class="arrow stage-prev" type="button" aria-label="السابق">‹</button>
       <article id="stage" class="stage" tabindex="0" aria-live="polite">
         <div class="stage-top">
           <div class="stage-tags">
             <span id="levelTag" class="tag soft"></span>
             <span id="categoryTag" class="tag"></span>
-            <span id="scopeTag" class="tag soft"></span>
-            <span id="autoplayTag" class="tag soft">يدوي</span>
+            <span id="modeTag" class="tag random-tag"></span>
+            <span id="voiceTag" class="tag soft"></span>
           </div>
-          <button id="stageSpeakBtn" class="sound-button" type="button" data-i18n="speakWord">🔊 انطق الكلمة</button>
+          <div class="stage-actions">
+            <button id="stageSpeakBtn" class="sound-button" type="button">🔊 <span data-i18n="speakWord">انطق الكلمة</span></button>
+            <button id="stageFullscreenBtn" class="stage-fullscreen" type="button" aria-label="تكبير شاشة العرض">⛶</button>
+          </div>
         </div>
         <button id="pictureButton" class="picture-button" type="button" aria-label="نطق الكلمة الحالية">
           <img id="itemImage" alt="">
@@ -141,7 +96,7 @@
           <p id="itemHint"></p>
         </div>
       </article>
-      <button id="nextBtn" class="arrow" type="button" aria-label="التالي">‹</button>
+      <button id="nextBtn" class="arrow stage-next" type="button" aria-label="التالي">›</button>
     </div>
 
     <div class="range-card">
@@ -151,36 +106,43 @@
 
     <div class="grid-head">
       <div>
-        <h3 data-i18n="cardsTitle">بطاقات سريعة من المسار الحالي</h3>
-        <p id="gridMeta" data-i18n="cardsDesc">يعرض التطبيق نافذة من البطاقات القريبة لتخفيف الحمل على الأجهزة الضعيفة.</p>
+        <h3 id="cardsTitle" data-i18n="cardsTitle">بطاقات سريعة</h3>
+        <p id="gridMeta">اختر أي بطاقة للانتقال إليها مباشرة.</p>
       </div>
       <span id="visibleCount" class="count-badge">0 كلمة</span>
     </div>
     <div id="thumbGrid" class="thumb-grid"></div>
+
+    <div class="bottom-nav" aria-label="التنقل السفلي">
+      <button id="bottomPrevBtn" type="button">‹ <span data-i18n="previous">السابق</span></button>
+      <button id="bottomShuffleBtn" class="shuffle-btn" type="button">🎲 <span data-i18n="shuffle">اختيار عشوائي</span></button>
+      <button id="bottomNextBtn" type="button"><span data-i18n="next">التالي</span> ›</button>
+    </div>
   </section>
 
   <section class="panel facilitator">
     <details>
-      <summary data-i18n="facSummary">إرشاد مختصر للمرافق — اختياري</summary>
+      <summary data-i18n="guide">إرشاد مختصر للمرافق — اختياري</summary>
       <div class="facilitator-grid">
-        <article><b data-i18n="fac1t">ابدأ بالأسهل</b><span data-i18n="fac1">في كل مستوى ابدأ بما هو مألوف جدًا للطفل ثم وسّع الكلمات لاحقًا.</span></article>
-        <article><b data-i18n="fac2t">استخدم الواقع</b><span data-i18n="fac2">إن وجد الشيء الحقيقي فأشِر إليه مع البطاقة بدل الاكتفاء بالشاشة.</span></article>
-        <article><b data-i18n="fac3t">لا تجعلها اختبارًا</b><span data-i18n="fac3">الهدف هو الفهم والإشارة والتسمية بلطف، لا الضغط على الطفل.</span></article>
-        <article><b data-i18n="fac4t">كرّر بهدوء</b><span data-i18n="fac4">التكرار القصير المنتظم أفضل من الجلسة الطويلة.</span></article>
+        <article><b>ابدأ بالأسهل</b><span>ابدأ بما هو مألوف جدًا للطفل ثم وسّع الكلمات تدريجيًا.</span></article>
+        <article><b>استخدم الواقع</b><span>إن وجد الشيء الحقيقي فأشِر إليه مع الصورة.</span></article>
+        <article><b>لا تجعلها اختبارًا</b><span>الهدف فهم الاسم والإشارة إليه وتكراره بلطف.</span></article>
+        <article><b>كرّر بهدوء</b><span>التكرار القصير المنتظم أفضل من الجلسة الطويلة.</span></article>
       </div>
     </details>
   </section>
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
-<script src="data/levels-inline-v8.js?v=17"></script>
-<script src="data/visuals.js?v=17"></script>
-<script src="data/audio-map.js?v=17"></script>
-<script src="data/audio-sense-map.js?v=17"></script>
-<script src="data/translations-en.js?v=17"></script>
-<script src="data/audio-map-en.js?v=17"></script>
-<script src="data/word-images-map.js?v=17"></script>
-<script src="runtime-v17.js?v=17"></script>
+<script src="data/levels-inline-v8.js?v=18"></script>
+<script src="data/visuals.js?v=18"></script>
+<script src="data/audio-map.js?v=18"></script>
+<script src="data/audio-sense-map.js?v=18"></script>
+<script src="data/translations-en.js?v=18"></script>
+<script src="data/audio-map-en.js?v=18"></script>
+<script src="data/word-images-map.js?v=18"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js"></script>
+<script src="runtime-v18.js?v=18"></script>
 <script src="../../../assets/js/app-pwa.js?v=1"></script>
 </body>
 </html>
