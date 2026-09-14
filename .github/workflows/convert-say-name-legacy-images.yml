@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/convert-say-name-legacy-images.yml
       - apps/1-4/say-and-name/tools/convert_images_legacy.py
+      - apps/1-4/say-and-name/tools/rewrite_legacy_audio_maps.py
 
 permissions:
   contents: write
@@ -37,7 +38,10 @@ jobs:
       - name: Convert WebP word images to baseline JPEG and brand logo to PNG
         run: python apps/1-4/say-and-name/tools/convert_images_legacy.py
 
-      - name: Verify no WebP remains in word image map
+      - name: Rewrite Arabic audio maps as legacy-safe ASCII JavaScript
+        run: python apps/1-4/say-and-name/tools/rewrite_legacy_audio_maps.py
+
+      - name: Verify legacy image and audio compatibility
         run: |
           python - <<'PY'
           import json
@@ -51,21 +55,27 @@ jobs:
           missing=[v for v in data.values() if not (root/'assets/word-images'/v).exists()]
           assert not missing, missing[:10]
           assert Path('assets/brand/app360-lab-logo.png').exists()
+          for rel in ['data/audio-map.js','data/audio-sense-map.js']:
+              raw=(root/rel).read_bytes()
+              assert all(b < 128 for b in raw), rel+' is not ASCII-only'
           print('Legacy JPEG images:',len(data))
+          print('Arabic audio maps: ASCII-safe')
           PY
 
-      - name: Commit legacy-compatible images
+      - name: Commit legacy-compatible assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A apps/1-4/say-and-name/assets/word-images \
                      apps/1-4/say-and-name/data/word-images-map.js \
+                     apps/1-4/say-and-name/data/audio-map.js \
+                     apps/1-4/say-and-name/data/audio-sense-map.js \
                      assets/brand/app360-lab-logo.png \
                      index.html
           if git diff --cached --quiet; then
-            echo "No image compatibility changes to commit."
+            echo "No compatibility changes to commit."
             exit 0
           fi
-          git commit -m "Convert Say and Name images for legacy Android"
+          git commit -m "Build legacy-compatible images and Arabic audio maps"
           git pull --rebase origin main
           git push origin HEAD:main
