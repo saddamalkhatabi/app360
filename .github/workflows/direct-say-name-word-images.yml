@@ -1,0 +1,110 @@
+name: Use Say and Name word images directly
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/direct-say-name-word-images.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: direct-say-name-word-images
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify final image library
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          COUNT="$(find "$ROOT/assets/word-images" -maxdepth 1 -type f -name 'w*.webp' | wc -l | tr -d ' ')"
+          test "$COUNT" = "985"
+          test -f "$ROOT/data/word-images-map.js"
+
+      - name: Make runtime use final images directly
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('apps/1-4/say-and-name')
+          runtime=root/'runtime-v10.js'
+          s=runtime.read_text(encoding='utf-8')
+
+          anchor="var AUDIO_EN=window.APP360_AUDIO_MAP_EN||{};\n"
+          addition="var WORD_IMAGES=window.APP360_WORD_IMAGE_MAP||{};\nvar WORD_IMAGE_BASE='assets/word-images/';\n"
+          if 'var WORD_IMAGE_BASE=' not in s:
+              if anchor not in s:
+                  raise SystemExit('Runtime image-map anchor not found')
+              s=s.replace(anchor, anchor+addition, 1)
+
+          pat=re.compile(r"function image\(it\)\{.*?\}\nfunction applyLanguage", re.S)
+          m=pat.search(s)
+          if not m:
+              raise SystemExit('Runtime image() function not found')
+          old=m.group(0)[:-len('\nfunction applyLanguage')]
+          if 'function fallbackImage(it)' not in s:
+              fallback=old.replace('function image(it){','function fallbackImage(it){',1)
+              direct=("function image(it){var map=window.APP360_WORD_IMAGE_MAP||WORD_IMAGES;"
+                      "var file=map&&map[it.ar];if(file)return WORD_IMAGE_BASE+file;"
+                      "return fallbackImage(it)}")
+              replacement=fallback+'\n'+direct+'\nfunction applyLanguage'
+              s=s[:m.start()]+replacement+s[m.end():]
+          runtime.write_text(s,encoding='utf-8')
+
+          index=root/'index.html'
+          lines=index.read_text(encoding='utf-8').splitlines()
+          out=[]
+          inserted=False
+          for line in lines:
+              if 'data/word-images-map.js' in line or 'runtime-v10.js' in line or 'level1-photo-layer.js' in line:
+                  continue
+              out.append(line)
+              if 'data/audio-map-en.js' in line:
+                  indent=line[:len(line)-len(line.lstrip())]
+                  out.append(indent+'<script src="data/word-images-map.js?v=16"></script>')
+                  out.append(indent+'<script src="runtime-v10.js?v=16"></script>')
+                  inserted=True
+          if not inserted:
+              raise SystemExit('Could not place final image map before runtime')
+          index.write_text('\n'.join(out)+'\n',encoding='utf-8')
+          PY
+
+          rm -f "apps/1-4/say-and-name/level1-photo-layer.js"
+          rm -f ".github/workflows/direct-say-name-word-images.yml"
+
+      - name: Validate direct image runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="apps/1-4/say-and-name"
+          grep -q "WORD_IMAGE_BASE='assets/word-images/'" "$ROOT/runtime-v10.js"
+          grep -q 'function fallbackImage(it)' "$ROOT/runtime-v10.js"
+          grep -q 'return WORD_IMAGE_BASE+file' "$ROOT/runtime-v10.js"
+          grep -q 'data/word-images-map.js?v=16' "$ROOT/index.html"
+          grep -q 'runtime-v10.js?v=16' "$ROOT/index.html"
+          ! grep -q 'level1-photo-layer.js' "$ROOT/index.html"
+          test ! -e "$ROOT/level1-photo-layer.js"
+
+      - name: Commit direct image runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Load final Say and Name images directly from runtime"
+          git pull --rebase origin main
+          git push origin HEAD:main
