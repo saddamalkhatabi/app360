@@ -1,0 +1,65 @@
+name: Apply App 360 home update now
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-home-update-now.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply prepared update logic
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, textwrap
+          src=Path('.github/workflows/update-home-say-name-v20.yml').read_text(encoding='utf-8')
+          m=re.search(r"python3 - <<'PY'\n(.*?)\n          PY",src,re.S)
+          if not m:
+              raise SystemExit('prepared Python update block not found')
+          code=textwrap.dedent(m.group(1))
+          exec(compile(code,'prepared-home-update.py','exec'),{})
+          PY
+      - name: Validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m json.tool data/catalog.json >/dev/null
+          python3 -m json.tool data/live-overrides.json >/dev/null
+          python3 -m json.tool apps/1-4/say-and-name/app.json >/dev/null
+          node --check assets/js/lab360.js
+          grep -q 'app360-home-v18-20260915' index.html
+          grep -q 'مراجعة إنجليزية للفئات الأكبر' data/catalog.json
+          grep -q 'data-detail="goals"' assets/js/lab360.js
+          grep -q "a.status!=='live'" assets/js/lab360.js
+      - name: Commit portal changes only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sw.js assets/js/lab360.js assets/css/lab360.css data/catalog.json data/live-overrides.json apps/1-4/say-and-name/app.json apps/1-4/say-and-name/BUILD_SPEC.md
+          git commit -m 'Refresh App 360 home with live Say and Name details'
+          git push
+      - name: Verify RawGitHack
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/index.html'
+          for i in {1..15}; do
+            body="$(curl -fsSL --max-time 20 -H 'Cache-Control: no-cache' "$URL?refresh=home-v18-$i-$(date +%s)" || true)"
+            if printf '%s' "$body" | grep -q 'app360-home-v18-20260915' && printf '%s' "$body" | grep -q 'lab360.js?v=18'; then
+              echo 'RawGitHack home is serving v18'
+              exit 0
+            fi
+            sleep 4
+          done
+          exit 1
