@@ -2,6 +2,7 @@
 'use strict';
 var LEVELS=window.APP360_LEVELS||{};
 var EN=window.APP360_EN||{words:{}};
+var DESIGNED=window.APP360_DESIGNED_LEVEL1||{};
 var SEP='\u0001';
 var levelOne={};
 var rows=LEVELS['1']||LEVELS[1]||[];
@@ -20,16 +21,14 @@ try{
   }
 }catch(e){}
 
-/*
- * Local, designed family contact sheet.
- * The sprite is 5 columns × 2 rows. Every coordinate below is deliberately
- * mapped to one level-one word so a child never sees a random internet image.
- */
+/* Legacy family sprite remains as an offline fallback. The reviewed 100-image
+   library below takes precedence whenever its extracted WebP exists. */
 var familySprite={
   'أم':[0,0],'أب':[1,0],'طفل':[2,0],'ولد':[3,0],'بنت':[4,0],
   'أخ':[0,1],'أخت':[1,1],'جد':[2,1],'جدة':[3,1],'عائلة':[4,1]
 };
 var transparent='data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1" viewBox="0 0 1 1"><rect width="1" height="1" fill="transparent"/></svg>');
+var designedBase='assets/level1/designed-100/';
 
 var colors={'أحمر':'#ef4444','أزرق':'#3b82f6','أصفر':'#facc15','أخضر':'#22c55e','أبيض':'#ffffff','أسود':'#111827'};
 function svgUri(body,bg){
@@ -63,7 +62,7 @@ function clearSprite(img){
 }
 function rememberFallback(img){
   var current=img.getAttribute('src')||'';
-  if(current&&current.indexOf('loremflickr.com')<0&&current!==transparent)img.dataset.fallbackSrc=current;
+  if(current&&current.indexOf('loremflickr.com')<0&&current!==transparent&&current.indexOf(designedBase)<0)img.dataset.fallbackSrc=current;
 }
 function restoreFallback(img){
   var fb=img.dataset.fallbackSrc||'';
@@ -90,7 +89,7 @@ function applyFamilySprite(img,ar){
   if(img.getAttribute('src')!==transparent)img.setAttribute('src',transparent);
   return true;
 }
-function applySpecial(img,ar,url){
+function applyUrl(img,ar,url){
   if(!url)return false;
   if(img.dataset.photoWord===ar&&img.getAttribute('src')===url&&!img.dataset.familySprite)return true;
   rememberFallback(img);
@@ -101,15 +100,19 @@ function applySpecial(img,ar,url){
   img.setAttribute('src',url);
   return true;
 }
+function applyDesigned(img,ar){
+  var file=DESIGNED[ar];
+  if(!file)return false;
+  return applyUrl(img,ar,designedBase+encodeURIComponent(file));
+}
 function applyImage(img,label){
   if(!img)return;
   var ar=resolveAr(label);
   if(!ar){restoreFallback(img);return;}
+  if(applyDesigned(img,ar))return;
   if(familySprite[ar]&&applyFamilySprite(img,ar))return;
   var local=specialVisual(ar);
-  if(local&&applySpecial(img,ar,local))return;
-  /* No web-photo fallback: until a word has a reviewed designed image,
-     keep the app's original local visual rather than showing random content. */
+  if(local&&applyUrl(img,ar,local))return;
   restoreFallback(img);
 }
 var busy=false;
@@ -130,7 +133,7 @@ function schedule(){
 }
 try{
   var st=document.createElement('style');
-  st.textContent='.picture-button img.level1-real-photo{display:block;width:min(100%,470px);aspect-ratio:1/1;height:auto;max-height:430px;object-fit:cover;background:#fff;border-radius:28px;box-shadow:0 12px 28px rgba(15,143,138,.12)}.thumb-card img.level1-real-photo{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;background:#eef8f7}.picture-button img.level1-sprite-photo,.thumb-card img.level1-sprite-photo{object-fit:contain;background-color:#fff;background-repeat:no-repeat}@media(max-width:760px){.picture-button img.level1-real-photo{width:min(100%,340px);max-height:340px}}@media(max-width:430px){.picture-button img.level1-real-photo{width:min(100%,275px);max-height:275px}}';
+  st.textContent='.picture-button img.level1-real-photo{display:block;width:min(100%,470px);aspect-ratio:1/1;height:auto;max-height:430px;object-fit:contain;background:#f0f8ff;border-radius:28px;box-shadow:0 12px 28px rgba(15,143,138,.12)}.thumb-card img.level1-real-photo{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:14px;background:#f0f8ff}.picture-button img.level1-sprite-photo,.thumb-card img.level1-sprite-photo{object-fit:contain;background-color:#fff;background-repeat:no-repeat}@media(max-width:760px){.picture-button img.level1-real-photo{width:min(100%,340px);max-height:340px}}@media(max-width:430px){.picture-button img.level1-real-photo{width:min(100%,275px);max-height:275px}}';
   document.head.appendChild(st);
 }catch(e){}
 var obs=new MutationObserver(schedule),main=document.getElementById('itemImage'),name=document.getElementById('itemName'),grid=document.getElementById('thumbGrid');
