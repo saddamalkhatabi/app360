@@ -1,0 +1,62 @@
+name: Apply App 360 Legacy Compatibility to Age Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/scripts/apply_legacy_portal_pages.py
+      - .github/workflows/apply-legacy-portal-pages.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: app360-legacy-age-pages
+  cancel-in-progress: true
+
+jobs:
+  patch-age-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply shared legacy compatibility layer
+        run: python .github/scripts/apply_legacy_portal_pages.py
+
+      - name: Verify all age pages include compatibility assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          pages=sorted(Path('ages').glob('*/index.html'))
+          assert len(pages)>=8, len(pages)
+          for p in pages:
+              t=p.read_text(encoding='utf-8')
+              assert '../../assets/css/legacy-compat.css?v=20' in t, p
+              assert '../../assets/js/legacy-compat.js?v=20' in t, p
+              assert '../../assets/js/lab360.js?v=20' in t, p
+          print('Verified age pages:',len(pages))
+          PY
+
+      - name: Commit age page compatibility updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ages/*/index.html
+          if git diff --cached --quiet; then
+            echo "No age page changes to commit."
+            exit 0
+          fi
+          git commit -m "Add legacy compatibility to all age pages"
+          git pull --rebase origin main
+          git push origin HEAD:main
