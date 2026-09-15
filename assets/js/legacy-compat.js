@@ -4,7 +4,8 @@ var html=d.documentElement||d.getElementsByTagName('html')[0];
 function addClass(el,name){if(!el)return;var c=' '+(el.className||'')+' ';if(c.indexOf(' '+name+' ')<0)el.className=(el.className?el.className+' ':'')+name}
 function removeClass(el,name){if(!el)return;el.className=(' '+(el.className||'')+' ').replace(' '+name+' ',' ').replace(/^\s+|\s+$/g,'')}
 function supportsGrid(){try{return !!(w.CSS&&CSS.supports&&CSS.supports('display','grid'))}catch(e){return false}}
-var legacy=!supportsGrid();
+function oldAndroid(){var ua=(w.navigator&&w.navigator.userAgent)||'',m=/Android\s+([0-9]+)(?:\.([0-9]+))?/i.exec(ua);if(!m)return false;var major=parseInt(m[1],10)||0;return major>0&&major<=5}
+var legacy=!supportsGrid()||oldAndroid();
 if(legacy)addClass(html,'app360-legacy');
 w.APP360_LEGACY=legacy;
 
