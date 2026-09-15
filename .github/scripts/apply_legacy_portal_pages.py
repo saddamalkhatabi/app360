@@ -4,7 +4,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[2]
 AGES = ROOT / 'ages'
-VERSION = '22'
+VERSION = '23'
 
 
 def patch(text):

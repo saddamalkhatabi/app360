@@ -5,7 +5,7 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "title_en": "My Words & Things: Listen, Point & Name",
   "age_group": "1-4",
-  "version": 22,
+  "version": 23,
   "status": "live",
   "scaffold_state": "live",
   "kind": "goal_aligned",
@@ -19,7 +19,10 @@
   "icon_path": "apps/1-4/say-and-name/icon-192.png",
   "runtime_profile": "legacy-web-compatible",
   "depth": "expanded",
-  "languages": ["ar", "en-US"],
+  "languages": [
+    "ar",
+    "en-US"
+  ],
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation-and-focus-check",
   "capabilities": [
@@ -30,7 +33,10 @@
     "pwa.offline",
     "compat.legacy-web"
   ],
-  "bundles": ["static-core", "legacy-child"],
+  "bundles": [
+    "static-core",
+    "legacy-child"
+  ],
   "practice_model_ar": "اختر لغة العرض والنطق ← اختر المستوى والتصنيف ← انظر للصورة وحاول الإشارة أو التسمية ← استمع للكلمة ← كررها أو اربطها بشيء حقيقي ← تنقل بين الكلمات أو راجع بعشر كلمات عشوائية من تصنيفات متنوعة",
   "data_contract": {
     "storage_key": "app360:say-name:v19",
