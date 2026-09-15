@@ -18,6 +18,7 @@ for p in text_files:
         continue
     before=p.read_text(encoding='utf-8')
     after=before.replace('v=22','v=23').replace('-v22-20260915','-v23-20260915')
+    after=after.replace('data-build="v22"','data-build="v23"')
     after=after.replace("app360-app-say-and-name-v22","app360-app-say-and-name-v23")
     after=after.replace("VERSION = '22'","VERSION = '23'")
     after=after.replace('apps/1-4/say-and-name/index.html?v=22','apps/1-4/say-and-name/index.html?v=23')
