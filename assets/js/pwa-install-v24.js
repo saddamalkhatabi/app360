@@ -1,0 +1,14 @@
+(function(){
+'use strict';
+var d=document,deferredPrompt=null,reloading=false,reg=null;
+function id(x){return d.getElementById(x)}
+function show(el,on){if(el)el.style.display=on?'inline-flex':'none'}
+function standalone(){return (window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone===true}
+function note(text,kind){var n=id('pwaNotice');if(!n)return;n.className='pwa-notice '+(kind||'');n.innerHTML=text;n.style.display='block';clearTimeout(note._t);note._t=setTimeout(function(){n.style.display='none'},4200)}
+function promptInstall(){if(deferredPrompt){try{deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null;show(id('installPortalBtn'),false)})}catch(e){}}else if(standalone())note('التطبيق مثبت بالفعل على هذا الجهاز.','good');else note('من قائمة المتصفح اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية» إذا لم يظهر زر التثبيت تلقائياً.','')}
+function activateWaiting(){try{if(reg&&reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'})}catch(e){}}
+function checkUpdate(manual){if(!reg){if(manual)note('خدمة التحديث غير متاحة في هذا المتصفح.','warn');return}if(manual)note('جارٍ التحقق من أحدث إصدار…','');try{reg.update().then(function(){if(reg.waiting)activateWaiting();else if(manual)note('أنت تستخدم أحدث إصدار متاح.','good')}).catch(function(){if(manual)note('تعذر التحقق الآن. سيعاد المحاولة تلقائياً عند توفر الاتصال.','warn')})}catch(e){if(manual)note('تعذر التحقق الآن.','warn')}}
+function bind(){var b=id('installPortalBtn'),u=id('checkUpdateBtn');if(b)b.onclick=promptInstall;if(u)u.onclick=function(){checkUpdate(true)};if(standalone())show(b,false);if(!('serviceWorker'in navigator)||location.protocol.indexOf('http')!==0)return;navigator.serviceWorker.addEventListener('controllerchange',function(){if(reloading)return;reloading=true;note('وصل تحديث جديد. يتم فتح الإصدار الأحدث الآن…','good');setTimeout(function(){location.reload()},250)});navigator.serviceWorker.register('sw-v24.js',{scope:'./',updateViaCache:'none'}).then(function(r){reg=r;if(r.waiting)activateWaiting();r.addEventListener('updatefound',function(){var w=r.installing;if(!w)return;w.addEventListener('statechange',function(){if(w.state==='installed'&&navigator.serviceWorker.controller){try{w.postMessage({type:'SKIP_WAITING'})}catch(e){}}})});setTimeout(function(){checkUpdate(false)},900)}).catch(function(){});}
+if(window.addEventListener){window.addEventListener('beforeinstallprompt',function(e){try{e.preventDefault();deferredPrompt=e;show(id('installPortalBtn'),!standalone())}catch(x){}});window.addEventListener('appinstalled',function(){deferredPrompt=null;show(id('installPortalBtn'),false);note('تم تثبيت مختبر التطبيق 360 بنجاح.','good')});}
+if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',bind,false);else if(window.attachEvent)window.attachEvent('onload',bind)}else bind();
+})();
