@@ -10,6 +10,8 @@ on:
       - apps/1-4/say-and-name/tools/generate_english_content.py
       - apps/1-4/say-and-name/tools/generate_english_content_v3.py
       - apps/1-4/say-and-name/tools/generate_english_content_v4.py
+      - apps/1-4/say-and-name/tools/generate_english_content_v5.py
+      - apps/1-4/say-and-name/tools/generate_english_content_v6.py
       - apps/1-4/say-and-name/data/levels-inline-v8.js
 
 permissions:
@@ -34,7 +36,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install translation and Edge TTS tools
+      - name: Install Edge TTS runtime
         run: python -m pip install --upgrade pip edge-tts==7.2.8 deep-translator==1.11.4
 
       - name: Verify preferred English voice exists
@@ -49,9 +51,9 @@ jobs:
           asyncio.run(main())
           PY
 
-      - name: Rebuild reviewed vocabulary and generate deduplicated English MP3 files
+      - name: Build fully reviewed offline vocabulary and deduplicated English MP3 files
         run: >-
-          python apps/1-4/say-and-name/tools/generate_english_content_v4.py
+          python apps/1-4/say-and-name/tools/generate_english_content_v6.py
           --voice en-US-JennyNeural
           --rate=-8%
           --concurrency 4
@@ -80,6 +82,7 @@ jobs:
               'الرياضيات والأشكال\u0001كرة':'Sphere',
               'المدرسة\u0001فصل':'Classroom',
               'الأسرة والأشخاص\u0001خال':'Uncle',
+              'الأسرة والأشخاص\u0001ابن':'Son',
               'الأسرة والأشخاص\u0001ابنة':'Daughter',
               'الجسم\u0001حاجب':'Eyebrow',
               'الجسم\u0001خد':'Cheek',
@@ -117,11 +120,11 @@ jobs:
           for key, expected in checks.items():
               assert w.get(key) == expected, (key, w.get(key), expected)
           assert len(w) >= 1190, len(w)
-          assert len(data['categories']) >= 100, len(data['categories'])
+          assert len(data['categories']) == 110, len(data['categories'])
           assert not any(re.search(r'[\u0600-\u06FF]', value) for value in w.values())
           suspicious = []
           banned_exact = {
-              'Clear','Here','Deaf','Like a','A needle','Kneel','Son','Ass','Dick','Cock','Bullshit','Asshole',
+              'Clear','Here','Deaf','Like a','A needle','Kneel','Ass','Dick','Cock','Bullshit','Asshole',
               'Bitch','Crap','Nigger','Faggot','Faggoti','Shit','Grenade','Buddha','Hamas','Hello?','Hurry!',
               'Fire!','Taser!','Knock yourself out','Prophet Knight','A bomber','Romie Dick','Champagne!','And Dan'
           }
@@ -167,6 +170,6 @@ jobs:
             echo "No new English content to commit."
             exit 0
           fi
-          git commit -m "Regenerate clean reviewed English vocabulary and audio"
+          git commit -m "Regenerate fully reviewed English vocabulary and audio"
           git pull --rebase origin main
           git push origin HEAD:main
