@@ -8,7 +8,8 @@ var legacy=!supportsGrid();
 if(legacy)addClass(html,'app360-legacy');
 w.APP360_LEGACY=legacy;
 
-/* SweetAlert-compatible modal shim. It intentionally uses ES5 only. */
+/* SweetAlert-compatible modal shim. It intentionally uses ES5 only and is
+   installed ONLY for legacy browsers. Modern browsers keep real SweetAlert2. */
 var modalState=null,backGuard=false;
 function closeModal(result,fromPop){
   if(!modalState)return;
@@ -43,7 +44,7 @@ function fireModal(opts){
   setTimeout(function(){try{confirm.focus()}catch(e){};if(typeof opts.didOpen==='function'){try{opts.didOpen(popup)}catch(x){}}},0);
   return thenable;
 }
-if(!w.Swal)w.Swal={fire:fireModal,close:function(){closeModal({isDismissed:true},false)},isVisible:function(){return !!modalState},__app360Compat:true};
+if(legacy&&!w.Swal)w.Swal={fire:fireModal,close:function(){closeModal({isDismissed:true},false)},isVisible:function(){return !!modalState},__app360Compat:true};
 w.addEventListener&&w.addEventListener('popstate',function(){if(backGuard){backGuard=false;return}if(modalState)closeModal({isDismissed:true,dismiss:'back'},true)},false);
 
 function ready(fn){if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',fn,false);else w.attachEvent&&w.attachEvent('onload',fn)}else fn()}
