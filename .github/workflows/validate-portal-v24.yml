@@ -44,7 +44,7 @@ jobs:
           import json
           from pathlib import Path
           for name in ['catalog.json','goals.json','live-overrides.json']:
-              data=json.loads((Path('data')/name).read_text(encoding='utf-8'))
+              json.loads((Path('data')/name).read_text(encoding='utf-8'))
               print(name,'OK')
           c=json.loads(Path('data/catalog.json').read_text(encoding='utf-8'))
           assert len(c.get('age_groups',[]))==8, len(c.get('age_groups',[]))
@@ -57,6 +57,27 @@ jobs:
           ! grep -q "document.write" assets/js/swal-modern-loader-v24.js
           grep -q "lab360-v24.js" index.html
           grep -q "pwa-install-v24.js" index.html
+      - name: Browser smoke test portal rendering
+        run: |
+          python3 -m http.server 8765 >/tmp/app360-http.log 2>&1 &
+          SERVER_PID=$!
+          sleep 2
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          test -n "$CHROME"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --virtual-time-budget=7000 --dump-dom http://127.0.0.1:8765/index.html >/tmp/app360-dom.html
+          kill "$SERVER_PID" || true
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path('/tmp/app360-dom.html').read_text(encoding='utf-8',errors='replace')
+          ages=len(re.findall(r'class="age-card"',html))
+          apps=len(re.findall(r'class="app-card"',html))
+          assert ages==8, ('age cards',ages)
+          assert apps>0, ('app cards',apps)
+          assert 'جارٍ تحميل الفئات العمرية' not in html
+          assert 'جارٍ تحميل فهرس التطبيقات' not in html
+          print('rendered age cards',ages,'app cards',apps)
+          PY
       - name: Verify RawGitHack data endpoint
         run: |
           python - <<'PY'
