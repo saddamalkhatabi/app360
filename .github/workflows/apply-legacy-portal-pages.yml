@@ -42,9 +42,9 @@ jobs:
           assert len(pages)>=8, len(pages)
           for p in pages:
               t=p.read_text(encoding='utf-8')
-              assert '../../assets/css/legacy-compat.css?v=20' in t, p
-              assert '../../assets/js/legacy-compat.js?v=20' in t, p
-              assert '../../assets/js/lab360.js?v=20' in t, p
+              assert '../../assets/css/legacy-compat.css?v=22' in t, p
+              assert '../../assets/js/legacy-compat.js?v=22' in t, p
+              assert '../../assets/js/lab360.js?v=22' in t, p
           print('Verified age pages:',len(pages))
           PY
 
@@ -57,6 +57,6 @@ jobs:
             echo "No age page changes to commit."
             exit 0
           fi
-          git commit -m "Add legacy compatibility to all age pages"
+          git commit -m "Bump legacy compatibility assets on all age pages"
           git pull --rebase origin main
           git push origin HEAD:main
