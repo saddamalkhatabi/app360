@@ -9,6 +9,7 @@ on:
       - .github/workflows/generate-say-name-english.yml
       - apps/1-4/say-and-name/tools/generate_english_content.py
       - apps/1-4/say-and-name/tools/generate_english_content_v3.py
+      - apps/1-4/say-and-name/tools/generate_english_content_v4.py
       - apps/1-4/say-and-name/data/levels-inline-v8.js
 
 permissions:
@@ -48,9 +49,9 @@ jobs:
           asyncio.run(main())
           PY
 
-      - name: Translate reviewed vocabulary and generate deduplicated English MP3 files
+      - name: Rebuild reviewed vocabulary and generate deduplicated English MP3 files
         run: >-
-          python apps/1-4/say-and-name/tools/generate_english_content_v3.py
+          python apps/1-4/say-and-name/tools/generate_english_content_v4.py
           --voice en-US-JennyNeural
           --rate=-8%
           --concurrency 4
@@ -100,7 +101,18 @@ jobs:
               'المهن\u0001عالم':'Scientist',
               'التكنولوجيا\u0001فأرة':'Mouse',
               'أجزاء الحيوان\u0001قرن':'Horn',
-              'الأشكال\u0001معين':'Diamond'
+              'الأشكال\u0001معين':'Diamond',
+              'الطيور\u0001هدهد':'Hoopoe',
+              'الحشرات والكائنات الصغيرة\u0001فرس النبي':'Praying Mantis',
+              'الفضاء\u0001عطارد':'Mercury',
+              'الفضاء\u0001الزهرة':'Venus',
+              'الفضاء\u0001المشتري':'Jupiter',
+              'وسائل النقل الجوية\u0001طائرة شراعية':'Glider',
+              'المدرسة\u0001مدير':'Principal',
+              'العلوم\u0001تجربة':'Experiment',
+              'الفن\u0001قماش':'Canvas',
+              'الرياضة\u0001كأس':'Trophy',
+              'البحر والشاطئ\u0001صدفة':'Seashell'
           }
           for key, expected in checks.items():
               assert w.get(key) == expected, (key, w.get(key), expected)
@@ -108,13 +120,19 @@ jobs:
           assert len(data['categories']) >= 100, len(data['categories'])
           assert not any(re.search(r'[\u0600-\u06FF]', value) for value in w.values())
           suspicious = []
-          banned_exact = {'Clear','Here','Deaf','Like a','A needle','Kneel','Son'}
+          banned_exact = {
+              'Clear','Here','Deaf','Like a','A needle','Kneel','Son','Ass','Dick','Cock','Bullshit','Asshole',
+              'Bitch','Crap','Nigger','Faggot','Faggoti','Shit','Grenade','Buddha','Hamas','Hello?','Hurry!',
+              'Fire!','Taser!','Knock yourself out','Prophet Knight','A bomber','Romie Dick','Champagne!','And Dan'
+          }
+          banned_parts = ('nigger','faggot','asshole','bullshit','bitch','shit!')
           for key, value in w.items():
-              if value in banned_exact:
+              value=value.strip()
+              if value in banned_exact or any(x in value.casefold() for x in banned_parts):
                   suspicious.append((key,value))
-              if not value.strip() or len(value) > 55:
+              if not value or len(value) > 55 or re.search(r'[!?]$', value):
                   suspicious.append((key,value))
-          assert not suspicious, suspicious[:20]
+          assert not suspicious, suspicious[:40]
           audio_text = (root/'data/audio-map-en.js').read_text(encoding='utf-8').strip()
           amarker = 'window.APP360_AUDIO_MAP_EN='
           assert audio_text.startswith(amarker) and audio_text.endswith(';')
@@ -149,6 +167,6 @@ jobs:
             echo "No new English content to commit."
             exit 0
           fi
-          git commit -m "Regenerate reviewed English vocabulary and audio"
+          git commit -m "Regenerate clean reviewed English vocabulary and audio"
           git pull --rebase origin main
           git push origin HEAD:main
