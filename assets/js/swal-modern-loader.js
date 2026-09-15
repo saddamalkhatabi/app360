@@ -1,10 +1,28 @@
 (function(w,d){
 'use strict';
-if(w.APP360_LEGACY)return;
-/* Loaded during parsing so modern browsers keep the original SweetAlert2 UI.
-   If the CDN is unavailable, the already-installed App 360 fallback remains. */
-try{
-  d.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css">');
-  d.write('<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js"><\\/script>');
-}catch(e){}
+if(w.APP360_LEGACY||w.Swal)return;
+
+/* Safe compatibility loader. Keep portal bootstrap independent from any CDN.
+   SweetAlert2 is optional UI enhancement only. */
+function load(){
+  if(w.APP360_LEGACY||w.Swal||d.getElementById('app360-swal2-script'))return;
+  try{
+    var head=d.head||d.getElementsByTagName('head')[0]||d.documentElement;
+    var css=d.createElement('link');
+    css.rel='stylesheet';
+    css.href='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css';
+    head.appendChild(css);
+    var sc=d.createElement('script');
+    sc.id='app360-swal2-script';
+    sc.src='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js';
+    sc.async=true;
+    sc.onerror=function(){};
+    head.appendChild(sc);
+  }catch(e){}
+}
+if(d.readyState==='loading'){
+  if(d.addEventListener)d.addEventListener('DOMContentLoaded',load,false);
+  else if(w.attachEvent)w.attachEvent('onload',load);
+  else setTimeout(load,0);
+}else load();
 })(window,document);
