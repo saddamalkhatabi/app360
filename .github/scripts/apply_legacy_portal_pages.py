@@ -4,15 +4,20 @@ import re
 
 ROOT = Path(__file__).resolve().parents[2]
 AGES = ROOT / 'ages'
+VERSION = '22'
 
 
 def patch(text):
-    text = re.sub(r'../../assets/css/lab360\.css\?v=\d+', '../../assets/css/lab360.css?v=20', text)
+    text = re.sub(r'../../assets/css/lab360\.css\?v=\d+', '../../assets/css/lab360.css?v='+VERSION, text)
     if '../../assets/css/legacy-compat.css' not in text:
-        text = text.replace('</head>', '<link rel="stylesheet" href="../../assets/css/legacy-compat.css?v=20"></head>')
-    text = re.sub(r'<script src="../../assets/js/lab360\.js\?v=\d+"></script>', '<script src="../../assets/js/legacy-compat.js?v=20"></script><script src="../../assets/js/lab360.js?v=20"></script>', text)
+        text = text.replace('</head>', '<link rel="stylesheet" href="../../assets/css/legacy-compat.css?v='+VERSION+'"></head>')
+    else:
+        text = re.sub(r'../../assets/css/legacy-compat\.css\?v=\d+', '../../assets/css/legacy-compat.css?v='+VERSION, text)
+    text = re.sub(r'<script src="../../assets/js/(?:legacy-compat\.js\?v=\d+"></script>)?<script src="../../assets/js/lab360\.js\?v=\d+"></script>', '<script src="../../assets/js/legacy-compat.js?v='+VERSION+'"></script><script src="../../assets/js/lab360.js?v='+VERSION+'"></script>', text)
+    text = re.sub(r'../../assets/js/legacy-compat\.js\?v=\d+', '../../assets/js/legacy-compat.js?v='+VERSION, text)
+    text = re.sub(r'../../assets/js/lab360\.js\?v=\d+', '../../assets/js/lab360.js?v='+VERSION, text)
     if '../../assets/js/legacy-compat.js' not in text:
-        text = text.replace('</body>', '<script src="../../assets/js/legacy-compat.js?v=20"></script></body>')
+        text = text.replace('</body>', '<script src="../../assets/js/legacy-compat.js?v='+VERSION+'"></script></body>')
     return text
 
 
