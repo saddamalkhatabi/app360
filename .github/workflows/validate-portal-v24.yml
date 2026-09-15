@@ -1,0 +1,72 @@
+name: Validate App 360 Portal v24
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - sw.js
+      - sw-v24.js
+      - assets/js/lab360.js
+      - assets/js/lab360-v24.js
+      - assets/js/swal-modern-loader.js
+      - assets/js/swal-modern-loader-v24.js
+      - assets/js/pwa-install.js
+      - assets/js/pwa-install-v24.js
+      - data/catalog.json
+      - data/goals.json
+      - data/live-overrides.json
+      - .github/workflows/validate-portal-v24.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/lab360.js
+          node --check assets/js/lab360-v24.js
+          node --check assets/js/swal-modern-loader.js
+          node --check assets/js/swal-modern-loader-v24.js
+          node --check assets/js/pwa-install.js
+          node --check assets/js/pwa-install-v24.js
+          node --check sw.js
+          node --check sw-v24.js
+      - name: Validate portal JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in ['catalog.json','goals.json','live-overrides.json']:
+              data=json.loads((Path('data')/name).read_text(encoding='utf-8'))
+              print(name,'OK')
+          c=json.loads(Path('data/catalog.json').read_text(encoding='utf-8'))
+          assert len(c.get('age_groups',[]))==8, len(c.get('age_groups',[]))
+          assert len(c.get('apps',[]))>0
+          print('age groups',len(c['age_groups']),'apps',len(c['apps']))
+          PY
+      - name: Ensure broken document.write loader is gone
+        run: |
+          ! grep -q "document.write" assets/js/swal-modern-loader.js
+          ! grep -q "document.write" assets/js/swal-modern-loader-v24.js
+          grep -q "lab360-v24.js" index.html
+          grep -q "pwa-install-v24.js" index.html
+      - name: Verify RawGitHack data endpoint
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          u='https://raw.githack.com/saddamalkhatabi/app360/main/data/catalog.json'
+          req=urllib.request.Request(u,headers={'User-Agent':'App360-Portal-Validator/24'})
+          with urllib.request.urlopen(req,timeout=20) as r:
+              body=r.read().decode('utf-8')
+              print('status',r.status,'content-type',r.headers.get('content-type'),'bytes',len(body))
+              data=json.loads(body)
+              assert len(data.get('age_groups',[]))==8
+              assert len(data.get('apps',[]))>0
+          PY
