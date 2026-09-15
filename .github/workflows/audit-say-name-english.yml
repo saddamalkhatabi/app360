@@ -1,0 +1,24 @@
+name: Audit Say and Name English Coverage
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - apps/1-4/say-and-name/tools/audit_english_coverage.py
+      - .github/workflows/audit-say-name-english.yml
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install edge-tts==7.2.8 deep-translator==1.11.4
+      - run: python apps/1-4/say-and-name/tools/audit_english_coverage.py
