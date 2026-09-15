@@ -1,0 +1,76 @@
+name: Publish App 360 Legacy Compatibility v23
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/scripts/bump_legacy_build_v23.py
+      - .github/workflows/bump-legacy-build-v23.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: app360-legacy-v23
+  cancel-in-progress: true
+
+jobs:
+  publish-v23:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Bump compatibility release
+        run: python .github/scripts/bump_legacy_build_v23.py
+
+      - name: Verify v23 release references
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.')
+          app=(root/'apps/1-4/say-and-name/index.html').read_text(encoding='utf-8')
+          portal=(root/'index.html').read_text(encoding='utf-8')
+          sw=(root/'apps/1-4/say-and-name/sw.js').read_text(encoding='utf-8')
+          live=json.loads((root/'data/live-overrides.json').read_text(encoding='utf-8'))
+          manifest=json.loads((root/'apps/1-4/say-and-name/app.json').read_text(encoding='utf-8'))
+          assert 'say-and-name-v23-20260915' in app
+          assert 'legacy-compat.css?v=23' in app and 'legacy-compat.js?v=23' in app
+          assert 'app360-home-v23-20260915' in portal
+          assert 'legacy-compat.css?v=23' in portal and 'legacy-compat.js?v=23' in portal
+          assert 'app360-app-say-and-name-v23' in sw
+          assert live['apps'][0]['href'].endswith('index.html?v=23')
+          assert manifest['version']==23
+          pages=sorted((root/'ages').glob('*/index.html'))
+          assert len(pages)>=8
+          for p in pages:
+              t=p.read_text(encoding='utf-8')
+              assert 'legacy-compat.css?v=23' in t and 'legacy-compat.js?v=23' in t and 'lab360.js?v=23' in t
+          print('Verified v23 on portal, app and',len(pages),'age pages')
+          PY
+
+      - name: Commit v23 release
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data/catalog.json data/live-overrides.json \
+                  apps/1-4/say-and-name/index.html apps/1-4/say-and-name/sw.js apps/1-4/say-and-name/app.json \
+                  ages/*/index.html .github/scripts/apply_legacy_portal_pages.py .github/workflows/apply-legacy-portal-pages.yml
+          if git diff --cached --quiet; then
+            echo "No v23 changes to commit."
+            exit 0
+          fi
+          git commit -m "Publish App 360 legacy compatibility v23"
+          git pull --rebase origin main
+          git push origin HEAD:main
