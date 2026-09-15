@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import json
-import re
 
 ROOT=Path(__file__).resolve().parents[2]
 
@@ -12,7 +11,6 @@ text_files=[
     ROOT/'data/live-overrides.json',
     ROOT/'data/catalog.json',
     ROOT/'.github/scripts/apply_legacy_portal_pages.py',
-    ROOT/'.github/workflows/apply-legacy-portal-pages.yml',
 ]
 text_files += sorted((ROOT/'ages').glob('*/index.html'))
 for p in text_files:
@@ -22,7 +20,6 @@ for p in text_files:
     after=before.replace('v=22','v=23').replace('-v22-20260915','-v23-20260915')
     after=after.replace("app360-app-say-and-name-v22","app360-app-say-and-name-v23")
     after=after.replace("VERSION = '22'","VERSION = '23'")
-    # Exact live/catalog entry cache bust even if written without other surrounding fields.
     after=after.replace('apps/1-4/say-and-name/index.html?v=22','apps/1-4/say-and-name/index.html?v=23')
     if after!=before:
         p.write_text(after,encoding='utf-8')
