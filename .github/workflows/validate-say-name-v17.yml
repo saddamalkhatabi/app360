@@ -1,4 +1,4 @@
-name: Validate Say and Name v25
+name: Validate Say and Name v26
 
 on:
   push:
@@ -22,10 +22,10 @@ jobs:
         run: |
           grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
           grep -q 'data-voice="both"' apps/1-4/say-and-name/runtime-v19.js
-          grep -q 'runtime-v19.js?v=25' apps/1-4/say-and-name/index.html
-          grep -q 'word-images-context-map.js?v=25' apps/1-4/say-and-name/index.html
-          grep -q "app360-app-say-and-name-v25" apps/1-4/say-and-name/sw.js
-          grep -q 'word-images-context-map.js?v=25' apps/1-4/say-and-name/sw.js
+          grep -q 'runtime-v19.js?v=26' apps/1-4/say-and-name/index.html
+          grep -q 'word-images-context-map.js?v=26' apps/1-4/say-and-name/index.html
+          grep -q "app360-app-say-and-name-v26" apps/1-4/say-and-name/sw.js
+          grep -q 'word-images-context-map.js?v=26' apps/1-4/say-and-name/sw.js
           grep -q '"قرد":"w0283.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"نسر":"w0107.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"جمل":"w0284.jpg"' apps/1-4/say-and-name/data/word-images-map.js
@@ -35,6 +35,14 @@ jobs:
           grep -q '"سلحفاة":"corrected-turtle-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"قرش":"corrected-shark-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"فظ":"corrected-walrus-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+      - name: Validate random/category state regression fix
+        run: |
+          grep -Fq "function activateRandom(){state.view='random';makeRandomPool" apps/1-4/say-and-name/runtime-v19.js
+          ! grep -Fq "function activateRandom(){state.view='random';state.scope='all'" apps/1-4/say-and-name/runtime-v19.js
+          grep -Fq "state.category=this.getAttribute('data-cat');state.view='category';state.scope='current'" apps/1-4/say-and-name/runtime-v19.js
+          grep -Fq "state.view='category';state.scope='current';state.randomPool=[]" apps/1-4/say-and-name/runtime-v19.js
+          grep -Fq "$('bottomShuffleBtn').onclick=shuffleCurrent;" apps/1-4/say-and-name/runtime-v19.js
+          grep -Fq "if(state.view==='category'&&state.scope==='all')state.scope='current'" apps/1-4/say-and-name/runtime-v19.js
       - name: Validate final all-word semantic audit summary
         run: |
           grep -Fq 'الصور المفحوصة دلاليًا: **985 / 985**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
@@ -43,11 +51,11 @@ jobs:
       - name: Confirm RawGitHack preview refreshed
         shell: bash
         run: |
-          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=25'
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=26'
           ok=0
           for i in {1..18}; do
-            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=25' /tmp/live.html && grep -q 'word-images-context-map.js?v=25' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
-              echo 'RawGitHack preview is on v25.'
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=26' /tmp/live.html && grep -q 'word-images-context-map.js?v=26' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
+              echo 'RawGitHack preview is on v26.'
               ok=1
               break
             fi
