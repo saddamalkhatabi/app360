@@ -48,5 +48,9 @@ jobs:
             exit 0
           fi
           git commit -m "Regenerate Say and Name v24 blueprints"
+          echo "Discarding any non-blueprint workspace noise before rebase:"
+          git status --porcelain
+          git reset --hard HEAD
+          git clean -fd
           git pull --rebase origin ${GITHUB_REF_NAME}
           git push origin HEAD:${GITHUB_REF_NAME}
