@@ -101,7 +101,8 @@ test('Arabic goal search and every age page filter the catalog', () => {
   for (const group of catalog.age_groups) {
     const p = portal({ age: group.id });
     assert.equal((p.elements.appGrid.innerHTML.match(/class="app-card"/g) || []).length, 8);
-    assert.ok(p.elements.appGrid.innerHTML.includes('../../apps/' + group.id + '/'));
+    const example = catalog.apps.find(a => a.age_group === group.id);
+    assert.ok(example && p.elements.appGrid.innerHTML.includes(example.title_ar));
   }
 });
 
