@@ -1,0 +1,98 @@
+name: Validate Say and Name v24
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/1-4/say-and-name/**'
+      - '.github/workflows/validate-say-name-v24.yml'
+  pull_request:
+    paths:
+      - 'apps/1-4/say-and-name/**'
+      - '.github/workflows/validate-say-name-v24.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check apps/1-4/say-and-name/runtime-v19.js
+          node --check apps/1-4/say-and-name/sw.js
+          node --check apps/1-4/say-and-name/data/word-images-map.js
+          node --check apps/1-4/say-and-name/data/word-images-context-map.js
+
+      - name: Validate v24 controls, cache and image mappings
+        run: |
+          grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
+          grep -q 'data-voice="both"' apps/1-4/say-and-name/index.html
+          grep -q 'runtime-v19.js?v=24' apps/1-4/say-and-name/index.html
+          grep -q 'word-images-context-map.js?v=24' apps/1-4/say-and-name/index.html
+          grep -q "app360-app-say-and-name-v24" apps/1-4/say-and-name/sw.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('apps/1-4/say-and-name')
+          marker='window.APP360_WORD_IMAGE_MAP='
+          text=(root/'data/word-images-map.js').read_text(encoding='utf-8').strip()
+          assert text.startswith(marker) and text.endswith(';')
+          mapping=json.loads(text[len(marker):-1])
+          assert len(mapping)==985, len(mapping)
+
+          expected={
+              'قرد':'w0283.jpg',
+              'نسر':'w0107.jpg',
+              'جمل':'w0284.jpg',
+              'بطريق':'w0256.jpg',
+              'ماعز':'w0279.jpg',
+              'حمامة':'w0104.jpg',
+              'زرافة':'w0272.jpg',
+              'دلفين':'w0263.jpg',
+              'نمر':'w0273.jpg',
+              'حوت':'w0264.jpg',
+              'ثعلب':'w0275.jpg',
+              'أخطبوط':'w0267.jpg',
+              'أسد':'corrected-lion-v24.jpg',
+              'فيل':'corrected-elephant-v24.jpg',
+              'سلحفاة':'corrected-turtle-v24.jpg',
+              'قرش':'corrected-shark-v24.jpg',
+              'فظ':'corrected-walrus-v24.jpg',
+          }
+          for word, filename in expected.items():
+              assert mapping.get(word)==filename, (word,mapping.get(word),filename)
+              assert (root/'assets/word-images'/filename).is_file(), (word,filename)
+
+          ctx_marker='window.APP360_WORD_IMAGE_CONTEXT_MAP='
+          ctx_text=(root/'data/word-images-context-map.js').read_text(encoding='utf-8').strip()
+          assert ctx_text.startswith(ctx_marker) and ctx_text.endswith(';')
+          context_map=json.loads(ctx_text[len(ctx_marker):-1])
+          assert len(context_map)==1193, len(context_map)
+          print('word mappings',len(mapping),'context mappings',len(context_map),'verified')
+          PY
+
+      - name: Confirm RawGitHack preview refreshed
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html'
+          ok=0
+          for i in {1..18}; do
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html \
+              && grep -q 'runtime-v19.js?v=24' /tmp/live.html \
+              && grep -q 'word-images-context-map.js?v=24' /tmp/live.html; then
+              echo 'RawGitHack preview is on v24.'
+              ok=1
+              break
+            fi
+            echo "Preview still stale; retry $i/18"
+            sleep 10
+          done
+          test "$ok" = 1
