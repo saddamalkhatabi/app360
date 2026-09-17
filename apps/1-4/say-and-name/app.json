@@ -5,7 +5,7 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "title_en": "My Words & Things: Listen, Point & Name",
   "age_group": "1-4",
-  "version": 23,
+  "version": 24,
   "status": "live",
   "scaffold_state": "live",
   "kind": "goal_aligned",
@@ -17,8 +17,8 @@
   "entry_path": "apps/1-4/say-and-name/index.html",
   "manifest_path": "apps/1-4/say-and-name/manifest.webmanifest",
   "icon_path": "apps/1-4/say-and-name/icon-192.png",
-  "runtime_profile": "legacy-web-compatible",
-  "depth": "expanded",
+  "runtime_profile": "static-web",
+  "depth": "standard",
   "languages": [
     "ar",
     "en-US"
@@ -27,9 +27,8 @@
   "update_policy": "service-worker-auto-activation-and-focus-check",
   "capabilities": [
     "storage.local",
-    "audio.files",
+    "audio.recorded",
     "audio.tts",
-    "i18n.ar-en",
     "pwa.offline",
     "compat.legacy-web"
   ],
