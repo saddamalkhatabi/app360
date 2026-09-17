@@ -1,0 +1,79 @@
+name: Repair Final Say and Name Animal Images
+
+on:
+  push:
+    branches:
+      - fix/say-name-image-semantic-mapping-v24
+    paths:
+      - .github/workflows/repair-final-say-name-animals.yml
+      - apps/1-4/say-and-name/tools/build_final_animal_image_fixes.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repair-final-say-name-animals-v24
+  cancel-in-progress: true
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate and restore final animal images
+        run: |
+          python -m pip install pillow==11.1.0
+          python apps/1-4/say-and-name/tools/build_final_animal_image_fixes.py
+
+      - name: Verify corrected files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('apps/1-4/say-and-name')
+          marker='window.APP360_WORD_IMAGE_MAP='
+          text=(root/'data/word-images-map.js').read_text(encoding='utf-8').strip()
+          m=json.loads(text[len(marker):-1])
+          expected={
+            'أسد':'corrected-lion-v24.jpg',
+            'فيل':'corrected-elephant-v24.jpg',
+            'سلحفاة':'corrected-turtle-v24.jpg',
+            'قرش':'corrected-shark-v24.jpg',
+            'فظ':'corrected-walrus-v24.jpg',
+          }
+          for word,file in expected.items():
+              assert m[word]==file,(word,m[word],file)
+              p=root/'assets/word-images'/file
+              assert p.exists(),p
+              with Image.open(p) as im:
+                  assert im.size==(384,384),(word,im.size)
+                  assert im.format=='JPEG',(word,im.format)
+          print('Verified final five animal corrections.')
+          PY
+
+      - name: Commit corrected assets and mappings
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/say-and-name/assets/word-images/corrected-*-v24.jpg \
+                  apps/1-4/say-and-name/data/word-images-map.js \
+                  apps/1-4/say-and-name/data/word-images-context-map.js \
+                  apps/1-4/say-and-name/data/final-animal-image-corrections.json
+          if git diff --cached --quiet; then
+            echo "No final image changes."
+            exit 0
+          fi
+          git commit -m "Repair remaining Say and Name animal images"
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}
