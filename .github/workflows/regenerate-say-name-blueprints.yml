@@ -1,0 +1,52 @@
+name: Regenerate Say and Name Blueprints
+
+on:
+  push:
+    branches:
+      - fix/say-name-image-semantic-mapping-v24
+    paths:
+      - .github/workflows/regenerate-say-name-blueprints.yml
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.15.1 --activate
+
+      - name: Install workspace
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Regenerate canonical blueprints
+        run: node tooling/build-blueprints.js
+
+      - name: Commit generated blueprint updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/say-and-name/BUILD_SPEC.md \
+                  apps/1-4/say-and-name/PROMPT_AR.md \
+                  docs/APP_BUILD_INDEX_AR.md
+          if git diff --cached --quiet; then
+            echo "Blueprints already current."
+            exit 0
+          fi
+          git commit -m "Regenerate Say and Name v24 blueprints"
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}
