@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "build": "v24",
+  "fixed_words": [
+    "أسد",
+    "سلحفاة",
+    "قرش",
+    "فيل",
+    "فظ"
+  ],
+  "fixes": [
+    {
+      "word": "أسد",
+      "mode": "copy",
+      "source": "w0983.jpg",
+      "target": "corrected-lion-v24.jpg",
+      "reason": "existing roar image is the strongest lion visual in the complete audit"
+    },
+    {
+      "word": "سلحفاة",
+      "mode": "copy",
+      "source": "w0882.jpg",
+      "target": "corrected-turtle-v24.jpg",
+      "reason": "existing slow image is visually recognized as a turtle"
+    },
+    {
+      "word": "قرش",
+      "mode": "copy",
+      "source": "w0745.jpg",
+      "target": "corrected-shark-v24.jpg",
+      "reason": "existing سمكة قرش image is the exact same concept"
+    },
+    {
+      "word": "فيل",
+      "mode": "generated",
+      "target": "corrected-elephant-v24.jpg",
+      "reason": "no trustworthy existing elephant image remained"
+    },
+    {
+      "word": "فظ",
+      "mode": "generated",
+      "target": "corrected-walrus-v24.jpg",
+      "reason": "no trustworthy existing walrus image remained"
+    }
+  ],
+  "map_entries": 985,
+  "context_entries": 1193,
+  "note_ar": "تمت استعادة ثلاث صور صحيحة من مكتبة المشروع نفسها، وإنشاء رسمين محليين واضحين للفيل والفظ بعد أن أثبت التدقيق الشامل عدم وجود صورة صحيحة موثوقة لهما في المكتبة الحالية."
+}

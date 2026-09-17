@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "method": "reciprocal CLIP best-match correction with both margins >= 0.03",
+  "correction_count": 6,
+  "corrected_words": 12,
+  "corrections": [
+    {
+      "type": "reciprocal_swap",
+      "word_a": "ماعز",
+      "word_b": "حمامة",
+      "before_a": "w0104.jpg",
+      "before_b": "w0279.jpg",
+      "after_a": "w0279.jpg",
+      "after_b": "w0104.jpg",
+      "margin_a": 0.13182,
+      "margin_b": 0.15259,
+      "reason": "w0104.jpg visually matched حمامة; w0279.jpg visually matched ماعز"
+    },
+    {
+      "type": "reciprocal_swap",
+      "word_a": "قرد",
+      "word_b": "نسر",
+      "before_a": "w0107.jpg",
+      "before_b": "w0283.jpg",
+      "after_a": "w0283.jpg",
+      "after_b": "w0107.jpg",
+      "margin_a": 0.12606,
+      "margin_b": 0.15216,
+      "reason": "w0107.jpg visually matched نسر; w0283.jpg visually matched قرد"
+    },
+    {
+      "type": "reciprocal_swap",
+      "word_a": "جمل",
+      "word_b": "بطريق",
+      "before_a": "w0256.jpg",
+      "before_b": "w0284.jpg",
+      "after_a": "w0284.jpg",
+      "after_b": "w0256.jpg",
+      "margin_a": 0.15676,
+      "margin_b": 0.15876,
+      "reason": "w0256.jpg visually matched بطريق; w0284.jpg visually matched جمل"
+    },
+    {
+      "type": "reciprocal_swap",
+      "word_a": "زرافة",
+      "word_b": "دلفين",
+      "before_a": "w0263.jpg",
+      "before_b": "w0272.jpg",
+      "after_a": "w0272.jpg",
+      "after_b": "w0263.jpg",
+      "margin_a": 0.1328,
+      "margin_b": 0.14276,
+      "reason": "w0263.jpg visually matched دلفين; w0272.jpg visually matched زرافة"
+    },
+    {
+      "type": "reciprocal_swap",
+      "word_a": "نمر",
+      "word_b": "حوت",
+      "before_a": "w0264.jpg",
+      "before_b": "w0273.jpg",
+      "after_a": "w0273.jpg",
+      "after_b": "w0264.jpg",
+      "margin_a": 0.11538,
+      "margin_b": 0.1534,
+      "reason": "w0264.jpg visually matched حوت; w0273.jpg visually matched نمر"
+    },
+    {
+      "type": "reciprocal_swap",
+      "word_a": "ثعلب",
+      "word_b": "أخطبوط",
+      "before_a": "w0267.jpg",
+      "before_b": "w0275.jpg",
+      "after_a": "w0275.jpg",
+      "after_b": "w0267.jpg",
+      "margin_a": 0.18202,
+      "margin_b": 0.19128,
+      "reason": "w0267.jpg visually matched أخطبوط; w0275.jpg visually matched ثعلب"
+    }
+  ],
+  "note_ar": "تم تبديل الربط فقط عندما كانت صورتا الكلمتين تؤكدان بعضهما بشكل متبادل وبفارق ثقة واضح. لم تُبدّل الحالات المتقاربة دلالياً أحادياً."
+}

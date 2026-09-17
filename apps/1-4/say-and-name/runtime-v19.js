@@ -7,6 +7,7 @@ var AUDIO_AR_SENSE=window.APP360_AUDIO_SENSE_MAP||{};
 var EN=window.APP360_EN||{categories:{},words:{}};
 var AUDIO_EN=window.APP360_AUDIO_MAP_EN||{};
 var WORD_IMAGES=window.APP360_WORD_IMAGE_MAP||{};
+var WORD_IMAGE_CONTEXTS=window.APP360_WORD_IMAGE_CONTEXT_MAP||{};
 var WORD_IMAGE_BASE='assets/word-images/';
 var SEP='\u0001';
 var UI={
@@ -44,7 +45,7 @@ function collection(){if(state.view==='random'){if(!state.randomPool.length)make
 function item(){var a=collection();if(!a.length)return null;if(state.index>=a.length)state.index=0;if(state.index<0)state.index=a.length-1;return a[state.index]}
 function contextKey(it){return it.category_ar+SEP+it.ar}
 function fallbackImage(it){var em=WORD_EMOJI[it.ar]||it.emoji||'🧠',svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><rect width="800" height="800" rx="54" fill="#eaf7f5"/><rect x="42" y="42" width="716" height="716" rx="46" fill="#fff"/><text x="400" y="475" text-anchor="middle" font-size="250">'+esc(em)+'</text></svg>';return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
-function image(it){var map=window.APP360_WORD_IMAGE_MAP||WORD_IMAGES,file=map&&map[it.ar];return file?WORD_IMAGE_BASE+file:fallbackImage(it)}
+function image(it){var map=window.APP360_WORD_IMAGE_MAP||WORD_IMAGES,ctx=window.APP360_WORD_IMAGE_CONTEXT_MAP||WORD_IMAGE_CONTEXTS,key=contextKey(it),file=(ctx&&ctx[key])||(map&&map[it.ar]);return file?WORD_IMAGE_BASE+file:fallbackImage(it)}
 function applyLanguage(){var t=tr(),isEn=state.display==='en';document.documentElement.lang=isEn?'en':'ar';document.documentElement.dir=isEn?'ltr':'rtl';document.body.setAttribute('data-display-language',state.display);var stage=$('stage');if(stage)stage.setAttribute('data-dir',isEn?'ltr':'rtl');document.title=t.title+' | App 360';var nodes=document.querySelectorAll('[data-i18n]');for(var i=0;i<nodes.length;i++){var key=nodes[i].getAttribute('data-i18n');if(t[key]!=null)nodes[i].textContent=t[key]}var btns=$('languageSwitch').querySelectorAll('[data-lang]');for(i=0;i<btns.length;i++)btns[i].className=btns[i].getAttribute('data-lang')===state.display?'is-active':''}
 function scrollToStage(){var el=$('stage');if(!el)return;setTimeout(function(){try{el.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){el.scrollIntoView(true)}},100)}
 function renderLevels(){var h='';for(var i=1;i<=4;i++)h+='<button type="button" class="level-tab '+(state.level===i?'is-active':'')+'" data-level="'+i+'">'+i+'</button>';$('levelTabs').innerHTML=h;var b=$('levelTabs').querySelectorAll('[data-level]');for(var j=0;j<b.length;j++)b[j].onclick=function(){state.level=parseInt(this.getAttribute('data-level'),10)||1;state.category=preferredCategoryId(state.level);state.view='category';state.randomPool=[];state.index=0;saveSettings();render();if(state.speech)speak()}}
