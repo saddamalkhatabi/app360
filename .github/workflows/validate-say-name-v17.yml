@@ -1,4 +1,4 @@
-name: Validate Say and Name v17
+name: Validate Say and Name v24
 
 on:
   push:
@@ -17,22 +17,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate JavaScript syntax
-        run: node --check apps/1-4/say-and-name/runtime-v17.js
-      - name: Validate bilingual controls and cache references
+        run: node --check apps/1-4/say-and-name/runtime-v19.js
+      - name: Validate bilingual controls, context images and cache references
         run: |
           grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
-          grep -q 'data-voice="both"' apps/1-4/say-and-name/index.html
-          grep -q 'runtime-v17.js?v=17' apps/1-4/say-and-name/index.html
-          grep -q "app360-app-say-and-name-v17" apps/1-4/say-and-name/sw.js
-          ! grep -q 'level1-photo-layer' apps/1-4/say-and-name/sw.js
+          grep -q 'data-voice="both"' apps/1-4/say-and-name/runtime-v19.js
+          grep -q 'runtime-v19.js?v=24' apps/1-4/say-and-name/index.html
+          grep -q 'word-images-context-map.js?v=24' apps/1-4/say-and-name/index.html
+          grep -q "app360-app-say-and-name-v24" apps/1-4/say-and-name/sw.js
+          grep -q 'word-images-context-map.js?v=24' apps/1-4/say-and-name/sw.js
+          grep -q '"قرد":"w0283.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"نسر":"w0107.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"جمل":"w0284.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"بطريق":"w0256.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"أسد":"corrected-lion-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"فيل":"corrected-elephant-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"سلحفاة":"corrected-turtle-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"قرش":"corrected-shark-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+          grep -q '"فظ":"corrected-walrus-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
+      - name: Validate final all-word semantic audit summary
+        run: |
+          grep -q 'الصور المفحوصة دلاليًا: **985 / 985**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
+          grep -q 'حالات الاشتباه القوية بعد الإصلاح النهائي: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
+          grep -q 'ملفات الصور المفقودة: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
       - name: Confirm RawGitHack preview refreshed
         shell: bash
         run: |
-          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html'
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=24'
           ok=0
           for i in {1..18}; do
-            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v17.js?v=17' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
-              echo 'RawGitHack preview is on v17.'
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=24' /tmp/live.html && grep -q 'word-images-context-map.js?v=24' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
+              echo 'RawGitHack preview is on v24.'
               ok=1
               break
             fi
