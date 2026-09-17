@@ -37,9 +37,9 @@ jobs:
           grep -q '"فظ":"corrected-walrus-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
       - name: Validate final all-word semantic audit summary
         run: |
-          grep -q 'الصور المفحوصة دلاليًا: **985 / 985**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
-          grep -q 'حالات الاشتباه القوية بعد الإصلاح النهائي: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
-          grep -q 'ملفات الصور المفقودة: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
+          grep -Fq 'الصور المفحوصة دلاليًا: **985 / 985**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
+          grep -Fq 'حالات الاشتباه القوية بعد الإصلاح النهائي: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
+          grep -Fq 'ملفات الصور المفقودة: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
       - name: Confirm RawGitHack preview refreshed
         shell: bash
         run: |
