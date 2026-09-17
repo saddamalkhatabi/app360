@@ -39,7 +39,7 @@ test('rejects unsupported delivery and mismatched local identity', () => {
     assert.ok(planned, 'expected a planned app with a goal link');
     planned.goal_links[0].delivery = 'available_with_facilitator';
   }, /unbuilt app claims delivered goal/);
-  invalidCatalog(c => { c.apps[1].id = 'wrong-identity'; }, /contract id mismatch/);
+  invalidCatalog(c => { c.apps[1].id = 'wrong-identity'; }, /catalog\/app\.json id mismatch/);
 });
 test('scaffold continues a blueprint-only plan, preserves its contract/docs, and refuses a second run', () => {
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog.json'), 'utf8'));
