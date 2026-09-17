@@ -7,6 +7,8 @@ on:
     paths:
       - .github/workflows/audit-all-say-name-images.yml
       - apps/1-4/say-and-name/tools/audit_all_word_images.py
+      - apps/1-4/say-and-name/data/word-images-map.js
+      - apps/1-4/say-and-name/assets/word-images/corrected-*-v24.jpg
 
 permissions:
   contents: write
