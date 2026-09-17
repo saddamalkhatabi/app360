@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/fix-say-name-animal-images.yml
       - apps/1-4/say-and-name/tools/apply_animal_image_corrections.py
+      - apps/1-4/say-and-name/tools/audit_word_image_semantics_v2.py
 
 permissions:
   contents: write
@@ -43,7 +44,7 @@ jobs:
         env:
           HF_HUB_DISABLE_TELEMETRY: '1'
           TOKENIZERS_PARALLELISM: 'false'
-        run: python apps/1-4/say-and-name/tools/audit_word_image_semantics.py
+        run: python apps/1-4/say-and-name/tools/audit_word_image_semantics_v2.py
 
       - name: Verify reported words and correction quality
         run: |
