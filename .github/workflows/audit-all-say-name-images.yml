@@ -56,6 +56,10 @@ jobs:
           print('strong suspects', len(d['strong_suspects']))
           for row in d['strong_suspects'][:40]:
               print('STRONG', json.dumps(row, ensure_ascii=False))
+          for word, candidates in d.get('label_top_images', {}).items():
+              print('TARGET', word)
+              for cand in candidates[:8]:
+                  print('  CAND', json.dumps(cand, ensure_ascii=False))
           PY
 
       - name: Commit full semantic audit
@@ -69,5 +73,5 @@ jobs:
             exit 0
           fi
           git commit -m "Audit all Say and Name word images semantically"
-          git pull --rebase origin \${GITHUB_REF_NAME}
-          git push origin HEAD:\${GITHUB_REF_NAME}
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}
