@@ -34,7 +34,11 @@ test('rejects missing explanations and cross-age mappings', () => {
   invalidCatalog(c => { c.apps[1].goal_keys[0] = c.apps[9].goal_keys[0]; c.apps[1].goal_links[0].goal_key = c.apps[9].goal_keys[0]; }, /cross-age goal mapping/);
 });
 test('rejects unsupported delivery and mismatched local identity', () => {
-  invalidCatalog(c => { c.apps[1].goal_links[0].delivery = 'available_with_facilitator'; }, /unbuilt app claims delivered goal/);
+  invalidCatalog(c => {
+    const planned = c.apps.find(a => a.status !== 'live' && a.goal_links && a.goal_links.length);
+    assert.ok(planned, 'expected a planned app with a goal link');
+    planned.goal_links[0].delivery = 'available_with_facilitator';
+  }, /unbuilt app claims delivered goal/);
   invalidCatalog(c => { c.apps[1].id = 'wrong-identity'; }, /contract id mismatch/);
 });
 test('scaffold continues a blueprint-only plan, preserves its contract/docs, and refuses a second run', () => {
