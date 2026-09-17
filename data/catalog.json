@@ -186,14 +186,14 @@
         "إشارة",
         "مراجعة عشوائية"
       ],
-      "runtime_profile": "static-web",
-      "depth": "expanded",
+      "runtime_profile": "legacy-web",
+      "depth": "advanced",
       "capabilities": [
         "storage.local",
-        "audio.files",
+        "audio.recorded",
         "audio.tts",
-        "i18n.ar-en",
-        "pwa.offline"
+        "pwa.offline",
+        "compat.legacy-web"
       ],
       "bundles": [
         "static-core"
