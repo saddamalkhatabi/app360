@@ -1,4 +1,4 @@
-name: Validate Say and Name v24
+name: Validate Say and Name v25
 
 on:
   push:
@@ -22,10 +22,10 @@ jobs:
         run: |
           grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
           grep -q 'data-voice="both"' apps/1-4/say-and-name/runtime-v19.js
-          grep -q 'runtime-v19.js?v=24' apps/1-4/say-and-name/index.html
-          grep -q 'word-images-context-map.js?v=24' apps/1-4/say-and-name/index.html
-          grep -q "app360-app-say-and-name-v24" apps/1-4/say-and-name/sw.js
-          grep -q 'word-images-context-map.js?v=24' apps/1-4/say-and-name/sw.js
+          grep -q 'runtime-v19.js?v=25' apps/1-4/say-and-name/index.html
+          grep -q 'word-images-context-map.js?v=25' apps/1-4/say-and-name/index.html
+          grep -q "app360-app-say-and-name-v25" apps/1-4/say-and-name/sw.js
+          grep -q 'word-images-context-map.js?v=25' apps/1-4/say-and-name/sw.js
           grep -q '"قرد":"w0283.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"نسر":"w0107.jpg"' apps/1-4/say-and-name/data/word-images-map.js
           grep -q '"جمل":"w0284.jpg"' apps/1-4/say-and-name/data/word-images-map.js
@@ -43,11 +43,11 @@ jobs:
       - name: Confirm RawGitHack preview refreshed
         shell: bash
         run: |
-          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=24'
+          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=25'
           ok=0
           for i in {1..18}; do
-            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=24' /tmp/live.html && grep -q 'word-images-context-map.js?v=24' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
-              echo 'RawGitHack preview is on v24.'
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=25' /tmp/live.html && grep -q 'word-images-context-map.js?v=25' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
+              echo 'RawGitHack preview is on v25.'
               ok=1
               break
             fi
