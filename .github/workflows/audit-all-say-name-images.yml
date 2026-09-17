@@ -76,4 +76,8 @@ jobs:
           fi
           git commit -m "Audit all Say and Name word images semantically"
           git pull --rebase origin ${GITHUB_REF_NAME}
-          git push origin HEAD:${GITHUB_REF_NAME}
+          if ! git push origin HEAD:${GITHUB_REF_NAME}; then
+            echo "Branch advanced during audit; rebasing once more."
+            git pull --rebase origin ${GITHUB_REF_NAME}
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
