@@ -143,6 +143,27 @@ def main():
     strong = [r for r in rows if r["best_word_for_image"] != r["word"] and r["margin"] >= 0.10 and r["best_score"] >= 0.22]
     medium = [r for r in rows if r["best_word_for_image"] != r["word"] and r["margin"] >= 0.06 and r["best_score"] >= 0.22]
 
+    # For each strong suspect label, rank every existing image against that intended label.
+    # This lets us recover a correct image that may be sitting under a different word,
+    # without guessing from only the image's own top prediction.
+    label_top_images = {}
+    word_to_index = {w: i for i, w in enumerate(words)}
+    for suspect in strong:
+        target_word = suspect["word"]
+        target_i = word_to_index[target_word]
+        vals = sims[:, target_i]
+        order = torch.argsort(vals, descending=True)[:12]
+        label_top_images[target_word] = [
+            {
+                "image_owner_word": words[int(idx)],
+                "file": mapping[words[int(idx)]],
+                "score_for_target": round(float(vals[int(idx)]), 5),
+                "image_best_word": rows[int(idx)]["best_word_for_image"],
+                "image_current_score": rows[int(idx)]["current_score"],
+            }
+            for idx in order
+        ]
+
     payload = {
         "schema_version": "1.0",
         "model": model_id,
@@ -155,6 +176,7 @@ def main():
         "reciprocal_candidates": sorted(reciprocal, key=lambda x: x["min_margin"], reverse=True),
         "strong_suspects": sorted(strong, key=lambda x: x["margin"], reverse=True),
         "medium_suspects": sorted(medium, key=lambda x: x["margin"], reverse=True),
+        "label_top_images": label_top_images,
         "rows": rows,
     }
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -187,8 +209,15 @@ def main():
         lines.append("- **%s** (%s) تبدو أقرب إلى **%s** | الفرق %s | التصنيفات: %s" % (
             r["word"], r["file"], r["best_word_for_image"], r["margin"], cats_text
         ))
+    lines += ["", "## أفضل الصور الموجودة لكل كلمة مشتبه بها", ""]
+    for target_word in [r["word"] for r in sorted(strong, key=lambda x: x["margin"], reverse=True)]:
+        lines.append("### " + target_word)
+        for cand in label_top_images.get(target_word, [])[:8]:
+            lines.append("- %s (%s) | score %s | الصورة نفسها أقرب إلى %s" % (
+                cand["image_owner_word"], cand["file"], cand["score_for_target"], cand["image_best_word"]
+            ))
+        lines.append("")
     lines += [
-        "",
         "> هذا فحص بصري آلي للكشف عن الخلط، وليس مبررًا لتبديل كل حالة منفردة. التبديل التلقائي الآمن يقتصر على الأزواج المتبادلة الواضحة، وتراجع الحالات المفردة منفصلة.",
         "",
     ]
