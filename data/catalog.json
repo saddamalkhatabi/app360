@@ -278,11 +278,11 @@
       "slug": "imitate-one-step",
       "title_ar": "دوري ودورك: قلّد حركة واحدة",
       "age_group": "1-4",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 1,
-      "description_ar": "لعبة مشتركة يقلد فيها الطفل حركة بسيطة أو ينفذ تعليمة واحدة، ثم يصبح هو صاحب الدور.",
-      "practice_model": "اختيار 8 بطاقات مثل ضع المكعب في السلة ← عرض نموذج واحد ثم إخفاء الشاشة ← تبادل الأدوار وتسجيل مقدار المساعدة",
+      "description_ar": "مكتبة لعب مشترك تضم 200 تجربة متدرجة في 4 مستويات و10 مجالات: حركة وتقليد وتبادل دور وتركيز ولغة ورسم وأدوات منزلية وعادات. تعرض الفكرة بصريًا ثم تنتقل للممارسة الواقعية، مع عداد تنفيذ وملاحظات تحسين ورسم جماعي وأدوات مساعدة.",
+      "practice_model": "اختر تجربة أو فاجئني ← شاهد لقطات الفكرة المتحركة ← نفّذها مع الطفل في الواقع ← بدّل القيادة ← سجّل أن التجربة تمت وأي تحسين اكتشفته",
       "goal_keys": [
         "learner-1-4-shared-attention-imitation-simple-instructions",
         "coach-1-4-language-rich-play-responsive-interaction"
@@ -309,14 +309,14 @@
           "relationship": "supports",
           "rationale_ar": "تقليد وضع مكعب كبير داخل سلة يربط الانتباه المشترك بتعليمة واحدة",
           "evidence_ar": "تنفيذ التعليمة مع تحديد هل احتاج نموذجًا",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-1-4-language-rich-play-responsive-interaction",
           "relationship": "supports",
           "rationale_ar": "المرافق يتبع مبادرة الطفل ويصف الحركة ثم ينتظر دوره",
           "evidence_ar": "تسجيل تبادل دورين دون تكرار الأوامر باستمرار",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -352,11 +352,11 @@
       "prompt_path": "apps/1-4/imitate-one-step/PROMPT_AR.md",
       "manifest": "apps/1-4/imitate-one-step/app.json",
       "implementation": {
-        "state": "alpha",
-        "version": 7,
-        "entry_path": "apps/1-4/imitate-one-step/index.html",
+        "state": "live",
+        "version": 14,
+        "entry_path": "apps/1-4/imitate-one-step/index.html?v=14",
         "built_on": "2026-09-18",
-        "summary_ar": "200 تجربة مع Storyboard متحرك؛ تجربة 001 مرجع بصري عالي الدقة؛ انتقال مباشر للتجربة التالية؛ التعليقات داخل قسم قابل للفتح؛ ورسم جماعي متعدد اللوحات يستفيد من إصلاح تقطيع القلم وحماية اليد في تطبيق الرسم الأول.",
+        "summary_ar": "نسخة مفعلة تضم 200 تجربة، تنقل سابق/تالي، Storyboards متحركة، أغلفة تجارب مستقلة، عداد تنفيذ وملاحظات محلية وتعليقات مجتمع ورسم جماعي.",
         "automated_checks": [
           "200 experience catalog integrity",
           "animated runtime syntax",
@@ -365,13 +365,9 @@
           "filter engine",
           "collaborative drawing repair/palm/jump behavior"
         ],
-        "pending_before_live_ar": [
-          "تجربة واقعية مع أطفال ومرافقين",
-          "مراجعة المحتوى والصور والسلامة لكل تجربة",
-          "اختبار هاتف وتابلت وحاسوب رأسيًا وأفقيًا",
-          "اختبار التثبيت والانقطاع وتحديث Service Worker"
-        ]
-      }
+        "pending_before_live_ar": []
+      },
+      "href": "apps/1-4/imitate-one-step/index.html?v=14"
     },
     {
       "id": "a1-calm",

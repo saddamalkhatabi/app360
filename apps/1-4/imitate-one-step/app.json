@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 11,
-  "status": "planned",
-  "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-human-storyboard-prev-next-thumbnails",
+  "version": 12,
+  "status": "live",
+  "scaffold_state": "live",
+  "implementation_state": "live-200-experiences",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -74,8 +74,8 @@
       ],
       "runtime_fix": "restored renderReel, setupReel and clearReel as one tested block"
     },
-    "runtime": "app-v13.js",
-    "hq_storyboard_reference": "storyboards/001-human-hq.svg",
+    "runtime": "app-v14.js",
+    "hq_storyboard_reference": "storyboards/001-human-v2.svg",
     "next_experience_button": true,
     "feedback_collapsible": true,
     "collaborative_drawing": {
@@ -108,7 +108,9 @@
     "detail_contract_test": true,
     "detail_runtime_fix": "restored notesHtml and formatDate helpers required by openExperience",
     "previous_experience_button": true,
-    "card_visual": "first storyboard frame when available; emoji fallback otherwise"
+    "card_visual": "first storyboard frame when available; emoji fallback otherwise",
+    "experience_cover_manifest": "icons/manifest.json",
+    "experience_001_cover": "icons/001.svg"
   },
   "branding": {
     "icon": "icon.svg",

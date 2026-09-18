@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 900" width="4500" height="900">
+<defs>
+  <linearGradient id="wall1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7fbfa"/><stop offset="1" stop-color="#e9f5f2"/></linearGradient>
+  <linearGradient id="adultShirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#159c96"/><stop offset="1" stop-color="#08736f"/></linearGradient>
+  <linearGradient id="childShirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd95f"/><stop offset="1" stop-color="#f1b91f"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#17343a" flood-opacity=".14"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="4500" height="900" fill="#eef7f5"/>
+<g transform="translate(0,0)">
+   <rect width="900" height="900" fill="url(#wall1)"/>
+   <rect y="655" width="900" height="245" fill="#e2cba9"/>
+   <rect x="80" y="95" width="220" height="150" rx="18" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><circle cx="145" cy="160" r="35" fill="#ffd969"/><path d="M185 205 Q220 130 260 205" fill="#8bc5a6"/>
+   <rect x="690" y="120" width="95" height="185" rx="12" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><path d="M710 285 Q738 210 765 285" fill="#7fbf9d"/><rect x="733" y="270" width="17" height="45" fill="#b58557"/>
+   <ellipse cx="450" cy="720" rx="315" ry="60" fill="#d1e5df"/>
+   <g filter="url(#shadow)">
+     <ellipse cx="625" cy="250" rx="56.595" ry="62.370000000000005" fill="#d39a75"/>
+     <path d="M570.1375 241.6 Q585.73 189.3625 625 185.32 Q666.58 191.095 679.8625 244.75 Q655.03 218.2375 625 213.6175 Q594.97 218.2375 570.1375 241.6" fill="#40312c"/>
+     <ellipse cx="606.1" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/><ellipse cx="643.9" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/>
+     <path d="M608.2 276.25 Q625 289.9 642.85 275.2" fill="none" stroke="#8b4f49" stroke-width="4.2" stroke-linecap="round"/>
+     <path d="M558.85 336.1 Q625 299.35 691.15 336.1 L682.75 512.5 L567.25 512.5 Z" fill="url(#adultShirt)"/>
+     <line x1="577.75" y1="365.5" x2="520" y2="535" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <line x1="672.25" y1="365.5" x2="695" y2="535" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <ellipse cx="520" cy="535" rx="19.95" ry="24.150000000000002" fill="#d39a75"/><ellipse cx="695" cy="535" rx="19.95" ry="24.150000000000002" fill="#d39a75"/>
+     <path d="M578.8 510.4 L585.1 675.25 L617.65 675.25 L625 552.4 L633.4 675.25 L667 675.25 L671.2 510.4 Z" fill="#355563"/>
+     <ellipse cx="599.8" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/><ellipse cx="651.25" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/>
+   </g><g filter="url(#shadow)">
+     <ellipse cx="250" cy="315" rx="46.354" ry="51.084" fill="#c9875f"/>
+     <path d="M205.065 308.12 Q217.836 265.335 250 262.024 Q284.056 266.754 294.935 310.7 Q274.596 288.985 250 285.201 Q225.404 288.985 205.065 308.12" fill="#342821"/>
+     <ellipse cx="234.52" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/><ellipse cx="265.48" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/>
+     <path d="M236.24 336.5 Q250 347.68 264.62 335.64" fill="none" stroke="#8b4f49" stroke-width="3.44" stroke-linecap="round"/>
+     <path d="M195.82 385.52 Q250 355.41999999999996 304.18 385.52 L297.3 530 L202.7 530 Z" fill="url(#childShirt)"/>
+     <line x1="211.3" y1="409.59999999999997" x2="170" y2="560" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <line x1="288.7" y1="409.59999999999997" x2="330" y2="560" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <ellipse cx="170" cy="560" rx="16.34" ry="19.78" fill="#c9875f"/><ellipse cx="330" cy="560" rx="16.34" ry="19.78" fill="#c9875f"/>
+     <path d="M212.16 528.28 L217.32 663.3 L243.98 663.3 L250 562.68 L256.88 663.3 L284.4 663.3 L287.84 528.28 Z" fill="#5a6d78"/>
+     <ellipse cx="229.36" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/><ellipse cx="271.5" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/>
+   </g>
+   <path d="M390 390 C430 355 470 355 510 390" fill="none" stroke="#0f8f8a" stroke-width="12" stroke-linecap="round"/><path d="M500 367 l25 24 -29 17" fill="none" stroke="#0f8f8a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+   <circle cx="78" cy="76" r="38" fill="#17343a"/><text x="78" y="89" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">1</text>
+   <rect x="325" y="770" width="250" height="48" rx="24" fill="#ffffff" opacity=".92"/><text x="450" y="801" text-anchor="middle" font-family="Tahoma,Arial" font-size="24" font-weight="700" fill="#17343a">انتباه مشترك</text>
+ </g><g transform="translate(900,0)">
+   <rect width="900" height="900" fill="url(#wall1)"/>
+   <rect y="655" width="900" height="245" fill="#e2cba9"/>
+   <rect x="80" y="95" width="220" height="150" rx="18" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><circle cx="145" cy="160" r="35" fill="#ffd969"/><path d="M185 205 Q220 130 260 205" fill="#8bc5a6"/>
+   <rect x="690" y="120" width="95" height="185" rx="12" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><path d="M710 285 Q738 210 765 285" fill="#7fbf9d"/><rect x="733" y="270" width="17" height="45" fill="#b58557"/>
+   <ellipse cx="450" cy="720" rx="315" ry="60" fill="#d1e5df"/>
+   <g filter="url(#shadow)">
+     <ellipse cx="625" cy="250" rx="56.595" ry="62.370000000000005" fill="#d39a75"/>
+     <path d="M570.1375 241.6 Q585.73 189.3625 625 185.32 Q666.58 191.095 679.8625 244.75 Q655.03 218.2375 625 213.6175 Q594.97 218.2375 570.1375 241.6" fill="#40312c"/>
+     <ellipse cx="606.1" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/><ellipse cx="643.9" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/>
+     <path d="M608.2 276.25 Q625 289.9 642.85 275.2" fill="none" stroke="#8b4f49" stroke-width="4.2" stroke-linecap="round"/>
+     <path d="M558.85 336.1 Q625 299.35 691.15 336.1 L682.75 512.5 L567.25 512.5 Z" fill="url(#adultShirt)"/>
+     <line x1="577.75" y1="365.5" x2="560" y2="345" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <line x1="672.25" y1="365.5" x2="655" y2="345" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <ellipse cx="560" cy="345" rx="19.95" ry="24.150000000000002" fill="#d39a75"/><ellipse cx="655" cy="345" rx="19.95" ry="24.150000000000002" fill="#d39a75"/>
+     <path d="M578.8 510.4 L585.1 675.25 L617.65 675.25 L625 552.4 L633.4 675.25 L667 675.25 L671.2 510.4 Z" fill="#355563"/>
+     <ellipse cx="599.8" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/><ellipse cx="651.25" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/>
+   </g><g filter="url(#shadow)">
+     <ellipse cx="250" cy="315" rx="46.354" ry="51.084" fill="#c9875f"/>
+     <path d="M205.065 308.12 Q217.836 265.335 250 262.024 Q284.056 266.754 294.935 310.7 Q274.596 288.985 250 285.201 Q225.404 288.985 205.065 308.12" fill="#342821"/>
+     <ellipse cx="234.52" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/><ellipse cx="265.48" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/>
+     <path d="M236.24 336.5 Q250 347.68 264.62 335.64" fill="none" stroke="#8b4f49" stroke-width="3.44" stroke-linecap="round"/>
+     <path d="M195.82 385.52 Q250 355.41999999999996 304.18 385.52 L297.3 530 L202.7 530 Z" fill="url(#childShirt)"/>
+     <line x1="211.3" y1="409.59999999999997" x2="170" y2="555" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <line x1="288.7" y1="409.59999999999997" x2="330" y2="555" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <ellipse cx="170" cy="555" rx="16.34" ry="19.78" fill="#c9875f"/><ellipse cx="330" cy="555" rx="16.34" ry="19.78" fill="#c9875f"/>
+     <path d="M212.16 528.28 L217.32 663.3 L243.98 663.3 L250 562.68 L256.88 663.3 L284.4 663.3 L287.84 528.28 Z" fill="#5a6d78"/>
+     <ellipse cx="229.36" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/><ellipse cx="271.5" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/>
+   </g>
+   <g><circle cx="586.75" cy="345" r="22.95" fill="#ffd54f" opacity=".85"/><circle cx="629.25" cy="345" r="22.95" fill="#ffd54f" opacity=".85"/>
+   <g stroke="#e3aa00" stroke-width="6.8" stroke-linecap="round"><line x1="608" y1="296.55" x2="608" y2="268.5"/><line x1="558.7" y1="314.4" x2="537.45" y2="296.55"/><line x1="657.3" y1="314.4" x2="678.55" y2="296.55"/></g></g>
+   <circle cx="78" cy="76" r="38" fill="#17343a"/><text x="78" y="89" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">2</text>
+   <rect x="325" y="770" width="250" height="48" rx="24" fill="#ffffff" opacity=".92"/><text x="450" y="801" text-anchor="middle" font-family="Tahoma,Arial" font-size="24" font-weight="700" fill="#17343a">المرافق يعرض</text>
+ </g><g transform="translate(1800,0)">
+   <rect width="900" height="900" fill="url(#wall1)"/>
+   <rect y="655" width="900" height="245" fill="#e2cba9"/>
+   <rect x="80" y="95" width="220" height="150" rx="18" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><circle cx="145" cy="160" r="35" fill="#ffd969"/><path d="M185 205 Q220 130 260 205" fill="#8bc5a6"/>
+   <rect x="690" y="120" width="95" height="185" rx="12" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><path d="M710 285 Q738 210 765 285" fill="#7fbf9d"/><rect x="733" y="270" width="17" height="45" fill="#b58557"/>
+   <ellipse cx="450" cy="720" rx="315" ry="60" fill="#d1e5df"/>
+   <g filter="url(#shadow)">
+     <ellipse cx="625" cy="250" rx="56.595" ry="62.370000000000005" fill="#d39a75"/>
+     <path d="M570.1375 241.6 Q585.73 189.3625 625 185.32 Q666.58 191.095 679.8625 244.75 Q655.03 218.2375 625 213.6175 Q594.97 218.2375 570.1375 241.6" fill="#40312c"/>
+     <ellipse cx="606.1" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/><ellipse cx="643.9" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/>
+     <path d="M608.2 276.25 Q625 289.9 642.85 275.2" fill="none" stroke="#8b4f49" stroke-width="4.2" stroke-linecap="round"/>
+     <path d="M558.85 336.1 Q625 299.35 691.15 336.1 L682.75 512.5 L567.25 512.5 Z" fill="url(#adultShirt)"/>
+     <line x1="577.75" y1="365.5" x2="520" y2="520" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <line x1="672.25" y1="365.5" x2="695" y2="520" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <ellipse cx="520" cy="520" rx="19.95" ry="24.150000000000002" fill="#d39a75"/><ellipse cx="695" cy="520" rx="19.95" ry="24.150000000000002" fill="#d39a75"/>
+     <path d="M578.8 510.4 L585.1 675.25 L617.65 675.25 L625 552.4 L633.4 675.25 L667 675.25 L671.2 510.4 Z" fill="#355563"/>
+     <ellipse cx="599.8" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/><ellipse cx="651.25" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/>
+   </g><g filter="url(#shadow)">
+     <ellipse cx="250" cy="315" rx="46.354" ry="51.084" fill="#c9875f"/>
+     <path d="M205.065 308.12 Q217.836 265.335 250 262.024 Q284.056 266.754 294.935 310.7 Q274.596 288.985 250 285.201 Q225.404 288.985 205.065 308.12" fill="#342821"/>
+     <ellipse cx="234.52" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/><ellipse cx="265.48" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/>
+     <path d="M236.24 336.5 Q250 347.68 264.62 335.64" fill="none" stroke="#8b4f49" stroke-width="3.44" stroke-linecap="round"/>
+     <path d="M195.82 385.52 Q250 355.41999999999996 304.18 385.52 L297.3 530 L202.7 530 Z" fill="url(#childShirt)"/>
+     <line x1="211.3" y1="409.59999999999997" x2="205" y2="385" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <line x1="288.7" y1="409.59999999999997" x2="300" y2="385" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <ellipse cx="205" cy="385" rx="16.34" ry="19.78" fill="#c9875f"/><ellipse cx="300" cy="385" rx="16.34" ry="19.78" fill="#c9875f"/>
+     <path d="M212.16 528.28 L217.32 663.3 L243.98 663.3 L250 562.68 L256.88 663.3 L284.4 663.3 L287.84 528.28 Z" fill="#5a6d78"/>
+     <ellipse cx="229.36" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/><ellipse cx="271.5" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/>
+   </g>
+   <g><circle cx="232.5" cy="385" r="21.060000000000002" fill="#ffd54f" opacity=".85"/><circle cx="271.5" cy="385" r="21.060000000000002" fill="#ffd54f" opacity=".85"/>
+   <g stroke="#e3aa00" stroke-width="6.24" stroke-linecap="round"><line x1="252" y1="340.54" x2="252" y2="314.8"/><line x1="206.76" y1="356.92" x2="187.26" y2="340.54"/><line x1="297.24" y1="356.92" x2="316.74" y2="340.54"/></g></g>
+   <circle cx="78" cy="76" r="38" fill="#17343a"/><text x="78" y="89" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">3</text>
+   <rect x="325" y="770" width="250" height="48" rx="24" fill="#ffffff" opacity=".92"/><text x="450" y="801" text-anchor="middle" font-family="Tahoma,Arial" font-size="24" font-weight="700" fill="#17343a">الطفل يقلّد</text>
+ </g><g transform="translate(2700,0)">
+   <rect width="900" height="900" fill="url(#wall1)"/>
+   <rect y="655" width="900" height="245" fill="#e2cba9"/>
+   <rect x="80" y="95" width="220" height="150" rx="18" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><circle cx="145" cy="160" r="35" fill="#ffd969"/><path d="M185 205 Q220 130 260 205" fill="#8bc5a6"/>
+   <rect x="690" y="120" width="95" height="185" rx="12" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><path d="M710 285 Q738 210 765 285" fill="#7fbf9d"/><rect x="733" y="270" width="17" height="45" fill="#b58557"/>
+   <ellipse cx="450" cy="720" rx="315" ry="60" fill="#d1e5df"/>
+   <g filter="url(#shadow)">
+     <ellipse cx="625" cy="250" rx="56.595" ry="62.370000000000005" fill="#d39a75"/>
+     <path d="M570.1375 241.6 Q585.73 189.3625 625 185.32 Q666.58 191.095 679.8625 244.75 Q655.03 218.2375 625 213.6175 Q594.97 218.2375 570.1375 241.6" fill="#40312c"/>
+     <ellipse cx="606.1" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/><ellipse cx="643.9" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/>
+     <path d="M608.2 276.25 Q625 289.9 642.85 275.2" fill="none" stroke="#8b4f49" stroke-width="4.2" stroke-linecap="round"/>
+     <path d="M558.85 336.1 Q625 299.35 691.15 336.1 L682.75 512.5 L567.25 512.5 Z" fill="url(#adultShirt)"/>
+     <line x1="577.75" y1="365.5" x2="565" y2="345" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <line x1="672.25" y1="365.5" x2="650" y2="345" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <ellipse cx="565" cy="345" rx="19.95" ry="24.150000000000002" fill="#d39a75"/><ellipse cx="650" cy="345" rx="19.95" ry="24.150000000000002" fill="#d39a75"/>
+     <path d="M578.8 510.4 L585.1 675.25 L617.65 675.25 L625 552.4 L633.4 675.25 L667 675.25 L671.2 510.4 Z" fill="#355563"/>
+     <ellipse cx="599.8" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/><ellipse cx="651.25" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/>
+   </g><g filter="url(#shadow)">
+     <ellipse cx="250" cy="315" rx="46.354" ry="51.084" fill="#c9875f"/>
+     <path d="M205.065 308.12 Q217.836 265.335 250 262.024 Q284.056 266.754 294.935 310.7 Q274.596 288.985 250 285.201 Q225.404 288.985 205.065 308.12" fill="#342821"/>
+     <ellipse cx="234.52" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/><ellipse cx="265.48" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/>
+     <path d="M236.24 336.5 Q250 347.68 264.62 335.64" fill="none" stroke="#8b4f49" stroke-width="3.44" stroke-linecap="round"/>
+     <path d="M195.82 385.52 Q250 355.41999999999996 304.18 385.52 L297.3 530 L202.7 530 Z" fill="url(#childShirt)"/>
+     <line x1="211.3" y1="409.59999999999997" x2="205" y2="385" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <line x1="288.7" y1="409.59999999999997" x2="300" y2="385" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <ellipse cx="205" cy="385" rx="16.34" ry="19.78" fill="#c9875f"/><ellipse cx="300" cy="385" rx="16.34" ry="19.78" fill="#c9875f"/>
+     <path d="M212.16 528.28 L217.32 663.3 L243.98 663.3 L250 562.68 L256.88 663.3 L284.4 663.3 L287.84 528.28 Z" fill="#5a6d78"/>
+     <ellipse cx="229.36" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/><ellipse cx="271.5" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/>
+   </g>
+   <g><circle cx="586.75" cy="345" r="22.95" fill="#ffd54f" opacity=".85"/><circle cx="629.25" cy="345" r="22.95" fill="#ffd54f" opacity=".85"/>
+   <g stroke="#e3aa00" stroke-width="6.8" stroke-linecap="round"><line x1="608" y1="296.55" x2="608" y2="268.5"/><line x1="558.7" y1="314.4" x2="537.45" y2="296.55"/><line x1="657.3" y1="314.4" x2="678.55" y2="296.55"/></g></g><g><circle cx="232.5" cy="385" r="21.060000000000002" fill="#ffd54f" opacity=".85"/><circle cx="271.5" cy="385" r="21.060000000000002" fill="#ffd54f" opacity=".85"/>
+   <g stroke="#e3aa00" stroke-width="6.24" stroke-linecap="round"><line x1="252" y1="340.54" x2="252" y2="314.8"/><line x1="206.76" y1="356.92" x2="187.26" y2="340.54"/><line x1="297.24" y1="356.92" x2="316.74" y2="340.54"/></g></g>
+   <circle cx="78" cy="76" r="38" fill="#17343a"/><text x="78" y="89" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">4</text>
+   <rect x="325" y="770" width="250" height="48" rx="24" fill="#ffffff" opacity=".92"/><text x="450" y="801" text-anchor="middle" font-family="Tahoma,Arial" font-size="24" font-weight="700" fill="#17343a">نتبادل الدور</text>
+ </g><g transform="translate(3600,0)">
+   <rect width="900" height="900" fill="url(#wall1)"/>
+   <rect y="655" width="900" height="245" fill="#e2cba9"/>
+   <rect x="80" y="95" width="220" height="150" rx="18" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><circle cx="145" cy="160" r="35" fill="#ffd969"/><path d="M185 205 Q220 130 260 205" fill="#8bc5a6"/>
+   <rect x="690" y="120" width="95" height="185" rx="12" fill="#ffffff" stroke="#d8e7e4" stroke-width="5"/><path d="M710 285 Q738 210 765 285" fill="#7fbf9d"/><rect x="733" y="270" width="17" height="45" fill="#b58557"/>
+   <ellipse cx="450" cy="720" rx="315" ry="60" fill="#d1e5df"/>
+   <g filter="url(#shadow)">
+     <ellipse cx="625" cy="250" rx="56.595" ry="62.370000000000005" fill="#d39a75"/>
+     <path d="M570.1375 241.6 Q585.73 189.3625 625 185.32 Q666.58 191.095 679.8625 244.75 Q655.03 218.2375 625 213.6175 Q594.97 218.2375 570.1375 241.6" fill="#40312c"/>
+     <ellipse cx="606.1" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/><ellipse cx="643.9" cy="244.75" rx="5.25" ry="4.2" fill="#2d2927"/>
+     <path d="M608.2 276.25 Q625 289.9 642.85 275.2" fill="none" stroke="#8b4f49" stroke-width="4.2" stroke-linecap="round"/>
+     <path d="M558.85 336.1 Q625 299.35 691.15 336.1 L682.75 512.5 L567.25 512.5 Z" fill="url(#adultShirt)"/>
+     <line x1="577.75" y1="365.5" x2="550" y2="320" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <line x1="672.25" y1="365.5" x2="670" y2="390" stroke="#d39a75" stroke-width="29.400000000000002" stroke-linecap="round"/>
+     <ellipse cx="550" cy="320" rx="19.95" ry="24.150000000000002" fill="#d39a75"/><ellipse cx="670" cy="390" rx="19.95" ry="24.150000000000002" fill="#d39a75"/>
+     <path d="M578.8 510.4 L585.1 675.25 L617.65 675.25 L625 552.4 L633.4 675.25 L667 675.25 L671.2 510.4 Z" fill="#355563"/>
+     <ellipse cx="599.8" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/><ellipse cx="651.25" cy="682.6" rx="30.450000000000003" ry="12.600000000000001" fill="#ffffff"/>
+   </g><g filter="url(#shadow)">
+     <ellipse cx="250" cy="315" rx="46.354" ry="51.084" fill="#c9875f"/>
+     <path d="M205.065 308.12 Q217.836 265.335 250 262.024 Q284.056 266.754 294.935 310.7 Q274.596 288.985 250 285.201 Q225.404 288.985 205.065 308.12" fill="#342821"/>
+     <ellipse cx="234.52" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/><ellipse cx="265.48" cy="310.7" rx="4.3" ry="3.44" fill="#2d2927"/>
+     <path d="M236.24 336.5 Q250 347.68 264.62 335.64" fill="none" stroke="#8b4f49" stroke-width="3.44" stroke-linecap="round"/>
+     <path d="M195.82 385.52 Q250 355.41999999999996 304.18 385.52 L297.3 530 L202.7 530 Z" fill="url(#childShirt)"/>
+     <line x1="211.3" y1="409.59999999999997" x2="195" y2="350" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <line x1="288.7" y1="409.59999999999997" x2="315" y2="420" stroke="#c9875f" stroke-width="24.08" stroke-linecap="round"/>
+     <ellipse cx="195" cy="350" rx="16.34" ry="19.78" fill="#c9875f"/><ellipse cx="315" cy="420" rx="16.34" ry="19.78" fill="#c9875f"/>
+     <path d="M212.16 528.28 L217.32 663.3 L243.98 663.3 L250 562.68 L256.88 663.3 L284.4 663.3 L287.84 528.28 Z" fill="#5a6d78"/>
+     <ellipse cx="229.36" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/><ellipse cx="271.5" cy="669.3199999999999" rx="24.94" ry="10.32" fill="#ffffff"/>
+   </g>
+   <path d="M345 255 Q450 185 555 255" fill="none" stroke="#0f8f8a" stroke-width="11" stroke-linecap="round"/><circle cx="450" cy="220" r="15" fill="#ffd54f"/>
+   <circle cx="78" cy="76" r="38" fill="#17343a"/><text x="78" y="89" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">5</text>
+   <rect x="325" y="770" width="250" height="48" rx="24" fill="#ffffff" opacity=".92"/><text x="450" y="801" text-anchor="middle" font-family="Tahoma,Arial" font-size="24" font-weight="700" fill="#17343a">الطفل يقود</text>
+ </g>
+<g stroke="#ffffff" stroke-width="14"><line x1="900" y1="0" x2="900" y2="900"/><line x1="1800" y1="0" x2="1800" y2="900"/><line x1="2700" y1="0" x2="2700" y2="900"/><line x1="3600" y1="0" x2="3600" y2="900"/></g>
+</svg>
