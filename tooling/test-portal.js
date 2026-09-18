@@ -69,7 +69,17 @@ test('portal renders the full catalog, live links and modal detail contracts', (
   const html = p.elements.appGrid.innerHTML;
   assert.equal((html.match(/class="app-card"/g) || []).length, 64);
   assert.deepEqual(p.urls, ['./data/catalog.json', './data/goals.json', './data/live-overrides.json']);
-  assert.equal((html.match(/>فتح التطبيق<\/a>/g) || []).length, 2);
+  const overrideMap = new Map((liveOverrides.apps || []).map(a => [a.id, a]));
+  const effectiveLive = catalog.apps.filter(a => {
+    const o = overrideMap.get(a.id);
+    return (o && o.status ? o.status : a.status) === 'live';
+  });
+  assert.equal((html.match(/>فتح التطبيق<\/a>/g) || []).length, effectiveLive.length);
+  for (const a of effectiveLive) {
+    const o = overrideMap.get(a.id);
+    const href = o && o.href ? o.href : a.href;
+    assert.ok(href && html.includes('./' + href), 'missing live link for ' + a.id);
+  }
 
   const firstWords = liveOverrides.apps.find(a => a.id === 'a1-first-words');
   assert.ok(firstWords && html.includes('./' + firstWords.href));
