@@ -38,13 +38,12 @@ jobs:
           python - <<'PY'
           from PIL import Image, ImageEnhance
           from pathlib import Path
-          import json, os, shutil
+          import json, os, shutil, re
 
           app = Path('apps/1-4/imitate-one-step')
           batch = Path(os.environ['STORYBOARD_TMP'])
           out = app / 'storyboards'
 
-          imported = []
           for n in range(1, 11):
               ident = f'{n:03d}'
               p = batch / f'{ident}.webp'
@@ -52,8 +51,6 @@ jobs:
                   raise SystemExit(f'missing {p}')
               im = Image.open(p).convert('RGB')
               w, h = im.size
-              # The generated source is a 5-column x 3-row contact sheet.
-              # Use the first row as the five ordered storyboard frames.
               cell_w = w / 5.0
               row_h = h / 3.0
               panels = []
@@ -74,35 +71,89 @@ jobs:
               strip = Image.new('RGB', (4500, 900), 'white')
               for i, panel in enumerate(panels):
                   strip.paste(panel, (i * 900, 0))
-              target = out / f'{ident}.webp'
-              strip.save(target, 'WEBP', quality=88, method=6)
-              imported.append({'id': ident, 'path': f'storyboards/{ident}.webp', 'width': 4500, 'height': 900, 'panels': 5})
+              strip.save(out / f'{ident}.webp', 'WEBP', quality=88, method=6)
 
           staging = out / 'batch1'
           if staging.exists():
               shutil.rmtree(staging)
 
-          main_manifest_path = out / 'manifest.json'
-          main_manifest = json.loads(main_manifest_path.read_text(encoding='utf-8'))
-          main_manifest['updated'] = '2026-09-19'
-          main_manifest['expected_dimensions'] = '4500x900 (5 equal 900x900 panels)'
+          manifest_path = out / 'manifest.json'
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          manifest['updated'] = '2026-09-19'
+          manifest['expected_dimensions'] = '4500x900 (5 equal 900x900 panels)'
           for n in range(1, 11):
               ident = f'{n:03d}'
-              main_manifest['assets'][ident] = f'storyboards/{ident}.webp'
-          main_manifest['note_ar'] = 'الدفعة الأولى 001-010 مفعلة مباشرة من مجلد storyboards بصيغة WebP، وكل ملف 4500x900 ويحتوي خمس لقطات 900x900.'
-          main_manifest['layout'] = '5 equal horizontal panels'
-          main_manifest_path.write_text(json.dumps(main_manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              manifest['assets'][ident] = f'storyboards/{ident}.webp'
+          manifest['note_ar'] = 'الدفعة الأولى 001-010 مفعلة مباشرة من مجلد storyboards بصيغة WebP، وكل ملف 4500x900 ويحتوي خمس لقطات 900x900.'
+          manifest['layout'] = '5 equal horizontal panels'
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Make storyboard imagery visible in library cards before any legacy cover icon.
+          runtime = app / 'app-v16.js'
+          text = runtime.read_text(encoding='utf-8')
+          old = "function cardVisual(x){var cover=covers[x.id],asset=storyboards[x.id];if(cover)return '<div class=\"card-cover-icon\"><img src=\"'+esc(cover)+'\" alt=\"غلاف تجربة '+esc(x.title)+'\" loading=\"lazy\"><em>'+x.id+'</em></div>';if(asset)return '<div class=\"card-thumb-frame\"><img src=\"'+esc(asset)+'\" alt=\"\" loading=\"lazy\"><em>'+x.id+'</em></div>';return '<div class=\"card-art\"><span>'+esc(x.icon)+'</span><em>'+x.id+'</em></div>'}"
+          new = "function cardVisual(x){var cover=covers[x.id],asset=storyboards[x.id];if(asset)return '<div class=\"card-thumb-frame\"><img src=\"'+esc(asset)+'\" alt=\"لقطة من تجربة '+esc(x.title)+'\" loading=\"lazy\"><em>'+x.id+'</em></div>';if(cover)return '<div class=\"card-cover-icon\"><img src=\"'+esc(cover)+'\" alt=\"غلاف تجربة '+esc(x.title)+'\" loading=\"lazy\"><em>'+x.id+'</em></div>';return '<div class=\"card-art\"><span>'+esc(x.icon)+'</span><em>'+x.id+'</em></div>'}"
+          if old in text:
+              text = text.replace(old, new)
+          text = text.replace("fetch('storyboards/manifest.json?v=3'", "fetch('storyboards/manifest.json?v=4'")
+          runtime.write_text(text, encoding='utf-8')
+
+          index = app / 'index.html'
+          s = index.read_text(encoding='utf-8').replace('app-v16.js?v=4','app-v16.js?v=5')
+          index.write_text(s, encoding='utf-8')
+
+          sw = app / 'sw.js'
+          s = sw.read_text(encoding='utf-8')
+          s = re.sub(r"app360-app-imitate-one-step-v\d+", 'app360-app-imitate-one-step-v21', s)
+          s = s.replace('./app-v16.js?v=4','./app-v16.js?v=5')
+          s = s.replace('./storyboards/manifest.json?v=3','./storyboards/manifest.json?v=4')
+          s = s.replace("'./storyboards/001-human-v2.svg'", "'./storyboards/001.webp'")
+          sw.write_text(s, encoding='utf-8')
+
+          # Keep tests aligned with the now-active direct assets and cache-busted runtime.
+          for test in app.glob('*.test.js'):
+              s = test.read_text(encoding='utf-8')
+              s = s.replace("storyboards/batch1/001.webp", "storyboards/001.webp")
+              s = s.replace("storyboards/001-human-v2.svg", "storyboards/001.webp")
+              s = s.replace("app-v16.js?v=4", "app-v16.js?v=5")
+              test.write_text(s, encoding='utf-8')
+
+          app_json_path = app / 'app.json'
+          app_json = json.loads(app_json_path.read_text(encoding='utf-8'))
+          app_json['version'] = max(int(app_json.get('version', 0)), 17)
+          features = app_json.setdefault('features', {})
+          features['sample_storyboards'] = 12
+          features['hq_storyboard_reference'] = 'storyboards/001.webp'
+          features['storyboard_batch_001_010'] = 'storyboards/001.webp ... storyboards/010.webp'
+          features['card_visual'] = 'storyboard first frame when available; cover icon fallback; emoji last fallback'
+          app_json_path.write_text(json.dumps(app_json, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          for rel in ['data/catalog.json','data/live-overrides.json']:
+              p = Path(rel)
+              doc = json.loads(p.read_text(encoding='utf-8'))
+              if rel.endswith('catalog.json'):
+                  for item in doc.get('apps', []):
+                      if item.get('id') == 'a1-imitate':
+                          item['href'] = 'apps/1-4/imitate-one-step/index.html?v=21'
+                          if item.get('implementation'):
+                              item['implementation']['entry_path'] = item['href']
+              else:
+                  for item in doc.get('apps', []):
+                      if item.get('id') == 'a1-imitate':
+                          item['href'] = 'apps/1-4/imitate-one-step/index.html?v=21'
+                  doc['updated'] = '2026-09-19'
+              p.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
 
-      - name: Commit direct storyboards
+      - name: Commit direct storyboards and wiring
         shell: bash
         run: |
           git config user.name 'app360-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add -A apps/1-4/imitate-one-step/storyboards
+          git add -A apps/1-4/imitate-one-step data/catalog.json data/live-overrides.json
           if git diff --cached --quiet; then
             echo 'No storyboard changes to commit.'
             exit 0
           fi
-          git commit -m 'Place first ten storyboards directly [storyboards-direct]'
+          git commit -m 'Wire first ten direct storyboards and bust caches [storyboards-direct]'
           git push
