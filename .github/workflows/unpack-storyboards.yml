@@ -1,0 +1,45 @@
+name: Unpack storyboard ZIP uploads
+
+on:
+  push:
+    paths:
+      - '.github/workflows/unpack-storyboards.yml'
+      - 'apps/1-4/imitate-one-step/storyboards/*.zip'
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract storyboard archives in place
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir='apps/1-4/imitate-one-step/storyboards'
+          shopt -s nullglob
+          zips=("$dir"/*.zip)
+          if [ ${#zips[@]} -eq 0 ]; then
+            echo 'No storyboard ZIP archives found.'
+            exit 0
+          fi
+          for z in "${zips[@]}"; do
+            unzip -t "$z"
+            unzip -o "$z" -d "$dir"
+            rm -f "$z"
+          done
+      - name: Commit extracted storyboards
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/imitate-one-step/storyboards
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Extract uploaded storyboard archive'
+          git push
