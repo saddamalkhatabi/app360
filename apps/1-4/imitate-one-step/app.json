@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 4,
+  "version": 5,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-simple-reel-community",
+  "implementation_state": "alpha-large-frame-reel",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -51,7 +51,7 @@
     "sample_storyboards": 3,
     "storyboard_layout": "5 equal horizontal panels",
     "storyboard_display_ratio": "5:1",
-    "storyboard_mode": "animated-five-panel-reel",
+    "storyboard_mode": "large-square-single-frame-then-full-strip",
     "per_experience_steps": false,
     "global_method_once": true,
     "local_completion_count": true,
@@ -61,6 +61,17 @@
       "issue_number": 8,
       "public_read": true,
       "public_write_via_github_login": true
+    },
+    "storyboard_playback": {
+      "frames": 5,
+      "frame_seconds": 2.2,
+      "frame_view": "large centered square",
+      "end_view": "full five-panel image",
+      "controls": [
+        "pause/resume",
+        "replay",
+        "jump-to-frame"
+      ]
     }
   },
   "branding": {
