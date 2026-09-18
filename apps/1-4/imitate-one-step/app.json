@@ -6,7 +6,8 @@
   "age_group": "1-4",
   "version": 1,
   "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "scaffold_state": "implementation-started",
+  "implementation_state": "prototype",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -19,14 +20,44 @@
   "depth": "standard",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
-  "capabilities": [
-    "storage.local",
-    "pwa.offline"
-  ],
-  "bundles": [
-    "static-core"
-  ],
-  "practice_model_ar": "اختيار 8 بطاقات مثل ضع المكعب في السلة ← عرض نموذج واحد ثم إخفاء الشاشة ← تبادل الأدوار وتسجيل مقدار المساعدة",
+  "capabilities": ["storage.local", "pwa.offline"],
+  "bundles": ["static-core"],
+  "practice_model_ar": "اختيار 8 بطاقات ← عرض نموذج واحد ← إخفاء الشاشة ← دور المرافق ← محاولة الطفل مع تسجيل مقدار المساعدة ← الطفل يقود الدور والمرافق يقلده",
+  "branding": {
+    "icon": "icon.svg",
+    "theme_color": "#0f8f8a",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/1-4/imitate-one-step/icon-192.png",
+      "apps/1-4/imitate-one-step/icon-512.png"
+    ],
+    "unique_per_app": true
+  },
+  "compatibility": {
+    "mobile": true,
+    "tablet": true,
+    "desktop": true,
+    "portrait": true,
+    "landscape": true,
+    "legacy_android_required": false,
+    "minimum_test_targets": ["modern Chrome", "modern Android tablet"]
+  },
+  "privacy": {
+    "local_first": true,
+    "external_services": [],
+    "stored_fields": ["session_id", "task_id", "attempts", "artifact", "reflection", "assistance_level"],
+    "retention_ar": "آخر 30 جلسة محليًا، مع تصدير JSON وحذف يدوي."
+  },
+  "evidence_model": {
+    "learner_ar": "يسجل المرافق تنفيذ المحاولة ومقدار المساعدة وهل احتاج الطفل نموذجًا.",
+    "coach_ar": "تكتمل الحلقة فقط بعد دور المرافق ودور الطفل ثم مبادرة الطفل وتقليد المرافق له.",
+    "claim_limit_ar": "السجل وصف للممارسة وليس تقييمًا نمائيًا أو تشخيصًا."
+  },
+  "storage": {
+    "schema_version": 1,
+    "key_prefix": "app360:a1-imitate:v1",
+    "fallback": "memory-with-export-warning"
+  },
   "blueprint_path": "apps/1-4/imitate-one-step/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/imitate-one-step/PROMPT_AR.md"
 }

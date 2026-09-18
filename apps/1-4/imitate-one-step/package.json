@@ -1,0 +1,15 @@
+{
+  "name": "@app360/app-imitate-one-step",
+  "version": "0.1.0",
+  "private": true,
+  "description": "دوري ودورك: قلّد حركة واحدة - App 360 Lab",
+  "app360": {
+    "appId": "a1-imitate",
+    "ageGroup": "1-4",
+    "runtimeProfile": "static-web"
+  },
+  "scripts": {
+    "test": "node --test practice-core.test.js",
+    "validate": "node --test practice-core.test.js && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));console.log('contracts OK')\""
+  }
+}
