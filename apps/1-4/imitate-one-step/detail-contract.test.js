@@ -2,7 +2,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const src=fs.readFileSync('app-v14.js','utf8');
+const src=fs.readFileSync('app-v16.js','utf8');
 
 test('detail page helper functions are all defined',()=>{
   [
@@ -21,6 +21,6 @@ test('openExperience exists and calls only available detail helpers',()=>{
   assert.ok(src.includes('el(\'nextExperience\').onclick=goNextExperience'));
 });
 
-test('v14 runtime parses',()=>{
+test('v16 runtime parses',()=>{
   assert.doesNotThrow(()=>new Function(src));
 });

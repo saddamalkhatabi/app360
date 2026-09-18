@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 13,
+  "version": 14,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -78,10 +78,11 @@
         "tablet_portrait": "capped around 660px and 72vh",
         "tablet_landscape": "capped around 620px and 68vh",
         "desktop": "capped around 640px and 70vh",
-        "legacy_fallback": "vw + max-width"
+        "legacy_fallback": "vw + max-width",
+        "overview": "wide full five-panel image after playback; compact sizing applies only to one-frame playback"
       }
     },
-    "runtime": "app-v14.js",
+    "runtime": "app-v16.js",
     "hq_storyboard_reference": "storyboards/001-human-v2.svg",
     "next_experience_button": true,
     "feedback_collapsible": true,
