@@ -64,3 +64,18 @@
     .reel.overview-active{width:min(92%,1200px);max-width:none}
   }
 }
+
+/* Legacy Android 4.x drawing mode: no flex/vh/calc dependency. */
+.sheet.legacy-drawing-open{display:block!important;position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:0!important;background:#fff!important;overflow:auto!important}
+.sheet.legacy-drawing-open .sheet-backdrop{display:none!important}
+.sheet.legacy-drawing-open .sheet-card{position:relative!important;top:0!important;right:0!important;left:0!important;bottom:auto!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important;border-radius:0!important;padding:8px 10px 30px!important;box-shadow:none!important}
+.sheet.legacy-drawing-open #sheetBody,.sheet.legacy-drawing-open #drawLabRoot{display:block!important;height:auto!important;min-height:0!important;overflow:visible!important}
+.sheet.legacy-drawing-open .draw-lab-toolbar,.sheet.legacy-drawing-open .draw-lab-main,.sheet.legacy-drawing-open .draw-lab-settings,.sheet.legacy-drawing-open .draw-boards{display:block!important;height:auto!important;overflow:visible!important}
+.sheet.legacy-drawing-open .draw-lab-main button,.sheet.legacy-drawing-open .draw-lab-main label,.sheet.legacy-drawing-open .draw-lab-settings label{display:inline-block!important;margin:3px!important;vertical-align:middle!important}
+.sheet.legacy-drawing-open .draw-board-card{display:block!important;width:100%!important;min-width:0!important;margin:0 0 12px!important}
+.sheet.legacy-drawing-open .draw-board-head{display:block!important;white-space:normal!important}
+.sheet.legacy-drawing-open .draw-board-head b,.sheet.legacy-drawing-open .draw-board-head select,.sheet.legacy-drawing-open .draw-board-head button{display:inline-block!important;margin:3px!important}
+.sheet.legacy-drawing-open .draw-canvas-shell{display:block!important;position:relative!important;width:100%!important;height:340px;min-height:280px!important;background:#fff!important}
+.sheet.legacy-drawing-open .draw-canvas-shell canvas{display:block!important;position:absolute!important;top:0!important;right:0!important;bottom:0!important;left:0!important;width:100%!important;height:100%!important}
+.sheet.legacy-drawing-open .sheet-handle{display:none!important}
+.legacy-draw-error{padding:24px;text-align:center;line-height:1.9}
