@@ -2,4 +2,4 @@
 const legacy=fs.readFileSync('drawing-legacy.js','utf8'),app=fs.readFileSync('app-v16.js','utf8'),html=fs.readFileSync('index.html','utf8');
 test('legacy module uses one canvas pair and participant switching',()=>{assert.ok(legacy.includes('id="legacyCanvas"'));assert.ok(legacy.includes('id="legacyGuide"'));assert.ok(legacy.includes('state.people'));assert.ok(legacy.includes('data-person'))});
 test('legacy device bypasses modern drawing mount',()=>{assert.ok(app.includes('if(legacy)'));assert.ok(app.includes('legacyDrawingApi.mount'));assert.ok(app.includes('drawingApi.mount'))});
-test('legacy asset loads before app runtime',()=>{assert.ok(html.indexOf('drawing-legacy.js?v=1')>=0);assert.ok(html.indexOf('drawing-legacy.js?v=1')<html.indexOf('app-v16.js?v=4'))});
+test('legacy asset loads before app runtime',()=>{assert.ok(html.indexOf('drawing-legacy.js?v=1')>=0);assert.ok(html.indexOf('drawing-legacy.js?v=1')<html.indexOf('app-v16.js?v=5'))});

@@ -3,4 +3,4 @@ const app=fs.readFileSync('app-v16.js','utf8'),css=fs.readFileSync('styles-v16.c
 test('legacy sheet hides app shell and renders in normal document flow',()=>{assert.ok(app.includes("setClassFlag(sh,'legacy-sheet-page',legacy)"));assert.ok(app.includes("if(shell)shell.style.display='none'"));assert.ok(css.includes('.sheet.legacy-sheet-page'));assert.ok(css.includes('position:static!important'))});
 test('legacy sheet restores app shell and scroll position',()=>{assert.ok(app.includes("if(shell)shell.style.display=''"));assert.ok(app.includes('legacySheetScroll'))});
 test('overlay controls use old-safe loops',()=>{assert.ok(app.includes("eachNode('[data-tool]'"));assert.ok(app.includes("eachNode('[data-helper-tab]'"));assert.ok(app.includes("eachNode('[data-min]'"));assert.ok(app.includes("eachNode('[data-signal]'"))});
-test('cache-busted v4 overlay assets are wired',()=>{assert.ok(html.includes('styles-v16.css?v=4'));assert.ok(html.includes('app-v16.js?v=4'))});
+test('cache-busted v4 overlay assets are wired',()=>{assert.ok(html.includes('styles-v16.css?v=4'));assert.ok(html.includes('app-v16.js?v=5'))});
