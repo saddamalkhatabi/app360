@@ -2,7 +2,8 @@
 'use strict';
 var core=window.ImitatePracticeCore,tasks=window.ImitateTasks||[],root=document.getElementById('practiceRoot');
 var taskById={};for(var i=0;i<tasks.length;i++)taskById[tasks[i].id]=tasks[i];
-var rawStorage=null;try{rawStorage=window.localStorage}catch(e){}\nvar store=core.storageAdapter(rawStorage),state={view:'choose',task:null,session:null,phase:0,reflection:''};
+var rawStorage=null;try{rawStorage=window.localStorage}catch(e){}
+var store=core.storageAdapter(rawStorage),state={view:'choose',task:null,session:null,phase:0,reflection:''};
 function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]})}
 function saveCurrent(){if(state.session)store.saveCurrent({state:{view:state.view,taskId:state.task&&state.task.id,phase:state.phase,reflection:state.reflection},session:state.session})}
 function clearCurrent(){store.clearCurrent()}

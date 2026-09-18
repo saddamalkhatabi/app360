@@ -1,5 +1,5 @@
-var CACHE='app360-app-imitate-one-step-v1';
-var SHELL=['./','./index.html','./styles.css?v=1','./app.js?v=1','./tasks.js?v=1','./practice-core.js?v=1','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./app.json','../../../assets/js/app-pwa.js?v=1'];
+var CACHE='app360-app-imitate-one-step-v2';
+var SHELL=['./','./index.html','./styles.css?v=2','./app.js?v=2','./tasks.js?v=2','./practice-core.js?v=2','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./app.json','../../../assets/js/app-pwa.js?v=1'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-imitate-one-step-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
 self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});

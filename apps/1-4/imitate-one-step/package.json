@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "node --test practice-core.test.js",
-    "validate": "node --test practice-core.test.js && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));console.log('contracts OK')\""
+    "validate": "npm run syntax && node --test practice-core.test.js && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));console.log('contracts OK')\"",
+    "syntax": "node --check app.js && node --check practice-core.js && node --check tasks.js"
   }
 }
