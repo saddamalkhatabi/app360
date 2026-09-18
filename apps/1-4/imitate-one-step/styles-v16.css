@@ -104,3 +104,19 @@
 #legacyGuide{z-index:1;pointer-events:none}#legacyCanvas{z-index:2;touch-action:none;-ms-touch-action:none}
 .legacy-note{font-size:11px;line-height:1.7;color:#60777b;padding:7px}
 @media(min-width:700px){.legacy-canvas-wrap{height:360px!important}}
+
+/* v19: every Sheet becomes a normal in-document page on legacy Android. */
+body.legacy-sheet-active{background:#fff!important;overflow:auto!important}
+body.legacy-sheet-active>.skip-link{display:none!important}
+.sheet.legacy-sheet-page{display:block!important;position:static!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;z-index:auto!important;width:100%!important;min-height:100%!important;background:#fff!important;overflow:visible!important}
+.sheet.legacy-sheet-page .sheet-backdrop{display:none!important}
+.sheet.legacy-sheet-page .sheet-card{display:block!important;position:static!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important;margin:0!important;border-radius:0!important;box-shadow:none!important;padding:8px 12px 28px!important;background:#fff!important}
+.sheet.legacy-sheet-page .sheet-handle{display:none!important}
+.sheet.legacy-sheet-page .sheet-head{display:block!important;position:static!important;min-height:54px!important;border-bottom:2px solid #dce9e7!important;padding:6px 0 10px!important;background:#fff!important}
+.sheet.legacy-sheet-page .sheet-head h2{display:inline-block!important;margin:7px 0!important;vertical-align:middle!important}
+.sheet.legacy-sheet-page .sheet-head .icon-btn{display:block!important;float:left!important;width:46px!important;height:46px!important;font-size:30px!important;visibility:visible!important}
+.sheet.legacy-sheet-page #sheetBody{display:block!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;padding-top:8px!important}
+.sheet.legacy-sheet-page .filter-groups,.sheet.legacy-sheet-page .settings-list,.sheet.legacy-sheet-page .helper-tabs,.sheet.legacy-sheet-page .sheet-actions{display:block!important;height:auto!important;overflow:visible!important}
+.sheet.legacy-sheet-page .helper-tabs button,.sheet.legacy-sheet-page .chip-wrap button,.sheet.legacy-sheet-page .sheet-actions button{display:inline-block!important;margin:4px!important}
+.sheet.legacy-sheet-page .signal-face{height:180px!important}
+.sheet.legacy-sheet-page .whiteboard-tool canvas{height:320px!important}

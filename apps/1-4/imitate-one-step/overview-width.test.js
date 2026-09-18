@@ -21,6 +21,6 @@ test('overview keeps five-to-one layout',()=>{
   assert.ok(css.includes('aspect-ratio:5/1'));
 });
 test('v16 assets are wired',()=>{
-  assert.ok(html.includes('app-v16.js?v=3'));
-  assert.ok(html.includes('styles-v16.css?v=3'));
+  assert.ok(html.includes('app-v16.js?v=4'));
+  assert.ok(html.includes('styles-v16.css?v=4'));
 });

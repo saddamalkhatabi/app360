@@ -3,4 +3,4 @@ const app=fs.readFileSync('app-v16.js','utf8'),css=fs.readFileSync('styles-v16.c
 test('sheet pushes history and popstate closes only the open sheet',()=>{assert.ok(app.includes('history.pushState'));assert.ok(app.includes("window.addEventListener('popstate'"));assert.ok(app.includes('hideSheet()'))});
 test('sheet buttons and backdrop use closeSheet',()=>{assert.ok(app.includes("querySelectorAll('[data-close-sheet]')"));assert.ok(app.includes('closeSheet(false)'))});
 test('modern mobile drawing header stays visible',()=>{assert.ok(css.includes('.sheet.drawing-open .sheet-head'));assert.ok(css.includes('min-height:52px'));assert.ok(css.includes('.sheet.drawing-open .sheet-head .icon-btn'))});
-test('cache-busted v3 assets are wired',()=>{assert.ok(html.includes('styles-v16.css?v=3'));assert.ok(html.includes('app-v16.js?v=3'))});
+test('cache-busted v3 assets are wired',()=>{assert.ok(html.includes('styles-v16.css?v=4'));assert.ok(html.includes('app-v16.js?v=4'))});

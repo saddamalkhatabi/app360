@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 15,
+  "version": 16,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -124,7 +124,16 @@
     "previous_experience_button": true,
     "card_visual": "first storyboard frame when available; emoji fallback otherwise",
     "experience_cover_manifest": "icons/manifest.json",
-    "experience_001_cover": "icons/001.svg"
+    "experience_001_cover": "icons/001.svg",
+    "legacy_sheet_mode": true,
+    "legacy_sheet_behavior": "all overlays become normal in-document pages on Android 4.x; app shell is temporarily hidden and restored on close",
+    "legacy_sheet_targets": [
+      "filters",
+      "helpers",
+      "history",
+      "settings",
+      "collaborative drawing"
+    ]
   },
   "branding": {
     "icon": "icon.svg",
@@ -147,7 +156,7 @@
       "modern Chrome",
       "modern Android tablet"
     ],
-    "known_legacy_target": "Big TAB HD / Android 4.4.2: lightweight one-canvas drawing mode to avoid memory/render hangs; participants switch from tabs."
+    "known_legacy_target": "Big TAB HD / Android 4.4.2: no fixed/flex overlay sheets; all foreground tabs use normal-flow legacy sheet pages."
   },
   "privacy": {
     "local_first": true,
