@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 3,
+  "version": 4,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-200-experiences-3-storyboards",
+  "implementation_state": "alpha-simple-reel-community",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -27,7 +27,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر من 200 تجربة عبر 4 مستويات و10 مجالات ← شاهد خمس لقطات أو Storyboard ← جهّز واعرض ← دوري ← دور الطفل مع تسجيل المساعدة ← بدّل القيادة ← طوّر الجولة ← حفظ محلي",
+  "practice_model_ar": "اختر التجربة ← شاهد Storyboard متحركًا لقطة لقطة ← نفذ الفكرة في الواقع ← اضغط تم عمل التجربة ← أضف ملاحظة تحسين محلية اختيارية ← اقرأ أو شارك تعليقًا عامًا للمجتمع",
   "features": {
     "experience_count": 200,
     "levels": 4,
@@ -50,7 +50,18 @@
     "storyboard_fallback": "five-fixed-symbolic-frames",
     "sample_storyboards": 3,
     "storyboard_layout": "5 equal horizontal panels",
-    "storyboard_display_ratio": "5:1"
+    "storyboard_display_ratio": "5:1",
+    "storyboard_mode": "animated-five-panel-reel",
+    "per_experience_steps": false,
+    "global_method_once": true,
+    "local_completion_count": true,
+    "local_improvement_notes": true,
+    "community_comments": {
+      "provider": "github_issue",
+      "issue_number": 8,
+      "public_read": true,
+      "public_write_via_github_login": true
+    }
   },
   "branding": {
     "icon": "icon.svg",
@@ -76,20 +87,20 @@
   },
   "privacy": {
     "local_first": true,
-    "external_services": [],
-    "stored_fields": [
-      "session_id",
-      "task_id",
-      "attempts",
-      "artifact",
-      "reflection",
-      "assistance_level"
+    "external_services": [
+      "GitHub public issue comments (optional community section)"
     ],
-    "retention_ar": "آخر 30 جلسة محليًا مع تصدير JSON وحذف يدوي."
+    "stored_fields": [
+      "experience_id",
+      "completion_count",
+      "last_done",
+      "improvement_notes"
+    ],
+    "retention_ar": "عداد التنفيذ وملاحظات التحسين تبقى محليًا حتى حذفها. التعليقات العامة المنشورة في GitHub تخضع لسجل GitHub العام."
   },
   "evidence_model": {
-    "learner_ar": "يسجل المرافق تنفيذ المحاولة ومقدار المساعدة وهل احتاج الطفل نموذجًا.",
-    "coach_ar": "تكتمل الحلقة بعد دور المرافق ودور الطفل ثم مبادرة الطفل وقيادته للجولة التالية.",
+    "learner_ar": "يسجل التطبيق عدد مرات تنفيذ التجربة محليًا؛ الملاحظة اختيارية ولا تعد تقييمًا.",
+    "coach_ar": "يمكن للمرافق حفظ فكرة تحسين خاصة أو مشاركة تحسين عام مع المجتمع.",
     "claim_limit_ar": "السجل وصف للممارسة وليس تقييمًا نمائيًا أو تشخيصًا."
   },
   "storage": {

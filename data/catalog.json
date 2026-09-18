@@ -353,19 +353,16 @@
       "manifest": "apps/1-4/imitate-one-step/app.json",
       "implementation": {
         "state": "alpha",
-        "version": 2,
+        "version": 4,
         "entry_path": "apps/1-4/imitate-one-step/index.html",
         "built_on": "2026-09-18",
-        "summary_ar": "محرك 200 تجربة مشتركة: 4 مستويات، 10 مجالات، فلاتر، مؤقت وإشارات وصبورة، Storyboards قابلة للإضافة، حفظ محلي وPWA.",
+        "summary_ar": "200 تجربة بواجهة مبسطة: Storyboard متحرك، عداد تنفيذ محلي، ملاحظات تحسين، طريقة لعب عامة مرة واحدة، وتعليقات مجتمع عامة عبر GitHub Issue دون مفاتيح سرية.",
         "automated_checks": [
-          "200 unique sequential IDs",
-          "50 per level",
-          "20 per family",
-          "5 per family-level",
-          "five steps per experience",
-          "filter engine",
-          "practice core",
-          "JavaScript syntax"
+          "200 experience catalog integrity",
+          "animated runtime syntax",
+          "local activity counters and notes",
+          "community comment tag parsing",
+          "filter engine"
         ],
         "pending_before_live_ar": [
           "تجربة واقعية مع أطفال ومرافقين",
