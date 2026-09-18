@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 14,
+  "version": 15,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -109,7 +109,13 @@
       "jump_rejection": true,
       "quadratic_smoothing": true,
       "old_touch_events": true,
-      "large_tablet_layout": true
+      "large_tablet_layout": true,
+      "legacy_android_mode": "single-canvas participant-switcher",
+      "legacy_simultaneous_canvases": 1,
+      "modern_default_boards": 2,
+      "mobile_header_always_visible": true,
+      "back_button_closes_modal": true,
+      "backdrop_click_closes_modal": true
     },
     "dom_contract_test": true,
     "header_drawing_button": true,
@@ -141,7 +147,7 @@
       "modern Chrome",
       "modern Android tablet"
     ],
-    "known_legacy_target": "Big TAB HD / Android 4.4.x class devices for drawing surface; whole app still requires browser verification before live."
+    "known_legacy_target": "Big TAB HD / Android 4.4.2: lightweight one-canvas drawing mode to avoid memory/render hangs; participants switch from tabs."
   },
   "privacy": {
     "local_first": true,

@@ -1,0 +1,34 @@
+(function(root,factory){var api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.A1LegacyDrawing=api;}(typeof self!=='undefined'?self:this,function(){'use strict';
+function now(){return(new Date()).getTime()}
+function dist(a,b){var dx=a.x-b.x,dy=a.y-b.y;return Math.sqrt(dx*dx+dy*dy)}
+function makeState(){return{people:[{strokes:[]},{strokes:[]}],active:0,max:4,color:'#111111',width:7,repair:true,palm:true,lastEnd:null,lastEndTime:0}}
+function mount(host,opts){
+opts=opts||{};var state=makeState(),destroyed=false,canvas,ctx,guide,gctx,activeTouchId=null,drawing=false,current=null,last=null,prev=null,ignoreMouseUntil=0;
+host.innerHTML='<div class="legacy-lite"><div class="legacy-lite-top"><b>رسم جماعي خفيف</b><span>مخصص للجهاز القديم لتجنب التعليق</span></div><div id="legacyPeople" class="legacy-people"></div><div class="legacy-tools"><button type="button" data-template="free">حر</button><button type="button" data-template="line">خط</button><button type="button" data-template="circle">دائرة</button><button type="button" data-template="square">مربع</button><button type="button" id="legacyUndo">تراجع</button><button type="button" id="legacyClear">مسح</button></div><div class="legacy-canvas-wrap"><canvas id="legacyGuide"></canvas><canvas id="legacyCanvas"></canvas></div><div class="legacy-note">استخدم مشاركًا واحدًا في كل لحظة ثم بدّل من الأعلى. هكذا نحافظ على خفة الرسم في Android 4.4.</div></div>';
+canvas=host.querySelector('#legacyCanvas');guide=host.querySelector('#legacyGuide');if(!canvas||!guide)throw new Error('legacy canvas unavailable');ctx=canvas.getContext('2d');gctx=guide.getContext('2d');if(!ctx||!gctx)throw new Error('canvas 2d unavailable');
+var template='free',peopleHost=host.querySelector('#legacyPeople');
+function person(){return state.people[state.active]}
+function drawPeople(){var h='',i;for(i=0;i<state.people.length;i++)h+='<button type="button" data-person="'+i+'" class="'+(i===state.active?'on':'')+'">المشارك '+(i+1)+'</button>';if(state.people.length<state.max)h+='<button type="button" id="legacyAdd">+ مشارك</button>';peopleHost.innerHTML=h;var bs=peopleHost.getElementsByTagName('button');for(i=0;i<bs.length;i++){if(bs[i].getAttribute('data-person')!==null)bs[i].onclick=function(){state.active=parseInt(this.getAttribute('data-person'),10)||0;drawPeople();redraw()}}var add=host.querySelector('#legacyAdd');if(add)add.onclick=function(){if(state.people.length<state.max){state.people.push({strokes:[]});state.active=state.people.length-1;drawPeople();redraw()}}}
+function size(){var box=canvas.parentNode,w=box.offsetWidth||window.innerWidth||640,h=box.offsetHeight||320,dpr=1;w=Math.max(260,Math.min(900,w));h=Math.max(260,Math.min(430,h));canvas.width=w*dpr;canvas.height=h*dpr;guide.width=w*dpr;guide.height=h*dpr;redraw();drawGuide()}
+function pnt(p){var r=canvas.getBoundingClientRect();return{x:p.clientX-r.left,y:p.clientY-r.top,t:now()}}
+function pen(){ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=state.width;ctx.strokeStyle=state.color}
+function seg(a,b){pen();ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+function begin(p){var pe=person(),gap=state.lastEnd?p.t-state.lastEndTime:9999;if(state.repair&&state.lastEnd&&gap<240&&dist(state.lastEnd,p)<65){seg(state.lastEnd,p);if(pe.strokes.length)current=pe.strokes[pe.strokes.length-1];else{current=[];pe.strokes.push(current)}}else{current=[];pe.strokes.push(current)}current.push({x:p.x,y:p.y});drawing=true;last=p;prev=p}
+function move(p){if(!drawing||!last)return;if(dist(last,p)>190)return;pen();var mx=(last.x+p.x)/2,my=(last.y+p.y)/2;ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.quadraticCurveTo(last.x,last.y,mx,my);ctx.stroke();prev={x:mx,y:my};last=p;if(current)current.push({x:p.x,y:p.y})}
+function end(p){if(!drawing)return;if(p&&last&&dist(last,p)>1&&dist(last,p)<190)move(p);if(last)seg(prev||last,last);drawing=false;state.lastEnd=last;state.lastEndTime=now();last=null;prev=null;activeTouchId=null}
+function findTouch(list,id){var i;if(!list)return null;for(i=0;i<list.length;i++)if(list[i].identifier===id)return list[i];return null}
+function redraw(){ctx.clearRect(0,0,canvas.width,canvas.height);var s=person().strokes,i,j;pen();for(i=0;i<s.length;i++){if(!s[i].length)continue;ctx.beginPath();ctx.moveTo(s[i][0].x,s[i][0].y);for(j=1;j<s[i].length;j++)ctx.lineTo(s[i][j].x,s[i][j].y);ctx.stroke()}}
+function drawGuide(){var w=guide.width,h=guide.height,cx=w/2,cy=h/2,r=Math.min(w,h)*.28;gctx.clearRect(0,0,w,h);if(template==='free')return;gctx.strokeStyle='rgba(15,143,138,.24)';gctx.lineWidth=7;gctx.lineCap='round';gctx.beginPath();if(template==='line'){gctx.moveTo(w*.18,cy);gctx.lineTo(w*.82,cy)}else if(template==='circle'){gctx.arc(cx,cy,r,0,Math.PI*2)}else if(template==='square'){gctx.rect(cx-r,cy-r,r*2,r*2)}gctx.stroke()}
+canvas.addEventListener('touchstart',function(e){ignoreMouseUntil=now()+900;if(drawing&&state.palm){e.preventDefault();return}if(e.touches&&e.touches.length){activeTouchId=e.touches[0].identifier;begin(pnt(e.touches[0]));e.preventDefault()}},false);
+canvas.addEventListener('touchmove',function(e){if(!drawing)return;var t=findTouch(e.touches,activeTouchId);if(t)move(pnt(t));e.preventDefault()},false);
+canvas.addEventListener('touchend',function(e){var t=findTouch(e.changedTouches,activeTouchId);if(t)end(pnt(t));else end(null);e.preventDefault()},false);
+canvas.addEventListener('touchcancel',function(e){end(null);e.preventDefault()},false);
+canvas.addEventListener('mousedown',function(e){if(now()<ignoreMouseUntil)return;begin(pnt(e));e.preventDefault()},false);
+function mm(e){if(drawing&&activeTouchId===null)move(pnt(e))}function mu(e){if(drawing&&activeTouchId===null)end(pnt(e))}window.addEventListener('mousemove',mm,false);window.addEventListener('mouseup',mu,false);
+var tb=host.querySelector('.legacy-tools').getElementsByTagName('button'),i;for(i=0;i<tb.length;i++)if(tb[i].getAttribute('data-template'))tb[i].onclick=function(){template=this.getAttribute('data-template');drawGuide()};
+host.querySelector('#legacyUndo').onclick=function(){person().strokes.pop();redraw()};host.querySelector('#legacyClear').onclick=function(){person().strokes=[];state.lastEnd=null;redraw()};
+function resize(){if(destroyed)return;size()}window.addEventListener('resize',resize,false);drawPeople();size();
+return{destroy:function(){destroyed=true;window.removeEventListener('resize',resize,false);window.removeEventListener('mousemove',mm,false);window.removeEventListener('mouseup',mu,false)},resize:resize,state:state}
+}
+return{makeState:makeState,mount:mount};
+}));
