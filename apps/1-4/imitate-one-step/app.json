@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 5,
+  "version": 6,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-large-frame-reel",
+  "implementation_state": "alpha-large-frame-reel-fixed",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -71,8 +71,10 @@
         "pause/resume",
         "replay",
         "jump-to-frame"
-      ]
-    }
+      ],
+      "runtime_fix": "restored clearReel cleanup helper"
+    },
+    "runtime": "app-v8.js"
   },
   "branding": {
     "icon": "icon.svg",
