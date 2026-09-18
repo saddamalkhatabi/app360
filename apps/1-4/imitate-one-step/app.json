@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 1,
+  "version": 2,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "prototype",
+  "implementation_state": "alpha-200-experiences",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -20,9 +20,35 @@
   "depth": "standard",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
-  "capabilities": ["storage.local", "pwa.offline"],
-  "bundles": ["static-core"],
-  "practice_model_ar": "اختيار 8 بطاقات ← عرض نموذج واحد ← إخفاء الشاشة ← دور المرافق ← محاولة الطفل مع تسجيل مقدار المساعدة ← الطفل يقود الدور والمرافق يقلده",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر من 200 تجربة عبر 4 مستويات و10 مجالات ← شاهد خمس لقطات أو Storyboard ← جهّز واعرض ← دوري ← دور الطفل مع تسجيل المساعدة ← بدّل القيادة ← طوّر الجولة ← حفظ محلي",
+  "features": {
+    "experience_count": 200,
+    "levels": 4,
+    "families": 10,
+    "progressive_rendering": true,
+    "filters": [
+      "المستوى",
+      "المجال",
+      "الأدوات",
+      "الطاقة",
+      "المكان",
+      "البحث"
+    ],
+    "helpers": [
+      "timer",
+      "signal",
+      "whiteboard"
+    ],
+    "storyboard_asset_pattern": "storyboards/<ID>.webp",
+    "storyboard_fallback": "five-fixed-symbolic-frames"
+  },
   "branding": {
     "icon": "icon.svg",
     "theme_color": "#0f8f8a",
@@ -40,22 +66,33 @@
     "portrait": true,
     "landscape": true,
     "legacy_android_required": false,
-    "minimum_test_targets": ["modern Chrome", "modern Android tablet"]
+    "minimum_test_targets": [
+      "modern Chrome",
+      "modern Android tablet"
+    ]
   },
   "privacy": {
     "local_first": true,
     "external_services": [],
-    "stored_fields": ["session_id", "task_id", "attempts", "artifact", "reflection", "assistance_level"],
-    "retention_ar": "آخر 30 جلسة محليًا، مع تصدير JSON وحذف يدوي."
+    "stored_fields": [
+      "session_id",
+      "task_id",
+      "attempts",
+      "artifact",
+      "reflection",
+      "assistance_level"
+    ],
+    "retention_ar": "آخر 30 جلسة محليًا مع تصدير JSON وحذف يدوي."
   },
   "evidence_model": {
     "learner_ar": "يسجل المرافق تنفيذ المحاولة ومقدار المساعدة وهل احتاج الطفل نموذجًا.",
-    "coach_ar": "تكتمل الحلقة فقط بعد دور المرافق ودور الطفل ثم مبادرة الطفل وتقليد المرافق له.",
+    "coach_ar": "تكتمل الحلقة بعد دور المرافق ودور الطفل ثم مبادرة الطفل وقيادته للجولة التالية.",
     "claim_limit_ar": "السجل وصف للممارسة وليس تقييمًا نمائيًا أو تشخيصًا."
   },
   "storage": {
-    "schema_version": 1,
+    "schema_version": 2,
     "key_prefix": "app360:a1-imitate:v1",
+    "preferences_key": "app360:a1-imitate:v2:prefs",
     "fallback": "memory-with-export-warning"
   },
   "blueprint_path": "apps/1-4/imitate-one-step/BUILD_SPEC.md",

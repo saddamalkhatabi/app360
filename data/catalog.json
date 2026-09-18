@@ -352,24 +352,26 @@
       "prompt_path": "apps/1-4/imitate-one-step/PROMPT_AR.md",
       "manifest": "apps/1-4/imitate-one-step/app.json",
       "implementation": {
-        "state": "prototype",
-        "version": 1,
+        "state": "alpha",
+        "version": 2,
         "entry_path": "apps/1-4/imitate-one-step/index.html",
         "built_on": "2026-09-18",
-        "summary_ar": "نسخة أولى عاملة محليًا: 8 بطاقات، نموذج واحد ثم إخفاء الشاشة، تبادل أدوار، تسجيل مقدار المساعدة، حفظ/استعادة/تصدير/حذف، وPWA offline-first.",
+        "summary_ar": "محرك 200 تجربة مشتركة: 4 مستويات، 10 مجالات، فلاتر، مؤقت وإشارات وصبورة، Storyboards قابلة للإضافة، حفظ محلي وPWA.",
         "automated_checks": [
-          "practice core: session creation",
-          "assistance recording",
-          "model replay",
-          "role exchange completion",
-          "local storage save/reload/export/clear",
-          "storage refusal fallback"
+          "200 unique sequential IDs",
+          "50 per level",
+          "20 per family",
+          "5 per family-level",
+          "five steps per experience",
+          "filter engine",
+          "practice core",
+          "JavaScript syntax"
         ],
         "pending_before_live_ar": [
-          "تجربة ممارسة فعلية مع طفل ومرافق مناسبين للفئة",
-          "اختبار يدوي على هاتف حديث وتابلت Android حديث وحاسوب",
-          "اختبار رأسي وأفقي",
-          "اختبار تثبيت PWA والانقطاع وتحديث Service Worker في متصفح حقيقي"
+          "تجربة واقعية مع أطفال ومرافقين",
+          "مراجعة المحتوى والصور والسلامة لكل تجربة",
+          "اختبار هاتف وتابلت وحاسوب رأسيًا وأفقيًا",
+          "اختبار التثبيت والانقطاع وتحديث Service Worker"
         ]
       }
     },

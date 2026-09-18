@@ -1,16 +1,16 @@
 {
   "name": "@app360/app-imitate-one-step",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
-  "description": "دوري ودورك: قلّد حركة واحدة - App 360 Lab",
+  "description": "دوري ودورك: 200 تجربة مشتركة - App 360 Lab",
   "app360": {
     "appId": "a1-imitate",
     "ageGroup": "1-4",
     "runtimeProfile": "static-web"
   },
   "scripts": {
-    "test": "node --test practice-core.test.js",
-    "validate": "npm run syntax && node --test practice-core.test.js && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));console.log('contracts OK')\"",
-    "syntax": "node --check app-v3.js && node --check practice-core.js && node --check tasks.js"
+    "syntax": "node --check app-v4.js && node --check experience-engine.js && node --check practice-core.js",
+    "test": "node --test practice-core.test.js experiences.test.js experience-engine.test.js",
+    "validate": "npm run syntax && npm test && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));JSON.parse(require('fs').readFileSync('experiences.json','utf8'));console.log('contracts OK')\""
   }
 }

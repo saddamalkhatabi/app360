@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "دوري ودورك: قلّد حركة واحدة - مختبر التطبيق 360",
+  "name": "دوري ودورك - 200 تجربة مشتركة | مختبر التطبيق 360",
   "short_name": "دوري ودورك",
-  "description": "ممارسة محلية قصيرة لتبادل الدور وتقليد حركة واحدة باستخدام لعبة حقيقية مع مرافق.",
+  "description": "200 تجربة مشتركة متدرجة باستخدام الحركة والأصابع والأدوات المنزلية والرسم والتمثيل، مع أدوات مساعدة وصور مراحل قابلة للإضافة.",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./index.html",
@@ -11,10 +11,28 @@
   "orientation": "any",
   "background_color": "#eef7f5",
   "theme_color": "#0f8f8a",
-  "categories": ["education", "kids"],
+  "categories": [
+    "education",
+    "kids"
+  ],
   "icons": [
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"},
-    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }
