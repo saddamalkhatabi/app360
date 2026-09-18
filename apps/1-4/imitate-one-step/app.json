@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 6,
+  "version": 7,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-large-frame-reel-fixed",
+  "implementation_state": "alpha-hq-storyboard-collaborative-drawing",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -74,7 +74,35 @@
       ],
       "runtime_fix": "restored clearReel cleanup helper"
     },
-    "runtime": "app-v8.js"
+    "runtime": "app-v9.js",
+    "hq_storyboard_reference": "storyboards/001-hq.svg",
+    "next_experience_button": true,
+    "feedback_collapsible": true,
+    "collaborative_drawing": {
+      "default_boards": 2,
+      "max_boards": 6,
+      "add_board_button": true,
+      "templates": [
+        "free",
+        "line",
+        "wave",
+        "circle",
+        "square",
+        "triangle",
+        "star",
+        "house",
+        "sun",
+        "face",
+        "road",
+        "target"
+      ],
+      "pen_repair": true,
+      "palm_protection": true,
+      "jump_rejection": true,
+      "quadratic_smoothing": true,
+      "old_touch_events": true,
+      "large_tablet_layout": true
+    }
   },
   "branding": {
     "icon": "icon.svg",
@@ -92,11 +120,12 @@
     "desktop": true,
     "portrait": true,
     "landscape": true,
-    "legacy_android_required": false,
+    "legacy_android_required": true,
     "minimum_test_targets": [
       "modern Chrome",
       "modern Android tablet"
-    ]
+    ],
+    "known_legacy_target": "Big TAB HD / Android 4.4.x class devices for drawing surface; whole app still requires browser verification before live."
   },
   "privacy": {
     "local_first": true,

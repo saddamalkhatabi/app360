@@ -353,16 +353,17 @@
       "manifest": "apps/1-4/imitate-one-step/app.json",
       "implementation": {
         "state": "alpha",
-        "version": 4,
+        "version": 7,
         "entry_path": "apps/1-4/imitate-one-step/index.html",
         "built_on": "2026-09-18",
-        "summary_ar": "200 تجربة بواجهة مبسطة: Storyboard متحرك، عداد تنفيذ محلي، ملاحظات تحسين، طريقة لعب عامة مرة واحدة، وتعليقات مجتمع عامة عبر GitHub Issue دون مفاتيح سرية.",
+        "summary_ar": "200 تجربة مع Storyboard متحرك؛ تجربة 001 مرجع بصري عالي الدقة؛ انتقال مباشر للتجربة التالية؛ التعليقات داخل قسم قابل للفتح؛ ورسم جماعي متعدد اللوحات يستفيد من إصلاح تقطيع القلم وحماية اليد في تطبيق الرسم الأول.",
         "automated_checks": [
           "200 experience catalog integrity",
           "animated runtime syntax",
           "local activity counters and notes",
           "community comment tag parsing",
-          "filter engine"
+          "filter engine",
+          "collaborative drawing repair/palm/jump behavior"
         ],
         "pending_before_live_ar": [
           "تجربة واقعية مع أطفال ومرافقين",

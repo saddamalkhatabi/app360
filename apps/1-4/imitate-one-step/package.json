@@ -1,6 +1,6 @@
 {
   "name": "@app360/app-imitate-one-step",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "private": true,
   "description": "دوري ودورك: 200 تجربة مشتركة - App 360 Lab",
   "app360": {
@@ -9,8 +9,8 @@
     "runtimeProfile": "static-web"
   },
   "scripts": {
-    "syntax": "node --check app-v8.js && node --check experience-engine.js && node --check activity-store.js && node --check community-engine.js",
-    "test": "node --test experiences.test.js experience-engine.test.js activity-store.test.js community-engine.test.js runtime-contract.test.js",
+    "syntax": "node --check app-v9.js && node --check experience-engine.js && node --check activity-store.js && node --check community-engine.js && node --check drawing-lab.js",
+    "test": "node --test experiences.test.js experience-engine.test.js activity-store.test.js community-engine.test.js drawing-lab.test.js runtime-contract.test.js",
     "validate": "npm run syntax && npm test && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));JSON.parse(require('fs').readFileSync('experiences.json','utf8'));JSON.parse(require('fs').readFileSync('community.json','utf8'));console.log('contracts OK')\""
   }
 }
