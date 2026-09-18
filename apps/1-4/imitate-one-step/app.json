@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 7,
+  "version": 8,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-hq-storyboard-collaborative-drawing",
+  "implementation_state": "alpha-hq-storyboard-collaborative-drawing-fixed",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -72,9 +72,9 @@
         "replay",
         "jump-to-frame"
       ],
-      "runtime_fix": "restored clearReel cleanup helper"
+      "runtime_fix": "restored renderReel, setupReel and clearReel as one tested block"
     },
-    "runtime": "app-v9.js",
+    "runtime": "app-v10.js",
     "hq_storyboard_reference": "storyboards/001-hq.svg",
     "next_experience_button": true,
     "feedback_collapsible": true,
