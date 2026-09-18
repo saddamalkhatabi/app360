@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   extract:
-    if: ${{ !contains(github.event.head_commit.message || '', '[storyboards-extracted]') }}
+    if: ${{ !contains(github.event.head_commit.message || '', '[storyboards-direct]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --disable-pip-version-check pillow
 
-      - name: Extract and normalize batch
+      - name: Extract and normalize batch directly into storyboards
         shell: bash
         run: |
           set -euo pipefail
@@ -34,22 +34,15 @@ jobs:
           ZIP="$APP/storyboards/imitate_one_step_storyboards_batch1_webp_only.zip"
           TMP="$(mktemp -d)"
           unzip -q "$ZIP" -d "$TMP"
-          mkdir -p "$APP/storyboards/batch1"
+          export STORYBOARD_TMP="$TMP"
           python - <<'PY'
           from PIL import Image, ImageEnhance
           from pathlib import Path
-          import json
+          import json, os, shutil
 
           app = Path('apps/1-4/imitate-one-step')
-          src = Path('/tmp')
-          # Locate the temp extraction directory created by mktemp by finding the uploaded batch manifest.
-          candidates = list(Path('/tmp').glob('tmp.*/manifest.json')) + list(Path('/tmp').glob('*/manifest.json'))
-          manifest_src = next((p for p in candidates if p.exists()), None)
-          if manifest_src is None:
-              raise SystemExit('batch manifest not found after unzip')
-          batch = manifest_src.parent
-          out = app / 'storyboards' / 'batch1'
-          out.mkdir(parents=True, exist_ok=True)
+          batch = Path(os.environ['STORYBOARD_TMP'])
+          out = app / 'storyboards'
 
           imported = []
           for n in range(1, 11):
@@ -59,6 +52,8 @@ jobs:
                   raise SystemExit(f'missing {p}')
               im = Image.open(p).convert('RGB')
               w, h = im.size
+              # The generated source is a 5-column x 3-row contact sheet.
+              # Use the first row as the five ordered storyboard frames.
               cell_w = w / 5.0
               row_h = h / 3.0
               panels = []
@@ -81,33 +76,33 @@ jobs:
                   strip.paste(panel, (i * 900, 0))
               target = out / f'{ident}.webp'
               strip.save(target, 'WEBP', quality=88, method=6)
-              imported.append({'id': ident, 'path': f'storyboards/batch1/{ident}.webp', 'width': 4500, 'height': 900, 'panels': 5})
+              imported.append({'id': ident, 'path': f'storyboards/{ident}.webp', 'width': 4500, 'height': 900, 'panels': 5})
 
-          (out / 'import-manifest.json').write_text(json.dumps({
-              'schema_version': '1.0',
-              'status': 'staging-review',
-              'note_ar': 'تم استخراج وتوحيد الصور العشر إلى خمسة ألواح أفقية متساوية. 001 متوافق مع التجربة الحالية؛ 002-010 تحتاج إعادة مطابقة/توليد قبل الربط بالمحتوى الحي.',
-              'assets': imported
-          }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          staging = out / 'batch1'
+          if staging.exists():
+              shutil.rmtree(staging)
 
-          main_manifest_path = app / 'storyboards' / 'manifest.json'
+          main_manifest_path = out / 'manifest.json'
           main_manifest = json.loads(main_manifest_path.read_text(encoding='utf-8'))
           main_manifest['updated'] = '2026-09-19'
           main_manifest['expected_dimensions'] = '4500x900 (5 equal 900x900 panels)'
-          main_manifest['assets']['001'] = 'storyboards/batch1/001.webp'
-          main_manifest['note_ar'] = 'التجربة 001 تستخدم الصورة البشرية الفوتوغرافية الجديدة. الصور 002-010 مستخرجة في storyboards/batch1 بانتظار مطابقة المحتوى الصحيح قبل تفعيلها.'
+          for n in range(1, 11):
+              ident = f'{n:03d}'
+              main_manifest['assets'][ident] = f'storyboards/{ident}.webp'
+          main_manifest['note_ar'] = 'الدفعة الأولى 001-010 مفعلة مباشرة من مجلد storyboards بصيغة WebP، وكل ملف 4500x900 ويحتوي خمس لقطات 900x900.'
+          main_manifest['layout'] = '5 equal horizontal panels'
           main_manifest_path.write_text(json.dumps(main_manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
 
-      - name: Commit extracted storyboards
+      - name: Commit direct storyboards
         shell: bash
         run: |
           git config user.name 'app360-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add apps/1-4/imitate-one-step/storyboards/batch1 apps/1-4/imitate-one-step/storyboards/manifest.json
+          git add -A apps/1-4/imitate-one-step/storyboards
           if git diff --cached --quiet; then
             echo 'No storyboard changes to commit.'
             exit 0
           fi
-          git commit -m 'Extract batch 1 storyboards [storyboards-extracted]'
+          git commit -m 'Place first ten storyboards directly [storyboards-direct]'
           git push
