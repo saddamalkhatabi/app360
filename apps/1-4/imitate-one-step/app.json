@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 2,
+  "version": 3,
   "status": "planned",
   "scaffold_state": "implementation-started",
-  "implementation_state": "alpha-200-experiences",
+  "implementation_state": "alpha-200-experiences-3-storyboards",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -47,7 +47,10 @@
       "whiteboard"
     ],
     "storyboard_asset_pattern": "storyboards/<ID>.webp",
-    "storyboard_fallback": "five-fixed-symbolic-frames"
+    "storyboard_fallback": "five-fixed-symbolic-frames",
+    "sample_storyboards": 3,
+    "storyboard_layout": "5 equal horizontal panels",
+    "storyboard_display_ratio": "5:1"
   },
   "branding": {
     "icon": "icon.svg",
