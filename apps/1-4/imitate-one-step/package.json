@@ -1,6 +1,6 @@
 {
   "name": "@app360/app-imitate-one-step",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "private": true,
   "description": "دوري ودورك: 200 تجربة مشتركة - App 360 Lab",
   "app360": {
@@ -9,8 +9,8 @@
     "runtimeProfile": "static-web"
   },
   "scripts": {
-    "syntax": "node --check app-v16.js && node --check experience-engine.js && node --check activity-store.js && node --check community-engine.js && node --check drawing-lab.js && node --check drawing-legacy.js",
-    "test": "node --test experiences.test.js experience-engine.test.js activity-store.test.js community-engine.test.js drawing-lab.test.js runtime-contract.test.js dom-contract.test.js detail-contract.test.js navigation-thumbnail.test.js live-activation.test.js storyboard-size.test.js overview-width.test.js legacy-lite.test.js modal-navigation.test.js legacy-sheet.test.js",
+    "syntax": "node --check app-v16.js && node --check experience-engine.js && node --check activity-store.js && node --check community-engine.js && node --check drawing-lab.js && node --check drawing-legacy.js && node --check drawing-compat-v2.js",
+    "test": "node --test experiences.test.js experience-engine.test.js activity-store.test.js community-engine.test.js drawing-lab.test.js runtime-contract.test.js dom-contract.test.js detail-contract.test.js navigation-thumbnail.test.js live-activation.test.js storyboard-size.test.js overview-width.test.js legacy-lite.test.js modal-navigation.test.js legacy-sheet.test.js drawing-compat-v2.test.js",
     "validate": "npm run syntax && npm test && node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8'));JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'));JSON.parse(require('fs').readFileSync('experiences.json','utf8'));JSON.parse(require('fs').readFileSync('community.json','utf8'));console.log('contracts OK')\""
   }
 }
