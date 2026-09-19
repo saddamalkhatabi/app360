@@ -17,5 +17,5 @@ test('header binding is defensive against missing optional controls',()=>{
 });
 
 test('index points to v16 runtime',()=>{
-  assert.ok(html.includes('app-v16.js?v=5'));
+  assert.ok(html.includes('app-v16.js?v=6'));
 });
