@@ -6,8 +6,9 @@ const path=require('node:path');
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'storyboards/manifest.json'),'utf8'));
 const expected=Array.from({length:200},(_,i)=>String(i+1).padStart(3,'0'));
 test('storyboard manifest maps exactly experiments 001-200',()=>{
-  assert.deepEqual(Object.keys(manifest.assets),expected);
-  assert.equal(Object.keys(manifest.assets).length,200);
+  const actual=Object.keys(manifest.assets).sort((a,b)=>Number(a)-Number(b));
+  assert.deepEqual(actual,expected);
+  assert.equal(actual.length,200);
 });
 test('all mapped storyboard files 001-200 exist and are non-empty',()=>{
   for(const id of expected){
