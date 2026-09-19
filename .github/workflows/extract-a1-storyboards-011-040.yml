@@ -1,0 +1,51 @@
+name: Extract A1 Storyboards 011-040
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/extract-a1-storyboards-011-040.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract storyboard ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='apps/1-4/imitate-one-step/storyboards'
+          ZIP="$DIR/imitate_one_step_storyboards_011_040.zip"
+          test -f "$ZIP"
+          unzip -o "$ZIP" -d "$DIR"
+          for i in $(seq 11 40); do
+            f=$(printf '%03d.webp' "$i")
+            test -s "$DIR/$f"
+          done
+
+      - name: Commit extracted files
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='apps/1-4/imitate-one-step/storyboards'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for i in $(seq 11 40); do
+            f=$(printf '%03d.webp' "$i")
+            git add "$DIR/$f"
+          done
+          git rm "$DIR/imitate_one_step_storyboards_011_040.zip"
+          if git diff --cached --quiet; then
+            echo 'Nothing to commit.'
+            exit 0
+          fi
+          git commit -m 'Extract A1 storyboards 011-040'
+          git push origin HEAD:main
