@@ -1,0 +1,120 @@
+name: Repair A1 Storyboards 001-070
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-a1-storyboards-001-070.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Repair storyboard files, manifest and cache versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='apps/1-4/imitate-one-step/storyboards'
+          APP='apps/1-4/imitate-one-step'
+          ZIP="$DIR/imitate_one_step_storyboards_041_070.zip"
+
+          if [ -f "$ZIP" ]; then
+            unzip -o "$ZIP" -d "$DIR"
+            rm -f "$ZIP"
+          fi
+
+          for i in $(seq 1 70); do
+            f=$(printf '%03d.webp' "$i")
+            test -s "$DIR/$f"
+          done
+
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          app = Path('apps/1-4/imitate-one-step')
+          story = app / 'storyboards'
+
+          assets = {f'{i:03d}': f'storyboards/{i:03d}.webp' for i in range(1, 71)}
+          manifest = {
+              'schema_version': '1.1',
+              'updated': '2026-09-19',
+              'asset_format': 'webp',
+              'expected_dimensions': '4500x900 (5 equal 900x900 panels)',
+              'note_ar': 'الدفعة الحالية المفعلة للتجارب 001-070. كل تجربة مرتبطة مباشرة بملف WebP ثابت الاسم داخل storyboards.',
+              'assets': assets,
+              'layout': '5 equal horizontal panels'
+          }
+          (story / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          runtime = app / 'app-v16.js'
+          s = runtime.read_text(encoding='utf-8')
+          s = s.replace("storyboards/manifest.json?v=4", "storyboards/manifest.json?v=6")
+          runtime.write_text(s, encoding='utf-8')
+
+          index = app / 'index.html'
+          s = index.read_text(encoding='utf-8')
+          s = s.replace('app-v16.js?v=5', 'app-v16.js?v=6')
+          index.write_text(s, encoding='utf-8')
+
+          sw = app / 'sw.js'
+          s = sw.read_text(encoding='utf-8')
+          s = s.replace("app360-app-imitate-one-step-v21", "app360-app-imitate-one-step-v22")
+          s = s.replace("./app-v16.js?v=5", "./app-v16.js?v=6")
+          s = s.replace("./storyboards/manifest.json?v=4", "./storyboards/manifest.json?v=6")
+          sw.write_text(s, encoding='utf-8')
+
+          test = app / 'storyboard-manifest-70.test.js'
+          test.write_text("""'use strict';\nconst test=require('node:test');\nconst assert=require('node:assert/strict');\nconst fs=require('node:fs');\nconst path=require('node:path');\nconst manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'storyboards/manifest.json'),'utf8'));\nconst expected=Array.from({length:70},(_,i)=>String(i+1).padStart(3,'0'));\ntest('storyboard manifest maps exactly experiments 001-070',()=>{\n  assert.deepEqual(Object.keys(manifest.assets),expected);\n  assert.equal(Object.keys(manifest.assets).length,70);\n});\ntest('all storyboard files 001-070 exist and are non-empty',()=>{\n  for(const id of expected){\n    const file=path.join(__dirname,manifest.assets[id]);\n    assert.ok(fs.existsSync(file),'missing '+id);\n    assert.ok(fs.statSync(file).size>10000,'empty or invalid '+id);\n  }\n});\ntest('runtime requests cache-busted storyboard manifest',()=>{\n  const js=fs.readFileSync(path.join(__dirname,'app-v16.js'),'utf8');\n  assert.ok(js.includes('storyboards/manifest.json?v=6'));\n});\n""", encoding='utf-8')
+
+          pkg_path = app / 'package.json'
+          pkg = json.loads(pkg_path.read_text(encoding='utf-8'))
+          pkg['version'] = '0.9.1'
+          tests = pkg['scripts']['test']
+          if 'storyboard-manifest-70.test.js' not in tests:
+              tests += ' storyboard-manifest-70.test.js'
+          pkg['scripts']['test'] = tests
+          pkg_path.write_text(json.dumps(pkg, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Validate repaired library
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd apps/1-4/imitate-one-step
+          node --check app-v16.js
+          node --test storyboard-manifest-70.test.js
+
+      - name: Commit repaired storyboards
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/imitate-one-step/storyboards/manifest.json \
+                  apps/1-4/imitate-one-step/app-v16.js \
+                  apps/1-4/imitate-one-step/index.html \
+                  apps/1-4/imitate-one-step/sw.js \
+                  apps/1-4/imitate-one-step/package.json \
+                  apps/1-4/imitate-one-step/storyboard-manifest-70.test.js
+          if [ -f apps/1-4/imitate-one-step/storyboards/imitate_one_step_storyboards_041_070.zip ]; then
+            git rm apps/1-4/imitate-one-step/storyboards/imitate_one_step_storyboards_041_070.zip
+          fi
+          for i in $(seq 41 70); do
+            f=$(printf 'apps/1-4/imitate-one-step/storyboards/%03d.webp' "$i")
+            git add "$f"
+          done
+          if git diff --cached --quiet; then
+            echo 'Nothing to commit.'
+            exit 0
+          fi
+          git commit -m 'Activate A1 storyboards 001-070 and refresh manifest cache'
+          git push origin HEAD:main
