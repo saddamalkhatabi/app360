@@ -13,10 +13,127 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Build upgraded screen-to-move files
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.15.1 --activate
+      - name: Apply catalog contract audio and compatibility updates
         shell: bash
         run: |
           python3 - <<'PY'
+          import json
           from pathlib import Path
-          app = r'''PLACEHOLDER_APP_JS'''
+
+          root=Path('.')
+          title='ألعاب إبداعية عبر الشاشة — أو بدون الشاشة'
+          caps=['practice.core','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','pwa.offline','compat.legacy-web','evaluation.heuristic']
+          href='apps/1-4/screen-to-move/index.html?v=3'
+
+          catalog_path=root/'data/catalog.json'
+          catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
+          catalog['updated']='2026-09-21'
+          app=next(x for x in catalog['apps'] if x['id']=='a1-screen-move')
+          app['title_ar']=title
+          app['status']='live'
+          app['description_ar']='عشرون لعبة إبداعية مصورة متدرجة في أربع درجات استعداد، من اللمس والمطابقة البسيطة إلى التوصيل والفرز والذاكرة والنقاط والمسارات والبازل والاستدلال. لكل لعبة تشغيل مباشر على الشاشة بنتيجة جولة ومحاولات وتلميحات، مع ورقة عمل ولعب واقعي بديل، وتشجيع صوتي باسم الطفل من مكتبة الصوت المشتركة.'
+          app['practice_model']='اختر درجة الاستعداد واللعبة ← شاهد 5 خطوات مصورة مع السابق/التالي أو عرض الكل ← العب مباشرة على الشاشة مع محاولات ونتيجة جولة أو اطبع الورقة والعب خارج الشاشة ← تلميح أو إعادة نفس اللعبة عند الحاجة ← نهاية واضحة بلا انتقال تلقائي'
+          app['tags']=['ألعاب ذكاء','صور','مطابقة','فرز','ذاكرة','توصيل نقاط','مسارات','بازل','أوراق عمل','لعب مباشر','تشجيع صوتي بالاسم']
+          app['href']=href
+          app['manifest']='apps/1-4/screen-to-move/app.json'
+          app['runtime_profile']='legacy-web'
+          app['depth']='advanced'
+          app['capabilities']=caps
+          app['offline_mode']='offline-first'
+          for link in app.get('goal_links',[]): link['delivery']='available_with_facilitator'
+          bp=app['blueprint']
+          bp['version']=3
+          bp['output_ar']='ورقة أو بطاقة لعب واقعية، أو نتيجة جولة لعب داخل الشاشة، مرتبطة بفكرة مصورة واضحة يختارها الطفل والمرافق.'
+          bp['mvp_steps_ar']=[
+            'اختيار واحدة من 20 لعبة موزعة على أربع درجات استعداد مع تدرج بسيط يمتد اختياريًا حتى نحو 7 سنوات',
+            'عرض خمس خطوات مصورة مستقلة تعمل بالسابق والتالي والتشغيل التلقائي وعرض الكل دون الاعتماد على شريط منزلق هش',
+            'تشغيل نفس الفكرة مباشرة على الشاشة بمحاولات وتلميح ونتيجة جولة وصفية، أو اختيار ورقة العمل واللعب الواقعي',
+            'توفير ستة بدائل واقعية مرتبطة بنوع اللعبة مع الرسم المشترك والطباعة والتنزيل',
+            'استخدام اسم الطفل والتشجيع الصوتي من مكتبة الصوت المشتركة دون تكرار مجلدات الأسماء'
+          ]
+          bp['acceptance_ar']=[
+            'تظهر الخطوات الخمس ويمكن الانتقال بينها يدويًا وعرضها كلها',
+            'كل نوع لعبة في المكتبة يملك تفاعلًا مباشرًا أو إكمالًا وصفيًا واضحًا على الشاشة',
+            'النتيجة تخص الجولة داخل التطبيق فقط ولا تدعي قياس ذكاء الطفل أو نموه',
+            'الانتهاء لا يبدأ لعبة تالية تلقائيًا ولا يدعي مراقبة ما حدث خارج الشاشة',
+            'يبقى خيار الورقة والطباعة واللعب الواقعي متاحًا لكل لعبة'
+          ]
+          bp['age_adaptation_ar']='التدرج هنا بالاستعداد لا بالعمر وحده: المستوى الأول شديد البساطة ويصلح تقريبًا لبدايات 1–2 مع المرافق؛ الثاني 2–3.5؛ الثالث 3.5–5؛ والرابع امتداد اختياري مبسط تقريبًا 5–7 لمن أصبح مستعدًا. يبقى تصنيف التطبيق الرسمي ضمن 1–4، والامتداد ليس معيارًا نمائيًا ولا اختبار عمر.'
+          bp['feedback_ar']='نتيجة الشاشة تحسب المحاولات والنجاحات والتقدم في فكرة الجولة الحالية فقط، مع تلميحات وإعادة المحاولة. لا تحول النتيجة إلى درجة ذكاء أو حكم نمائي، ولا تسجل نشاط الطفل خارج الشاشة إلا إذا كتب المرافق ملاحظة اختيارية.'
+          catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          live_path=root/'data/live-overrides.json'
+          live=json.loads(live_path.read_text(encoding='utf-8'))
+          live['updated']='2026-09-21'
+          row=next((x for x in live['apps'] if x['id']=='a1-screen-move'),None)
+          if row is None:
+            row={'id':'a1-screen-move'}; live['apps'].append(row)
+          row.update({'status':'live','href':href,'capabilities':caps,'goal_delivery':'available_with_facilitator'})
+          live_path.write_text(json.dumps(live,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          contract_path=root/'apps/1-4/screen-to-move/app.json'
+          contract=json.loads(contract_path.read_text(encoding='utf-8'))
+          contract.update({'title_ar':title,'version':3,'status':'live','scaffold_state':'implemented','runtime_profile':'legacy-web','depth':'advanced','capabilities':caps,'practice_model_ar':'اختر درجة الاستعداد واللعبة ← شاهد 5 خطوات مصورة ← العب مباشرة بنتيجة جولة أو اختر ورقة/لعبًا واقعيًا ← تلميح أو إعادة عند الحاجة ← نهاية بلا انتقال تلقائي'})
+          contract['implementation']={
+            'state':'live-v3-owner-activated','built_on':'2026-09-21','experiments':20,'levels':4,
+            'readiness_path_ar':['تقريبًا 1–2 سنة مع المرافق','تقريبًا 2–3.5 سنة','تقريبًا 3.5–5 سنوات','امتداد اختياري مبسط 5–7 سنوات'],
+            'features':['direct single-frame five-step viewer with previous/next/autoplay/overview','direct screen game engine with attempts hints retry and descriptive round results','paper and off-screen path for every game','printable downloadable worksheets','shared drawing board','shared name-based recorded audio assets from drawing-writing-foundations without duplicated audio folders','local optional result history export and delete','offline-first PWA shell'],
+            'result_boundary_ar':'النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.',
+            'physical_device_certification':'pending-expanded-device-matrix-after-owner-activation'
+          }
+          contract_path.write_text(json.dumps(contract,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          js_path=root/'apps/1-4/screen-to-move/app.js'
+          js=js_path.read_text(encoding='utf-8')
+          js=js.replace('ctx.setLineDash([8,8]);','if(ctx.setLineDash)ctx.setLineDash([8,8]);')
+          js=js.replace('ctx.setLineDash([10,8]);','if(ctx.setLineDash)ctx.setLineDash([10,8]);')
+          js=js.replace('ctx.setLineDash([]);','if(ctx.setLineDash)ctx.setLineDash([]);')
+          js_path.write_text(js,encoding='utf-8')
+          css_path=root/'apps/1-4/screen-to-move/styles.css'
+          css=css_path.read_text(encoding='utf-8')
+          if '[hidden]{display:none!important}' not in css:
+            css=css.replace('*{box-sizing:border-box}','*{box-sizing:border-box}[hidden]{display:none!important}',1)
+          css_path.write_text(css,encoding='utf-8')
+
+          audio_path=root/'apps/1-4/drawing-writing-foundations/audio-v21.js'
+          audio=audio_path.read_text(encoding='utf-8')
+          if "var BUILD='21'" in audio:
+            audio=audio.replace("var BUILD='21',registry=null,mode='auto',loading=false,currentAudio=null,currentSource=null,ctx=null,unlocked=false;", "var BUILD='22',registry=null,mode='auto',loading=false,currentAudio=null,currentSource=null,ctx=null,unlocked=false;\nvar BASE=(typeof window!=='undefined'&&window.Audio360Base)||'';\nfunction resolveAsset(f){if(!f)return'';if(/^(?:https?:|data:|blob:|\/)/i.test(f))return f;return BASE+f}",1)
+          if "xhrJson('audio/registry.json?v='+BUILD," in audio:
+            audio=audio.replace("xhrJson('audio/registry.json?v='+BUILD,","xhrJson(fileUrl('audio/registry.json'),",1)
+          old="function fileUrl(f){if(!f)return'';return f+(f.indexOf('?')>=0?'&':'?')+'v='+BUILD}"
+          new="function fileUrl(f){if(!f)return'';f=resolveAsset(f);return f+(f.indexOf('?')>=0?'&':'?')+'v='+BUILD}"
+          if old in audio: audio=audio.replace(old,new,1)
+          if "var BUILD='22'" not in audio or "resolveAsset" not in audio or "fileUrl('audio/registry.json')" not in audio:
+            raise SystemExit('shared audio patch did not apply completely')
+          audio_path.write_text(audio,encoding='utf-8')
+
+          draw_sw_path=root/'apps/1-4/drawing-writing-foundations/sw.js'
+          draw_sw=draw_sw_path.read_text(encoding='utf-8').replace("app360-drawing-writing-v23","app360-drawing-writing-v24").replace("audio-v21.js?v=21","audio-v21.js?v=22")
+          draw_sw_path.write_text(draw_sw,encoding='utf-8')
+          ver_path=root/'apps/1-4/drawing-writing-foundations/version.json'
+          ver=json.loads(ver_path.read_text(encoding='utf-8'))
+          ver['build']=24; ver['updated']='2026-09-21'; ver['audioEngine']='V22 reusable base-path name audio + lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks'
+          ver_path.write_text(json.dumps(ver,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
+      - name: Regenerate blueprints
+        run: node tooling/build-blueprints.js
+      - name: Validate platform and upgraded game
+        run: |
+          node tooling/validate-platform.js
+          node --check apps/1-4/screen-to-move/app.js
+          node --check apps/1-4/drawing-writing-foundations/audio-v21.js
+          pnpm --filter @app360/app-screen-to-move validate
+      - name: Commit activation and remove one-time workflow
+        shell: bash
+        run: |
+          git config user.name "app360-bot"
+          git config user.email "app360-bot@users.noreply.github.com"
+          git rm .github/workflows/apply-screen-to-move-v3.yml
+          git add data/catalog.json data/live-overrides.json apps/1-4/screen-to-move apps/1-4/drawing-writing-foundations/audio-v21.js apps/1-4/drawing-writing-foundations/sw.js apps/1-4/drawing-writing-foundations/version.json
+          git commit -m "Activate creative screen or paper games v3"
+          git push origin HEAD:main
