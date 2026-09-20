@@ -4,9 +4,9 @@
   "slug": "screen-to-move",
   "title_ar": "لنلعب الآن: بديل الشاشة مع المرافق",
   "age_group": "1-4",
-  "version": 1,
+  "version": 2,
   "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "scaffold_state": "implementation-started",
   "kind": "hybrid",
   "goal_keys": [
     "coach-1-4-screen-co-viewing-attention-and-offline-alternatives",
@@ -26,7 +26,40 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختيار موضوع شاهدناه كالألوان أو الحيوانات ← عرض 6 بدائل واقعية ومستلزماتها ← وضع انتهاء واضح دون مطالبة بالعودة أو إثبات الأداء",
+  "practice_model_ar": "اختيار مستوى ولعبة مصورة ← مشاهدة 5 لقطات قصيرة ← اختيار ورقة لعب خارج الشاشة أو بديل تفاعلي ← انتهاء واضح بلا تشغيل تلقائي ← مراجعة اختيارية للمرافق",
+  "branding": {
+    "theme_color": "#0f8f8a",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/1-4/screen-to-move/icon-192.png",
+      "apps/1-4/screen-to-move/icon-512.png"
+    ]
+  },
+  "implementation": {
+    "state": "implemented-awaiting-device-acceptance",
+    "built_on": "2026-09-21",
+    "experiments": 20,
+    "levels": 4,
+    "features": [
+      "five-frame visual story reel with overview",
+      "paper/off-screen path and screen fallback for every experiment",
+      "printable and downloadable SVG worksheets",
+      "shared drawing board",
+      "local optional reflections, export and delete",
+      "isolated offline-first PWA shell"
+    ],
+    "automated_checks": [
+      "20 experiments and 4x5 level distribution",
+      "required worksheet and visual-frame fields",
+      "JavaScript syntax and data integrity"
+    ],
+    "pending_before_live_ar": [
+      "تجربة مستخدم موثقة مع مرافق وطفل",
+      "اختبار هاتف وتابلت وحاسوب في الوضعين الرأسي والأفقي",
+      "اختبار التثبيت والانقطاع والتحديث على أجهزة فعلية",
+      "إعادة توليد BUILD_SPEC.md وPROMPT_AR.md من الكتالوج بعد تحديث سجل الكتالوج"
+    ]
+  },
   "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/screen-to-move/PROMPT_AR.md"
 }

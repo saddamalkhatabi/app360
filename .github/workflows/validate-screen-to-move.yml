@@ -1,0 +1,40 @@
+name: Validate screen-to-move app
+
+on:
+  push:
+    paths:
+      - 'apps/1-4/screen-to-move/**'
+      - 'data/catalog.json'
+      - 'pnpm-lock.yaml'
+      - 'tooling/build-blueprints.js'
+      - 'tooling/validate-platform.js'
+      - '.github/workflows/validate-screen-to-move.yml'
+  pull_request:
+    paths:
+      - 'apps/1-4/screen-to-move/**'
+      - 'data/catalog.json'
+      - 'pnpm-lock.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install workspace dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Regenerate blueprints
+        run: node tooling/build-blueprints.js
+      - name: Verify generated files are committed
+        run: git diff --exit-code
+      - name: Validate platform contract
+        run: node tooling/validate-platform.js
+      - name: Validate app implementation
+        run: pnpm --filter @app360/app-screen-to-move validate

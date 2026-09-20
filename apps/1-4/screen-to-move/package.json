@@ -1,0 +1,14 @@
+{
+  "name": "@app360/app-screen-to-move",
+  "version": "0.2.0",
+  "private": true,
+  "description": "لنلعب الآن: بديل الشاشة مع المرافق - App 360 Lab",
+  "scripts": {
+    "test": "node --test app.test.js",
+    "validate": "node --check app.js && node --check games-data.js && node --test app.test.js"
+  },
+  "app360": {
+    "appId": "a1-screen-move",
+    "ageGroup": "1-4"
+  }
+}
