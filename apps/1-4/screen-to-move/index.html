@@ -6,32 +6,31 @@
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>لنلعب الآن | مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest">
+<title>ألعاب إبداعية عبر الشاشة — أو بدون الشاشة | مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=3">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 <a class="skip" href="#appRoot">انتقل إلى اللعب</a>
 <header class="topbar">
   <div class="brand">
     <img src="icon.svg" alt="" class="app-icon">
-    <div><small>مختبر التطبيق 360 · الفئة 1–4</small><h1>لنلعب الآن</h1><p>ألغاز صور وأوراق لعب تتحول من الشاشة إلى الواقع.</p></div>
+    <div><small>مختبر التطبيق 360 · تدرج بسيط من سنة حتى 7 حسب الاستعداد</small><h1>ألعاب إبداعية عبر الشاشة — أو بدون الشاشة</h1><p>ألغاز صور · توصيل · فرز · ذاكرة · نقاط · مسارات · بازل · لعب ورقي</p></div>
   </div>
   <div class="top-actions">
     <button id="libraryBtn">🎲 الألعاب</button>
     <button id="worksheetsBtn">🖨 أوراق العمل</button>
     <button id="drawingBtn">🎨 الرسم المشترك</button>
-    <button id="historyBtn">📚 السجل</button>
+    <button id="historyBtn">📚 النتائج</button>
+    <button id="profileBtn">👤 الاسم والصوت</button>
     <button id="installBtn">⬇ تثبيت</button>
     <button id="updateBtn">↻ تحديث</button>
   </div>
 </header>
 <div id="storageBanner" class="banner" hidden></div>
 <main id="appRoot" class="app-root" aria-live="polite"></main>
-<footer class="foot">
-  <strong>اللعب الحقيقي أولًا.</strong> استخدم أدوات كبيرة وآمنة وتحت إشراف مرافق. لا يراقب التطبيق ما يحدث خارج الشاشة ولا يطلب إثبات الإنجاز.
-</footer>
+<footer class="foot"><strong>اللعب الحقيقي أولًا متى كان مناسبًا.</strong> استخدم أدوات كبيرة وآمنة وتحت إشراف مرافق. نتيجة الشاشة تصف الجولة داخل التطبيق فقط، ولا تقيّم نمو الطفل ولا تراقب ما يحدث خارج الشاشة.</footer>
 
 <div id="sheet" class="sheet" hidden aria-hidden="true">
   <button class="sheet-backdrop" data-close-sheet aria-label="إغلاق"></button>
@@ -57,8 +56,9 @@
 <section id="printArea" class="print-area" aria-hidden="true"></section>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="games-data.js?v=1"></script>
-<script src="app.js?v=1"></script>
-<script src="offline-alternatives.js?v=1"></script>
+<script src="games-data.js?v=3"></script>
+<script src="app.js?v=3"></script>
+<script>window.Audio360Base='../drawing-writing-foundations/';</script>
+<script src="../drawing-writing-foundations/audio-v21.js?v=22"></script>
 </body>
 </html>
