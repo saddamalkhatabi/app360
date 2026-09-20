@@ -1,0 +1,49 @@
+name: Apply screen-to-move catalog sync
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-screen-to-move-catalog.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Update catalog implementation description
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const file = 'data/catalog.json';
+          const catalog = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const app = catalog.apps.find((item) => item.id === 'a1-screen-move');
+          if (!app) throw new Error('a1-screen-move not found');
+          app.description_ar = 'تجربة لعب مشتركة تضم 20 نشاطًا أصليًا متدرجًا في 4 مستويات؛ تربط ما شاهده الطفل بألغاز صور وتوصيل نقاط وفرز ومسارات وبازل، ثم تتيح للمرافق الانتقال إلى ورقة عمل أو لعب واقعي مع بديل تفاعلي على الشاشة عند عدم توفر الطباعة.';
+          app.practice_model = 'اختيار مستوى وموضوع شاهدناه ← عرض 5 لقطات مصورة للفكرة ← عرض 6 بدائل واقعية ومستلزماتها ← اختيار ورقة/لعب خارج الشاشة أو بديل تفاعلي ← انتهاء واضح بلا تشغيل تالٍ أو مطالبة بإثبات الأداء ← مراجعة اختيارية للمرافق';
+          app.implementation_state = 'implemented-awaiting-device-acceptance';
+          app.implementation_version = 2;
+          fs.writeFileSync(file, JSON.stringify(catalog, null, 2) + '\n');
+          NODE
+      - name: Regenerate planning documents
+        run: node tooling/build-blueprints.js
+      - name: Validate platform after catalog update
+        run: node tooling/validate-platform.js
+      - name: Validate screen-to-move implementation
+        run: pnpm --filter @app360/app-screen-to-move validate
+      - name: Commit generated catalog and blueprints
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/catalog.json apps/1-4/screen-to-move/BUILD_SPEC.md apps/1-4/screen-to-move/PROMPT_AR.md
+          if git diff --cached --quiet; then
+            echo 'Catalog already synchronized'
+            exit 0
+          fi
+          git commit -m 'Sync screen-to-move catalog with implemented practice'
+          git push
