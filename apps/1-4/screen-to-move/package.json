@@ -5,7 +5,7 @@
   "description": "لنلعب الآن: بديل الشاشة مع المرافق - App 360 Lab",
   "scripts": {
     "test": "node --test app.test.js",
-    "validate": "node --check app.js && node --check games-data.js && node --test app.test.js"
+    "validate": "node --check app.js && node --check games-data.js && node --check offline-alternatives.js && node --check sw.js && node --test app.test.js"
   },
   "app360": {
     "appId": "a1-screen-move",
