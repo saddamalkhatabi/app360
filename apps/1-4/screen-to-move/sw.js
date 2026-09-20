@@ -1,15 +1,10 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v2';
-var CORE=['./','./index.html','./styles.css','./games-data.js','./app.js','./offline-alternatives.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
-self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(CORE)}))});
-self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-screen-to-move-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
-self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING')self.skipWaiting()});
-self.addEventListener('fetch',function(e){
- if(e.request.method!=='GET')return;
- var u=new URL(e.request.url);
- if(u.origin!==location.origin)return;
- if(u.pathname.endsWith('/index.html')||u.pathname.endsWith('/manifest.webmanifest')||u.pathname.endsWith('/games-data.js')){
-   e.respondWith(fetch(e.request).then(function(r){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(e.request,copy)});return r}).catch(function(){return caches.match(e.request)}));return;
- }
- e.respondWith(caches.match(e.request).then(function(hit){return hit||fetch(e.request).then(function(r){if(r&&r.ok){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(e.request,copy)})}return r})}));
-});
+var CACHE='app360-app-screen-to-move-v3';
+var CORE=['./','./index.html','./styles.css?v=3','./games-data.js?v=3','./app.js?v=3','./manifest.webmanifest?v=3','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=22','../drawing-writing-foundations/audio/registry.json?v=22'];
+self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(CORE.map(function(u){return c.add(u).catch(function(){return null})}))}));if(self.skipWaiting)self.skipWaiting()});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-screen-to-move-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
+self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});
+function same(req){try{return new URL(req.url).origin===self.location.origin}catch(e){return false}}
+function fresh(req,fallback){return fetch(req,{cache:'no-store'}).then(function(r){if(r&&r.ok&&same(req)){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(req,copy)})}return r}).catch(function(){return caches.match(req).then(function(hit){return hit||caches.match(fallback||'./index.html')})})}
+function cached(req){return caches.match(req).then(function(hit){if(hit)return hit;return fetch(req).then(function(r){if(r&&r.ok&&same(req)){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(req,copy)})}return r})})}
+self.addEventListener('fetch',function(e){if(!e.request||e.request.method!=='GET'||!same(e.request))return;var u=e.request.url||'',critical=e.request.mode==='navigate'||u.indexOf('/index.html')>=0||u.indexOf('/app.js')>=0||u.indexOf('/games-data.js')>=0||u.indexOf('/manifest.webmanifest')>=0;if(critical){e.respondWith(fresh(e.request,'./index.html'));return}e.respondWith(cached(e.request))});
