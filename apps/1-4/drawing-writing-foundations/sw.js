@@ -1,5 +1,5 @@
-var CACHE='app360-drawing-writing-v23';
-var SHELL=['./','./index.html','./manifest.json','./icon.svg','./icon-192.png','./icon-512.png','./sync-v10-extra.js','./ui-v11.js?v=19','./audio-pcm-v18.js?v=18','./audio-v21.js?v=21','./version.json','./app.json'];
+var CACHE='app360-drawing-writing-v24';
+var SHELL=['./','./index.html','./manifest.json','./icon.svg','./icon-192.png','./icon-512.png','./sync-v10-extra.js','./ui-v11.js?v=19','./audio-pcm-v18.js?v=18','./audio-v21.js?v=22','./version.json','./app.json'];
 self.addEventListener('install',function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}));
   if(self.skipWaiting)self.skipWaiting();

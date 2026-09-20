@@ -1,9 +1,14 @@
 {
-  "build": 23,
-  "updated": "2026-09-12",
+  "build": 24,
+  "updated": "2026-09-21",
   "audioPack": "20-yemeni-male+20-yemeni-female+noor+colors-v21",
-  "legacyAudio": ["embedded-u8-pcm", "mp3", "ogg", "wav"],
-  "audioEngine": "V21 lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks",
+  "legacyAudio": [
+    "embedded-u8-pcm",
+    "mp3",
+    "ogg",
+    "wav"
+  ],
+  "audioEngine": "V22 reusable base-path name audio + lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks",
   "refreshPolicy": "network-first shell, immediate service-worker activation, one automatic refresh per target build",
   "ui": "compact-child-drawing-v19",
   "layout": "status toast + top glyph + larger drawing board",

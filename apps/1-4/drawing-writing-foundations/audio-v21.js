@@ -1,6 +1,8 @@
 (function(){
 'use strict';
-var BUILD='21',registry=null,mode='auto',loading=false,currentAudio=null,currentSource=null,ctx=null,unlocked=false;
+var BUILD='22',registry=null,mode='auto',loading=false,currentAudio=null,currentSource=null,ctx=null,unlocked=false;
+var BASE=(typeof window!=='undefined'&&window.Audio360Base)||'';
+function resolveAsset(f){if(!f)return'';if(/^(?:https?:|data:|blob:|\/)/i.test(f))return f;return BASE+f}
 function $(id){return document.getElementById(id)}
 function trim(s){return(''+(s||'')).replace(/^\s+|\s+$/g,'')}
 function norm(s){return trim(s).toLowerCase().replace(/[ًٌٍَُِّْـ،,.!؟?؛;:\-–—]/g,'').replace(/\s+/g,' ')}
@@ -15,12 +17,12 @@ function chromeVersion(){var m=ua().match(/(?:Chrome|CriOS)\/([0-9]+)/i);return 
 function isLegacy(){var av=androidVersion(),cv=chromeVersion(),u=ua();return !!((av&&av<5)||(cv&&cv<50)||/Android 4\.|Version\/4\.|BigTAB|DMTAB/i.test(u))}
 function isMobile(){return /Android|iPhone|iPad|iPod|Mobile/i.test(ua())}
 function xhrJson(url,ok,fail){try{var x=new XMLHttpRequest();x.open('GET',url+(url.indexOf('?')>=0?'&':'?')+'_='+(+new Date()),true);try{x.setRequestHeader('Cache-Control','no-cache')}catch(e){}x.onreadystatechange=function(){if(x.readyState===4){if((x.status>=200&&x.status<300)||x.status===0){try{ok(JSON.parse(x.responseText))}catch(e){if(fail)fail(e)}}else if(fail)fail(new Error('HTTP '+x.status))}};x.send(null)}catch(e){if(fail)fail(e)}}
-function loadRegistry(cb){if(registry){if(cb)cb(true);return}if(loading){setTimeout(function(){loadRegistry(cb)},100);return}loading=true;xhrJson('audio/registry.json?v='+BUILD,function(j){registry=j||{};loading=false;refreshInfo();if(cb)cb(true)},function(){registry=null;loading=false;refreshInfo();if(cb)cb(false)})}
+function loadRegistry(cb){if(registry){if(cb)cb(true);return}if(loading){setTimeout(function(){loadRegistry(cb)},100);return}loading=true;xhrJson(fileUrl('audio/registry.json'),function(j){registry=j||{};loading=false;refreshInfo();if(cb)cb(true)},function(){registry=null;loading=false;refreshInfo();if(cb)cb(false)})}
 function userEntry(){if(!registry||!registry.users)return null;var n=norm(username()),k,u,a,i;if(n==='noor'||n==='nour'||n==='nur'||n==='noour'||n==='نور')return registry.users['نور']||registry.users.noor||null;if(registry.users[username()])return registry.users[username()];for(k in registry.users){if(registry.users.hasOwnProperty(k)){u=registry.users[k];a=u.aliases||[];if(norm(k)===n)return u;for(i=0;i<a.length;i++)if(norm(a[i])===n)return u}}return null}
 function matchClip(list,text){var n=norm(text),i,j,c,a;for(i=0;i<(list||[]).length;i++){c=list[i];if(norm(c.text)===n)return c;if(c.name&&norm(c.name)===n)return c;a=c.aliases||[];for(j=0;j<a.length;j++)if(norm(a[j])===n)return c}return null}
 function colorClip(text){var arr=registry&&registry.colors||[],c=matchClip(arr,text),n,i;if(c)return c;n=norm(text).replace(/^اللون\s+/,'').replace(/^لون\s+/,'');for(i=0;i<arr.length;i++)if(norm(arr[i].name)===n)return arr[i];return null}
 function clipFor(text){var c=colorClip(text),u,clips,n,i,cheers=[];if(c)return c;u=userEntry();clips=u&&u.clips||[];c=matchClip(clips,text);if(c)return c;n=norm(text);if(n.indexOf('اختبار')>=0||n.indexOf('مرحبا')>=0){for(i=0;i<clips.length;i++)if(clips[i].id==='test')return clips[i]}for(i=0;i<clips.length;i++)if(clips[i].kind==='cheer')cheers.push(clips[i]);return cheers.length?cheers[Math.floor(Math.random()*cheers.length)]:null}
-function fileUrl(f){if(!f)return'';return f+(f.indexOf('?')>=0?'&':'?')+'v='+BUILD}
+function fileUrl(f){if(!f)return'';f=resolveAsset(f);return f+(f.indexOf('?')>=0?'&':'?')+'v='+BUILD}
 function candidates(c,legacyOrder){var f=c&&c.files||{},r=[];function add(x,t){if(x)r.push({src:x,type:t})}if(legacyOrder){add(f.wav,'wav');add(f.mp3,'mp3');add(f.ogg,'ogg')}else{add(f.mp3,'mp3');add(f.ogg,'ogg');add(f.wav,'wav')}if(!r.length&&c&&c.file)add(c.file,/\.wav$/i.test(c.file)?'wav':/\.ogg$/i.test(c.file)?'ogg':'mp3');return r}
 function ensureCtx(){if(ctx)return ctx;try{var C=window.AudioContext||window.webkitAudioContext;if(C)ctx=new C()}catch(e){}return ctx}
 function unlockCtx(){var c=ensureCtx();if(!c)return false;try{if(c.state==='suspended'&&c.resume)c.resume()}catch(e){}try{var o=c.createOscillator(),g=c.createGain?c.createGain():null;if(g){g.gain.value=0;o.connect(g);g.connect(c.destination)}else{o.connect(c.destination)}if(o.start)o.start(0);else if(o.noteOn)o.noteOn(0);if(o.stop)o.stop(c.currentTime+.01);else if(o.noteOff)o.noteOff(c.currentTime+.01)}catch(e){}return true}

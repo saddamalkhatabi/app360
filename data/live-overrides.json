@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-19",
+  "updated": "2026-09-21",
   "apps": [
     {
       "id": "a1-first-words",
@@ -22,6 +22,22 @@
       "capabilities": [
         "storage.local",
         "pwa.offline"
+      ],
+      "goal_delivery": "available_with_facilitator"
+    },
+    {
+      "id": "a1-screen-move",
+      "status": "live",
+      "href": "apps/1-4/screen-to-move/index.html?v=3",
+      "capabilities": [
+        "practice.core",
+        "storage.local",
+        "audio.tts",
+        "audio.recorded",
+        "audio.legacy-pcm",
+        "pwa.offline",
+        "compat.legacy-web",
+        "evaluation.heuristic"
       ],
       "goal_delivery": "available_with_facilitator"
     }
