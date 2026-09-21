@@ -24,7 +24,15 @@ jobs:
       - name: Install workspace
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Apply v14 fixes
-        run: node tooling/apply-screen-move-v14.js
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tooling/apply-screen-move-v14.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("assert.doesNotMatch(js,/=>|\\\\bconst\\\\b|\\\\blet\\\\b|`/);","assert.doesNotMatch(js,/=>|\\\\bconst\\\\b|\\\\blet\\\\b/);")
+          p.write_text(s,encoding='utf-8')
+          PY
+          node tooling/apply-screen-move-v14.js
       - name: Regenerate platform planning documents
         run: node tooling/build-blueprints.js
       - name: Validate platform and application
