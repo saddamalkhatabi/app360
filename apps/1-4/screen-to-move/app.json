@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 7,
+  "version": 8,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -32,7 +32,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "في تمارين علامة الصح يبقى العنصر أو الصورة هو الأكبر والأوضح، بينما يظهر مربع ✓ صغيرًا وثانويًا في زاوية البطاقة على الشاشة والورق حتى لا يربك الطفل؛ وتبقى بقية الألعاب والمسارات المتطابقة متاحة كما هي.",
+  "practice_model_ar": "عند اختيار أي لعبة تظهر شاشة اللعب مباشرة أولًا مع تنقل سابق/التالي بين الألعاب، ثم الشرح والطباعة أسفلها. يمكن طباعة الورقة الجاهزة أو تصميم ورقة A4 مخصصة بالرسم والخطوط والأشكال والصور المتوافقة مع الأجهزة القديمة.",
   "branding": {
     "theme_color": "#0f8f8a",
     "accent_color": "#ffd54f",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v7-child-friendly-small-checkboxes",
+    "state": "live-v8-direct-play-a4-designer-stable-icons",
     "built_on": "2026-09-21",
     "experiments": 90,
     "levels": 4,
@@ -71,7 +71,15 @@
       "shared trace geometry for dots and paths across lesson viewer game canvas and worksheets",
       "numbered checkpoints with explicit red start and green finish",
       "clearer five-step overview especially on wide tablets",
-      "small subordinate checkboxes keep the visual object dominant on screen and print"
+      "small subordinate checkboxes keep the visual object dominant on screen and print",
+      "compact non-sticky site header",
+      "direct game-first opening without intermediate detail screen",
+      "previous and next navigation across games inside each level",
+      "five-step overview with no unused lower stage space",
+      "A4-ratio custom worksheet designer with pen lines shapes text and image stamps",
+      "shared repository UI icon folder for legacy device compatibility",
+      "reuse of say-and-name object and word-image assets as stable visual fallbacks",
+      "small bottom check indicator toggled by tapping the target object"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
