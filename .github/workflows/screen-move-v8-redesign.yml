@@ -24,7 +24,9 @@ jobs:
       - name: Install workspace
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Apply v8 redesign
-        run: python3 tooling/tmp_screen_move_v8.py
+        run: |
+          python3 tooling/tmp_screen_move_v8.py
+          python3 tooling/tmp_screen_move_v8_compat.py
       - name: Regenerate planning documents
         run: node tooling/build-blueprints.js
       - name: Validate platform and app
@@ -36,7 +38,7 @@ jobs:
         run: |
           git config user.name "app360-bot"
           git config user.email "app360-bot@users.noreply.github.com"
-          git rm tooling/tmp_screen_move_v8.py .github/workflows/screen-move-v8-redesign.yml
+          git rm tooling/tmp_screen_move_v8.py tooling/tmp_screen_move_v8_compat.py .github/workflows/screen-move-v8-redesign.yml
           git add -A
           git commit -m "Redesign screen-to-move navigation and worksheet tools v8"
           git push origin HEAD:main
