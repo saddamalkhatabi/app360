@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 6,
+  "version": 7,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -32,7 +32,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "عرض تعليمي واضح بخمس مراحل؛ ألعاب النقاط والمسارات تستخدم نفس هندسة الإحداثيات في الشرح واللعب والورقة المطبوعة، مع بداية حمراء مرقمة ونهاية خضراء ومسار إرشادي مطابق؛ بقية 90 لعبة تبقى متاحة بالشاشة أو الورق",
+  "practice_model_ar": "في تمارين علامة الصح يبقى العنصر أو الصورة هو الأكبر والأوضح، بينما يظهر مربع ✓ صغيرًا وثانويًا في زاوية البطاقة على الشاشة والورق حتى لا يربك الطفل؛ وتبقى بقية الألعاب والمسارات المتطابقة متاحة كما هي.",
   "branding": {
     "theme_color": "#0f8f8a",
     "accent_color": "#ffd54f",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v6-synchronized-trace-geometry",
+    "state": "live-v7-child-friendly-small-checkboxes",
     "built_on": "2026-09-21",
     "experiments": 90,
     "levels": 4,
@@ -70,7 +70,8 @@
       "printable checkmark worksheets with empty boxes matching the exercise rule",
       "shared trace geometry for dots and paths across lesson viewer game canvas and worksheets",
       "numbered checkpoints with explicit red start and green finish",
-      "clearer five-step overview especially on wide tablets"
+      "clearer five-step overview especially on wide tablets",
+      "small subordinate checkboxes keep the visual object dominant on screen and print"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",

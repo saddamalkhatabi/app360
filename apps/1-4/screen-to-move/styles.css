@@ -27,3 +27,25 @@
 @media(min-width:721px) and (max-width:1024px){.reel-stage .reel-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:6px;overflow:hidden;padding:6px}.reel-stage .overview-step{width:auto;height:auto;min-height:0}.reel-stage .overview-step .frame-visual{max-height:128px!important}.reel-stage .overview-step b{font-size:12px;min-height:34px;padding:3px 4px}}
 @media(min-width:1025px){.reel-stage .reel-overview{align-items:flex-start}.reel-stage .overview-step{justify-content:flex-start}.reel-stage .overview-step .frame-visual{margin-top:20px}.reel-stage .overview-step b{font-size:14px}}
 @media(max-width:720px){.reel-stage .overview-step{flex-basis:84%;width:84%;min-width:84%}.reel-stage .overview-step .frame-visual{height:auto!important;max-height:none!important}.play-canvas{height:360px}}
+
+
+/* v7: child-friendly subordinate checkboxes */
+.mark-option{position:relative;gap:0;padding:20px 12px 12px;overflow:hidden}
+.mark-option .mark-box{position:absolute;top:8px;right:8px;display:flex;flex:0 0 22px;width:22px;height:22px;min-width:22px;min-height:22px;border-width:2px;border-radius:5px;font-size:15px;line-height:1;background:#fff;box-shadow:0 1px 3px #00000010}
+.mark-option .mark-value{display:flex;align-items:center;justify-content:center;width:100%;min-height:72px;font-size:34px;line-height:1.25;text-align:center}
+.level-1 .mark-option{padding-top:22px}
+.level-1 .mark-option .mark-value{font-size:40px;min-height:82px}
+.mark-option.selected .mark-box{background:#fff7bd;border-color:#a98200;color:#665200}
+.mark-option.checked .mark-box{background:#1c9f69;border-color:#1c9f69;color:#fff}
+.mark-option.wrong .mark-box{background:#ef6767;border-color:#ef6767;color:#fff}
+@media(max-width:760px){
+  .mark-option{padding:18px 8px 9px}
+  .mark-option .mark-box{top:6px;right:6px;width:20px;height:20px;min-width:20px;min-height:20px;font-size:13px;border-width:2px}
+  .mark-option .mark-value{font-size:28px;min-height:66px}
+  .level-1 .mark-option .mark-value{font-size:34px;min-height:76px}
+}
+@media(max-width:430px){
+  .mark-option .mark-box{width:18px;height:18px;min-width:18px;min-height:18px;font-size:12px}
+  .mark-option .mark-value{font-size:26px}
+  .level-1 .mark-option .mark-value{font-size:32px}
+}
