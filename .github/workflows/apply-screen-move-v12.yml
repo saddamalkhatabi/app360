@@ -25,6 +25,24 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Apply v12 expansion
         run: |
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const p='apps/1-4/screen-to-move/';
+          const base=require('./'+p+'games-data.js');
+          const extra=require('./'+p+'games-data-v12.js');
+          const seen=new Set(base.map(g=>g.title));
+          const changed=[];
+          for(const g of extra){
+            const original=g.title;
+            if(seen.has(g.title))g.title=g.title+' — تحدي المستوى '+g.level;
+            if(seen.has(g.title))g.title=g.title+' '+g.id;
+            if(g.title!==original)changed.push(original+' -> '+g.title);
+            seen.add(g.title);
+          }
+          const out="(function(root,factory){var data=factory();if(typeof module==='object'&&module.exports){module.exports=data;}else{root.A1ScreenMoveGamesV12=data;}})(this,function(){return "+JSON.stringify(extra)+";});\n";
+          fs.writeFileSync(p+'games-data-v12.js',out);
+          console.log('Disambiguated titles:',changed.length,changed.join(' | '));
+          NODE
           python3 - <<'PY'
           from pathlib import Path
           p=Path('tooling/apply-screen-move-v12.js')
