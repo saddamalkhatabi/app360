@@ -1,0 +1,68 @@
+name: Finalize screen-to-move v8 legacy icons
+
+on:
+  push:
+    paths:
+      - '.github/workflows/screen-move-v8-legacy-final.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Keep dynamic buttons on stable SVG icons
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('apps/1-4/screen-to-move/app.js')
+          s=p.read_text(encoding='utf-8')
+          old="function updateUserButton(){var b=el('profileBtn');if(b)b.innerHTML='👤 '+esc(state.userName)}"
+          new="function updateUserButton(){var b=el('profileBtn');if(b)b.innerHTML=uiIcon('user',state.userName)}"
+          if old not in s: raise SystemExit('updateUserButton pattern missing')
+          s=s.replace(old,new,1)
+          old="var finish=el('finishScreen');if(finish)finish.textContent=r.finished?'🏁 عرض نتيجة الجولة':'🏁 إنهاء وعرض النتيجة'"
+          new="var finish=el('finishScreen');if(finish)finish.innerHTML=uiIcon('finish',r.finished?'عرض نتيجة الجولة':'إنهاء وعرض النتيجة')"
+          if old not in s: raise SystemExit('finish button pattern missing')
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          tp=Path('apps/1-4/screen-to-move/app.test.js')
+          t=tp.read_text(encoding='utf-8')
+          if 'dynamic profile and finish buttons keep stable SVG icons' not in t:
+              t += "\ntest('dynamic profile and finish buttons keep stable SVG icons',()=>{const js=fs.readFileSync('./app.js','utf8');assert.match(js,/updateUserButton\\(\\).*uiIcon\\('user'/s);assert.match(js,/finish\\.innerHTML=uiIcon\\('finish'/);});\n"
+          tp.write_text(t,encoding='utf-8')
+          ap=Path('apps/1-4/screen-to-move/app.json')
+          cfg=json.loads(ap.read_text(encoding='utf-8'))
+          fs=cfg['implementation']['features']
+          stale=['mobile automatic five-step sequence followed by full overview']
+          fs[:]=[x for x in fs if x not in stale]
+          if 'five-step overview is default on all screens and single-step view expands only on demand' not in fs:
+              fs.append('five-step overview is default on all screens and single-step view expands only on demand')
+          ap.write_text(json.dumps(cfg,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - run: node tooling/build-blueprints.js
+      - name: Validate
+        run: |
+          node tooling/validate-platform.js
+          pnpm --filter @app360/app-screen-to-move validate
+          git diff --check
+      - name: Commit and self-remove
+        run: |
+          git config user.name "app360-bot"
+          git config user.email "app360-bot@users.noreply.github.com"
+          git rm .github/workflows/screen-move-v8-legacy-final.yml
+          git add -A
+          git commit -m "Keep screen-to-move v8 controls legacy-safe"
+          git push origin HEAD:main
