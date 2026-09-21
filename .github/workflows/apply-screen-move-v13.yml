@@ -24,7 +24,15 @@ jobs:
       - name: Install workspace
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Apply v13 legacy tablet fixes
-        run: node tooling/apply-screen-move-v13.js
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tooling/apply-screen-move-v13.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("let meta=JSON.parse(read(ap('app.json'));", "let meta=JSON.parse(read(ap('app.json')));")
+          p.write_text(s,encoding='utf-8')
+          PY
+          node tooling/apply-screen-move-v13.js
       - name: Regenerate platform planning documents
         run: node tooling/build-blueprints.js
       - name: Validate platform and application
