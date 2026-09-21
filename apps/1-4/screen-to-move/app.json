@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 12,
+  "version": 13,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v12-170-progressive-games",
+    "state": "live-v13-legacy-tablet-overlay-real-visual-and-wide-layout-fixes",
     "built_on": "2026-09-21",
     "experiments": 170,
     "levels": 4,
@@ -111,7 +111,12 @@
       "new game set spans choice matching sorting patterns memory sequencing dots paths multi-selection and puzzles",
       "dedicated legacy-safe SVG cover for every new G91-G170 game",
       "Arabic text fallbacks for new game symbols on older Android devices with incomplete emoji fonts",
-      "new game covers are available inside worksheet and electronic-game designer image libraries"
+      "new game covers are available inside worksheet and electronic-game designer image libraries",
+      "explicit top right bottom left overlay positioning for Android 4.4 browsers that do not support CSS inset",
+      "runtime legacy overlay viewport fixer for sheet drawing worksheet and electronic game designer surfaces",
+      "real say-and-name word images replace unsupported emoji glyphs for clothing animals food transport nature and common game objects",
+      "shoe teaching visual replaced by a clearer side-view sneaker and gameplay uses the real w0028 image",
+      "compact wide-low-height landscape layout brings the active game and first library row into view sooner on 1024x600-class tablets"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
