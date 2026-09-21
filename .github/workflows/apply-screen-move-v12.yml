@@ -1,0 +1,42 @@
+name: Screen-to-move v12 game expansion
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-screen-move-v12.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: Install workspace
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Apply v12 expansion
+        run: node tooling/apply-screen-move-v12.js
+      - name: Regenerate platform planning documents
+        run: node tooling/build-blueprints.js
+      - name: Validate platform and application
+        run: |
+          node tooling/validate-platform.js
+          pnpm --filter @app360/app-screen-to-move validate
+          git diff --check
+      - name: Commit v12 and remove temporary tooling
+        run: |
+          git config user.name "app360-bot"
+          git config user.email "app360-bot@users.noreply.github.com"
+          git rm tooling/apply-screen-move-v12.js .github/workflows/apply-screen-move-v12.yml
+          git add -A
+          git commit -m "Add 80 progressive games and legacy-safe covers v12"
+          git push origin HEAD:main
