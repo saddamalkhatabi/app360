@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 11,
+  "version": 12,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,9 +42,9 @@
     ]
   },
   "implementation": {
-    "state": "live-v11-visible-user-controlled-settings-and-bottom-designer-invitation",
+    "state": "live-v12-170-progressive-games",
     "built_on": "2026-09-21",
-    "experiments": 90,
+    "experiments": 170,
     "levels": 4,
     "readiness_path_ar": [
       "تقريبًا 1–2 سنة مع المرافق",
@@ -106,15 +106,20 @@
       "legacy Android game-board sizing fallback without requiring CSS aspect-ratio or Pointer Events",
       "worksheet and electronic game settings are visible by default and hidden only by explicit user action",
       "bottom-of-library create-your-own invitation with both electronic-game and paper-game designer actions",
-      "explicit older-WebKit flex and positioning fallbacks for designer controls"
+      "explicit older-WebKit flex and positioning fallbacks for designer controls",
+      "80 additional progressive games: exactly 20 new games in each of the four readiness levels",
+      "new game set spans choice matching sorting patterns memory sequencing dots paths multi-selection and puzzles",
+      "dedicated legacy-safe SVG cover for every new G91-G170 game",
+      "Arabic text fallbacks for new game symbols on older Android devices with incomplete emoji fonts",
+      "new game covers are available inside worksheet and electronic-game designer image libraries"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
     "level_distribution": {
-      "1": 23,
-      "2": 23,
-      "3": 22,
-      "4": 22
+      "1": 43,
+      "2": 43,
+      "3": 42,
+      "4": 42
     }
   },
   "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
