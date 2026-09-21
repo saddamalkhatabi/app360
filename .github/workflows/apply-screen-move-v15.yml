@@ -25,6 +25,18 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Apply v15 upgrade
         run: python3 tooling/apply-screen-move-v15.py
+      - name: Refresh historical regression expectations
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('apps/1-4/screen-to-move/app.test.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('1[01234]','1[012345]')
+          s=s.replace('v=14','v=15')
+          s=s.replace('screen-to-move-v14','screen-to-move-v15')
+          s=s.replace('legacy-v14.js','legacy-v15.js')
+          p.write_text(s,encoding='utf-8')
+          PY
       - name: Regenerate platform planning documents
         run: node tooling/build-blueprints.js
       - name: Validate platform and application
