@@ -21,14 +21,17 @@ cp.write_text(c,encoding='utf-8')
 # Pre-cache shared interface icons and the most-used stable object art so installed PWA works offline too.
 sp=APP/'sw.js'
 s=sp.read_text(encoding='utf-8')
-needle="'../drawing-writing-foundations/audio/registry.json?v=22'"
 extras=[
 "'../../../assets/ui-icons/games.svg'","'../../../assets/ui-icons/print.svg'","'../../../assets/ui-icons/draw.svg'","'../../../assets/ui-icons/prev.svg'","'../../../assets/ui-icons/next.svg'","'../../../assets/ui-icons/check.svg'","'../../../assets/ui-icons/restart.svg'","'../../../assets/ui-icons/hint.svg'",
 "'../say-and-name/assets/objects/apple.svg'","'../say-and-name/assets/objects/ball.svg'","'../say-and-name/assets/objects/banana.svg'","'../say-and-name/assets/objects/book.svg'","'../say-and-name/assets/objects/car.svg'","'../say-and-name/assets/objects/cat.svg'","'../say-and-name/assets/objects/chair.svg'","'../say-and-name/assets/objects/cup.svg'","'../say-and-name/assets/objects/shoe.svg'","'../say-and-name/assets/objects/spoon.svg'","'../say-and-name/assets/objects/toothbrush.svg'","'../say-and-name/assets/objects/water.svg'",
 "'../say-and-name/assets/word-images/corrected-elephant-v24.jpg'","'../say-and-name/assets/word-images/corrected-lion-v24.jpg'","'../say-and-name/assets/word-images/corrected-turtle-v24.jpg'"
 ]
-if needle in s and '../../../assets/ui-icons/games.svg' not in s:
-    s=s.replace(needle,needle+','+','.join(extras))
+if '../../../assets/ui-icons/games.svg' not in s:
+    m=re.search(r"var CORE=\[(.*?)\];",s,flags=re.S)
+    if not m: raise SystemExit('CORE cache list not found')
+    core=m.group(1).rstrip()
+    replacement='var CORE=['+core+','+','.join(extras)+'];'
+    s=s[:m.start()]+replacement+s[m.end():]
 sp.write_text(s,encoding='utf-8')
 
 # Add regression tests for legacy-safe Flexbox fallback and offline stable assets.
