@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 3,
+  "version": 4,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -32,7 +32,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر درجة الاستعداد واللعبة ← شاهد 5 خطوات مصورة ← العب مباشرة بنتيجة جولة أو اختر ورقة/لعبًا واقعيًا ← تلميح أو إعادة عند الحاجة ← نهاية بلا انتقال تلقائي",
+  "practice_model_ar": "في الشاشات العريضة تظهر الخطوات الخمس معًا افتراضيًا؛ في الجوال تتحرك تلقائيًا ثم تعرض كلها ← اختر واحدة من 70 لعبة ← العب مباشرة بنتيجة جولة أو استخدم الورقة واللعب الواقعي ← السابق/التالي والتلميح وإعادة المحاولة متاحة دون تشغيل لعبة تالية تلقائيًا",
   "branding": {
     "theme_color": "#0f8f8a",
     "accent_color": "#ffd54f",
@@ -42,9 +42,9 @@
     ]
   },
   "implementation": {
-    "state": "live-v3-owner-activated",
+    "state": "live-v4-expanded-70-games",
     "built_on": "2026-09-21",
-    "experiments": 20,
+    "experiments": 70,
     "levels": 4,
     "readiness_path_ar": [
       "تقريبًا 1–2 سنة مع المرافق",
@@ -60,10 +60,20 @@
       "shared drawing board",
       "shared name-based recorded audio assets from drawing-writing-foundations without duplicated audio folders",
       "local optional result history export and delete",
-      "offline-first PWA shell"
+      "offline-first PWA shell",
+      "wide-screen default five-step overview in one visual stage",
+      "mobile automatic five-step sequence followed by full overview",
+      "persistent previous and next navigation",
+      "50 additional creative games across all readiness levels"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
-    "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation"
+    "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
+    "level_distribution": {
+      "1": 18,
+      "2": 18,
+      "3": 17,
+      "4": 17
+    }
   },
   "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/screen-to-move/PROMPT_AR.md"

@@ -1,5 +1,5 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v3';
+var CACHE='app360-app-screen-to-move-v4';
 var CORE=['./','./index.html','./styles.css?v=3','./games-data.js?v=3','./app.js?v=3','./manifest.webmanifest?v=3','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=22','../drawing-writing-foundations/audio/registry.json?v=22'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(CORE.map(function(u){return c.add(u).catch(function(){return null})}))}));if(self.skipWaiting)self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-screen-to-move-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
