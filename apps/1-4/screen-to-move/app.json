@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 13,
+  "version": 14,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v13-legacy-tablet-overlay-real-visual-and-wide-layout-fixes",
+    "state": "live-v14-desktop-layout-legacy-touch-drag-and-unsaved-work-guard",
     "built_on": "2026-09-21",
     "experiments": 170,
     "levels": 4,
@@ -116,7 +116,12 @@
       "runtime legacy overlay viewport fixer for sheet drawing worksheet and electronic game designer surfaces",
       "real say-and-name word images replace unsupported emoji glyphs for clothing animals food transport nature and common game objects",
       "shoe teaching visual replaced by a clearer side-view sneaker and gameplay uses the real w0028 image",
-      "compact wide-low-height landscape layout brings the active game and first library row into view sooner on 1024x600-class tablets"
+      "compact wide-low-height landscape layout brings the active game and first library row into view sooner on 1024x600-class tablets",
+      "desktop layout restoration prevents the old-tablet compact landscape rules from flattening laptop game cards",
+      "legacy Android touch bridge supports moving resizing and touch drag-drop from both designer asset libraries",
+      "worksheet and electronic game settings open from the side opposite the RTL close control",
+      "designer close back update and unload guards protect pending unsaved work and backdrop taps never close designers",
+      "service worker no longer calls skipWaiting during install, preventing surprise controller reloads while designing"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
