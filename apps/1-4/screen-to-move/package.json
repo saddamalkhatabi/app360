@@ -1,11 +1,11 @@
 {
   "name": "@app360/app-screen-to-move",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "description": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة: 90 لعبة بينها 20 تمرين علامة صح متعدد الخيارات - App 360 Lab",
   "scripts": {
     "test": "node --test app.test.js",
-    "validate": "node --check app.js && node --check designer-v9.js && node --check designer-assets-v9.js && node --check games-data.js && node --check offline-alternatives.js && node --check sw.js && node --test app.test.js"
+    "validate": "node --check app.js && node --check designer-v9.js && node --check designer-v10.js && node --check game-designer-v10.js && node --check designer-assets-v9.js && node --check games-data.js && node --check offline-alternatives.js && node --check sw.js && node --test app.test.js"
   },
   "app360": {
     "appId": "a1-screen-move",

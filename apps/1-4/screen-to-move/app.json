@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 9,
+  "version": 10,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v9-game-covers-advanced-worksheet-designer",
+    "state": "live-v10-collapsible-workspace-and-electronic-game-designer",
     "built_on": "2026-09-21",
     "experiments": 90,
     "levels": 4,
@@ -92,7 +92,18 @@
       "ready-made checkmark matching sorting tracing story and visual-discrimination worksheet templates",
       "portrait and landscape A4 design modes",
       "local design save/load plus JSON export/import for future interactive game conversion",
-      "legacy Android fallback without requiring Pointer Events CSS Grid or aspect-ratio support"
+      "legacy Android fallback without requiring Pointer Events CSS Grid or aspect-ratio support",
+      "worksheet designer controls collapse into a temporary edge drawer so the A4 page stays clear",
+      "designer controls automatically hide when the worksheet itself is touched",
+      "high-contrast worksheet designer button with always-visible label",
+      "separate electronic game designer sharing the same visual asset library and interaction language",
+      "electronic game designer supports choice multi-mark matching two-group sorting and ordered-sequence games",
+      "every designed electronic game can be assigned to readiness level 1 2 3 or 4",
+      "game elements carry logical roles such as correct distractor pair group and sequence order",
+      "electronic games include direct live preview before saving",
+      "locally saved custom electronic games plus JSON export and import",
+      "paper version printing directly from the electronic game layout without revealing answers",
+      "legacy Android game-board sizing fallback without requiring CSS aspect-ratio or Pointer Events"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
