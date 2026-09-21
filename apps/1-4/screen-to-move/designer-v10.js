@@ -16,9 +16,8 @@ function enhanceWorksheet(){
   function close(){removeClass(drawer,'open');removeClass(toggle,'open');toggle.setAttribute('aria-expanded','false')}
   function open(){addClass(drawer,'open');addClass(toggle,'open');toggle.setAttribute('aria-expanded','true')}
   toggle.setAttribute('aria-expanded','false');toggle.onclick=function(){if((' '+drawer.className+' ').indexOf(' open ')>=0)close();else open()};
-  var page=el('wdPage');if(page){page.addEventListener('mousedown',close);page.addEventListener('touchstart',close,false)}
-  var zone=panel.querySelector('.wd-paper-zone');if(zone){zone.addEventListener('mousedown',function(e){if(e.target===zone)close()});zone.addEventListener('touchstart',function(e){if(e.target===zone)close()},false)}
-  close();
+  toggle.title='إظهار أو إخفاء الأدوات والإعدادات';
+  open();
 }
 if(base&&base.open){var oldOpen=base.open;base.open=function(game){oldOpen(game);setTimeout(enhanceWorksheet,10)};base.version=10;}
 root.App360EnhanceWorksheetV10=enhanceWorksheet;

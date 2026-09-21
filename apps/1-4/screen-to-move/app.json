@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 10,
+  "version": 11,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v10-collapsible-workspace-and-electronic-game-designer",
+    "state": "live-v11-visible-user-controlled-settings-and-bottom-designer-invitation",
     "built_on": "2026-09-21",
     "experiments": 90,
     "levels": 4,
@@ -103,7 +103,10 @@
       "electronic games include direct live preview before saving",
       "locally saved custom electronic games plus JSON export and import",
       "paper version printing directly from the electronic game layout without revealing answers",
-      "legacy Android game-board sizing fallback without requiring CSS aspect-ratio or Pointer Events"
+      "legacy Android game-board sizing fallback without requiring CSS aspect-ratio or Pointer Events",
+      "worksheet and electronic game settings are visible by default and hidden only by explicit user action",
+      "bottom-of-library create-your-own invitation with both electronic-game and paper-game designer actions",
+      "explicit older-WebKit flex and positioning fallbacks for designer controls"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
