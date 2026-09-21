@@ -27,3 +27,5 @@ test('shared ui icon library exists for legacy-safe navigation',()=>{for(const f
 
 test('v8 uses a Flexbox fallback for old tablets instead of requiring CSS Grid',()=>{const css=fs.readFileSync('./v8.css','utf8');assert.match(css,/v8 legacy layout fallback/);assert.match(css,/display:flex!important/);assert.match(css,/flex-wrap:wrap!important/);});
 test('v8 service worker precaches shared legacy-safe icons and object art',()=>{const sw=fs.readFileSync('./sw.js','utf8');assert.match(sw,/assets\/ui-icons\/games\.svg/);assert.match(sw,/say-and-name\/assets\/objects\/cat\.svg/);});
+
+test('dynamic profile and finish buttons keep stable SVG icons',()=>{const js=fs.readFileSync('./app.js','utf8');assert.match(js,/updateUserButton\(\).*uiIcon\('user'/s);assert.match(js,/finish\.innerHTML=uiIcon\('finish'/);});
