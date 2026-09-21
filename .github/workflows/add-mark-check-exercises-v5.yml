@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/add-mark-check-exercises-v5.yml'
+      - 'tooling/apply-screen-mark-v5.py'
 
 permissions:
   contents: write
@@ -23,179 +24,8 @@ jobs:
           cache: pnpm
       - name: Install workspace
         run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Add 20 checkmark exercises and engine support
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import json,re
-          from pathlib import Path
-          root=Path('.')
-          new_games=json.loads(r'''[
-          {"id":"G71","level":1,"title":"ضع صح على اللون الأحمر","topic":"تمييز اللون","type":"mark","icon":"✅","symbols":["🔴","🔵","🟥","🟢"],"materials":["ورقة العمل","قلم شمعي عريض"],"prompt":"ضع علامة ✓ على كل خيار لونه أحمر","markOptions":[["🔴",true],["🔵",false],["🟥",true],["🟩",false],["❤️",true],["💙",false],["🔺",true],["🔶",false],["🟡",false],["🟢",false],["🔴 دائرة",true],["🟦",false]],"frames":["شاهد الخيارات الكثيرة","ابحث عن الأحمر فقط","ضع علامة صح على الأحمر","راجع الخيارات مع المرافق","اطبع الورقة وكرر بالقلم"]},
-          {"id":"G72","level":1,"title":"ضع صح على الدوائر","topic":"تمييز الأشكال","type":"mark","icon":"⭕","symbols":["●","▲","■","○"],"materials":["ورقة العمل","قلم عريض"],"prompt":"ضع علامة ✓ على كل شكل دائري","markOptions":[["●",true],["▲",false],["■",false],["○",true],["◆",false],["⬤",true],["△",false],["□",false],["◉",true],["★",false],["◯",true],["▰",false]],"frames":["شاهد أشكالًا كثيرة","ابحث عن الشكل الدائري","ضع صح على كل دائرة","اترك بقية الأشكال","ارسم دائرة كبيرة بعد الانتهاء"]},
-          {"id":"G73","level":1,"title":"ضع صح على الحيوانات","topic":"تمييز الحيوانات","type":"mark","icon":"🐾","symbols":["🐱","🍎","🐶","🚗"],"materials":["صور كبيرة أو ورقة العمل","قلم"],"prompt":"ضع علامة ✓ على كل حيوان","markOptions":[["🐱",true],["🍎",false],["🐶",true],["🚗",false],["🐰",true],["⚽",false],["🐟",true],["🧸",false],["🐦",true],["🍌",false],["🐢",true],["🏠",false]],"frames":["شاهد الصور كلها","ابحث عن الحيوانات","ضع صح على الحيوان","راجع ما بقي مع المرافق","قلّد حركة حيوان تختاره"]},
-          {"id":"G74","level":1,"title":"ضع صح على الفاكهة","topic":"الفواكه والأشياء","type":"mark","icon":"🍎","symbols":["🍎","🥕","🍌","🚲"],"materials":["ورقة العمل","صور فاكهة إن توفرت"],"prompt":"ضع علامة ✓ على كل فاكهة","markOptions":[["🍎",true],["🥕",false],["🍌",true],["🚲",false],["🍊",true],["🧦",false],["🍐",true],["🥦",false],["🍇",true],["⚽",false],["🍉",true],["🚗",false]],"frames":["شاهد الطعام والأشياء","ابحث عن الفاكهة","ضع صح على الفواكه","سمِّ أو أشر إلى واحدة منها","كرر على الورقة المطبوعة"]},
-          {"id":"G75","level":1,"title":"ضع صح على ما نلبسه","topic":"الملابس","type":"mark","icon":"👕","symbols":["👕","🍎","👟","🛏️"],"materials":["ورقة العمل","قطعتا ملابس حقيقيتان"],"prompt":"ضع علامة ✓ على كل شيء نلبسه","markOptions":[["👕",true],["🍎",false],["👟",true],["🛏️",false],["🧢",true],["⚽",false],["🧥",true],["🚗",false],["👖",true],["🍌",false],["🧦",true],["🪑",false]],"frames":["شاهد أشياء متنوعة","ابحث عما نلبسه","ضع صح على الملابس","اختر قطعة حقيقية قريبة","دع المرافق يغير ترتيب الصور"]},
-          {"id":"G76","level":2,"title":"ضع صح على وسائل النقل","topic":"وسائل النقل","type":"mark","icon":"🚗","symbols":["🚗","🐱","✈️","🍎"],"materials":["ورقة العمل","صور وسائل نقل"],"prompt":"ضع علامة ✓ على كل وسيلة نقل","markOptions":[["🚗",true],["🐱",false],["✈️",true],["🍎",false],["🚲",true],["🧸",false],["🚤",true],["🌳",false],["🚌",true],["🍌",false],["🚂",true],["⚽",false],["🚁",true],["🏠",false]],"frames":["شاهد الخيارات الكثيرة","ابحث عما ينقل الناس أو الأشياء","ضع صح على وسائل النقل","راجع اختيارين مع المرافق","اختر وسيلة ومثّل حركتها"]},
-          {"id":"G77","level":2,"title":"ضع صح على ما نأكله","topic":"الطعام والأشياء","type":"mark","icon":"🍽️","symbols":["🍞","🧸","🥛","🚗"],"materials":["ورقة العمل","صور طعام"],"prompt":"ضع علامة ✓ على كل شيء نأكله أو نشربه","markOptions":[["🍞",true],["🧸",false],["🥛",true],["🚗",false],["🍎",true],["🧦",false],["🥕",true],["⚽",false],["🍚",true],["🪑",false],["🍌",true],["📘",false],["🧀",true],["🚲",false]],"frames":["شاهد الطعام والأشياء","ابحث عما يمكن أكله أو شربه","ضع الصح","اترك الألعاب والأثاث","كوّن وجبة خيالية من ثلاثة اختيارات"]},
-          {"id":"G78","level":2,"title":"ضع صح على الأشياء الصفراء","topic":"اللون في الأشياء","type":"mark","icon":"🟡","symbols":["🍌","🍎","🌞","🥦"],"materials":["ورقة العمل","أشياء ملونة من الغرفة"],"prompt":"ضع علامة ✓ على الأشياء الصفراء غالبًا","markOptions":[["🍌",true],["🍎",false],["🌞",true],["🥦",false],["🍋",true],["🫐",false],["🟡",true],["🔵",false],["🌽",true],["🍓",false],["⭐",true],["🟢",false],["🟨",true],["🟪",false]],"frames":["شاهد اللون الأصفر","ابحث عنه داخل الصور","ضع صح على الأصفر","قارن مع لون آخر","ابحث عن شيء أصفر حقيقي"]},
-          {"id":"G79","level":2,"title":"ضع صح على المثلثات","topic":"الأشكال","type":"mark","icon":"🔺","symbols":["▲","■","△","●"],"materials":["ورقة العمل","أشكال ورقية كبيرة"],"prompt":"ضع علامة ✓ على كل مثلث مهما اختلف لونه أو حجمه","markOptions":[["▲",true],["■",false],["△",true],["●",false],["🔺",true],["🔵",false],["▴",true],["◆",false],["🔻",true],["□",false],["△ صغير",true],["○",false],["▲ كبير",true],["▰",false]],"frames":["شاهد أشكالًا بأحجام مختلفة","ركز على شكل المثلث","ضع صح على كل مثلث","لا تهتم باللون أو الحجم","اصنع مثلثًا بثلاث قطع"]},
-          {"id":"G80","level":2,"title":"ضع صح على أشياء الحمام","topic":"أشياء المنزل","type":"mark","icon":"🛁","symbols":["🪥","🧼","🍎","🚗"],"materials":["ورقة العمل","أشياء آمنة من الحمام مع المرافق"],"prompt":"ضع علامة ✓ على الأشياء التي نستخدمها عادة في الحمام","markOptions":[["🪥",true],["🧼",true],["🍎",false],["🚗",false],["🛁",true],["⚽",false],["🚿",true],["📘",false],["🧴",true],["🍌",false],["🪞",true],["🚲",false],["🧻",true],["🧸",false]],"frames":["شاهد الأشياء كلها","تذكر مكان استخدامها","ضع صح على أشياء الحمام","راجع اختيارًا مع المرافق","ابحث عن شيء آمن منها في البيت"]},
-          {"id":"G81","level":3,"title":"ضع صح على الكائنات التي تطير","topic":"الحيوانات والحركة","type":"mark","icon":"🪽","symbols":["🐦","🐱","🦋","🐟"],"materials":["ورقة العمل","صور حيوانات وكائنات"],"prompt":"ضع علامة ✓ على كل كائن يستطيع الطيران عادة","markOptions":[["🐦",true],["🐱",false],["🦋",true],["🐟",false],["🦅",true],["🐢",false],["🐝",true],["🐰",false],["🦜",true],["🐙",false],["🪰",true],["🐶",false],["🦉",true],["🦀",false],["🦆",true],["🐠",false]],"frames":["شاهد الكائنات المتنوعة","فكر في طريقة حركتها","ضع صح على من يطير","راجع ما اخترته","مثّل الطيران بيديك"]},
-          {"id":"G82","level":3,"title":"ضع صح على ما له عجلات","topic":"الأشياء والحركة","type":"mark","icon":"🛞","symbols":["🚗","✈️","🚲","🍎"],"materials":["ورقة العمل","ألعاب نقل إن توفرت"],"prompt":"ضع علامة ✓ على الأشياء التي لها عجلات واضحة للاستخدام","markOptions":[["🚗",true],["🍎",false],["🚲",true],["🧸",false],["🚌",true],["🏠",false],["🚂",true],["🌳",false],["🛴",true],["🐱",false],["🛒",true],["🍌",false],["♿",true],["⚽",false],["🚜",true],["📘",false]],"frames":["شاهد الأشياء","ابحث عن العجلات","ضع صح على ما له عجلات","فسر اختيارًا واحدًا للمرافق","دحرج لعبة ذات عجلات إن وجدت"]},
-          {"id":"G83","level":3,"title":"ضع صح على أدوات الرسم والكتابة","topic":"الأدوات","type":"mark","icon":"✏️","symbols":["✏️","🍎","🖍️","🚗"],"materials":["ورقة العمل","أقلام حقيقية آمنة"],"prompt":"ضع علامة ✓ على أدوات نستخدمها للرسم أو الكتابة","markOptions":[["✏️",true],["🍎",false],["🖍️",true],["🚗",false],["🖊️",true],["⚽",false],["🖌️",true],["🥄",false],["📏",true],["🧸",false],["✒️",true],["🍌",false],["📝",true],["👟",false],["🖍️ ألوان",true],["🪑",false]],"frames":["شاهد الأدوات والأشياء","حدد ما نكتب أو نرسم به","ضع الصح","اختر أداة حقيقية","ارسم خطًا أو شكلاً بها"]},
-          {"id":"G84","level":3,"title":"ضع صح على الأشكال ذات أربعة أضلاع","topic":"خصائص الأشكال","type":"mark","icon":"🔷","symbols":["□","△","▭","○"],"materials":["ورقة العمل","أشكال ورقية"],"prompt":"ضع علامة ✓ على كل شكل له أربعة أضلاع","markOptions":[["□",true],["△",false],["▭",true],["○",false],["◇",true],["▲",false],["■",true],["◯",false],["▱",true],["☆",false],["▰",true],["●",false],["◆",true],["△ صغير",false],["مربع □",true],["دائرة ○",false]],"frames":["راقب حدود الأشكال","عد الأضلاع بهدوء","ضع صح على ذي الأربعة أضلاع","راجع شكلًا صعبًا مع المرافق","كوّن مربعًا بأربع قطع"]},
-          {"id":"G85","level":3,"title":"ضع صح على ما نجده في الطبيعة","topic":"الطبيعة والأشياء","type":"mark","icon":"🌿","symbols":["🌳","🚗","🌸","📱"],"materials":["ورقة العمل","صور من الطبيعة"],"prompt":"ضع علامة ✓ على الأشياء الطبيعية وليست المصنوعة هنا","markOptions":[["🌳",true],["🚗",false],["🌸",true],["📱",false],["🪨",true],["🪑",false],["🌊",true],["🧸",false],["☁️",true],["🚲",false],["🍃",true],["📘",false],["🏔️",true],["🚌",false],["🌞",true],["🧴",false]],"frames":["شاهد الطبيعي والمصنوع","فكر أين نجده","ضع صح على الطبيعي","اشرح اختيارًا بالإشارة أو كلمة","ابحث من النافذة عن شيء طبيعي"]},
-          {"id":"G86","level":4,"title":"ضع صح على الكائنات الحية","topic":"الكائن الحي وغير الحي","type":"mark","icon":"🌱","symbols":["🐱","🪨","🌳","🚗"],"materials":["ورقة العمل","صور متنوعة"],"prompt":"ضع علامة ✓ على كل كائن حي","markOptions":[["🐱",true],["🪨",false],["🌳",true],["🚗",false],["🐦",true],["📘",false],["🌸",true],["🪑",false],["🐟",true],["⚽",false],["🌱",true],["📱",false],["🐝",true],["🧸",false],["🌴",true],["🔑",false]],"frames":["شاهد أشياء وكائنات كثيرة","فكر ما الذي ينمو أو يعيش","ضع صح على الكائن الحي","راجع سبب اختيارين","ابحث عن مثال حي حولك"]},
-          {"id":"G87","level":4,"title":"ضع صح على ما تحتاجه النبتة","topic":"احتياجات النبات","type":"mark","icon":"🪴","symbols":["💧","☀️","🍭","🌱"],"materials":["ورقة العمل","نبتة حقيقية إن توفرت"],"prompt":"ضع علامة ✓ على الأشياء الأساسية التي تساعد النبتة على النمو","markOptions":[["💧 ماء",true],["☀️ ضوء",true],["🟫 تربة",true],["🌬️ هواء",true],["🍭 حلوى",false],["📱 هاتف",false],["🧸 لعبة",false],["🚗 سيارة",false],["🌱 بذرة أو نبتة",true],["🪴 وعاء مناسب",true],["⚽ كرة",false],["👟 حذاء",false],["🌧️ ماء المطر",true],["📘 كتاب",false],["🪨 حصاة فقط",false],["🎈 بالون",false]],"frames":["شاهد الخيارات","فكر بما يساعد النبات","ضع الصح على الاحتياجات","استبعد الأشياء غير المرتبطة","اسقِ نبتة مع المرافق إن أمكن"]},
-          {"id":"G88","level":4,"title":"ضع صح على أدوات النظافة الشخصية","topic":"العناية بالنفس","type":"mark","icon":"🧼","symbols":["🪥","⚽","🧼","🚗"],"materials":["ورقة العمل","أدوات نظافة آمنة مع المرافق"],"prompt":"ضع علامة ✓ على الأشياء التي نستخدمها للعناية بالنظافة الشخصية","markOptions":[["🪥",true],["⚽",false],["🧼",true],["🚗",false],["🧴",true],["🍎",false],["🧻",true],["🧸",false],["🚿",true],["📘",false],["🪮",true],["🍌",false],["🪞",true],["🚲",false],["🧺 منشفة",true],["🎈",false]],"frames":["شاهد أدوات وأشياء متنوعة","تذكر ما نستخدمه للنظافة","ضع الصح","راجع سبب اختيارك","اختر عادة نظافة ومثّلها"]},
-          {"id":"G89","level":4,"title":"ضع صح على الأحمر الدائري معًا","topic":"قاعدتان: اللون والشكل","type":"mark","icon":"🎯","symbols":["🔴●","🔵●","🔴▲","🟢■"],"materials":["ورقة العمل","أشكال ملونة ورقية"],"prompt":"ضع علامة ✓ فقط على كل خيار أحمر ودائري في الوقت نفسه","markOptions":[["🔴 ●",true],["🔵 ●",false],["🔴 ▲",false],["🟢 ■",false],["🔴 ○",true],["🟡 ●",false],["🔴 ■",false],["🔵 ▲",false],["🔴 ◉",true],["🟢 ○",false],["🟥 مربع",false],["🔴 دائرة كبيرة",true],["🔵 دائرة",false],["🔴 مثلث",false],["🔴 دائرة صغيرة",true],["🟡 مربع",false]],"frames":["تذكر القاعدة الأولى: أحمر","تذكر القاعدة الثانية: دائري","ابحث عمن يحقق القاعدتين","ضع الصح فقط عند تحقق الشرطين","اصنع قاعدة مزدوجة جديدة للمرافق"]},
-          {"id":"G90","level":4,"title":"ضع صح على الأزرق المثلث معًا","topic":"تمييز بقاعدتين","type":"mark","icon":"🧠","symbols":["🔵▲","🔴▲","🔵■","🟢○"],"materials":["ورقة العمل","أشكال ملونة"],"prompt":"ضع علامة ✓ فقط على كل خيار أزرق ومثلث في الوقت نفسه","markOptions":[["🔵 ▲",true],["🔴 ▲",false],["🔵 ■",false],["🟢 ○",false],["🔵 △",true],["🟡 ▲",false],["🔵 ●",false],["🔴 ■",false],["🔵 مثلث كبير",true],["🟢 △",false],["🔷 معين",false],["🔵 مثلث صغير",true],["🟦 مربع",false],["🔴 ○",false],["🔵 ▴",true],["🟡 ●",false]],"frames":["تذكر اللون المطلوب","تذكر الشكل المطلوب","افحص كل خيار بقاعدتين","ضع الصح على الأزرق المثلث فقط","بدّل اللون أو الشكل واصنع تحديًا جديدًا"]}
-          ]''')
-          gp=root/'apps/1-4/screen-to-move/games-data.js'
-          text=gp.read_text(encoding='utf-8')
-          m=re.search(r"return (\[.*\]);\}\);\s*$",text,re.S)
-          if not m: raise SystemExit('games-data wrapper not recognized')
-          games=json.loads(m.group(1))
-          ids={g['id'] for g in games}
-          if 'G71' not in ids:
-              if len(games)!=70: raise SystemExit('expected 70 games before expansion, got %s'%len(games))
-              games.extend(new_games)
-          if len(games)!=90: raise SystemExit('expected 90 games after expansion, got %s'%len(games))
-          if len({g['id'] for g in games})!=90: raise SystemExit('duplicate game ids')
-          gp.write_text("(function(root,factory){var data=factory();if(typeof module==='object'&&module.exports){module.exports=data;}else{root.A1ScreenMoveGames=data;}})(this,function(){return "+json.dumps(games,ensure_ascii=False,separators=(',',':'))+";});\n",encoding='utf-8')
-
-          ap=root/'apps/1-4/screen-to-move/app.js'
-          js=ap.read_text(encoding='utf-8')
-          old="function targetFor(g){if(g.type==='match')"
-          new="function targetFor(g){if(g.type==='mark'){var mo=g.markOptions||[],mc=0;for(var mi=0;mi<mo.length;mi++)if(mo[mi][1])mc++;return mc||1}if(g.type==='match')"
-          if old in js: js=js.replace(old,new,1)
-          elif "if(g.type==='mark')" not in js: raise SystemExit('targetFor patch failed')
-
-          old="function buildChallenge(g){var box=el('challenge');if(!box)return;if(g.type==='choice'||g.type==='pattern'){buildChoice(box,g);return}"
-          new="function buildChallenge(g){var box=el('challenge');if(!box)return;if(g.type==='mark'){buildMark(box,g);return}if(g.type==='choice'||g.type==='pattern'){buildChoice(box,g);return}"
-          if old in js: js=js.replace(old,new,1)
-          elif "buildMark(box,g)" not in js: raise SystemExit('buildChallenge patch failed')
-
-          mark_fn=r'''function buildMark(box,g){var source=g.markOptions||[],opts=shuffle(source.map(function(x,i){return{v:x[0],ok:!!x[1],i:i}})),h='<div class="mark-board level-'+g.level+'"><h3>'+esc(g.prompt||'ضع علامة صح على الخيارات المناسبة')+'</h3><p class="mark-help">المس الخيارات المناسبة لوضع ✓، ثم اضغط «تحقق من العلامات». يمكنك اختيار أكثر من إجابة.</p><div class="mark-grid">';for(var i=0;i<opts.length;i++)h+='<button class="mark-option" data-mark="'+i+'" data-correct="'+(opts[i].ok?'1':'0')+'"><span class="mark-box">□</span><span class="mark-value">'+esc(opts[i].v)+'</span></button>';h+='</div><div class="action-row mark-actions"><button class="btn primary" id="checkMarks">✓ تحقق من العلامات</button><button class="btn" id="clearMarks">مسح العلامات الحالية</button></div><p id="challengeMsg" class="challenge-msg">اختر كل ما يطابق القاعدة؛ قد توجد عدة إجابات صحيحة.</p></div>';box.innerHTML=h;function hasClass(n,c){return(' '+n.className+' ').indexOf(' '+c+' ')>=0}arr(box.querySelectorAll('.mark-option')).forEach(function(b){b.onclick=function(){if(this.disabled||hasClass(this,'checked'))return;var mark=this.querySelector('.mark-box');if(hasClass(this,'selected')||hasClass(this,'wrong')){this.className='mark-option';if(mark)mark.textContent='□'}else{this.className='mark-option selected';if(mark)mark.textContent='✓'}}});el('checkMarks').onclick=function(){var bs=arr(box.querySelectorAll('.mark-option')),found=0,total=state.round?state.round.target:0;for(var i=0;i<bs.length;i++){var b=bs[i],sel=hasClass(b,'selected'),ok=b.getAttribute('data-correct')==='1',mark=b.querySelector('.mark-box');if(b.getAttribute('data-scored')==='1'){found++;continue}if(sel&&ok){b.className='mark-option checked';b.disabled=true;b.setAttribute('data-scored','1');if(mark)mark.textContent='✓';found++;scoreAttempt(true)}else if(sel&&!ok){b.className='mark-option wrong';if(mark)mark.textContent='✕';if(b.getAttribute('data-wrong-scored')!=='1'){b.setAttribute('data-wrong-scored','1');scoreAttempt(false,false)}}}if(found>=total){el('challengeMsg').textContent='أحسنت! تم تمييز كل الخيارات المطلوبة ✓'}else el('challengeMsg').textContent='وجدت '+found+' من '+total+' إجابات صحيحة. ابحث عن البقية.'};el('clearMarks').onclick=function(){arr(box.querySelectorAll('.mark-option')).forEach(function(b){if(b.disabled)return;b.className='mark-option';b.removeAttribute('data-wrong-scored');var m=b.querySelector('.mark-box');if(m)m.textContent='□'});el('challengeMsg').textContent='تم مسح العلامات غير المثبتة؛ ابدأ من جديد.'}}
-'''
-          if 'function buildMark(box,g)' not in js:
-              anchor='function buildChoice(box,g)'
-              pos=js.find(anchor)
-              if pos<0: raise SystemExit('buildChoice anchor not found')
-              js=js[:pos]+mark_fn+js[pos:]
-
-          old="create:['اختر ثلاثة أشياء حقيقية','أخفِ شيئًا تحت كوب','اصنع نمطًا بسيطًا','دع الطفل يسأل المرافق','ارسم طريقًا جديدًا','بدّل الدور وأنهِ اللعبة']}"
-          new="mark:['اطبع شبكة كبيرة وضع ✓ بقلم','ابدأ بستة خيارات فقط للصغير','ضع أشياء حقيقية متنوعة في صف','اطلب من الطفل تمييز نوع واحد فقط','بدّل القاعدة: لون أو شكل أو فئة','دع الطفل يصنع تحدي صح للمرافق'],create:['اختر ثلاثة أشياء حقيقية','أخفِ شيئًا تحت كوب','اصنع نمطًا بسيطًا','دع الطفل يسأل المرافق','ارسم طريقًا جديدًا','بدّل الدور وأنهِ اللعبة']}"
-          if old in js: js=js.replace(old,new,1)
-          elif "mark:['اطبع شبكة كبيرة" not in js: raise SystemExit('alternatives patch failed')
-
-          worksheet_fn=r'''function markWorksheetSVG(g){var body='<rect width="1120" height="1584" fill="white"/><rect x="45" y="45" width="1030" height="1494" rx="34" fill="#fbfefd" stroke="#0f8f8a" stroke-width="5"/>'+svgText(560,100,'ألعاب إبداعية عبر الشاشة — أو بدون الشاشة',30,'#0f8f8a')+svgText(560,165,g.title,42,'#17302f')+svgText(560,220,g.prompt||'ضع علامة صح على الخيارات المناسبة',28,'#24413f')+svgText(560,275,'ضع ✓ في المربع بجانب كل اختيار يطابق القاعدة',24,'#0f8f8a'),opts=g.markOptions||[],cols=4,cellW=235,cellH=185,startX=85,startY=340;for(var i=0;i<opts.length;i++){var col=i%cols,row=Math.floor(i/cols),x=startX+col*cellW,y=startY+row*cellH;body+='<rect x="'+x+'" y="'+y+'" width="215" height="160" rx="18" fill="#fff" stroke="#b7cbc9" stroke-width="3"/><rect x="'+(x+12)+'" y="'+(y+12)+'" width="38" height="38" rx="5" fill="none" stroke="#17302f" stroke-width="4"/>'+svgText(x+108,y+92,opts[i][0],30,'#17302f')}body+=svgText(560,1295,'راجع العلامات مع المرافق، ثم جرّب قاعدة جديدة',25,'#45605e')+'<line x1="100" y1="1350" x2="1020" y2="1350" stroke="#8da9a6" stroke-width="3" stroke-dasharray="14 10"/>'+svgText(560,1405,'قاعدة جديدة يختارها الطفل أو المرافق:',24,'#45605e')+'<rect x="140" y="1440" width="840" height="65" rx="14" fill="none" stroke="#b7cbc9" stroke-width="3"/>';return'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 1584">'+body+'</svg>'}
-'''
-          if 'function markWorksheetSVG(g)' not in js:
-              anchor='function worksheetSVG(g)'
-              pos=js.find(anchor)
-              if pos<0: raise SystemExit('worksheet anchor not found')
-              js=js[:pos]+worksheet_fn+js[pos:]
-          js=js.replace("function worksheetSVG(g){var body=", "function worksheetSVG(g){if(g.type==='mark')return markWorksheetSVG(g);var body=",1)
-          ap.write_text(js,encoding='utf-8')
-
-          sp=root/'apps/1-4/screen-to-move/styles.css'
-          css=sp.read_text(encoding='utf-8')
-          marker='/* v5: large multi-choice checkmark exercises */'
-          if marker in css: css=css[:css.index(marker)].rstrip()+"\n"
-          css += r'''
-          /* v5: large multi-choice checkmark exercises */
-          .mark-board{width:min(980px,100%);text-align:center}.mark-help{margin:0 auto 14px;max-width:760px;color:#45605e;line-height:1.7}.mark-grid{display:block;text-align:center}.mark-option{display:inline-flex;vertical-align:top;width:calc(25% - 10px);min-height:112px;margin:5px;border:3px solid #d5e8e5;border-radius:18px;background:#fff;align-items:center;justify-content:center;gap:9px;padding:10px;cursor:pointer;color:#17302f}.mark-box{display:inline-flex;align-items:center;justify-content:center;flex:0 0 34px;width:34px;height:34px;border:3px solid #789995;border-radius:7px;font-size:24px;font-weight:900;line-height:1}.mark-value{font-size:28px;font-weight:700;line-height:1.35}.mark-option.selected{border-color:#ffd54f;background:#fff8d2;box-shadow:0 0 0 3px #ffd54f44}.mark-option.selected .mark-box{background:#ffd54f;border-color:#b99700}.mark-option.checked{border-color:#1c9f69;background:#ddf7e9}.mark-option.checked .mark-box{background:#1c9f69;border-color:#1c9f69;color:#fff}.mark-option.wrong{border-color:#ef6767;background:#ffeded}.mark-option.wrong .mark-box{background:#ef6767;border-color:#ef6767;color:#fff}.mark-actions{justify-content:center;margin-top:16px}.level-1 .mark-option{min-height:128px}.level-1 .mark-value{font-size:34px}
-          @media(max-width:760px){.mark-option{width:calc(33.333% - 8px);margin:4px;min-height:100px;padding:7px;display:inline-flex}.mark-value{font-size:24px}.mark-box{flex-basis:30px;width:30px;height:30px;font-size:20px}.level-1 .mark-option{width:calc(50% - 8px);min-height:112px}.level-1 .mark-value{font-size:30px}}
-          @media(max-width:430px){.mark-option{width:calc(50% - 8px)}.mark-value{font-size:22px}.level-1 .mark-value{font-size:28px}}
-          '''
-          sp.write_text(css,encoding='utf-8')
-
-          ip=root/'apps/1-4/screen-to-move/index.html'
-          html=ip.read_text(encoding='utf-8')
-          html=re.sub(r'(manifest\.webmanifest|styles\.css|games-data\.js|app\.js)\?v=\d+',lambda m:m.group(1)+'?v=5',html)
-          ip.write_text(html,encoding='utf-8')
-
-          swp=root/'apps/1-4/screen-to-move/sw.js'
-          sw=swp.read_text(encoding='utf-8')
-          sw=re.sub(r"var CACHE='app360-app-screen-to-move-v\d+';","var CACHE='app360-app-screen-to-move-v5';",sw,count=1)
-          sw=re.sub(r"\./(styles\.css|games-data\.js|app\.js|manifest\.webmanifest)\?v=\d+",lambda m:'./'+m.group(1)+'?v=5',sw)
-          swp.write_text(sw,encoding='utf-8')
-
-          mp=root/'apps/1-4/screen-to-move/manifest.webmanifest'
-          manifest=json.loads(mp.read_text(encoding='utf-8'))
-          manifest['start_url']='./index.html?v=5'
-          manifest['description']='90 لعبة إبداعية متدرجة، منها 20 تمرين تمييز متعدد الخيارات بعلامة صح، تعمل على الشاشة أو في أوراق مطبوعة.'
-          mp.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          pp=root/'apps/1-4/screen-to-move/package.json'
-          pkg=json.loads(pp.read_text(encoding='utf-8'))
-          pkg['version']='0.5.0'
-          pkg['description']='ألعاب إبداعية عبر الشاشة — أو بدون الشاشة: 90 لعبة بينها 20 تمرين علامة صح متعدد الخيارات - App 360 Lab'
-          pp.write_text(json.dumps(pkg,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          tp=root/'apps/1-4/screen-to-move/app.test.js'
-          tp.write_text(r''' 'use strict';
-          const fs=require('node:fs');
-          const test=require('node:test');
-          const assert=require('node:assert/strict');
-          const games=require('./games-data.js');
-          test('library has exactly 90 creative games',()=>{assert.equal(games.length,90);assert.equal(new Set(games.map(g=>g.id)).size,90);});
-          test('four readiness levels remain balanced after the 20 checkmark exercises',()=>{const expected={1:23,2:23,3:22,4:22};for(let level=1;level<=4;level++)assert.equal(games.filter(g=>g.level===level).length,expected[level]);});
-          test('G71 through G90 are multi-choice mark exercises',()=>{for(let n=71;n<=90;n++){const id='G'+n;const g=games.find(x=>x.id===id);assert.ok(g,id+' missing');assert.equal(g.type,'mark');assert.ok(Array.isArray(g.markOptions)&&g.markOptions.length>=12,id+' needs large option set');assert.ok(g.markOptions.filter(x=>x[1]).length>=3,id+' needs multiple correct answers');assert.ok(g.markOptions.filter(x=>!x[1]).length>=3,id+' needs distractors');assert.equal(g.frames.length,5);}});
-          test('all 90 games use supported direct play types and paper materials',()=>{const supported=new Set(['choice','match','sort','dots','path','pattern','memory','draw','order','puzzle','create','mark']);for(const g of games){assert.ok(supported.has(g.type),g.id+' unsupported');assert.ok(Array.isArray(g.materials)&&g.materials.length>=1);assert.equal(g.frames.length,5);}});
-          test('mark engine supports large selections, check validation and printable checkboxes',()=>{const js=fs.readFileSync('./app.js','utf8');const css=fs.readFileSync('./styles.css','utf8');assert.match(js,/function buildMark\(box,g\)/);assert.match(js,/function markWorksheetSVG\(g\)/);assert.match(js,/g\.type==='mark'/);assert.match(js,/تحقق من العلامات/);assert.match(css,/large multi-choice checkmark exercises/);assert.match(css,/\.mark-option/);});
-          test('wide screen five-step overview and mobile autoplay remain enabled',()=>{const js=fs.readFileSync('./app.js','utf8');assert.match(js,/function compactReel\(\)/);assert.match(js,/if\(compactReel\(\)\)\{show\(0\);play\(\)\}else showOverview\(\)/);assert.match(js,/reelPrev/);assert.match(js,/reelNext/);});
-          test('shared name audio remains centralized',()=>{const js=fs.readFileSync('./app.js','utf8');const html=fs.readFileSync('./index.html','utf8');assert.match(js,/function speakCheer\(\)/);assert.match(html,/Audio360Base/);assert.match(html,/drawing-writing-foundations\/audio-v21\.js/);});
-          ''',encoding='utf-8')
-
-          cp=root/'apps/1-4/screen-to-move/app.json'
-          contract=json.loads(cp.read_text(encoding='utf-8'))
-          contract['version']=5
-          contract['practice_model_ar']='اختر من 90 لعبة؛ منها 20 تمرين تمييز متعدد الخيارات بعلامة صح تعرض مجموعات كبيرة من الأشكال والألوان والأشياء ← ضع عدة علامات ✓ ثم تحقق ← استخدم نفس الفكرة في ورقة مطبوعة بمربعات اختيار ← بقية الألعاب تدعم العرض المصور واللعب المباشر أو الواقعي'
-          impl=contract.setdefault('implementation',{})
-          impl['state']='live-v5-expanded-90-games-with-checkmark-exercises'
-          impl['experiments']=90
-          impl['levels']=4
-          impl['level_distribution']={'1':23,'2':23,'3':22,'4':22}
-          features=impl.setdefault('features',[])
-          for f in ['20 multi-choice checkmark discrimination exercises across all readiness levels','large option grids on screen with multiple correct selections','printable checkmark worksheets with empty boxes matching the exercise rule']:
-              if f not in features: features.append(f)
-          cp.write_text(json.dumps(contract,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          catalog_path=root/'data/catalog.json'
-          catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
-          catalog['updated']='2026-09-21'
-          app=next(x for x in catalog['apps'] if x['id']=='a1-screen-move')
-          app['description_ar']='تسعون لعبة إبداعية مصورة متدرجة، منها 20 تمرينًا جديدًا لتمييز الأشكال والألوان والحيوانات والطعام والملابس والأدوات والفئات والقواعد المزدوجة عبر وضع علامة صح على عدة خيارات من شبكة كبيرة. كل تمرين يعمل على الشاشة وبورقة مطبوعة بمربعات اختيار، إلى جانب الألعاب الأصلية واللعب الواقعي.'
-          app['practice_model']='اختر من 90 لعبة ← في تمارين علامة الصح اعرض شبكة كبيرة، اختر عدة إجابات ثم تحقق ← اطبع نفس التمرين بمربعات اختيار ← استخدم السابق/التالي وخطوات اللعبة ← العب على الشاشة أو خارجها بنهاية واضحة'
-          app['href']='apps/1-4/screen-to-move/index.html?v=5'
-          bp=app.get('blueprint',{})
-          bp['version']=5
-          bp['mvp_steps_ar']=[
-            'اختيار واحدة من 90 لعبة موزعة على أربع درجات استعداد؛ تشمل 20 تمرين علامة صح جديدًا بواقع خمسة لكل مستوى',
-            'تمارين علامة الصح تعرض من 12 إلى 16 خيارًا وتسمح بتحديد عدة عناصر صحيحة قبل التحقق',
-            'المستوى الأول يبدأ بتمييز لون أو شكل أو فئة واحدة واضحة، ثم تتصاعد المستويات إلى خصائص وفئات وقاعدتين معًا',
-            'الورقة المطبوعة لتمارين التمييز تعرض نفس الخيارات داخل شبكة كبيرة مع مربع فارغ لوضع علامة صح يدويًا',
-            'الحفاظ على عرض الخطوات الخمس والشاشة أو الورق والتشجيع الصوتي بالاسم دون تكرار ملفات الصوت'
-          ]
-          app['blueprint']=bp
-          catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          lp=root/'data/live-overrides.json'
-          live=json.loads(lp.read_text(encoding='utf-8'))
-          live['updated']='2026-09-21'
-          row=next(x for x in live['apps'] if x['id']=='a1-screen-move')
-          row['href']='apps/1-4/screen-to-move/index.html?v=5'
-          lp.write_text(json.dumps(live,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          rp=root/'apps/1-4/screen-to-move/README.md'
-          readme=rp.read_text(encoding='utf-8')
-          readme=re.sub(r'## النسخة v\d+','## النسخة v5',readme,count=1)
-          readme=re.sub(r'المكتبة الحالية تضم \*\*70 لعبة إبداعية\*\*.*?\n\n### عرض خطوات اللعبة', 'المكتبة الحالية تضم **90 لعبة إبداعية** موزعة على أربع درجات استعداد: 23 لعبة في المستوى الأول، 23 في الثاني، 22 في الثالث، و22 في الرابع. أضيفت 20 لعبة تمييز متعددة الخيارات بعلامة صح، خمسة لكل مستوى، إلى مكتبة السبعين لعبة السابقة.\n\n### تمارين علامة الصح متعددة الخيارات\n\n- تعرض من 12 إلى 16 خيارًا في شاشة واحدة أو مساحة قابلة للعرض بوضوح.\n- يمكن اختيار عدة إجابات ووضع علامة ✓ ثم الضغط على «تحقق من العلامات».\n- المستوى الأول يركز على لون أو شكل أو فئة واحدة واضحة، ثم تتدرج التمارين حتى القواعد المزدوجة.\n- لكل تمرين ورقة مطبوعة خاصة تعرض نفس الخيارات مع مربعات فارغة لعلامة الصح بالقلم.\n- يمكن للمرافق تقليل عدد الخيارات أو استخدام أشياء حقيقية بدل الشاشة.\n\n### عرض خطوات اللعبة', readme, count=1, flags=re.S)
-          rp.write_text(readme,encoding='utf-8')
-          PY
+      - name: Apply v5 expansion
+        run: python3 tooling/apply-screen-mark-v5.py
       - name: Regenerate planning documents
         run: node tooling/build-blueprints.js
       - name: Validate expansion
@@ -203,11 +33,11 @@ jobs:
           node tooling/validate-platform.js
           pnpm --filter @app360/app-screen-to-move validate
           git diff --check
-      - name: Commit v5 and remove one-time workflow
+      - name: Commit v5 and remove one-time tooling
         run: |
           git config user.name "app360-bot"
           git config user.email "app360-bot@users.noreply.github.com"
-          git rm .github/workflows/add-mark-check-exercises-v5.yml
+          git rm .github/workflows/add-mark-check-exercises-v5.yml tooling/apply-screen-mark-v5.py
           git add -A
           git commit -m "Add 20 checkmark discrimination exercises"
           git push origin HEAD:main
