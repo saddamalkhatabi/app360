@@ -1,0 +1,43 @@
+name: Fix screen-to-move trace v6
+
+on:
+  push:
+    paths:
+      - 'tooling/tmp_fix_trace_v6.py'
+      - '.github/workflows/fix-screen-to-move-trace-v6.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: Install workspace
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Apply trace and viewer fix
+        run: python3 tooling/tmp_fix_trace_v6.py
+      - name: Regenerate planning documents
+        run: node tooling/build-blueprints.js
+      - name: Validate
+        run: |
+          node tooling/validate-platform.js
+          pnpm --filter @app360/app-screen-to-move validate
+          git diff --check
+      - name: Commit v6 and remove temporary tooling
+        run: |
+          git config user.name "app360-bot"
+          git config user.email "app360-bot@users.noreply.github.com"
+          git rm tooling/tmp_fix_trace_v6.py .github/workflows/fix-screen-to-move-trace-v6.yml
+          git add -A
+          git commit -m "Fix synchronized dots and paths viewer in v6"
+          git push origin HEAD:main
