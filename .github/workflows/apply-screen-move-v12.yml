@@ -62,7 +62,7 @@ jobs:
         run: |
           git config user.name "app360-bot"
           git config user.email "app360-bot@users.noreply.github.com"
-          git rm tooling/apply-screen-move-v12.js .github/workflows/apply-screen-move-v12.yml
+          git rm -f tooling/apply-screen-move-v12.js .github/workflows/apply-screen-move-v12.yml
           git add -A
           git commit -m "Add 80 progressive games and legacy-safe covers v12"
           git push origin HEAD:main
