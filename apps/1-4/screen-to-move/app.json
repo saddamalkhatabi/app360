@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 5,
+  "version": 6,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -32,7 +32,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر من 90 لعبة؛ منها 20 تمرين تمييز متعدد الخيارات بعلامة صح تعرض مجموعات كبيرة من الأشكال والألوان والأشياء ← ضع عدة علامات ✓ ثم تحقق ← استخدم نفس الفكرة في ورقة مطبوعة بمربعات اختيار ← بقية الألعاب تدعم العرض المصور واللعب المباشر أو الواقعي",
+  "practice_model_ar": "عرض تعليمي واضح بخمس مراحل؛ ألعاب النقاط والمسارات تستخدم نفس هندسة الإحداثيات في الشرح واللعب والورقة المطبوعة، مع بداية حمراء مرقمة ونهاية خضراء ومسار إرشادي مطابق؛ بقية 90 لعبة تبقى متاحة بالشاشة أو الورق",
   "branding": {
     "theme_color": "#0f8f8a",
     "accent_color": "#ffd54f",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v5-expanded-90-games-with-checkmark-exercises",
+    "state": "live-v6-synchronized-trace-geometry",
     "built_on": "2026-09-21",
     "experiments": 90,
     "levels": 4,
@@ -67,7 +67,10 @@
       "50 additional creative games across all readiness levels",
       "20 multi-choice checkmark discrimination exercises across all readiness levels",
       "large option grids on screen with multiple correct selections",
-      "printable checkmark worksheets with empty boxes matching the exercise rule"
+      "printable checkmark worksheets with empty boxes matching the exercise rule",
+      "shared trace geometry for dots and paths across lesson viewer game canvas and worksheets",
+      "numbered checkpoints with explicit red start and green finish",
+      "clearer five-step overview especially on wide tablets"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",

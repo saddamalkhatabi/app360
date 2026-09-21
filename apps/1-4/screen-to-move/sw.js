@@ -1,6 +1,6 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v5';
-var CORE=['./','./index.html','./styles.css?v=5','./games-data.js?v=5','./app.js?v=5','./manifest.webmanifest?v=5','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=22','../drawing-writing-foundations/audio/registry.json?v=22'];
+var CACHE='app360-app-screen-to-move-v6';
+var CORE=['./','./index.html','./styles.css?v=6','./games-data.js?v=6','./app.js?v=6','./manifest.webmanifest?v=6','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=22','../drawing-writing-foundations/audio/registry.json?v=22'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(CORE.map(function(u){return c.add(u).catch(function(){return null})}))}));if(self.skipWaiting)self.skipWaiting()});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-screen-to-move-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
 self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});
