@@ -1,0 +1,25 @@
+(function(win){'use strict';
+var legacy=/Android\s(?:[0-4])(?:\.|;)/i.test(navigator.userAgent||'');
+var hasIDB=!legacy&&!!win.indexedDB,DB='app360-designer-v15',VER=1,LS='app360:designer-store-v15',LSD='app360:designer-drafts-v15';
+function clone(x){try{return JSON.parse(JSON.stringify(x))}catch(e){return x}}
+function uid(kind){return kind+'-'+new Date().getTime()+'-'+Math.floor(Math.random()*10000)}
+function open(cb){if(!hasIDB){cb(null);return}var q;try{q=indexedDB.open(DB,VER)}catch(e){hasIDB=false;cb(null);return}q.onupgradeneeded=function(){var d=q.result;if(!d.objectStoreNames.contains('designs'))d.createObjectStore('designs',{keyPath:'key'});if(!d.objectStoreNames.contains('drafts'))d.createObjectStore('drafts',{keyPath:'kind'})};q.onsuccess=function(){cb(q.result)};q.onerror=function(){hasIDB=false;cb(null)}}
+function lsRead(key){try{return JSON.parse(localStorage.getItem(key)||'[]')||[]}catch(e){return[]}}
+function lsWrite(key,a){try{localStorage.setItem(key,JSON.stringify(a));return true}catch(e){return false}}
+function record(kind,data){data=clone(data||{});var id=data.id||uid(kind);data.id=id;return{key:kind+':'+id,kind:kind,id:id,title:data.title||data.name||'تصميم',updated_at:new Date().toISOString(),data:data}}
+function saveLS(kind,data,cb){var r=record(kind,data),a=lsRead(LS),out=[r],i;for(i=0;i<a.length;i++)if(a[i].key!==r.key)out.push(a[i]);if(out.length>40)out.length=40;lsWrite(LS,out);if(cb)cb(r)}
+function save(kind,data,cb){var r=record(kind,data);open(function(db){if(!db){saveLS(kind,r.data,cb);return}try{var tx=db.transaction('designs','readwrite');tx.objectStore('designs').put(r);tx.oncomplete=function(){if(cb)cb(r)};tx.onerror=function(){saveLS(kind,r.data,cb)}}catch(e){saveLS(kind,r.data,cb)}})}
+function listLS(kind,cb){var a=lsRead(LS),o=[],i;for(i=0;i<a.length;i++)if(a[i].kind===kind)o.push(a[i]);o.sort(function(x,y){return String(y.updated_at).localeCompare(String(x.updated_at))});cb(o)}
+function list(kind,cb){open(function(db){if(!db){listLS(kind,cb);return}var o=[];try{var q=db.transaction('designs','readonly').objectStore('designs').openCursor();q.onsuccess=function(){var c=q.result;if(c){if(c.value&&c.value.kind===kind)o.push(c.value);c.continue()}else{o.sort(function(x,y){return String(y.updated_at).localeCompare(String(x.updated_at))});cb(o)}};q.onerror=function(){listLS(kind,cb)}}catch(e){listLS(kind,cb)}})}
+function getLS(kind,id,cb){var a=lsRead(LS),i;for(i=0;i<a.length;i++)if(a[i].kind===kind&&a[i].id===id){cb(a[i]);return}cb(null)}
+function get(kind,id,cb){open(function(db){if(!db){getLS(kind,id,cb);return}try{var q=db.transaction('designs','readonly').objectStore('designs').get(kind+':'+id);q.onsuccess=function(){cb(q.result||null)};q.onerror=function(){getLS(kind,id,cb)}}catch(e){getLS(kind,id,cb)}})}
+function removeLS(kind,id,cb){var a=lsRead(LS),o=[],i;for(i=0;i<a.length;i++)if(!(a[i].kind===kind&&a[i].id===id))o.push(a[i]);lsWrite(LS,o);if(cb)cb()}
+function remove(kind,id,cb){open(function(db){if(!db){removeLS(kind,id,cb);return}try{var tx=db.transaction('designs','readwrite');tx.objectStore('designs').delete(kind+':'+id);tx.oncomplete=function(){if(cb)cb()};tx.onerror=function(){removeLS(kind,id,cb)}}catch(e){removeLS(kind,id,cb)}})}
+function draftLS(kind,data,cb){var a=lsRead(LSD),r={kind:kind,updated_at:new Date().toISOString(),data:clone(data)},o=[r],i;for(i=0;i<a.length;i++)if(a[i].kind!==kind)o.push(a[i]);lsWrite(LSD,o);if(cb)cb(r)}
+function saveDraft(kind,data,cb){var r={kind:kind,updated_at:new Date().toISOString(),data:clone(data)};open(function(db){if(!db){draftLS(kind,data,cb);return}try{var tx=db.transaction('drafts','readwrite');tx.objectStore('drafts').put(r);tx.oncomplete=function(){if(cb)cb(r)};tx.onerror=function(){draftLS(kind,data,cb)}}catch(e){draftLS(kind,data,cb)}})}
+function loadDraftLS(kind,cb){var a=lsRead(LSD),i;for(i=0;i<a.length;i++)if(a[i].kind===kind){cb(a[i]);return}cb(null)}
+function loadDraft(kind,cb){open(function(db){if(!db){loadDraftLS(kind,cb);return}try{var q=db.transaction('drafts','readonly').objectStore('drafts').get(kind);q.onsuccess=function(){cb(q.result||null)};q.onerror=function(){loadDraftLS(kind,cb)}}catch(e){loadDraftLS(kind,cb)}})}
+function clearDraftLS(kind,cb){var a=lsRead(LSD),o=[],i;for(i=0;i<a.length;i++)if(a[i].kind!==kind)o.push(a[i]);lsWrite(LSD,o);if(cb)cb()}
+function clearDraft(kind,cb){open(function(db){if(!db){clearDraftLS(kind,cb);return}try{var tx=db.transaction('drafts','readwrite');tx.objectStore('drafts').delete(kind);tx.oncomplete=function(){if(cb)cb()};tx.onerror=function(){clearDraftLS(kind,cb)}}catch(e){clearDraftLS(kind,cb)}})}
+win.App360DesignerStore={save:save,list:list,get:get,remove:remove,saveDraft:saveDraft,loadDraft:loadDraft,clearDraft:clearDraft,mode:function(){return hasIDB?'IndexedDB':'LocalStorage'},legacy:legacy};
+})(window);
