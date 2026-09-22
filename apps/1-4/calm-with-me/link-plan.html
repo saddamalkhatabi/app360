@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0f8f8a">
+<meta name="app360-build" content="calm-link-plan-v5-20260923">
+<title>خطة التطبيقات والروابط | مشاعري معك</title>
+<link rel="stylesheet" href="link-plan-v5.css?v=5">
+<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
+</head>
+<body>
+<header class="lp-head">
+  <div class="lp-head-in">
+    <a class="lp-back" href="index.html?v=5">← العودة إلى مشاعري معك</a>
+    <div class="lp-title">
+      <h1>خطة التطبيقات والروابط</h1>
+      <p>روابط مرتبة + وقت لكل خطوة + انتقال تلقائي إلى الخطوة التالية.</p>
+    </div>
+    <span class="lp-build">نسخة v5 المبسطة</span>
+  </div>
+</header>
+
+<main id="lpSetup" class="lp-main">
+  <section class="lp-card">
+    <div class="lp-note"><b>الاستخدام بسيط:</b> رتّب الروابط، حدّد مدة كل رابط بالثواني، ثم اضغط «ابدأ الخطة». الصفحة المطلوبة تفتح أمامك، وعند انتهاء الوقت ينتقل المشغّل للرابط التالي تلقائيًا.</div>
+    <h2>الخطة الحالية</h2>
+    <p>أضف أو احذف أو حرّك أي خطوة. الخطة الأولى جاهزة مسبقًا بتطبيقات الفئة 1-4 ومعها الريلز الآمن 360.</p>
+    <button id="lpStart" class="lp-start" type="button" onclick="App360LinkPlan.start()">▶ ابدأ الخطة الآن</button>
+    <div id="lpStatus" class="lp-status" role="status"></div>
+    <div id="lpPlan" class="lp-list"></div>
+    <div class="lp-actions">
+      <button type="button" onclick="App360LinkPlan.reset()">إعادة الروابط الافتراضية</button>
+      <button type="button" onclick="App360LinkPlan.exportData()">نسخ الخطة وسجل التنفيذ</button>
+    </div>
+    <textarea id="lpTransfer" class="lp-transfer" spellcheck="false" aria-label="نسخة بيانات الخطة"></textarea>
+  </section>
+
+  <section class="lp-card">
+    <h2>الروابط الجاهزة</h2>
+    <p>هذه الروابط الأساسية مضافة من تطبيقات الفئة العمرية نفسها، ويمكن إضافتها مرة أخرى متى احتجت.</p>
+    <div id="lpLibrary" class="lp-library"></div>
+  </section>
+
+  <section class="lp-card">
+    <h2>أضف رابطًا بنفسك</h2>
+    <p>يمكن أن يكون الرابط صفحة من تطبيقاتنا أو أي رابط خارجي يبدأ بـ https.</p>
+    <div class="lp-form">
+      <div class="lp-field"><label for="lpCustomTitle">اسم الخطوة</label><input id="lpCustomTitle" type="text" maxlength="90" placeholder="مثال: فيديو هادئ"></div>
+      <div class="lp-field"><label for="lpCustomUrl">الرابط</label><input id="lpCustomUrl" type="text" dir="ltr" placeholder="https://... أو apps/..."></div>
+      <div class="lp-field"><label for="lpCustomSeconds">المدة بالثواني</label><input id="lpCustomSeconds" type="number" min="5" max="3600" value="60"></div>
+      <button class="lp-add" type="button" onclick="App360LinkPlan.addManual()">+ أضف إلى الخطة</button>
+    </div>
+  </section>
+
+  <section class="lp-card">
+    <h2>سجل التنفيذ</h2>
+    <p>يسجل التطبيق متى بدأت الخطة، وما الروابط التي عُرضت، وكيف انتهت كل خطوة.</p>
+    <div id="lpHistory"></div>
+    <button class="lp-small" type="button" onclick="App360LinkPlan.clearHistory()">حذف سجل التنفيذ فقط</button>
+  </section>
+</main>
+
+<section id="lpRunner" class="lp-runner" aria-live="polite">
+  <div id="lpRunBar" class="lp-runbar">
+    <div class="lp-run-info">
+      <strong id="lpRunTitle">جارٍ فتح الخطوة…</strong>
+      <small id="lpRunCount"></small>
+      <small id="lpRunUrl" style="display:block;direction:ltr;text-align:left;max-width:600px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></small>
+    </div>
+    <div id="lpTimer" class="lp-timer">00:00</div>
+    <div class="lp-run-actions">
+      <button class="lp-open" type="button" onclick="App360LinkPlan.openExternal()">فتح في تبويب جديد</button>
+      <button type="button" onclick="App360LinkPlan.previous()">السابق</button>
+      <button class="lp-next" type="button" onclick="App360LinkPlan.next()">التالي الآن</button>
+      <button class="lp-stop" type="button" onclick="App360LinkPlan.stop()">إيقاف والعودة للخطة</button>
+    </div>
+  </div>
+  <div id="lpExternalNote" class="lp-external-note">هذا رابط خارجي. سيحاول التطبيق عرضه هنا. إذا لم يظهر بسبب حماية الموقع اضغط «فتح في تبويب جديد»؛ يبقى المؤقت في هذه الصفحة مستمرًا.</div>
+  <div id="lpFrameStatus" class="lp-status">جارٍ فتح الصفحة…</div>
+  <div class="lp-frame-wrap">
+    <iframe id="lpFrame" class="lp-frame" title="صفحة النشاط الحالية" src="about:blank"></iframe>
+  </div>
+</section>
+
+<script src="../../../assets/js/legacy-compat.js?v=1"></script>
+<script src="link-plan-v5.js?v=5"></script>
+</body>
+</html>
