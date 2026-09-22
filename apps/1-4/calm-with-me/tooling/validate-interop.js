@@ -16,7 +16,7 @@ if(index.indexOf('link-entry-v5.js')>=0||index.indexOf('interop-ui.js')>=0||inde
 if(index.indexOf('data-view="transition"')<0||index.indexOf('الخطط والتجارب')<0)fail('scenario planner must remain inside main application navigation');
 if(redirect.indexOf('index.html?open=scenarios&v=6')<0)fail('old planner URL must redirect into integrated scenario view');
 if(scenario.indexOf('case_id')<0||scenario.indexOf('scenario_id')<0||scenario.indexOf('template_id')<0||scenario.indexOf('run_id')<0)fail('case/scenario/template/run model missing');
-if(scenario.indexOf('data/app-links-registry.json')<0||scenario.indexOf('routeItems')<0||scenario.indexOf('collection_kind')<0)fail('deep-link service catalog reader missing');
+if(scenario.indexOf('data/app-links-registry.json')<0||scenario.indexOf('routeItems')<0||scenario.indexOf('loadScript')<0||scenario.indexOf('xhrJson')<0)fail('deep-link service catalog reader missing');
 if(scenario.indexOf('https://yem1.com')<0)fail('Safe Reels 360 must be available in scenario services');
 if(scenario.indexOf('embedded')<0||scenario.indexOf('launch_id')<0||scenario.indexOf('app360:interop:v1:events')<0)fail('embedded execution tracking missing');
 if(scenario.indexOf('duration_sec')<0||scenario.indexOf('setInterval')<0||scenario.indexOf('auto_advance')<0)fail('timed scenario transitions missing');
