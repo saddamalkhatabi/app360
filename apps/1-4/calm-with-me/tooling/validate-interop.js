@@ -2,29 +2,30 @@
 const fs=require('fs');
 const path=require('path');
 const root=path.resolve(__dirname,'..');
-const repo=path.resolve(root,'../../..');
 function read(p){return fs.readFileSync(path.join(root,p),'utf8')}
-function readRepo(p){return fs.readFileSync(path.join(repo,p),'utf8')}
-function fail(msg){console.error('interop validation failed:',msg);process.exit(1)}
-const ui=read('interop-ui.js');
-const simple=read('interop-enhancements-v3.js');
-const content=read('data/content.js');
+function fail(msg){console.error('link-plan validation failed:',msg);process.exit(1)}
+const index=read('index.html');
+const planner=read('link-plan.html');
+const js=read('link-plan-v5.js');
+const entry=read('link-entry-v5.js');
+const css=read('link-plan-v5.css');
 const sw=read('sw.js');
-const host=readRepo('assets/js/app-link-host.js');
-try{new Function(ui)}catch(e){fail('interop-ui.js syntax: '+e.message)}
-try{new Function(simple)}catch(e){fail('guided flow syntax: '+e.message)}
-try{new Function(host)}catch(e){fail('app-link-host.js syntax: '+e.message)}
-if(ui.indexOf('app360_result')<0||ui.indexOf('app360_launch_id')<0)fail('simple return recorder missing');
-if(ui.indexOf('event_verified')<0||ui.indexOf('interop_pending')<0)fail('execution verification missing');
-if(simple.indexOf('simple-v4')<0)fail('guided simple flow marker missing');
-if(simple.indexOf('خطة بسيطة من 3 خطوات')<0)fail('three-step guidance missing');
-if(simple.indexOf('data-v4-activity')<0||simple.indexOf('data-v4-run')<0)fail('direct activity/run controls missing');
-if(simple.indexOf('say-and-name/launch.html')<0||simple.indexOf('imitate-one-step/launch.html')<0||simple.indexOf('screen-to-move/launch.html')<0||simple.indexOf('drawing-writing-foundations/launch.html')<0)fail('quick activities must cover all four linked apps');
-if(simple.indexOf('launch_id')<0||simple.indexOf('return_to')<0)fail('launch context missing from simple flow');
-if(/https?:\/\//i.test(simple)||/https?:\/\//i.test(ui))fail('hard-coded domain detected');
-if(/\bconst\b|\blet\b|=>/.test(simple)||/\bconst\b|\blet\b|=>/.test(ui)||/\bconst\b|\blet\b|=>/.test(host))fail('legacy runtime requires ES5 syntax');
-if(content.indexOf('interop-ui.js')>=0)fail('content dictionary must not dynamically load interop scripts');
-if(host.indexOf('أنجزنا النشاط')<0||host.indexOf('العودة دون إكمال')<0)fail('clear finish/cancel controls missing');
-if(host.indexOf('inset:0')>=0)fail('legacy launch host must not depend on CSS inset');
-if(sw.indexOf('app360-app-calm-with-me-v4')<0||sw.indexOf('interop-enhancements-v3.js?v=3')<0)fail('service worker cache not refreshed for simple flow v4');
-console.log('calm-with-me guided interop v4 validation OK');
+const content=read('data/content.js');
+try{new Function(js)}catch(e){fail('link-plan-v5.js syntax: '+e.message)}
+try{new Function(entry)}catch(e){fail('link-entry-v5.js syntax: '+e.message)}
+if(index.indexOf('calm-with-me-v5-20260923')<0)fail('main build v5 marker missing');
+if(index.indexOf('link-entry-v5.js?v=5')<0)fail('main page does not route to isolated planner');
+if(index.indexOf('interop-ui.js')>=0||index.indexOf('interop-enhancements')>=0)fail('old interop runtime must not load on main page');
+if(planner.indexOf('calm-link-plan-v5-20260923')<0||planner.indexOf('link-plan-v5.js?v=5')<0)fail('isolated planner v5 files missing');
+if(planner.indexOf('lpFrame')<0||planner.indexOf('lpTimer')<0||planner.indexOf('ابدأ الخطة الآن')<0)fail('planner execution UI incomplete');
+if(js.indexOf('apps/1-4/say-and-name/index.html')<0||js.indexOf('apps/1-4/imitate-one-step/index.html')<0||js.indexOf('apps/1-4/screen-to-move/index.html')<0||js.indexOf('apps/1-4/drawing-writing-foundations/index.html')<0)fail('default 1-4 app links missing');
+if(js.indexOf('https://yem1.com')<0)fail('Safe Reels 360 default link missing');
+if(js.indexOf('setInterval')<0||js.indexOf('deadline')<0||js.indexOf('time-finished')<0)fail('timed automatic transition logic missing');
+if(js.indexOf('custom_links')<0||js.indexOf('addManual')<0)fail('manual link library missing');
+if(js.indexOf('history')<0||js.indexOf('run_id')<0||js.indexOf('exportData')<0)fail('execution recording/export missing');
+if(js.indexOf('touchend')>=0||js.indexOf('preventDefault')>=0)fail('planner must not depend on touchend interception');
+if(/\bconst\b|\blet\b|=>/.test(js)||/\bconst\b|\blet\b|=>/.test(entry))fail('legacy runtime requires ES5 syntax');
+if(css.indexOf('display:grid')>=0||css.indexOf('inset:')>=0)fail('planner CSS must remain legacy-safe');
+if(content.indexOf('interop-ui.js')>=0)fail('content dictionary must not load old interop');
+if(sw.indexOf('app360-app-calm-with-me-v5')<0||sw.indexOf('link-plan.html')<0||sw.indexOf('link-plan-v5.js?v=5')<0)fail('service worker cache not upgraded to v5 planner');
+console.log('calm-with-me isolated timed link planner v5 validation OK');
