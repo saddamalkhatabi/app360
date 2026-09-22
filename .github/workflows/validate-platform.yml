@@ -65,5 +65,7 @@ jobs:
         run: pnpm validate
       - name: Test goal integrity and safe plan scaffolding
         run: pnpm test
+      - name: Validate calm-with-me content and legacy core
+        run: pnpm --filter @app360/app-calm-with-me validate
       - name: Validate a1 200-experience library
         run: pnpm --filter @app360/app-imitate-one-step validate
