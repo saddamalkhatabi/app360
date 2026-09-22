@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0f8f8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="app360-build" content="calm-with-me-v1-20260922">
+<title>مشاعري معك: أحتاج مساعدة | مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=1">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
+<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
+<div id="fatal" class="fatal" role="alert"></div>
+<div id="storageBanner" class="storage-banner" role="status"></div>
+<header class="app-head">
+  <div class="head-main">
+    <img class="app-icon" src="icon.svg?v=1" alt="">
+    <div class="head-copy">
+      <span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4</span>
+      <h1>مشاعري معك: أحتاج مساعدة</h1>
+      <p>إشارة أو اختيار بسيط، مساعدة قابلة للرفض، ثم «الآن وبعد ذلك» ومراجعة وصفية للمرافق.</p>
+    </div>
+    <div class="head-actions">
+      <button id="installAppBtn" type="button">تثبيت</button>
+      <button id="updateAppBtn" type="button">تحديث</button>
+    </div>
+  </div>
+  <div class="safety-line">لا تشخيص · لا إجبار على التسمية أو التنفس أو الهدوء · يمكن التوقف أو التجاوز في أي وقت</div>
+</header>
+
+<nav id="mainNav" class="main-nav" aria-label="أقسام التطبيق">
+  <button id="nav-child" class="nav-btn active" type="button" data-view="child">مع الطفل</button>
+  <button id="nav-transition" class="nav-btn" type="button" data-view="transition">الآن وبعد ذلك</button>
+  <button id="nav-plans" class="nav-btn" type="button" data-view="plans">خططي <span id="plansCount">0</span></button>
+  <button id="nav-caregiver" class="nav-btn" type="button" data-view="caregiver">للمرافق</button>
+</nav>
+
+<main id="mainContent" class="app-shell">
+  <section id="childView" class="view">
+    <div class="section-head">
+      <div>
+        <span class="step-kicker">1 · إشارة أو شعور اختياري</span>
+        <h2>يمكن الإشارة فقط</h2>
+        <p>اختر صورة إذا ساعدت، أو تجاوز التسمية تمامًا. لا يحاول التطبيق استنتاج شعور الطفل من النقر.</p>
+      </div>
+      <button id="skipSignalBtn" class="secondary big" type="button">تجاوز التسمية</button>
+    </div>
+
+    <section class="practice-block">
+      <h3>ما الذي نحتاج قوله الآن؟</h3>
+      <div id="signalCards" class="choice-row" aria-label="إشارات وحاجات"></div>
+      <details class="optional-box">
+        <summary>إذا أراد الطفل أو المرافق استخدام كلمة شعور</summary>
+        <p>هذه كلمات اختيارية فقط، وليست نتيجة يقررها التطبيق.</p>
+        <div id="feelingCards" class="choice-row" aria-label="كلمات شعور اختيارية"></div>
+      </details>
+    </section>
+
+    <section id="helpSection" class="practice-block accent-block">
+      <div class="section-head compact">
+        <div>
+          <span class="step-kicker">2 · مساعدة قابلة للقبول أو الرفض</span>
+          <h2>ما المساعدة التي نعرضها؟</h2>
+          <p>اعرض خيارًا أو خيارين. لا تتحول البطاقة إلى أمر إجباري.</p>
+        </div>
+        <button id="rejectHelpBtn" class="secondary" type="button">لا نختار مساعدة الآن</button>
+      </div>
+      <div id="helpCards" class="choice-row help-row" aria-label="خيارات المساعدة"></div>
+    </section>
+
+    <section class="current-strip" aria-live="polite">
+      <div><span>الإشارة الحالية</span><b id="currentSignalText">لم نشترط تسمية</b></div>
+      <div><span>المساعدة الحالية</span><b id="currentHelpText">لا توجد مساعدة مختارة بعد</b></div>
+    </section>
+
+    <div class="primary-actions">
+      <button id="goTransitionBtn" class="primary huge" type="button">كوّن «الآن وبعد ذلك»</button>
+      <button id="goCaregiverBtn" class="secondary huge" type="button">مراجعة المرافق بعد الموقف</button>
+    </div>
+  </section>
+
+  <section id="transitionView" class="view" hidden>
+    <div class="section-head">
+      <div>
+        <span class="step-kicker">3 · انتقال بصري بسيط</span>
+        <h2>الآن وبعد ذلك</h2>
+        <p>اختر خطوتين واضحتين فقط. يمكن استخدام صور المكتبة المشتركة أو إضافة صورة محلية من الجهاز.</p>
+      </div>
+    </div>
+
+    <label class="field-label" for="planTitle">اسم الخطة — اختياري</label>
+    <input id="planTitle" class="text-input" type="text" maxlength="80" placeholder="مثال: الاستعداد للخروج">
+
+    <div id="planPreview" class="plan-preview" aria-live="polite"></div>
+
+    <div class="picker-block">
+      <h3>الآن</h3>
+      <div id="nowPicker" class="transition-row" aria-label="اختر ما يحدث الآن"></div>
+    </div>
+    <div class="picker-block">
+      <h3>بعد ذلك</h3>
+      <div id="thenPicker" class="transition-row" aria-label="اختر ما يحدث بعد ذلك"></div>
+    </div>
+
+    <section class="custom-step-box">
+      <h3>أضف خطوة أسرية خاصة</h3>
+      <p>تبقى الصورة على الجهاز ولا تُرفع إلى خادم.</p>
+      <div class="form-row">
+        <input id="customTransitionLabel" class="text-input" type="text" maxlength="70" placeholder="اسم الخطوة">
+        <label class="file-button">صورة من الجهاز<input id="customTransitionImage" type="file" accept="image/*"></label>
+        <button id="addTransitionBtn" class="secondary" type="button">إضافة للمكتبة</button>
+      </div>
+    </section>
+
+    <div class="primary-actions">
+      <button id="savePlanBtn" class="primary huge" type="button" disabled>حفظ الخطة</button>
+      <button id="printCurrentBtn" class="secondary huge" type="button" disabled>طباعة البطاقة</button>
+      <button id="newSessionBtn" class="quiet huge" type="button">موقف جديد</button>
+    </div>
+  </section>
+
+  <section id="plansView" class="view" hidden>
+    <div class="section-head">
+      <div>
+        <span class="step-kicker">خطط محلية قابلة لإعادة الاستخدام</span>
+        <h2>خططي المحفوظة</h2>
+        <p>يمكن فتح الخطة وتعديلها أو طباعتها أو تصديرها. لا تحتاج حسابًا أو اتصالًا مستمرًا.</p>
+      </div>
+      <button id="exportAllBtn" class="secondary" type="button">تصدير كل البيانات</button>
+    </div>
+    <div id="plansList" class="plans-list"></div>
+
+    <section id="transferBox" class="transfer-box" hidden>
+      <h3>نقل البيانات يدويًا</h3>
+      <p>هذه نسخة JSON واضحة. استخدمها كبديل إذا تعذر التنزيل أو التخزين.</p>
+      <textarea id="transferText" rows="10" dir="ltr" spellcheck="false"></textarea>
+      <div class="row-actions">
+        <button id="copyTransferBtn" type="button">نسخ النص</button>
+        <button id="importTextBtn" type="button">استيراد النص الموجود</button>
+      </div>
+    </section>
+
+    <section class="import-box">
+      <h3>استيراد خطة أو نسخة احتياطية</h3>
+      <label class="file-button">اختيار ملف JSON<input id="importFile" type="file" accept="application/json,.json"></label>
+      <p>الاستيراد يضيف الخطط الجديدة ولا يحذف الخطط الحالية.</p>
+    </section>
+  </section>
+
+  <section id="caregiverView" class="view" hidden>
+    <div class="section-head">
+      <div>
+        <span class="step-kicker">وضع المرافق</span>
+        <h2>مكتبة المساعدات الشخصية</h2>
+        <p>رتّب الخيارات حسب ما يقبله الطفل عادة في المواقف المختلفة. استخدم الأسهم بدل اشتراط السحب.</p>
+      </div>
+      <button id="resetLibraryBtn" class="quiet" type="button">إعادة الافتراضي</button>
+    </div>
+
+    <div id="libraryList" class="library-list"></div>
+
+    <section class="custom-help-box">
+      <h3>إضافة مساعدة أسرية خاصة</h3>
+      <p>يمكن إرفاق صورة وصوت مسجل من الجهاز. كلاهما محلي ولا يُرسل للخارج، والنص وحده يكفي عند عدم توفر الملفات.</p>
+      <div class="form-stack">
+        <input id="customHelpLabel" class="text-input" type="text" maxlength="70" placeholder="مثال: أمسك دميتي المفضلة">
+        <div class="form-row">
+          <label class="file-button">صورة محلية<input id="customHelpImage" type="file" accept="image/*"></label>
+          <label class="file-button">صوت مسجل محلي<input id="customHelpAudio" type="file" accept="audio/*"></label>
+          <button id="addHelpBtn" class="primary" type="button">إضافة المساعدة</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="audio-box">
+      <label class="toggle large"><input id="speechToggle" type="checkbox" checked> قراءة الكلمات صوتيًا عند توفر TTS</label>
+      <p id="audioStatus" role="status">الصوت اختياري. التطبيق يعمل بصريًا حتى عند تعذره.</p>
+    </section>
+
+    <section class="review-box">
+      <span class="step-kicker">4 · بعد الموقف</span>
+      <h2>مراجعة وصفية للمرافق</h2>
+      <p>سجّل ما عُرض وما قُبل وما تريد تغييره في المرة القادمة. لا تصف الطفل بأنه «جيد/سيئ» ولا تمنحه درجة هدوء.</p>
+      <label class="field-label" for="reviewPlan">الخطة المستخدمة</label>
+      <select id="reviewPlan" class="text-input"></select>
+      <div id="reviewOutcomeButtons" class="outcome-row" aria-label="ما الذي حدث"></div>
+      <label class="field-label" for="reviewAccepted">ماذا قبل الطفل أو اختار؟ — اختياري</label>
+      <input id="reviewAccepted" class="text-input" type="text" maxlength="160" placeholder="وصف قصير">
+      <label class="field-label" for="reviewHelped">ما الذي ساعد؟</label>
+      <textarea id="reviewHelped" class="text-input" rows="3" maxlength="400"></textarea>
+      <label class="field-label" for="reviewNotHelped">ما الذي لم يساعد أو لم يكن مناسبًا؟</label>
+      <textarea id="reviewNotHelped" class="text-input" rows="3" maxlength="400"></textarea>
+      <label class="field-label" for="reviewNext">ما الذي نغيّره في المرة القادمة؟</label>
+      <textarea id="reviewNext" class="text-input" rows="3" maxlength="400"></textarea>
+      <label class="field-label" for="reviewAssistance">مستوى المساعدة الوصفي</label>
+      <select id="reviewAssistance" class="text-input"></select>
+      <button id="saveReviewBtn" class="primary huge" type="button">حفظ المراجعة</button>
+    </section>
+
+    <section class="boundary-box">
+      <h3>حدود الاستخدام</h3>
+      <p>هذه أداة تنظيم مشترك وانتقال بصري، وليست تشخيصًا أو علاجًا أو بديلًا عن مختص عند الحاجة. الاختيار لا يثبت حالة نفسية داخلية، ولا توجد تمارين تنفس مفروضة أو مؤقتات أو نقاط أو مكافآت تضغط على الطفل لإنهاء الموقف بسرعة.</p>
+    </section>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="printArea" class="print-area" aria-hidden="true"></div>
+
+<script src="data/content.js?v=1"></script>
+<script src="../../../assets/js/legacy-compat.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
