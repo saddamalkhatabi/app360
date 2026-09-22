@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="app360-build" content="calm-with-me-v1-20260922">
+<meta name="app360-build" content="calm-with-me-v3-20260922">
 <title>مشاعري معك: أحتاج مساعدة | مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest?v=1">
-<link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=3">
+<link rel="stylesheet" href="styles.css?v=3">
 <link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
 </head>
 <body>
@@ -19,9 +19,9 @@
 <div id="storageBanner" class="storage-banner" role="status"></div>
 <header class="app-head">
   <div class="head-main">
-    <img class="app-icon" src="icon.svg?v=1" alt="">
+    <img class="app-icon" src="icon.svg?v=3" alt="">
     <div class="head-copy">
-      <span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4</span>
+      <span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4 · نسخة الاختبار v3</span>
       <h1>مشاعري معك: أحتاج مساعدة</h1>
       <p>إشارة أو اختيار بسيط، مساعدة قابلة للرفض، ثم «الآن وبعد ذلك» ومراجعة وصفية للمرافق.</p>
     </div>
@@ -129,7 +129,7 @@
       <div>
         <span class="step-kicker">خطط محلية قابلة لإعادة الاستخدام</span>
         <h2>خططي المحفوظة</h2>
-        <p>يمكن فتح الخطة وتعديلها أو طباعتها أو تصديرها. لا تحتاج حسابًا أو اتصالًا مستمرًا.</p>
+        <p>يمكن فتح الخطة وتعديلها أو طباعتها أو تصديرها. نسخة v3 تحفظ مع التصدير أيضًا سجل التنفيذ بين التطبيقات.</p>
       </div>
       <button id="exportAllBtn" class="secondary" type="button">تصدير كل البيانات</button>
     </div>
@@ -148,7 +148,7 @@
     <section class="import-box">
       <h3>استيراد خطة أو نسخة احتياطية</h3>
       <label class="file-button">اختيار ملف JSON<input id="importFile" type="file" accept="application/json,.json"></label>
-      <p>الاستيراد يضيف الخطط الجديدة ولا يحذف الخطط الحالية.</p>
+      <p>الاستيراد يضيف الخطط الجديدة ولا يحذف الخطط الحالية، ويستعيد سجل التنفيذ إذا كان موجودًا.</p>
     </section>
   </section>
 
@@ -212,8 +212,10 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="printArea" class="print-area" aria-hidden="true"></div>
 
-<script src="data/content.js?v=1"></script>
+<script src="data/content.js?v=3"></script>
 <script src="../../../assets/js/legacy-compat.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="app.js?v=3"></script>
+<script src="interop-ui.js?v=3"></script>
+<script src="interop-enhancements-v3.js?v=3"></script>
 </body>
 </html>
