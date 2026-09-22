@@ -34,6 +34,15 @@ jobs:
           PY
       - name: Apply v16 upgrade
         run: python3 tooling/apply-screen-move-v16.py
+      - name: Refresh historical regression ranges
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('apps/1-4/screen-to-move/app.test.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('1[012345]','1[0123456]')
+          p.write_text(s,encoding='utf-8')
+          PY
       - name: Regenerate platform planning documents
         run: node tooling/build-blueprints.js
       - name: Validate platform and application
