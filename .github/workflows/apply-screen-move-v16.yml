@@ -23,6 +23,15 @@ jobs:
           cache: pnpm
       - name: Install workspace
         run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Repair flexible function matcher
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tooling/apply-screen-move-v16.py')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace(r"\}\n(?=function ",r"\}\s*(?=function ")
+          p.write_text(s,encoding='utf-8')
+          PY
       - name: Apply v16 upgrade
         run: python3 tooling/apply-screen-move-v16.py
       - name: Regenerate platform planning documents
