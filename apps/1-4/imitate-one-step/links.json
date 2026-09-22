@@ -1,19 +1,22 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "app_id": "a1-imitate",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "base_path": "apps/1-4/imitate-one-step/",
+  "app_href": "apps/1-4/imitate-one-step/index.html",
   "launch_path": "apps/1-4/imitate-one-step/launch.html",
   "domain_policy": "relative-only",
   "events": "app360:interop:v1:events",
   "routes": [
-    {"id":"library","label_ar":"مكتبة التجارب","href":"apps/1-4/imitate-one-step/launch.html?action=library"},
-    {"id":"experience","label_ar":"تجربة محددة من مكتبة 200 تجربة","href_template":"apps/1-4/imitate-one-step/launch.html?action=experience&item={id}","params":["id"],"collection_source":"experiences.json","item_key":"id","completion_ar":"يسجل التنفيذ عند الضغط على تم عمل التجربة داخل التجربة المستدعاة."},
-    {"id":"drawing","label_ar":"الرسم الجماعي","href":"apps/1-4/imitate-one-step/launch.html?action=drawing","completion_ar":"يسجل التنفيذ عند الرسم فعليًا على اللوحة."},
-    {"id":"timer","label_ar":"أداة المؤقت","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=timer"},
-    {"id":"signal","label_ar":"أداة ابدأ/انتظر/توقف","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=signal"},
-    {"id":"whiteboard","label_ar":"الصبورة","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=whiteboard","completion_ar":"يسجل التنفيذ عند استخدام الصبورة."}
+    {"id":"library","kind":"service","label_ar":"مكتبة التجارب كاملة","href":"apps/1-4/imitate-one-step/launch.html?action=library"},
+    {"id":"family","kind":"category","label_ar":"مجال/عائلة تجارب","href_template":"apps/1-4/imitate-one-step/launch.html?action=family&family={id}","params":["id"],"collection_source":"experiences.json","collection_kind":"families"},
+    {"id":"level","kind":"category","label_ar":"مستوى التجارب","href_template":"apps/1-4/imitate-one-step/launch.html?action=level&level={id}","params":["id"],"items":[1,2,3,4]},
+    {"id":"experience","kind":"item","label_ar":"تجربة محددة من مكتبة 200 تجربة","href_template":"apps/1-4/imitate-one-step/launch.html?action=experience&item={id}","params":["id"],"collection_source":"experiences.json","collection_kind":"experiences","item_key":"id","completion_ar":"يسجل التنفيذ عند الضغط على تم عمل التجربة داخل التجربة المستدعاة."},
+    {"id":"drawing","kind":"service","label_ar":"الرسم الجماعي","href":"apps/1-4/imitate-one-step/launch.html?action=drawing","completion_ar":"يسجل التنفيذ عند الرسم فعليًا على اللوحة."},
+    {"id":"timer","kind":"service","label_ar":"أداة المؤقت","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=timer"},
+    {"id":"signal","kind":"service","label_ar":"أداة ابدأ/انتظر/توقف","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=signal"},
+    {"id":"whiteboard","kind":"service","label_ar":"الصبورة","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=whiteboard","completion_ar":"يسجل التنفيذ عند استخدام الصبورة."}
   ],
-  "interop_params": ["caller","launch_id","return_to"],
-  "note_ar": "معرف كل تجربة في experiences.json يتحول مباشرة إلى رابط قابل للتنفيذ دون تخزين اسم النطاق."
+  "interop_params": ["caller","launch_id","return_to","embedded"],
+  "note_ar": "يمكن فتح التطبيق كاملًا أو مجال من مجالاته أو مستوى أو تجربة بعينها أو أداة داخلية، وكل الروابط الداخلية نسبية."
 }
