@@ -4,9 +4,9 @@
   "slug": "calm-with-me",
   "title_ar": "مشاعري معك: أحتاج مساعدة",
   "age_group": "1-4",
-  "version": 1,
+  "version": 2,
   "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-early-emotions-calm-and-co-regulation",
@@ -30,7 +30,34 @@
   "bundles": [
     "static-core"
   ],
+  "shared_resources": [
+    "early-child-common-objects-v1"
+  ],
+  "storage": {
+    "schema_version": "1.0",
+    "key": "app360:a1-calm:schema-1.0:state",
+    "local_first": true,
+    "fallback": "in-memory-with-explicit-export-warning"
+  },
+  "artifact_type": "co-regulation-transition-support-plan",
   "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر كلمة أو صورة مناسبة إن أراد ← اعرض مساعدات آمنة قابلة للرفض ← كوّن الآن/بعد ذلك أو خطة انتقال ← راجع مع المرافق ما ساعد وما يحتاج تعديلًا",
+  "implementation": {
+    "built_on": "2026-09-22",
+    "state": "practice-built-pending-device-acceptance",
+    "visual_only_fallback": true,
+    "local_custom_images": true,
+    "local_recorded_audio": true,
+    "printable_plans": true,
+    "json_import_export": true,
+    "legacy_core": "ES5 + Touch Events/click bridge + Flexbox",
+    "pending_before_live_ar": [
+      "تشغيل validator من نسخة مستودع محلية أو CI",
+      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي",
+      "اختبار الهاتف والتابلت والحاسوب في الاتجاهين",
+      "اختبار تثبيت PWA والانقطاع والتحديث دون فقد بيانات محلية",
+      "مراجعة ملاءمة وتجربة مستخدم موثقة قبل تحويل الحالة إلى live"
+    ]
+  },
   "blueprint_path": "apps/1-4/calm-with-me/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/calm-with-me/PROMPT_AR.md"
 }
