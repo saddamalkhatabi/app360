@@ -1,0 +1,22 @@
+{
+  "schema_version":"1.0",
+  "id":"a1-plan-runner",
+  "slug":"plan-runner-360",
+  "title_ar":"مخطط التشغيل 360: ابنِ ونفّذ خطة",
+  "age_group":"1-4",
+  "status":"live",
+  "kind":"modern_extension",
+  "goal_keys":[],
+  "entry_path":"apps/1-4/plan-runner-360/index.html",
+  "manifest_path":"apps/1-4/plan-runner-360/manifest.webmanifest",
+  "icon_path":"apps/1-4/plan-runner-360/icon.svg",
+  "runtime_profile":"legacy-web",
+  "offline_mode":"offline-first-shell",
+  "capabilities":["practice.core","storage.local","pwa.offline","compat.legacy-web"],
+  "artifact_type":"cross-app-plan-builder-and-runner",
+  "supported_age_groups":["1-4"],
+  "age_levels":["1-2","2-3","3-4","custom"],
+  "link_contract":{"registry_path":"data/app-links-registry.json","route_levels":["app","category","service","item"],"external_links":true,"embedded_execution":true},
+  "storage":{"schema_version":"1.0","key":"app360:a1-plan-runner:schema-1","entities":["plan","template","run","step_result"],"local_first":true},
+  "implementation":{"build":"v1","built_on":"2026-09-23","state":"testable-live-preview","legacy_core":"ES5 + XMLHttpRequest + click + Flexbox","preset_count":15,"pending_physical_acceptance":["الهاتف الحديث","Big TAB HD Android 4.4.2","PWA/Offline","الروابط الخارجية داخل iframe"]}
+}

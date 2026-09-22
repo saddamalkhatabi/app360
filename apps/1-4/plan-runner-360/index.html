@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0f8f8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="app360-build" content="plan-runner-360-v1-20260923">
+<title>مخطط التشغيل 360 | مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=1">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
+<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
+</head>
+<body>
+<header class="pr-head">
+  <div class="pr-shell pr-head-row">
+    <img src="icon.svg?v=1" class="pr-logo" alt="">
+    <div class="pr-brand"><span>مختبر التطبيق 360 · الفئة 1–4 · نسخة v1</span><h1>مخطط التشغيل 360</h1><p>اختر خطة جاهزة أو ابنِ تسلسلًا من تطبيقات وتصنيفات وخدمات وبطاقات ثم نفّذه خطوة بخطوة.</p></div>
+    <div class="pr-head-actions"><button id="installBtn" type="button">تثبيت</button><a href="../../../ages/1-4/index.html">الفئة 1–4</a></div>
+  </div>
+</header>
+<div id="storageBanner" class="pr-banner" hidden></div>
+<nav class="pr-tabs pr-shell" id="mainTabs" aria-label="أقسام مخطط التشغيل">
+  <button type="button" class="on" data-tab="ready">خطط جاهزة</button>
+  <button type="button" data-tab="builder">ابنِ خطتك</button>
+  <button type="button" data-tab="saved">خططي</button>
+  <button type="button" data-tab="history">سجل التجارب</button>
+</nav>
+<main class="pr-shell pr-main">
+  <section id="tab-ready" class="pr-view">
+    <section class="pr-hero-card">
+      <div><span class="pr-kicker">ابدأ بسرعة ثم عدّل</span><h2>نماذج جاهزة حسب العمر داخل الفئة</h2><p>هذه أمثلة بداية وليست حكمًا على قدرات الطفل. يمكن تغيير أي خطوة أو مدة أو استبدال النشاط بما يناسبه.</p></div>
+    </section>
+    <div id="levelTabs" class="pr-level-tabs"></div>
+    <div id="presetList" class="pr-preset-list"><div class="pr-empty">جارٍ تجهيز النماذج…</div></div>
+  </section>
+
+  <section id="tab-builder" class="pr-view" hidden>
+    <section class="pr-card">
+      <div class="pr-section-head"><div><span class="pr-kicker">الخطة الحالية</span><h2>رتّب خطوات التنفيذ</h2><p>كل خطوة قد تفتح التطبيق كاملًا، أو تصنيفًا، أو خدمة، أو بطاقة/لعبة بعينها.</p></div><button id="newPlanBtn" type="button" class="quiet">خطة جديدة</button></div>
+      <div class="pr-form-row">
+        <label class="grow">اسم الخطة<input id="planTitle" type="text" maxlength="90" placeholder="مثال: كلمات ثم حركة ثم رسم"></label>
+        <label>المستوى العمري<select id="planLevel"><option value="1-2">1–2 سنة</option><option value="2-3">2–3 سنوات</option><option value="3-4">3–4 سنوات</option><option value="custom">مخصص</option></select></label>
+      </div>
+      <div id="draftSteps" class="pr-steps"></div>
+      <div class="pr-action-row"><button id="runDraftBtn" class="primary" type="button">▶ ابدأ تنفيذ الخطة</button><button id="savePlanBtn" type="button">حفظ الخطة</button><button id="saveTemplateBtn" type="button">حفظ كنمط</button></div>
+    </section>
+
+    <section class="pr-card">
+      <div class="pr-section-head"><div><span class="pr-kicker">أضف خطوة</span><h2>اختر من التطبيقات المتاحة</h2><p>القائمة تُقرأ من ملفات <code>links.json</code>؛ لذلك يمكن للتطبيقات الجديدة أن تظهر هنا عند تسجيلها.</p></div></div>
+      <div class="pr-form-row">
+        <label>التطبيق<select id="appSelect"></select></label>
+        <label class="grow">التصنيف / الخدمة<select id="routeSelect"></select></label>
+      </div>
+      <div id="routeFields" class="pr-route-fields"></div>
+      <div class="pr-form-row">
+        <label>المدة بالثواني<input id="stepSeconds" type="number" min="5" max="3600" value="60"></label>
+        <label>الانتقال<select id="advanceMode"><option value="time">بعد انتهاء الوقت</option><option value="completion">عند إكمال النشاط</option><option value="manual">يدويًا</option></select></label>
+        <button id="addStepBtn" type="button" class="primary align-end">+ أضف الخطوة</button>
+      </div>
+      <div id="catalogStatus" class="pr-status"></div>
+    </section>
+
+    <details class="pr-card pr-details">
+      <summary>إضافة رابط خارجي أو صفحة خاصة يدويًا</summary>
+      <div class="pr-form-row">
+        <label class="grow">اسم الخطوة<input id="manualTitle" type="text" maxlength="90" placeholder="مثال: الريلز الآمن 360"></label>
+        <label class="grow">الرابط<input id="manualUrl" type="text" dir="ltr" placeholder="https://... أو apps/..."></label>
+        <label>المدة<input id="manualSeconds" type="number" min="5" max="3600" value="60"></label>
+        <button id="addManualBtn" type="button" class="align-end">إضافة</button>
+      </div>
+    </details>
+  </section>
+
+  <section id="tab-saved" class="pr-view" hidden>
+    <section class="pr-card"><div class="pr-section-head"><div><span class="pr-kicker">قابلة للتكرار والتعديل</span><h2>الخطط المحفوظة</h2></div><button id="exportBtn" type="button">تصدير البيانات</button></div><div id="savedPlans"></div></section>
+    <section class="pr-card"><h2>الأنماط المحفوظة</h2><p>النمط نقطة بداية تنسخ منها خطة جديدة دون الكتابة فوق الأصل.</p><div id="savedTemplates"></div></section>
+    <section id="transferBox" class="pr-card" hidden><h2>نقل البيانات</h2><textarea id="transferText" rows="10" dir="ltr"></textarea><div class="pr-action-row"><button id="copyTransferBtn" type="button">نسخ</button><button id="importTransferBtn" type="button">استيراد النص</button></div></section>
+  </section>
+
+  <section id="tab-history" class="pr-view" hidden>
+    <section class="pr-card"><div class="pr-section-head"><div><span class="pr-kicker">كل تشغيل مستقل</span><h2>سجل التجارب</h2><p>إعادة نفس الخطة تنشئ تجربة جديدة ولا تمحو السابقة.</p></div><button id="clearHistoryBtn" type="button" class="danger">حذف السجل فقط</button></div><div id="runHistory"></div></section>
+  </section>
+</main>
+
+<section id="runner" class="pr-runner" hidden aria-hidden="true">
+  <header class="pr-runbar">
+    <div class="pr-run-title"><small id="runPlanTitle">الخطة</small><b id="runStepTitle">الخطوة</b><small id="runProgress">1 / 1</small></div>
+    <div id="runClock" class="pr-clock">00:00</div>
+    <div class="pr-run-actions"><button id="pauseBtn" type="button">إيقاف المؤقت</button><button id="prevBtn" type="button">السابق</button><button id="nextBtn" type="button" class="primary">التالي</button><button id="externalBtn" type="button">فتح بتبويب جديد</button><button id="stopBtn" type="button" class="danger">إنهاء الخطة</button></div>
+  </header>
+  <div id="runNotice" class="pr-run-notice"></div>
+  <iframe id="runFrame" class="pr-frame" src="about:blank" title="النشاط الحالي"></iframe>
+</section>
+
+<div id="toast" class="pr-toast" role="status" aria-live="polite"></div>
+<script src="../../../assets/js/legacy-compat.js?v=1"></script>
+<script src="app.js?v=1"></script>
+<script src="../../../assets/js/app-pwa.js?v=1"></script>
+</body>
+</html>

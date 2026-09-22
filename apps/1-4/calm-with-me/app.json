@@ -1,107 +1,12 @@
 {
-  "schema_version": "1.1",
-  "id": "a1-calm",
-  "slug": "calm-with-me",
-  "title_ar": "مشاعري معك: أحتاج مساعدة",
-  "age_group": "1-4",
-  "version": 6,
-  "status": "planned",
-  "scaffold_state": "implementation-started",
-  "kind": "goal_aligned",
-  "goal_keys": [
-    "learner-1-4-early-emotions-calm-and-co-regulation",
-    "coach-1-4-co-regulation-transitions-and-tantrum-support"
-  ],
-  "entry_path": "apps/1-4/calm-with-me/index.html",
-  "manifest_path": "apps/1-4/calm-with-me/manifest.webmanifest",
-  "icon_path": "apps/1-4/calm-with-me/icon.svg",
-  "runtime_profile": "legacy-web",
-  "depth": "advanced",
-  "offline_mode": "offline-first",
-  "update_policy": "service-worker-auto-activation",
-  "capabilities": [
-    "practice.core",
-    "storage.local",
-    "audio.tts",
-    "audio.recorded",
-    "pwa.offline",
-    "compat.legacy-web"
-  ],
-  "bundles": ["static-core"],
-  "shared_resources": ["early-child-common-objects-v1"],
-  "storage": {
-    "schema_version": "1.0",
-    "key": "app360:a1-calm:schema-1.0:state",
-    "scenario_key": "app360:a1-calm:scenario-lab:v1",
-    "local_first": true,
-    "fallback": "in-memory-with-explicit-export-warning"
-  },
-  "artifact_type": "co-regulation-scenario-experiment-plan",
-  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر مساعدة آمنة قابلة للرفض عند الحاجة ← سجّل الحالة ← افتح سيناريو سابقًا أو أنشئ سيناريو جديدًا ← أضف خطوات من التطبيق أو التصنيف أو الخدمة أو العنصر داخل تطبيقات الفئة ← نفّذ الخطوات داخل نفس التطبيق بوقت أو إنجاز ← احتفظ بكل تشغيل كتجربة مستقلة ← راجع وعدّل أو احفظ السيناريو كنمط قابل لإعادة الاستخدام",
-  "interoperability": {
-    "schema_version": "1.1",
-    "registry_path": "data/app-links-registry.json",
-    "event_store_key": "app360:interop:v1:events",
-    "internal_domain_policy": "relative-only",
-    "linked_apps": [
-      "a1-first-words",
-      "a1-imitate",
-      "a1-screen-move",
-      "a1-drawing-writing",
-      "safe-reels-360"
-    ],
-    "deep_link_levels": ["app", "category", "service", "item"],
-    "scenario_entities": ["case", "scenario", "template", "run", "step_result"],
-    "execution_flow": [
-      "select-case",
-      "reuse-or-build-scenario",
-      "select-app-category-service-item",
-      "launch-embedded-with-launch_id",
-      "advance-by-completion-or-time",
-      "record-run-independently",
-      "reuse-as-template"
-    ],
-    "embedded_execution": true,
-    "timed_auto_advance": true,
-    "external_links_supported": true,
-    "safe_reels_url": "https://yem1.com"
-  },
-  "implementation": {
-    "built_on": "2026-09-23",
-    "build": "v6",
-    "state": "integrated-scenario-lab-pending-device-acceptance",
-    "visual_only_fallback": true,
-    "local_custom_images": true,
-    "local_recorded_audio": true,
-    "printable_plans": true,
-    "json_import_export": true,
-    "legacy_core": "ES5 + existing Touch/click core + click-only scenario planner + Flexbox",
-    "automated_validation": {
-      "status": "passed",
-      "workflow": "Validate App 360 Lab",
-      "run_number": 495,
-      "checks": [
-        "pnpm frozen lockfile",
-        "platform validator and blueprint freshness",
-        "app/category/service/item deep-link archives",
-        "embedded legacy-safe app link host",
-        "platform tests",
-        "calm-with-me content validator",
-        "integrated case/scenario/template/run v6 validator",
-        "a1 200-experience library validator"
-      ]
-    },
-    "pending_before_live_ar": [
-      "اختبار فتح تبويب الخطط والتجارب والنقر المتكرر دون تعليق على هاتف حديث",
-      "اختبار اختيار تطبيق ثم تصنيف أو خدمة ثم عنصر وتشغيله داخل السيناريو",
-      "اختبار حفظ حالة ثم سيناريو ثم تكراره ونسخه وحفظه كنمط",
-      "اختبار انتقال الخطوات بالمؤقت وبإشارة الإكمال الفعلية",
-      "اختبار رابط الريلز الآمن 360 داخل الإطار وفتح تبويب جديد عند منع iframe",
-      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي",
-      "اختبار PWA والانقطاع والتحديث دون فقد الحالات والسيناريوهات وسجلات التشغيل",
-      "مراجعة تجربة مستخدم موثقة قبل تحويل الحالة إلى live"
-    ]
-  },
-  "blueprint_path": "apps/1-4/calm-with-me/BUILD_SPEC.md",
-  "prompt_path": "apps/1-4/calm-with-me/PROMPT_AR.md"
+  "schema_version":"1.1","id":"a1-calm","slug":"calm-with-me","title_ar":"مشاعري معك: أحتاج مساعدة","age_group":"1-4","version":7,"status":"planned","scaffold_state":"implementation-started","kind":"goal_aligned",
+  "goal_keys":["learner-1-4-early-emotions-calm-and-co-regulation","coach-1-4-co-regulation-transitions-and-tantrum-support"],
+  "entry_path":"apps/1-4/calm-with-me/index.html","manifest_path":"apps/1-4/calm-with-me/manifest.webmanifest","icon_path":"apps/1-4/calm-with-me/icon.svg","runtime_profile":"legacy-web","depth":"advanced","offline_mode":"offline-first","update_policy":"service-worker-auto-activation",
+  "capabilities":["practice.core","storage.local","audio.tts","audio.recorded","pwa.offline","compat.legacy-web"],"bundles":["static-core"],"shared_resources":["early-child-common-objects-v1"],
+  "storage":{"schema_version":"1.0","key":"app360:a1-calm:schema-1.0:state","local_first":true,"fallback":"in-memory-with-explicit-export-warning"},
+  "artifact_type":"co-regulation-feeling-support-and-visual-transition",
+  "practice_model_ar":"لاحظ إشارة أو شعورًا اختياريًا ← اعرض مساعدة قابلة للرفض ← استخدم بطاقة الآن/بعد ذلك البسيطة عند الحاجة ← راجع الموقف مع المرافق. إذا احتاج المستخدم خطة متعددة التطبيقات ينتقل إلى مخطط التشغيل 360 المستقل.",
+  "interoperability":{"schema_version":"1.0","mode":"external-specialized-planner-link","planner_app_id":"a1-plan-runner","planner_path":"apps/1-4/plan-runner-360/index.html","embedded_planner":false},
+  "implementation":{"built_on":"2026-09-23","build":"v7","state":"feeling-support-app-separated-from-cross-app-planner","visual_only_fallback":true,"local_custom_images":true,"local_recorded_audio":true,"printable_plans":true,"json_import_export":true,"legacy_core":"ES5 + Touch Events/click bridge + Flexbox","pending_before_live_ar":["اختبار رحلة الشعور/المساعدة/الآن وبعد ذلك على هاتف حديث","اختبار رابط الانتقال إلى مخطط التشغيل 360","اختبار لمس Android 4.4 Big TAB HD","اختبار PWA والانقطاع والتحديث"]},
+  "blueprint_path":"apps/1-4/calm-with-me/BUILD_SPEC.md","prompt_path":"apps/1-4/calm-with-me/PROMPT_AR.md"
 }

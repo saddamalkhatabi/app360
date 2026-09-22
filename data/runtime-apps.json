@@ -1,0 +1,21 @@
+{
+  "schema_version":"1.0",
+  "apps":[
+    {
+      "id":"a1-plan-runner",
+      "title_ar":"مخطط التشغيل 360: ابنِ ونفّذ خطة",
+      "age_group":"1-4",
+      "status":"live",
+      "kind":"modern_extension",
+      "priority":1,
+      "href":"apps/1-4/plan-runner-360/index.html?v=1",
+      "icon":"apps/1-4/plan-runner-360/icon.svg?v=1",
+      "description_ar":"ابنِ خطة تشغيل من عدة تطبيقات أو تصنيفات أو خدمات أو بطاقات، حدّد زمن كل خطوة، احفظ الأنماط، وكرر التجربة مع سجل مستقل لكل تشغيل.",
+      "practice_model":"خطة جاهزة أو مخصصة ← اختيار التطبيق/التصنيف/الخدمة/العنصر ← ترتيب الخطوات والزمن ← تشغيل متتابع ← حفظ التجربة والنمط",
+      "tags":["تخطيط","تشغيل متتابع","تطبيقات مترابطة","قوالب","سجل تجارب","مؤقت"],
+      "goal_keys":[],
+      "goal_links":[],
+      "capabilities":["practice.core","storage.local","pwa.offline","compat.legacy-web"]
+    }
+  ]
+}

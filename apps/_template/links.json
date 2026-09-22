@@ -1,0 +1,17 @@
+{
+  "schema_version":"1.1",
+  "app_id":"replace-app-id",
+  "title_ar":"اسم التطبيق",
+  "base_path":"apps/AGE/SLUG/",
+  "app_href":"apps/AGE/SLUG/index.html",
+  "launch_path":"apps/AGE/SLUG/launch.html",
+  "domain_policy":"relative-only",
+  "events":"app360:interop:v1:events",
+  "routes":[
+    {"id":"library","kind":"service","label_ar":"المكتبة كاملة","href":"apps/AGE/SLUG/launch.html?action=library"},
+    {"id":"category","kind":"category","label_ar":"تصنيف محدد","href_template":"apps/AGE/SLUG/launch.html?action=category&id={id}","params":["id"]},
+    {"id":"item","kind":"item","label_ar":"بطاقة أو نشاط محدد","href_template":"apps/AGE/SLUG/launch.html?action=item&id={id}","params":["id"]}
+  ],
+  "interop_params":["caller","launch_id","return_to","embedded"],
+  "note_ar":"عدّل هذا العقد بحسب التطبيق. كل ما تريد أن يختاره مخطط التشغيل 360 يجب أن يملك route واضحًا ورابطًا مباشرًا."
+}

@@ -1,25 +1,16 @@
 {
-  "schema_version": "1.1",
-  "app_id": "a1-drawing-writing",
-  "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
-  "base_path": "apps/1-4/drawing-writing-foundations/",
-  "app_href": "apps/1-4/drawing-writing-foundations/index.html",
-  "launch_path": "apps/1-4/drawing-writing-foundations/launch.html",
-  "domain_policy": "relative-only",
-  "events": "app360:interop:v1:events",
-  "routes": [
-    {"id":"lines","label_ar":"الخطوط","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item={id}","items":["line_h","line_v","line_d1","line_d2","zigzag","wave","arches","loops"]},
-    {"id":"shapes","label_ar":"الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=shapes&item={id}","items":["circle","oval","square","rectangle","triangle","diamond","pentagon","hexagon","semicircle","star"]},
-    {"id":"letters","label_ar":"الحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=letters&item={value}","item_type":"arabic-character"},
-    {"id":"numbers","label_ar":"الأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=numbers&item={value}","item_type":"arabic-number"},
-    {"id":"drawings","label_ar":"رسومات بسيطة","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=drawings&item={id}","items":["house","sun","tree","flower","fish","balloon","boat","face","apple","cloud"]},
-    {"id":"colors","label_ar":"الألوان مع الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=colors&item={id}"},
-    {"id":"free-shapes","label_ar":"رسم حر مساعد بالأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_shapes&item={id}"},
-    {"id":"free-letters","label_ar":"رسم حر مساعد بالحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_letters&item={value}"},
-    {"id":"free-numbers","label_ar":"رسم حر مساعد بالأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_numbers&item={value}"},
-    {"id":"free","label_ar":"رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free"}
+  "schema_version":"1.1","app_id":"a1-drawing-writing","title_ar":"لوحة الطفل للرسم والكتابة المبكرة","base_path":"apps/1-4/drawing-writing-foundations/","app_href":"apps/1-4/drawing-writing-foundations/index.html","launch_path":"apps/1-4/drawing-writing-foundations/launch.html","domain_policy":"relative-only","events":"app360:interop:v1:events",
+  "routes":[
+    {"id":"lines","kind":"service-item","label_ar":"الخطوط","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item={id}","items":["line_h","line_v","line_d1","line_d2","zigzag","wave","arches","loops"]},
+    {"id":"shapes","kind":"service-item","label_ar":"الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=shapes&item={id}","items":["circle","oval","square","rectangle","triangle","diamond","pentagon","hexagon","semicircle","star"]},
+    {"id":"letters","kind":"service-item","label_ar":"الحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=letters&item={value}","item_type":"arabic-character"},
+    {"id":"numbers","kind":"service-item","label_ar":"الأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=numbers&item={value}","item_type":"arabic-number"},
+    {"id":"drawings","kind":"service-item","label_ar":"رسومات بسيطة","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=drawings&item={id}","items":["house","sun","tree","flower","fish","balloon","boat","face","apple","cloud"]},
+    {"id":"colors","kind":"service-item","label_ar":"الألوان مع الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=colors&item={id}"},
+    {"id":"free-shapes","kind":"service-item","label_ar":"رسم حر مساعد بالأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_shapes&item={id}"},
+    {"id":"free-letters","kind":"service-item","label_ar":"رسم حر مساعد بالحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_letters&item={value}"},
+    {"id":"free-numbers","kind":"service-item","label_ar":"رسم حر مساعد بالأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_numbers&item={value}"},
+    {"id":"free","kind":"service","label_ar":"رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free"}
   ],
-  "completion_ar": "يسجل التنفيذ بعد أول تفاعل رسم فعلي على لوحة الرسم.",
-  "interop_params": ["caller","launch_id","return_to","embedded"],
-  "note_ar": "روابط الأنشطة تعتمد معرف الوضع والعنصر فقط؛ اسم النطاق والجذر يحلان من التطبيق المستدعي."
+  "completion_ar":"يسجل التنفيذ بعد أول تفاعل رسم فعلي على لوحة الرسم.","interop_params":["caller","launch_id","return_to","embedded"],"note_ar":"يمكن فتح التطبيق أو وضع رسم محدد ثم العنصر نفسه، وكل الروابط الداخلية نسبية."
 }
