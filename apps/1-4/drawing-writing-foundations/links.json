@@ -1,8 +1,9 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "app_id": "a1-drawing-writing",
   "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
   "base_path": "apps/1-4/drawing-writing-foundations/",
+  "app_href": "apps/1-4/drawing-writing-foundations/index.html",
   "launch_path": "apps/1-4/drawing-writing-foundations/launch.html",
   "domain_policy": "relative-only",
   "events": "app360:interop:v1:events",
@@ -19,6 +20,6 @@
     {"id":"free","label_ar":"رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free"}
   ],
   "completion_ar": "يسجل التنفيذ بعد أول تفاعل رسم فعلي على لوحة الرسم.",
-  "interop_params": ["caller","launch_id","return_to"],
+  "interop_params": ["caller","launch_id","return_to","embedded"],
   "note_ar": "روابط الأنشطة تعتمد معرف الوضع والعنصر فقط؛ اسم النطاق والجذر يحلان من التطبيق المستدعي."
 }
