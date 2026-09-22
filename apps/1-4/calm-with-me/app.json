@@ -50,8 +50,18 @@
     "printable_plans": true,
     "json_import_export": true,
     "legacy_core": "ES5 + Touch Events/click bridge + Flexbox",
+    "automated_validation": {
+      "status": "passed",
+      "workflow": "Validate App 360 Lab",
+      "run_number": 448,
+      "checks": [
+        "pnpm frozen lockfile",
+        "platform validator and blueprint freshness",
+        "platform tests",
+        "calm-with-me content and legacy validator"
+      ]
+    },
     "pending_before_live_ar": [
-      "تشغيل validator من نسخة مستودع محلية أو CI",
       "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي",
       "اختبار الهاتف والتابلت والحاسوب في الاتجاهين",
       "اختبار تثبيت PWA والانقطاع والتحديث دون فقد بيانات محلية",
