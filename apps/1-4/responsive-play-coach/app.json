@@ -10,23 +10,28 @@
   "kind": "goal_aligned",
   "goal_keys": [
     "coach-1-4-language-rich-play-responsive-interaction",
-    "coach-1-4-co-regulation-transitions-and-tantrum-support"
+    "coach-1-4-co-regulation-transitions-and-tantrum-support",
+    "coach-1-4-safe-play-activity-design-and-independence",
+    "coach-1-4-screen-co-viewing-attention-and-offline-alternatives"
   ],
   "entry_path": "apps/1-4/responsive-play-coach/index.html",
   "manifest_path": "apps/1-4/responsive-play-coach/manifest.webmanifest",
   "icon_path": "apps/1-4/responsive-play-coach/icon.svg",
-  "runtime_profile": "static-web",
-  "depth": "standard",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
+    "practice.core",
     "storage.local",
-    "pwa.offline"
+    "audio.tts",
+    "pwa.offline",
+    "compat.legacy-web"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختيار اهتمام ومادة لعب ← كتابة استجابة متوقعة وخطة انتقال ← مراجعة ما فعله الطفل وتعديل الجلسة القادمة",
+  "practice_model_ar": "لاحظ ما يجذب الطفل ← اختر مادة ومسار لعب مناسبين ← خطط كيف ستتبع مبادرته وتصف وتنتظر وتوسع اللغة ← نفذ بعيدًا عن الشاشة أو افتح تطبيقًا مساعدًا عند الحاجة ← راجع ما استجاب له الطفل وعدّل الجلسة التالية",
   "blueprint_path": "apps/1-4/responsive-play-coach/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/responsive-play-coach/PROMPT_AR.md"
 }

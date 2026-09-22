@@ -16,18 +16,22 @@
   "entry_path": "apps/1-4/my-little-routine/index.html",
   "manifest_path": "apps/1-4/my-little-routine/manifest.webmanifest",
   "icon_path": "apps/1-4/my-little-routine/icon.svg",
-  "runtime_profile": "static-web",
-  "depth": "standard",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
+    "practice.core",
     "storage.local",
-    "pwa.offline"
+    "audio.tts",
+    "audio.recorded",
+    "pwa.offline",
+    "compat.legacy-web"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختيار أحد 3 روتينات وتعديل الصور ← عرض خطوة واحدة كبيرة ← تسجيل بمساعدة أو وحدي وإعادة المحاولة",
+  "practice_model_ar": "اختر روتينًا أو ابنِ واحدًا من صورك ← ابدأ بخطوة ظاهرة بوضوح أو الآن/بعد ذلك ← نفذها في الواقع ← سجّل مقدار المساعدة أو أعد المحاولة بلطف ← انتقل للخطوة التالية أو اختصر الروتين ← اطبع النسخة المناسبة للمكان",
   "blueprint_path": "apps/1-4/my-little-routine/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md"
 }

@@ -11,6 +11,8 @@ let changed = 0;
 const goalMap = new Map(Object.values(goals.age_groups).flat().map(g => [g.key, g]));
 const refs = new Map((catalog.design_references || []).map(r => [r.id, r]));
 const bullet = rows => rows.map(x => '- ' + x).join('\n');
+const optBullets = (title, rows) => rows && rows.length ? `## ${title}\n\n${bullet(rows)}\n\n` : '';
+const optPara = (title, text) => text ? `## ${title}\n\n${text}\n\n` : '';
 const header = '<!-- Generated from data/catalog.json by tooling/build-blueprints.js; edit the catalog, then regenerate. -->\n\n';
 function emit(rel, content) {
   const target = path.join(root, rel);
@@ -35,7 +37,7 @@ function plannedManifest(a) {
 }
 const index = [header + '# دليل بناء التطبيقات العملية\n',
   'الكتالوج هو مصدر الأسماء والخطط والارتباطات. ملفات المواصفات والمطالبات مشتقة منه ويمكن تجديدها بأمر `node tooling/build-blueprints.js`.\n',
-  'التطبيق الحي الوحيد عند إعداد هذه الخطة هو الرسم ومسك القلم. بقية المجلدات خطط قابلة للبناء بالتتابع، وليست تطبيقات مكتملة. الربط يصف مساهمة محددة في الهدف ولا يعني تغطيته كاملًا أو إثبات أثر التطبيق.\n',
+  'تضم الخطة تطبيقات حية وأخرى مخططة للبناء. حافظ على التطبيقات الحية كما هي إلا بطلب تطوير محدد، وابن التطبيقات المخططة فوق البنية المشتركة الحالية بدل إنشاء نسخ صغيرة أو معزولة. الربط يصف مساهمة محددة في الهدف ولا يعني تغطيته كاملًا أو إثبات أثر التطبيق.\n',
   'لكل فئة ترتيب بناء مستقل حسب الأولوية ثم ترتيب الكتالوج. ابدأ تطبيقًا واحدًا، نفذ مهمة كاملة واختبرها مع مستخدم مناسب قبل الانتقال إلى التالي.\n'];
 for (const group of catalog.age_groups) {
   index.push(`## الفئة ${group.id}\n`, '| التطبيق | الناتج العملي | الحالة | البدء |\n|---|---|---|---|');
@@ -55,6 +57,11 @@ for (const group of catalog.age_groups) {
       `- الفئة: ${a.age_group}\n- الهوية الثابتة: \`${a.id}\`\n- المسار الوحيد: \`${base}/\`\n- الحالة: ${live ? 'يعمل الآن؛ حافظ على التنفيذ الحالي' : 'مخطط للبناء؛ لا يوجد تطبيق تشغيلي بعد'}\n- أولوية البناء داخل الفئة: ${a.priority}\n\n` +
       `## الحاجة والناتج\n\n${a.description_ar}\n\n**الناتج:** ${b.output_ar}\n\n**المستخدم:** ${b.audience_ar}\n\n` +
       `## نطاق النسخة الأولى وتسلسل الشاشات\n\n${bullet(b.mvp_steps_ar)}\n\n` +
+      optBullets('مسارات التجربة والتدرج', b.experience_tracks_ar) +
+      optBullets('البنية المشتركة التي يجب إعادة استخدامها', b.shared_infrastructure_ar) +
+      optBullets('نظام المحتوى والتوسع', b.content_engine_ar) +
+      optPara('التوافق والأجهزة', b.compatibility_ar) +
+      optBullets('بوابات الجودة قبل الإطلاق', b.quality_strategy_ar) +
       `## الملاءمة والتدرج\n\n${b.age_adaptation_ar}\n\n${b.feedback_ar}\n\n` +
       `## الارتباطات المحددة بالأهداف\n\n${catalog.mapping_policy_ar}\n\n${goalText}\n` +
       `## بيانات النسخة الأولى\n\n${b.data_model.map(x => '`'+x+'`').join(' · ')}\n\n` +
@@ -75,6 +82,11 @@ for (const group of catalog.age_groups) {
       'اقرأ docs/FRAMEWORK_AR.md وdocs/ARCHITECTURE_AR.md وdocs/DEPENDENCY_POLICY_AR.md وdocs/PWA_OFFLINE_POLICY_AR.md وdocs/APP_SPEC_TEMPLATE_AR.md ثم data/catalog.json وdata/goals.json وdata/capabilities.json وعقد التطبيق ومواصفاته التالية.\n\n' +
       `اقرأ ${a.blueprint_path} كاملًا. الناتج المطلوب: ${b.output_ar}\n\n` +
       `ابنِ هذه الحلقة أولًا:\n\n${bullet(b.mvp_steps_ar)}\n\n` +
+      (b.experience_tracks_ar&&b.experience_tracks_ar.length?`مسارات التجربة المطلوبة:\n\n${bullet(b.experience_tracks_ar)}\n\n`:'') +
+      (b.shared_infrastructure_ar&&b.shared_infrastructure_ar.length?`أعد استخدام هذه البنية المشتركة ولا تبن نسخًا موازية منها:\n\n${bullet(b.shared_infrastructure_ar)}\n\n`:'') +
+      (b.content_engine_ar&&b.content_engine_ar.length?`نظام المحتوى والتوسع:\n\n${bullet(b.content_engine_ar)}\n\n`:'') +
+      (b.compatibility_ar?`التوافق والأجهزة: ${b.compatibility_ar}\n\n`:'') +
+      (b.quality_strategy_ar&&b.quality_strategy_ar.length?`بوابات الجودة قبل الإطلاق:\n\n${bullet(b.quality_strategy_ar)}\n\n`:'') +
       `تكييف الفئة: ${b.age_adaptation_ar}\n\n` +
       `الارتباطات الملزمة من حيث النشاط والدليل:\n\n${bullet(a.goal_links.map(l => goalMap.get(l.goal_key).title_ar+' ('+l.goal_key+'): '+l.rationale_ar+'؛ نلاحظ: '+l.evidence_ar))}\n\n` +
       `معايير القبول الخاصة:\n\n${bullet(b.acceptance_ar)}\n\n${b.boundary_ar}\n\n` +

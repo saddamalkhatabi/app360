@@ -15,18 +15,21 @@
   "entry_path": "apps/1-4/sensory-motion-missions/index.html",
   "manifest_path": "apps/1-4/sensory-motion-missions/manifest.webmanifest",
   "icon_path": "apps/1-4/sensory-motion-missions/icon.svg",
-  "runtime_profile": "static-web",
-  "depth": "standard",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
+    "practice.core",
     "storage.local",
-    "pwa.offline"
+    "audio.tts",
+    "pwa.offline",
+    "compat.legacy-web"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "قائمة تجهيز للمرافق ومساحة آمنة ← 6 مهمات بفرز خاصية واحدة ← تسجيل التجربة ثم اقتراح تعديل واحد",
+  "practice_model_ar": "اختر المكان والمواد المتاحة ← مر على فحص السلامة والتجهيز ← اختر نوع الحركة أو الخاصية التي سيتعامل معها الطفل ← اعرض بطاقة المهمة ثم ضع الشاشة جانبًا ← نفذ وعدّل الصعوبة ← سجّل تعديلًا مفيدًا للمرة القادمة",
   "blueprint_path": "apps/1-4/sensory-motion-missions/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/sensory-motion-missions/PROMPT_AR.md"
 }

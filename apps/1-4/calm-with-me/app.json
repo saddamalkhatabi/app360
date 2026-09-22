@@ -15,18 +15,22 @@
   "entry_path": "apps/1-4/calm-with-me/index.html",
   "manifest_path": "apps/1-4/calm-with-me/manifest.webmanifest",
   "icon_path": "apps/1-4/calm-with-me/icon.svg",
-  "runtime_profile": "static-web",
-  "depth": "standard",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
   "offline_mode": "offline-first",
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
+    "practice.core",
     "storage.local",
-    "pwa.offline"
+    "audio.tts",
+    "audio.recorded",
+    "pwa.offline",
+    "compat.legacy-web"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "عرض 4 مشاعر بصور محايدة ← اختيار مساعدة مثل قرب المرافق أو مكان أهدأ ← إعداد بطاقة الآن وبعد ذلك للمرافق",
+  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر كلمة أو صورة مناسبة إن أراد ← اعرض مساعدات آمنة قابلة للرفض ← كوّن الآن/بعد ذلك أو خطة انتقال ← راجع مع المرافق ما ساعد وما يحتاج تعديلًا",
   "blueprint_path": "apps/1-4/calm-with-me/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/calm-with-me/PROMPT_AR.md"
 }

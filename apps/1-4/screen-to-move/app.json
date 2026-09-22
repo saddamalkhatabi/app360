@@ -10,7 +10,11 @@
   "kind": "hybrid",
   "goal_keys": [
     "coach-1-4-screen-co-viewing-attention-and-offline-alternatives",
-    "learner-1-4-safe-sensory-motor-play"
+    "learner-1-4-safe-sensory-motor-play",
+    "learner-1-4-shared-attention-imitation-simple-instructions",
+    "learner-1-4-confidence-first-attempts-and-kind-persistence",
+    "coach-1-4-language-rich-play-responsive-interaction",
+    "coach-1-4-safe-play-activity-design-and-independence"
   ],
   "entry_path": "apps/1-4/screen-to-move/index.html",
   "manifest_path": "apps/1-4/screen-to-move/manifest.webmanifest",
@@ -32,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "عند اختيار أي لعبة تظهر شاشة اللعب مباشرة أولًا مع تنقل سابق/التالي بين الألعاب، ثم الشرح والطباعة أسفلها. يمكن طباعة الورقة الجاهزة أو تصميم ورقة A4 مخصصة بالرسم والخطوط والأشكال والصور المتوافقة مع الأجهزة القديمة.",
+  "practice_model_ar": "اختر لعبة جاهزة أو أنشئ لعبتك، ثم نفذها على الشاشة أو حوّلها إلى ورقة أو نشاط واقعي. التلميح وإعادة المحاولة والطباعة والحفظ أدوات مساندة، والنتيجة تصف الجولة فقط.",
   "branding": {
     "theme_color": "#0f8f8a",
     "accent_color": "#ffd54f",
@@ -43,7 +47,7 @@
   },
   "implementation": {
     "state": "live-v16-mobile-touch-multiselect-feedback-and-card-layout",
-    "built_on": "2026-09-21",
+    "built_on": "2026-09-22",
     "experiments": 170,
     "levels": 4,
     "readiness_path_ar": [
