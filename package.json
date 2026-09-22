@@ -8,7 +8,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "validate": "node tooling/validate-platform.js && node tooling/build-blueprints.js --check",
+    "validate": "node tooling/validate-platform.js && node tooling/build-blueprints.js --check && node tooling/validate-app-links.js",
+    "validate:links": "node tooling/validate-app-links.js",
     "blueprints": "node tooling/build-blueprints.js",
     "test": "node --test tooling/test-platform.js tooling/test-portal.js",
     "check": "pnpm run validate",

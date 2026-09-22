@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "app_id": "a1-first-words",
+  "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
+  "base_path": "apps/1-4/say-and-name/",
+  "launch_path": "apps/1-4/say-and-name/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {"id":"library","label_ar":"مكتبة الكلمات","href":"apps/1-4/say-and-name/launch.html?action=library"},
+    {"id":"word","label_ar":"بطاقة كلمة محددة","href_template":"apps/1-4/say-and-name/launch.html?action=word&word={word}&level={level}","params":["word","level","display"],"collection_source":"data/levels-inline-v8.js","completion_ar":"يسجل التنفيذ عند استخدام زر النطق أو الضغط على الصورة الرئيسية."},
+    {"id":"category","label_ar":"تصنيف كلمات","href_template":"apps/1-4/say-and-name/launch.html?action=category&category={category}&level={level}","params":["category","level","display"]},
+    {"id":"random","label_ar":"مراجعة عشوائية","href":"apps/1-4/say-and-name/launch.html?action=random"}
+  ],
+  "interop_params": ["caller","launch_id","return_to"],
+  "note_ar": "كل الروابط مسارات داخل المستودع بلا اسم نطاق؛ التطبيق المستدعي يحل اسم النطاق والجذر من موقعه الحالي."
+}

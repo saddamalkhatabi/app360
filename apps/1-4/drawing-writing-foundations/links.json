@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "app_id": "a1-drawing-writing",
+  "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
+  "base_path": "apps/1-4/drawing-writing-foundations/",
+  "launch_path": "apps/1-4/drawing-writing-foundations/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {"id":"lines","label_ar":"الخطوط","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item={id}","items":["line_h","line_v","line_d1","line_d2","zigzag","wave","arches","loops"]},
+    {"id":"shapes","label_ar":"الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=shapes&item={id}","items":["circle","oval","square","rectangle","triangle","diamond","pentagon","hexagon","semicircle","star"]},
+    {"id":"letters","label_ar":"الحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=letters&item={value}","item_type":"arabic-character"},
+    {"id":"numbers","label_ar":"الأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=numbers&item={value}","item_type":"arabic-number"},
+    {"id":"drawings","label_ar":"رسومات بسيطة","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=drawings&item={id}","items":["house","sun","tree","flower","fish","balloon","boat","face","apple","cloud"]},
+    {"id":"colors","label_ar":"الألوان مع الأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=colors&item={id}"},
+    {"id":"free-shapes","label_ar":"رسم حر مساعد بالأشكال","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_shapes&item={id}"},
+    {"id":"free-letters","label_ar":"رسم حر مساعد بالحروف","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_letters&item={value}"},
+    {"id":"free-numbers","label_ar":"رسم حر مساعد بالأرقام","href_template":"apps/1-4/drawing-writing-foundations/launch.html?mode=free_numbers&item={value}"},
+    {"id":"free","label_ar":"رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free"}
+  ],
+  "completion_ar": "يسجل التنفيذ بعد أول تفاعل رسم فعلي على لوحة الرسم.",
+  "interop_params": ["caller","launch_id","return_to"],
+  "note_ar": "روابط الأنشطة تعتمد معرف الوضع والعنصر فقط؛ اسم النطاق والجذر يحلان من التطبيق المستدعي."
+}
