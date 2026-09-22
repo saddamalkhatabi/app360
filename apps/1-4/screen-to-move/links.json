@@ -1,18 +1,20 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "app_id": "a1-screen-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "base_path": "apps/1-4/screen-to-move/",
+  "app_href": "apps/1-4/screen-to-move/index.html",
   "launch_path": "apps/1-4/screen-to-move/launch.html",
   "domain_policy": "relative-only",
   "events": "app360:interop:v1:events",
   "routes": [
-    {"id":"library","label_ar":"مكتبة الألعاب","href":"apps/1-4/screen-to-move/launch.html?action=library"},
-    {"id":"game","label_ar":"لعبة محددة","href_template":"apps/1-4/screen-to-move/launch.html?action=game&item={id}","params":["id"],"collection_sources":["games-data.js","games-data-v12.js"],"item_key":"id","completion_ar":"يسجل التنفيذ عند إنهاء الجولة وعرض نتيجتها."},
-    {"id":"worksheets","label_ar":"أوراق الألعاب","href":"apps/1-4/screen-to-move/launch.html?action=worksheets"},
-    {"id":"worksheet-designer","label_ar":"مصمم أوراق الألعاب","href_template":"apps/1-4/screen-to-move/launch.html?action=worksheet-designer&item={id}","params":["id"],"completion_ar":"يسجل التنفيذ عند حفظ الورقة أو طباعتها."},
-    {"id":"game-designer","label_ar":"مصمم الألعاب الإلكترونية","href":"apps/1-4/screen-to-move/launch.html?action=game-designer","completion_ar":"يسجل التنفيذ عند استخدام حفظ التصميم."}
+    {"id":"library","kind":"service","label_ar":"مكتبة الألعاب كاملة","href":"apps/1-4/screen-to-move/launch.html?action=library"},
+    {"id":"level","kind":"category","label_ar":"مستوى الألعاب","href_template":"apps/1-4/screen-to-move/launch.html?action=level&level={id}","params":["id"],"items":[1,2,3,4]},
+    {"id":"game","kind":"item","label_ar":"لعبة محددة","href_template":"apps/1-4/screen-to-move/launch.html?action=game&item={id}","params":["id"],"collection_sources":["games-data.js","games-data-v12.js"],"collection_kind":"games","item_key":"id","completion_ar":"يسجل التنفيذ عند إنهاء الجولة وعرض نتيجتها."},
+    {"id":"worksheets","kind":"service","label_ar":"أوراق الألعاب","href":"apps/1-4/screen-to-move/launch.html?action=worksheets"},
+    {"id":"worksheet-designer","kind":"service-item","label_ar":"مصمم أوراق الألعاب","href_template":"apps/1-4/screen-to-move/launch.html?action=worksheet-designer&item={id}","params":["id"],"collection_sources":["games-data.js","games-data-v12.js"],"collection_kind":"games","completion_ar":"يسجل التنفيذ عند حفظ الورقة أو طباعتها."},
+    {"id":"game-designer","kind":"service","label_ar":"مصمم الألعاب الإلكترونية","href":"apps/1-4/screen-to-move/launch.html?action=game-designer","completion_ar":"يسجل التنفيذ عند استخدام حفظ التصميم."}
   ],
-  "interop_params": ["caller","launch_id","return_to"],
-  "note_ar": "كل لعبة ذات id في مصادر الألعاب قابلة للتحويل إلى رابط تنفيذ فعلي دون اسم نطاق ثابت."
+  "interop_params": ["caller","launch_id","return_to","embedded"],
+  "note_ar": "يمكن فتح التطبيق كاملًا أو مستوى كاملًا أو لعبة بعينها أو أدوات الأوراق والتصميم. الروابط الداخلية نسبية."
 }
