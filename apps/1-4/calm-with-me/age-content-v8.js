@@ -21,6 +21,7 @@ for(i=0;i<allHelps.length;i++)if(ageAllowed(allHelps[i],age)){
   old=byId(oldLib,base.id);
   if(old){if(old.label_ar)base.label_ar=old.label_ar;if(typeof old.enabled!=='undefined')base.enabled=old.enabled;if(old.audio)base.audio=old.audio;if(old.image&&old.custom)base.image=old.image}
   newLib.push(base);
+  if(p.max_helps&&newLib.length>=p.max_helps)break;
 }
 for(i=0;i<custom.length;i++)newLib.push(custom[i]);
 if(storedState&&typeof storedState==='object'){
