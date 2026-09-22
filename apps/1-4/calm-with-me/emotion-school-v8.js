@@ -3,6 +3,7 @@
 var L=w.APP360_EMOTION_LIBRARY||{};
 var category='all',query='',openCase='';
 function $(id){return d.getElementById(id)}
+function injectCss(){if(d.getElementById('emotionSchoolCss'))return;var l=d.createElement('link');l.id='emotionSchoolCss';l.rel='stylesheet';l.href='emotion-school-v8.css?v=8';d.getElementsByTagName('head')[0].appendChild(l)}
 function text(v){return String(v==null?'':v)}
 function esc(s){return text(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function norm(s){return text(s).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[ًٌٍَُِّْـ]/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'')}
@@ -30,6 +31,6 @@ function hideCore(){var ids=['childView','transitionView','plansView','caregiver
 function showSchool(){hideCore();var s=$('schoolView');if(s){s.hidden=false;s.style.display='block'}var nav=$('mainNav'),bs=nav?nav.getElementsByTagName('button'):[],i;for(i=0;i<bs.length;i++)bs[i].className=bs[i].id==='schoolOpenNav'?'nav-btn active':'nav-btn';render();w.scrollTo(0,0)}
 function hideSchool(){var s=$('schoolView');if(s){s.hidden=true;s.style.display='none'}}
 function bind(){var a=$('ageBandPicker'),b=$('schoolAgePicker');if(a)a.onclick=ageClick;if(b)b.onclick=ageClick;var nav=$('mainNav');if(nav)nav.onclick=function(e){e=e||w.event;var t=e.target||e.srcElement;while(t&&t!==nav&&(!t.tagName||t.tagName.toLowerCase()!=='button'))t=t.parentNode;if(!t||t===nav)return;if(t.id==='schoolOpenNav'){showSchool();return}if(t.getAttribute&&t.getAttribute('data-view'))hideSchool()};var open=$('goSchoolBtn');if(open)open.onclick=showSchool;var back=$('schoolBackBtn');if(back)back.onclick=function(){hideSchool();var child=$('childView');if(child){child.hidden=false;child.style.display='block'}var n=$('nav-child');if(n)n.className='nav-btn active';var sn=$('schoolOpenNav');if(sn)sn.className='nav-btn';w.scrollTo(0,0)};var filters=$('emotionCategoryFilters');if(filters)filters.onclick=function(e){e=e||w.event;var t=e.target||e.srcElement,cat=t&&t.getAttribute&&t.getAttribute('data-category');if(cat){category=cat;openCase='';renderCategories();renderScenarios()}};var listRoot=$('emotionScenarioList');if(listRoot)listRoot.onclick=function(e){e=e||w.event;var t=e.target||e.srcElement,node=t,say='';while(node&&node!==listRoot){if(node.getAttribute){say=node.getAttribute('data-speak');if(say){speak(say);return}var id=node.getAttribute('data-case');if(id){openCase=openCase===id?'':id;renderScenarios();return}}node=node.parentNode}};var search=$('emotionSearch');if(search){search.oninput=search.onkeyup=function(){query=this.value||'';openCase='';renderScenarios()}}}
-function init(){render();bind();if((w.location.search||'').indexOf('school=1')>=0)showSchool()}
+function init(){injectCss();render();bind();if((w.location.search||'').indexOf('school=1')>=0)showSchool()}
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',init,false);else if(w.attachEvent)w.attachEvent('onload',init)}else init();
 })(window,document);
