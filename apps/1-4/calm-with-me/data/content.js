@@ -61,13 +61,3 @@ w.APP360_CALM_CONTENT={
   ]
 };
 })(window);
-(function(w,d){
-'use strict';
-if(!d||!d.createElement)return;
-try{
-  var s=d.createElement('script');
-  s.src='interop-ui.js?v=2';
-  s.async=true;
-  (d.head||d.documentElement).appendChild(s);
-}catch(e){}
-})(window,typeof document!=='undefined'?document:null);
