@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 15,
+  "version": 16,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -42,7 +42,7 @@
     ]
   },
   "implementation": {
-    "state": "live-v14-desktop-layout-legacy-touch-drag-and-unsaved-work-guard",
+    "state": "live-v16-mobile-touch-multiselect-feedback-and-card-layout",
     "built_on": "2026-09-21",
     "experiments": 170,
     "levels": 4,
@@ -121,7 +121,14 @@
       "legacy Android touch bridge supports moving resizing and touch drag-drop from both designer asset libraries",
       "worksheet and electronic game settings open from the side opposite the RTL close control",
       "designer close back update and unload guards protect pending unsaved work and backdrop taps never close designers",
-      "service worker no longer calls skipWaiting during install, preventing surprise controller reloads while designing"
+      "service worker no longer calls skipWaiting during install, preventing surprise controller reloads while designing",
+      "mobile library cards use compact two-column covers with contain-fit artwork and clearer touch targets",
+      "modern mobile designers explicitly opt out of passive root touchmove while manipulating items",
+      "large touch resize handles and immediate visual plus status feedback on phone and tablet",
+      "multi-selection mode with select-all clear-selection and visible selected-item count",
+      "alignment distribution grid snapping size normalization and smart finish operate on the selected group when two or more items are selected",
+      "mobile quick manipulation bar provides group size increase decrease and multi-selection without reopening settings",
+      "smart finish visibly arranges a selected group into a balanced layout while preserving its local design region"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
