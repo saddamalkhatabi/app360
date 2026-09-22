@@ -4,7 +4,7 @@
   "slug": "calm-with-me",
   "title_ar": "مشاعري معك: أحتاج مساعدة",
   "age_group": "1-4",
-  "version": 3,
+  "version": 5,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -27,71 +27,69 @@
     "pwa.offline",
     "compat.legacy-web"
   ],
-  "bundles": [
-    "static-core"
-  ],
-  "shared_resources": [
-    "early-child-common-objects-v1"
-  ],
+  "bundles": ["static-core"],
+  "shared_resources": ["early-child-common-objects-v1"],
   "storage": {
     "schema_version": "1.0",
     "key": "app360:a1-calm:schema-1.0:state",
+    "link_plan_key": "app360:a1-calm:link-plan-v1",
     "local_first": true,
     "fallback": "in-memory-with-explicit-export-warning"
   },
   "artifact_type": "co-regulation-transition-support-plan",
-  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر كلمة أو صورة مناسبة إن أراد ← اعرض مساعدات آمنة قابلة للرفض ← كوّن الآن/بعد ذلك أو خطة انتقال ← نفّذ نشاطًا مرتبطًا من تطبيقات مختبر 360 عند اختياره ← ارجع للخطة وسجّل التنفيذ ← راجع مع المرافق ما ساعد وما يحتاج تعديلًا",
+  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اعرض مساعدة قابلة للرفض عند الحاجة ← افتح خطة التطبيقات والروابط ← رتّب الروابط وحدد مدة كل خطوة ← شغّل الخطة في مشغل مستقل ينتقل تلقائيًا عند انتهاء الوقت ← راجع سجل التنفيذ مع المرافق",
   "interoperability": {
-    "schema_version": "1.0",
-    "registry_path": "data/app-links-registry.json",
-    "event_store_key": "app360:interop:v1:events",
-    "domain_policy": "relative-only",
-    "linked_apps": [
-      "a1-first-words",
-      "a1-imitate",
-      "a1-screen-move",
-      "a1-drawing-writing"
+    "schema_version": "2.0",
+    "mode": "isolated-timed-link-plan",
+    "planner_path": "apps/1-4/calm-with-me/link-plan.html",
+    "domain_policy": "internal-relative-plus-explicit-https-links",
+    "default_links": [
+      "apps/1-4/say-and-name/index.html",
+      "apps/1-4/imitate-one-step/index.html",
+      "apps/1-4/screen-to-move/index.html",
+      "apps/1-4/drawing-writing-foundations/index.html?v=23",
+      "https://yem1.com"
     ],
-    "execution_flow": [
-      "select-relative-service",
-      "launch-with-launch_id",
-      "record-opened-ready-completed",
-      "return-to-plan",
-      "archive-repeat-execution-cycles"
-    ],
-    "cancel_without_completion": true,
-    "full_backup_includes_execution_history": true
+    "manual_links": true,
+    "per_step_duration_seconds": true,
+    "automatic_next_step": true,
+    "same_page_iframe_runner": true,
+    "external_new_tab_fallback": true,
+    "execution_history": true,
+    "legacy_touch_interception": false
   },
   "implementation": {
-    "built_on": "2026-09-22",
-    "build": "v3",
-    "state": "practice-built-pending-device-acceptance",
+    "built_on": "2026-09-23",
+    "build": "v5",
+    "state": "simplified-link-plan-built-pending-device-acceptance",
     "visual_only_fallback": true,
     "local_custom_images": true,
     "local_recorded_audio": true,
     "printable_plans": true,
     "json_import_export": true,
-    "execution_history_export_import": true,
-    "legacy_core": "ES5 + Touch Events/click bridge + Flexbox",
+    "timed_link_plan_export": true,
+    "legacy_core": "ES5 + click-only isolated planner + Flexbox; no touchend interception in link planner",
     "automated_validation": {
       "status": "passed",
       "workflow": "Validate App 360 Lab",
-      "run_number": 460,
+      "run_number": 479,
       "checks": [
         "pnpm frozen lockfile",
         "platform validator and blueprint freshness",
-        "relative-only app link archives and legacy-safe return host",
         "platform tests",
-        "calm-with-me content, legacy and interop build v3 validators",
+        "isolated timed link planner v5 validator",
+        "default links for four 1-4 apps plus https://yem1.com",
+        "no touchend interception in planner",
+        "timed automatic transition and execution history",
         "a1 200-experience library validator"
       ]
     },
     "pending_before_live_ar": [
-      "اختبار رحلة ربط وتنفيذ وعودة فعلية على هاتف حديث",
-      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي، بما في ذلك بوابة النشاط والعودة دون إكمال",
-      "اختبار الهاتف والتابلت والحاسوب في الاتجاهين",
-      "اختبار تثبيت PWA والانقطاع والتحديث دون فقد بيانات محلية أو سجل التنفيذ",
-      "اختبار تصدير واستيراد نسخة كاملة تشمل دورات التنفيذ",
+      "اختبار النقر المتكرر وإضافة الروابط وترتيبها على هاتف حديث",
+      "اختبار انتقال المؤقت بين رابطين داخليين فعليًا",
+      "اختبار عرض https://yem1.com داخل الإطار أو استخدام فتح تبويب جديد عند منع التضمين",
+      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي",
+      "اختبار PWA والانقطاع والتحديث دون فقد بيانات محلية أو سجل التنفيذ",
       "مراجعة ملاءمة وتجربة مستخدم موثقة قبل تحويل الحالة إلى live"
     ]
   },
