@@ -4,7 +4,7 @@
   "slug": "calm-with-me",
   "title_ar": "مشاعري معك: أحتاج مساعدة",
   "age_group": "1-4",
-  "version": 2,
+  "version": 3,
   "status": "planned",
   "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
@@ -40,31 +40,58 @@
     "fallback": "in-memory-with-explicit-export-warning"
   },
   "artifact_type": "co-regulation-transition-support-plan",
-  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر كلمة أو صورة مناسبة إن أراد ← اعرض مساعدات آمنة قابلة للرفض ← كوّن الآن/بعد ذلك أو خطة انتقال ← راجع مع المرافق ما ساعد وما يحتاج تعديلًا",
+  "practice_model_ar": "لاحظ الإشارة أو الموقف مع الطفل ← اختر كلمة أو صورة مناسبة إن أراد ← اعرض مساعدات آمنة قابلة للرفض ← كوّن الآن/بعد ذلك أو خطة انتقال ← نفّذ نشاطًا مرتبطًا من تطبيقات مختبر 360 عند اختياره ← ارجع للخطة وسجّل التنفيذ ← راجع مع المرافق ما ساعد وما يحتاج تعديلًا",
+  "interoperability": {
+    "schema_version": "1.0",
+    "registry_path": "data/app-links-registry.json",
+    "event_store_key": "app360:interop:v1:events",
+    "domain_policy": "relative-only",
+    "linked_apps": [
+      "a1-first-words",
+      "a1-imitate",
+      "a1-screen-move",
+      "a1-drawing-writing"
+    ],
+    "execution_flow": [
+      "select-relative-service",
+      "launch-with-launch_id",
+      "record-opened-ready-completed",
+      "return-to-plan",
+      "archive-repeat-execution-cycles"
+    ],
+    "cancel_without_completion": true,
+    "full_backup_includes_execution_history": true
+  },
   "implementation": {
     "built_on": "2026-09-22",
+    "build": "v3",
     "state": "practice-built-pending-device-acceptance",
     "visual_only_fallback": true,
     "local_custom_images": true,
     "local_recorded_audio": true,
     "printable_plans": true,
     "json_import_export": true,
+    "execution_history_export_import": true,
     "legacy_core": "ES5 + Touch Events/click bridge + Flexbox",
     "automated_validation": {
       "status": "passed",
       "workflow": "Validate App 360 Lab",
-      "run_number": 448,
+      "run_number": 460,
       "checks": [
         "pnpm frozen lockfile",
         "platform validator and blueprint freshness",
+        "relative-only app link archives and legacy-safe return host",
         "platform tests",
-        "calm-with-me content and legacy validator"
+        "calm-with-me content, legacy and interop build v3 validators",
+        "a1 200-experience library validator"
       ]
     },
     "pending_before_live_ar": [
-      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي",
+      "اختبار رحلة ربط وتنفيذ وعودة فعلية على هاتف حديث",
+      "اختبار لمس فعلي على Android 4.4 Big TAB HD في الوضعين الرأسي والأفقي، بما في ذلك بوابة النشاط والعودة دون إكمال",
       "اختبار الهاتف والتابلت والحاسوب في الاتجاهين",
-      "اختبار تثبيت PWA والانقطاع والتحديث دون فقد بيانات محلية",
+      "اختبار تثبيت PWA والانقطاع والتحديث دون فقد بيانات محلية أو سجل التنفيذ",
+      "اختبار تصدير واستيراد نسخة كاملة تشمل دورات التنفيذ",
       "مراجعة ملاءمة وتجربة مستخدم موثقة قبل تحويل الحالة إلى live"
     ]
   },
