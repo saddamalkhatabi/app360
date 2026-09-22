@@ -24,7 +24,7 @@ if(simple.indexOf('launch_id')<0||simple.indexOf('return_to')<0)fail('launch con
 if(/https?:\/\//i.test(simple)||/https?:\/\//i.test(ui))fail('hard-coded domain detected');
 if(/\bconst\b|\blet\b|=>/.test(simple)||/\bconst\b|\blet\b|=>/.test(ui)||/\bconst\b|\blet\b|=>/.test(host))fail('legacy runtime requires ES5 syntax');
 if(content.indexOf('interop-ui.js')>=0)fail('content dictionary must not dynamically load interop scripts');
-if(host.indexOf('أنجزنا النشاط')<0||host.indexOf('رجوع دون إكمال')<0)fail('clear finish/cancel controls missing');
+if(host.indexOf('أنجزنا النشاط')<0||host.indexOf('العودة دون إكمال')<0)fail('clear finish/cancel controls missing');
 if(host.indexOf('inset:0')>=0)fail('legacy launch host must not depend on CSS inset');
 if(sw.indexOf('app360-app-calm-with-me-v4')<0||sw.indexOf('interop-enhancements-v3.js?v=3')<0)fail('service worker cache not refreshed for simple flow v4');
 console.log('calm-with-me guided interop v4 validation OK');
