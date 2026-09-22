@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="app360-build" content="calm-with-me-v5-20260923">
+<meta name="app360-build" content="calm-with-me-v6-20260923">
 <title>مشاعري معك: أحتاج مساعدة | مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest?v=5">
-<link rel="icon" type="image/svg+xml" href="icon.svg?v=5">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="manifest" href="manifest.webmanifest?v=6">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=6">
+<link rel="stylesheet" href="styles.css?v=6">
 <link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
 </head>
 <body>
@@ -19,11 +19,11 @@
 <div id="storageBanner" class="storage-banner" role="status"></div>
 <header class="app-head">
   <div class="head-main">
-    <img class="app-icon" src="icon.svg?v=5" alt="">
+    <img class="app-icon" src="icon.svg?v=6" alt="">
     <div class="head-copy">
-      <span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4 · نسخة الاختبار v5</span>
+      <span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4 · نسخة الاختبار v6</span>
       <h1>مشاعري معك: أحتاج مساعدة</h1>
-      <p>إشارة أو اختيار بسيط، مساعدة قابلة للرفض، ثم خطة تطبيقات وروابط قابلة للتنفيذ بوقت واضح.</p>
+      <p>سجّل الحالة، ابنِ سيناريو، نفّذ أنشطة من التطبيقات المرتبطة، ثم احتفظ بنتيجة كل تجربة للمراجعة والتكرار.</p>
     </div>
     <div class="head-actions">
       <button id="installAppBtn" type="button">تثبيت</button>
@@ -35,8 +35,8 @@
 
 <nav id="mainNav" class="main-nav" aria-label="أقسام التطبيق">
   <button id="nav-child" class="nav-btn active" type="button" data-view="child">مع الطفل</button>
-  <button id="nav-transition" class="nav-btn" type="button">الخطة</button>
-  <button id="nav-plans" class="nav-btn" type="button" data-view="plans">خططي <span id="plansCount">0</span></button>
+  <button id="nav-transition" class="nav-btn" type="button" data-view="transition">الخطط والتجارب</button>
+  <button id="nav-plans" class="nav-btn" type="button" data-view="plans">البطاقات المحفوظة <span id="plansCount">0</span></button>
   <button id="nav-caregiver" class="nav-btn" type="button" data-view="caregiver">للمرافق</button>
 </nav>
 
@@ -79,30 +79,45 @@
     </section>
 
     <div class="primary-actions">
-      <button id="goTransitionBtn" class="primary huge" type="button">افتح خطة التطبيقات والروابط</button>
+      <button id="goTransitionBtn" class="primary huge" type="button">ابنِ أو جرّب سيناريو</button>
       <button id="goCaregiverBtn" class="secondary huge" type="button">مراجعة المرافق بعد الموقف</button>
     </div>
   </section>
 
-  <section id="transitionView" class="view" hidden aria-hidden="true">
-    <div class="section-head"><div><span class="step-kicker">مسار قديم محفوظ للتوافق</span><h2>أدوات الانتقال البصرية</h2></div></div>
-    <label class="field-label" for="planTitle">اسم الخطة — اختياري</label>
-    <input id="planTitle" class="text-input" type="text" maxlength="80">
-    <div id="planPreview" class="plan-preview"></div>
-    <div class="picker-block"><h3>الآن</h3><div id="nowPicker" class="transition-row"></div></div>
-    <div class="picker-block"><h3>بعد ذلك</h3><div id="thenPicker" class="transition-row"></div></div>
-    <section class="custom-step-box"><input id="customTransitionLabel" class="text-input" type="text"><label class="file-button">صورة<input id="customTransitionImage" type="file" accept="image/*"></label><button id="addTransitionBtn" type="button">إضافة</button></section>
-    <div class="primary-actions"><button id="savePlanBtn" type="button" disabled>حفظ</button><button id="printCurrentBtn" type="button" disabled>طباعة</button><button id="newSessionBtn" type="button">موقف جديد</button></div>
+  <section id="transitionView" class="view" hidden>
+    <div class="section-head">
+      <div>
+        <span class="step-kicker">3 · من الحالة إلى تجربة قابلة للتكرار</span>
+        <h2>الخطط والتجارب</h2>
+        <p>كل شيء هنا جزء من «مشاعري معك»: احفظ الحالة، ابنِ سيناريو من خدمات التطبيقات السابقة، كرره أو عدله، وسجّل كل تشغيل كتجربة مستقلة.</p>
+      </div>
+    </div>
+
+    <div id="scenarioLab" class="scenario-lab">
+      <div class="practice-block"><b>جارٍ تجهيز مكتبة التطبيقات والتصنيفات…</b></div>
+    </div>
+
+    <details id="legacyTransitionDetails" class="optional-box">
+      <summary>أدوات «الآن وبعد ذلك» البصرية القديمة</summary>
+      <p>يمكن استخدامها وحدها أو بجانب السيناريوهات. بقيت هنا للحفاظ على الخطط البصرية السابقة.</p>
+      <label class="field-label" for="planTitle">اسم البطاقة — اختياري</label>
+      <input id="planTitle" class="text-input" type="text" maxlength="80">
+      <div id="planPreview" class="plan-preview"></div>
+      <div class="picker-block"><h3>الآن</h3><div id="nowPicker" class="transition-row"></div></div>
+      <div class="picker-block"><h3>بعد ذلك</h3><div id="thenPicker" class="transition-row"></div></div>
+      <section class="custom-step-box"><input id="customTransitionLabel" class="text-input" type="text" placeholder="خطوة أسرية خاصة"><label class="file-button">صورة<input id="customTransitionImage" type="file" accept="image/*"></label><button id="addTransitionBtn" type="button">إضافة</button></section>
+      <div class="primary-actions"><button id="savePlanBtn" type="button" disabled>حفظ البطاقة</button><button id="printCurrentBtn" type="button" disabled>طباعة</button><button id="newSessionBtn" type="button">موقف جديد</button></div>
+    </details>
   </section>
 
   <section id="plansView" class="view" hidden>
     <div class="section-head">
-      <div><span class="step-kicker">خطط محلية قابلة لإعادة الاستخدام</span><h2>خططي المحفوظة</h2><p>الخطط البصرية القديمة محفوظة هنا، بينما خطة التطبيقات والروابط أصبحت في صفحة مستقلة أبسط.</p></div>
-      <button id="exportAllBtn" class="secondary" type="button">تصدير كل البيانات</button>
+      <div><span class="step-kicker">بطاقات الانتقال القديمة</span><h2>البطاقات المحفوظة</h2><p>هذه البطاقات البصرية محفوظة كما هي. السيناريوهات وسجل التجارب موجودة داخل تبويب «الخطط والتجارب» في نفس التطبيق.</p></div>
+      <button id="exportAllBtn" class="secondary" type="button">تصدير بيانات البطاقات</button>
     </div>
     <div id="plansList" class="plans-list"></div>
     <section id="transferBox" class="transfer-box" hidden><h3>نقل البيانات يدويًا</h3><p>هذه نسخة JSON واضحة.</p><textarea id="transferText" rows="10" dir="ltr" spellcheck="false"></textarea><div class="row-actions"><button id="copyTransferBtn" type="button">نسخ النص</button><button id="importTextBtn" type="button">استيراد النص الموجود</button></div></section>
-    <section class="import-box"><h3>استيراد خطة أو نسخة احتياطية</h3><label class="file-button">اختيار ملف JSON<input id="importFile" type="file" accept="application/json,.json"></label><p>الاستيراد يضيف الخطط الجديدة ولا يحذف الخطط الحالية.</p></section>
+    <section class="import-box"><h3>استيراد بطاقة أو نسخة احتياطية</h3><label class="file-button">اختيار ملف JSON<input id="importFile" type="file" accept="application/json,.json"></label><p>الاستيراد يضيف الخطط الجديدة ولا يحذف الخطط الحالية.</p></section>
   </section>
 
   <section id="caregiverView" class="view" hidden>
@@ -115,11 +130,26 @@
   </section>
 </main>
 
+<section id="scenarioRunner" class="scenario-runner" hidden aria-hidden="true">
+  <header class="scenario-runner-head">
+    <div class="scenario-runner-title"><small id="scenarioRunnerCase">الحالة</small><b id="scenarioRunnerTitle">السيناريو</b><small id="scenarioRunnerStep">الخطوة</small></div>
+    <div id="scenarioClock" class="scenario-clock">0ث</div>
+    <div class="scenario-runner-actions">
+      <button id="scenarioPrev" type="button">السابق</button>
+      <button id="scenarioPause" type="button">إيقاف المؤقت</button>
+      <button id="scenarioNext" type="button">التالي</button>
+      <button id="scenarioStop" type="button">إنهاء التجربة</button>
+    </div>
+  </header>
+  <iframe id="scenarioFrame" class="scenario-runner-frame" title="تنفيذ خطوة السيناريو"></iframe>
+  <div class="scenario-runner-note"><span id="scenarioRunnerStatus"></span><button id="scenarioExternal" type="button">فتح في تبويب جديد</button></div>
+</section>
+
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="printArea" class="print-area" aria-hidden="true"></div>
-<script src="data/content.js?v=5"></script>
+<script src="data/content.js?v=6"></script>
 <script src="../../../assets/js/legacy-compat.js?v=1"></script>
-<script src="app.js?v=5"></script>
-<script src="link-entry-v5.js?v=5"></script>
+<script src="app.js?v=6"></script>
+<script src="scenario-engine-v6.js?v=6"></script>
 </body>
 </html>
