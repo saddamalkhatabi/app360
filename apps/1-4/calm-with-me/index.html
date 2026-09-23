@@ -100,5 +100,16 @@
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div><div id="printArea" class="print-area" aria-hidden="true"></div>
 <script src="data/content.js?v=10"></script><script src="data/emotion-library.js?v=9"></script><script src="age-content-v8.js?v=9"></script><script src="../../../assets/js/legacy-compat.js?v=1"></script><script src="app.js?v=9"></script><script src="emotion-school-v8.js?v=9"></script><script src="journey-v9.js?v=9"></script>
-<script>(function(){function go(){window.location.href='../plan-runner-360/index.html?v=1'}var a=document.getElementById('openPlanRunnerBtn'),b=document.getElementById('transitionPlanRunnerBtn');if(a)a.onclick=go;if(b)b.onclick=go})();</script>
+<script>(function(w,d){
+function goPlan(){w.location.href='../plan-runner-360/index.html?v=1'}
+var a=d.getElementById('openPlanRunnerBtn'),b=d.getElementById('transitionPlanRunnerBtn');if(a)a.onclick=goPlan;if(b)b.onclick=goPlan;
+function text(v){return String(v==null?'':v)}
+function transition(id){var list=(w.APP360_CALM_CONTENT&&w.APP360_CALM_CONTENT.transitions)||[],i;for(i=0;i<list.length;i++)if(list[i]&&list[i].id===id)return list[i];return null}
+function safeHref(h){h=text(h);if(h.indexOf('../')===0||h.indexOf('./')===0)return h;if(h==='https://yem1.com/'||h==='https://yem1.com')return 'https://yem1.com/';return ''}
+function selected(root){var bs=root?root.getElementsByTagName('button'):[],i;for(i=0;i<bs.length;i++)if((' '+(bs[i].className||'')+' ').indexOf(' selected ')>=0)return bs[i].getAttribute('data-step')||'';return ''}
+function ensure(rootId,slot){var root=d.getElementById(rootId),box=d.getElementById('transition-open-'+slot);if(!root||box)return;if(!root.parentNode)return;box=d.createElement('div');box.id='transition-open-'+slot;box.className='row-actions';box.style.marginTop='10px';root.parentNode.insertBefore(box,root.nextSibling)}
+function refresh(rootId,slot){var root=d.getElementById(rootId),box=d.getElementById('transition-open-'+slot),id,it,href,btn;if(!root||!box)return;id=selected(root);it=transition(id);href=safeHref(it&&it.href);box.innerHTML='';if(!href)return;btn=d.createElement('button');btn.type='button';btn.className='secondary';btn.style.width='100%';btn.innerHTML=(slot==='now'?'فتح خيار «الآن»: ':'فتح خيار «بعد ذلك»: ')+text(it.label_ar);btn.onclick=function(){w.location.href=href};box.appendChild(btn)}
+function bind(rootId,slot){var root=d.getElementById(rootId);if(!root)return;function later(){setTimeout(function(){refresh(rootId,slot)},60)}if(root.addEventListener){root.addEventListener('click',later,false);root.addEventListener('touchend',later,false)}else root.onclick=later;if(w.MutationObserver){try{new w.MutationObserver(later).observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['class']})}catch(e){}}}
+ensure('nowPicker','now');ensure('thenPicker','then');bind('nowPicker','now');bind('thenPicker','then');setTimeout(function(){refresh('nowPicker','now');refresh('thenPicker','then')},140);
+})(window,document);</script>
 </body></html>
