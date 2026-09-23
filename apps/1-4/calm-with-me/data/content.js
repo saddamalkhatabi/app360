@@ -86,7 +86,13 @@ w.APP360_CALM_CONTENT={
     {id:'toothbrush',label_ar:'ننظف الأسنان',image:shared+'toothbrush.svg',speech_ar:'ننظف الأسنان'},
     {id:'cup',label_ar:'نستخدم الكوب',image:shared+'cup.svg',speech_ar:'نستخدم الكوب'},
     {id:'leave',label_ar:'ننتقل إلى المكان التالي',symbol:'🚪',speech_ar:'ننتقل إلى المكان التالي'},
-    {id:'wait',label_ar:'ننتظر قليلًا معًا',symbol:'⌛',speech_ar:'ننتظر قليلًا معًا'}
+    {id:'wait',label_ar:'ننتظر قليلًا معًا',symbol:'⌛',speech_ar:'ننتظر قليلًا معًا'},
+    {id:'app-first-words',label_ar:'كلماتي مع أشيائي: اسمع وأشر وسمِّ',symbol:'🔤',speech_ar:'نفتح تطبيق كلماتي مع أشيائي',kind:'app',age_group:'1-4',app_id:'a1-first-words',href:'../say-and-name/index.html?v=26'},
+    {id:'app-imitate',label_ar:'دوري ودورك: قلّد حركة واحدة',symbol:'🙌',speech_ar:'نفتح تطبيق دوري ودورك',kind:'app',age_group:'1-4',app_id:'a1-imitate',href:'../imitate-one-step/index.html?v=21'},
+    {id:'app-screen-move',label_ar:'ألعاب إبداعية عبر الشاشة — أو بدون الشاشة',symbol:'🧩',speech_ar:'نفتح تطبيق الألعاب الإبداعية عبر الشاشة أو بدون الشاشة',kind:'app',age_group:'1-4',app_id:'a1-screen-move',href:'../screen-to-move/index.html?v=16'},
+    {id:'app-drawing-writing',label_ar:'لوحة الطفل للرسم والكتابة المبكرة',symbol:'✏️',speech_ar:'نفتح لوحة الطفل للرسم والكتابة المبكرة',kind:'app',age_group:'1-4',app_id:'a1-drawing-writing',href:'../drawing-writing-foundations/index.html?v=23'},
+    {id:'app-plan-runner',label_ar:'مخطط التشغيل 360: ابنِ ونفّذ خطة',symbol:'🧭',speech_ar:'نفتح مخطط التشغيل ثلاثمئة وستين',kind:'app',age_group:'1-4',app_id:'a1-plan-runner',href:'../plan-runner-360/index.html?v=1'},
+    {id:'safe-reels-360',label_ar:'فتح تطبيق الريلز الآمن 360',symbol:'▶',speech_ar:'نفتح تطبيق الريلز الآمن ثلاثمئة وستين',kind:'safe-reels',age_group:'1-4',app_id:'safe-reels-360',href:'https://yem1.com/'}
   ],
   assistance_levels:[
     {id:'child-points',label_ar:'الطفل أشار أو اختار'},
