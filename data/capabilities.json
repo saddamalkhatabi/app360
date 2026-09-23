@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-12",
+  "updated": "2026-09-23",
   "principle_ar": "التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
   "capabilities": [
     {"id":"practice.core","type":"package","scope":"shared","maturity":"planned","description_ar":"نواة حلقات الممارسة: مهمة، محاولة، تغذية راجعة، تكرار وتدرج."},
@@ -13,6 +13,12 @@
     {"id":"sync.peer","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"جلسات مباشرة Peer/WebRTC؛ لا تستخرج قبل احتياج تطبيق ثانٍ."},
     {"id":"evaluation.heuristic","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"تقييم تعليمي تقريبي غير تشخيصي/غير سلطوي لأداء الممارسة."},
     {"id":"media.recorder","type":"package","scope":"shared","maturity":"planned","description_ar":"تسجيل صوت/صورة/فيديو محلي عندما تحتاجه ممارسة فعلية."},
+    {"id":"emotion.age-profiles","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"تكييف عدد وصياغة خيارات المشاعر والحاجات والمساعدة بحسب المرحلة العمرية المبكرة دون تحويل العمر إلى تشخيص أو اختبار نمو."},
+    {"id":"emotion.situation-library","type":"content-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"مكتبة مواقف عاطفية وسلوكية شائعة منظمة حسب العمر والسياق مع إرشادات وصفية غير تشخيصية."},
+    {"id":"emotion.behavior-clues","type":"content-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"إشارات سلوكية قابلة للملاحظة تستخدم لتضييق سياق الاستكشاف مع منع الربط الحتمي بين السلوك وشعور واحد."},
+    {"id":"emotion.guided-journey","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"رحلة مترابطة تبدأ بما يقوله أو يشير إليه الطفل وتنتقل عبر السياق والموقف والمساعدة والخطوة التالية وبطاقة التجربة."},
+    {"id":"emotion.experiment-cards","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"بطاقات تجربة قابلة للحفظ والتكرار تربط موقفًا بمساعدة وخطوة تالية مع سجل محاولات وصفي مستقل."},
+    {"id":"emotion.contextual-help-ranking","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"ترتيب مساعدات مناسبة للعمر والسياق مع إبقاء كامل الخيارات متاحًا ورفض أي مساعدة مسموحًا."},
     {"id":"ai.gateway","type":"service","scope":"server","maturity":"planned","description_ar":"بوابة موحدة لمزودي AI، تحمي المفاتيح وتطبق سياسات الخصوصية والتحقق والتكلفة."},
     {"id":"tts.render","type":"service","scope":"server","maturity":"planned","description_ar":"توليد ملفات صوت عربية/إنجليزية وإدارتها كأصول قابلة لإعادة الاستخدام."},
     {"id":"progress.sync","type":"service","scope":"server","maturity":"planned","description_ar":"مزامنة تقدم المستخدم بين الأجهزة عند الحاجة، مع local-first افتراضيًا."},
