@@ -1,0 +1,41 @@
+name: Validate App360 Data Core
+
+on:
+  push:
+    paths:
+      - 'services/app360-data-core/**'
+      - 'data/ai-content-contracts.json'
+      - 'assets/js/ai-content-studio.js'
+      - 'assets/js/legacy-compat.js'
+      - 'tooling/validate-ai-core.js'
+      - '.github/workflows/validate-data-core.yml'
+  pull_request:
+    paths:
+      - 'services/app360-data-core/**'
+      - 'data/ai-content-contracts.json'
+      - 'assets/js/ai-content-studio.js'
+      - 'assets/js/legacy-compat.js'
+      - 'tooling/validate-ai-core.js'
+      - '.github/workflows/validate-data-core.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/app360-data-core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pinned native data dependencies
+        run: npm install --no-audit --no-fund
+      - name: Reset migrations and seed development identities
+        run: npm run reset
+      - name: Run AI/content/session smoke test
+        run: npm run smoke
