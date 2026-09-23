@@ -43,7 +43,7 @@ if(journeyJs.indexOf('app360:a1-calm:journey-v1')<0)fail('journey local storage 
 ['manifest.webmanifest','icon.svg','sw.js','package.json','app.json','emotion-school-v8.css','journey-v9.css','journey-v9.js'].forEach(function(rel){if(!fs.existsSync(path.join(root,rel)))fail('missing '+rel)});
 try{var manifest=JSON.parse(read('manifest.webmanifest'));if(manifest.start_url!=='./index.html')fail('manifest start_url is not canonical');else ok('manifest')}catch(e){fail('manifest JSON: '+e.message)}
 try{var contract=JSON.parse(read('app.json'));if(contract.id!=='a1-calm'||contract.slug!=='calm-with-me'||contract.age_group!=='1-4'||contract.version!==9)fail('app contract identity/version changed unexpectedly');else ok('stable app identity v9')}catch(e){fail('app.json: '+e.message)}
-var sw=read('sw.js');if(sw.indexOf('app360-app-calm-with-me-v9')<0||sw.indexOf('emotion-school-v8.js?v=9')<0||sw.indexOf('data/emotion-library.js?v=9')<0||sw.indexOf('journey-v9.js?v=9')<0)fail('service worker does not cache connected journey v9');else ok('v9 offline shell');
+var sw=read('sw.js');if(sw.indexOf('app360-app-calm-with-me-v10')<0||sw.indexOf('emotion-school-v8.js?v=9')<0||sw.indexOf('data/emotion-library.js?v=9')<0||sw.indexOf('journey-v9.js?v=9')<0||sw.indexOf('app360-ai-shell.js?v=2')<0)fail('service worker does not cache v9 journey with v10 legacy touch shell');else ok('v9 content + v10 compatibility offline shell');
 if(!fs.existsSync(path.join(repo,'resources/early-child-visuals/manifest.json')))fail('shared visual resource manifest missing');else ok('shared visual resource pack');
 if(failed){console.error('\ncalm-with-me validation FAILED');process.exit(1)}
 console.log('\ncalm-with-me connected emotion journey validation PASSED');
