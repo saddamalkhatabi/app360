@@ -1,0 +1,90 @@
+/* App360 responsive maturity policy v1 — legacy friendly, Flexbox only */
+html.app360-responsive body{font-size:16px;line-height:1.55}
+html.app360-responsive .app-shell,html.app360-responsive .head-main,html.app360-responsive .safety-line,html.app360-responsive .journey-progress{max-width:1100px}
+html.app360-responsive .head-copy h1{line-height:1.22}
+html.app360-responsive .section-head h2,html.app360-responsive .review-box h2{line-height:1.28}
+html.app360-responsive button,html.app360-responsive .file-button{line-height:1.3}
+html.app360-responsive .choice-card,html.app360-responsive .transition-option,html.app360-responsive .journey-help,html.app360-responsive .journey-scenario{overflow:hidden}
+html.app360-responsive .choice-card strong,html.app360-responsive .journey-scenario b,html.app360-responsive .journey-help b{line-height:1.35}
+html.app360-responsive .practice-block,html.app360-responsive .custom-step-box,html.app360-responsive .custom-help-box,html.app360-responsive .audio-box,html.app360-responsive .review-box,html.app360-responsive .boundary-box,html.app360-responsive .transfer-box,html.app360-responsive .import-box{margin-top:12px;margin-bottom:12px}
+
+/* Large phones and tablets: keep touch targets generous but prevent oversized typography/cards. */
+@media (min-width:601px) and (max-width:1199px){
+ html.app360-responsive body{font-size:16px!important;line-height:1.5}
+ html.app360-responsive .app-head{padding-top:14px}
+ html.app360-responsive .head-main{gap:12px}
+ html.app360-responsive .app-icon{width:62px;height:62px;flex-basis:62px;border-radius:18px}
+ html.app360-responsive .head-copy h1{font-size:1.62rem!important;margin:1px 0 3px}
+ html.app360-responsive .head-copy p{font-size:.94rem;line-height:1.45}
+ html.app360-responsive .eyebrow,html.app360-responsive .step-kicker{font-size:.78rem}
+ html.app360-responsive .safety-line{margin-top:10px;padding:7px 12px;font-size:.84rem}
+ html.app360-responsive .main-nav{padding:7px;gap:6px}
+ html.app360-responsive .nav-btn{min-height:46px;min-width:118px;padding:7px 10px;font-size:.92rem}
+ html.app360-responsive .app-shell{padding:14px 14px 72px}
+ html.app360-responsive .section-head{gap:12px;margin-bottom:11px}
+ html.app360-responsive .section-head h2,html.app360-responsive .review-box h2{font-size:1.34rem!important;margin-top:2px}
+ html.app360-responsive h3{font-size:1.08rem}
+ html.app360-responsive .practice-block,html.app360-responsive .custom-step-box,html.app360-responsive .custom-help-box,html.app360-responsive .audio-box,html.app360-responsive .review-box,html.app360-responsive .boundary-box,html.app360-responsive .transfer-box,html.app360-responsive .import-box{padding:13px 14px;border-radius:17px}
+ html.app360-responsive .choice-row,html.app360-responsive .transition-row{gap:9px}
+ html.app360-responsive .choice-card{flex-basis:145px;max-width:190px;min-height:132px;padding:9px;border-radius:17px}
+ html.app360-responsive .transition-option{flex-basis:140px;max-width:175px;min-height:116px;padding:9px;border-radius:17px}
+ html.app360-responsive .choice-card img,html.app360-responsive .transition-option img{width:68px;height:68px}
+ html.app360-responsive .choice-card strong{font-size:.98rem}
+ html.app360-responsive .symbol{font-size:2.65rem;min-height:54px}
+ html.app360-responsive .primary,html.app360-responsive .secondary,html.app360-responsive .quiet,html.app360-responsive .row-actions button,html.app360-responsive .library-actions button,html.app360-responsive .outcome-row button{min-height:48px;padding:8px 13px}
+ html.app360-responsive .huge{min-height:52px;padding:9px 17px;font-size:1rem}
+ html.app360-responsive .big{min-height:50px}
+ html.app360-responsive .current-strip{margin:12px 0}
+ html.app360-responsive .current-strip>div{padding:10px 13px}
+ html.app360-responsive .plan-preview{padding:13px;gap:9px;border-radius:19px}
+ html.app360-responsive .plan-step{flex-basis:210px;min-height:178px;padding:11px;border-radius:16px}
+ html.app360-responsive .plan-step img{width:96px;height:96px}
+ html.app360-responsive .plan-step .symbol{font-size:3.9rem}
+ html.app360-responsive .plan-arrow{font-size:1.8rem}
+ html.app360-responsive .journey-progress{padding:7px 9px;gap:5px}
+ html.app360-responsive .journey-progress span{flex-basis:118px;padding:6px 7px;font-size:.76rem}
+ html.app360-responsive .journey-box{padding:12px 13px;border-radius:17px}
+ html.app360-responsive .journey-scenario{flex-basis:210px;min-width:180px;padding:10px;border-radius:15px}
+ html.app360-responsive .journey-scenario b{font-size:.98rem}
+ html.app360-responsive .journey-help{flex-basis:150px;max-width:220px;min-height:104px;padding:9px;border-radius:15px}
+ html.app360-responsive .journey-help .j-symbol{font-size:1.85rem}
+ html.app360-responsive .emotion-case-head{min-height:62px;padding:10px 12px}
+ html.app360-responsive .emotion-case-detail{padding:11px 12px;font-size:1rem!important}
+ html.app360-responsive .case-symbol{font-size:1.65rem;min-width:38px}
+ html.app360-responsive .clue-card{flex-basis:230px;padding:11px}
+ html.app360-responsive .age-summary-grid>div{flex-basis:210px;padding:10px}
+}
+
+/* Wide tablets and desktop: preserve hierarchy without scaling text with screen size. */
+@media (min-width:1200px){
+ html.app360-responsive body{font-size:16px}
+ html.app360-responsive .head-copy h1{font-size:1.82rem}
+ html.app360-responsive .section-head h2,html.app360-responsive .review-box h2{font-size:1.48rem}
+ html.app360-responsive .choice-card{max-width:190px;min-height:138px}
+ html.app360-responsive .choice-card img{width:72px;height:72px}
+ html.app360-responsive .symbol{font-size:2.8rem;min-height:58px}
+ html.app360-responsive .journey-help{max-width:230px;min-height:108px}
+}
+
+/* Big TAB / old Android: legacy means compatibility, not larger typography. */
+html.app360-legacy.app360-responsive body{font-size:16px!important;line-height:1.5!important}
+html.app360-legacy.app360-responsive .head-copy h1{font-size:1.55rem!important}
+html.app360-legacy.app360-responsive .section-head h2,html.app360-legacy.app360-responsive .review-box h2{font-size:1.3rem!important}
+html.app360-legacy.app360-responsive h3{font-size:1.06rem!important}
+html.app360-legacy.app360-responsive .choice-card,html.app360-legacy.app360-responsive .transition-option{flex-basis:145px!important;min-height:128px!important}
+html.app360-legacy.app360-responsive .choice-card img,html.app360-legacy.app360-responsive .transition-option img{width:66px!important;height:66px!important}
+html.app360-legacy.app360-responsive .symbol{font-size:2.55rem!important;min-height:52px!important}
+html.app360-legacy.app360-responsive .emotion-case-detail{font-size:16px!important}
+html.app360-legacy.app360-responsive button,html.app360-legacy.app360-responsive .file-button{min-height:48px!important}
+html.app360-legacy.app360-responsive #app360HomeBtn{min-height:48px!important;font-size:14px!important;padding:8px 12px!important}
+
+/* Child-safety quick access panel. */
+.app360-safety-shortcuts{background:#fff;border:2px solid #d8b85a;border-radius:18px;padding:13px 14px;margin:12px 0;box-shadow:0 3px 12px rgba(25,61,65,.05)}
+.app360-safety-shortcuts h3{margin:0 0 5px;color:#5b4812}
+.app360-safety-shortcuts p{margin:4px 0 9px;color:#5d696b}
+.app360-safety-shortcuts .app360-safety-note{background:#fff8dc;border-radius:10px;padding:8px 10px;font-weight:bold;color:#5b4812}
+.app360-safety-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.app360-safety-actions button{min-height:48px;border:2px solid #c6aa51;border-radius:12px;background:#fff;color:#4c411d;padding:8px 11px;font-weight:bold;flex:1 1 150px;max-width:230px}
+.app360-safety-actions button:focus{outline:2px solid #0f8f8a;outline-offset:2px}
+@media (max-width:600px){.app360-safety-actions button{flex-basis:46%;max-width:none}.app360-safety-shortcuts{padding:11px}}
+@media (max-width:380px){.app360-safety-actions button{flex-basis:100%}}
