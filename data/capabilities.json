@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "principle_ar": "التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
   "capabilities": [
     {"id":"practice.core","type":"package","scope":"shared","maturity":"planned","description_ar":"نواة حلقات الممارسة: مهمة، محاولة، تغذية راجعة، تكرار وتدرج."},
@@ -10,6 +10,7 @@
     {"id":"audio.legacy-pcm","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"Fallback PCM/WebAudio للأجهزة القديمة؛ يستخرج كحزمة عند ظهور مستهلك ثانٍ."},
     {"id":"pwa.offline","type":"package","scope":"shared","maturity":"candidate","description_ar":"التثبيت، Service Worker، التحديث، offline shell، واستراتيجيات الكاش."},
     {"id":"compat.legacy-web","type":"package","scope":"shared","maturity":"candidate","description_ar":"طبقة توافق للمتصفحات القديمة وTouch Events وES5 عند الحاجة."},
+    {"id":"ui.responsive-maturity","type":"package","scope":"shared","maturity":"live-core","description_ar":"سياسة تصميم متجاوب موحدة للهاتف والتابلت والحاسوب تضبط كثافة الخطوط والبطاقات والمساحات مع أهداف لمس كبيرة، وتتضمن override خاصًا بالأجهزة القديمة حتى لا يعني legacy تضخيم الواجهة."},
     {"id":"sync.peer","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"جلسات مباشرة Peer/WebRTC؛ لا تستخرج قبل احتياج تطبيق ثانٍ."},
     {"id":"evaluation.heuristic","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"تقييم تعليمي تقريبي غير تشخيصي/غير سلطوي لأداء الممارسة."},
     {"id":"media.recorder","type":"package","scope":"shared","maturity":"planned","description_ar":"تسجيل صوت/صورة/فيديو محلي عندما تحتاجه ممارسة فعلية."},
@@ -19,6 +20,7 @@
     {"id":"emotion.guided-journey","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"رحلة مترابطة تبدأ بما يقوله أو يشير إليه الطفل وتنتقل عبر السياق والموقف والمساعدة والخطوة التالية وبطاقة التجربة."},
     {"id":"emotion.experiment-cards","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"بطاقات تجربة قابلة للحفظ والتكرار تربط موقفًا بمساعدة وخطوة تالية مع سجل محاولات وصفي مستقل."},
     {"id":"emotion.contextual-help-ranking","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"ترتيب مساعدات مناسبة للعمر والسياق مع إبقاء كامل الخيارات متاحًا ورفض أي مساعدة مسموحًا."},
+    {"id":"emotion.safety-shortcuts","type":"content-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"اختصارات لمخاوف الطفولة المبكرة تفصل الشعور عن الموقف وتفتح إرشادًا واقعيًا وآمنًا للحالات مثل الحرامي أو الشخص الغريب والضياع والظلام والأصوات المفاجئة دون تضخيم الخوف أو تحويل التحقق إلى طقس متكرر."},
     {"id":"ai.content-import","type":"package","scope":"shared","maturity":"live-core","description_ar":"استوديو مشترك يبني Prompt حسب عقد التطبيق ويستورد JSON والصور محليًا كمسودات قابلة للمراجعة دون إرسال بيانات المستخدم تلقائيًا إلى مزود AI."},
     {"id":"ai.gateway","type":"service","scope":"server","maturity":"planned","description_ar":"بوابة موحدة لمزودي AI، تحمي المفاتيح وتطبق سياسات الخصوصية والتحقق والتكلفة."},
     {"id":"tts.render","type":"service","scope":"server","maturity":"planned","description_ar":"توليد ملفات صوت عربية/إنجليزية وإدارتها كأصول قابلة لإعادة الاستخدام."},
