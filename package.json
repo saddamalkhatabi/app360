@@ -8,9 +8,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "validate": "node tooling/validate-platform.js && node tooling/build-blueprints.js --check && node tooling/validate-app-links.js && node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js",
+    "validate": "node tooling/validate-platform.js && node tooling/build-blueprints.js --check && node tooling/validate-app-links.js && node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js && node tooling/validate-shared-app-shell.js",
     "validate:links": "node tooling/validate-app-links.js",
     "validate:ai": "node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js",
+    "validate:shell": "node tooling/validate-shared-app-shell.js",
     "blueprints": "node tooling/build-blueprints.js",
     "test": "node --test tooling/test-platform.js tooling/test-portal.js",
     "check": "pnpm run validate",
