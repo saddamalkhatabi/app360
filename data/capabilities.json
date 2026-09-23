@@ -19,6 +19,7 @@
     {"id":"emotion.guided-journey","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"رحلة مترابطة تبدأ بما يقوله أو يشير إليه الطفل وتنتقل عبر السياق والموقف والمساعدة والخطوة التالية وبطاقة التجربة."},
     {"id":"emotion.experiment-cards","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"بطاقات تجربة قابلة للحفظ والتكرار تربط موقفًا بمساعدة وخطوة تالية مع سجل محاولات وصفي مستقل."},
     {"id":"emotion.contextual-help-ranking","type":"app-capability","scope":"shared-candidate","maturity":"live-in-calm-app","description_ar":"ترتيب مساعدات مناسبة للعمر والسياق مع إبقاء كامل الخيارات متاحًا ورفض أي مساعدة مسموحًا."},
+    {"id":"ai.content-import","type":"package","scope":"shared","maturity":"live-core","description_ar":"استوديو مشترك يبني Prompt حسب عقد التطبيق ويستورد JSON والصور محليًا كمسودات قابلة للمراجعة دون إرسال بيانات المستخدم تلقائيًا إلى مزود AI."},
     {"id":"ai.gateway","type":"service","scope":"server","maturity":"planned","description_ar":"بوابة موحدة لمزودي AI، تحمي المفاتيح وتطبق سياسات الخصوصية والتحقق والتكلفة."},
     {"id":"tts.render","type":"service","scope":"server","maturity":"planned","description_ar":"توليد ملفات صوت عربية/إنجليزية وإدارتها كأصول قابلة لإعادة الاستخدام."},
     {"id":"progress.sync","type":"service","scope":"server","maturity":"planned","description_ar":"مزامنة تقدم المستخدم بين الأجهزة عند الحاجة، مع local-first افتراضيًا."},
