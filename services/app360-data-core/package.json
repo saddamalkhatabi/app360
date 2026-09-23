@@ -9,7 +9,8 @@
     "rollback": "node scripts/rollback.js",
     "seed": "node scripts/seed.js",
     "reset": "node scripts/reset.js",
-    "smoke": "node scripts/smoke.js"
+    "smoke": "node scripts/smoke.js",
+    "import:bundle": "node scripts/import-bundle.js"
   },
   "dependencies": {
     "better-sqlite3": "11.10.0",
