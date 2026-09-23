@@ -52,12 +52,13 @@ app.title_ar = title;
 app.age_group = age;
 if (blueprint) {
   app.scaffold_state = 'implementation-started';
-  // Goal keys and planned runtime/capabilities come from the existing contract.
   app.title_ar = blueprint.title_ar;
 }
 app.entry_path = `${relBase}/index.html`;
 app.manifest_path = `${relBase}/manifest.webmanifest`;
 app.icon_path = `${relBase}/icon.svg`;
+app.capabilities = Array.isArray(app.capabilities) ? app.capabilities : [];
+if (!app.capabilities.includes('ai.content-import')) app.capabilities.push('ai.content-import');
 app.branding = app.branding || {};
 app.branding.theme_color = primary;
 app.branding.accent_color = accent;
@@ -110,6 +111,33 @@ sw = sw.replace("var CACHE='app360-template-v1';", `var CACHE='app360-app-${slug
   .replace("'./icon.svg'", "'./icon.svg','./icon-192.png','./icon-512.png'");
 fs.writeFileSync(swPath, sw);
 
+const aiRegistryPath = path.join(root, 'data', 'ai-content-contracts.json');
+if (fs.existsSync(aiRegistryPath)) {
+  const aiRegistry = JSON.parse(fs.readFileSync(aiRegistryPath, 'utf8'));
+  aiRegistry.apps = Array.isArray(aiRegistry.apps) ? aiRegistry.apps : [];
+  if (!aiRegistry.apps.some(x => x.app_id === app.id)) {
+    aiRegistry.apps.push({
+      app_id: app.id,
+      slug,
+      title_ar: app.title_ar,
+      age_group: age,
+      content_types: [{
+        id: 'generic_card',
+        label_ar: 'بطاقة محتوى جديدة',
+        supports_images: true,
+        supports_audio_script: true,
+        fields: ['id','title_ar','body_ar','speech_ar','image_prompt','asset_ref'],
+        required_item_fields: ['id','title_ar','body_ar'],
+        example: {id:'ai-card-001',title_ar:'عنوان البطاقة',body_ar:'محتوى قصير مناسب للفئة',speech_ar:'نص صوتي اختياري',image_prompt:'وصف صورة مناسبة',asset_ref:'card.png'}
+      }],
+      helpers: ['العمر أو الاستعداد','الهدف','عدد البطاقات','اللغة','أسلوب العرض','دعم صورة واضحة','نص صوتي قصير','مراجعة بشرية قبل الاعتماد']
+    });
+    aiRegistry.updated = new Date().toISOString().slice(0,10);
+    fs.writeFileSync(aiRegistryPath, JSON.stringify(aiRegistry, null, 2) + '\n');
+  }
+}
+
 console.log('Created:', path.relative(root, target));
 console.log('PWA ready: unique SVG + 192/512 PNG icons, manifest, offline shell and update helper.');
-console.log('Next: fill goal_keys/capabilities/bundles, define the practice loop, then add/update its catalog record.');
+console.log('AI ready: ai.content-import capability + initial content contract registered. Refine the generic AI schema for the app domain before activation.');
+console.log('Next: fill goal_keys/capabilities/bundles, define practice loop + deep links, refine AI content types, then add/update its catalog record.');
