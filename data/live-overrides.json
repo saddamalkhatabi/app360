@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "apps": [
     {
       "id": "a1-first-words",
@@ -38,6 +38,24 @@
         "pwa.offline",
         "compat.legacy-web",
         "evaluation.heuristic"
+      ],
+      "goal_delivery": "available_with_facilitator"
+    },
+    {
+      "id": "a1-calm",
+      "status": "live",
+      "href": "apps/1-4/calm-with-me/index.html?v=9",
+      "capabilities": [
+        "practice.core",
+        "storage.local",
+        "audio.tts",
+        "audio.recorded",
+        "pwa.offline",
+        "compat.legacy-web",
+        "emotion.age-profiles",
+        "emotion.situation-library",
+        "emotion.guided-journey",
+        "emotion.experiment-cards"
       ],
       "goal_delivery": "available_with_facilitator"
     }
