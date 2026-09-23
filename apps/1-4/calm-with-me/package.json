@@ -1,5 +1,5 @@
 {
-  "name":"@app360/app-calm-with-me","version":"0.7.0","private":true,"description":"مشاعري معك: أحتاج مساعدة - App 360 Lab",
+  "name":"@app360/app-calm-with-me","version":"0.8.0","private":true,"description":"مشاعري معك: أحتاج مساعدة - App 360 Lab",
   "app360":{"appId":"a1-calm","ageGroup":"1-4","runtimeProfile":"legacy-web"},
-  "scripts":{"validate":"node tooling/validate-content.js && node tooling/validate-interop.js","validate:contract":"node -e \"var x=JSON.parse(require('fs').readFileSync('app.json','utf8')); if(x.id!=='a1-calm'||x.slug!=='calm-with-me') process.exit(1); console.log('app.json OK')\""}
+  "scripts":{"validate":"node tooling/validate-content.js && node tooling/validate-interop.js && node tooling/test-safety-extension.js","validate:contract":"node -e \"var x=JSON.parse(require('fs').readFileSync('app.json','utf8')); if(x.id!=='a1-calm'||x.slug!=='calm-with-me') process.exit(1); console.log('app.json OK')\""}
 }
