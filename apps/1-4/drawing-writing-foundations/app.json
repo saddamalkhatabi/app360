@@ -7,12 +7,7 @@
   "version": 23,
   "status": "live",
   "kind": "hybrid",
-  "goal_keys": [
-    "learner-1-4-safe-sensory-motor-play",
-    "learner-1-4-routines-independence-first-attempts",
-    "learner-1-4-confidence-first-attempts-and-kind-persistence",
-    "coach-1-4-safe-play-activity-design-and-independence"
-  ],
+  "goal_keys": ["learner-1-4-safe-sensory-motor-play","learner-1-4-routines-independence-first-attempts","learner-1-4-confidence-first-attempts-and-kind-persistence","coach-1-4-safe-play-activity-design-and-independence"],
   "entry_path": "apps/1-4/drawing-writing-foundations/index.html",
   "manifest_path": "apps/1-4/drawing-writing-foundations/manifest.json",
   "icon_path": "apps/1-4/drawing-writing-foundations/icon.svg",
@@ -21,31 +16,10 @@
   "offline_mode": "offline-first",
   "update_policy": "network-first-critical-assets+service-worker-auto-activation",
   "bundles": ["legacy-child", "collaborative"],
-  "capabilities": [
-    "storage.local",
-    "audio.tts",
-    "audio.recorded",
-    "audio.legacy-pcm",
-    "pwa.offline",
-    "compat.legacy-web",
-    "sync.peer",
-    "evaluation.heuristic"
-  ],
+  "capabilities": ["storage.local","audio.tts","audio.recorded","audio.legacy-pcm","pwa.offline","compat.legacy-web","sync.peer","evaluation.heuristic","ai.content-import"],
   "practice_model_ar": "شاهد النموذج ← تتبع ← جرّب وحدك ← تشجيع ← كرر",
-  "compatibility": {
-    "mobile": true,
-    "tablet": true,
-    "desktop": true,
-    "legacy_android_required": true,
-    "known_legacy_target": "Big TAB HD / Android 4.4.x class devices"
-  },
-  "branding": {
-    "icon": "icon.svg",
-    "theme_color": "#0f8f8a",
-    "accent_color": "#ffd54f"
-  },
-  "ownership": {
-    "app_specific_code_stays_here": true,
-    "shared_extraction_policy": "extract only when a second real consumer exists"
-  }
+  "ai_content":{"contract_registry":"data/ai-content-contracts.json","types":["drawing_template","visual_stamp"],"review_before_publish":true,"image_import":true},
+  "compatibility": {"mobile":true,"tablet":true,"desktop":true,"legacy_android_required":true,"known_legacy_target":"Big TAB HD / Android 4.4.x class devices"},
+  "branding": {"icon":"icon.svg","theme_color":"#0f8f8a","accent_color":"#ffd54f"},
+  "ownership": {"app_specific_code_stays_here":true,"shared_extraction_policy":"extract only when a second real consumer exists"}
 }
