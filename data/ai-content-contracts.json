@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-09-23",
+  "privacy": {
+    "send_child_data_by_default": false,
+    "provider_connection": "none",
+    "note_ar": "المختبر يولد مطالبة ويستورد مخرجات فقط. لا يرسل بيانات الطفل أو الأسرة إلى أي مزود ذكاء اصطناعي تلقائيا."
+  },
+  "bundle_contract": {
+    "required": ["schema_version", "app_id", "content_type", "title", "items"],
+    "optional": ["assets", "source", "generator", "notes"],
+    "asset_fields": ["asset_id", "file_name", "mime_type", "purpose", "item_ref"]
+  },
+  "apps": [
+    {
+      "app_id": "a1-first-words",
+      "slug": "say-and-name",
+      "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "word_cards",
+          "label_ar": "بطاقات كلمات جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "level", "category_ar", "category_en", "word_ar", "word_en", "speech_ar", "speech_en", "image_prompt", "asset_ref", "facilitator_note_ar"],
+          "required_item_fields": ["id", "level", "category_ar", "word_ar"],
+          "example": {"id":"ai-word-001","level":1,"category_ar":"المنزل","category_en":"Home","word_ar":"نافذة","word_en":"Window","speech_ar":"نافذة","speech_en":"Window","image_prompt":"صورة واضحة لنافذة واحدة بخلفية بسيطة مناسبة لطفل صغير","asset_ref":"window.png","facilitator_note_ar":"أشر إلى نافذة حقيقية بعد البطاقة"}
+        },
+        {
+          "id": "word_category",
+          "label_ar": "تصنيف كلمات كامل",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "level", "category_ar", "category_en", "words"],
+          "required_item_fields": ["id", "level", "category_ar", "words"],
+          "example": {"id":"ai-cat-001","level":2,"category_ar":"أدوات النظافة","category_en":"Hygiene","words":[{"word_ar":"منشفة","word_en":"Towel","image_prompt":"منشفة واحدة واضحة"}]}
+        }
+      ],
+      "helpers": ["العمر الدقيق داخل 1-4", "المستوى 1-4", "التصنيف", "عدد الكلمات", "عربي فقط أو عربي+إنجليزي", "صور واقعية وواضحة", "عبارات نطق قصيرة", "ربط الكلمة بشيء حقيقي"]
+    },
+    {
+      "app_id": "a1-imitate",
+      "slug": "imitate-one-step",
+      "title_ar": "دوري ودورك: قلّد حركة واحدة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "experience",
+          "label_ar": "تجربة تقليد/تبادل دور جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "level", "family", "title_ar", "goal_ar", "materials", "energy", "place", "steps", "storyboard_prompt", "asset_ref", "facilitator_note_ar"],
+          "required_item_fields": ["id", "level", "family", "title_ar", "steps"],
+          "example": {"id":"AI201","level":2,"family":"تبادل الدور والتعاون","title_ar":"دحرج الكرة إليّ","goal_ar":"انتباه مشترك ودور واحد بسيط","materials":["كرة"],"energy":"هادئ","place":"داخل المنزل","steps":["اجلسا متقابلين","ضع الكرة بينكما","دحرجها للطفل","انتظر أن يعيدها","احتفلا بمحاولة واحدة"],"storyboard_prompt":"خمس لقطات واضحة لطفل ومرافق يدحرجان كرة بالتبادل","asset_ref":"AI201.webp","facilitator_note_ar":"لا نطلب تكرارا إذا ابتعد الطفل"}
+        }
+      ],
+      "helpers": ["المستوى 1-4", "عائلة التجربة", "الطاقة", "المكان", "الأدوات المتاحة", "خمس لقطات storyboard", "نشاط على الشاشة أو في الواقع", "خطوة واحدة واضحة", "بدون تقييم نمائي"]
+    },
+    {
+      "app_id": "a1-screen-move",
+      "slug": "screen-to-move",
+      "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "game",
+          "label_ar": "لعبة إلكترونية جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "level", "title_ar", "game_type", "instruction_ar", "objects", "correct_rule", "hints", "screen_steps", "offline_variant_ar", "worksheet_variant_ar", "image_prompts", "assets"],
+          "required_item_fields": ["id", "level", "title_ar", "game_type", "instruction_ar"],
+          "example": {"id":"AIG001","level":2,"title_ar":"ابحث عن الشيء الدائري","game_type":"choice","instruction_ar":"المس الشيء الدائري","objects":[{"id":"ball","label_ar":"كرة","correct":true},{"id":"book","label_ar":"كتاب","correct":false}],"correct_rule":"اختيار العناصر الدائرية فقط","hints":["انظر إلى الحواف"],"screen_steps":["شاهد المثال","اختر","تحقق","أعد المحاولة","نفذها بأشياء حقيقية"],"offline_variant_ar":"ضع كرة وكتابا على الطاولة واطلب اختيار الدائري","worksheet_variant_ar":"ورقة اختيار مع مربع فارغ أسفل كل صورة","image_prompts":["كرة واضحة","كتاب واضح"],"assets":["ball.png","book.png"]}
+        },
+        {
+          "id": "worksheet",
+          "label_ar": "ورقة تدريب/نشاط ورقي",
+          "supports_images": true,
+          "supports_audio_script": false,
+          "fields": ["id", "level", "title_ar", "instruction_ar", "layout", "items", "print_notes_ar", "image_prompts"],
+          "required_item_fields": ["id", "level", "title_ar", "instruction_ar", "items"],
+          "example": {"id":"AIW001","level":3,"title_ar":"صل الحيوان ببيته","instruction_ar":"صل كل حيوان بالمكان المناسب","layout":"matching","items":[{"left":"سمكة","right":"ماء"}],"print_notes_ar":"A4 عمودي وخطوط كبيرة","image_prompts":["سمكة بسيطة واضحة","ماء بسيط واضح"]}
+        }
+      ],
+      "helpers": ["المستوى 1-4", "نوع اللعبة", "عدد العناصر", "اللعب على الشاشة", "بديل بدون شاشة", "نسخة ورقية A4", "صور حقيقية أو رسومات بسيطة", "تلميحات", "إعادة المحاولة", "بدون درجات ذكاء"]
+    },
+    {
+      "app_id": "a1-drawing-writing",
+      "slug": "drawing-writing-foundations",
+      "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "drawing_template",
+          "label_ar": "شكل/قالب رسم جديد",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "mode", "title_ar", "instruction_ar", "difficulty", "guide_type", "guide_data", "image_prompt", "asset_ref", "speech_ar"],
+          "required_item_fields": ["id", "mode", "title_ar", "instruction_ar"],
+          "example": {"id":"ai-shape-heart","mode":"shapes","title_ar":"قلب بسيط","instruction_ar":"اتبع الخط ثم ارسم قلبا بطريقتك","difficulty":2,"guide_type":"image","guide_data":"","image_prompt":"قلب واحد بخط أسود عريض على خلفية بيضاء للأطفال","asset_ref":"heart.png","speech_ar":"اتبع الخط ثم جرب بنفسك"}
+        },
+        {
+          "id": "visual_stamp",
+          "label_ar": "صورة/ختم جديد للرسم",
+          "supports_images": true,
+          "supports_audio_script": false,
+          "fields": ["id", "category", "title_ar", "image_prompt", "asset_ref", "default_size"],
+          "required_item_fields": ["id", "category", "title_ar", "asset_ref"],
+          "example": {"id":"ai-stamp-tree","category":"طبيعة","title_ar":"شجرة","image_prompt":"شجرة واحدة بسيطة واضحة بخلفية شفافة","asset_ref":"tree.png","default_size":160}
+        }
+      ],
+      "helpers": ["العمر/الاستعداد", "الخط أو الشكل أو الحرف أو الرقم أو الرسم", "درجة الصعوبة", "تتبع ثم محاولة حرة", "خلفية بيضاء أو شفافة", "خطوط عريضة", "تعليمات قصيرة", "عدم فرض إتقان الكتابة"]
+    },
+    {
+      "app_id": "a1-calm",
+      "slug": "calm-with-me",
+      "title_ar": "مشاعري معك: أحتاج مساعدة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "emotion_situation",
+          "label_ar": "موقف شعوري/سلوكي جديد",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "category", "age_bands", "title_ar", "observe_ar", "specific_ar", "say_ar", "first_steps_ar", "release_ar", "avoid_ar", "image_prompt", "asset_ref"],
+          "required_item_fields": ["id", "category", "age_bands", "title_ar", "observe_ar", "say_ar"],
+          "example": {"id":"ai-fear-loud-door","category":"fear","age_bands":["2-3","3-4"],"title_ar":"الخوف من صوت الباب القوي","observe_ar":["يتعلق بالمرافق","ينظر للباب"],"specific_ar":"قد يكون الصوت المفاجئ مزعجا أو مخيفا، ولا نعرف السبب من السلوك وحده.","say_ar":"الصوت كان قويا. أنا معك الآن.","first_steps_ar":["نبتعد قليلا عن مصدر الصوت","نبقى قريبين"],"release_ar":["مشي هادئ مع المرافق"],"avoid_ar":["السخرية من الخوف","إجباره على الاقتراب"],"image_prompt":"باب منزل هادئ بدون مشهد مخيف","asset_ref":"door.png"}
+        },
+        {
+          "id": "help_option",
+          "label_ar": "مساعدة عمرية جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": ["id", "label_ar", "category", "speech_ar", "age_bands", "suggest_for", "image_prompt", "asset_ref"],
+          "required_item_fields": ["id", "label_ar", "category", "age_bands"],
+          "example": {"id":"ai-help-look-photo","label_ar":"نشاهد صورة مألوفة","category":"comfort","speech_ar":"يمكننا مشاهدة صورة نحبها","age_bands":["2-3","3-4"],"suggest_for":["sad","want-mom-dad"],"image_prompt":"صورة عائلية رمزية محايدة بدون أشخاص حقيقيين","asset_ref":"familiar-photo.png"}
+        }
+      ],
+      "helpers": ["العمر 1-2 أو 2-3 أو 3-4 أو 4-5", "الموقف المرصود", "الحاجة التي يحاول الطفل قولها", "إشارات سلوكية متعددة التفسير", "عبارة قصيرة للمرافق", "مساعدة قابلة للرفض", "حركة آمنة", "ما يجب تجنبه", "عدم التشخيص أو الادعاء بالعلاج"]
+    },
+    {
+      "app_id": "a1-plan-runner",
+      "slug": "plan-runner-360",
+      "title_ar": "مخطط التشغيل 360: ابنِ ونفّذ خطة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "plan_template",
+          "label_ar": "نمط خطة تشغيل جديد",
+          "supports_images": false,
+          "supports_audio_script": false,
+          "fields": ["id", "age_band", "title_ar", "purpose_ar", "steps"],
+          "required_item_fields": ["id", "age_band", "title_ar", "steps"],
+          "example": {"id":"ai-plan-calm-play","age_band":"2-3","title_ar":"هدوء ثم لغة ثم حركة","purpose_ar":"الانتقال من توتر بسيط إلى نشاط مألوف","steps":[{"app_id":"a1-calm","route":"app","duration_seconds":60},{"app_id":"a1-first-words","route":"category","target":"الحيوانات","duration_seconds":90},{"app_id":"a1-imitate","route":"family","target":"تبادل الدور والتعاون","duration_seconds":90}]}
+        }
+      ],
+      "helpers": ["الفئة العمرية", "الغرض", "مدة الخطة", "عدد الخطوات", "التطبيق/التصنيف/الخدمة/العنصر", "زمن كل خطوة", "انتقال تلقائي أو عند الإكمال", "عدم تكرار نشاط مرهق"]
+    }
+  ]
+}
