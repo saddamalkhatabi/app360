@@ -8,5 +8,5 @@ if(index.indexOf('nowPicker')<0||index.indexOf('thenPicker')<0)fail('calm-specif
 if(index.indexOf('schoolView')<0||index.indexOf('مدرسة المشاعر')<0||index.indexOf('guidedJourney')<0)fail('emotion school and connected journey must remain inside calm app');
 if(journey.indexOf('toNowThen')<0||journey.indexOf('emotionExperimentList')<0)fail('emotion experiment to now/then bridge missing');
 if(app.interoperability&&app.interoperability.embedded_planner!==false)fail('planner must not be embedded in calm app');
-if(sw.indexOf('app360-app-calm-with-me-v9')<0||sw.indexOf('scenario-engine-v6')>=0||sw.indexOf('app-links-registry')>=0)fail('calm service worker must remain separated from cross-app planner assets');
-console.log('calm-with-me v9 planner separation + connected emotion journey validation OK');
+if(sw.indexOf('app360-app-calm-with-me-v10')<0||sw.indexOf('scenario-engine-v6')>=0||sw.indexOf('app-links-registry')>=0)fail('calm service worker must remain separated from cross-app planner assets');
+console.log('calm-with-me v9 planner separation + v10 compatibility cache validation OK');
