@@ -93,6 +93,7 @@ html = html.replace(/<h1>اسم التطبيق<\/h1>/, `<h1>${title}</h1>`);
 html = html.replace('مختبر التطبيق 360 · الفئة العمرية', `مختبر التطبيق 360 · ${age}`);
 html = html.replace(/<meta name="theme-color" content="[^"]+">/, `<meta name="theme-color" content="${primary}">`);
 html = html.replace(/\.head\{background:#0f8f8a/, `.head{background:${primary}`);
+if (!html.includes('app360-ai-shell.js')) html = html.replace('</body>', '<script src="../../../assets/js/app360-ai-shell.js?v=2"></script>\n</body>');
 fs.writeFileSync(indexPath, html);
 
 const iconPath = path.join(target, 'icon.svg');
@@ -107,7 +108,8 @@ writeIconPngs(target,{primary,accent,seed:`${age}:${slug}:${title}`});
 
 const swPath = path.join(target, 'sw.js');
 let sw = fs.readFileSync(swPath, 'utf8');
-sw = sw.replace("var CACHE='app360-template-v1';", `var CACHE='app360-app-${slug}-v1';`)
+sw = sw.replace("var CACHE='app360-template-v2';", `var CACHE='app360-app-${slug}-v2';`)
+  .replace("var CACHE='app360-template-v1';", `var CACHE='app360-app-${slug}-v2';`)
   .replace("'./icon.svg'", "'./icon.svg','./icon-192.png','./icon-512.png'");
 fs.writeFileSync(swPath, sw);
 
@@ -139,5 +141,6 @@ if (fs.existsSync(aiRegistryPath)) {
 
 console.log('Created:', path.relative(root, target));
 console.log('PWA ready: unique SVG + 192/512 PNG icons, manifest, offline shell and update helper.');
+console.log('Navigation ready: every scaffolded app includes the shared 🏠 home button shell.');
 console.log('AI ready: ai.content-import capability + initial content contract registered. Refine the generic AI schema for the app domain before activation.');
 console.log('Next: fill goal_keys/capabilities/bundles, define practice loop + deep links, refine AI content types, then add/update its catalog record.');
