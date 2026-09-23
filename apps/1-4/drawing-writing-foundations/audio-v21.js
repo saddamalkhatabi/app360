@@ -50,3 +50,9 @@ function init(){mode=storeGet('pk_audio_mode','auto');injectUI();watchName();loa
 window.Audio360={speak:function(text,allowFallback){loadRegistry();return speak(text,allowFallback)},playRecorded:function(text){loadRegistry(function(){var c=clipFor(text);if(c)playClip(c)});return true},stop:function(){stopRecorded();try{speechSynthesis.cancel()}catch(e){}},reload:function(){registry=null;loadRegistry()},mode:function(){return mode},unlock:function(){return unlockCtx()}};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,false);else init();
 })();
+;(function(w,d){
+'use strict';
+if(w.APP360_AI_AUTOLOAD===false||w.APP360_AI_CONTENT||d.getElementById('app360AiRuntimeScript'))return;
+function load(){if(w.APP360_AI_CONTENT||d.getElementById('app360AiRuntimeScript'))return;var s=d.createElement('script');s.id='app360AiRuntimeScript';s.src='../../../assets/js/ai-content-studio.js?v=1';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
+if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',load,false);else if(w.attachEvent)w.attachEvent('onload',load)}else load();
+})(window,document);
