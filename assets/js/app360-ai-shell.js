@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_AI_SHELL&&w.APP360_AI_SHELL.__ready)return;
-var VERSION='3.0',TOUCH_THRESHOLD=14,CLICK_BLOCK_MS=700;
+var VERSION='3.1',TOUCH_THRESHOLD=14,CLICK_BLOCK_MS=700;
 function addClass(el,name){if(!el)return;var c=' '+(el.className||'')+' ';if(c.indexOf(' '+name+' ')<0)el.className=(el.className?el.className+' ':'')+name}
 function oldAndroid(){var ua=(w.navigator&&w.navigator.userAgent)||'',m=/Android\s+([0-9]+)(?:\.([0-9]+))?/i.exec(ua);if(!m)return /BigTAB|DMTAB|Android 4\./i.test(ua);return (parseInt(m[1],10)||0)<=5}
 function supportsGrid(){try{return !!(w.CSS&&w.CSS.supports&&w.CSS.supports('display','grid'))}catch(e){return false}}
@@ -20,10 +20,12 @@ function installTouchGuard(){
  d.addEventListener('click',function(e){if(Date.now()<st.suppressUntil)stop(e)},true);
  w.APP360_TOUCH_GUARD={__ready:true,version:'1.0',threshold:TOUCH_THRESHOLD,click_block_ms:CLICK_BLOCK_MS};
 }
+function loadResponsivePolicy(){if(d.getElementById('app360ResponsivePolicy'))return;var h=d.head||d.getElementsByTagName('head')[0];if(!h)return;var l=d.createElement('link');l.id='app360ResponsivePolicy';l.rel='stylesheet';l.type='text/css';l.href='../../../assets/css/app360-responsive-policy-v1.css?v=1';h.appendChild(l)}
+function loadEarlyChildSafety(){var p=(w.location&&w.location.pathname)||'',h,s;if(p.indexOf('/apps/1-4/')<0||d.getElementById('app360EarlyChildSafety'))return;h=d.head||d.getElementsByTagName('head')[0]||d.body;if(!h)return;s=d.createElement('script');s.id='app360EarlyChildSafety';s.src='../../../assets/js/early-child-safety-v1.js?v=1';s.async=true;h.appendChild(s)}
 function injectStyle(){if(d.getElementById('app360ShellStyle'))return;var s=d.createElement('style');s.id='app360ShellStyle';s.type='text/css';s.innerHTML='#app360HomeBtn{position:fixed;right:12px;bottom:14px;z-index:9996;min-height:52px;padding:10px 15px;border:2px solid #17343a;border-radius:18px;background:#fff;color:#17343a;font:bold 15px Tahoma,Arial,sans-serif;box-shadow:0 5px 20px rgba(0,0,0,.16);cursor:pointer}html.app360-legacy #app360HomeBtn{position:absolute;right:8px;top:8px;bottom:auto}@media(max-width:620px){#app360HomeBtn{right:8px;bottom:8px;padding:9px 12px;min-height:48px}}';(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
 function addHome(){if(d.getElementById('app360HomeBtn')||!d.body)return;injectStyle();var b=d.createElement('button');b.id='app360HomeBtn';b.type='button';b.innerHTML='🏠 الرئيسية';b.title='العودة إلى الشاشة الرئيسية لمختبر التطبيق 360';b.setAttribute('aria-label','العودة إلى الشاشة الرئيسية');b.onclick=function(){try{w.location.href=repoHome()}catch(e){w.location.assign(repoHome())}};d.body.appendChild(b)}
 function loadAi(){if(w.APP360_AI_AUTOLOAD===false||w.APP360_AI_CONTENT)return;var p=(w.location&&w.location.pathname)||'',old=d.getElementById('app360AiRuntimeScript');if(p.indexOf('/apps/')<0||/\/apps\/_template\//.test(p))return;if(old){var src=String(old.getAttribute('src')||'');if(src.indexOf('ai-content-studio.js?v=2')>=0)return;try{old.parentNode&&old.parentNode.removeChild(old)}catch(e){return}}var s=d.createElement('script');s.id='app360AiRuntimeScript';s.src='../../../assets/js/ai-content-studio.js?v=2';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
-function init(){var html=d.documentElement||d.getElementsByTagName('html')[0];if(legacy()){w.APP360_LEGACY=true;addClass(html,'app360-legacy')}installTouchGuard();addHome();loadAi()}
-w.APP360_AI_SHELL={__ready:true,version:VERSION,home:repoHome,touchGuard:installTouchGuard,refresh:function(){installTouchGuard();addHome();loadAi()}};
+function init(){var html=d.documentElement||d.getElementsByTagName('html')[0];addClass(html,'app360-responsive');if(legacy()){w.APP360_LEGACY=true;addClass(html,'app360-legacy')}loadResponsivePolicy();installTouchGuard();addHome();loadEarlyChildSafety();loadAi()}
+w.APP360_AI_SHELL={__ready:true,version:VERSION,home:repoHome,touchGuard:installTouchGuard,refresh:function(){var html=d.documentElement||d.getElementsByTagName('html')[0];addClass(html,'app360-responsive');loadResponsivePolicy();installTouchGuard();addHome();loadEarlyChildSafety();loadAi()}};
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',init,false);else if(w.attachEvent)w.attachEvent('onload',init)}else init();
 })(window,document);
