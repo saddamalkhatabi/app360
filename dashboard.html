@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0f8f8a">
+<title>داشبورد نشاطي | مختبر التطبيق 360</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f8f7;color:#17343a;font:16px/1.55 Tahoma,Arial,sans-serif}.dash-head{background:#0f8f8a;color:#fff;padding:18px}.dash-shell{max-width:980px;margin:auto;padding:16px}.dash-head .dash-shell{padding:0}.dash-head h1{margin:0;font-size:1.65rem}.dash-head p{margin:5px 0 0}.dash-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.dash-actions a,.dash-actions button{min-height:46px;border:2px solid #0f8f8a;border-radius:12px;background:#fff;color:#0b6965;padding:8px 13px;font-weight:bold;text-decoration:none}.dash-note{background:#fff8dc;border:1px solid #d4b85d;border-radius:14px;padding:12px;margin:12px 0}.a360-dashboard-summary{background:#fff;border:1px solid #d6e4e2;border-radius:18px;padding:16px;margin-bottom:12px}.a360-dashboard-summary h2{margin:0 0 4px}.a360-dashboard-list{display:flex;flex-wrap:wrap;gap:12px}.a360-dashboard-list article{flex:1 1 250px;background:#fff;border:1px solid #d6e4e2;border-radius:16px;padding:14px}.a360-dashboard-list h3{margin:0}.a360-dashboard-list p{font-size:1.45rem;font-weight:bold;color:#0b716d;margin:8px 0}.server-box{margin-top:16px;background:#eef7ff;border:1px solid #bcd5e6;border-radius:16px;padding:14px}.server-box[hidden]{display:none}@media(max-width:600px){body{font-size:15px}.dash-shell{padding:10px}.a360-dashboard-list article{flex-basis:100%}}
+</style>
+</head>
+<body>
+<header class="dash-head"><div class="dash-shell"><h1>داشبورد نشاطي</h1><p>وقت الاستخدام لكل تطبيق — يعمل للضيف محليًا، وللحساب يمكن مزامنته مع قاعدة البيانات.</p></div></header>
+<main class="dash-shell">
+<div class="dash-actions"><a href="index.html">🏠 مختبر التطبيق 360</a><button id="openAccountBtn" type="button">الحساب / تسجيل الدخول</button><button id="refreshServerBtn" type="button">تحديث التقرير المركزي</button></div>
+<div class="dash-note">وقت الضيف يخص هذا المتصفح فقط ولا يُنسب تلقائيًا إلى طفل يسجل الدخول لاحقًا. لا يُحسب الوقت عندما تكون الصفحة مخفية في الخلفية.</div>
+<div id="fullDashboard"><p>جارٍ قراءة النشاط المحلي…</p></div>
+<section id="serverBox" class="server-box" hidden><h2>التقرير المركزي للحساب</h2><div id="serverDashboard"></div></section>
+</main>
+<script src="assets/js/app360-session-v1.js?v=1"></script>
+<script>(function(w,d){function ready(){if(!w.APP360_SESSION){setTimeout(ready,80);return}w.APP360_SESSION.renderDashboard('fullDashboard');d.getElementById('openAccountBtn').onclick=function(){w.APP360_SESSION.open()};d.getElementById('refreshServerBtn').onclick=function(){if(!w.APP360_SESSION.isAuthenticated()){w.APP360_SESSION.open();return}w.APP360_SESSION.serverDashboard(function(ok,data){var box=d.getElementById('serverBox'),root=d.getElementById('serverDashboard'),h='',rows=data&&data.apps||[],i,r;box.hidden=false;if(!ok){root.innerHTML='تعذر جلب التقرير المركزي الآن.';return}h+='<p><b>الإجمالي المركزي: '+Math.round((data.total_active_seconds||0)/60)+' دقيقة</b></p>';for(i=0;i<rows.length;i++){r=rows[i];h+='<p><b>'+String(r.title_ar||r.app_id)+'</b> — '+Math.round((r.active_seconds||0)/60)+' دقيقة · '+(r.opens||0)+' فتح</p>'}root.innerHTML=h||'لا يوجد نشاط مركزي بعد.'})}}if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',ready,false);else ready()})(window,document);</script>
+</body>
+</html>

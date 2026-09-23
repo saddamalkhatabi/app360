@@ -1,8 +1,8 @@
 {
   "name": "@app360/data-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "App360 local-first content, AI imports, identities and learning-event data core",
+  "description": "App360 local-first content, Safe Reels identity bridge, usage dashboard, user-owned content and learning-event data core",
   "engines": {"node": ">=20 <22"},
   "scripts": {
     "migrate": "node scripts/migrate.js",
@@ -10,6 +10,8 @@
     "seed": "node scripts/seed.js",
     "reset": "node scripts/reset.js",
     "smoke": "node scripts/smoke.js",
+    "smoke:session": "node scripts/smoke-session.js",
+    "serve": "node src/http-server.js",
     "import:bundle": "node scripts/import-bundle.js"
   },
   "dependencies": {

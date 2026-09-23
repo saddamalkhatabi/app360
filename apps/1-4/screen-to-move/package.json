@@ -1,14 +1,11 @@
 {
   "name": "@app360/app-screen-to-move",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "private": true,
-  "description": "ألعاب إبداعية عبر الشاشة أو بدون الشاشة: 170 لعبة ومصممان مع لمس حديث وتحديد متعدد ومحاذاة ذكية - App 360 Lab",
+  "description": "ألعاب إبداعية عبر الشاشة أو بدون الشاشة: 170 لعبة ومصممان مع لمس حديث وتحديد متعدد ومحاذاة ذكية ومكتبة محتوى خاصة بالحساب - App 360 Lab",
   "scripts": {
     "test": "node --test app.test.js",
-    "validate": "node --check app.js && node --check designer-v9.js && node --check designer-v10.js && node --check game-designer-v10.js && node --check designer-v15.js && node --check designer-v16.js && node --check storage-v15.js && node --check legacy-v15.js && node --check designer-assets-v9.js && node --check games-data.js && node --check offline-alternatives.js && node --check sw.js && node --test app.test.js"
+    "validate": "node --check app.js && node --check designer-v9.js && node --check designer-v10.js && node --check game-designer-v10.js && node --check designer-v15.js && node --check designer-v16.js && node --check account-content-v1.js && node --check storage-v15.js && node --check legacy-v15.js && node --check designer-assets-v9.js && node --check games-data.js && node --check offline-alternatives.js && node --check sw.js && node --test app.test.js"
   },
-  "app360": {
-    "appId": "a1-screen-move",
-    "ageGroup": "1-4"
-  }
+  "app360": {"appId":"a1-screen-move","ageGroup":"1-4"}
 }

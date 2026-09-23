@@ -24,45 +24,9 @@
 <div id="storageBanner" class="banner" hidden></div>
 <main id="appRoot" class="app-root" aria-live="polite"></main>
 <footer class="foot"><strong>اللعب الحقيقي أولًا متى كان مناسبًا.</strong> استخدم أدوات كبيرة وآمنة وتحت إشراف مرافق. نتيجة الشاشة تصف الجولة داخل التطبيق فقط، ولا تقيّم نمو الطفل ولا تراقب ما يحدث خارج الشاشة.</footer>
-
-<div id="sheet" class="sheet" hidden aria-hidden="true">
-  <button class="sheet-backdrop" data-close-sheet aria-label="إغلاق"></button>
-  <section class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
-    <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="close" data-close-sheet aria-label="إغلاق">×</button></div>
-    <div id="sheetBody" class="sheet-body"></div>
-  </section>
-</div>
-
-<div id="drawingOverlay" class="drawing-overlay" hidden aria-hidden="true">
-  <button class="drawing-backdrop" data-close-drawing aria-label="إغلاق"></button>
-  <section class="drawing-panel" role="dialog" aria-modal="true" aria-labelledby="drawingTitle">
-    <div class="drawing-head"><h2 id="drawingTitle">🎨 الرسم المشترك</h2><button class="close" data-close-drawing aria-label="إغلاق">×</button></div>
-    <div class="drawing-tools">
-      <button data-color="#1f2937">أسود</button><button data-color="#ef4444">أحمر</button><button data-color="#2563eb">أزرق</button><button data-color="#16a34a">أخضر</button>
-      <button id="eraserBtn">ممحاة</button><button id="undoBtn">تراجع</button><button id="clearDrawingBtn">مسح</button><button id="saveDrawingBtn">حفظ صورة</button>
-    </div>
-    <div class="canvas-wrap"><canvas id="sharedCanvas"></canvas></div>
-    <p class="drawing-note">يمكن للطفل والمرافق الرسم بالدور على نفس اللوحة. لمس الخلفية أو زر الرجوع يغلق اللوحة فقط.</p>
-  </section>
-</div>
-
-<section id="printArea" class="print-area" aria-hidden="true"></section>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-<script src="games-data.js?v=16"></script>
-<script src="games-data-v12.js?v=16"></script>
-<script src="storage-v15.js?v=16"></script>
-<script src="legacy-v15.js?v=16"></script>
-<script src="app.js?v=16"></script>
-<script src="designer-assets-v9.js?v=16"></script>
-<script src="designer-assets-v12.js?v=16"></script>
-<script src="designer-v9.js?v=16"></script>
-<script src="designer-v10.js?v=16"></script>
-<script src="game-designer-v10.js?v=16"></script>
-<script src="designer-v15.js?v=16"></script>
-<script src="designer-v16.js?v=16"></script>
-<script>window.Audio360Base='../drawing-writing-foundations/';</script>
-<script src="../drawing-writing-foundations/audio-v21.js?v=16"></script>
-<script src="legacy-v13.js?v=16"></script>
+<div id="sheet" class="sheet" hidden aria-hidden="true"><button class="sheet-backdrop" data-close-sheet aria-label="إغلاق"></button><section class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"><div class="sheet-head"><h2 id="sheetTitle"></h2><button class="close" data-close-sheet aria-label="إغلاق">×</button></div><div id="sheetBody" class="sheet-body"></div></section></div>
+<div id="drawingOverlay" class="drawing-overlay" hidden aria-hidden="true"><button class="drawing-backdrop" data-close-drawing aria-label="إغلاق"></button><section class="drawing-panel" role="dialog" aria-modal="true" aria-labelledby="drawingTitle"><div class="drawing-head"><h2 id="drawingTitle">🎨 الرسم المشترك</h2><button class="close" data-close-drawing aria-label="إغلاق">×</button></div><div class="drawing-tools"><button data-color="#1f2937">أسود</button><button data-color="#ef4444">أحمر</button><button data-color="#2563eb">أزرق</button><button data-color="#16a34a">أخضر</button><button id="eraserBtn">ممحاة</button><button id="undoBtn">تراجع</button><button id="clearDrawingBtn">مسح</button><button id="saveDrawingBtn">حفظ صورة</button></div><div class="canvas-wrap"><canvas id="sharedCanvas"></canvas></div><p class="drawing-note">يمكن للطفل والمرافق الرسم بالدور على نفس اللوحة. لمس الخلفية أو زر الرجوع يغلق اللوحة فقط.</p></section></div>
+<section id="printArea" class="print-area" aria-hidden="true"></section><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="games-data.js?v=16"></script><script src="games-data-v12.js?v=16"></script><script src="storage-v15.js?v=16"></script><script src="legacy-v15.js?v=16"></script><script src="app.js?v=16"></script><script src="designer-assets-v9.js?v=16"></script><script src="designer-assets-v12.js?v=16"></script><script src="designer-v9.js?v=16"></script><script src="designer-v10.js?v=16"></script><script src="game-designer-v10.js?v=16"></script><script src="designer-v15.js?v=16"></script><script src="designer-v16.js?v=16"></script><script>window.Audio360Base='../drawing-writing-foundations/';</script><script src="../drawing-writing-foundations/audio-v21.js?v=16"></script><script src="account-content-v1.js?v=1"></script><script src="legacy-v13.js?v=16"></script>
 </body>
 </html>

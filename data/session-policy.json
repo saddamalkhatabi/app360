@@ -1,0 +1,54 @@
+{
+  "schema_version":"1.0",
+  "updated":"2026-09-24",
+  "principles":{
+    "guest_access":true,
+    "guest_never_requires_login_to_open_or_practice":true,
+    "guest_usage_storage":"browser-local-only",
+    "authenticated_usage_storage":"local-first-then-data-core",
+    "guest_time_auto_attaches_to_first_login":false,
+    "pin_storage":"never",
+    "auth_token_storage":"sessionStorage-only",
+    "child_sensitive_artifacts_sync_by_default":false
+  },
+  "account_required_features":[
+    "cloud_save",
+    "cross_device_sync",
+    "central_child_or_trainee_dashboard",
+    "restore_on_new_device",
+    "shared_personal_content_library",
+    "publish_or_share_user_created_content"
+  ],
+  "guest_features":[
+    "open_apps",
+    "practice",
+    "offline_core",
+    "local_drafts",
+    "local_results_where_supported",
+    "local_usage_dashboard",
+    "print_and_export_where_supported"
+  ],
+  "usage":{
+    "count_background_time":false,
+    "flush_seconds":15,
+    "scope_isolation":["guest","user:<internal_user_id>"],
+    "sync":"idempotent usage batches; failed batches remain local",
+    "dashboard_dimensions":["app_id","active_seconds","opens","last_seen_at"]
+  },
+  "safe_reels_identity":{
+    "provider":"safe-reels-360",
+    "login_ui":"search/name-or-id + PIN",
+    "upstream_endpoint_env":"APP360_SAFE_REELS_AUTH_URL",
+    "upstream_server_token_env":"APP360_SAFE_REELS_AUTH_TOKEN",
+    "pin_persisted":false,
+    "app360_session":"opaque random token; SHA-256 hash only in SQLite"
+  },
+  "apps":{
+    "a1-first-words":{"guest":["preferences","time"],"account":["cross-device learner profile","central usage history"]},
+    "a1-imitate":{"guest":["local completion","local notes","time"],"account":["cross-device completion history","central usage history"]},
+    "a1-screen-move":{"guest":["results","custom game drafts","worksheet drafts","local personal designs","time"],"account":["cloud personal game library","cloud worksheet library","cross-device restore","optional publish after review"]},
+    "a1-drawing-writing":{"guest":["local drawings","local practice progress","time"],"account":["cross-device gallery","central usage history"]},
+    "a1-calm":{"guest":["plans","reviews","emotion journey","time"],"account":["central usage time"],"sensitive_sync":"detailed emotion plans/reviews stay local unless caregiver explicitly opts in"},
+    "a1-plan-runner":{"guest":["local plans","local runs","time"],"account":["cloud plan library","cross-device run history","central usage history"]}
+  }
+}

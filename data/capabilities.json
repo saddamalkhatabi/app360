@@ -1,10 +1,13 @@
 {
-  "schema_version": "1.0",
-  "updated": "2026-09-24",
-  "principle_ar": "التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
-  "capabilities": [
+  "schema_version":"1.0",
+  "updated":"2026-09-24",
+  "principle_ar":"التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
+  "capabilities":[
     {"id":"practice.core","type":"package","scope":"shared","maturity":"planned","description_ar":"نواة حلقات الممارسة: مهمة، محاولة، تغذية راجعة، تكرار وتدرج."},
     {"id":"storage.local","type":"package","scope":"shared","maturity":"planned","description_ar":"حفظ محلي موحد مع نسخ Schema وترحيل آمن."},
+    {"id":"identity.guest-account","type":"package","scope":"shared","maturity":"live-core","description_ar":"دخول عام كضيف بلا حساب مع إمكانية الانتقال إلى هوية طفل/متدرب عبر Adapter الريلز الآمن؛ لا يحفظ PIN ويعزل سجل الضيف عن الحساب."},
+    {"id":"telemetry.local-usage","type":"package","scope":"shared","maturity":"live-core","description_ar":"قياس وقت الاستخدام الظاهر لكل تطبيق ومرات الفتح محليًا مع Dashboard مصغر، واستبعاد وقت الخلفية وإرسال دفعات قابلة لإعادة المحاولة عند وجود حساب."},
+    {"id":"content.user-owned","type":"service-capability","scope":"shared","maturity":"data-core-ready","description_ar":"ملكية محتوى ينشئه المستخدم مثل الألعاب والأوراق، خاص افتراضيًا وقابل للمزامنة بين الأجهزة بعد تسجيل الدخول دون منع الحفظ المحلي للضيف."},
     {"id":"audio.tts","type":"package","scope":"shared","maturity":"candidate","description_ar":"نطق آلي مع اختيار الصوت واختبار الدعم."},
     {"id":"audio.recorded","type":"asset","scope":"shared-candidate","maturity":"candidate","description_ar":"تشغيل ملفات مسجلة واختيار الملف حسب الاسم/اللغة/الموقف."},
     {"id":"audio.legacy-pcm","type":"package","scope":"shared-candidate","maturity":"live-in-drawing-app","description_ar":"Fallback PCM/WebAudio للأجهزة القديمة؛ يستخرج كحزمة عند ظهور مستهلك ثانٍ."},
@@ -29,9 +32,5 @@
     {"id":"content.registry","type":"service","scope":"server-or-static","maturity":"planned","description_ar":"واجهة موحدة لمحتوى التمارين والأصول عندما تصبح التطبيقات كثيرة وتحتاج نشرًا مركزيًا."},
     {"id":"telemetry.events","type":"service","scope":"server","maturity":"planned","description_ar":"أحداث استخدام محدودة الخصوصية لقياس نجاح الممارسة لا لمراقبة المستخدم."}
   ],
-  "promotion_rule": {
-    "package": "استخرج إلى package عندما يوجد مستهلك ثانٍ أو عقد ثابت للمنصة.",
-    "service": "أنشئ service عندما يلزم سر خادم، معالجة ثقيلة، مشاركة حالة، أو مورد مركزي بين تطبيقات.",
-    "asset": "انقل الأصول إلى مكتبة مشتركة فقط عندما ستستهلكها عدة تطبيقات ويكون مسار النسخ والترخيص واضحًا."
-  }
+  "promotion_rule":{"package":"استخرج إلى package عندما يوجد مستهلك ثانٍ أو عقد ثابت للمنصة.","service":"أنشئ service عندما يلزم سر خادم، معالجة ثقيلة، مشاركة حالة، أو مورد مركزي بين تطبيقات.","asset":"انقل الأصول إلى مكتبة مشتركة فقط عندما ستستهلكها عدة تطبيقات ويكون مسار النسخ والترخيص واضحًا."}
 }

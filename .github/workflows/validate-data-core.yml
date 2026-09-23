@@ -5,17 +5,25 @@ on:
     paths:
       - 'services/app360-data-core/**'
       - 'data/ai-content-contracts.json'
+      - 'data/session-policy.json'
+      - 'data/app-data-needs.json'
       - 'assets/js/ai-content-studio.js'
+      - 'assets/js/app360-session-v1.js'
       - 'assets/js/legacy-compat.js'
       - 'tooling/validate-ai-core.js'
+      - 'tooling/validate-session-data.js'
       - '.github/workflows/validate-data-core.yml'
   pull_request:
     paths:
       - 'services/app360-data-core/**'
       - 'data/ai-content-contracts.json'
+      - 'data/session-policy.json'
+      - 'data/app-data-needs.json'
       - 'assets/js/ai-content-studio.js'
+      - 'assets/js/app360-session-v1.js'
       - 'assets/js/legacy-compat.js'
       - 'tooling/validate-ai-core.js'
+      - 'tooling/validate-session-data.js'
       - '.github/workflows/validate-data-core.yml'
   workflow_dispatch:
 
@@ -39,3 +47,5 @@ jobs:
         run: npm run reset
       - name: Run AI/content/session smoke test
         run: npm run smoke
+      - name: Run identity usage and user-content smoke test
+        run: npm run smoke:session
