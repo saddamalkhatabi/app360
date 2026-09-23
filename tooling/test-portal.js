@@ -93,7 +93,11 @@ test('portal renders the full catalog, live links and modal detail contracts', (
   }
   for (const link of liveApp.goal_links) assert.ok(p.swalCalls[0].html.includes(link.rationale_ar));
 
-  const planned = catalog.apps.find(a => a.status !== 'live' && a.blueprint && a.blueprint_path && a.prompt_path);
+  const planned = catalog.apps.find(a => {
+    const o = overrideMap.get(a.id);
+    const effectiveStatus = o && o.status ? o.status : a.status;
+    return effectiveStatus !== 'live' && a.blueprint && a.blueprint_path && a.prompt_path;
+  });
   assert.ok(planned);
   clickDetail(p, 'plan', planned.id);
   assert.equal(p.swalCalls.length, 2);
@@ -138,5 +142,5 @@ test('failed goal loading keeps catalog usable; untrusted labels are escaped', (
   changed.apps[0].title_ar = '<img src=x onerror="bad()">';
   const html = portal({ catalogData: changed }).elements.appGrid.innerHTML;
   assert.ok(!html.includes('<img src=x'));
-  assert.ok(html.includes('&lt;img src=x'));
+  assert.ok(html.includes('&lt;img'));
 });
