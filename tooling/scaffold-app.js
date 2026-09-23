@@ -32,7 +32,7 @@ const target = path.join(root, 'apps', age, slug);
 let blueprint = null;
 if (fs.existsSync(target)) {
   const manifestFile = path.join(target, 'app.json');
-  const allowed = ['app.json', 'README.md', 'BUILD_SPEC.md', 'PROMPT_AR.md'];
+  const allowed = ['app.json', 'README.md', 'BUILD_SPEC.md', 'PROMPT_AR.md', 'PREBUILD_REQUIREMENTS_AR.md'];
   if (fs.existsSync(manifestFile)) blueprint = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
   if (!blueprint || blueprint.scaffold_state !== 'blueprint-only' || blueprint.age_group !== age || blueprint.slug !== slug || fs.readdirSync(target).some(name => !allowed.includes(name))) {
     console.error('Target already contains implementation; refusing to overwrite:', path.relative(root, target));
@@ -139,8 +139,11 @@ if (fs.existsSync(aiRegistryPath)) {
   }
 }
 
+const prebuildPath = path.join(target, 'PREBUILD_REQUIREMENTS_AR.md');
 console.log('Created:', path.relative(root, target));
 console.log('PWA ready: unique SVG + 192/512 PNG icons, manifest, offline shell and update helper.');
 console.log('Navigation ready: every scaffolded app includes the shared 🏠 home button shell.');
 console.log('AI ready: ai.content-import capability + initial content contract registered. Refine the generic AI schema for the app domain before activation.');
+if (fs.existsSync(prebuildPath)) console.log('Maturity requirements preserved:', path.relative(root, prebuildPath), '— read and implement them before coding beyond the scaffold.');
+else console.log('Maturity baseline: read docs/IMPLEMENTATION_MATURITY_BASELINE_AR.md and create app-specific prebuild requirements before live status.');
 console.log('Next: fill goal_keys/capabilities/bundles, define practice loop + deep links, refine AI content types, then add/update its catalog record.');
