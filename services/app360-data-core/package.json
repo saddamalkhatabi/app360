@@ -1,0 +1,18 @@
+{
+  "name": "@app360/data-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "App360 local-first content, AI imports, identities and learning-event data core",
+  "engines": {"node": ">=20 <22"},
+  "scripts": {
+    "migrate": "node scripts/migrate.js",
+    "rollback": "node scripts/rollback.js",
+    "seed": "node scripts/seed.js",
+    "reset": "node scripts/reset.js",
+    "smoke": "node scripts/smoke.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "11.10.0",
+    "knex": "3.3.0"
+  }
+}
