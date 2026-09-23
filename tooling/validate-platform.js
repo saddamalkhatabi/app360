@@ -17,6 +17,21 @@ const catalog = readJson('data/catalog.json');
 const goals = readJson('data/goals.json');
 const capRegistry = readJson('data/capabilities.json');
 const resourceRegistry = readJson('resources/registry.json');
+const liveOverrides = exists('data/live-overrides.json') ? readJson('data/live-overrides.json') : { apps: [] };
+
+function applyLiveOverridesForValidation() {
+  const rows = liveOverrides.apps || [];
+  const catalogApps = catalog.apps || [];
+  for (const row of rows) {
+    const app = catalogApps.find(x => x.id === row.id);
+    if (!app) continue;
+    if (row.status) app.status = row.status;
+    if (row.href) app.href = row.href;
+    if (Array.isArray(row.capabilities)) app.capabilities = row.capabilities.slice();
+    if (row.goal_delivery) for (const link of app.goal_links || []) link.delivery = row.goal_delivery;
+  }
+}
+applyLiveOverridesForValidation();
 
 const catalogAges = (catalog.age_groups || []).map(x => x.id);
 if (JSON.stringify(catalogAges) !== JSON.stringify(AGE_GROUPS)) fail('catalog age groups must exactly match contracts: ' + AGE_GROUPS.join(', '));
@@ -185,6 +200,7 @@ for (const app of apps.filter(x => x.status === 'live' && x.href && x.href.index
   if (manifest.id !== app.id) fail(`catalog/app.json id mismatch for ${app.id}`);
   if (manifest.slug !== app.slug) fail(`catalog/app.json slug mismatch for ${app.id}`);
   if (manifest.age_group !== app.age_group) fail(`catalog/app.json age mismatch for ${app.id}`);
+  if (manifest.status !== 'live') fail(`effective live catalog/app.json status mismatch for ${app.id}`);
   if (!RUNTIME_PROFILES.includes(manifest.runtime_profile)) fail(`live app missing/invalid runtime_profile: ${app.id}`);
   if (!DEPTH_LEVELS.includes(manifest.depth)) fail(`live app missing/invalid depth: ${app.id}`);
   for (const cap of manifest.capabilities || []) if (!capabilities.has(cap)) fail(`app.json ${app.id} references unknown capability ${cap}`);
