@@ -30,17 +30,20 @@ var contentJs=read('data/content.js');
 var libraryJs=read('data/emotion-library.js');
 var ageJs=read('age-content-v8.js');
 var schoolJs=read('emotion-school-v8.js');
-var legacySources=[['app.js',appJs],['data/content.js',contentJs],['data/emotion-library.js',libraryJs],['age-content-v8.js',ageJs],['emotion-school-v8.js',schoolJs]];
+var journeyJs=read('journey-v9.js');
+var legacySources=[['app.js',appJs],['data/content.js',contentJs],['data/emotion-library.js',libraryJs],['age-content-v8.js',ageJs],['emotion-school-v8.js',schoolJs],['journey-v9.js',journeyJs]];
 legacySources.forEach(function(pair){var name=pair[0],src=pair[1];if(/\bconst\b/.test(src)||/\blet\b/.test(src)||/=>/.test(src)||/`/.test(src))fail(name+' contains syntax outside the ES5 legacy path');try{new Function(src);ok(name+' syntax')}catch(e){fail(name+' syntax: '+e.message)}});
-var css=read('styles.css')+'\n'+read('emotion-school-v8.css');if(/display\s*:\s*grid/i.test(css))fail('core CSS must not require CSS Grid');else ok('Flexbox-only core layout');
-if(/pointerdown|pointerup|pointermove|PointerEvent/.test(appJs+schoolJs))fail('Pointer Events must not be required for the core practice');else ok('legacy click/touch-compatible path');
-var html=read('index.html');['signalCards','helpCards','planPreview','nowPicker','thenPicker','plansList','libraryList','reviewOutcomeButtons','storageBanner','printArea','ageBandPicker','schoolView','schoolAgePicker','emotionScenarioList','behaviorClueList','seekHelpGuide'].forEach(function(id){if(html.indexOf('id="'+id+'"')<0)fail('missing required UI id '+id)});
-if(html.indexOf('calm-with-me-v8-20260923')<0)fail('v8 build marker missing');
-if(html.indexOf('data/emotion-library.js?v=8')<0||html.indexOf('age-content-v8.js?v=8')<0||html.indexOf('emotion-school-v8.js?v=8')<0)fail('emotion school runtime files not loaded');
-['manifest.webmanifest','icon.svg','sw.js','package.json','app.json','emotion-school-v8.css'].forEach(function(rel){if(!fs.existsSync(path.join(root,rel)))fail('missing '+rel)});
+var css=read('styles.css')+'\n'+read('emotion-school-v8.css')+'\n'+read('journey-v9.css');if(/display\s*:\s*grid/i.test(css))fail('core CSS must not require CSS Grid');else ok('Flexbox-only core layout');
+if(/pointerdown|pointerup|pointermove|PointerEvent/.test(appJs+schoolJs+journeyJs))fail('Pointer Events must not be required for the core practice');else ok('legacy click/touch-compatible path');
+var html=read('index.html');['signalCards','helpCards','planPreview','nowPicker','thenPicker','plansList','libraryList','reviewOutcomeButtons','storageBanner','printArea','ageBandPicker','schoolView','schoolAgePicker','emotionScenarioList','behaviorClueList','seekHelpGuide','guidedJourney','journeyClues','journeyScenarioSuggestions','journeyHelpSuggestions','journeyNextOptions','journeyBuilder','journeyRunPanel','emotionExperimentList'].forEach(function(id){if(html.indexOf('id="'+id+'"')<0)fail('missing required UI id '+id)});
+if(html.indexOf('calm-with-me-v9-20260923')<0)fail('v9 build marker missing');
+if(html.indexOf('data/emotion-library.js?v=9')<0||html.indexOf('age-content-v8.js?v=9')<0||html.indexOf('emotion-school-v8.js?v=9')<0||html.indexOf('journey-v9.js?v=9')<0)fail('connected emotion runtime files not loaded');
+if(journeyJs.indexOf('sourceMap')<0||journeyJs.indexOf('clueMap')<0||journeyJs.indexOf('helpMap')<0||journeyJs.indexOf('experiments')<0||journeyJs.indexOf('toNowThen')<0)fail('connected knowledge-to-experiment journey missing');
+if(journeyJs.indexOf('app360:a1-calm:journey-v1')<0)fail('journey local storage key missing');
+['manifest.webmanifest','icon.svg','sw.js','package.json','app.json','emotion-school-v8.css','journey-v9.css','journey-v9.js'].forEach(function(rel){if(!fs.existsSync(path.join(root,rel)))fail('missing '+rel)});
 try{var manifest=JSON.parse(read('manifest.webmanifest'));if(manifest.start_url!=='./index.html')fail('manifest start_url is not canonical');else ok('manifest')}catch(e){fail('manifest JSON: '+e.message)}
-try{var contract=JSON.parse(read('app.json'));if(contract.id!=='a1-calm'||contract.slug!=='calm-with-me'||contract.age_group!=='1-4'||contract.version!==8)fail('app contract identity/version changed unexpectedly');else ok('stable app identity v8')}catch(e){fail('app.json: '+e.message)}
-var sw=read('sw.js');if(sw.indexOf('app360-app-calm-with-me-v8')<0||sw.indexOf('emotion-school-v8.js?v=8')<0||sw.indexOf('data/emotion-library.js?v=8')<0)fail('service worker does not cache emotion school v8');else ok('v8 offline shell');
+try{var contract=JSON.parse(read('app.json'));if(contract.id!=='a1-calm'||contract.slug!=='calm-with-me'||contract.age_group!=='1-4'||contract.version!==9)fail('app contract identity/version changed unexpectedly');else ok('stable app identity v9')}catch(e){fail('app.json: '+e.message)}
+var sw=read('sw.js');if(sw.indexOf('app360-app-calm-with-me-v9')<0||sw.indexOf('emotion-school-v8.js?v=9')<0||sw.indexOf('data/emotion-library.js?v=9')<0||sw.indexOf('journey-v9.js?v=9')<0)fail('service worker does not cache connected journey v9');else ok('v9 offline shell');
 if(!fs.existsSync(path.join(repo,'resources/early-child-visuals/manifest.json')))fail('shared visual resource manifest missing');else ok('shared visual resource pack');
 if(failed){console.error('\ncalm-with-me validation FAILED');process.exit(1)}
-console.log('\ncalm-with-me age-aware emotion school validation PASSED');
+console.log('\ncalm-with-me connected emotion journey validation PASSED');
