@@ -1,0 +1,125 @@
+(function(w,d){
+'use strict';
+var C=w.APP360_CALM_CONTENT||{},L=w.APP360_EMOTION_LIBRARY||{};
+var CORE_KEY='app360:a1-calm:schema-1.0:state',KEY='app360:a1-calm:journey-v1';
+var j=loadJourney(),lastTouch=0,activeExperiment='';
+var sourceMap={
+  'need-help':['fear','anger','sadness','sensory','transition'],
+  'stay-close':['separation','fear','sleep','sadness'],
+  'pick-me-up':['separation','fear','sadness'],
+  'need-space':['anger','sensory','social'],
+  'pause-now':['sensory','anger','transition'],
+  'all-done':['transition','anger'],
+  'no':['anger','autonomy','transition'],
+  'water-now':['sensory'],
+  'what-next':['transition','fear'],
+  'want-mom-dad':['separation','fear','sleep'],
+  'quiet':['sensory','fear'],
+  'move':['anger','sensory'],
+  'my-turn':['anger','autonomy','social'],
+  'my-toy':['anger','autonomy','social'],
+  'explain':['fear','transition'],
+  'try-myself':['autonomy'],
+  'talk-later':['social','sadness'],
+  'two-solutions':['autonomy','anger'],
+  'happy':['social','autonomy'],
+  'sad':['sadness','separation'],
+  'afraid':['fear','sleep','separation'],
+  'upset':['anger','sensory','transition'],
+  'angry':['anger','autonomy'],
+  'tired':['sensory','sleep'],
+  'worried':['fear','sleep','transition'],
+  'frustrated':['anger','autonomy'],
+  'jealous':['jealousy'],
+  'shy':['social'],
+  'embarrassed':['social'],
+  'lonely':['separation','sadness'],
+  'disappointed':['sadness','anger'],
+  'unsure':['fear','social','sensory','transition']
+};
+var clueMap={
+  cling:['separation','fear','sleep'],hide:['social','fear','sensory'],freeze:['fear','sensory'],cry:['sadness','fear','anger'],hit:['anger'],bite:['anger','sensory'],throw:['anger','autonomy'],run:['fear','transition','sensory'],ears:['sensory','fear'],repeat:['fear','transition'],silent:['social','sadness'],babyish:['separation','jealousy'],night:['sleep','fear'],body:['sensory','fear'],rigid:['transition','autonomy'],laugh:['social']
+};
+var helpMap={
+  fear:['close','quiet-place','familiar-object','move-together','comfort-touch','check-reality'],
+  separation:['close','hold-if-wanted','comfort-touch','familiar-object','move-together','wait-nearby'],
+  anger:['space','two-choices','pillow-push','wall-push','heavy-walk','safe-jumps'],
+  sadness:['close','comfort-touch','quiet-book','draw-feeling','wait-nearby'],
+  jealousy:['close','two-choices','role-play','short-story','wait-nearby'],
+  social:['wait-nearby','close','model-words','role-play','draw-feeling'],
+  sensory:['quiet-place','reduce-noise','body-check','wait-nearby','water'],
+  transition:['show-next','move-together','more-time','two-choices','close'],
+  sleep:['close','comfort-touch','familiar-object','quiet-book','wait-nearby'],
+  autonomy:['two-choices','two-solutions-help','wait-nearby','move-together']
+};
+var nextMap={
+  fear:['wait','book','water','ball'],separation:['book','wait','water','ball'],anger:['ball','water','wait','book'],sadness:['book','wait','water','ball'],jealousy:['ball','book','wait'],social:['ball','book','wait'],sensory:['wait','water','book','ball'],transition:['leave','shoe','water','wait','book'],sleep:['book','wait','water'],autonomy:['ball','book','leave','wait']
+};
+function $(id){return d.getElementById(id)}
+function text(v){return String(v==null?'':v)}
+function esc(s){return text(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function now(){return new Date().toISOString()}
+function uid(p){return (p||'id')+'-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)}
+function parse(s){try{return JSON.parse(s)}catch(e){return null}}
+function get(k){try{return w.localStorage.getItem(k)||''}catch(e){return''}}
+function put(k,v){try{w.localStorage.setItem(k,v);return true}catch(e){return false}}
+function clone(o){try{return JSON.parse(JSON.stringify(o))}catch(e){return o}}
+function loadJourney(){var x=parse(get(KEY));if(!x||typeof x!=='object')x={schema_version:'1.0',age_band:'',source_key:'',clue_id:'',scenario_id:'',help_id:'',next_id:'',experiments:[]};if(!x.experiments)x.experiments=[];return x}
+function save(){put(KEY,JSON.stringify(j))}
+function core(){return parse(get(CORE_KEY))||{current:{},library:C.helps||[]}}
+function age(){return w.APP360_CALM_AGE_BAND||'2-3'}
+function ageAllowed(item){var a=item&&item.age_bands,i;if(!a||!a.length)return true;for(i=0;i<a.length;i++)if(a[i]===age())return true;return false}
+function byId(a,id){var i;for(i=0;i<(a||[]).length;i++)if(a[i]&&a[i].id===id)return a[i];return null}
+function source(){var s=core().current&&core().current.signal_or_feeling;return s&&s.id&&s.id!=='skipped'?s:null}
+function sourceKey(){var s=source();return s?(s.type||'signal')+':'+s.id:''}
+function categoriesForSource(){var s=source();return s&&sourceMap[s.id]?sourceMap[s.id]:[]}
+function categoriesForClue(){return j.clue_id&&clueMap[j.clue_id]?clueMap[j.clue_id]:[]}
+function category(id){return byId(L.categories||[],id)||{id:id,label_ar:id,first_steps_ar:[],release_ar:[],avoid_ar:[],audio_ar:[]}}
+function transition(id){return byId(C.transitions||[],id)}
+function itemLabel(item){return item&&item.label_ar||''}
+function currentScenario(){return byId(L.situations||[],j.scenario_id)}
+function currentHelp(){var lib=core().library||C.helps||[];return byId(lib,j.help_id)||byId(C.helps||[],j.help_id)}
+function currentNext(){return transition(j.next_id)}
+function listHtml(a){var h='<ul>',i;for(i=0;i<(a||[]).length;i++)h+='<li>'+esc(a[i])+'</li>';return h+'</ul>'}
+function speak(phrase){phrase=text(phrase);if(!phrase)return;try{if('speechSynthesis'in w&&w.SpeechSynthesisUtterance){w.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(phrase);u.lang='ar';u.rate=.84;w.speechSynthesis.speak(u);return}}catch(e){}var x=$('journeyMessage');if(x)x.textContent='الصوت غير متاح على هذا الجهاز؛ اقرأ العبارة المكتوبة بصوتك.'}
+function closestData(node,root,attr){while(node&&node!==root&&node!==d){if(node.getAttribute&&node.getAttribute(attr)!==null)return node;node=node.parentNode}if(node&&node.getAttribute&&node.getAttribute(attr)!==null)return node;return null}
+function bindTap(root,fn){if(!root)return;function run(e){e=e||w.event;var t=Date.now();if(e.type==='touchend')lastTouch=t;else if(t-lastTouch<650)return;fn(e)}if(root.addEventListener){root.addEventListener('touchend',run,false);root.addEventListener('click',run,false)}else root.onclick=run}
+function scroll(id){var x=$(id);if(!x)return;setTimeout(function(){try{x.scrollIntoView(true)}catch(e){}},40)}
+function resetDownstream(keepSource){j.clue_id='';j.scenario_id='';j.help_id='';j.next_id='';if(!keepSource)j.source_key='';save()}
+function syncSource(){var k=sourceKey();if(k!==j.source_key){j.source_key=k;resetDownstream(true);j.source_key=k;save()}render();if(k)scroll('guidedJourney')}
+function progress(){var p=$('journeyProgress');if(!p)return;var spans=p.getElementsByTagName('span'),stage=0;if(source()||j.clue_id)stage=1;if(j.scenario_id)stage=2;if(j.help_id)stage=3;if(j.next_id)stage=4;var i;for(i=0;i<spans.length;i++){spans[i].className=i<stage?'done':i===stage?'on':''}}
+function summary(){var box=$('journeySummary'),s=source(),clue=byId(L.behavior_clues||[],j.clue_id),sc=currentScenario(),h=currentHelp(),n=currentNext(),html='';if(!box)return;if(s)html+='<span>قال/أشار: '+esc(s.label_ar)+'</span>';if(clue)html+='<span>لاحظنا: '+esc(clue.title_ar)+'</span>';if(sc)html+='<span>الموقف: '+esc(sc.title_ar)+'</span>';if(h)html+='<span>نجرب: '+esc(h.label_ar)+'</span>';if(n)html+='<span>ثم: '+esc(n.label_ar)+'</span>';box.innerHTML=html||'<span>ابدأ من بطاقات «ما الذي نحتاج قوله الآن؟» أو اختر سلوكًا تلاحظه.</span>'}
+function renderClues(){var root=$('journeyClues'),a=L.behavior_clues||[],h='',i,it;if(!root)return;for(i=0;i<a.length;i++){it=a[i];h+='<button type="button" class="journey-chip'+(j.clue_id===it.id?' on':'')+'" data-j-clue="'+esc(it.id)+'">'+esc(it.symbol)+' '+esc(it.title_ar)+'</button>'}root.innerHTML=h}
+function scenarioScore(s){if(!ageAllowed(s))return -999;var sc=0,a=categoriesForSource(),b=categoriesForClue(),i;for(i=0;i<a.length;i++)if(s.category===a[i])sc+=10-i;for(i=0;i<b.length;i++)if(s.category===b[i])sc+=9-i;if(j.scenario_id===s.id)sc+=20;return sc}
+function rankedScenarios(){var a=L.situations||[],out=[],i,s,score;for(i=0;i<a.length;i++){s=a[i];score=scenarioScore(s);if(score>-900)out.push({s:s,score:score})}out.sort(function(x,y){if(y.score!==x.score)return y.score-x.score;return x.s.title_ar<y.s.title_ar?-1:1});if((source()||j.clue_id)&&out.length>6)out=out.slice(0,6);else if(!source()&&!j.clue_id)out=[];return out}
+function renderScenarios(){var root=$('journeyScenarioSuggestions'),rows=rankedScenarios(),h='',i,x,c;if(!root)return;if(!rows.length){root.innerHTML='<div class="journey-empty">اختر بطاقة مما يريد الطفل قوله، أو اختر إشارة سلوكية مما تراه؛ بعدها سأعرض مواقف من المكتبة مرتبطة بالسياق والعمر.</div>';return}for(i=0;i<rows.length;i++){x=rows[i].s;c=category(x.category);h+='<button type="button" class="journey-scenario'+(j.scenario_id===x.id?' on':'')+'" data-j-case="'+esc(x.id)+'"><b>'+esc(x.symbol||c.symbol||'◉')+' '+esc(x.title_ar)+'</b><small>'+esc(c.label_ar||'')+'</small><small>'+esc((x.observe_ar||[])[0]||'')+'</small></button>'}root.innerHTML=h}
+function renderInsight(){var box=$('journeyInsight'),s=currentScenario(),c;if(!box)return;if(!s){box.hidden=true;box.innerHTML='';return}c=category(s.category);box.hidden=false;box.innerHTML='<div class="journey-linked-note"><b>لماذا ظهر هذا؟</b> لأنه مناسب للعمر ويتقاطع مع ما اختير أو لوحظ. يبقى احتمالًا للاستكشاف لا استنتاجًا.</div><h4>'+esc(s.symbol||c.symbol||'◉')+' '+esc(s.title_ar)+'</h4><p><b>قد نلاحظ:</b></p>'+listHtml(s.observe_ar)+'<p><b>تفصيل الموقف:</b> '+esc(s.specific_ar||'')+'</p><p><b>عبارة قصيرة:</b></p><blockquote>'+esc(s.say_ar||'')+'</blockquote><div class="journey-actions"><button type="button" class="journey-mini-audio" data-j-speak="'+esc(s.say_ar||'')+'">🔊 اسمع العبارة</button><button type="button" data-j-school="'+esc(s.id)+'">افتح هذا الموقف في مدرسة المشاعر</button></div><p><b>أول ما نفعله:</b></p>'+listHtml((c.first_steps_ar||[]).slice(0,3))}
+function helpScore(h,catId){var sc=0,prefs=helpMap[catId]||[],s=source(),i;if(h.enabled===false)return -999;if(h.age_bands&&!ageAllowed(h))return -999;if(s&&h.suggest_for){for(i=0;i<h.suggest_for.length;i++)if(h.suggest_for[i]===s.id)sc+=12}for(i=0;i<prefs.length;i++)if(h.id===prefs[i])sc+=10-i;if(j.help_id===h.id)sc+=20;return sc}
+function rankedHelps(){var s=currentScenario();if(!s)return[];var lib=core().library||C.helps||[],out=[],i,h,score;for(i=0;i<lib.length;i++){h=lib[i];score=helpScore(h,s.category);if(score>-900)out.push({h:h,score:score})}out.sort(function(x,y){if(y.score!==x.score)return y.score-x.score;return itemLabel(x.h)<itemLabel(y.h)?-1:1});return out.slice(0,6)}
+function renderHelps(){var root=$('journeyHelpSuggestions'),rows=rankedHelps(),h='',i,x;if(!root)return;if(!currentScenario()){root.innerHTML='';return}for(i=0;i<rows.length;i++){x=rows[i].h;h+='<button type="button" class="journey-help'+(j.help_id===x.id?' on':'')+'" data-j-help="'+esc(x.id)+'"><span class="j-symbol">'+esc(x.symbol||'🤝')+'</span><b>'+esc(x.label_ar)+'</b><small>'+esc(x.speech_ar||'')+'</small></button>'}root.innerHTML=h||'<div class="journey-empty">لا توجد مساعدة افتراضية مطابقة؛ افتح «كل خيارات المساعدة» واختر مساعدة أسرية.</div>'}
+function nextOrder(catId){var pref=nextMap[catId]||[],a=C.transitions||[],out=[],used={},i,x;for(i=0;i<pref.length;i++){x=transition(pref[i]);if(x){out.push(x);used[x.id]=1}}for(i=0;i<a.length;i++)if(!used[a[i].id])out.push(a[i]);return out}
+function renderNext(){var root=$('journeyNextOptions'),s=currentScenario(),a=s?nextOrder(s.category):[],h='',i,x;if(!root)return;for(i=0;i<a.length;i++){x=a[i];h+='<button type="button" class="journey-chip'+(j.next_id===x.id?' on':'')+'" data-j-next="'+esc(x.id)+'">'+esc(x.symbol||'•')+' '+esc(x.label_ar)+'</button>'}root.innerHTML=h}
+function renderBuilder(){var box=$('journeyBuilder'),s=currentScenario(),h=currentHelp(),n=currentNext(),src=source(),clue=byId(L.behavior_clues||[],j.clue_id),cat=s&&category(s.category);if(!box)return;if(!(s&&h&&n)){box.hidden=true;box.innerHTML='';return}box.hidden=false;box.innerHTML='<div class="journey-builder"><span class="step-kicker">بطاقة تجربة من نفس الرحلة</span><h3>سنجرّب هذا التسلسل</h3><div class="journey-builder-seq"><div><b>السياق</b><span>'+esc(s.title_ar)+'</span></div><div><b>سنقول/نعرض</b><span>'+esc(s.say_ar||'')+'</span></div><div><b>المساعدة</b><span>'+esc(h.label_ar)+'</span></div><div><b>حركة آمنة</b><span>'+esc((cat.release_ar||[])[0]||'نبقى قرب الطفل ونراقب ما يساعده')+'</span></div><div><b>ثم</b><span>'+esc(n.label_ar)+'</span></div></div><label class="field-label" for="journeyExperimentName">اسم التجربة — اختياري</label><input id="journeyExperimentName" class="text-input" type="text" maxlength="90" placeholder="مثال: خوف الظلام — قرب ثم كتاب"><div class="journey-actions"><button type="button" class="primary" data-j-create="1">حفظ بطاقة التجربة وابدأ</button></div><p class="journey-intro">'+(src?'بدأت البطاقة من «'+esc(src.label_ar)+'». ':'')+(clue?'وأضفت ملاحظة «'+esc(clue.title_ar)+'». ':'')+'يمكن تكرارها لاحقًا ومقارنة ما قبله الطفل دون تحويل النتيجة إلى تشخيص.</p></div>'}
+function renderStages(){var hasBase=!!(source()||j.clue_id),sc=!!j.scenario_id,h=!!j.help_id,n=!!j.next_id;var ids=['journeyStageClue','journeyStageScenario','journeyStageHelp','journeyStageNext'],show=[true,hasBase,sc,h],i,x;for(i=0;i<ids.length;i++){x=$(ids[i]);if(x)x.hidden=!show[i]}if($('journeyStageBuilder'))$('journeyStageBuilder').hidden=!n}
+function render(){if(j.age_band!==age()){j.age_band=age();j.clue_id='';j.scenario_id='';j.help_id='';j.next_id='';save()}progress();summary();renderClues();renderScenarios();renderInsight();renderHelps();renderNext();renderBuilder();renderStages();renderHistory()}
+function chooseClue(id){j.clue_id=j.clue_id===id?'':id;j.scenario_id='';j.help_id='';j.next_id='';save();render()}
+function chooseScenario(id){j.scenario_id=id;j.help_id='';j.next_id='';save();render();scroll('journeyInsight')}
+function clickCoreHelp(id){var root=$('helpCards'),bs=root?root.getElementsByTagName('button'):[],i;for(i=0;i<bs.length;i++)if(bs[i].getAttribute('data-help')===id){try{bs[i].click()}catch(e){}break}j.help_id=id;j.next_id='';save();setTimeout(render,70)}
+function chooseNext(id){j.next_id=id;save();render();scroll('journeyBuilder')}
+function createExperiment(){var s=currentScenario(),h=currentHelp(),n=currentNext(),src=source(),clue=byId(L.behavior_clues||[],j.clue_id),cat=s&&category(s.category),inp=$('journeyExperimentName');if(!(s&&h&&n))return;var exp={experiment_id:uid('exp'),created_at:now(),age_band:age(),title:text(inp&&inp.value).replace(/^\s+|\s+$/g,'')||('تجربة: '+s.title_ar),source:src?clone(src):null,clue:clue?{id:clue.id,title_ar:clue.title_ar}:null,scenario:{id:s.id,title_ar:s.title_ar,category:s.category,symbol:s.symbol||''},say_ar:s.say_ar||'',specific_ar:s.specific_ar||'',help:{id:h.id,label_ar:h.label_ar,speech_ar:h.speech_ar||'',symbol:h.symbol||''},release_ar:(cat.release_ar||[])[0]||'نبقى قرب الطفل ونراقب ما يساعده',next:{id:n.id,label_ar:n.label_ar,speech_ar:n.speech_ar||'',symbol:n.symbol||''},attempts:[]};j.experiments.unshift(exp);save();renderHistory();startExperiment(exp.experiment_id);var m=$('journeyMessage');if(m)m.textContent='تم حفظ بطاقة التجربة. بعد التنفيذ اختر وصف النتيجة لتبقى التجارب السابقة محفوظة.'}
+function expById(id){return byId(j.experiments,id)}
+function resultLabel(r){return r==='accepted'?'قبِل أو اختار المساعدة':r==='different'?'اختار شيئًا مختلفًا':r==='not-needed'?'لم يحتج المساعدة':r==='stopped'?'توقفنا ولم نكمل':'نتيجة مسجلة'}
+function renderRunner(){var root=$('journeyRunPanel'),e=expById(activeExperiment);if(!root)return;if(!e){root.hidden=true;root.innerHTML='';return}root.hidden=false;root.innerHTML='<span class="step-kicker">نفّذ التجربة بهدوء</span><h3>'+esc(e.title)+'</h3><p class="journey-intro">العمر: '+esc(e.age_band)+' · الموقف: '+esc(e.scenario.title_ar)+'</p><ol><li><b>1. صف ما يحدث دون جزم:</b> '+esc(e.specific_ar||e.scenario.title_ar)+'</li><li><b>2. قل العبارة القصيرة:</b><blockquote>'+esc(e.say_ar)+'</blockquote><button type="button" class="journey-mini-audio" data-j-run-speak="'+esc(e.say_ar)+'">🔊 اسمع العبارة</button></li><li><b>3. اعرض المساعدة ويمكن رفضها:</b> '+esc(e.help.label_ar)+'<br><button type="button" class="journey-mini-audio" data-j-run-speak="'+esc(e.help.speech_ar||e.help.label_ar)+'">🔊 اسمع صيغة المساعدة</button></li><li><b>4. إذا احتاج الجسم حركة آمنة:</b> '+esc(e.release_ar)+'</li><li><b>5. ثم:</b> '+esc(e.next.label_ar)+'</li></ol><h4>ماذا حدث في هذه المحاولة؟</h4><div class="journey-result-buttons"><button data-j-result="accepted">قبِلها أو اختارها</button><button data-j-result="different">اختار شيئًا مختلفًا</button><button data-j-result="not-needed">لم يحتجها</button><button data-j-result="stopped">توقفنا ولم نكمل</button></div><div class="journey-actions"><button data-j-nowthen="'+esc(e.experiment_id)+'">حوّلها إلى بطاقة «الآن وبعد ذلك»</button><button data-j-close-run="1">إغلاق التنفيذ</button></div>'}
+function startExperiment(id){activeExperiment=id;var child=$('nav-child');if(child)try{child.click()}catch(x){};setTimeout(function(){renderRunner();scroll('journeyRunPanel')},80)}
+function saveResult(r){var e=expById(activeExperiment);if(!e)return;e.attempts.unshift({attempt_id:uid('try'),at:now(),result:r,label_ar:resultLabel(r)});save();renderHistory();var m=$('journeyMessage');if(m)m.textContent='تم تسجيل: '+resultLabel(r)+'. يمكنك إعادة نفس البطاقة لاحقًا أو تغيير المساعدة وبناء تجربة أخرى.';activeExperiment='';renderRunner();scroll('journeyMessage')}
+function duplicateExperiment(id){var e=expById(id);if(!e)return;var n=clone(e);n.experiment_id=uid('exp');n.created_at=now();n.title=e.title+' — نسخة جديدة';n.attempts=[];j.experiments.unshift(n);save();renderHistory()}
+function deleteExperiment(id){var i;if(!w.confirm('حذف بطاقة التجربة من هذا الجهاز؟'))return;for(i=0;i<j.experiments.length;i++)if(j.experiments[i].experiment_id===id){j.experiments.splice(i,1);break}save();renderHistory()}
+function renderHistory(){var root=$('emotionExperimentList'),a=j.experiments||[],h='',i,e,k;if(!root)return;for(i=0;i<a.length;i++){e=a[i];h+='<article class="journey-history-card"><h3>'+esc(e.title)+'</h3><div class="meta">'+esc(e.age_band)+' · '+esc(e.scenario&&e.scenario.title_ar||'')+' · '+esc(e.help&&e.help.label_ar||'')+'</div><p><b>ثم:</b> '+esc(e.next&&e.next.label_ar||'')+'</p>';for(k=0;k<(e.attempts||[]).length&&k<3;k++)h+='<div class="attempt">'+esc(e.attempts[k].label_ar)+' · '+esc(e.attempts[k].at)+'</div>';h+='<div class="journey-actions"><button data-j-start="'+esc(e.experiment_id)+'">ابدأ التجربة</button><button data-j-nowthen="'+esc(e.experiment_id)+'">إلى «الآن وبعد ذلك»</button><button data-j-dup="'+esc(e.experiment_id)+'">نسخة جديدة</button><button data-j-del="'+esc(e.experiment_id)+'">حذف</button></div></article>'}root.innerHTML=h||'<div class="journey-empty">لا توجد بطاقات تجربة بعد. ابدأ من «ما الذي نحتاج قوله الآن؟» ثم اختر موقفًا ومساعدة.</div>';var count=$('emotionExperimentCount');if(count)count.textContent=String(a.length)}
+function toNowThen(id){var e=expById(id),input=$('customTransitionLabel'),add=$('addTransitionBtn');if(!(e&&input&&add))return;input.value='نجرب: '+e.help.label_ar;try{add.click()}catch(x){};setTimeout(function(){var nowRoot=$('nowPicker'),thenRoot=$('thenPicker'),bs=nowRoot?nowRoot.getElementsByTagName('button'):[],i,b;for(i=bs.length-1;i>=0;i--){b=bs[i];if(text(b.textContent).indexOf('نجرب: '+e.help.label_ar)>=0){try{b.click()}catch(x){}break}}bs=thenRoot?thenRoot.getElementsByTagName('button'):[];for(i=0;i<bs.length;i++)if(bs[i].getAttribute('data-step')===e.next.id){try{bs[i].click()}catch(x){}break}if($('planTitle'))$('planTitle').value=e.title;var nav=$('nav-transition');if(nav)try{nav.click()}catch(x){}},100)}
+function openSchool(id){var s=byId(L.situations||[],id),go=$('goSchoolBtn');if(!s)return;if(go)try{go.click()}catch(x){};setTimeout(function(){var all=$('emotionCategoryFilters'),bs=all?all.getElementsByTagName('button'):[],i;for(i=0;i<bs.length;i++)if(bs[i].getAttribute('data-category')==='all'){try{bs[i].click()}catch(x){}break}var q=$('emotionSearch');if(q){q.value=s.title_ar;if(q.onkeyup)q.onkeyup()}setTimeout(function(){var root=$('emotionScenarioList'),heads=root?root.getElementsByTagName('button'):[];for(i=0;i<heads.length;i++)if(heads[i].getAttribute('data-case')===id){try{heads[i].click()}catch(x){}break}},80)},80)}
+function injectSchoolUse(){var root=$('emotionScenarioList');if(!root)return;var articles=root.getElementsByTagName('article'),i,a,heads,detail,id,btn;for(i=0;i<articles.length;i++){a=articles[i];if((' '+a.className+' ').indexOf(' open ')<0)continue;heads=a.getElementsByTagName('button');id='';var k;for(k=0;k<heads.length;k++)if(heads[k].getAttribute('data-case')){id=heads[k].getAttribute('data-case');break}if(!id)continue;detail=a.getElementsByClassName?a.getElementsByClassName('emotion-case-detail')[0]:null;if(!detail||detail.getElementsByClassName('school-use-journey').length)continue;btn=d.createElement('button');btn.type='button';btn.className='school-use-journey';btn.setAttribute('data-j-use-school',id);btn.innerHTML='استخدم هذا الموقف في تجربة مترابطة';detail.appendChild(btn)}}
+function useSchoolCase(id){j.scenario_id=id;j.help_id='';j.next_id='';save();var back=$('schoolBackBtn');if(back)try{back.click()}catch(x){};setTimeout(function(){render();scroll('guidedJourney')},100)}
+function bind(){var sig=$('signalCards'),feel=$('feelingCards'),helps=$('helpCards');bindTap(sig,function(){setTimeout(syncSource,80)});bindTap(feel,function(){setTimeout(syncSource,80)});bindTap(helps,function(){setTimeout(function(){var s=core().current&&core().current.selected_help;if(s&&s.id&&s.id!=='declined'){j.help_id=s.id;j.next_id='';save();render()}},80)});if($('rejectHelpBtn'))bindTap($('rejectHelpBtn'),function(){setTimeout(function(){j.help_id='';j.next_id='';save();render()},80)});var clueRoot=$('journeyClues');bindTap(clueRoot,function(e){var b=closestData(e.target||e.srcElement,clueRoot,'data-j-clue');if(b)chooseClue(b.getAttribute('data-j-clue'))});var sr=$('journeyScenarioSuggestions');bindTap(sr,function(e){var b=closestData(e.target||e.srcElement,sr,'data-j-case');if(b)chooseScenario(b.getAttribute('data-j-case'))});var hi=$('journeyHelpSuggestions');bindTap(hi,function(e){var b=closestData(e.target||e.srcElement,hi,'data-j-help');if(b)clickCoreHelp(b.getAttribute('data-j-help'))});var nx=$('journeyNextOptions');bindTap(nx,function(e){var b=closestData(e.target||e.srcElement,nx,'data-j-next');if(b)chooseNext(b.getAttribute('data-j-next'))});var box=$('guidedJourney');bindTap(box,function(e){var t=e.target||e.srcElement,b=closestData(t,box,'data-j-speak');if(b){speak(b.getAttribute('data-j-speak'));return}b=closestData(t,box,'data-j-school');if(b){openSchool(b.getAttribute('data-j-school'));return}b=closestData(t,box,'data-j-create');if(b){createExperiment();return}});var run=$('journeyRunPanel');bindTap(run,function(e){var t=e.target||e.srcElement,b=closestData(t,run,'data-j-run-speak');if(b){speak(b.getAttribute('data-j-run-speak'));return}b=closestData(t,run,'data-j-result');if(b){saveResult(b.getAttribute('data-j-result'));return}b=closestData(t,run,'data-j-nowthen');if(b){toNowThen(b.getAttribute('data-j-nowthen'));return}b=closestData(t,run,'data-j-close-run');if(b){activeExperiment='';renderRunner();return}});var hist=$('emotionExperimentList');bindTap(hist,function(e){var t=e.target||e.srcElement,b=closestData(t,hist,'data-j-start');if(b){startExperiment(b.getAttribute('data-j-start'));return}b=closestData(t,hist,'data-j-nowthen');if(b){toNowThen(b.getAttribute('data-j-nowthen'));return}b=closestData(t,hist,'data-j-dup');if(b){duplicateExperiment(b.getAttribute('data-j-dup'));return}b=closestData(t,hist,'data-j-del');if(b){deleteExperiment(b.getAttribute('data-j-del'));return}});var school=$('emotionScenarioList');bindTap(school,function(e){var b=closestData(e.target||e.srcElement,school,'data-j-use-school');if(b){useSchoolCase(b.getAttribute('data-j-use-school'));return}setTimeout(injectSchoolUse,80)});var nav=$('nav-plans');if(nav)bindTap(nav,function(){setTimeout(renderHistory,80)});var fresh=$('newSessionBtn');if(fresh)bindTap(fresh,function(){j.source_key='';j.clue_id='';j.scenario_id='';j.help_id='';j.next_id='';save();setTimeout(render,100)})}
+function init(){j.age_band=age();save();render();bind();injectSchoolUse();w.APP360_CALM_JOURNEY={render:render,useScenario:useSchoolCase,startExperiment:startExperiment}}
+if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',init,false);else if(w.attachEvent)w.attachEvent('onload',init)}else init();
+})(window,document);
