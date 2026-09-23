@@ -7,6 +7,8 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const source = path.resolve(__dirname, '..');
+const liveOverrides = require('../data/live-overrides.json');
+const effectiveLiveIds = new Set((liveOverrides.apps || []).filter(a => a.status === 'live').map(a => a.id));
 let root;
 before(() => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'app360-contracts-'));
@@ -35,8 +37,8 @@ test('rejects missing explanations and cross-age mappings', () => {
 });
 test('rejects unsupported delivery and mismatched local identity', () => {
   invalidCatalog(c => {
-    const planned = c.apps.find(a => a.status !== 'live' && a.goal_links && a.goal_links.length);
-    assert.ok(planned, 'expected a planned app with a goal link');
+    const planned = c.apps.find(a => a.status !== 'live' && !effectiveLiveIds.has(a.id) && a.goal_links && a.goal_links.length);
+    assert.ok(planned, 'expected a genuinely planned app with a goal link');
     planned.goal_links[0].delivery = 'available_with_facilitator';
   }, /unbuilt app claims delivered goal/);
   invalidCatalog(c => { c.apps[1].id = 'wrong-identity'; }, /catalog\/app\.json id mismatch/);
@@ -44,7 +46,7 @@ test('rejects unsupported delivery and mismatched local identity', () => {
 test('scaffold continues a blueprint-only plan, preserves its contract/docs, and refuses a second run', () => {
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog.json'), 'utf8'));
   const candidate = catalog.apps.find(a => {
-    if (a.status === 'live') return false;
+    if (a.status === 'live' || effectiveLiveIds.has(a.id)) return false;
     const p = path.join(root, 'apps', a.age_group, a.slug, 'app.json');
     if (!fs.existsSync(p)) return false;
     try { return JSON.parse(fs.readFileSync(p, 'utf8')).scaffold_state === 'blueprint-only'; } catch (_) { return false; }
