@@ -37,9 +37,8 @@ ready(function(){scanImages(d);if(w.MutationObserver){try{new MutationObserver(f
 })(window,document);
 (function(w,d){
 'use strict';
-if(w.APP360_AI_AUTOLOAD===false)return;
 var p=(w.location&&w.location.pathname)||'';
 if(p.indexOf('/apps/')<0||/\/apps\/_template\//.test(p))return;
-function load(){if(d.getElementById('app360AiRuntimeScript')||w.APP360_AI_CONTENT)return;var s=d.createElement('script');s.id='app360AiRuntimeScript';s.src='../../../assets/js/ai-content-studio.js?v=1';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
+function load(){if(w.APP360_AI_SHELL||d.getElementById('app360AiShellScript'))return;var s=d.createElement('script');s.id='app360AiShellScript';s.src='../../../assets/js/app360-ai-shell.js?v=2';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',load,false);else if(w.attachEvent)w.attachEvent('onload',load)}else load();
 })(window,document);
