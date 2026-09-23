@@ -1,0 +1,3 @@
+'use strict';
+var fs=require('fs');var path=require('path');var cfg=require('../knexfile').development;var file=cfg.connection.filename;try{if(fs.existsSync(file))fs.unlinkSync(file);if(fs.existsSync(file+'-wal'))fs.unlinkSync(file+'-wal');if(fs.existsSync(file+'-shm'))fs.unlinkSync(file+'-shm')}catch(e){console.error(e);process.exit(1)}
+var knex=require('knex');var db=knex(cfg);db.migrate.latest().then(function(){return db.seed.run()}).then(function(){console.log('database reset complete:',path.resolve(file));return db.destroy()}).catch(function(e){console.error(e);db.destroy().then(function(){process.exit(1)})});
