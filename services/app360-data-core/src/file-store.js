@@ -10,7 +10,7 @@ function createFileStore(opts){
   opts=opts||{};var root=opts.root||path.resolve(__dirname,'../var/uploads');ensure(root);
   async function putBuffer(db,ownerUserId,originalName,mimeType,buffer,meta){
     if(!Buffer.isBuffer(buffer))throw new Error('buffer required');
-    var hash=sha256(buffer),existing=await db('files').where({sha256:hash}).first();
+    var hash=sha256(buffer),existing=await db('files').where({sha256:hash,owner_user_id:ownerUserId||null}).first();
     if(existing&&existing.storage_path&&fs.existsSync(existing.storage_path))return existing;
     var ext=path.extname(originalName||'')||'';var fileId=id(),diskName=fileId+(ext?ext.toLowerCase():'');var target=path.join(root,safeName(diskName));
     fs.writeFileSync(target,buffer);
@@ -21,6 +21,14 @@ function createFileStore(opts){
     var row={content_item_id:contentItemId,file_id:fileId,purpose:purpose||'illustration',item_ref:itemRef||null,sort_order:sortOrder||0};
     await db('content_file_links').insert(row).onConflict(['content_item_id','file_id','purpose','item_ref']).ignore();return row;
   }
-  return {root:root,putBuffer:putBuffer,linkToContent:linkToContent};
+  async function listForContent(db,contentItemId){
+    return await db('content_file_links as l').join('files as f','f.id','l.file_id').where('l.content_item_id',contentItemId).orderBy('l.sort_order','asc').select('f.*','l.purpose','l.item_ref','l.sort_order');
+  }
+  async function readBuffer(db,fileId){
+    var row=await db('files').where({id:fileId}).first();
+    if(!row||!row.storage_path||!fs.existsSync(row.storage_path))return null;
+    return{row:row,buffer:fs.readFileSync(row.storage_path)};
+  }
+  return {root:root,putBuffer:putBuffer,linkToContent:linkToContent,listForContent:listForContent,readBuffer:readBuffer};
 }
 module.exports={createFileStore:createFileStore,safeName:safeName};
