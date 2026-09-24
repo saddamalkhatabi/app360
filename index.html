@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-<meta name="theme-color" content="#0A9BA8">
+<meta name="theme-color" content="#041e25">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="app360-build" content="app360-home-v28-20260924-usage">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="app360-build" content="app360-home-v29-immersive">
 <title>مختبر التطبيق 360 - الريلز الآمن 360</title>
-<meta name="description" content="مختبر التطبيق 360: التطبيق العملي لنظام الريلز الآمن 360، مع تطبيقات تعلم وممارسة حسب الفئات العمرية.">
-<meta property="og:title" content="مختبر التطبيق 360 - الريلز الآمن 360">
-<meta property="og:description" content="من المعرفة إلى الممارسة الفعلية عبر تطبيقات عملية حسب الفئات العمرية.">
+<meta name="description" content="مختبر التطبيق 360: حزمة تطبيقات عملية تفاعلية لنظام الريلز الآمن 360، مع تصفح مباشر وفلترة داخلية حسب الفئة العمرية.">
+<meta property="og:title" content="مختبر التطبيق 360 - حزمة التطبيقات العملية">
+<meta property="og:description" content="حرّك عالم التطبيقات بلمسة واحدة وانتقل من المعرفة إلى الممارسة عبر كل الفئات العمرية.">
 <meta property="og:image" content="assets/brand/app360-lab-logo.png?v=24">
 <meta property="og:type" content="website">
 <link rel="manifest" href="manifest.webmanifest?v=24">
@@ -22,9 +22,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/app360-lab-icon-180.png?v=24">
 <link rel="stylesheet" href="assets/css/lab360.css?v=24">
 <link rel="stylesheet" href="assets/css/legacy-compat.css?v=24">
+<link rel="stylesheet" href="assets/css/home-showcase-v29.css?v=29">
 </head>
-<body data-page="home" data-root="." data-catalog="data/catalog.json?v=28" data-goals="data/goals.json" data-live-overrides="data/live-overrides.json?v=29">
+<body data-page="home" data-root="." data-catalog="data/catalog.json?v=29" data-goals="data/goals.json?v=29" data-live-overrides="data/live-overrides.json?v=29">
 <header class="topbar"><div class="shell topbar-shell"><a class="brand" href="index.html" aria-label="مختبر التطبيق 360"><span class="brand-mark"><img src="assets/brand/app360-lab-icon-192.png?v=24" alt=""></span><span><b>مختبر التطبيق 360</b><small>التطبيق العملي لنظام الريلز الآمن 360</small></span></a><div class="portal-controls"><button id="portalUsageBtn" class="update-action" type="button">⏱ وقت التطبيقات</button><button id="portalAccountBtn" class="update-action" type="button" aria-label="تسجيل الدخول إلى App360">👤 تسجيل الدخول</button><button id="installPortalBtn" class="install-action" type="button">⬇ تثبيت المختبر</button><button id="checkUpdateBtn" class="update-action" type="button">↻ تحديث</button></div></div></header>
+<section id="homeShowcase" class="home-showcase-section" aria-label="استعراض تطبيقات مختبر التطبيق 360"><div class="showcase-shell"><div class="showcase-empty"><div><b>جارٍ تجهيز عالم التطبيقات…</b>سيظهر شريط التطبيقات والفلاتر بعد تحميل الفهرس.</div></div></div></section>
 <section class="hero"><div class="shell hero-grid"><div class="hero-brand-side"><div class="hero-logo-wrap"><img class="hero-original-logo" src="assets/brand/app360-lab-logo.png?v=24" data-legacy-src="assets/brand/app360-lab-logo.png?v=24" alt="مختبر التطبيق 360 - الريلز الآمن 360" width="640" height="634"></div></div><div class="hero-copy"><div class="pill-row"><span class="pill">تطبيقات عملية</span><span class="pill">8 فئات عمرية</span><span class="pill">أهداف المتعلم والمدرب</span><span class="pill">تطوير مستمر</span><span class="offline-chip">⚡ يعمل دون اتصال بعد أول فتح</span></div><h1>من المعرفة إلى الممارسة الفعلية</h1><p>واجهة موحدة تجمع التطبيقات العملية لنظام الريلز الآمن 360. اختر الفئة العمرية، ابحث عن مهارة أو هدف، ثم انتقل من المعرفة المرئية إلى تجربة وممارسة قابلة للتكرار والقياس.</p><div class="hero-actions"><a class="btn" href="#ages">استكشف الفئات العمرية</a><button id="installPortalBtnHero" class="btn secondary" type="button" onclick="document.getElementById('installPortalBtn').click()">تثبيت مختبر التطبيق 360</button></div></div><aside class="hero-card"><div class="hero-card-star">★</div><small>فهرس المختبر الحالي</small><strong><span id="totalApps">…</span> تطبيقًا وفكرة</strong><div>يعمل الآن: <b id="liveApps">…</b></div><div>في خارطة البناء: <b id="plannedApps">…</b></div><div class="pill-row hero-card-pills"><span class="pill">Goal-aligned</span><span class="pill">Modern extensions</span></div></aside></div></section>
 <main>
 <section class="section"><div class="shell"><h2>ابحث في مختبر التطبيقات</h2><p class="section-lead">ابحث باسم المهارة أو التطبيق أو الهدف أو كلمات مثل: الذكاء الاصطناعي، الرسم، المال، التوازن، القراءة، القيادة.</p><div class="search-box"><span class="search-icon">🔎</span><label class="sr-only" for="appSearch">بحث التطبيقات</label><input id="appSearch" type="search" autocomplete="off" placeholder="اكتب اسم مهارة أو تطبيق..." /></div><div id="statusFilters" class="filters"><button class="filter-btn on" data-status="all">الكل</button><button class="filter-btn" data-status="live">يعمل الآن</button><button class="filter-btn" data-status="planned">مخطط للبناء</button><button class="filter-btn" data-status="idea">بنك الأفكار</button></div><div id="resultCount"></div></div></section>
@@ -36,9 +38,10 @@
 <div id="pwaNotice" class="pwa-notice" role="status" aria-live="polite"></div>
 <script src="assets/js/legacy-compat.js?v=24"></script>
 <script src="assets/js/swal-modern-loader-v24.js"></script>
-<script src="assets/js/lab360-v24.js"></script>
+<script src="assets/js/lab360-v24.js?v=29"></script>
+<script src="assets/js/home-showcase-v29.js?v=29"></script>
 <script src="assets/js/runtime-apps-v1.js?v=2"></script>
-<script src="assets/js/pwa-install-v24.js"></script>
+<script src="assets/js/pwa-install-v24.js?v=29"></script>
 <script src="assets/js/app360-session-v1.js?v=3"></script>
 <script src="assets/js/app360-account-access-v1.js?v=2"></script>
 <script src="assets/js/app360-login-entry-v2.js?v=2"></script>
