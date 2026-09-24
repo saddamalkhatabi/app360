@@ -1,0 +1,24 @@
+(function(w,d){
+'use strict';
+var COVERS={
+  'a1-drawing-writing':'assets/covers/a1-drawing-writing-v30.jpg?v=30',
+  'a1-first-words':'assets/covers/a1-first-words-v30.jpg?v=30',
+  'a1-imitate':'assets/covers/a1-imitate-v30.jpg?v=30',
+  'a1-screen-move':'assets/covers/a1-screen-move-v30.jpg?v=30',
+  'a1-calm':'assets/covers/a1-calm-v30.jpg?v=30'
+};
+var DEFAULT_COVER='assets/covers/app-coming-soon-v30.svg?v=30';
+var patched=false;
+function qs(s,b){return (b||d).querySelector? (b||d).querySelector(s):null}
+function qsa(s,b){return (b||d).querySelectorAll?Array.prototype.slice.call((b||d).querySelectorAll(s)):[]}
+function getAppHref(card){var a=qs('.showcase-card-actions a.open',card);return a&&a.getAttribute('href')||''}
+function bindCoverOpen(card,cover){if(!card||!cover||cover.__a360CoverOpen)return;var href=getAppHref(card);if(!href)return;cover.__a360CoverOpen=true;cover.setAttribute('role','link');cover.setAttribute('tabindex','0');cover.setAttribute('aria-label','فتح التطبيق مباشرة');var sx=0,sy=0,moved=false;function p(e){var t=e.touches&&e.touches[0]?e.touches[0]:(e.changedTouches&&e.changedTouches[0]?e.changedTouches[0]:e);return{x:t&&t.clientX||0,y:t&&t.clientY||0}}function start(e){var x=p(e);sx=x.x;sy=x.y;moved=false}function move(e){var x=p(e);if(Math.abs(x.x-sx)>12||Math.abs(x.y-sy)>12)moved=true}function open(e){if(moved){moved=false;return}if(e&&e.preventDefault)e.preventDefault();if(e&&e.stopPropagation)e.stopPropagation();w.location.href=href}cover.addEventListener&&cover.addEventListener('touchstart',start,false);cover.addEventListener&&cover.addEventListener('touchmove',move,false);cover.addEventListener&&cover.addEventListener('mousedown',start,false);cover.addEventListener&&cover.addEventListener('mousemove',move,false);cover.addEventListener&&cover.addEventListener('click',open,true);cover.onkeydown=function(e){e=e||w.event;var k=e.key||e.keyCode;if(k==='Enter'||k===' '||k===13||k===32)open(e)}}
+function patchCards(){var cards=qsa('.showcase-card');for(var i=0;i<cards.length;i++){var card=cards[i],id=card.getAttribute('data-app'),visual=qs('.showcase-cover-visual',card),img=visual&&qs('img',visual),src=COVERS[id]||'';if(!visual||!img)continue;if(src){img.src=src;visual.className='showcase-cover-visual custom-cover';card.className=card.className.indexOf('has-custom-cover')>=0?card.className:card.className+' has-custom-cover';var badges=qsa('.showcase-badges .showcase-badge',card);if(badges.length>1)badges[1].style.display='none';bindCoverOpen(card,visual)}else if(card.className.indexOf('planned')>=0||visual.className.indexOf('planned')>=0){img.src=DEFAULT_COVER}}
+var classic=qsa('.classic-card');for(i=0;i<classic.length;i++){var a=qs('.classic-actions a.open',classic[i]),detail=qs('[data-detail-app]',classic[i]),appId=detail&&detail.getAttribute('data-detail-app'),im=qs('.classic-cover img',classic[i]);if(im&&COVERS[appId]){im.src=COVERS[appId];im.className='';var cc=qs('.classic-cover',classic[i]);if(cc&&a){cc.style.cursor='pointer';if(!cc.__a360ClassicOpen){cc.__a360ClassicOpen=true;cc.onclick=(function(h){return function(){w.location.href=h}})(a.getAttribute('href'))}}}else if(im&&appId&&!COVERS[appId])im.src=DEFAULT_COVER}}
+function ensureControlsToggle(){var shell=qs('.showcase-shell'),ages=qs('.age-picker');if(!shell||!ages||qs('#showcaseControlsToggle'))return;var b=d.createElement('button');b.id='showcaseControlsToggle';b.type='button';b.className='showcase-controls-toggle';b.innerHTML='☰ الفئات والفلاتر';b.setAttribute('aria-expanded','false');shell.insertBefore(b,ages);shell.className+=' controls-collapsed';b.onclick=function(){var collapsed=(' '+shell.className+' ').indexOf(' controls-collapsed ')>=0;if(collapsed){shell.className=(' '+shell.className+' ').replace(' controls-collapsed ',' ').replace(/^\s+|\s+$/g,'');b.innerHTML='× إخفاء الفئات والفلاتر';b.setAttribute('aria-expanded','true')}else{shell.className+=' controls-collapsed';b.innerHTML='☰ الفئات والفلاتر';b.setAttribute('aria-expanded','false')}}}
+function forceCarousel(){try{w.localStorage.setItem('app360:home-mode:v1','carousel')}catch(e){}var b=qs('#modeCarousel');if(b&&b.className.indexOf('on')<0&&typeof b.click==='function')b.click()}
+function patchArrows(){var p=qs('#carouselPrev'),n=qs('#carouselNext'),s=qs('#showcaseStage');if(s)s.setAttribute('dir','rtl');if(p){p.innerHTML='›';p.setAttribute('aria-label','السابق')}if(n){n.innerHTML='‹';n.setAttribute('aria-label','التالي')}}
+function apply(){ensureControlsToggle();forceCarousel();patchArrows();patchCards();patched=true}
+function boot(){try{w.localStorage.setItem('app360:home-mode:v1','carousel')}catch(e){}apply();if(w.MutationObserver){var o=new MutationObserver(function(){apply()});o.observe(d.body,{childList:true,subtree:true})}else setInterval(apply,700)}
+if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',boot,false)}else boot();
+})(window,document);
