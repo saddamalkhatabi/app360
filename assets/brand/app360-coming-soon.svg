@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="t d">
+<title id="t">تطبيق قادم في مختبر التطبيق 360</title>
+<desc id="d">غلاف موحد للتطبيقات التي لم يكتمل تطويرها بعد</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#062f39"/>
+    <stop offset="0.48" stop-color="#087b88"/>
+    <stop offset="1" stop-color="#11a5ae"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="42%" r="58%">
+    <stop offset="0" stop-color="#ffd75b" stop-opacity=".78"/>
+    <stop offset=".45" stop-color="#ffd75b" stop-opacity=".15"/>
+    <stop offset="1" stop-color="#ffd75b" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#00151a" flood-opacity=".45"/></filter>
+</defs>
+<rect width="1200" height="720" rx="54" fill="url(#bg)"/>
+<circle cx="600" cy="320" r="300" fill="url(#glow)"/>
+<g opacity=".13" fill="none" stroke="#fff" stroke-width="2">
+  <circle cx="150" cy="115" r="78"/><circle cx="1050" cy="120" r="105"/><circle cx="1080" cy="610" r="150"/><circle cx="120" cy="620" r="120"/>
+</g>
+<g transform="translate(600 310)" filter="url(#shadow)">
+  <circle r="145" fill="#ffffff" fill-opacity=".96"/>
+  <circle r="119" fill="#0a9ba8"/>
+  <path d="M-64 4h128M0-60v128" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <circle r="86" fill="none" stroke="#f4c027" stroke-width="8" stroke-dasharray="18 12"/>
+</g>
+<g fill="#fff" text-anchor="middle" font-family="Tahoma,Arial,sans-serif">
+  <text x="600" y="545" font-size="54" font-weight="700">تطبيق قادم</text>
+  <text x="600" y="603" font-size="26" fill="#d9f7f8">ضمن خارطة مختبر التطبيق 360</text>
+</g>
+<g transform="translate(600 654)">
+  <rect x="-135" y="-28" width="270" height="56" rx="28" fill="#f4c027"/>
+  <text x="0" y="10" text-anchor="middle" font-family="Tahoma,Arial,sans-serif" font-size="24" font-weight="700" fill="#4d3b00">يتم التطوير خطوة بخطوة</text>
+</g>
+</svg>
