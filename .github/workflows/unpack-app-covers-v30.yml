@@ -21,13 +21,11 @@ jobs:
           rm -rf /tmp/app360-covers
           mkdir -p /tmp/app360-covers
           unzip -o assets/covers/a1-first-words.zip -d /tmp/app360-covers
-          SRC=/tmp/app360-covers/app360_ready_covers_v30/assets/covers
-          test -f "$SRC/a1-drawing-writing.jpg"
-          test -f "$SRC/a1-first-words.jpg"
-          test -f "$SRC/a1-imitate.jpg"
-          test -f "$SRC/a1-screen-move.jpg"
-          test -f "$SRC/a1-calm.jpg"
-          cp -f "$SRC"/*.jpg assets/covers/
+          SRC=/tmp/app360-covers
+          for f in a1-drawing-writing.jpg a1-first-words.jpg a1-imitate.jpg a1-screen-move.jpg a1-calm.jpg; do
+            test -f "$SRC/$f"
+            cp -f "$SRC/$f" "assets/covers/$f"
+          done
       - name: Verify image pack
         shell: bash
         run: |
