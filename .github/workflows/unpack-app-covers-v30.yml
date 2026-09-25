@@ -2,9 +2,6 @@ name: Unpack App Covers v30
 
 on:
   push:
-    paths:
-      - '.github/workflows/unpack-app-covers-v30.yml'
-      - 'assets/covers/a1-first-words.zip'
   workflow_dispatch:
 
 permissions:
