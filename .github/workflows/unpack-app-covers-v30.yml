@@ -1,0 +1,57 @@
+name: Unpack App Covers v30
+
+on:
+  push:
+    paths:
+      - '.github/workflows/unpack-app-covers-v30.yml'
+      - 'assets/covers/a1-first-words.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract uploaded cover pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/app360-covers
+          mkdir -p /tmp/app360-covers
+          unzip -o assets/covers/a1-first-words.zip -d /tmp/app360-covers
+          SRC=/tmp/app360-covers/app360_ready_covers_v30/assets/covers
+          test -f "$SRC/a1-drawing-writing.jpg"
+          test -f "$SRC/a1-first-words.jpg"
+          test -f "$SRC/a1-imitate.jpg"
+          test -f "$SRC/a1-screen-move.jpg"
+          test -f "$SRC/a1-calm.jpg"
+          cp -f "$SRC"/*.jpg assets/covers/
+      - name: Verify image pack
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          expected = ['a1-drawing-writing.jpg','a1-first-words.jpg','a1-imitate.jpg','a1-screen-move.jpg','a1-calm.jpg']
+          for name in expected:
+              p=Path('assets/covers')/name
+              assert p.exists() and p.stat().st_size > 10000, (name, p.stat().st_size if p.exists() else 0)
+              print(name, p.stat().st_size)
+          PY
+      - name: Commit extracted images
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/covers/a1-drawing-writing.jpg assets/covers/a1-first-words.jpg assets/covers/a1-imitate.jpg assets/covers/a1-screen-move.jpg assets/covers/a1-calm.jpg
+          if git diff --cached --quiet; then
+            echo "No image changes to commit"
+          else
+            git commit -m "feat(covers): extract approved app cover images"
+            git push
+          fi
