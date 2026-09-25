@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-09-22",
+  "updated": "2026-09-25",
   "platform": {
     "name_ar": "مختبر التطبيق 360",
     "system_ar": "الريلز الآمن 360",
@@ -157,7 +157,8 @@
         "design_basis_ar": "تصميم خاص بالمختبر انطلاقًا من المهمة والناتج؛ يحتاج تجربة مستخدمين قبل الحكم على أثره."
       },
       "blueprint_path": "apps/1-4/drawing-writing-foundations/BUILD_SPEC.md",
-      "prompt_path": "apps/1-4/drawing-writing-foundations/PROMPT_AR.md"
+      "prompt_path": "apps/1-4/drawing-writing-foundations/PROMPT_AR.md",
+      "cover": "assets/covers/a1-drawing-writing.jpg"
     },
     {
       "id": "a1-first-words",
@@ -271,7 +272,8 @@
       "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md",
       "manifest": "apps/1-4/say-and-name/app.json",
-      "href": "apps/1-4/say-and-name/index.html?v=26"
+      "href": "apps/1-4/say-and-name/index.html?v=26",
+      "cover": "assets/covers/a1-first-words.jpg"
     },
     {
       "id": "a1-imitate",
@@ -371,14 +373,15 @@
         ],
         "pending_before_live_ar": []
       },
-      "href": "apps/1-4/imitate-one-step/index.html?v=21"
+      "href": "apps/1-4/imitate-one-step/index.html?v=21",
+      "cover": "assets/covers/a1-imitate.jpg"
     },
     {
       "id": "a1-calm",
       "slug": "calm-with-me",
       "title_ar": "مشاعري معك: أحتاج مساعدة",
       "age_group": "1-4",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "description_ar": "مساحة تنظيم مشترك للطفل والمرافق تساعد على الانتقال من ملاحظة الشعور أو الحاجة إلى اختيار مساعدة مقبولة وخطوة تالية واضحة، مع بطاقات كبيرة، خطط انتقال مصورة، سجل لما ساعد، وطباعة أو حفظ لخطة شخصية دون تشخيص أو إجبار الطفل على الهدوء.",
@@ -413,14 +416,14 @@
           "relationship": "supports",
           "rationale_ar": "اختيار مساعدة مع شخص مألوف يمارس التنظيم المشترك دون مطالبة الطفل بتنظيم نفسه وحده",
           "evidence_ar": "يدوّن المرافق المساعدة المقبولة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-1-4-co-regulation-transitions-and-tantrum-support",
           "relationship": "supports",
           "rationale_ar": "تخطيط انتقال بصري ووصف الشعور دون عقاب يدرب المرافق على استجابة عملية",
           "evidence_ar": "بطاقة انتقال مع مراجعة ما ساعد الطفل",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -490,11 +493,14 @@
           "انتقال من اللعب إلى الاستعداد للخروج مع بطاقة الآن وبعد ذلك وخيار مساعدة",
           "موقف انزعاج يكتفي فيه الطفل بالإشارة إلى مساعدة مقبولة دون تسمية شعوره",
           "مرافق يصمم خطة انتقال من صور الأسرة ويطبعها للاستخدام بعيدًا عن الجهاز"
-        ]
+        ],
+        "pending_before_live_ar": []
       },
       "blueprint_path": "apps/1-4/calm-with-me/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/calm-with-me/PROMPT_AR.md",
-      "manifest": "apps/1-4/calm-with-me/app.json"
+      "manifest": "apps/1-4/calm-with-me/app.json",
+      "cover": "assets/covers/a1-calm.jpg",
+      "href": "apps/1-4/calm-with-me/index.html?v=10"
     },
     {
       "id": "a1-sensory",
@@ -1057,7 +1063,8 @@
       "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/screen-to-move/PROMPT_AR.md",
       "manifest": "apps/1-4/screen-to-move/app.json",
-      "href": "apps/1-4/screen-to-move/index.html?v=16"
+      "href": "apps/1-4/screen-to-move/index.html?v=16",
+      "cover": "assets/covers/a1-screen-move.jpg"
     },
     {
       "id": "a4-phonics",
@@ -5351,6 +5358,39 @@
       "blueprint_path": "apps/60-80/qr-otp-scam-simulator/BUILD_SPEC.md",
       "prompt_path": "apps/60-80/qr-otp-scam-simulator/PROMPT_AR.md",
       "manifest": "apps/60-80/qr-otp-scam-simulator/app.json"
+    },
+    {
+      "id": "a1-plan-runner",
+      "slug": "plan-runner-360",
+      "title_ar": "مخطط التشغيل 360: ابنِ ونفّذ خطة",
+      "age_group": "1-4",
+      "status": "live",
+      "kind": "modern_extension",
+      "priority": 3,
+      "description_ar": "باني خطة تشغيل يجمع عدة تطبيقات وأنشطة من الفئة 1–4 داخل تسلسل منظم قابل للحفظ والتنفيذ والمتابعة.",
+      "practice_model": "اختر الأنشطة والتطبيقات ← رتّب الخطوات ← احفظ الخطة ← نفّذها خطوة بخطوة ← راجع نتيجة كل خطوة",
+      "goal_keys": [],
+      "tags": [
+        "خطة",
+        "تشغيل",
+        "أنشطة",
+        "تطبيقات",
+        "متابعة"
+      ],
+      "href": "apps/1-4/plan-runner-360/index.html",
+      "manifest": "apps/1-4/plan-runner-360/app.json",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "practice.core",
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first-shell"
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",
