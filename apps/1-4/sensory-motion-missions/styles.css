@@ -69,3 +69,10 @@ html.app360-legacy .openBasket{position:absolute!important;left:57px!important;b
 .basketZone.swallow .basket{-webkit-transform:scale(1.06);transform:scale(1.06)}
 html.app360-legacy .piece.basketFly{-webkit-transition:left .20s ease-out,top .20s ease-out,-webkit-transform .20s ease-out!important}
 html.app360-legacy .piece.basketSink{-webkit-transition:left .25s ease-in,top .25s ease-in,width .25s ease-in,height .25s ease-in,opacity .25s ease-in!important}
+
+/* v16 Big TAB: mode isolation + visible live drop affordance */
+html.app360-legacy .basketZone[style*="display: none"],html.app360-legacy .basketZone[style*="display:none"]{display:none!important;visibility:hidden!important}
+html.app360-legacy .basketZone.hover .basketGlow{display:block!important;background:rgba(255,230,94,.62)!important;box-shadow:0 0 45px #ffe35f!important}
+html.app360-legacy .basketZone.hover .basket{-webkit-transform:scale(1.08)!important;transform:scale(1.08)!important}
+html.app360-legacy .piece.nearBasket{-webkit-transform:scale(.88)!important;transform:scale(.88)!important;box-shadow:0 0 0 6px #ffcf40,0 8px 18px rgba(0,0,0,.2)!important}
+html.app360-legacy #realView{position:relative!important;z-index:60!important;background:#eaf9f3!important}
