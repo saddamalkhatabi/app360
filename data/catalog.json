@@ -507,7 +507,7 @@
       "slug": "sensory-motion-missions",
       "title_ar": "سلة الاكتشاف: فرز ولمس ونقل",
       "age_group": "1-4",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "description_ar": "منشئ لعب حسي وحركي خارج الشاشة يحول المواد الآمنة المتاحة في البيت أو الصف إلى مهام نقل وفرز ومطابقة وبناء ومسارات حركة بسيطة، مع فحص تجهيز وسلامة، تدرج حسب الاستعداد، مصمم للمرافق، وبطاقات قابلة للطباعة تقلل الحاجة للعودة إلى الشاشة أثناء اللعب.",
@@ -541,14 +541,14 @@
           "relationship": "supports",
           "rationale_ar": "نقل قطع كبيرة وفرزها حسب الملمس أو الشكل يتيح ممارسة حسية حركية",
           "evidence_ar": "ترتيب فعلي للقطع مع وصف الخاصية",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-1-4-safe-play-activity-design-and-independence",
           "relationship": "supports",
           "rationale_ar": "فحص حجم المواد واختيار تحد مناسب ثم تقليل المساعدة يدرب تصميم اللعب",
           "evidence_ar": "يدوّن المرافق تعديلًا جعله مناسبًا لقدرة الطفل",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -619,11 +619,14 @@
           "مرافق يختار مواد متاحة في البيت ويولد مهمة نقل وفرز ثم يطبعها",
           "طفل ينفذ مسار حركة بسيط بعيدًا عن الشاشة بينما تبقى البطاقة لدى المرافق",
           "مرافق يعدل مهمة سابقة لأن المادة أو المساحة لم تكن مناسبة ويحفظ النسخة المحسنة"
-        ]
+        ],
+        "pending_before_live_ar": []
       },
       "blueprint_path": "apps/1-4/sensory-motion-missions/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/sensory-motion-missions/PROMPT_AR.md",
-      "manifest": "apps/1-4/sensory-motion-missions/app.json"
+      "manifest": "apps/1-4/sensory-motion-missions/app.json",
+      "href": "apps/1-4/sensory-motion-missions/index.html?v=1",
+      "cover": "assets/covers/a1-sensory.svg"
     },
     {
       "id": "a1-routine",
