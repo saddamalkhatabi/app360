@@ -4,9 +4,9 @@
   "slug": "my-little-routine",
   "title_ar": "أستطيع خطوة: روتيني المصور",
   "age_group": "1-4",
-  "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "version": 2,
+  "status": "prototype",
+  "scaffold_state": "implemented-prototype",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-routines-independence-first-attempts",
@@ -24,7 +24,6 @@
     "practice.core",
     "storage.local",
     "audio.tts",
-    "audio.recorded",
     "pwa.offline",
     "compat.legacy-web"
   ],
@@ -33,5 +32,6 @@
   ],
   "practice_model_ar": "اختر روتينًا أو ابنِ واحدًا من صورك ← ابدأ بخطوة ظاهرة بوضوح أو الآن/بعد ذلك ← نفذها في الواقع ← سجّل مقدار المساعدة أو أعد المحاولة بلطف ← انتقل للخطوة التالية أو اختصر الروتين ← اطبع النسخة المناسبة للمكان",
   "blueprint_path": "apps/1-4/my-little-routine/BUILD_SPEC.md",
-  "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md"
+  "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md",
+  "implementation_note_ar": "نموذج تشغيلي أول: مكتبة 10 قوالب، مصمم 1-8 خطوات، أوضاع صورة واحدة/الآن وبعد ذلك/شريط مصور، تنفيذ بنتائج وصفية، استئناف محلي، مراجعة وطباعة وتصدير. الصور النهائية والتسجيل الصوتي المحلي ما زالا لاحقين، لذلك audio.recorded غير معلنة كقدرة منفذة."
 }
