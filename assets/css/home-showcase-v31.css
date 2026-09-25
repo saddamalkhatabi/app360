@@ -56,3 +56,22 @@ html.app360-legacy .home-showcase-section{background:#073640}html.app360-legacy 
 html.app360-legacy .home-showcase-section.age-1-4{background:#d8f3fb;color:#173f61}
 html.app360-legacy .age-1-4 .showcase-stage{background:#f7fcfd;border-color:#9bcbd6}
 html.app360-legacy .age-1-4 .showcase-title h1,html.app360-legacy .age-1-4 .showcase-meta strong{color:#123f69}
+
+/* v31.2 legacy Big TAB carousel: keep real horizontal cards instead of one oversized slide */
+html.app360-legacy .showcase-stage{height:440px!important;min-height:440px!important;overflow:hidden!important;border-radius:18px}
+html.app360-legacy .showcase-track{position:absolute!important;top:12px!important;left:0;height:408px!important;display:flex!important;align-items:center!important;gap:12px!important;padding:0!important;direction:ltr!important;transition:left .42s ease!important}
+html.app360-legacy .showcase-card{display:block!important;width:300px!important;height:400px!important;min-width:300px!important;max-width:300px!important;flex:0 0 300px!important;transform:scale(.86)!important;opacity:.58!important;filter:none!important;margin:0!important;border-radius:20px!important}
+html.app360-legacy .showcase-card.near{transform:scale(.93)!important;opacity:.78!important}
+html.app360-legacy .showcase-card.active{transform:scale(1)!important;opacity:1!important}
+html.app360-legacy .showcase-cover-link{bottom:72px!important}
+html.app360-legacy .showcase-card-info{height:72px!important;padding:7px 9px!important}
+html.app360-legacy .showcase-card-info h3{font-size:13px!important;max-width:54%!important}
+html.app360-legacy .showcase-card-actions a,html.app360-legacy .showcase-card-actions button{font-size:9px!important;min-height:32px!important;padding:5px 6px!important}
+html.app360-legacy .showcase-nav{top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:43px!important;height:43px!important;font-size:22px!important}
+html.app360-legacy .showcase-intro{margin-bottom:5px!important}
+html.app360-legacy .showcase-title h1{font-size:29px!important;margin:5px 0 2px!important}
+html.app360-legacy .showcase-title p{font-size:11px!important}
+html.app360-legacy .showcase-logo{width:62px!important;height:62px!important}
+html.app360-legacy .showcase-age-row{margin-bottom:2px!important}
+html.app360-legacy .age-picker button{min-height:35px!important;padding:5px 9px!important}
+html.app360-legacy .showcase-meta{margin:0 0 4px!important}
