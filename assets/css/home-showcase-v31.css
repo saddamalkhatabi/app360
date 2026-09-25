@@ -24,3 +24,35 @@ body[data-page="home"] .topbar{position:relative;z-index:400;background:rgba(4,3
 @media(max-width:390px){.showcase-title h1{font-size:22px}.showcase-stage{height:455px}.showcase-track{height:420px}.showcase-card{width:265px;height:400px;flex-basis:265px}.showcase-card-info h3{font-size:12px}.showcase-card-actions .open{display:none}.showcase-nav{width:40px;height:40px}.classic-cover{height:285px}}
 html.app360-legacy .home-showcase-section{background:#073640}html.app360-legacy .showcase-stage{height:auto;min-height:445px;overflow:hidden}html.app360-legacy .showcase-track{position:relative;top:auto;left:auto;height:auto;display:block;transform:none!important;padding:10px}html.app360-legacy .showcase-card{display:none;width:100%;height:420px;transform:none!important;opacity:1;filter:none;margin:0}html.app360-legacy .showcase-card.active{display:block}html.app360-legacy .showcase-nav{top:auto;bottom:8px;transform:none}html.app360-legacy .showcase-card-info{height:76px}html.app360-legacy .showcase-cover-link{bottom:76px}html.app360-legacy .classic-card{max-width:100%}
 @media(prefers-reduced-motion:reduce){.showcase-track,.showcase-card,.showcase-cover-img{transition:none!important}}
+
+/* v31.1 age-scene trial: 1-4. Pure CSS artwork keeps the background responsive and lightweight on old Android. */
+.home-showcase-section.age-1-4{
+  --h-bg:#eaf8ff;--h-bg2:#fff4dc;--h-teal:#158ca6;--h-gold:#ffc94d;--h-ink:#123e63;--h-muted:#416d84;--h-line:rgba(28,107,139,.18);
+  background:
+    radial-gradient(circle at 8% 13%,rgba(255,202,87,.78) 0 2.2%,transparent 2.35%),
+    radial-gradient(circle at 8% 13%,rgba(255,236,169,.55) 0 6.5%,transparent 6.8%),
+    radial-gradient(ellipse at 17% 91%,#80cf73 0 12%,transparent 12.5%),
+    radial-gradient(ellipse at 83% 92%,#72c86c 0 13%,transparent 13.5%),
+    radial-gradient(ellipse at 48% 104%,#9bdb7b 0 25%,transparent 25.5%),
+    radial-gradient(ellipse at 20% 27%,rgba(255,255,255,.92) 0 5%,transparent 5.4%),
+    radial-gradient(ellipse at 74% 19%,rgba(255,255,255,.88) 0 6%,transparent 6.4%),
+    linear-gradient(180deg,#c9f0ff 0%,#effbff 44%,#fff5de 76%,#e8f4bd 100%);
+  color:#173f61
+}
+.home-showcase-section.age-1-4:before,.home-showcase-section.age-1-4:after{content:"";position:absolute;z-index:0;pointer-events:none;border-radius:50%}
+.home-showcase-section.age-1-4:before{width:clamp(90px,13vw,190px);height:clamp(90px,13vw,190px);right:-2.5vw;top:18%;background:radial-gradient(circle at 45% 38%,#ffe56f 0 9%,#ffb44e 10% 18%,#f58b47 19% 31%,transparent 32%);opacity:.33}
+.home-showcase-section.age-1-4:after{width:clamp(120px,18vw,260px);height:clamp(75px,11vw,160px);left:-3vw;bottom:4%;background:radial-gradient(ellipse at center,#7bc96c 0 28%,#4aa75b 29% 48%,transparent 49%);opacity:.48}
+.age-1-4 .showcase-kicker,.age-1-4 .result-chip,.age-1-4 .showcase-tools{background:rgba(255,255,255,.72);border-color:rgba(26,117,151,.18);color:#245c78;box-shadow:0 8px 24px rgba(55,130,160,.08)}
+.age-1-4 .showcase-title h1,.age-1-4 .showcase-meta strong,.age-1-4 .classic-head h2{color:#123f69}
+.age-1-4 .showcase-title p,.age-1-4 .showcase-meta,.age-1-4 .classic-head span{color:#416d84}
+.age-1-4 .age-picker button,.age-1-4 .showcase-tools-toggle,.age-1-4 .showcase-mode,.age-1-4 .showcase-status-btn{background:rgba(255,255,255,.76);color:#205d78;border-color:rgba(26,117,151,.16);box-shadow:0 5px 16px rgba(60,129,155,.08)}
+.age-1-4 .age-picker button.on,.age-1-4 .showcase-tools-toggle.on{background:linear-gradient(135deg,#fff,#ffe9a8);border-color:#ffc956;color:#125578}
+.age-1-4 .showcase-search{background:rgba(255,255,255,.82);color:#184c68;border-color:rgba(26,117,151,.2)}
+.age-1-4 .showcase-search::placeholder{color:#6d91a3}
+.age-1-4 .showcase-stage{background:linear-gradient(180deg,rgba(255,255,255,.40),rgba(255,255,255,.20));border-color:rgba(39,129,161,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 24px 65px rgba(45,115,140,.13)}
+.age-1-4 .showcase-nav{background:rgba(20,113,155,.86);border-color:rgba(255,255,255,.82);box-shadow:0 8px 22px rgba(22,100,137,.22)}
+.age-1-4 .showcase-dot{background:rgba(29,106,142,.25)}.age-1-4 .showcase-dot.on{background:#f2aa24}
+@media(max-width:720px){.home-showcase-section.age-1-4{background:radial-gradient(ellipse at 12% 92%,#8bd178 0 12%,transparent 12.5%),radial-gradient(ellipse at 87% 91%,#77c96d 0 13%,transparent 13.5%),linear-gradient(180deg,#cff2ff 0%,#f5fcff 56%,#fff1cf 100%)}}
+html.app360-legacy .home-showcase-section.age-1-4{background:#d8f3fb;color:#173f61}
+html.app360-legacy .age-1-4 .showcase-stage{background:#f7fcfd;border-color:#9bcbd6}
+html.app360-legacy .age-1-4 .showcase-title h1,html.app360-legacy .age-1-4 .showcase-meta strong{color:#123f69}
