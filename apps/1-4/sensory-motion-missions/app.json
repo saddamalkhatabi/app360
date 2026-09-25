@@ -4,7 +4,7 @@
   "slug": "sensory-motion-missions",
   "title_ar": "سلة الاكتشاف: فرز ولمس ونقل",
   "age_group": "1-4",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implementation-complete",
   "kind": "goal_aligned",
@@ -29,23 +29,22 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر المكان والمواد المتاحة ← مر على فحص السلامة والتجهيز ← اختر نوع الحركة أو الخاصية التي سيتعامل معها الطفل ← اعرض بطاقة المهمة ثم ضع الشاشة جانبًا ← نفذ وعدّل الصعوبة ← سجّل تعديلًا مفيدًا للمرة القادمة",
+  "practice_model_ar": "اختر نمط اللعب ← اختر صورة من مكتبة أشيائي ← اسحبها مباشرة في ساحة اللعب أو استخدم اللمس البديل ← ضعها في السلة أو طابقها أو صنفها ← تغذية راجعة لطيفة ← انتقل لنفس الفكرة خارج الشاشة",
   "blueprint_path": "apps/1-4/sensory-motion-missions/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/sensory-motion-missions/PROMPT_AR.md",
   "implementation": {
     "built_on": "2026-09-25",
     "features": [
-      "guided-setup",
-      "safety-gate",
-      "mission-card",
-      "easier-harder-variants",
-      "caregiver-designer",
-      "local-save",
-      "reflection",
-      "print",
-      "json-export",
-      "tts-fallback",
-      "pwa-offline"
+      "touch-drag-simulation",
+      "free-play",
+      "basket-drop",
+      "visual-matching",
+      "category-sorting",
+      "say-and-name-image-library",
+      "tap-fallback",
+      "tts-feedback",
+      "real-world-transfer",
+      "pwa-offline-shell"
     ],
     "legacy_target": "Android 4.4 ES5/Flexbox; physical Big TAB verification pending"
   }
