@@ -62,3 +62,10 @@ html.app360-legacy #pieces .piece{position:absolute!important;z-index:30!importa
 html.app360-legacy .basketZone{position:absolute!important;left:50%!important;bottom:18px!important;top:auto!important;width:245px!important;height:220px!important;margin-left:-122px!important;z-index:40!important}
 html.app360-legacy .basket{position:absolute!important;left:25px!important;bottom:18px!important;top:auto!important;width:195px!important;height:145px!important;z-index:41!important}
 html.app360-legacy .openBasket{position:absolute!important;left:57px!important;bottom:0!important;top:auto!important;z-index:43!important}
+
+/* v14 tactile basket interaction, old WebKit safe */
+.piece.basketFly{-webkit-transition:left .20s ease-out,top .20s ease-out,-webkit-transform .20s ease-out;transition:left .20s ease-out,top .20s ease-out,transform .20s ease-out;-webkit-transform:scale(.82);transform:scale(.82)}
+.piece.basketSink{-webkit-transition:all .28s ease-in!important;transition:all .28s ease-in!important;-webkit-transform:scale(.35) rotate(8deg)!important;transform:scale(.35) rotate(8deg)!important}
+.basketZone.swallow .basket{-webkit-transform:scale(1.06);transform:scale(1.06)}
+html.app360-legacy .piece.basketFly{-webkit-transition:left .20s ease-out,top .20s ease-out,-webkit-transform .20s ease-out!important}
+html.app360-legacy .piece.basketSink{-webkit-transition:left .25s ease-in,top .25s ease-in,width .25s ease-in,height .25s ease-in,opacity .25s ease-in!important}
