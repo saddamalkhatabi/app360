@@ -1,0 +1,48 @@
+name: Unpack routine storyboards
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'apps/1-4/my-little-routine/storyboards/UNPACK_NOW.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Unpack storyboard archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='apps/1-4/my-little-routine/storyboards'
+          ZIP="$DIR/routine_30_storyboards_zip_for_github.zip"
+          if [ ! -f "$ZIP" ]; then
+            echo 'Archive not found; nothing to do.'
+            exit 0
+          fi
+          TMP="$(mktemp -d)"
+          unzip -q -o "$ZIP" -d "$TMP"
+          find "$TMP" -maxdepth 1 -type f -name '*.png' -exec cp -f {} "$DIR/" \;
+          cp -f "$TMP/manifest.json" "$DIR/manifest.json" 2>/dev/null || true
+          cp -f "$TMP/manifest.csv" "$DIR/manifest.csv" 2>/dev/null || true
+          rm -f "$DIR/001-wash-hands.jpg" "$DIR/002-brush-teeth.jpg" "$DIR/003-tidy-toys.jpg"
+          rm -f "$DIR/UNPACK_NOW.txt"
+          echo "Extracted $(find "$DIR" -maxdepth 1 -name '*.png' | wc -l) storyboard PNG files."
+      - name: Commit extracted storyboards
+        shell: bash
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git config user.name 'app360-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add apps/1-4/my-little-routine/storyboards
+          git commit -m 'Unpack 30 routine storyboard images [skip ci]'
+          git push origin main
