@@ -1,0 +1,94 @@
+name: Unpack routine storyboards 31-50
+
+on:
+  push:
+    paths:
+      - '.github/workflows/unpack-routine-storyboards-31-50.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack-and-wire:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Unpack storyboards and wire v7
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='apps/1-4/my-little-routine'
+          STORY="$BASE/storyboards"
+          ZIP="$STORY/routine_20_storyboards_zip_for_github.zip"
+          test -f "$ZIP"
+          cd "$STORY"
+          unzip -j -o 'routine_20_storyboards_zip_for_github.zip' '0*.png' -d .
+          rm -f 'routine_20_storyboards_zip_for_github.zip'
+          cd "$GITHUB_WORKSPACE"
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          base=Path('apps/1-4/my-little-routine')
+
+          index=base/'index.html'
+          s=index.read_text(encoding='utf-8')
+          s=s.replace('manifest.webmanifest?v=6','manifest.webmanifest?v=7')
+          if 'storyboard-data-v7-extra.js?v=7' not in s:
+              s=s.replace('<script src="storyboard-data-v6.js?v=6"></script>','<script src="storyboard-data-v6.js?v=6"></script><script src="storyboard-data-v7-extra.js?v=7"></script>')
+          s=s.replace('العادات 1–30 أصبحت مربوطة بالـStoryboards المصورة، وسنكمل 31–50 لاحقًا بنفس النظام.','العادات 1–50 أصبحت الآن مربوطة بالـStoryboards المصورة وبنفس محرك العرض.')
+          s=s.replace('العادات غير المصورة تبقى على النموذج المؤقت حتى نرفع صورها.','جميع العادات الخمسين تستخدم الآن Storyboards مصورة مرتبطة بالعادة الصحيحة.')
+          index.write_text(s,encoding='utf-8')
+
+          sw=base/'sw.js'
+          s=sw.read_text(encoding='utf-8')
+          s=s.replace("app360-a1-routine-v6","app360-a1-routine-v7")
+          s=s.replace("./index.html?v=6","./index.html?v=7")
+          s=s.replace("./manifest.webmanifest?v=6","./manifest.webmanifest?v=7")
+          if "./storyboard-data-v7-extra.js?v=7" not in s:
+              s=s.replace("'./storyboard-data-v6.js?v=6'","'./storyboard-data-v6.js?v=6','./storyboard-data-v7-extra.js?v=7'")
+          sw.write_text(s,encoding='utf-8')
+
+          mf=base/'manifest.webmanifest'
+          data=json.loads(mf.read_text(encoding='utf-8'))
+          data['start_url']='./index.html?v=7'
+          mf.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+
+          app=base/'app.json'
+          data=json.loads(app.read_text(encoding='utf-8'))
+          data['version']=7
+          data['implementation_note_ar']='الإصدار 7 يربط جميع العادات الخمسين بصور Storyboard حقيقية داخل apps/1-4/my-little-routine/storyboards/. العادات 1–30 تستخدم الحزمة الأولى، والعادات 31–50 تستخدم الحزمة الثانية. كل عادة تعرض الصورة الكاملة أولًا، ثم يقتطع المحرك المشاهد 1–5 من اليمين إلى اليسار ويعرض كل مشهد منفردًا مع نصه، ثم يعود تلقائيًا إلى الصورة الكاملة.'
+          app.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+
+          catalog=Path('data/catalog.json')
+          if catalog.exists():
+              data=json.loads(catalog.read_text(encoding='utf-8'))
+              for item in data.get('apps',[]):
+                  if item.get('id')=='a1-routine':
+                      item['href']='apps/1-4/my-little-routine/index.html?v=7'
+                      item['description_ar']='روتين مصور من 50 عادة يومية؛ كل عادة تعرض Storyboard من خمس لقطات ثم تمر على كل مشهد منفردًا قبل العودة إلى القصة الكاملة، مع تنفيذ واقعي وملاحظة مقدار المساعدة.'
+                      break
+              catalog.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+          PY
+
+          for n in $(seq -w 31 50); do
+            test -n "$(find "$STORY" -maxdepth 1 -type f -name "${n}_*.png" -print -quit)" || { echo "Missing storyboard $n"; exit 1; }
+          done
+
+      - name: Commit unpacked storyboards and v7 wiring
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/my-little-routine data/catalog.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            git commit -m 'Unpack and wire routine storyboards 31-50 v7'
+            git push origin HEAD:main
+          fi
