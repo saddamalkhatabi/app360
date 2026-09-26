@@ -76,7 +76,8 @@ jobs:
               catalog.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
           PY
 
-          for n in $(seq -w 31 50); do
+          for i in $(seq 31 50); do
+            n=$(printf '%03d' "$i")
             test -n "$(find "$STORY" -maxdepth 1 -type f -name "${n}_*.png" -print -quit)" || { echo "Missing storyboard $n"; exit 1; }
           done
 
