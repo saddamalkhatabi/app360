@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 16,
+  "version": 17,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -33,9 +33,7 @@
     "compat.legacy-web",
     "evaluation.heuristic"
   ],
-  "bundles": [
-    "static-core"
-  ],
+  "bundles": ["static-core"],
   "practice_model_ar": "اختر لعبة جاهزة أو أنشئ لعبتك، ثم نفذها على الشاشة أو حوّلها إلى ورقة أو نشاط واقعي. التلميح وإعادة المحاولة والطباعة والحفظ أدوات مساندة، والنتيجة تصف الجولة فقط.",
   "branding": {
     "theme_color": "#0f8f8a",
@@ -46,8 +44,8 @@
     ]
   },
   "implementation": {
-    "state": "live-v16-mobile-touch-multiselect-feedback-and-card-layout",
-    "built_on": "2026-09-22",
+    "state": "live-v17-game-builder-preview-print-shapes-auto-layout",
+    "built_on": "2026-09-27",
     "experiments": 170,
     "levels": 4,
     "readiness_path_ar": [
@@ -132,16 +130,15 @@
       "multi-selection mode with select-all clear-selection and visible selected-item count",
       "alignment distribution grid snapping size normalization and smart finish operate on the selected group when two or more items are selected",
       "mobile quick manipulation bar provides group size increase decrease and multi-selection without reopening settings",
-      "smart finish visibly arranges a selected group into a balanced layout while preserving its local design region"
+      "smart finish visibly arranges a selected group into a balanced layout while preserving its local design region",
+      "v17 repairs electronic-game live preview so it opens above settings and explains incomplete game logic instead of appearing to do nothing",
+      "v17 print action builds the printable sheet synchronously from the current design and opens the browser print flow without waiting on a delayed timer",
+      "v17 game builder adds geometric shapes including circle square rectangle triangle star heart arrow hexagon diamond and line with a selectable color",
+      "v17 type-aware automatic layout is enabled by default and reorganizes choice/multi-mark into balanced grids, matching into paired columns, sorting into two clear groups, and ordered sequences into a readable progression"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
-    "level_distribution": {
-      "1": 43,
-      "2": 43,
-      "3": 42,
-      "4": 42
-    }
+    "level_distribution": {"1":43,"2":43,"3":42,"4":42}
   },
   "blueprint_path": "apps/1-4/screen-to-move/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/screen-to-move/PROMPT_AR.md"
