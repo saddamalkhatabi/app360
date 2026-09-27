@@ -1,10 +1,10 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v17';
-var PREVIOUS='app360-app-screen-to-move-v16';
+var CACHE='app360-app-screen-to-move-v18';
+var PREVIOUS='app360-app-screen-to-move-v17';
 var CORE=[
- './','./index.html','./index.html?v=17','./styles.css?v=17','./v8.css?v=17','./v9.css?v=17','./v10.css?v=17','./v13.css?v=17','./v14.css?v=17','./v15.css?v=17','./v16.css?v=17','./v17.css?v=17',
- './games-data.js?v=17','./games-data-v12.js?v=17','./storage-v15.js?v=17','./legacy-v15.js?v=17','./app.js?v=17','./designer-assets-v9.js?v=17','./designer-assets-v12.js?v=17','./designer-v9.js?v=17','./designer-v10.js?v=17','./game-designer-v10.js?v=17','./designer-v15.js?v=17','./designer-v16.js?v=17','./game-designer-v17.js?v=17','./legacy-v13.js?v=17',
- './manifest.webmanifest?v=17','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=17','../drawing-writing-foundations/audio/registry.json',
+ './','./index.html','./index.html?v=18','./styles.css?v=18','./v8.css?v=18','./v9.css?v=18','./v10.css?v=18','./v13.css?v=18','./v14.css?v=18','./v15.css?v=18','./v16.css?v=18','./v17.css?v=18','./v18.css?v=18',
+ './games-data.js?v=18','./games-data-v12.js?v=18','./storage-v15.js?v=18','./legacy-v15.js?v=18','./app.js?v=18','./designer-assets-v9.js?v=18','./designer-assets-v12.js?v=18','./designer-v9.js?v=18','./designer-v10.js?v=18','./game-designer-v10.js?v=18','./designer-v15.js?v=18','./designer-v16.js?v=18','./game-designer-v17.js?v=18','./game-designer-v18.js?v=18','./legacy-v13.js?v=18',
+ './manifest.webmanifest?v=18','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=18','../drawing-writing-foundations/audio/registry.json',
  '../../../assets/ui-icons/games.svg','../../../assets/ui-icons/print.svg','../../../assets/ui-icons/draw.svg','../../../assets/ui-icons/prev.svg','../../../assets/ui-icons/next.svg','../../../assets/ui-icons/check.svg','../../../assets/ui-icons/restart.svg','../../../assets/ui-icons/hint.svg','../../../assets/ui-icons/select.svg',
  '../say-and-name/assets/objects/apple.svg','../say-and-name/assets/objects/ball.svg','../say-and-name/assets/objects/banana.svg','../say-and-name/assets/objects/book.svg','../say-and-name/assets/objects/car.svg','../say-and-name/assets/objects/cat.svg','../say-and-name/assets/objects/chair.svg','../say-and-name/assets/objects/cup.svg','../say-and-name/assets/objects/shoe.svg','../say-and-name/assets/objects/spoon.svg','../say-and-name/assets/objects/toothbrush.svg','../say-and-name/assets/objects/water.svg'
 ];
@@ -18,4 +18,4 @@ function matchAny(req){return caches.match(req).then(function(x){if(x)return x;v
 function put(req,r){if(r&&r.ok&&same(req)){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(req,copy)})}return r}
 function fresh(req,fallback){return fetch(req,{cache:'no-store'}).then(function(r){return put(req,r)}).catch(function(){return matchAny(req).then(function(hit){return hit||caches.match(fallback||'./index.html')})})}
 function cached(req){return matchAny(req).then(function(hit){if(hit)return hit;return fetch(req).then(function(r){return put(req,r)})})}
-self.addEventListener('fetch',function(e){if(!e.request||e.request.method!=='GET'||!same(e.request))return;var u=e.request.url||'',critical=e.request.mode==='navigate'||u.indexOf('/index.html')>=0||u.indexOf('/app.js')>=0||u.indexOf('/game-designer-v17.js')>=0||u.indexOf('/v17.css')>=0||u.indexOf('/manifest.webmanifest')>=0;if(critical){e.respondWith(fresh(e.request,'./index.html'));return}e.respondWith(cached(e.request))});
+self.addEventListener('fetch',function(e){if(!e.request||e.request.method!=='GET'||!same(e.request))return;var u=e.request.url||'',critical=e.request.mode==='navigate'||u.indexOf('/index.html')>=0||u.indexOf('/app.js')>=0||u.indexOf('/game-designer-v18.js')>=0||u.indexOf('/v18.css')>=0||u.indexOf('/manifest.webmanifest')>=0;if(critical){e.respondWith(fresh(e.request,'./index.html'));return}e.respondWith(cached(e.request))});
