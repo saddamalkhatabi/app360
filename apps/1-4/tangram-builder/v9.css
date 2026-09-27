@@ -1,0 +1,4 @@
+/* v9 responsive canvas sizing and stronger large-screen presentation */
+@media(min-width:1000px){#app{max-width:1800px!important;width:100%;margin:0 auto;box-shadow:0 0 38px rgba(80,45,15,.18)}#boardWrap{min-height:560px}.message{font-size:15px;padding:10px 18px}.levelBtn{min-width:150px}}
+@media(min-width:1500px){.topbar{min-height:64px}.titleWrap h1{font-size:25px}.levelBar{padding-top:9px;padding-bottom:8px}.levelBtn{min-width:170px;height:62px}.missionBar{min-height:58px}.bottomBar{min-height:58px}}
+@media(max-width:650px){#boardWrap{min-height:0}.message{max-width:90%}}
