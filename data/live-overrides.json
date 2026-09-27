@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-23",
+  "updated": "2026-09-27",
   "apps": [
     {
       "id": "a1-first-words",
@@ -57,6 +57,25 @@
         "emotion.guided-journey",
         "emotion.experiment-cards"
       ],
+      "goal_delivery": "available_with_facilitator"
+    },
+    {
+      "id": "a1-routine",
+      "status": "live",
+      "href": "apps/1-4/my-little-routine/index.html?v=8",
+      "capabilities": [
+        "practice.core",
+        "storage.local",
+        "audio.tts",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "goal_delivery": "available_with_facilitator"
+    },
+    {
+      "id": "a1-plan-runner",
+      "status": "live",
+      "href": "apps/1-4/plan-runner-360/index.html",
       "goal_delivery": "available_with_facilitator"
     }
   ]
