@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-22",
+  "updated": "2026-09-27",
   "resources": [
     {
       "id": "early-child-common-objects-v1",
@@ -11,15 +11,18 @@
       "source_owner": "apps/1-4/say-and-name/assets/objects",
       "license": "project-original",
       "note_ar": "مجموعة صغيرة من الرسومات العامة الأصلية رُقّيت إلى مورد مشترك عند ظهور مستهلك ثانٍ فعلي. تبقى نسخ say-and-name القديمة مؤقتًا حتى ترحيل التطبيق الحي واختباره دون كسر."
+    },
+    {
+      "id": "early-child-name-audio-v1",
+      "path": "resources/early-child-name-audio",
+      "type": "audio-pack",
+      "version": 1,
+      "status": "shared",
+      "source_owner": "apps/1-4/drawing-writing-foundations/audio",
+      "license": "project-original",
+      "consumers": ["a1-drawing-writing", "a1-tangram"],
+      "note_ar": "رُقّيت حزمة أسماء الأطفال والتشجيع المسجل وPCM إلى مورد مشترك عند ظهور تانغرامي الصغير كمستهلك ثانٍ. تبقى النسخة الأصلية في تطبيق الرسم مؤقتًا لحماية التوافق القديم حتى اكتمال الترحيل والاختبار."
     }
   ],
-  "candidates": [
-    {
-      "id": "drawing-child-name-audio",
-      "current_owner": "apps/1-4/drawing-writing-foundations/audio",
-      "type": "audio",
-      "status": "app-owned-until-second-consumer",
-      "note_ar": "حزم أسماء الأطفال والألوان وPCM مرشحة للترقية إلى مورد مشترك عند احتياج تطبيق ثانٍ لها."
-    }
-  ]
+  "candidates": []
 }
