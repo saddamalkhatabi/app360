@@ -1,11 +1,11 @@
-var CACHE='app360-portal-v34';
+var CACHE='app360-portal-v35';
 var CORE=[
   './','./index.html',
   './assets/css/lab360.css','./assets/css/legacy-compat.css','./assets/css/home-showcase-v31.css',
   './assets/js/lab360-v24.js','./assets/js/home-showcase-v31.js','./assets/js/home-cover-open-v32.js','./assets/js/swal-modern-loader-v24.js','./assets/js/pwa-install-v24.js',
   './assets/brand/app360-lab-logo.png','./assets/brand/app360-lab-icon-192.png',
   './assets/covers/app-coming-soon-v30.svg',
-  './assets/covers/a1-drawing-writing.jpg','./assets/covers/a1-first-words.jpg','./assets/covers/a1-imitate.jpg','./assets/covers/a1-screen-move.jpg','./assets/covers/a1-calm.jpg','./assets/covers/a1-sensory.jpg',
+  './assets/covers/a1-drawing-writing.jpg','./assets/covers/a1-first-words.jpg','./assets/covers/a1-imitate.jpg','./assets/covers/a1-screen-move.jpg','./assets/covers/a1-calm.jpg','./assets/covers/a1-sensory.jpg','./assets/covers/a1-routine.jpg','./assets/covers/a1-plan-runner.jpg',
   './data/catalog.json','./data/goals.json','./data/live-overrides.json',
   './ages/1-4/index.html','./ages/4-8/index.html','./ages/8-12/index.html','./ages/12-16/index.html',
   './ages/16-24/index.html','./ages/24-45/index.html','./ages/45-60/index.html','./ages/60-80/index.html'
