@@ -1,0 +1,5 @@
+var CACHE='app360-a1-tangram-v1';
+var CORE=['./','./index.html?v=1','./styles.css?v=1','./game-core.js?v=1','./input-audio.js?v=1','./boot.js?v=1','./icon.svg?v=1','./manifest.webmanifest?v=1','../../../resources/early-child-name-audio/audio/registry.json?v=1'];
+self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(CORE)}).then(function(){return self.skipWaiting()}))});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-a1-tangram-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
+self.addEventListener('fetch',function(e){if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(function(hit){if(hit)return hit;return fetch(e.request).then(function(r){if(!r||r.status!==200)return r;var cp=r.clone();caches.open(CACHE).then(function(c){c.put(e.request,cp)});return r}).catch(function(){if(e.request.mode==='navigate')return caches.match('./index.html?v=1')})}))});
