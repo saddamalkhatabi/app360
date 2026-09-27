@@ -1,80 +1,90 @@
 {
-  "schema_version":"1.0",
-  "note_ar":"نماذج البداية حسب العمر تقريبية وقابلة للتعديل وليست تقييمًا نمائيًا أو وصفة ثابتة.",
+  "schema_version":"2.0",
+  "note_ar":"نماذج البداية تقريبية وقابلة للتعديل وليست تقييمًا نمائيًا أو وصفة ثابتة. الإصدار 2 يغطي جميع التطبيقات الحالية للفئة 1–4 ويعيد الطفل إلى الواقع بين الخطوات كلما أمكن.",
   "levels":[
-    {"id":"1-2","label_ar":"1–2 سنة","guidance_ar":"خطوتان أو ثلاث قصيرات، صورة/كلمة واضحة ثم حركة أو رسم بسيط مع مرافق."},
-    {"id":"2-3","label_ar":"2–3 سنوات","guidance_ar":"ثلاث خطوات قصيرة متنوعة، مع اختيار وتصنيف بسيط وتبادل دور."},
-    {"id":"3-4","label_ar":"3–4 سنوات","guidance_ar":"ثلاث إلى خمس خطوات، ويمكن المزج بين تصنيف ولعبة ورسم مع مساحة اختيار أكبر."}
+    {"id":"1-2","label_ar":"1–2 سنة","guidance_ar":"خطوتان أو ثلاث قصيرات، صورة أو فعل واحد واضح مع مرافق، ثم عودة سريعة للواقع."},
+    {"id":"2-3","label_ar":"2–3 سنوات","guidance_ar":"ثلاث خطوات قصيرة متنوعة مع اختيار بسيط وتبادل دور وانتقال متوقع."},
+    {"id":"3-4","label_ar":"3–4 سنوات","guidance_ar":"ثلاث إلى أربع خطوات مع مساحة اختيار أكبر ومزج بين اللغة والحركة والرسم والعادات."}
   ],
   "presets":[
-    {"id":"p12-words-move","level_id":"1-2","title_ar":"كلمة ثم حركة","note_ar":"ابدأ بأشياء مألوفة ثم انتقل لتقليد جسدي قصير.","steps":[
-      {"step_id":"p12a1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · تصنيف الجسم","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%AC%D8%B3%D9%85&level=1","duration_seconds":45,"advance_mode":"time"},
-      {"step_id":"p12a2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · مجال الحركة والتقليد","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":60,"advance_mode":"time"}
+    {"id":"p12-word-move","level_id":"1-2","title_ar":"كلمة ثم حركة","note_ar":"مفردة مألوفة ثم تقليد جسدي قصير.","steps":[
+      {"step_id":"p12a1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الحيوانات","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%AD%D9%8A%D9%88%D8%A7%D9%86%D8%A7%D8%AA&level=1","duration_seconds":45,"advance_mode":"time"},
+      {"step_id":"p12a2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · حركة وتقليد","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":60,"advance_mode":"manual"}
     ]},
-    {"id":"p12-ball","level_id":"1-2","title_ar":"أين الكرة؟","note_ar":"اسم مألوف ثم لعبة اختيار بصري بسيطة.","steps":[
-      {"step_id":"p12b1","app_id":"a1-first-words","route_id":"word","label":"كلماتي · كرة","href":"apps/1-4/say-and-name/launch.html?action=word&word=%D9%83%D8%B1%D8%A9&level=1","duration_seconds":35,"advance_mode":"time"},
-      {"step_id":"p12b2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · أين الكرة؟","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G91","duration_seconds":60,"advance_mode":"time"}
+    {"id":"p12-sensory","level_id":"1-2","title_ar":"ألمس وأنقل وأسمي","note_ar":"لعب سلة بسيط ثم كلمة مرتبطة بما اختاره الطفل.","steps":[
+      {"step_id":"p12b1","app_id":"a1-sensory","route_id":"basket-play","label":"سلتي العجيبة · لعب اللمس والنقل","href":"apps/1-4/sensory-motion-missions/index.html?v=12","duration_seconds":90,"advance_mode":"manual"},
+      {"step_id":"p12b2","app_id":"a1-first-words","route_id":"library","label":"كلماتي · اسمع وأشر وسمِّ","href":"apps/1-4/say-and-name/launch.html?action=library","duration_seconds":45,"advance_mode":"manual"}
     ]},
-    {"id":"p12-animals","level_id":"1-2","title_ar":"حيوان ثم تقليد","note_ar":"صور حيوانات مألوفة ثم تجربة مشتركة قصيرة.","steps":[
-      {"step_id":"p12c1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الحيوانات","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%AD%D9%8A%D9%88%D8%A7%D9%86%D8%A7%D8%AA&level=1","duration_seconds":45,"advance_mode":"time"},
-      {"step_id":"p12c2","app_id":"a1-imitate","route_id":"experience","label":"دوري ودورك · صفقة مثلي","href":"apps/1-4/imitate-one-step/launch.html?action=experience&item=001","duration_seconds":60,"advance_mode":"completion"}
+    {"id":"p12-calm-routine","level_id":"1-2","title_ar":"مساعدة ثم خطوة واحدة","note_ar":"تنظيم مشترك قصير ثم عادة مصورة واحدة.","steps":[
+      {"step_id":"p12c1","app_id":"a1-calm","route_id":"support","label":"مشاعري معك · أحتاج مساعدة","href":"apps/1-4/calm-with-me/index.html?v=10","duration_seconds":75,"advance_mode":"manual"},
+      {"step_id":"p12c2","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · عادة مصورة","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":90,"advance_mode":"manual"}
     ]},
-    {"id":"p12-color-draw","level_id":"1-2","title_ar":"لون ثم دائرة","note_ar":"شاهد ألوانًا واضحة ثم انتقل إلى تتبع شكل واحد.","steps":[
-      {"step_id":"p12d1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الألوان","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%A3%D9%84%D9%88%D8%A7%D9%86&level=1","duration_seconds":40,"advance_mode":"time"},
-      {"step_id":"p12d2","app_id":"a1-drawing-writing","route_id":"shapes","label":"لوحة الرسم · دائرة","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=shapes&item=circle","duration_seconds":60,"advance_mode":"manual"}
+    {"id":"p12-routine-imitate","level_id":"1-2","title_ar":"أشاهد عادة ثم أقلّد","note_ar":"صورة عادة قصيرة ثم تقليد حركة واحدة في الواقع.","steps":[
+      {"step_id":"p12d1","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · روتيني المصور","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":80,"advance_mode":"manual"},
+      {"step_id":"p12d2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · العادات والاستقلال","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=habits","duration_seconds":70,"advance_mode":"manual"}
     ]},
-    {"id":"p12-calm-mix","level_id":"1-2","title_ar":"كتاب ثم رسم حر","note_ar":"مثال هادئ جدًا من خطوتين فقط.","steps":[
-      {"step_id":"p12e1","app_id":"a1-first-words","route_id":"word","label":"كلماتي · كتاب","href":"apps/1-4/say-and-name/launch.html?action=word&word=%D9%83%D8%AA%D8%A7%D8%A8&level=1","duration_seconds":35,"advance_mode":"time"},
-      {"step_id":"p12e2","app_id":"a1-drawing-writing","route_id":"free","label":"لوحة الرسم · رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free","duration_seconds":75,"advance_mode":"manual"}
+    {"id":"p12-color-draw","level_id":"1-2","title_ar":"لون ثم رسم حر","note_ar":"شاهد لونًا أو غرضًا ثم اترك مساحة للرسم الحر.","steps":[
+      {"step_id":"p12e1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الألوان","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%A3%D9%84%D9%88%D8%A7%D9%86&level=1","duration_seconds":40,"advance_mode":"time"},
+      {"step_id":"p12e2","app_id":"a1-drawing-writing","route_id":"free","label":"لوحة الرسم · رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free","duration_seconds":90,"advance_mode":"manual"}
     ]},
-
-    {"id":"p23-transport","level_id":"2-3","title_ar":"مركبات ومسار","note_ar":"مفردات مركبات ثم لعبة طريق ثم خط متموج.","steps":[
-      {"step_id":"p23a1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · وسائل النقل","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D9%88%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D9%86%D9%82%D9%84&level=2","duration_seconds":60,"advance_mode":"time"},
-      {"step_id":"p23a2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · السيارة إلى البيت","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G07","duration_seconds":90,"advance_mode":"completion"},
-      {"step_id":"p23a3","app_id":"a1-drawing-writing","route_id":"lines","label":"لوحة الرسم · خط متموج","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item=wave","duration_seconds":60,"advance_mode":"manual"}
-    ]},
-    {"id":"p23-art-turn","level_id":"2-3","title_ar":"دوري ودورك الفني","note_ar":"ابدأ بتجربة فنية مشتركة ثم اترك مساحة رسم حر.","steps":[
-      {"step_id":"p23b1","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · الرسم والفن","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=art","duration_seconds":90,"advance_mode":"time"},
-      {"step_id":"p23b2","app_id":"a1-imitate","route_id":"drawing","label":"دوري ودورك · الرسم الجماعي","href":"apps/1-4/imitate-one-step/launch.html?action=drawing","duration_seconds":90,"advance_mode":"manual"}
-    ]},
-    {"id":"p23-fruit-sort","level_id":"2-3","title_ar":"فاكهة ثم فرز","note_ar":"مفردات ثم نشاط تصنيف بسيط.","steps":[
-      {"step_id":"p23c1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الفواكه","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87&level=2","duration_seconds":60,"advance_mode":"time"},
-      {"step_id":"p23c2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · فاكهة أم خضار؟","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G13","duration_seconds":90,"advance_mode":"completion"}
-    ]},
-    {"id":"p23-routine","level_id":"2-3","title_ar":"روتين بسيط وتمثيل","note_ar":"مفردات الحمام ثم أنشطة عادات وتمثيل.","steps":[
-      {"step_id":"p23d1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الحمام","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%85&level=2","duration_seconds":50,"advance_mode":"time"},
-      {"step_id":"p23d2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · العادات والاستقلال","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=habits","duration_seconds":90,"advance_mode":"time"},
-      {"step_id":"p23d3","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · غسل اليدين خطوة خطوة","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G96","duration_seconds":90,"advance_mode":"completion"}
-    ]},
-    {"id":"p23-safe-reels","level_id":"2-3","title_ar":"نشاط ثم ريلز آمن قصير","note_ar":"مثال يجمع نشاطًا عمليًا ثم فترة مشاهدة محدودة زمنيًا.","steps":[
-      {"step_id":"p23e1","app_id":"a1-screen-move","route_id":"level","label":"ألعاب إبداعية · المستوى 2","href":"apps/1-4/screen-to-move/launch.html?action=level&level=2","duration_seconds":90,"advance_mode":"time"},
-      {"step_id":"p23e2","app_id":"safe-reels-360","route_id":"home","label":"الريلز الآمن 360","href":"https://yem1.com","external":true,"duration_seconds":120,"advance_mode":"time"}
+    {"id":"p12-screen-real","level_id":"1-2","title_ar":"شاشة قصيرة ثم واقع","note_ar":"نشاط بصري قصير ثم إخفاء الشاشة ومواصلة اللعب.","steps":[
+      {"step_id":"p12f1","app_id":"a1-screen-move","route_id":"level","label":"ألعاب إبداعية · بداية بسيطة","href":"apps/1-4/screen-to-move/launch.html?action=level&level=1","duration_seconds":60,"advance_mode":"time"},
+      {"step_id":"p12f2","app_id":"a1-plan-runner","route_id":"real-play","label":"الواقع · تابع ما اختاره الطفل","href":"apps/1-4/plan-runner-360/real-play.html?v=2&prompt=%D8%AA%D8%A7%D8%A8%D8%B9%20%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B7%D9%81%D9%84%20%D9%88%D8%A7%D9%86%D8%AA%D8%B8%D8%B1%20%D9%82%D8%A8%D9%84%20%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9","duration_seconds":120,"advance_mode":"manual"}
     ]},
 
-    {"id":"p34-think-create","level_id":"3-4","title_ar":"أفكر ثم أبتكر","note_ar":"منطق وتصنيف ثم لعبة بصرية ثم رسم حر.","steps":[
-      {"step_id":"p34a1","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · المنطق والتصنيف","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=logic","duration_seconds":90,"advance_mode":"time"},
-      {"step_id":"p34a2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · من المختلف؟","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G12","duration_seconds":90,"advance_mode":"completion"},
-      {"step_id":"p34a3","app_id":"a1-drawing-writing","route_id":"free","label":"لوحة الرسم · رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free","duration_seconds":120,"advance_mode":"manual"}
+    {"id":"p23-fruit-sort","level_id":"2-3","title_ar":"فاكهة ثم فرز ولمس","note_ar":"مفردات فاكهة ثم لعب حسي ثم نشاط تصنيف بسيط.","steps":[
+      {"step_id":"p23a1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الفواكه","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87&level=2","duration_seconds":55,"advance_mode":"time"},
+      {"step_id":"p23a2","app_id":"a1-sensory","route_id":"basket-play","label":"سلتي العجيبة · نقل وفرز","href":"apps/1-4/sensory-motion-missions/index.html?v=12","duration_seconds":100,"advance_mode":"manual"},
+      {"step_id":"p23a3","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · فاكهة أم خضار؟","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G13","duration_seconds":80,"advance_mode":"completion"}
     ]},
-    {"id":"p34-story","level_id":"3-4","title_ar":"كلمات ثم قصة مرتبة","note_ar":"مفردات مألوفة ثم ترتيب تسلسل بصري.","steps":[
-      {"step_id":"p34b1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · الملابس","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%A8%D8%B3&level=3","duration_seconds":70,"advance_mode":"time"},
-      {"step_id":"p34b2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · رتب قصة الخروج","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G14","duration_seconds":110,"advance_mode":"completion"}
+    {"id":"p23-morning","level_id":"2-3","title_ar":"روتين صباحي صغير","note_ar":"عادة مصورة ثم محاولة بسيطة بالرسم أو التتبع.","steps":[
+      {"step_id":"p23b1","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · اختر عادة صباحية","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":100,"advance_mode":"manual"},
+      {"step_id":"p23b2","app_id":"a1-drawing-writing","route_id":"lines","label":"لوحة الرسم · خط بسيط","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item=straight","duration_seconds":70,"advance_mode":"manual"}
     ]},
-    {"id":"p34-letter-shape","level_id":"3-4","title_ar":"حرف وشكل وحركة","note_ar":"تبديل مدروس بين الرسم والتقليد.","steps":[
-      {"step_id":"p34c1","app_id":"a1-drawing-writing","route_id":"letters","label":"لوحة الرسم · حرف ا","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=letters&item=%D8%A7","duration_seconds":75,"advance_mode":"manual"},
-      {"step_id":"p34c2","app_id":"a1-drawing-writing","route_id":"shapes","label":"لوحة الرسم · مثلث","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=shapes&item=triangle","duration_seconds":75,"advance_mode":"manual"},
-      {"step_id":"p34c3","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · الحركة والتقليد","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":90,"advance_mode":"time"}
+    {"id":"p23-turn-sensory","level_id":"2-3","title_ar":"دوري ودورك مع السلة","note_ar":"تقليد وتبادل دور ثم نقل عناصر بالسلة.","steps":[
+      {"step_id":"p23c1","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · تبادل الدور","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":80,"advance_mode":"manual"},
+      {"step_id":"p23c2","app_id":"a1-sensory","route_id":"basket-play","label":"سلتي العجيبة · أدخل وأخرج","href":"apps/1-4/sensory-motion-missions/index.html?v=12","duration_seconds":100,"advance_mode":"manual"}
     ]},
-    {"id":"p34-home-lab","level_id":"3-4","title_ar":"أشياء البيت ومختبر صغير","note_ar":"مفردات المنزل ثم مجال أدوات المنزل والبناء ثم لعبة مستوى 3.","steps":[
-      {"step_id":"p34d1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · أدوات المنزل","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D8%A3%D8%AF%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%86%D8%B2%D9%84&level=3","duration_seconds":70,"advance_mode":"time"},
-      {"step_id":"p34d2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · أدوات المنزل والبناء","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=home","duration_seconds":100,"advance_mode":"time"},
-      {"step_id":"p34d3","app_id":"a1-screen-move","route_id":"level","label":"ألعاب إبداعية · المستوى 3","href":"apps/1-4/screen-to-move/launch.html?action=level&level=3","duration_seconds":120,"advance_mode":"manual"}
+    {"id":"p23-transition","level_id":"2-3","title_ar":"نهاية متوقعة وانتقال","note_ar":"مساندة هادئة ثم مشاهدة روتين الانتقال بالصور.","steps":[
+      {"step_id":"p23d1","app_id":"a1-calm","route_id":"support","label":"مشاعري معك · خطة مساعدة وانتقال","href":"apps/1-4/calm-with-me/index.html?v=10","duration_seconds":90,"advance_mode":"manual"},
+      {"step_id":"p23d2","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · روتين الانتقال","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":90,"advance_mode":"manual"}
     ]},
-    {"id":"p34-full-mix","level_id":"3-4","title_ar":"جولة متنوعة من أربع محطات","note_ar":"نموذج أطول يمكن اختصاره أو تغيير ترتيبه بسهولة.","steps":[
-      {"step_id":"p34e1","app_id":"a1-first-words","route_id":"random","label":"كلماتي · مراجعة عشوائية","href":"apps/1-4/say-and-name/launch.html?action=random","duration_seconds":60,"advance_mode":"time"},
-      {"step_id":"p34e2","app_id":"a1-imitate","route_id":"level","label":"دوري ودورك · المستوى 3","href":"apps/1-4/imitate-one-step/launch.html?action=level&level=3","duration_seconds":100,"advance_mode":"time"},
-      {"step_id":"p34e3","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · ذاكرة الصور الأربع","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G09","duration_seconds":100,"advance_mode":"completion"},
-      {"step_id":"p34e4","app_id":"safe-reels-360","route_id":"home","label":"الريلز الآمن 360","href":"https://yem1.com","external":true,"duration_seconds":120,"advance_mode":"time"}
+    {"id":"p23-transport","level_id":"2-3","title_ar":"مركبات ومسار ورسم","note_ar":"مفردات مركبات ثم لعبة طريق ثم خط متموج.","steps":[
+      {"step_id":"p23e1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · وسائل النقل","href":"apps/1-4/say-and-name/launch.html?action=category&category=%D9%88%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D9%86%D9%82%D9%84&level=2","duration_seconds":55,"advance_mode":"time"},
+      {"step_id":"p23e2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · السيارة إلى البيت","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G07","duration_seconds":90,"advance_mode":"completion"},
+      {"step_id":"p23e3","app_id":"a1-drawing-writing","route_id":"lines","label":"لوحة الرسم · خط متموج","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=lines&item=wave","duration_seconds":70,"advance_mode":"manual"}
+    ]},
+    {"id":"p23-responsive-language","level_id":"2-3","title_ar":"جلسة لغة مستجيبة","note_ar":"كلمة قصيرة ثم لعب واقعي مع انتظار ووصف ثم تجربة حسية اختيارية.","steps":[
+      {"step_id":"p23f1","app_id":"a1-first-words","route_id":"library","label":"كلماتي · اختر غرضًا مألوفًا","href":"apps/1-4/say-and-name/launch.html?action=library","duration_seconds":50,"advance_mode":"manual"},
+      {"step_id":"p23f2","app_id":"a1-plan-runner","route_id":"real-play","label":"الواقع · صف وانتظر ووسع كلمة واحدة","href":"apps/1-4/plan-runner-360/real-play.html?v=2&prompt=%D8%B5%D9%81%20%D8%B4%D9%8A%D8%A6%D9%8B%D8%A7%20%D9%88%D8%A7%D8%AD%D8%AF%D9%8B%D8%A7%D8%8C%20%D8%A7%D9%86%D8%AA%D8%B8%D8%B1%203%E2%80%935%20%D8%AB%D9%88%D8%A7%D9%86%D9%8D%D8%8C%20%D8%AB%D9%85%20%D9%88%D8%B3%D8%B9%20%D9%83%D9%84%D9%85%D8%A9%20%D8%A3%D9%88%20%D8%A5%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%88%D8%A7%D8%AD%D8%AF%D8%A9","duration_seconds":150,"advance_mode":"manual"},
+      {"step_id":"p23f3","app_id":"a1-sensory","route_id":"basket-play","label":"سلتي العجيبة · اربط الكلمة بالفعل","href":"apps/1-4/sensory-motion-missions/index.html?v=12","duration_seconds":90,"advance_mode":"manual"}
+    ]},
+
+    {"id":"p34-story-routine","level_id":"3-4","title_ar":"قصة عادة ثم تطبيق","note_ar":"شاهد تسلسل عادة ثم نفذ نشاطًا مرتبطًا بها.","steps":[
+      {"step_id":"p34a1","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · قصة العادة","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":110,"advance_mode":"manual"},
+      {"step_id":"p34a2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · رتب قصة الخروج","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G14","duration_seconds":100,"advance_mode":"completion"}
+    ]},
+    {"id":"p34-think-create","level_id":"3-4","title_ar":"أفكر ثم أبتكر","note_ar":"لعبة منطق بصري ثم رسم حر بلا نموذج إلزامي.","steps":[
+      {"step_id":"p34b1","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · من المختلف؟","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G12","duration_seconds":90,"advance_mode":"completion"},
+      {"step_id":"p34b2","app_id":"a1-drawing-writing","route_id":"free","label":"لوحة الرسم · ابتكر رسمة","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free","duration_seconds":120,"advance_mode":"manual"}
+    ]},
+    {"id":"p34-calm-choice","level_id":"3-4","title_ar":"مساعدة ثم اختيار روتين","note_ar":"خطة تنظيم مشترك ثم اختيار عادة أو انتقال مصور.","steps":[
+      {"step_id":"p34c1","app_id":"a1-calm","route_id":"support","label":"مشاعري معك · اختر مساعدة مناسبة","href":"apps/1-4/calm-with-me/index.html?v=10","duration_seconds":100,"advance_mode":"manual"},
+      {"step_id":"p34c2","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · اختر ما بعد ذلك","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":100,"advance_mode":"manual"}
+    ]},
+    {"id":"p34-language-turn","level_id":"3-4","title_ar":"لغة وتبادل دور","note_ar":"مفردات ثم تجربة مشتركة يقود فيها الطفل والمرافق بالتناوب.","steps":[
+      {"step_id":"p34d1","app_id":"a1-first-words","route_id":"category","label":"كلماتي · اختر تصنيفًا","href":"apps/1-4/say-and-name/launch.html?action=library","duration_seconds":60,"advance_mode":"manual"},
+      {"step_id":"p34d2","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · تبادل دور وتقليد","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":100,"advance_mode":"manual"}
+    ]},
+    {"id":"p34-sensory-logic","level_id":"3-4","title_ar":"سلة وتصنيف ومنطق","note_ar":"نقل وفرز ثم لعبة تصنيف مرئية قصيرة.","steps":[
+      {"step_id":"p34e1","app_id":"a1-sensory","route_id":"basket-play","label":"سلتي العجيبة · فرز ونقل","href":"apps/1-4/sensory-motion-missions/index.html?v=12","duration_seconds":110,"advance_mode":"manual"},
+      {"step_id":"p34e2","app_id":"a1-screen-move","route_id":"game","label":"ألعاب إبداعية · تصنيف بصري","href":"apps/1-4/screen-to-move/launch.html?action=game&item=G13","duration_seconds":90,"advance_mode":"completion"}
+    ]},
+    {"id":"p34-balanced","level_id":"3-4","title_ar":"خطة متوازنة من أربعة مسارات","note_ar":"تقليد ثم تنظيم مشترك ثم رسم ثم عادة مصورة؛ عدّلها حسب اهتمام الطفل ولا يلزم إكمالها كلها.","steps":[
+      {"step_id":"p34f1","app_id":"a1-imitate","route_id":"family","label":"دوري ودورك · حركة قصيرة","href":"apps/1-4/imitate-one-step/launch.html?action=family&family=body","duration_seconds":75,"advance_mode":"manual"},
+      {"step_id":"p34f2","app_id":"a1-calm","route_id":"support","label":"مشاعري معك · مساعدة وانتقال","href":"apps/1-4/calm-with-me/index.html?v=10","duration_seconds":80,"advance_mode":"manual"},
+      {"step_id":"p34f3","app_id":"a1-drawing-writing","route_id":"free","label":"لوحة الرسم · رسم حر","href":"apps/1-4/drawing-writing-foundations/launch.html?mode=free","duration_seconds":100,"advance_mode":"manual"},
+      {"step_id":"p34f4","app_id":"a1-routine","route_id":"routine-library","label":"أستطيع خطوة · اختم بعادة مصورة","href":"apps/1-4/my-little-routine/index.html?v=8","duration_seconds":90,"advance_mode":"manual"}
     ]}
   ]
 }
