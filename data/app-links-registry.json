@@ -1,11 +1,32 @@
 {
-  "schema_version":"1.1","updated":"2026-09-23","domain_policy":"relative-only","resolver_ar":"التطبيق المستدعي يأخذ origin ومسار جذر المستودع من location الحالي ثم يضيف المسار النسبي المسجل هنا؛ لا يخزن أي Domain داخل الأرشيف.","event_store_key":"app360:interop:v1:events","event_types":["opened","ready","completed","returned","error"],"launch_context_params":["caller","launch_id","return_to","embedded"],
+  "schema_version":"1.2",
+  "updated":"2026-09-27",
+  "domain_policy":"relative-only",
+  "resolver_ar":"التطبيق المستدعي يأخذ origin ومسار جذر المستودع من location الحالي ثم يضيف المسار النسبي المسجل هنا؛ لا يخزن أي Domain داخل الأرشيف.",
+  "event_store_key":"app360:interop:v1:events",
+  "event_types":["opened","ready","completed","returned","error"],
+  "launch_context_params":["caller","launch_id","return_to","embedded"],
   "apps":[
     {"app_id":"a1-first-words","age_group":"1-4","title_ar":"كلماتي مع أشيائي: اسمع وأشر وسمِّ","archive_path":"apps/1-4/say-and-name/links.json","launch_path":"apps/1-4/say-and-name/launch.html"},
     {"app_id":"a1-imitate","age_group":"1-4","title_ar":"دوري ودورك: قلّد حركة واحدة","archive_path":"apps/1-4/imitate-one-step/links.json","launch_path":"apps/1-4/imitate-one-step/launch.html"},
     {"app_id":"a1-screen-move","age_group":"1-4","title_ar":"ألعاب إبداعية عبر الشاشة — أو بدون الشاشة","archive_path":"apps/1-4/screen-to-move/links.json","launch_path":"apps/1-4/screen-to-move/launch.html"},
-    {"app_id":"a1-drawing-writing","age_group":"1-4","title_ar":"لوحة الطفل للرسم والكتابة المبكرة","archive_path":"apps/1-4/drawing-writing-foundations/links.json","launch_path":"apps/1-4/drawing-writing-foundations/launch.html"}
+    {"app_id":"a1-drawing-writing","age_group":"1-4","title_ar":"لوحة الطفل للرسم والكتابة المبكرة","archive_path":"apps/1-4/drawing-writing-foundations/links.json","launch_path":"apps/1-4/drawing-writing-foundations/launch.html"},
+    {"app_id":"a1-calm","age_group":"1-4","title_ar":"مشاعري معك: أحتاج مساعدة","archive_path":"apps/1-4/calm-with-me/links.json","launch_path":"apps/1-4/calm-with-me/index.html?v=10"},
+    {"app_id":"a1-sensory","age_group":"1-4","title_ar":"سلتي العجيبة: أدخل وأخرج والعب","archive_path":"apps/1-4/sensory-motion-missions/links.json","launch_path":"apps/1-4/sensory-motion-missions/index.html?v=12"},
+    {"app_id":"a1-routine","age_group":"1-4","title_ar":"أستطيع خطوة: روتيني المصور","archive_path":"apps/1-4/my-little-routine/links.json","launch_path":"apps/1-4/my-little-routine/index.html?v=8"}
   ],
-  "future_app_contract_ar":["كل تطبيق جديد قابل للتخطيط يعلن app_href وlaunch_path.","كل تصنيف/خدمة/عنصر قابل للاختيار يعلن route مع kind وhref أو href_template.","launch.html يقبل embedded=1 وcaller وlaunch_id للتشغيل داخل مخطط التشغيل 360.","أضف التطبيق إلى هذا السجل مع age_group حتى يظهر تلقائيًا في المخطط المناسب."],
-  "consumer_flow_ar":["اقرأ هذا السجل ثم links.json للتطبيق المطلوب.","اعرض التطبيق ثم التصنيف/الخدمة ثم العنصر عند وجوده.","كوّن الرابط النسبي وأضف caller وlaunch_id وembedded عند التشغيل داخل المخطط.","حل الرابط على نفس origin وجذر المستودع الحالي بدل تثبيت اسم نطاق.","اقرأ app360:interop:v1:events لمعرفة opened/ready/completed."]
+  "future_app_contract_ar":[
+    "كل تطبيق جديد قابل للتخطيط يعلن app_href وlaunch_path.",
+    "كل تصنيف/خدمة/عنصر قابل للاختيار يعلن route مع kind وhref أو href_template.",
+    "launch.html أو صفحة الدخول تقبل embedded=1 وcaller وlaunch_id للتشغيل داخل مخطط التشغيل 360 عندما يكون ذلك مدعومًا.",
+    "أضف التطبيق إلى هذا السجل مع age_group حتى يظهر تلقائيًا في المخطط المناسب.",
+    "لا تنسخ محتوى التطبيق داخل المخطط؛ يحتفظ كل تطبيق بمصدره ويستدعيه المخطط بالرابط فقط."
+  ],
+  "consumer_flow_ar":[
+    "اقرأ هذا السجل ثم links.json للتطبيق المطلوب.",
+    "اعرض التطبيق ثم التصنيف/الخدمة ثم العنصر عند وجوده.",
+    "كوّن الرابط النسبي وأضف caller وlaunch_id وembedded عند التشغيل داخل المخطط.",
+    "حل الرابط على نفس origin وجذر المستودع الحالي بدل تثبيت اسم نطاق.",
+    "اقرأ app360:interop:v1:events لمعرفة opened/ready/completed."
+  ]
 }
