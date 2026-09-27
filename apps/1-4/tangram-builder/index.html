@@ -17,99 +17,34 @@
 <div id="app">
   <header class="topbar">
     <a class="homeBtn" href="../../../index.html" aria-label="العودة إلى مختبر التطبيق 360">⌂</a>
-    <div class="titleWrap">
-      <h1>تانغرامي الصغير</h1>
-      <div id="subtitle">اسحب من الأدوات إلى مكان القطعة حتى يكتمل الشكل</div>
-    </div>
+    <div class="titleWrap"><h1>تانغرامي الصغير</h1><div id="subtitle">اسحب من الأدوات إلى مكان القطعة حتى يكتمل الشكل</div></div>
     <button id="soundBtn" class="roundBtn" type="button" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
     <button id="profileBtn" class="roundBtn" type="button" aria-label="اسم الطفل والصوت">👤</button>
   </header>
-
   <section class="levelBar" aria-label="المستويات">
     <button class="levelBtn on" data-level="0" type="button"><b>1</b><span>سهل</span><small class="levelMeta">0 / 60</small></button>
     <button class="levelBtn" data-level="1" type="button"><b>2</b><span>متوسط</span><small class="levelMeta">0 / 70</small></button>
     <button class="levelBtn" data-level="2" type="button"><b>3</b><span>متقدم</span><small class="levelMeta">0 / 70</small></button>
   </section>
-
   <section class="missionBar">
-    <div class="missionInfo">
-      <span id="levelLabel">المستوى 1</span>
-      <b id="puzzleTitle">بيت صغير</b>
-    </div>
+    <div class="missionInfo"><span id="levelLabel">المستوى 1</span><b id="puzzleTitle">بيت صغير</b></div>
     <div id="progressDots" class="progressDots" aria-label="تقدم الأشكال"></div>
-    <div class="missionActions">
-      <button id="stageMapBtn" class="textBtn" type="button">▦ المراحل</button>
-      <button id="hintBtn" class="textBtn" type="button">💡 تلميح</button>
-      <button id="settingsBtn" class="textBtn" type="button">⚙ الإعدادات</button>
-    </div>
+    <div class="missionActions"><button id="stageMapBtn" class="textBtn" type="button">▦ المراحل</button><button id="hintBtn" class="textBtn" type="button">💡 تلميح</button><button id="settingsBtn" class="textBtn" type="button">⚙ الإعدادات</button></div>
   </section>
-
   <main id="boardWrap">
-    <canvas id="gameCanvas" aria-label="منطقة لعبة السحب والإفلات"></canvas>
-    <canvas id="celebrateCanvas" aria-hidden="true"></canvas>
+    <canvas id="gameCanvas" aria-label="منطقة لعبة السحب والإفلات"></canvas><canvas id="celebrateCanvas" aria-hidden="true"></canvas>
     <div id="message" class="message" aria-live="polite">ابدأ بأي أداة ثم اقترب بها من ظلها</div>
-    <div id="winCard" class="winCard" role="dialog" aria-modal="false" aria-live="assertive">
-      <div class="star">★</div>
-      <h2 id="winTitle">أحسنت!</h2>
-      <p id="winText">بنيت الشكل كاملًا</p>
-      <div class="winActions">
-        <button id="replayBtn" type="button">↻ مرة أخرى</button>
-        <button id="nextBtn" class="primary" type="button">الشكل التالي ←</button>
-      </div>
-    </div>
+    <div id="winCard" class="winCard" role="dialog" aria-modal="false" aria-live="assertive"><div class="star">★</div><h2 id="winTitle">أحسنت!</h2><p id="winText">بنيت الشكل كاملًا</p><div class="winActions"><button id="replayBtn" type="button">↻ مرة أخرى</button><button id="nextBtn" class="primary" type="button">الشكل التالي ←</button></div></div>
   </main>
-
-  <footer class="bottomBar">
-    <button id="resetBtn" type="button">↻ إعادة</button>
-    <div id="pieceStatus" class="pieceStatus">0 / 3</div>
-    <button id="nextPuzzleBtn" type="button">شكل آخر</button>
-  </footer>
+  <footer class="bottomBar"><button id="resetBtn" type="button">↻ إعادة</button><div id="pieceStatus" class="pieceStatus">0 / 3</div><button id="nextPuzzleBtn" type="button">شكل آخر</button></footer>
 </div>
-
-<div id="profilePanel" class="panel" aria-hidden="true">
-  <div class="panelBox">
-    <button id="closeProfile" class="closeBtn" type="button">×</button>
-    <h2>اسم الطفل والصوت</h2>
-    <label>الاسم <input id="nameInput" type="text" maxlength="24" value="نور"></label>
-    <label>النوع <select id="genderSelect"><option value="girl">بنت</option><option value="boy">ولد</option></select></label>
-    <label>الصوت <select id="audioMode"><option value="auto">تلقائي - المسجل أولًا</option><option value="recorded">الصوت المسجل</option><option value="tts">صوت الجهاز</option></select></label>
-    <div class="panelActions"><button id="testAudioBtn" type="button">🔊 اختبار التشجيع</button><button id="saveProfileBtn" class="primary" type="button">حفظ</button></div>
-    <p class="small">يستفيد التطبيق من نفس حزمة أسماء وتشجيع «لوحة الطفل للرسم والكتابة». إذا لم يتوفر الاسم مسجلًا ينتقل تلقائيًا إلى نطق الجهاز أو نغمة بسيطة.</p>
-  </div>
-</div>
-
-<div id="settingsPanel" class="panel" aria-hidden="true">
-  <div class="panelBox settingsBox">
-    <button id="closeSettings" class="closeBtn" type="button">×</button>
-    <h2>إعدادات الاستجابة</h2>
-    <div class="rangeRow">
-      <div class="rangeHead"><strong>تثبيت القطعة</strong><span id="snapValue">65%</span></div>
-      <input id="snapRange" type="range" min="45" max="120" step="5" value="65">
-      <p class="smallInline">كلما قلّت النسبة احتاج الطفل إلى الاقتراب أكثر قبل التثبيت.</p>
-    </div>
-    <div class="rangeRow">
-      <div class="rangeHead"><strong>التقاط الأداة</strong><span id="pickupValue">95%</span></div>
-      <input id="pickupRange" type="range" min="80" max="120" step="5" value="95">
-      <p class="smallInline">تحكم في سهولة لمس الأداة من مساحة الأدوات.</p>
-    </div>
-    <div class="panelActions">
-      <button id="resetSettingsBtn" type="button">إرجاع الافتراضي</button>
-      <button id="saveSettingsBtn" class="primary" type="button">حفظ</button>
-    </div>
-  </div>
-</div>
-
-<div id="levelMapPanel" class="panel" aria-hidden="true">
-  <div class="panelBox levelMapBox">
-    <button id="closeLevelMap" class="closeBtn" type="button">×</button>
-    <h2 id="levelMapTitle">مراحل المستوى</h2>
-    <div id="levelMapSummary" class="levelMapSummary"></div>
-    <div id="levelMapGrid" class="levelMapGrid"></div>
-  </div>
-</div>
-
+<div id="profilePanel" class="panel" aria-hidden="true"><div class="panelBox"><button id="closeProfile" class="closeBtn" type="button">×</button><h2>اسم الطفل والصوت</h2><label>الاسم <input id="nameInput" type="text" maxlength="24" value="نور"></label><label>النوع <select id="genderSelect"><option value="girl">بنت</option><option value="boy">ولد</option></select></label><label>الصوت <select id="audioMode"><option value="auto">تلقائي - المسجل أولًا</option><option value="recorded">الصوت المسجل</option><option value="tts">صوت الجهاز</option></select></label><div class="panelActions"><button id="testAudioBtn" type="button">🔊 اختبار التشجيع</button><button id="saveProfileBtn" class="primary" type="button">حفظ</button></div><p class="small">يستفيد التطبيق من نفس حزمة أسماء وتشجيع «لوحة الطفل للرسم والكتابة». إذا لم يتوفر الاسم مسجلًا ينتقل تلقائيًا إلى نطق الجهاز أو نغمة بسيطة.</p></div></div>
+<div id="settingsPanel" class="panel" aria-hidden="true"><div class="panelBox settingsBox"><button id="closeSettings" class="closeBtn" type="button">×</button><h2>إعدادات الاستجابة</h2><div class="rangeRow"><div class="rangeHead"><strong>تثبيت القطعة</strong><span id="snapValue">65%</span></div><input id="snapRange" type="range" min="45" max="120" step="5" value="65"><p class="smallInline">كلما قلّت النسبة احتاج الطفل إلى الاقتراب أكثر قبل التثبيت.</p></div><div class="rangeRow"><div class="rangeHead"><strong>التقاط الأداة</strong><span id="pickupValue">95%</span></div><input id="pickupRange" type="range" min="80" max="120" step="5" value="95"><p class="smallInline">تحكم في سهولة لمس الأداة من مساحة الأدوات.</p></div><div class="panelActions"><button id="resetSettingsBtn" type="button">إرجاع الافتراضي</button><button id="saveSettingsBtn" class="primary" type="button">حفظ</button></div></div></div>
+<div id="levelMapPanel" class="panel" aria-hidden="true"><div class="panelBox levelMapBox"><button id="closeLevelMap" class="closeBtn" type="button">×</button><h2 id="levelMapTitle">مراحل المستوى</h2><div id="levelMapSummary" class="levelMapSummary"></div><div id="levelMapGrid" class="levelMapGrid"></div></div></div>
 <script src="game-core.js?v=4"></script>
 <script src="puzzles-v3.js?v=4"></script>
+<script src="puzzles-v3-variants.js?v=4"></script>
+<script src="difficulty-v4.js?v=4"></script>
 <script src="input-audio.js?v=4"></script>
 <script src="boot.js?v=4"></script>
 </body>
