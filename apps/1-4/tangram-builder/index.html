@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#7b4a22">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>تانغرامي الصغير - مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=1">
+<link rel="icon" href="icon.svg?v=1" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <a class="homeBtn" href="../../../index.html" aria-label="العودة إلى مختبر التطبيق 360">⌂</a>
+    <div class="titleWrap"><h1>تانغرامي الصغير</h1><div id="subtitle">اسحب القطعة إلى مكانها وابنِ الشكل</div></div>
+    <button id="soundBtn" class="roundBtn" type="button" aria-label="تشغيل أو إيقاف الصوت">🔊</button>
+    <button id="profileBtn" class="roundBtn" type="button" aria-label="اسم الطفل والصوت">👤</button>
+  </header>
+
+  <section class="levelBar" aria-label="المستويات">
+    <button class="levelBtn on" data-level="0" type="button"><b>1</b><span>سهل</span></button>
+    <button class="levelBtn" data-level="1" type="button"><b>2</b><span>أكثر قطعًا</span></button>
+    <button class="levelBtn" data-level="2" type="button"><b>3</b><span>تانغرام كامل</span></button>
+  </section>
+
+  <section class="missionBar">
+    <div><span id="levelLabel">المستوى 1</span><b id="puzzleTitle">بيت صغير</b></div>
+    <div id="progressDots" class="progressDots" aria-label="تقدم الأشكال"></div>
+    <button id="hintBtn" class="textBtn" type="button">💡 تلميح</button>
+  </section>
+
+  <main id="boardWrap">
+    <canvas id="gameCanvas" aria-label="منطقة لعبة السحب والإفلات"></canvas>
+    <canvas id="celebrateCanvas" aria-hidden="true"></canvas>
+    <div id="message" class="message" aria-live="polite">ابدأ بأي قطعة تحبها</div>
+    <div id="winCard" class="winCard" role="dialog" aria-modal="false" aria-live="assertive">
+      <div class="star">★</div>
+      <h2 id="winTitle">أحسنت!</h2>
+      <p id="winText">بنيت الشكل كاملًا</p>
+      <div class="winActions"><button id="replayBtn" type="button">↻ مرة أخرى</button><button id="nextBtn" class="primary" type="button">الشكل التالي ←</button></div>
+    </div>
+  </main>
+
+  <footer class="bottomBar">
+    <button id="resetBtn" type="button">↻ إعادة</button>
+    <div id="pieceStatus" class="pieceStatus">0 / 3</div>
+    <button id="nextPuzzleBtn" type="button">شكل آخر</button>
+  </footer>
+</div>
+
+<div id="profilePanel" class="panel" aria-hidden="true">
+  <div class="panelBox">
+    <button id="closeProfile" class="closeBtn" type="button">×</button>
+    <h2>اسم الطفل والصوت</h2>
+    <label>الاسم <input id="nameInput" type="text" maxlength="24" value="نور"></label>
+    <label>النوع <select id="genderSelect"><option value="girl">بنت</option><option value="boy">ولد</option></select></label>
+    <label>الصوت <select id="audioMode"><option value="auto">تلقائي - المسجل أولًا</option><option value="recorded">الصوت المسجل</option><option value="tts">صوت الجهاز</option></select></label>
+    <div class="panelActions"><button id="testAudioBtn" type="button">🔊 اختبار التشجيع</button><button id="saveProfileBtn" class="primary" type="button">حفظ</button></div>
+    <p class="small">يستفيد التطبيق من نفس حزمة أسماء وتشجيع «لوحة الطفل للرسم والكتابة». إذا لم يتوفر الاسم مسجلًا ينتقل تلقائيًا إلى نطق الجهاز أو نغمة بسيطة.</p>
+  </div>
+</div>
+
+<script src="app.js?v=1"></script>
+</body>
+</html>
