@@ -6,10 +6,10 @@ function inject(){
  if(!host||!intro){if(tries++<30)setTimeout(inject,150);return}
  var a=d.createElement('a');
  a.id='tangramQuickLaunch';
- a.href='apps/1-4/tangram-builder/index.html?v=9';
+ a.href='apps/1-4/tangram-builder/index.html?v=11';
  a.setAttribute('aria-label','فتح تانغرامي الصغير');
  a.style.cssText='display:flex;align-items:center;gap:14px;max-width:760px;margin:10px auto 16px;padding:10px 14px;border:2px solid #d59735;border-radius:18px;background:#fff7e5;color:#5d3516;text-decoration:none;box-shadow:0 8px 22px rgba(87,47,16,.16);box-sizing:border-box;';
- a.innerHTML='<img src="assets/covers/a1-tangram.svg?v=9" alt="" style="width:126px;height:74px;object-fit:cover;border-radius:12px;border:1px solid #ddb778;flex:0 0 auto"><span style="display:block;min-width:0"><b style="display:block;font-size:18px;margin-bottom:4px">تانغرامي الصغير: 200 مرحلة</b><span style="display:block;font-size:12px;line-height:1.6">60 سهلة • 70 متوسطة معاد بناؤها • 70 متقدمة • عرض متجاوب وظلال ثلاثية الأبعاد</span></span><span style="margin-right:auto;font-size:26px">←</span>';
+ a.innerHTML='<img src="assets/covers/a1-tangram.svg?v=11" alt="" style="width:126px;height:74px;object-fit:cover;border-radius:12px;border:1px solid #ddb778;flex:0 0 auto"><span style="display:block;min-width:0"><b style="display:block;font-size:18px;margin-bottom:4px">تانغرامي الصغير: 200 مرحلة</b><span style="display:block;font-size:12px;line-height:1.6">60 سهلة • 70 متوسطة • 70 متقدمة معاد بناؤها بثماني قطع واضحة • تمرير جوال محسن</span></span><span style="margin-right:auto;font-size:26px">←</span>';
  if(intro.nextSibling)intro.parentNode.insertBefore(a,intro.nextSibling);else intro.parentNode.appendChild(a);
 }
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',inject,false);else w.attachEvent&&w.attachEvent('onload',inject)}else inject();
