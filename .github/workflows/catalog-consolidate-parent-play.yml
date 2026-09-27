@@ -50,14 +50,24 @@ jobs:
           ];
           x.updated='2026-09-27';
           fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
+
+          const idx='docs/APP_BUILD_INDEX_AR.md';
+          let lines=fs.readFileSync(idx,'utf8').split(/\r?\n/);
+          lines=lines.filter(line=>line.indexOf('responsive-play-coach')<0 && line.indexOf('رفيق المرافق: خطط جلسة لعب مستجيبة')<0);
+          if(!lines.some(line=>line.indexOf('plan-runner-360')>=0)){
+            const routineAt=lines.findIndex(line=>line.indexOf('../apps/1-4/my-little-routine/BUILD_SPEC.md')>=0);
+            const row='| مخطط التشغيل 360: ابنِ ونفّذ خطة | خطة تشغيل متعددة التطبيقات أو جلسة لعب مستجيبة تبدأ من اهتمام الطفل وتعود إلى الواقع، مع تذكير واحد للمرافق ومراجعة وصفية تقود إلى تعديل واحد للجلسة التالية. | يعمل الآن | [فتح التطبيق](../apps/1-4/plan-runner-360/index.html?v=2) |';
+            if(routineAt>=0) lines.splice(routineAt+1,0,row); else lines.push(row);
+          }
+          fs.writeFileSync(idx,lines.join('\n'));
+
           const js='apps/1-4/plan-runner-360/responsive-session-v2.js';
           let s=fs.readFileSync(js,'utf8');
           s=s.replace("'\\\"':'&quot'","'\\\"':'&quot;'");
           fs.writeFileSync(js,s);
           NODE
           rm -rf apps/1-4/responsive-play-coach
-          node tooling/build-blueprints.js
-      - name: Commit generated authoritative cleanup to PR branch
+      - name: Commit authoritative cleanup to PR branch
         run: |
           git config user.name 'app360-automation'
           git config user.email 'actions@users.noreply.github.com'
