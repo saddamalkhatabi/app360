@@ -15,7 +15,6 @@ else{
 }
 const apps=[
  {slug:'my-little-routine',tokens:['الحلقة العملية الأساسية','الآن وبعد ذلك','السحب','current_step_id','ترتيب الألعاب','Big TAB Android 4.4.2','فتح تطبيق مساعد ثم العودة']},
- {slug:'responsive-play-coach',tokens:['الحلقة العملية الأساسية','وضع أثناء اللعب','أخفِ الشاشة','child_initiative_note','say-and-name','calm-with-me','Big TAB Android 4.4.2']},
  {slug:'sensory-motion-missions',tokens:['بوابة السلامة قبل النشاط','الأجزاء','mission','easier_variant','screen-to-move','Big TAB Android 4.4.2','لا يمكن حفظ مهمة دون مادة']}
 ];
 apps.forEach(a=>{
@@ -29,6 +28,11 @@ apps.forEach(a=>{
  a.tokens.forEach(x=>{if(txt.indexOf(x)<0)fail(rel+' missing app-specific requirement '+x)});
  if(!failed)ok('app-specific prebuild maturity: '+a.slug);
 });
+const retired=JSON.parse(read('data/retired-apps.json'));
+if(!(retired.apps||[]).some(x=>x.id==='a1-parent-play'&&x.merged_into==='a1-plan-runner'))fail('retired caregiver planner must point to a1-plan-runner');
+else ok('responsive-play-coach retired into Plan Runner 360');
+if(fs.existsSync(path.join(root,'apps/1-4/responsive-play-coach')))fail('retired responsive-play-coach folder must not exist');
+else ok('retired responsive-play-coach folder removed');
 const scaffold=read('tooling/scaffold-app.js');
 if(scaffold.indexOf("'PREBUILD_REQUIREMENTS_AR.md'")<0)fail('scaffold does not preserve PREBUILD_REQUIREMENTS_AR.md');
 else ok('scaffold preserves app-specific prebuild requirements');
