@@ -8,10 +8,10 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>تانغرامي الصغير - مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest?v=6">
-<link rel="icon" href="icon.svg?v=6" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css?v=6">
-<link rel="stylesheet" href="tangram-v2.css?v=6">
+<link rel="manifest" href="manifest.webmanifest?v=7">
+<link rel="icon" href="icon.svg?v=7" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="tangram-v2.css?v=7">
 </head>
 <body>
 <div id="app">
@@ -41,13 +41,13 @@
 <div id="profilePanel" class="panel" aria-hidden="true"><div class="panelBox"><button id="closeProfile" class="closeBtn" type="button">×</button><h2>اسم الطفل والصوت</h2><label>الاسم <input id="nameInput" type="text" maxlength="24" value="نور"></label><label>النوع <select id="genderSelect"><option value="girl">بنت</option><option value="boy">ولد</option></select></label><label>الصوت <select id="audioMode"><option value="auto">تلقائي - المسجل أولًا</option><option value="recorded">الصوت المسجل</option><option value="tts">صوت الجهاز</option></select></label><div class="panelActions"><button id="testAudioBtn" type="button">🔊 اختبار التشجيع</button><button id="saveProfileBtn" class="primary" type="button">حفظ</button></div><p class="small">يستفيد التطبيق من نفس حزمة أسماء وتشجيع «لوحة الطفل للرسم والكتابة». إذا لم يتوفر الاسم مسجلًا ينتقل تلقائيًا إلى نطق الجهاز أو نغمة بسيطة.</p></div></div>
 <div id="settingsPanel" class="panel" aria-hidden="true"><div class="panelBox settingsBox"><button id="closeSettings" class="closeBtn" type="button">×</button><h2>إعدادات الاستجابة</h2><div class="rangeRow"><div class="rangeHead"><strong>تثبيت القطعة</strong><span id="snapValue">65%</span></div><input id="snapRange" type="range" min="45" max="120" step="5" value="65"><p class="smallInline">كلما قلّت النسبة احتاج الطفل إلى الاقتراب أكثر قبل التثبيت.</p></div><div class="rangeRow"><div class="rangeHead"><strong>التقاط الأداة</strong><span id="pickupValue">95%</span></div><input id="pickupRange" type="range" min="80" max="120" step="5" value="95"><p class="smallInline">تحكم في سهولة لمس الأداة من مساحة الأدوات.</p></div><div class="panelActions"><button id="resetSettingsBtn" type="button">إرجاع الافتراضي</button><button id="saveSettingsBtn" class="primary" type="button">حفظ</button></div></div></div>
 <div id="levelMapPanel" class="panel" aria-hidden="true"><div class="panelBox levelMapBox"><button id="closeLevelMap" class="closeBtn" type="button">×</button><h2 id="levelMapTitle">مراحل المستوى</h2><div id="levelMapSummary" class="levelMapSummary"></div><div id="levelMapGrid" class="levelMapGrid"></div></div></div>
-<script src="game-core.js?v=6"></script>
-<script src="geometry-v5.js?v=6"></script>
-<script src="puzzles-v5-curated.js?v=6"></script>
-<script src="engine-v6.js?v=6"></script>
-<script src="level1-v6.js?v=6"></script>
-<script src="difficulty-v4.js?v=6"></script>
-<script src="input-audio.js?v=6"></script>
-<script src="boot.js?v=6"></script>
+<script src="game-core.js?v=7"></script>
+<script src="geometry-v5.js?v=7"></script>
+<script src="puzzles-v5-curated.js?v=7"></script>
+<script src="engine-v7.js?v=7"></script>
+<script src="level1-v6.js?v=7"></script>
+<script src="difficulty-v4.js?v=7"></script>
+<script src="input-audio.js?v=7"></script>
+<script src="boot.js?v=7"></script>
 </body>
 </html>
