@@ -1,0 +1,15 @@
+{
+  "schema_version":"1.1",
+  "app_id":"a1-sensory",
+  "title_ar":"سلتي العجيبة: أدخل وأخرج والعب",
+  "base_path":"apps/1-4/sensory-motion-missions/",
+  "app_href":"apps/1-4/sensory-motion-missions/index.html?v=12",
+  "launch_path":"apps/1-4/sensory-motion-missions/index.html?v=12",
+  "domain_policy":"relative-only",
+  "events":"app360:interop:v1:events",
+  "routes":[
+    {"id":"basket-play","kind":"service","label_ar":"لعب السلة الحسي والحركي","href":"apps/1-4/sensory-motion-missions/index.html?v=12"}
+  ],
+  "interop_params":["caller","launch_id","return_to","embedded"],
+  "note_ar":"المخطط يفتح تجربة السلة كاملة؛ اختيار النوع والعناصر يتم داخل التطبيق حتى تبقى تجربة اللمس والسحب موحدة على الأجهزة الحديثة والقديمة."
+}
