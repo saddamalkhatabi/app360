@@ -1,0 +1,15 @@
+{
+  "schema_version":"1.1",
+  "app_id":"a1-routine",
+  "title_ar":"أستطيع خطوة: روتيني المصور",
+  "base_path":"apps/1-4/my-little-routine/",
+  "app_href":"apps/1-4/my-little-routine/index.html?v=8",
+  "launch_path":"apps/1-4/my-little-routine/index.html?v=8",
+  "domain_policy":"relative-only",
+  "events":"app360:interop:v1:events",
+  "routes":[
+    {"id":"routine-library","kind":"service","label_ar":"مكتبة العادات المصورة","href":"apps/1-4/my-little-routine/index.html?v=8"}
+  ],
+  "interop_params":["caller","launch_id","return_to","embedded"],
+  "note_ar":"المخطط يفتح مكتبة العادات المصورة ثم يترك اختيار العادة وتسلسل مشاهدها داخل التطبيق نفسه."
+}
