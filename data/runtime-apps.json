@@ -1,7 +1,24 @@
 {
   "schema_version":"1.1",
-  "updated":"2026-09-23",
+  "updated":"2026-09-27",
   "apps":[
+    {
+      "id":"a1-tangram",
+      "title_ar":"تانغرامي الصغير: ابنِ الشكل",
+      "age_group":"1-4",
+      "status":"live",
+      "kind":"goal_aligned",
+      "priority":1,
+      "href":"apps/1-4/tangram-builder/index.html?v=1",
+      "icon":"apps/1-4/tangram-builder/icon.svg?v=1",
+      "cover":"assets/covers/a1-tangram.svg?v=1",
+      "description_ar":"لعبة تركيب هندسية بثلاثة مستويات وتسع جولات؛ يسحب الطفل القطع الكبيرة إلى أماكنها بسماحية التقاط سريعة، ومع اكتمال الشكل تظهر مفرقعات وتشجيع صوتي بالاسم، دون توقيت أو عقوبات.",
+      "practice_model":"اختر المستوى ← اسحب قطعة كبيرة ← قرّبها من موضعها فتلتقط تلقائيًا ← استخدم التلميح عند الحاجة ← أكمل الشكل ← مفرقعات وتشجيع بالاسم ← أعد الجولة أو انتقل لشكل آخر",
+      "tags":["تانغرام","سحب وإفلات","أشكال هندسية","تآزر العين واليد","3 مستويات","تشجيع بالاسم","يدعم الأجهزة القديمة"],
+      "goal_keys":["learner-1-4-safe-sensory-motor-play","learner-1-4-shared-attention-imitation-simple-instructions","learner-1-4-confidence-first-attempts-and-kind-persistence","coach-1-4-safe-play-activity-design-and-independence"],
+      "goal_links":[],
+      "capabilities":["practice.core","interaction.drag-drop","storage.local","audio.tts","audio.recorded","audio.legacy-pcm","celebration.confetti","pwa.offline","compat.legacy-web"]
+    },
     {
       "id":"a1-calm",
       "title_ar":"مشاعري معك: أحتاج مساعدة",
