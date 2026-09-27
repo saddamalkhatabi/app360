@@ -1,3 +1,5 @@
-/* Tangram v2: many puzzles per level and compact progress indicators. */
-.progressDots{overflow:hidden;text-overflow:clip;line-height:18px}.dot{width:7px;height:7px;margin:0 2px}.dot.on{transform:scale(1.45)}
-@media(max-width:650px){.dot{width:6px;height:6px;margin:0 1.5px}.progressDots{max-width:140px}}
+/* Layout refinements for the tangram builder app. */
+.progressDots{max-width:100%;overflow:hidden;text-overflow:clip;line-height:18px}
+.dot{width:8px;height:8px;margin:0 2px}
+.dot.on{transform:scale(1.4)}
+@media(max-width:650px){.dot{width:6px;height:6px;margin:0 1.5px}.progressDots{max-width:170px;margin:0 auto}}
