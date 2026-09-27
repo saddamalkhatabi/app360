@@ -1,0 +1,70 @@
+name: Consolidate parent play catalog
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+permissions:
+  contents: write
+jobs:
+  consolidate:
+    if: github.head_ref == 'catalog-consolidate-parent-play'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Consolidate catalog into Plan Runner 360
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const p='data/catalog.json';
+          const x=JSON.parse(fs.readFileSync(p,'utf8'));
+          x.apps=(x.apps||[]).filter(a=>a.id!=='a1-parent-play'&&a.slug!=='responsive-play-coach');
+          const pr=x.apps.find(a=>a.id==='a1-plan-runner');
+          if(!pr) throw new Error('a1-plan-runner not found');
+          pr.status='live';
+          pr.priority=3;
+          pr.description_ar='مخطط موحد للفئة 1–4 يجمع التطبيقات العملية في خطط قابلة للحفظ والتنفيذ، ويحوّل اهتمام الطفل ومواد اللعب المتاحة إلى جلسة لعب مستجيبة قصيرة للمرافق مع العودة السريعة إلى الواقع ومراجعة بسيطة بعد الجلسة.';
+          pr.practice_model='اختر خطة جاهزة أو أدخل اهتمام الطفل والمكان والمواد وغرضًا واحدًا ← احصل على بداية من مبادرة الطفل واستجابة للمرافق وتطبيق مساند اختياري ونهاية متوقعة ← أخفِ الشاشة وواصل اللعب الواقعي ← راجع ما نجح وعدّل شيئًا واحدًا للجلسة التالية';
+          pr.goal_keys=[
+            'coach-1-4-language-rich-play-responsive-interaction',
+            'coach-1-4-co-regulation-transitions-and-tantrum-support',
+            'coach-1-4-safe-play-activity-design-and-independence',
+            'coach-1-4-screen-co-viewing-attention-and-offline-alternatives'
+          ];
+          pr.tags=['خطة','تشغيل','جلسة مستجيبة','مرافق','لعب واقعي','تطبيقات','متابعة'];
+          pr.href='apps/1-4/plan-runner-360/index.html?v=2';
+          pr.runtime_profile='legacy-web';
+          pr.depth='advanced';
+          pr.offline_mode='offline-first-shell';
+          pr.capabilities=['practice.core','storage.local','pwa.offline','compat.legacy-web','ui.responsive-maturity'];
+          pr.goal_links=[
+            {goal_key:'coach-1-4-language-rich-play-responsive-interaction',relationship:'supports',rationale_ar:'تبويب الجلسة المستجيبة يبدأ من اهتمام الطفل ويقترح للمرافق الوصف والانتظار والتقليد أو توسيع كلمة واحدة بدل تحويل اللعب إلى اختبار.',evidence_ar:'خطة جلسة محفوظة ومراجعة وصفية لما بدأه الطفل وما فعله المرافق والتعديل المقترح للمرة التالية.',delivery:'available_with_facilitator'},
+            {goal_key:'coach-1-4-co-regulation-transitions-and-tantrum-support',relationship:'supports',rationale_ar:'كل جلسة مستجيبة تتضمن نهاية وانتقالًا متوقعًا مع بديل أبسط وإمكانية التوقف، ويمكن استدعاء تطبيق مشاعري معك كمساند.',evidence_ar:'بطاقة انتقال في الخطة وملاحظة المرافق بعد الجلسة عن التبسيط أو المساعدة التي استُخدمت.',delivery:'available_with_facilitator'},
+            {goal_key:'coach-1-4-safe-play-activity-design-and-independence',relationship:'supports',rationale_ar:'يبني المرافق الجلسة من المكان والمواد المتاحة وغرض واحد، ويمكنه ربط تطبيقات الحركة والسلة والروتين والرسم مع مساعدة بقدر الحاجة.',evidence_ar:'خطة متعددة الخطوات قابلة للتعديل والتنفيذ مع سجل مستقل لكل تشغيل.',delivery:'available_with_facilitator'},
+            {goal_key:'coach-1-4-screen-co-viewing-attention-and-offline-alternatives',relationship:'supports',rationale_ar:'التطبيق المساند اختياري، ويقدم المخطط وضع إخفاء الشاشة وخطوة لعب واقعي صريحة بين التطبيقات لتقليل بقاء الطفل أمام الشاشة.',evidence_ar:'وجود خطوة لعب واقعي وزر إخفاء الشاشة داخل الجلسة المستجيبة وسجل تنفيذ الخطة.',delivery:'available_with_facilitator'}
+          ];
+          x.updated='2026-09-27';
+          fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
+          const js='apps/1-4/plan-runner-360/responsive-session-v2.js';
+          let s=fs.readFileSync(js,'utf8');
+          s=s.replace("'\\\"':'&quot'","'\\\"':'&quot;'");
+          fs.writeFileSync(js,s);
+          NODE
+          rm -rf apps/1-4/responsive-play-coach
+          node tooling/build-blueprints.js
+      - name: Commit generated authoritative cleanup to PR branch
+        run: |
+          git config user.name 'app360-automation'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/catalog.json docs/APP_BUILD_INDEX_AR.md apps/1-4/plan-runner-360 apps/1-4/responsive-play-coach
+          if git diff --cached --quiet; then
+            echo 'No catalog changes to commit.'
+          else
+            git commit -m 'Consolidate caregiver planner into Plan Runner catalog'
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
