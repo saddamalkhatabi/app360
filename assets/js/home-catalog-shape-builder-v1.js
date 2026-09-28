@@ -1,40 +1,26 @@
 (function(w){'use strict';
 var NativeXHR=w.XMLHttpRequest;if(!NativeXHR)return;
-var APP={
- id:'a1-tangram',
- slug:'tangram-builder',
- title_ar:'ألغاز تركيب الأشكال: نركّبها خطوة خطوة',
- age_group:'1-4',
- status:'live',
- kind:'goal_aligned',
- priority:1,
+var APPS=[
+{
+ id:'a1-tangram',slug:'tangram-builder',title_ar:'ألغاز تركيب الأشكال: نركّبها خطوة خطوة',age_group:'1-4',status:'live',kind:'goal_aligned',priority:1,
  description_ar:'لعبة سحب وتركيب يبني فيها الطفل صورًا وأشياء واضحة من قطع هندسية ومنحنية متدرجة الصعوبة. تميّز بين أحجام القطع المتشابهة، وتجمع القطع المتطابقة بعدّاد، وتتيح ضبط دقة التثبيت وإظهار أو إخفاء المساعد المباشر، مع خريطة مراحل وتشجيع صوتي بالاسم ووضع لعب مكبر مبسط.',
  practice_model:'اختر المستوى والمرحلة ← تعرّف على الشكل المطلوب ← ميّز القطعة المناسبة حسب الشكل والحجم ← اسحبها واقترب من موضعها ← استخدم وضع التكبير عند الحاجة ← أكمل الصورة ← استمتع بالتشجيع وانتقل إلى تركيب جديد',
  tags:['تركيب الأشكال','ألغاز أطفال','سحب وإفلات','مطابقة الحجم','أشكال هندسية ومنحنية','ثلاثة مستويات','خريطة مراحل','مساعد اختياري','وضع مكبر','تشجيع بالاسم','يدعم الأجهزة القديمة'],
- href:'apps/1-4/tangram-builder/index.html?v=17',
- icon:'apps/1-4/tangram-builder/icon.svg?v=17',
- cover:'assets/covers/a1-shape-builder.jpg?v=3',
- runtime_profile:'legacy-web',
- depth:'advanced',
- capabilities:['practice.core','interaction.drag-drop','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','celebration.confetti','pwa.offline','compat.legacy-web','ui.responsive-maturity','ui.focus-mode','input.touch-recovery'],
- offline_mode:'offline-first',
- goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],
- goal_links:[]
-};
-function merge(txt){try{var x=JSON.parse(txt),a=x&&x.apps||[],i,found=false;for(i=0;i<a.length;i++){if(a[i]&&a[i].id===APP.id){for(var k in APP)if(Object.prototype.hasOwnProperty.call(APP,k))a[i][k]=APP[k];found=true;break}}if(!found)a.push(APP);return JSON.stringify(x)}catch(e){return txt}}
-function Wrapper(){
- var inner=new NativeXHR(),self=this,patched=null,isCatalog=false,restored=false;
- function restore(){if(restored)return;restored=true;try{w.XMLHttpRequest=NativeXHR}catch(e){}}
- function fire(name,e){var fn=self[name];if(typeof fn==='function')try{fn.call(self,e||{})}catch(err){setTimeout(function(){throw err},0)}}
- inner.onreadystatechange=function(e){if(inner.readyState===4&&isCatalog&&patched===null&&inner.status>=200&&inner.status<300){patched=merge(inner.responseText);restore()}fire('onreadystatechange',e)};
- inner.onload=function(e){fire('onload',e)};inner.onerror=function(e){restore();fire('onerror',e)};inner.ontimeout=function(e){restore();fire('ontimeout',e)};inner.onabort=function(e){restore();fire('onabort',e)};inner.onloadend=function(e){fire('onloadend',e)};inner.onloadstart=function(e){fire('onloadstart',e)};inner.onprogress=function(e){fire('onprogress',e)};
- this.open=function(method,url,async,user,password){isCatalog=String(url||'').indexOf('data/catalog.json')>=0;return inner.open(method,url,async!==false,user,password)};
- this.send=function(body){return inner.send(body)};this.abort=function(){return inner.abort()};this.setRequestHeader=function(k,v){return inner.setRequestHeader(k,v)};this.getResponseHeader=function(k){return inner.getResponseHeader(k)};this.getAllResponseHeaders=function(){return inner.getAllResponseHeaders()};this.overrideMimeType=function(v){return inner.overrideMimeType&&inner.overrideMimeType(v)};
- this.addEventListener=function(type,fn){var prop='on'+type,prev=self[prop];self[prop]=function(e){if(prev)prev.call(self,e);fn.call(self,e)}};this.removeEventListener=function(){};
- Object.defineProperty(this,'readyState',{get:function(){return inner.readyState}});Object.defineProperty(this,'status',{get:function(){return inner.status}});Object.defineProperty(this,'statusText',{get:function(){return inner.statusText}});Object.defineProperty(this,'responseText',{get:function(){return patched!==null?patched:inner.responseText}});Object.defineProperty(this,'response',{get:function(){return inner.response}});Object.defineProperty(this,'responseURL',{get:function(){return inner.responseURL||''}});Object.defineProperty(this,'responseXML',{get:function(){return inner.responseXML}});Object.defineProperty(this,'upload',{get:function(){return inner.upload}});
- Object.defineProperty(this,'timeout',{get:function(){return inner.timeout},set:function(v){inner.timeout=v}});Object.defineProperty(this,'withCredentials',{get:function(){return inner.withCredentials},set:function(v){inner.withCredentials=v}});Object.defineProperty(this,'responseType',{get:function(){return inner.responseType},set:function(v){inner.responseType=v}});
+ href:'apps/1-4/tangram-builder/index.html?v=17',icon:'apps/1-4/tangram-builder/icon.svg?v=17',cover:'assets/covers/a1-shape-builder.jpg?v=3',runtime_profile:'legacy-web',depth:'advanced',
+ capabilities:['practice.core','interaction.drag-drop','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','celebration.confetti','pwa.offline','compat.legacy-web','ui.responsive-maturity','ui.focus-mode','input.touch-recovery'],offline_mode:'offline-first',
+ goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],goal_links:[]
+},
+{
+ id:'a1-picture-puzzles',slug:'picture-puzzles',title_ar:'ألغاز الصور: رتّب الصورة',age_group:'1-4',status:'live',kind:'goal_aligned',priority:1,
+ description_ar:'لعبة أحجيات صور تحوّل صور مكتبة كلماتي مع أشيائي إلى قطع ملونة غير منتظمة بشكل مباشر، ثم يركّب الطفل القطع المتناثرة حتى تعود الصورة كاملة، مع ثلاثة مستويات وتلميح وصورة عشوائية ووضع تكبير واستجابة لمس محسنة للأجهزة القديمة.',
+ practice_model:'اختر الصعوبة ← تظهر صورة من مكتبة أشيائي ← تُقسّم تلقائيًا إلى 4 أو 6 أو 9 قطع غير منتظمة ← اسحب كل قطعة إلى موضعها ← استخدم التلميح عند الحاجة ← أكمل الصورة وانتقل لصورة جديدة',
+ tags:['ألغاز الصور','Puzzles','تركيب صورة','سحب وإفلات','صور حقيقية','4 قطع','6 قطع','9 قطع','صورة عشوائية','تلميح','يدعم الأجهزة القديمة'],
+ href:'apps/1-4/picture-puzzles/index.html?v=1',icon:'apps/1-4/picture-puzzles/icon.svg?v=1',runtime_profile:'legacy-web',depth:'advanced',
+ capabilities:['practice.core','interaction.drag-drop','image.dynamic-slicing','storage.local','audio.tts','celebration.confetti','pwa.offline','compat.legacy-web','ui.focus-mode','input.touch-recovery'],offline_mode:'runtime-image-cache',
+ goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],goal_links:[]
 }
-Wrapper.UNSENT=0;Wrapper.OPENED=1;Wrapper.HEADERS_RECEIVED=2;Wrapper.LOADING=3;Wrapper.DONE=4;
-w.XMLHttpRequest=Wrapper;
-setTimeout(function(){try{w.XMLHttpRequest=NativeXHR}catch(e){}},12000);
+];
+function merge(txt){try{var x=JSON.parse(txt),a=x&&x.apps||[],i,j,k,found;for(j=0;j<APPS.length;j++){found=false;for(i=0;i<a.length;i++){if(a[i]&&a[i].id===APPS[j].id){for(k in APPS[j])if(Object.prototype.hasOwnProperty.call(APPS[j],k))a[i][k]=APPS[j][k];found=true;break}}if(!found)a.push(APPS[j])}return JSON.stringify(x)}catch(e){return txt}}
+function Wrapper(){var inner=new NativeXHR(),self=this,patched=null,isCatalog=false,restored=false;function restore(){if(restored)return;restored=true;try{w.XMLHttpRequest=NativeXHR}catch(e){}}function fire(name,e){var fn=self[name];if(typeof fn==='function')try{fn.call(self,e||{})}catch(err){setTimeout(function(){throw err},0)}}inner.onreadystatechange=function(e){if(inner.readyState===4&&isCatalog&&patched===null&&inner.status>=200&&inner.status<300){patched=merge(inner.responseText);restore()}fire('onreadystatechange',e)};inner.onload=function(e){fire('onload',e)};inner.onerror=function(e){restore();fire('onerror',e)};inner.ontimeout=function(e){restore();fire('ontimeout',e)};inner.onabort=function(e){restore();fire('onabort',e)};inner.onloadend=function(e){fire('onloadend',e)};inner.onloadstart=function(e){fire('onloadstart',e)};inner.onprogress=function(e){fire('onprogress',e)};this.open=function(method,url,async,user,password){isCatalog=String(url||'').indexOf('data/catalog.json')>=0;return inner.open(method,url,async!==false,user,password)};this.send=function(body){return inner.send(body)};this.abort=function(){return inner.abort()};this.setRequestHeader=function(k,v){return inner.setRequestHeader(k,v)};this.getResponseHeader=function(k){return inner.getResponseHeader(k)};this.getAllResponseHeaders=function(){return inner.getAllResponseHeaders()};this.overrideMimeType=function(v){return inner.overrideMimeType&&inner.overrideMimeType(v)};this.addEventListener=function(type,fn){var prop='on'+type,prev=self[prop];self[prop]=function(e){if(prev)prev.call(self,e);fn.call(self,e)}};this.removeEventListener=function(){};Object.defineProperty(this,'readyState',{get:function(){return inner.readyState}});Object.defineProperty(this,'status',{get:function(){return inner.status}});Object.defineProperty(this,'statusText',{get:function(){return inner.statusText}});Object.defineProperty(this,'responseText',{get:function(){return patched!==null?patched:inner.responseText}});Object.defineProperty(this,'response',{get:function(){return inner.response}});Object.defineProperty(this,'responseURL',{get:function(){return inner.responseURL||''}});Object.defineProperty(this,'responseXML',{get:function(){return inner.responseXML}});Object.defineProperty(this,'upload',{get:function(){return inner.upload}});Object.defineProperty(this,'timeout',{get:function(){return inner.timeout},set:function(v){inner.timeout=v}});Object.defineProperty(this,'withCredentials',{get:function(){return inner.withCredentials},set:function(v){inner.withCredentials=v}});Object.defineProperty(this,'responseType',{get:function(){return inner.responseType},set:function(v){inner.responseType=v}})}
+Wrapper.UNSENT=0;Wrapper.OPENED=1;Wrapper.HEADERS_RECEIVED=2;Wrapper.LOADING=3;Wrapper.DONE=4;w.XMLHttpRequest=Wrapper;setTimeout(function(){try{w.XMLHttpRequest=NativeXHR}catch(e){}},12000);
 })(window);
