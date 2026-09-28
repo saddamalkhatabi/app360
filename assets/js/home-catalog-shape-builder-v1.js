@@ -1,0 +1,40 @@
+(function(w){'use strict';
+var NativeXHR=w.XMLHttpRequest;if(!NativeXHR)return;
+var APP={
+ id:'a1-tangram',
+ slug:'tangram-builder',
+ title_ar:'ألغاز تركيب الأشكال: نركّبها خطوة خطوة',
+ age_group:'1-4',
+ status:'live',
+ kind:'goal_aligned',
+ priority:1,
+ description_ar:'لعبة سحب وتركيب يبني فيها الطفل صورًا وأشياء واضحة من قطع هندسية ومنحنية متدرجة الصعوبة. تميّز بين أحجام القطع المتشابهة، وتجمع القطع المتطابقة بعدّاد، وتتيح ضبط دقة التثبيت وإظهار أو إخفاء المساعد المباشر، مع خريطة مراحل وتشجيع صوتي بالاسم.',
+ practice_model:'اختر المستوى والمرحلة ← تعرّف على الشكل المطلوب ← ميّز القطعة المناسبة حسب الشكل والحجم ← اسحبها واقترب من موضعها ← أكمل الصورة ← استمتع بالتشجيع وانتقل إلى تركيب جديد',
+ tags:['تركيب الأشكال','ألغاز أطفال','سحب وإفلات','مطابقة الحجم','أشكال هندسية ومنحنية','ثلاثة مستويات','خريطة مراحل','مساعد اختياري','تشجيع بالاسم','يدعم الأجهزة القديمة'],
+ href:'apps/1-4/tangram-builder/index.html?v=13',
+ icon:'apps/1-4/tangram-builder/icon.svg?v=13',
+ cover:'assets/covers/a1-shape-builder.jpg?v=1',
+ runtime_profile:'legacy-web',
+ depth:'advanced',
+ capabilities:['practice.core','interaction.drag-drop','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','celebration.confetti','pwa.offline','compat.legacy-web','ui.responsive-maturity'],
+ offline_mode:'offline-first',
+ goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],
+ goal_links:[]
+};
+function merge(txt){try{var x=JSON.parse(txt),a=x&&x.apps||[],i,found=false;for(i=0;i<a.length;i++){if(a[i]&&a[i].id===APP.id){for(var k in APP)if(Object.prototype.hasOwnProperty.call(APP,k))a[i][k]=APP[k];found=true;break}}if(!found)a.push(APP);return JSON.stringify(x)}catch(e){return txt}}
+function Wrapper(){
+ var inner=new NativeXHR(),self=this,patched=null,isCatalog=false,restored=false;
+ function restore(){if(restored)return;restored=true;try{w.XMLHttpRequest=NativeXHR}catch(e){}}
+ function fire(name,e){var fn=self[name];if(typeof fn==='function')try{fn.call(self,e||{})}catch(err){setTimeout(function(){throw err},0)}}
+ inner.onreadystatechange=function(e){if(inner.readyState===4&&isCatalog&&patched===null&&inner.status>=200&&inner.status<300){patched=merge(inner.responseText);restore()}fire('onreadystatechange',e)};
+ inner.onload=function(e){fire('onload',e)};inner.onerror=function(e){restore();fire('onerror',e)};inner.ontimeout=function(e){restore();fire('ontimeout',e)};inner.onabort=function(e){restore();fire('onabort',e)};inner.onloadend=function(e){fire('onloadend',e)};inner.onloadstart=function(e){fire('onloadstart',e)};inner.onprogress=function(e){fire('onprogress',e)};
+ this.open=function(method,url,async,user,password){isCatalog=String(url||'').indexOf('data/catalog.json')>=0;return inner.open(method,url,async!==false,user,password)};
+ this.send=function(body){return inner.send(body)};this.abort=function(){return inner.abort()};this.setRequestHeader=function(k,v){return inner.setRequestHeader(k,v)};this.getResponseHeader=function(k){return inner.getResponseHeader(k)};this.getAllResponseHeaders=function(){return inner.getAllResponseHeaders()};this.overrideMimeType=function(v){return inner.overrideMimeType&&inner.overrideMimeType(v)};
+ this.addEventListener=function(type,fn){var prop='on'+type,prev=self[prop];self[prop]=function(e){if(prev)prev.call(self,e);fn.call(self,e)}};this.removeEventListener=function(){};
+ Object.defineProperty(this,'readyState',{get:function(){return inner.readyState}});Object.defineProperty(this,'status',{get:function(){return inner.status}});Object.defineProperty(this,'statusText',{get:function(){return inner.statusText}});Object.defineProperty(this,'responseText',{get:function(){return patched!==null?patched:inner.responseText}});Object.defineProperty(this,'response',{get:function(){return inner.response}});Object.defineProperty(this,'responseURL',{get:function(){return inner.responseURL||''}});Object.defineProperty(this,'responseXML',{get:function(){return inner.responseXML}});Object.defineProperty(this,'upload',{get:function(){return inner.upload}});
+ Object.defineProperty(this,'timeout',{get:function(){return inner.timeout},set:function(v){inner.timeout=v}});Object.defineProperty(this,'withCredentials',{get:function(){return inner.withCredentials},set:function(v){inner.withCredentials=v}});Object.defineProperty(this,'responseType',{get:function(){return inner.responseType},set:function(v){inner.responseType=v}});
+}
+Wrapper.UNSENT=0;Wrapper.OPENED=1;Wrapper.HEADERS_RECEIVED=2;Wrapper.LOADING=3;Wrapper.DONE=4;
+w.XMLHttpRequest=Wrapper;
+setTimeout(function(){try{w.XMLHttpRequest=NativeXHR}catch(e){}},12000);
+})(window);
