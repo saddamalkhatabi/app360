@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#7b4a22">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ألغاز الصور - مختبر التطبيق 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=1">
+<link rel="icon" href="icon.svg?v=1" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <a class="homeBtn" href="../../../index.html" aria-label="العودة إلى مختبر التطبيق 360">⌂</a>
+    <div class="titleWrap"><h1>ألغاز الصور</h1><div id="subtitle">رتّب قطع الصورة حتى تكتمل</div></div>
+    <button id="soundBtn" class="roundBtn" type="button" aria-label="الصوت">🔊</button>
+  </header>
+  <section class="levelBar" aria-label="مستويات الصعوبة">
+    <button class="levelBtn on" data-level="0" type="button"><b>1</b><span>4 قطع</span><small>سهل</small></button>
+    <button class="levelBtn" data-level="1" type="button"><b>2</b><span>6 قطع</span><small>متوسط</small></button>
+    <button class="levelBtn" data-level="2" type="button"><b>3</b><span>9 قطع</span><small>متقدم</small></button>
+  </section>
+  <section class="missionBar">
+    <div class="missionInfo"><span id="imageMeta">جارٍ تجهيز الصور…</span><b id="imageTitle">ألغاز الصور</b></div>
+    <div id="progressText" class="progressText">—</div>
+    <div class="missionActions">
+      <button id="hintBtn" class="textBtn" type="button">👁 تلميح</button>
+      <button id="randomBtn" class="textBtn" type="button">🎲 صورة عشوائية</button>
+      <button id="focusBtn" class="textBtn" type="button">⛶ تكبير</button>
+    </div>
+  </section>
+  <main id="boardWrap">
+    <canvas id="gameCanvas" aria-label="لعبة تركيب الصورة"></canvas>
+    <canvas id="celebrateCanvas" aria-hidden="true"></canvas>
+    <div id="message" class="message" aria-live="polite">اسحب قطعة إلى مكانها في الصورة</div>
+    <div id="winCard" class="winCard" role="dialog" aria-live="assertive">
+      <div class="star">★</div><h2 id="winTitle">أحسنت!</h2><p id="winText">اكتملت الصورة</p>
+      <div class="winActions"><button id="replayBtn" type="button">↻ مرة أخرى</button><button id="nextWinBtn" class="primary" type="button">الصورة التالية ←</button></div>
+    </div>
+  </main>
+  <footer class="bottomBar">
+    <button id="prevBtn" type="button">→ السابق</button>
+    <button id="resetBtn" type="button">↻ إعادة</button>
+    <div id="pieceStatus" class="pieceStatus">0 / 4</div>
+    <button id="nextBtn" type="button">التالي ←</button>
+  </footer>
+  <div id="focusControls"><button id="focusBack" type="button">↩ عودة</button><button id="focusPrev" type="button">السابق</button><button id="focusNext" type="button">التالي</button></div>
+</div>
+<script src="../say-and-name/data/word-images-context-map.js?v=24"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
