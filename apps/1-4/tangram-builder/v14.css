@@ -1,0 +1,12 @@
+/* v14 final polish */
+#focusControls{display:none;position:fixed;z-index:120;top:8px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(72,40,16,.88);padding:6px;border-radius:16px;box-shadow:0 5px 18px rgba(0,0,0,.28)}
+#focusControls button{min-width:88px;height:43px;margin:0 3px;border:1px solid #f0d5ad;border-radius:11px;background:#fff8e9;color:#5d3a16;font-weight:bold;font-family:Tahoma,Arial,sans-serif;font-size:14px}
+#focusControls button:active{transform:translateY(1px)}
+.focusLaunch{font-size:14px!important}
+body.shapeFocus{overflow:hidden!important;background:#ecd2a7!important}
+body.shapeFocus #app{position:fixed!important;z-index:100!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important;background:#ecd2a7!important}
+body.shapeFocus .topbar,body.shapeFocus .levelBar,body.shapeFocus .missionBar,body.shapeFocus .bottomBar{display:none!important}
+body.shapeFocus #boardWrap{position:absolute!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;height:100%!important;min-height:0!important}
+body.shapeFocus #message{display:none!important}
+body.shapeFocus #winCard{z-index:130!important}
+@media(max-width:650px){#focusControls{top:5px;padding:4px}#focusControls button{min-width:78px;height:40px;font-size:13px;margin:0 2px}.focusLaunch{min-width:94px!important}}
