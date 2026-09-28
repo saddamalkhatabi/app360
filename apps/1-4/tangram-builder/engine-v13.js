@@ -18,7 +18,7 @@ function rankFactor13(type,f,prof){var arr=prof[type]||[f],i,idx=0,k=factorKey13
 function inside13(p){var r=Math.max(7,p.size*.49);p.tx=n(p.tx,zones.targetInner.x+r,zones.targetInner.x+zones.targetInner.w-r);p.ty=n(p.ty,zones.targetInner.y+r,zones.targetInner.y+zones.targetInner.h-r)}
 function repel13(list){var pass,i,j,a,b,dx,dy,d,minD,u,v,push;for(pass=0;pass<7;pass++){for(i=0;i<list.length;i++){for(j=i+1;j<list.length;j++){a=list[i];b=list[j];dx=b.tx-a.tx;dy=b.ty-a.ty;d=Math.sqrt(dx*dx+dy*dy);minD=(a.size+b.size)*.40;if(d<minD){if(d<1){u=((i+j)%2?1:-1);v=((j%3)-1)*.25;d=1}else{u=dx/d;v=dy/d}push=(minD-d)*.50+1;a.tx-=u*push*.47;a.ty-=v*push*.47;b.tx+=u*push*.53;b.ty+=v*push*.53;inside13(a);inside13(b)}}}}}
 function rotKey13(p){var r=p.rot||0,t=p.type;if(t==='circle')return 0;if(t==='square'){r=r%(PI/2);if(r<0)r+=PI/2}return Math.round(r*100)/100}
-geomKey=function(p){return p.type+'|'+factorKey13(p.factor||1)+'|'+rotKey13(p)};
+function geomKey13(p){return p.type+'|'+factorKey13(p.factor||1)+'|'+rotKey13(p)}
 
 var oldRebuild13=rebuildPieces;
 rebuildPieces=function(){
@@ -41,7 +41,7 @@ buildTrayStacks=function(){
  var map={},order=[],i,p,k,cols,rows,rect=zones.trayInner,slotW,slotH,r,c,idx,g,baseSize;
  trayStacks=[];
  for(i=0;i<pieces.length;i++){
-  p=pieces[i];if(p.state!=='tray')continue;k=geomKey(p);
+  p=pieces[i];if(p.state!=='tray')continue;k=geomKey13(p);
   if(!map[k]){map[k]={key:k,type:p.type,rot:p.rot||0,factor:p.factor||1,visualFactor:p.visualFactor||1,color:p.color,count:0,members:[]};order.push(k)}
   map[k].count++;map[k].members.push(p.id);
  }
@@ -61,5 +61,14 @@ drawTrayStack=function(g){
  for(i=layers-1;i>=0;i--)drawPiece(ctx,rep,g.x-i*4,g.y-i*4,'#f6efd9',1,1.5,g.size);
  drawPiece(ctx,rep,g.x,g.y,g.color||typePalette[g.type]||palette[0],1,2.2,g.size);
  if(g.count>1){badgeR=Math.max(11,Math.min(17,g.size*.19));ctx.save();ctx.fillStyle='#e85a34';ctx.beginPath();ctx.arc(g.x+g.size*.43,g.y-g.size*.43,badgeR,0,PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold '+Math.max(11,Math.round(badgeR*.95))+'px Tahoma';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(g.count),g.x+g.size*.43,g.y-g.size*.43+1);ctx.restore()}
+};
+
+nearestCompatibleTarget=function(p){
+ var i,q,best=null,bestD=1e9,dd,k=geomKey13(p);
+ for(i=0;i<pieces.length;i++){
+  q=pieces[i];if(q.placed||geomKey13(q)!==k)continue;
+  dd=dist({x:p.x,y:p.y},{x:q.tx,y:q.ty});if(dd<bestD){bestD=dd;best=q}
+ }
+ return best?{p:best,d:bestD}:null;
 };
 })();
