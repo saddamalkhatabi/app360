@@ -12,11 +12,11 @@ var APPS=[
 },
 {
  id:'a1-picture-puzzles',slug:'picture-puzzles',title_ar:'ألغاز الصور: رتّب الصورة',age_group:'1-4',status:'live',kind:'goal_aligned',priority:1,
- description_ar:'لعبة أحجيات صور ممتعة تستخدم صور مكتبة «كلماتي مع أشيائي» نفسها، فتقسّم الصورة الملونة تلقائيًا إلى قطع غير منتظمة ثم ينقل الطفل القطع المتناثرة إلى أماكنها حتى تكتمل الصورة الأصلية. تحتوي على ثلاثة مستويات متدرجة 4 و6 و9 قطع، مع تلميح وصورة عشوائية ووضع تكبير ولمس محسّن للأجهزة القديمة.',
- practice_model:'اختر الصعوبة ← تظهر صورة حقيقية من مكتبة أشيائي ← تُقسّم تلقائيًا إلى 4 أو 6 أو 9 قطع ← اسحب القطع المتناثرة إلى مواضعها ← استخدم التلميح عند الحاجة ← أكمل الصورة ← انتقل لصورة جديدة',
- tags:['ألغاز الصور','Puzzles','تركيب صورة','سحب وإفلات','صور حقيقية','4 قطع','6 قطع','9 قطع','صورة عشوائية','تلميح','وضع تكبير','يدعم الأجهزة القديمة'],
- href:'apps/1-4/picture-puzzles/index.html?v=1',icon:'apps/1-4/picture-puzzles/icon.svg?v=1',cover:'assets/covers/a1-picture-puzzles.jpg?v=1',runtime_profile:'legacy-web',depth:'advanced',
- capabilities:['practice.core','interaction.drag-drop','image.dynamic-slicing','storage.local','audio.tts','celebration.confetti','pwa.offline','compat.legacy-web','ui.focus-mode','input.touch-recovery'],offline_mode:'runtime-image-cache',
+ description_ar:'لعبة أحجيات صور ممتعة تستخدم صور مكتبة «كلماتي مع أشيائي» نفسها، فتقسّم الصورة الملونة تلقائيًا إلى قطع غير منتظمة ثم يعيد الطفل تركيبها. ينطق التطبيق اسم الصورة في البداية وعند الاكتمال قبل التشجيع بالاسم، مع اختيار العربية أو الإنجليزية أو اللغتين، وثلاثة مستويات 4 و6 و9 قطع وتلميح وتكبير ولمس محسّن للأجهزة القديمة.',
+ practice_model:'اختر الصعوبة ← اسمع اسم الصورة بالعربية أو الإنجليزية أو كليهما ← ركّب 4 أو 6 أو 9 قطع ← أكمل الصورة ← اسمع اسمها مرة أخرى ← احصل على تشجيع باسم الطفل ← انتقل لصورة جديدة',
+ tags:['ألغاز الصور','Puzzles','تركيب صورة','سحب وإفلات','صور حقيقية','4 قطع','6 قطع','9 قطع','صوت عربي وإنجليزي','اسم الصورة','تشجيع بالاسم','صورة عشوائية','تلميح','وضع تكبير','يدعم الأجهزة القديمة'],
+ href:'apps/1-4/picture-puzzles/index.html?v=2',icon:'apps/1-4/picture-puzzles/icon.svg?v=2',cover:'assets/covers/a1-picture-puzzles.jpg?v=2',runtime_profile:'legacy-web',depth:'advanced',
+ capabilities:['practice.core','interaction.drag-drop','image.dynamic-slicing','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','audio.bilingual-labels','audio.name-cheer','celebration.confetti','pwa.offline','compat.legacy-web','ui.focus-mode','input.touch-recovery'],offline_mode:'runtime-image-cache',
  goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],goal_links:[]
 }
 ];
