@@ -6,21 +6,22 @@
 <meta name="theme-color" content="#0f8f8a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="app360-build" content="calm-with-me-v11-20260927">
+<meta name="app360-build" content="calm-with-me-v12-simple-20260929">
 <title>مشاعري معك: أحتاج مساعدة | مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest?v=11">
-<link rel="icon" type="image/svg+xml" href="icon.svg?v=9">
-<link rel="stylesheet" href="styles.css?v=9">
-<link rel="stylesheet" href="emotion-school-v8.css?v=9">
-<link rel="stylesheet" href="journey-v9.css?v=9">
+<link rel="manifest" href="manifest.webmanifest?v=12">
+<link rel="icon" type="image/svg+xml" href="icon.svg?v=12">
+<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="emotion-school-v8.css?v=12">
+<link rel="stylesheet" href="journey-v9.css?v=12">
+<link rel="stylesheet" href="simple-mode-v12.css?v=12">
 <link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=1">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
 <div id="fatal" class="fatal" role="alert"></div>
 <div id="storageBanner" class="storage-banner" role="status"></div>
-<header class="app-head"><div class="head-main"><img class="app-icon" src="icon.svg?v=9" alt=""><div class="head-copy"><span class="eyebrow">مختبر التطبيق 360 · الفئة 1-4 · امتداد مرجعي 4-5 · رحلة مترابطة v11</span><h1>مشاعري معك: أحتاج مساعدة</h1><p>من إشارة الطفل إلى فهم السياق ثم تجربة مساعدة وبناء بطاقة ومراجعة النتيجة — رحلة واحدة مترابطة، ومكتبة المشاعر تعمل خلفها كمصدر معرفة.</p></div><div class="head-actions"><button id="installAppBtn" type="button">تثبيت</button><button id="updateAppBtn" type="button">تحديث</button></div></div><div class="safety-line">السلوك لا يثبت شعورًا بعينه · الاقتراحات احتمالات للاستكشاف لا تشخيصًا · نتحقق من السلامة والاحتياجات الجسدية أولًا</div></header>
-<nav id="mainNav" class="main-nav" aria-label="أقسام التطبيق"><button id="nav-child" class="nav-btn active" type="button" data-view="child">ابدأ واكتشف</button><button id="schoolOpenNav" class="nav-btn" type="button">مدرسة المشاعر</button><button id="nav-transition" class="nav-btn" type="button" data-view="transition">بطاقة الآن/بعد</button><button id="nav-plans" class="nav-btn" type="button" data-view="plans">تجاربي <span id="plansCount">0</span></button><button id="nav-caregiver" class="nav-btn" type="button" data-view="caregiver">النتيجة والمرافق</button></nav>
+<header class="app-head"><div class="head-main"><img class="app-icon" src="icon.svg?v=12" alt=""><div class="head-copy"><span class="eyebrow">للطفل والمرافق · 3 خطوات فقط</span><h1>مشاعري معك: أحتاج مساعدة</h1><p>هدف التطبيق بسيط: اختر ما يحتاجه الطفل الآن، ثم اختر مساعدة واحدة، وبعدها قرر ماذا تفعل.</p></div><div class="head-actions"><button id="installAppBtn" type="button">تثبيت</button><button id="updateAppBtn" type="button">تحديث</button></div></div><div class="safety-line">لا تحتاج لتسمية الشعور بدقة. ابدأ بما يحتاجه الطفل الآن، واختر مساعدة واحدة فقط.</div></header>
+<nav id="mainNav" class="main-nav" aria-label="أقسام التطبيق"><button id="nav-child" class="nav-btn active" type="button" data-view="child">البداية</button><button id="schoolOpenNav" class="nav-btn" type="button">مدرسة المشاعر</button><button id="nav-transition" class="nav-btn" type="button" data-view="transition">بطاقة الآن/بعد</button><button id="nav-plans" class="nav-btn" type="button" data-view="plans">تجاربي <span id="plansCount">0</span></button><button id="nav-caregiver" class="nav-btn" type="button" data-view="caregiver">النتيجة والمرافق</button></nav>
 <div id="journeyProgress" class="journey-progress" aria-label="مسار الاستخدام"><span class="on">1 · ماذا يريد؟</span><span>2 · ماذا حدث؟</span><span>3 · ماذا نجرب؟</span><span>4 · بطاقة التجربة</span><span>5 · سجل النتيجة</span></div>
 <main id="mainContent" class="app-shell">
 <section id="childView" class="view">
@@ -99,9 +100,9 @@
 <section id="caregiverView" class="view" hidden><div class="section-head"><div><span class="step-kicker">5 · نتيجة التجربة</span><h2>مراجعة المرافق ومكتبة المساعدات</h2><p>بطاقات تجربة المشاعر تسجل نتيجتها مباشرة من زر التنفيذ. هنا تبقى المراجعة الوصفية الأوسع وتخصيص مكتبة الأسرة.</p></div><button id="resetLibraryBtn" class="quiet" type="button">إعادة الافتراضي للعمر الحالي</button></div><div id="libraryList" class="library-list"></div><section class="custom-help-box"><h3>إضافة مساعدة أسرية خاصة</h3><p>يمكن إرفاق صورة وصوت مسجل من الجهاز محليًا.</p><div class="form-stack"><input id="customHelpLabel" class="text-input" type="text" maxlength="70" placeholder="مثال: أمسك دميتي المفضلة"><div class="form-row"><label class="file-button">صورة محلية<input id="customHelpImage" type="file" accept="image/*"></label><label class="file-button">صوت مسجل محلي<input id="customHelpAudio" type="file" accept="audio/*"></label><button id="addHelpBtn" class="primary" type="button">إضافة المساعدة</button></div></div></section><section class="audio-box"><label class="toggle large"><input id="speechToggle" type="checkbox" checked> قراءة الكلمات صوتيًا عند توفر TTS</label><p id="audioStatus" role="status">الصوت اختياري.</p></section><section class="review-box"><span class="step-kicker">مراجعة وصفية إضافية</span><h2>ماذا حدث؟</h2><p>سجّل ما عُرض وما قُبل وما تريد تغييره في المرة القادمة.</p><label class="field-label" for="reviewPlan">البطاقة المستخدمة</label><select id="reviewPlan" class="text-input"></select><div id="reviewOutcomeButtons" class="outcome-row"></div><label class="field-label" for="reviewAccepted">ماذا قبل الطفل أو اختار؟</label><input id="reviewAccepted" class="text-input" type="text" maxlength="160"><label class="field-label" for="reviewHelped">ما الذي ساعد؟</label><textarea id="reviewHelped" class="text-input" rows="3" maxlength="400"></textarea><label class="field-label" for="reviewNotHelped">ما الذي لم يساعد؟</label><textarea id="reviewNotHelped" class="text-input" rows="3" maxlength="400"></textarea><label class="field-label" for="reviewNext">ما الذي نغيّره في المرة القادمة؟</label><textarea id="reviewNext" class="text-input" rows="3" maxlength="400"></textarea><label class="field-label" for="reviewAssistance">مستوى المساعدة الوصفي</label><select id="reviewAssistance" class="text-input"></select><button id="saveReviewBtn" class="primary huge" type="button">حفظ المراجعة</button></section><section class="boundary-box"><h3>حدود الاستخدام</h3><p>هذه أداة استكشاف وتنظيم مشترك وتجارب وصفية، وليست تشخيصًا أو علاجًا أو بديلًا عن طبيب الطفل أو المختص عند الحاجة.</p></section></section>
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div><div id="printArea" class="print-area" aria-hidden="true"></div>
-<script src="data/content.js?v=10"></script><script src="data/emotion-library.js?v=9"></script><script src="age-content-v8.js?v=9"></script><script src="../../../assets/js/legacy-compat.js?v=1"></script><script src="touch-scroll-guard-v11.js?v=11"></script><script src="app.js?v=9"></script><script src="emotion-school-v8.js?v=9"></script><script src="journey-v9.js?v=9"></script>
+<script src="data/content.js?v=12"></script><script src="data/emotion-library.js?v=12"></script><script src="age-content-v8.js?v=12"></script><script src="../../../assets/js/legacy-compat.js?v=1"></script><script src="touch-scroll-guard-v11.js?v=12"></script><script src="app.js?v=12"></script><script src="emotion-school-v8.js?v=12"></script><script src="journey-v9.js?v=12"></script><script src="simple-mode-v12.js?v=12"></script>
 <script>(function(w,d){
-function goPlan(){w.location.href='../plan-runner-360/index.html?v=2'}
+function goPlan(){w.location.href='../plan-runner-360/index.html?v=3'}
 var a=d.getElementById('openPlanRunnerBtn'),b=d.getElementById('transitionPlanRunnerBtn');if(a)a.onclick=goPlan;if(b)b.onclick=goPlan;
 function text(v){return String(v==null?'':v)}
 function transition(id){var list=(w.APP360_CALM_CONTENT&&w.APP360_CALM_CONTENT.transitions)||[],i;for(i=0;i<list.length;i++)if(list[i]&&list[i].id===id)return list[i];return null}
