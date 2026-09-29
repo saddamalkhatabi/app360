@@ -1,6 +1,6 @@
 {
-  "schema_version":"1.2",
-  "updated":"2026-09-27",
+  "schema_version":"1.3",
+  "updated":"2026-09-29",
   "domain_policy":"relative-only",
   "resolver_ar":"التطبيق المستدعي يأخذ origin ومسار جذر المستودع من location الحالي ثم يضيف المسار النسبي المسجل هنا؛ لا يخزن أي Domain داخل الأرشيف.",
   "event_store_key":"app360:interop:v1:events",
@@ -13,7 +13,9 @@
     {"app_id":"a1-drawing-writing","age_group":"1-4","title_ar":"لوحة الطفل للرسم والكتابة المبكرة","archive_path":"apps/1-4/drawing-writing-foundations/links.json","launch_path":"apps/1-4/drawing-writing-foundations/launch.html"},
     {"app_id":"a1-calm","age_group":"1-4","title_ar":"مشاعري معك: أحتاج مساعدة","archive_path":"apps/1-4/calm-with-me/links.json","launch_path":"apps/1-4/calm-with-me/index.html?v=11"},
     {"app_id":"a1-sensory","age_group":"1-4","title_ar":"سلتي العجيبة: أدخل وأخرج والعب","archive_path":"apps/1-4/sensory-motion-missions/links.json","launch_path":"apps/1-4/sensory-motion-missions/index.html?v=12"},
-    {"app_id":"a1-routine","age_group":"1-4","title_ar":"أستطيع خطوة: روتيني المصور","archive_path":"apps/1-4/my-little-routine/links.json","launch_path":"apps/1-4/my-little-routine/index.html?v=8"}
+    {"app_id":"a1-routine","age_group":"1-4","title_ar":"أستطيع خطوة: روتيني المصور","archive_path":"apps/1-4/my-little-routine/links.json","launch_path":"apps/1-4/my-little-routine/index.html?v=8"},
+    {"app_id":"a1-tangram","age_group":"1-4","title_ar":"ألغاز تركيب الأشكال: نركّبها خطوة خطوة","archive_path":"apps/1-4/tangram-builder/links.json","launch_path":"apps/1-4/tangram-builder/index.html?v=17"},
+    {"app_id":"a1-picture-puzzles","age_group":"1-4","title_ar":"ألغاز الصور: رتّب الصورة","archive_path":"apps/1-4/picture-puzzles/links.json","launch_path":"apps/1-4/picture-puzzles/index.html?v=3"}
   ],
   "future_app_contract_ar":[
     "كل تطبيق جديد قابل للتخطيط يعلن app_href وlaunch_path.",
