@@ -18,12 +18,12 @@
   "icon_path":"apps/1-4/plan-runner-360/icon.svg",
   "runtime_profile":"legacy-web",
   "offline_mode":"offline-first-shell",
-  "capabilities":["practice.core","storage.local","pwa.offline","compat.legacy-web","ui.responsive-maturity","cross-app.registry","cross-app.latest-apps"],
+  "capabilities":["practice.core","storage.local","pwa.offline","compat.legacy-web","ui.responsive-maturity","cross-app.registry","cross-app.latest-apps","ready-plans.dynamic-merge"],
   "artifact_type":"cross-app-plan-builder-runner-and-responsive-caregiver-session",
   "supported_age_groups":["1-4"],
   "age_levels":["1-2","2-3","3-4","custom"],
   "link_contract":{"registry_path":"data/app-links-registry.json","route_levels":["app","category","service","item"],"external_links":true,"embedded_execution":true},
-  "responsive_caregiver_session":{"input_model":["child_interest","setting","materials","energy","single_focus","approx_minutes"],"session_parts":["child_initiative_start","caregiver_response","optional_supporting_app","predictable_transition"],"during_play":"one reminder with hide-screen mode","reflection":["child_initiative_note","caregiver_response_note","what_changed","next_adjustment"],"safety":"non-diagnostic; no child scores; suggestions use explicit caregiver inputs only"},
+  "responsive_caregiver_session":{"input_model":["child_interest","setting","materials","energy","single_focus","approx_minutes"],"session_parts":["child_initiative_start","caregiver_response","optional_supporting_app","predictable_transition"],"during_play":"one reminder with hide-screen mode","reflection":["child_initiative_note","caregiver_response_note","what_changed","next_adjustment"],"safety":"non-diagnostic; no child scores; suggestions use explicit caregiver inputs only","new_focuses":["matching","visual"]},
   "integrated_apps":["a1-first-words","a1-imitate","a1-screen-move","a1-drawing-writing","a1-calm","a1-sensory","a1-routine","a1-tangram","a1-picture-puzzles"],
   "latest_integrations":[
     {"id":"a1-tangram","role_ar":"تركيب الأشكال والمطابقة البصرية الحركية"},
@@ -31,5 +31,5 @@
   ],
   "absorbed_planned_app":{"id":"a1-parent-play","slug":"responsive-play-coach","status":"retired-into-a1-plan-runner","reason_ar":"أدوار تخطيط جلسة اللعب المستجيبة أصبحت جزءًا من مخطط التشغيل 360 بدل إبقاء تطبيق موازٍ يكرر نفس وظيفة التخطيط والتشغيل."},
   "storage":{"schema_version":"2.0","key":"app360:a1-plan-runner:schema-1","responsive_key":"app360:a1-plan-runner:responsive-v2","entities":["plan","template","run","step_result","responsive_session","reflection","next_adjustment"],"local_first":true},
-  "implementation":{"build":"v3","built_on":"2026-09-29","state":"live-9-app-unified-planner","legacy_core":"ES5 + XMLHttpRequest + Touch/click compatible controls + Flexbox","preset_count":18,"integrated_app_count":9,"features":["generic-cross-app-plan-builder","ready-plan-library","responsive-caregiver-session-studio","one-caregiver-reminder","hide-screen-real-play-mode","post-play-reflection","real-world-step-bridge","local-history","json-import-export","tangram-builder-integration","picture-puzzles-integration"],"pending_physical_acceptance":["الهاتف الحديث","Big TAB HD Android 4.4.2","PWA/Offline","الروابط الخارجية داخل iframe"]}
+  "implementation":{"build":"v3","built_on":"2026-09-29","state":"live-9-app-unified-planner","legacy_core":"ES5 + XMLHttpRequest + Touch/click compatible controls + Flexbox","preset_count":24,"integrated_app_count":9,"features":["generic-cross-app-plan-builder","ready-plan-library","six-new-puzzle-ready-plans","responsive-caregiver-session-studio","matching-responsive-focus","visual-puzzle-responsive-focus","one-caregiver-reminder","hide-screen-real-play-mode","post-play-reflection","real-world-step-bridge","local-history","json-import-export","tangram-builder-integration","picture-puzzles-integration"],"pending_physical_acceptance":["الهاتف الحديث","Big TAB HD Android 4.4.2","PWA/Offline","الروابط الخارجية داخل iframe"]}
 }
