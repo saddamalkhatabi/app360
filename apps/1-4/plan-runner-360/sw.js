@@ -1,6 +1,6 @@
 var CACHE='app360-plan-runner-360-v3';
 var SHELL=[
-  './','./index.html?v=3','./styles.css?v=3','./responsive-session-v2.css?v=3','./app.js?v=3','./responsive-session-v3.js?v=3','./real-play.html?v=2','./data/presets.json','./manifest.webmanifest?v=3','./icon.svg?v=3','./app.json',
+  './','./index.html?v=3','./styles.css?v=3','./responsive-session-v2.css?v=3','./presets-merge-v3.js?v=3','./app.js?v=3','./responsive-session-v3.js?v=3','./real-play.html?v=2','./data/presets.json','./manifest.webmanifest?v=3','./icon.svg?v=3','./app.json',
   '../../../assets/css/legacy-compat.css?v=24','../../../assets/js/legacy-compat.js?v=24','../../../assets/js/app-pwa.js?v=3','../../../assets/js/app360-ai-shell.js?v=2','../../../assets/js/app360-session-v1.js?v=1',
   '../../../data/app-links-registry.json',
   '../say-and-name/links.json','../imitate-one-step/links.json','../screen-to-move/links.json','../drawing-writing-foundations/links.json','../calm-with-me/links.json','../sensory-motion-missions/links.json','../my-little-routine/links.json','../tangram-builder/links.json','../picture-puzzles/links.json'
