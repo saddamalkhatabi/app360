@@ -20,10 +20,6 @@ d.addEventListener('touchmove',onMove,true);
 d.addEventListener('touchend',onEnd,true);
 d.addEventListener('touchcancel',onCancel,true);
 d.addEventListener('click',onClick,true);
+try{if(String(w.location.search||'').indexOf('advanced=1')>=0&&w.localStorage)w.localStorage.setItem('app360:a1-calm:simple-v12','0')}catch(e){}
 w.APP360_CALM_TOUCH_SCROLL_GUARD={version:'12',threshold:MOVE_PX};
-function loadV12(){
- try{var h=d.getElementsByTagName('head')[0]||d.documentElement,l=d.createElement('link');l.rel='stylesheet';l.href='simple-mode-v12.css?v=12';h.appendChild(l)}catch(e){}
- try{var s=d.createElement('script');s.type='text/javascript';s.src='simple-mode-v12.js?v=12';(d.body||d.documentElement).appendChild(s)}catch(e2){}
-}
-if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',loadV12,false);else loadV12();
 })(window,document);
