@@ -1,15 +1,16 @@
 {
-  "schema_version":"1.1",
+  "schema_version":"1.2",
   "app_id":"a1-calm",
   "title_ar":"مشاعري معك: أحتاج مساعدة",
   "base_path":"apps/1-4/calm-with-me/",
-  "app_href":"apps/1-4/calm-with-me/index.html?v=11",
-  "launch_path":"apps/1-4/calm-with-me/index.html?v=11",
+  "app_href":"apps/1-4/calm-with-me/index.html?v=12",
+  "launch_path":"apps/1-4/calm-with-me/index.html?v=12",
   "domain_policy":"relative-only",
   "events":"app360:interop:v1:events",
   "routes":[
-    {"id":"support","kind":"service","label_ar":"مساعدة وتنظيم مشترك","href":"apps/1-4/calm-with-me/index.html?v=11"}
+    {"id":"support","kind":"service","label_ar":"مساعدة بسيطة في 3 خطوات","href":"apps/1-4/calm-with-me/index.html?v=12"},
+    {"id":"advanced","kind":"service","label_ar":"الخيارات الإضافية ومدرسة المشاعر","href":"apps/1-4/calm-with-me/index.html?v=12&advanced=1"}
   ],
   "interop_params":["caller","launch_id","return_to","embedded"],
-  "note_ar":"يُستدعى التطبيق من مخطط التشغيل 360 كمساند للتنظيم المشترك والانتقال دون تشخيص."
+  "note_ar":"الوضع الافتراضي بسيط: الحاجة ← مساعدة واحدة ← ماذا بعد. الخيارات المتقدمة تبقى متاحة عند الحاجة دون فرضها على الاستخدام اليومي."
 }
