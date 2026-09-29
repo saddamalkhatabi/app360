@@ -1,15 +1,17 @@
 {
-  "schema_version":"1.2",
+  "schema_version":"1.3",
   "app_id":"a1-calm",
   "title_ar":"مشاعري معك: أحتاج مساعدة",
   "base_path":"apps/1-4/calm-with-me/",
-  "app_href":"apps/1-4/calm-with-me/index.html?v=12",
-  "launch_path":"apps/1-4/calm-with-me/index.html?v=12",
+  "app_href":"apps/1-4/calm-with-me/index.html?v=13",
+  "launch_path":"apps/1-4/calm-with-me/index.html?v=13",
   "domain_policy":"relative-only",
   "events":"app360:interop:v1:events",
   "routes":[
-    {"id":"support","kind":"service","label_ar":"مساعدة بسيطة في 3 خطوات","href":"apps/1-4/calm-with-me/index.html?v=12"}
+    {"id":"support","kind":"service","label_ar":"مساعدة بسيطة في 3 خطوات","href":"apps/1-4/calm-with-me/index.html?v=13"},
+    {"id":"shape-game","kind":"service","label_ar":"ألغاز تركيب الأشكال بعد المساعدة","href":"apps/1-4/tangram-builder/index.html?v=17"},
+    {"id":"picture-game","kind":"service","label_ar":"ألغاز الصور بعد المساعدة","href":"apps/1-4/picture-puzzles/index.html?v=3"}
   ],
   "interop_params":["caller","launch_id","return_to","embedded"],
-  "note_ar":"الوضع الافتراضي بسيط: الحاجة ← مساعدة واحدة ← ماذا بعد. الخيارات المتقدمة تبقى داخل التطبيق من زر واضح دون فرضها على الاستخدام اليومي."
+  "note_ar":"الوضع الافتراضي بسيط: الحاجة ← مساعدة واحدة ← ماذا بعد. بعد المساعدة يمكن التوقف أو اختيار ألغاز تركيب الأشكال أو ألغاز الصور كنشاط قصير، كما تبقى الخيارات المتقدمة متاحة دون فرضها على الاستخدام اليومي."
 }
