@@ -8,15 +8,16 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>ألغاز الصور - مختبر التطبيق 360</title>
-<link rel="manifest" href="manifest.webmanifest?v=2">
-<link rel="icon" href="icon.svg?v=2" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css?v=2">
-<link rel="stylesheet" href="audio-v2.css?v=2">
+<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" href="icon.svg?v=3" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="audio-v2.css?v=3">
+<link rel="stylesheet" href="v3.css?v=3">
 </head>
 <body>
 <div id="app">
   <header class="topbar">
-    <a class="homeBtn" href="../../../index.html" aria-label="العودة إلى مختبر التطبيق 360">⌂</a>
+    <a class="homeBtn" href="../../../index.html?v=53" aria-label="العودة إلى مختبر التطبيق 360">⌂</a>
     <div class="titleWrap"><h1>ألغاز الصور</h1><div id="subtitle">رتّب قطع الصورة حتى تكتمل</div></div>
     <button id="soundBtn" class="roundBtn" type="button" aria-label="الصوت">🔊</button>
   </header>
@@ -38,6 +39,7 @@
   <main id="boardWrap">
     <canvas id="gameCanvas" aria-label="لعبة تركيب الصورة"></canvas>
     <canvas id="celebrateCanvas" aria-hidden="true"></canvas>
+    <button id="challengeBtn" class="challengeBtn" type="button">🔥 تحدي الكبار</button>
     <div id="message" class="message" aria-live="polite">اسحب قطعة إلى مكانها في الصورة</div>
     <div id="winCard" class="winCard" role="dialog" aria-live="assertive">
       <div class="star">★</div><h2 id="winTitle">أحسنت!</h2><p id="winText">اكتملت الصورة</p>
@@ -55,7 +57,7 @@
 <div id="audioSettingsPanel" class="audioSettingsPanel" aria-hidden="true">
   <div class="audioSettingsBox">
     <button id="closeAudioSettings" class="audioCloseBtn" type="button" aria-label="إغلاق">×</button>
-    <h2>إعدادات الصوت والتشجيع</h2>
+    <h2>إعدادات اللعبة والصوت</h2>
     <label class="audioField">اسم الطفل
       <input id="childNameInput" type="text" maxlength="24" value="نور" placeholder="اكتب اسم الطفل">
     </label>
@@ -66,6 +68,14 @@
         <option value="both">العربية ثم English</option>
       </select>
     </label>
+    <label class="audioField">آلية تقطيع الصورة
+      <select id="cutModeSelect">
+        <option value="classic">قطع غير منتظمة لطيفة</option>
+        <option value="straight">شبكة مستقيمة واضحة</option>
+        <option value="zigzag">قطع متعرجة أصعب</option>
+        <option value="auto">تنويع تلقائي بين الآليات</option>
+      </select>
+    </label>
     <label class="audioField">مصدر التشجيع بالاسم
       <select id="audioModeSelect">
         <option value="auto">تلقائي - التسجيل أولًا ثم صوت الجهاز</option>
@@ -74,9 +84,9 @@
       </select>
     </label>
     <label class="audioToggle"><input id="announceStartToggle" type="checkbox" checked><span>انطق اسم الصورة عند بداية كل صورة.</span></label>
-    <label class="audioToggle"><input id="announceFinishToggle" type="checkbox" checked><span>أعد نطق اسم الصورة مباشرة عند اكتمالها وقبل التشجيع.</span></label>
+    <label class="audioToggle"><input id="announceFinishToggle" type="checkbox" checked><span>أعد نطق اسم الصورة عند اكتمالها ثم شجّع الطفل مباشرة.</span></label>
     <label class="audioToggle"><input id="nameCheerToggle" type="checkbox" checked><span>شجّع الطفل باسمه بعد اكتمال الصورة.</span></label>
-    <p class="audioHelp">يستخدم التطبيق تسجيلات أسماء الصور العربية والإنجليزية من «كلماتي مع أشيائي»، ويستخدم حزمة التشجيع المشتركة بالاسم. في وضع «العربية ثم English» يسمع الطفل اسم الصورة باللغتين، ثم التشجيع باسمه.</p>
+    <p class="audioHelp">يمكن تغيير شكل القطع من الإعدادات، ويمكن تشغيل «تحدي الكبار» من الزر أسفل القطع لبعثرتها بصورة أصعب. يستخدم التطبيق تسجيلات أسماء الصور العربية والإنجليزية من «كلماتي مع أشيائي» مع التشجيع المشترك بالاسم.</p>
     <div class="audioSettingsActions"><button id="testPictureAudio" type="button">🔊 اختبار الصوت</button><button id="saveAudioSettings" class="primary" type="button">حفظ</button></div>
   </div>
 </div>
@@ -84,7 +94,7 @@
 <script src="../say-and-name/data/translations-en.js?v=24"></script>
 <script src="../say-and-name/data/audio-map.js?v=24"></script>
 <script src="../say-and-name/data/audio-map-en.js?v=24"></script>
-<script src="app.js?v=2"></script>
-<script src="audio-v2.js?v=2"></script>
+<script src="app-v3.js?v=3"></script>
+<script src="audio-v3.js?v=3"></script>
 </body>
 </html>
