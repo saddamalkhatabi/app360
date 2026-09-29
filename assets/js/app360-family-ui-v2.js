@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_FAMILY_UI&&w.APP360_FAMILY_UI.__ready)return;
-var VERSION='2.0.0',timer=0,observer=null;
+var VERSION='2.0.1',timer=0;
 function q(s){try{return d.querySelector(s)}catch(e){return null}}
 function slug(){var p=(w.location&&w.location.pathname)||'',m=/\/apps\/[^/]+\/([^/]+)\//.exec(p);return m&&m[1]||''}
 function addClass(el,n){if(!el)return;var c=' '+(el.className||'')+' ';if(c.indexOf(' '+n+' ')<0)el.className=(el.className?el.className+' ':'')+n}
@@ -12,9 +12,10 @@ function targetInfo(){var s=slug(),t=null,c='';if(!s){t=q('.portal-controls');c=
 function fallbackSlot(){var x=d.getElementById('app360FamilyFallbackSlot');if(x)return x;x=d.createElement('div');x.id='app360FamilyFallbackSlot';x.className='a360-family-slot a360-family-fallback-slot';var first=d.body&&d.body.firstChild;if(d.body){if(first)d.body.insertBefore(x,first);else d.body.appendChild(x)}return x}
 function iconHtml(connected){return'<span class="a360-family-ico" aria-hidden="true">👨‍👧</span>'+(connected?'<span class="a360-live-dot" aria-hidden="true"></span>':'')+'<span class="a360-family-label">جلسة العائلة</span>'}
 function profileHtml(name){return'<span class="a360-family-ico" aria-hidden="true">👤</span><span class="a360-family-label">'+String(name||'الاسم').replace(/[&<>]/g,'')+'</span>'}
-function styleButton(b,info,profile){if(!b)return;removeClass(b,'a360-family-float');addClass(b,profile?'a360-profile-inline':'a360-family-inline');if(info.cls)addClass(b,info.cls);b.removeAttribute('style');if(!profile){var api=w.APP360_FAMILY_SYNC,st=api&&api.getSession?api.getSession():null,on=!!(st&&st.connected);if(on)addClass(b,'a360-connected');else removeClass(b,'a360-connected');b.innerHTML=iconHtml(on);b.title='جلسة العائلة 360';b.setAttribute('aria-label','فتح جلسة العائلة 360')}else{var api2=w.APP360_FAMILY_SYNC,n=api2&&api2.getName?api2.getName():'الاسم';b.innerHTML=profileHtml(n);b.title='اسم المستخدم';b.setAttribute('aria-label','اسم المستخدم وإعداداته')}}
+function setHtml(el,html){if(el&&el.innerHTML!==html)el.innerHTML=html}
+function styleButton(b,info,profile){if(!b)return;removeClass(b,'a360-family-float');addClass(b,profile?'a360-profile-inline':'a360-family-inline');if(info.cls)addClass(b,info.cls);b.removeAttribute('style');if(!profile){var api=w.APP360_FAMILY_SYNC,st=api&&api.getSession?api.getSession():null,on=!!(st&&st.connected);if(on)addClass(b,'a360-connected');else removeClass(b,'a360-connected');setHtml(b,iconHtml(on));b.title='جلسة العائلة 360';b.setAttribute('aria-label','فتح جلسة العائلة 360')}else{var api2=w.APP360_FAMILY_SYNC,n=api2&&api2.getName?api2.getName():'الاسم';setHtml(b,profileHtml(n));b.title='اسم المستخدم';b.setAttribute('aria-label','اسم المستخدم وإعداداته')}}
 function place(){injectStyle();var info=targetInfo(),fb=d.getElementById('app360FamilyBtn'),pb=d.getElementById('app360ProfileBtn'),t=info.target||fallbackSlot();if(fb&&t&&fb.parentNode!==t)t.appendChild(fb);if(pb&&!info.slug){var homeTarget=q('.portal-controls')||t;if(pb.parentNode!==homeTarget)homeTarget.appendChild(pb)}styleButton(fb,info,false);if(pb)styleButton(pb,info,true);var old=d.getElementById('app360FamilyFallbackSlot');if(old&&old!==t&&old.parentNode&&old.children.length===0)old.parentNode.removeChild(old)}
-function boot(){if(!d.body)return;place();if(timer)clearInterval(timer);timer=setInterval(place,1500);if(w.MutationObserver){try{observer=new w.MutationObserver(function(){place()});observer.observe(d.body,{childList:true,subtree:true})}catch(e){}}}
+function boot(){if(!d.body)return;place();if(timer)clearInterval(timer);timer=setInterval(place,1200)}
 w.APP360_FAMILY_UI={__ready:true,version:VERSION,refresh:place};
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',boot,false);else if(w.attachEvent)w.attachEvent('onload',boot)}else boot();
 })(window,document);
