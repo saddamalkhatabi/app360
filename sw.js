@@ -1,4 +1,4 @@
-var CACHE='app360-portal-v50';
+var CACHE='app360-portal-v51';
 var CORE=[
   './','./index.html',
   './assets/css/lab360.css','./assets/css/legacy-compat.css','./assets/css/home-showcase-v31.css',
