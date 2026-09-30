@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_FAMILY_SHELL&&w.APP360_FAMILY_SHELL.__ready)return;
-var VERSION='1.0.0',overlay=null,frame=null,titleEl=null,active=null,activePath='',voiceTimer=0,muted=[];
+var VERSION='1.0.1',overlay=null,frame=null,titleEl=null,active=null,activePath='',voiceTimer=0,muted=[];
 function trim(s){return String(s==null?'':s).replace(/^\s+|\s+$/g,'')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]})}
 function qv(k){var m=String(w.location.search||'').match(new RegExp('[?&]'+k+'=([^&]*)','i'));return m?decodeURIComponent(m[1]||''):''}
@@ -31,7 +31,8 @@ function capturePreview(full){var doc=frameDoc(),src,img,tmp,ctx,tw=isLegacy()?3
 function getStateSummary(){var doc=frameDoc(),a=labelLines(doc);return a.join(' · ').substr(0,180)}
 function getActiveApp(){return overlay&&!overlay.hidden?active:null}
 function getActivePath(){return overlay&&!overlay.hidden?(activePath||active&&active.href||''):''}
-function muteFrame(on){var doc=frameDoc(),win=frameWin(),els,i,e;if(!doc)return;if(on){muted=[];els=doc.getElementsByTagName('audio');for(i=0;i<els.length;i++){e=els[i];muted.push({e:e,m:e.muted,v:e.volume});try{e.muted=true;e.volume=0}catch(x){}}els=doc.getElementsByTagName('video');for(i=0;i<els.length;i++){e=els[i];muted.push({e:e,m:e.muted,v:e.volume});try{e.muted=true;e.volume=0}catch(x2){}}try{if(win&&win.speechSynthesis&&win.speechSynthesis.cancel)win.speechSynthesis.cancel()}catch(x3){}}else{for(i=0;i<muted.length;i++){e=muted[i];try{e.e.muted=e.m;e.e.volume=e.v}catch(x4){}}muted=[]}}
+function savedEntry(el){var i;for(i=0;i<muted.length;i++)if(muted[i].e===el)return muted[i];return null}
+function muteFrame(on){var doc=frameDoc(),win=frameWin(),els,i,e;if(!doc)return;if(on){els=doc.getElementsByTagName('audio');for(i=0;i<els.length;i++){e=els[i];if(!savedEntry(e))muted.push({e:e,m:e.muted,v:e.volume});try{e.muted=true;e.volume=0}catch(x){}}els=doc.getElementsByTagName('video');for(i=0;i<els.length;i++){e=els[i];if(!savedEntry(e))muted.push({e:e,m:e.muted,v:e.volume});try{e.muted=true;e.volume=0}catch(x2){}}try{if(win&&win.speechSynthesis&&win.speechSynthesis.cancel)win.speechSynthesis.cancel()}catch(x3){}}else{for(i=0;i<muted.length;i++){e=muted[i];try{e.e.muted=e.m;e.e.volume=e.v}catch(x4){}}muted=[]}}
 function setVoiceActive(on){if(voiceTimer){clearInterval(voiceTimer);voiceTimer=0}muteFrame(!!on);if(on)voiceTimer=setInterval(function(){muteFrame(true)},1400)}
 function startup(){var id=qv('family_app'),tries=0;function go(){var a=sync(),s=session();if(a&&a.__ready&&s&&s.room){if(id)openApp(id);return}tries++;if(tries<40)setTimeout(go,180)}go()}
 w.APP360_FAMILY_SHELL={__ready:true,version:VERSION,openApp:openApp,closeApp:closeApp,getActiveApp:getActiveApp,getActivePath:getActivePath,getStateSummary:getStateSummary,capturePreview:capturePreview,setVoiceActive:setVoiceActive,getFrame:function(){return frame}};
