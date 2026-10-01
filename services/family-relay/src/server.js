@@ -319,7 +319,12 @@ function createApp360Server(options = {}) {
     const now = Date.now();
     for (const client of relay.clients) {
       if (client.closed || client.socket.destroyed) continue;
-      if (now - client.lastPong > 65000) { wsClose(client, 1001, 'heartbeat-timeout'); relay.onClientClose(client); continue; }
+      if (now - client.lastPong > 65000) {
+        client.cleaned = true;
+        wsClose(client, 1001, 'heartbeat-timeout');
+        relay.onClientClose(client);
+        continue;
+      }
       try { client.socket.write(encodeFrame(0x9, Buffer.from('a360'))); } catch (_) {}
     }
   }, 20000);
