@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_FAMILY_HYBRID_TRANSPORT&&w.APP360_FAMILY_HYBRID_TRANSPORT.__ready)return;
-var VERSION='2.0.0',MediaPeer=null,installed=false;
+var VERSION='2.0.1',MediaPeer=null,installed=false;
 function now(){return +new Date()}
 function trim(s){return String(s==null?'':s).replace(/^\s+|\s+$/g,'')}
 function qv(k){var m=String(w.location.search||'').match(new RegExp('[?&]'+k+'=([^&]*)','i'));return m?decodeURIComponent(m[1]||''):''}
@@ -17,6 +17,7 @@ Emitter.prototype.on=function(ev,fn){if(typeof fn!=='function')return this;if(!t
 Emitter.prototype._emit=function(ev,arg){var a=this._listeners[ev]||[],i;for(i=0;i<a.length;i++)try{a[i](arg)}catch(e){}};
 function WsConnection(peer,id,opts,incoming){Emitter.call(this);this.peer=String(id||'');this.metadata=opts&&opts.metadata||{};this.serialization=opts&&opts.serialization||'json';this.reliable=true;this.open=false;this._peer=peer;this._incoming=!!incoming;this._id='fc-'+now().toString(36)+'-'+Math.random().toString(36).substr(2,8);this._closed=false;this._queue=[];this._suspended=false}
 WsConnection.prototype=Object.create(Emitter.prototype);WsConnection.prototype.constructor=WsConnection;
+WsConnection.prototype.on=function(ev,fn){Emitter.prototype.on.call(this,ev,fn);if(ev==='open'&&this.open&&typeof fn==='function')setTimeout(function(){try{fn()}catch(e){}},0);return this};
 WsConnection.prototype._serverId=function(id){if(id)this._id=String(id);return this._id};
 WsConnection.prototype._opened=function(){if(this._closed)return;var first=!this.open;this.open=true;this._suspended=false;if(first)this._emit('open');this._flush()};
 WsConnection.prototype._resumed=function(){if(this._closed)return;this.open=true;this._suspended=false;this._flush()};
@@ -28,6 +29,7 @@ WsConnection.prototype.close=function(){if(this._closed)return;this._closed=true
 WsConnection.prototype._serverClose=function(reason){if(this._closed)return;this._closed=true;this.open=false;if(this._peer)delete this._peer._conns[this._id];if(reason&&reason!=='peer-close')this._emit('error',{type:reason,message:reason});this._emit('close')};
 function WsPeer(id,opts){Emitter.call(this);this._idArg=id;this._opts=opts||{};this.id=id||randomId();this.destroyed=false;this.disconnected=true;this._closed=false;this._ws=null;this._wsReady=false;this._sendQueue=[];this._conns={};this._retry=0;this._retryTimer=0;this._openEmitted=false;this._openSocket()}
 WsPeer.prototype=Object.create(Emitter.prototype);WsPeer.prototype.constructor=WsPeer;
+WsPeer.prototype.on=function(ev,fn){Emitter.prototype.on.call(this,ev,fn);var self=this;if(ev==='open'&&this._openEmitted&&typeof fn==='function')setTimeout(function(){try{fn(self.id)}catch(e){}},0);return this};
 WsPeer.prototype._url=function(){return endpoint()};
 WsPeer.prototype._schedule=function(){var self=this;if(self._closed)return;if(self._retryTimer)clearTimeout(self._retryTimer);self._retry++;var delay=Math.min(220+self._retry*180,1800);self._retryTimer=setTimeout(function(){self._retryTimer=0;self._openSocket()},delay)};
 WsPeer.prototype._openSocket=function(){var self=this,url=self._url(),ws;if(self._closed)return;if(!url){self._emit('error',{type:'family-ws-unconfigured',message:'Family WebSocket endpoint is not configured'});return}emitDoc('ws-connecting',url);try{ws=new w.WebSocket(url)}catch(e){self._schedule();return}self._ws=ws;self.disconnected=true;ws.onopen=function(){if(self._closed||self._ws!==ws)return;self._wsReady=true;self.disconnected=false;self._retry=0;self._send({type:'peer-register',peerId:self.id});self._flushRaw()};ws.onmessage=function(e){if(self._closed||self._ws!==ws)return;var m;try{m=JSON.parse(String(e.data||''))}catch(x){return}self._handle(m)};ws.onerror=function(){};ws.onclose=function(){if(self._closed||self._ws!==ws)return;self._wsReady=false;self.disconnected=true;for(var k in self._conns)if(self._conns.hasOwnProperty(k)&&self._conns[k]&&!self._conns[k]._closed)self._conns[k]._suspend();emitDoc('ws-reconnecting');self._schedule()}};
