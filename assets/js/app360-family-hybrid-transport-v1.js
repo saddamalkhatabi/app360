@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_FAMILY_HYBRID_TRANSPORT&&w.APP360_FAMILY_HYBRID_TRANSPORT.__ready)return;
-var VERSION='1.0.0',RealPeer=null,installed=false,installing=false,waiters=[];
+var VERSION='2.0.0',MediaPeer=null,installed=false;
 function now(){return +new Date()}
 function trim(s){return String(s==null?'':s).replace(/^\s+|\s+$/g,'')}
 function qv(k){var m=String(w.location.search||'').match(new RegExp('[?&]'+k+'=([^&]*)','i'));return m?decodeURIComponent(m[1]||''):''}
@@ -39,9 +39,10 @@ WsPeer.prototype.call=function(){var err=new Error('Family control relay does no
 WsPeer.prototype.reconnect=function(){if(this._closed)return this;try{if(this._ws)this._ws.close()}catch(e){}this._wsReady=false;this._schedule();return this};
 WsPeer.prototype.disconnect=function(){if(this._closed)return this;try{if(this._ws)this._ws.close(1000,'disconnect')}catch(e){}this._wsReady=false;this.disconnected=true;return this};
 WsPeer.prototype.destroy=function(){var k;if(this._closed)return;this._closed=true;this.destroyed=true;this.disconnected=true;if(this._retryTimer){clearTimeout(this._retryTimer);this._retryTimer=0}for(k in this._conns)if(this._conns.hasOwnProperty(k))try{this._conns[k].close()}catch(e){}this._conns={};try{if(this._ws)this._ws.close(1000,'destroy')}catch(e2){}this._ws=null;this._wsReady=false};
-function HybridPeer(id,opts){if(familyId(id))return new WsPeer(id,opts);return new RealPeer(id,opts)}
-function install(){if(installed)return true;if(installing)return false;if(!endpoint()){emitDoc('peerjs-fallback','no-ws-endpoint');return false}if(!w.WebSocket){emitDoc('peerjs-fallback','no-websocket');return false}if(!w.Peer){return false}installing=true;RealPeer=w.Peer;HybridPeer.__a360Hybrid=true;HybridPeer._real=RealPeer;HybridPeer.util=RealPeer.util;w.Peer=HybridPeer;installed=true;installing=false;emitDoc('ws-primary',endpoint());var a=waiters.slice(0),i;waiters=[];for(i=0;i<a.length;i++)try{a[i](true)}catch(e){}return true}
-function boot(){var b=w.APP360_PEER_BOOTSTRAP;if(b&&b.ready){b.ready(function(ok){if(ok)install();else emitDoc('peerjs-fallback','bootstrap-failed')});return}var n=0,t=setInterval(function(){n++;if(install()||n>240)clearInterval(t)},25)}
-w.APP360_FAMILY_HYBRID_TRANSPORT={__ready:true,version:VERSION,install:install,isInstalled:function(){return installed},endpoint:endpoint,setEndpoint:function(url){url=trim(url);if(url)set('app360:family:ws-endpoint',url);else set('app360:family:ws-endpoint',null);return url},required:required};
-boot();
+function HybridPeer(id,opts){if(familyId(id))return new WsPeer(id,opts);if(MediaPeer)return new MediaPeer(id,opts);throw new Error('App360 media PeerJS is still loading')}
+HybridPeer.__a360Hybrid=true;
+function install(){if(installed)return true;if(!endpoint()){emitDoc('peerjs-fallback','no-ws-endpoint');return false}if(!w.WebSocket){emitDoc('peerjs-fallback','no-websocket');return false}if(w.Peer&&!w.Peer.__a360Hybrid)MediaPeer=w.Peer;w.Peer=HybridPeer;installed=true;emitDoc('ws-primary',endpoint());return true}
+function setMediaPeer(ctor){if(ctor&&ctor!==HybridPeer&&!ctor.__a360Hybrid)MediaPeer=ctor;if(installed)w.Peer=HybridPeer;return !!MediaPeer}
+w.APP360_FAMILY_HYBRID_TRANSPORT={__ready:true,version:VERSION,install:install,isInstalled:function(){return installed},endpoint:endpoint,setEndpoint:function(url){url=trim(url);if(url)set('app360:family:ws-endpoint',url);else set('app360:family:ws-endpoint',null);return url},required:required,setMediaPeer:setMediaPeer,getMediaPeer:function(){return MediaPeer},getHybridPeer:function(){return HybridPeer}};
+install();
 })(window,document);
