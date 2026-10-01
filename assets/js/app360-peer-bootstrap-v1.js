@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_PEER_BOOTSTRAP&&w.APP360_PEER_BOOTSTRAP.__ready)return;
-var VERSION='1.1.0',ready=false,loading=false,failed=false,waiters=[],state='idle',attempt=0;
+var VERSION='1.1.1',ready=false,loading=false,failed=false,waiters=[],state='idle',attempt=0;
 var MAX_HOST_SLOTS=4;
 var CDN=[
  'https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js',
@@ -15,7 +15,7 @@ function isFamilyHostBase(id){return typeof id==='string'&&/^app360fam-[a-z0-9_-
 function hostCandidate(base,slot){return slot>0?base+'-s'+(slot+1):base}
 function wrapPeer(){var Real=w.Peer;if(!Real||Real.__a360Robust)return !!Real;
  function RobustPeer(id,opts){
-  var self=this;self._idArg=id;self._opts=opts||{};self._listeners={};self._inner=null;self._closed=false;self._opening=false;self._openTimer=0;self._retryTimer=0;self._tries=0;self._familyHostBase=isFamilyHostBase(id)?String(id):'';self._hostSlot=0;self._familyScans=0;self.id=undefined;self.destroyed=false;self.disconnected=false;
+  var self=this;self._idArg=id;self._opts=opts||{};self._listeners={};self._inner=null;self._closed=false;self._opening=false;self._openTimer=0;self._retryTimer=0;self._tries=0;self._familyHostBase=isFamilyHostBase(id)?String(id):'';self._hostSlot=0;self._familyScans=0;self._familyScanGraceUntil=0;self.id=undefined;self.destroyed=false;self.disconnected=false;
   self._start();
  }
  RobustPeer.prototype.on=function(ev,fn){if(!this._listeners[ev])this._listeners[ev]=[];this._listeners[ev].push(fn);return this};
@@ -31,11 +31,11 @@ function wrapPeer(){var Real=w.Peer;if(!Real||Real.__a360Robust)return !!Real;
   p.on('call',function(c){self._emit('call',c)});
   p.on('disconnected',function(){self.disconnected=true;emit('signal-disconnected');try{if(p.reconnect)p.reconnect()}catch(e){}self._emit('disconnected')});
   p.on('close',function(){self.destroyed=true;if(!self._closed&&self._opening){self._opening=false;self._schedule('closed-before-open');return}self._emit('close')});
-  p.on('error',function(err){if(self._closed)return;var type=err&&err.type||'';if(type==='peer-unavailable'&&self._familyScans>0){emit('signal-scan-miss');return}if(self._opening&&type==='unavailable-id'){self._opening=false;try{p.destroy()}catch(e0){}if(self._nextHostSlot())return}if(self._opening&&self._transient(err)&&self._tries<3){self._opening=false;try{p.destroy()}catch(e){}self._schedule(type||'network');return}self._opening=false;self._clearTimers();emit('signal-error',type);self._emit('error',err)});
+  p.on('error',function(err){if(self._closed)return;var type=err&&err.type||'';if(type==='peer-unavailable'&&(self._familyScans>0||(+new Date())<self._familyScanGraceUntil)){emit('signal-scan-miss');return}if(self._opening&&type==='unavailable-id'){self._opening=false;try{p.destroy()}catch(e0){}if(self._nextHostSlot())return}if(self._opening&&self._transient(err)&&self._tries<3){self._opening=false;try{p.destroy()}catch(e){}self._schedule(type||'network');return}self._opening=false;self._clearTimers();emit('signal-error',type);self._emit('error',err)});
   self._openTimer=setTimeout(function(){if(self._closed||!self._opening)return;self._opening=false;try{p.destroy()}catch(e){}if(self._familyHostBase&&self._nextHostSlot())return;if(self._tries<3)self._schedule('timeout');else{emit('signal-timeout');self._emit('error',{type:'connection-timeout',message:'PeerServer open timeout'})}},7000);
  };
  function DirectConnection(owner,id,opts){var c=owner._inner&&owner._inner.connect?owner._inner.connect(id,opts):null,t;if(!c)return c;t=setTimeout(function(){if(!c.open){try{c.close()}catch(e){}try{if(c.emit)c.emit('error',{type:'connection-timeout',message:'Data channel open timeout'})}catch(e2){}}},10000);try{c.on('open',function(){clearTimeout(t);emit('data-open')});c.on('close',function(){clearTimeout(t)})}catch(e3){}return c}
- function MultiConnection(owner,base,opts){var self=this;self.open=false;self.peer=base;self.metadata=opts&&opts.metadata||{};self._owner=owner;self._base=base;self._opts=opts||{};self._listeners={};self._all=[];self._chosen=null;self._closed=false;self._finished=0;self._timer=0;self._scanCounted=true;owner._familyScans++;emit('data-scanning',base);self._start()}
+ function MultiConnection(owner,base,opts){var self=this;self.open=false;self.peer=base;self.metadata=opts&&opts.metadata||{};self._owner=owner;self._base=base;self._opts=opts||{};self._listeners={};self._all=[];self._chosen=null;self._closed=false;self._finished=0;self._timer=0;self._scanCounted=true;owner._familyScans++;owner._familyScanGraceUntil=(+new Date())+8500;emit('data-scanning',base);self._start()}
  MultiConnection.prototype.on=function(ev,fn){if(!this._listeners[ev])this._listeners[ev]=[];this._listeners[ev].push(fn);if(ev==='open'&&this.open)setTimeout(fn,0);return this};
  MultiConnection.prototype._emit=function(ev,arg){var a=this._listeners[ev]||[],i;for(i=0;i<a.length;i++)try{a[i](arg)}catch(e){}};
  MultiConnection.prototype._scanDone=function(){if(this._scanCounted){this._scanCounted=false;if(this._owner&&this._owner._familyScans>0)this._owner._familyScans--}};
