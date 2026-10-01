@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#041e25">
+<title>تنظيف جلسة العائلة - App360</title>
+<style>
+html,body{margin:0;min-height:100%;background:#071e25;color:#fff;font-family:Tahoma,Arial,sans-serif}body{display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}.box{width:520px;max-width:100%;background:#fff;color:#17343a;border-radius:22px;padding:22px;box-sizing:border-box;text-align:center;box-shadow:0 16px 50px rgba(0,0,0,.35)}h1{font-size:22px;margin:0 0 12px}.status{background:#edf8f6;border:1px solid #b8ddd8;border-radius:14px;padding:14px;line-height:1.8;font-weight:bold}.small{font-size:12px;color:#607d8b;line-height:1.7;margin-top:12px}.ok{color:#08716c}
+</style>
+</head>
+<body>
+<div class="box"><h1>🧹 تنظيف جلسة Family 360</h1><div id="status" class="status">جارٍ حذف بيانات الجلسة والكاش القديم…</div><div class="small">لن يتم حذف اسم المستخدم أو تقدم التطبيقات أو بيانات الطفل.</div></div>
+<script>
+(function(w,d){
+'use strict';
+var done=false,status=d.getElementById('status');
+function setText(t,ok){if(status){status.innerHTML=t;if(ok)status.className='status ok'}}
+function removeFamilyStorage(store){var keys=[],i,k;try{for(i=0;i<store.length;i++){k=store.key(i);if(k&&(/^app360:family:/i.test(k)||/^app360:family$/i.test(k)))keys.push(k)}for(i=0;i<keys.length;i++)store.removeItem(keys[i]);store.removeItem('app360:family:v1')}catch(e){}}
+function cleanCaches(){try{if(!w.caches||!caches.keys)return Promise.resolve();return caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(/^app360-portal-/i.test(k))return caches.delete(k);return Promise.resolve(false)}))})}catch(e){return Promise.resolve()}}
+function unregisterWorkers(){try{if(!navigator.serviceWorker)return Promise.resolve();if(navigator.serviceWorker.getRegistrations)return navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){try{return r.unregister()}catch(e){return Promise.resolve(false)}}))});if(navigator.serviceWorker.getRegistration)return navigator.serviceWorker.getRegistration().then(function(r){return r?r.unregister():false})}catch(e){}return Promise.resolve()}
+function finish(){if(done)return;done=true;removeFamilyStorage(w.localStorage);removeFamilyStorage(w.sessionStorage);setText('✅ تم تنظيف Family 360. جارٍ فتح نسخة جديدة…',true);setTimeout(function(){var u='index.html?_familyfresh='+(+new Date());try{w.location.replace(u)}catch(e){w.location.href=u}},350)}
+try{removeFamilyStorage(w.localStorage);removeFamilyStorage(w.sessionStorage)}catch(e0){}
+var p1=cleanCaches(),p2=unregisterWorkers();
+try{Promise.all([p1,p2]).then(finish,function(){finish()})}catch(e1){finish()}
+setTimeout(finish,2200);
+})(window,document);
+</script>
+</body>
+</html>
