@@ -1,0 +1,12 @@
+{
+  "name": "@app360/family-relay",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Dedicated App360 Family control relay and static test server",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "test": "node --test test/relay.test.js"
+  }
+}
