@@ -43,3 +43,22 @@ test('keeps guest connection alive across host refresh grace', async (t)=>{
   H=await openWs(url); send(H.ws,{type:'peer-register',peerId:'app360fam-refresh'}); await H.next(m=>m.type==='peer-open'); await H.next(m=>m.type==='incoming'&&m.connectionId==='cr');
   const queued=await H.next(m=>m.type==='data'&&m.connectionId==='cr'); assert.deepEqual(queued.payload,{type:'heartbeat',after:'refresh'}); await G.next(m=>m.type==='conn-resumed'&&m.connectionId==='cr');
 });
+
+test('survives twelve consecutive host refresh handoffs', async (t)=>{
+  const {app,url}=await start(); t.after(()=>app.close());
+  let H=await openWs(url); const G=await openWs(url);
+  t.after(()=>{try{H.ws.close()}catch{};try{G.ws.close()}catch{}});
+  send(H.ws,{type:'peer-register',peerId:'app360fam-twelve'}); await H.next(m=>m.type==='peer-open');
+  send(G.ws,{type:'peer-register',peerId:'guest-12'}); await G.next(m=>m.type==='peer-open');
+  send(G.ws,{type:'connect',hostId:'app360fam-twelve',connectionId:'c12',metadata:{name:'child'}});
+  await H.next(m=>m.type==='incoming'&&m.connectionId==='c12'); await G.next(m=>m.type==='conn-open'&&m.connectionId==='c12');
+  for(let i=1;i<=12;i++){
+    const suspended=G.next(m=>m.type==='conn-suspended'&&m.connectionId==='c12');
+    H.ws.close(); await suspended;
+    H=await openWs(url); send(H.ws,{type:'peer-register',peerId:'app360fam-twelve'});
+    await H.next(m=>m.type==='peer-open'); await H.next(m=>m.type==='incoming'&&m.connectionId==='c12');
+    await G.next(m=>m.type==='conn-resumed'&&m.connectionId==='c12');
+    send(H.ws,{type:'data',connectionId:'c12',payload:{type:'cycle',i}});
+    assert.equal((await G.next(m=>m.type==='data'&&m.connectionId==='c12')).payload.i,i);
+  }
+});
