@@ -1,0 +1,22 @@
+(function(w,d){
+'use strict';
+if(w.APP360_FAMILY_PREVIEW&&w.APP360_FAMILY_PREVIEW.__ready)return;
+var VERSION='2.0.0',timer=0,tries=0;
+function trim(s){return String(s==null?'':s).replace(/^\s+|\s+$/g,'')}
+function legacy(){var u=(w.navigator&&w.navigator.userAgent)||'';return /Android 4\.|Version\/4\.|BigTAB|DMTAB/i.test(u)}
+function shell(){return w.APP360_FAMILY_SHELL||null}
+function frameDoc(sh){var f;try{f=sh&&sh.getFrame?sh.getFrame():null;return f&&f.contentDocument?f.contentDocument:null}catch(e){return null}}
+function active(sh){try{return sh&&sh.getActiveApp?sh.getActiveApp():null}catch(e){return null}}
+function summary(sh){try{return trim(sh&&sh.getStateSummary?sh.getStateSummary():'')}catch(e){return''}}
+function bestCanvas(doc){var ids=['gameCanvas','drawCanvas','boardCanvas','canvas','app360FamilyPreviewCanvas'],i,c,list,best=null,score=0,s;if(!doc)return null;for(i=0;i<ids.length;i++){c=doc.getElementById(ids[i]);if(c&&String(c.tagName||'').toLowerCase()==='canvas'&&(c.width||0)>40&&(c.height||0)>40)return c}list=doc.getElementsByTagName('canvas');for(i=0;i<list.length;i++){c=list[i];s=(c.width||0)*(c.height||0);if(s>score){score=s;best=c}}return best}
+function bestImage(doc){var ids=['itemImage','focusImg','mainImage','heroImage','currentImage','previewImage'],i,e,list,best=null,score=0,s;if(!doc)return null;for(i=0;i<ids.length;i++){e=doc.getElementById(ids[i]);if(e&&String(e.tagName||'').toLowerCase()==='img'&&(e.naturalWidth||e.width||0)>40)return e}list=doc.getElementsByTagName('img');for(i=0;i<list.length;i++){e=list[i];if(e.offsetWidth===0||e.offsetHeight===0)continue;s=(e.naturalWidth||e.width||0)*(e.naturalHeight||e.height||0);if(s>score){score=s;best=e}}return best}
+function textLines(doc,sh){var ids=['itemName','puzzleTitle','imageTitle','storyTitle','focusLabel','missionText','runTitle','statusText','progressText','pieceStatus','message'],a=[],i,e,v,s=summary(sh);if(s)a.push(s);if(doc)for(i=0;i<ids.length&&a.length<4;i++){e=doc.getElementById(ids[i]);v=e?trim(e.textContent||e.innerText||''):'';if(v&&v.length<100&&a.indexOf(v)<0)a.push(v)}return a}
+function fit(ctx,text,maxWidth){text=trim(text);if(!text)return'';while(text.length>4&&ctx.measureText(text).width>maxWidth)text=text.substr(0,text.length-2);return text+(text.length&&ctx.measureText(text).width>maxWidth?'…':'')}
+function encode(c){var q=legacy()?0.32:0.40,r='';try{r=c.toDataURL('image/jpeg',q)}catch(e){return''}if(r&&r.length<155000)return r;try{r=c.toDataURL('image/jpeg',.26)}catch(e2){return''}return r&&r.length<155000?r:''}
+function fallback(sh,doc,wid,hei,title){var c=d.createElement('canvas'),ctx,lines,i,y;c.width=wid;c.height=hei;ctx=c.getContext('2d');ctx.fillStyle='#f7fbfa';ctx.fillRect(0,0,wid,hei);ctx.fillStyle='#0f3e48';ctx.textAlign='right';ctx.font='bold '+(legacy()?16:19)+'px Tahoma,Arial';ctx.fillText(fit(ctx,title||'App360',wid-34),wid-17,38);ctx.fillStyle='#537078';ctx.font=(legacy()?12:14)+'px Tahoma,Arial';lines=textLines(doc,sh);y=73;for(i=0;i<lines.length&&i<4;i++){ctx.fillText(fit(ctx,lines[i],wid-34),wid-17,y);y+=31}ctx.strokeStyle='#d4e5e7';ctx.strokeRect(12,12,wid-24,hei-24);return encode(c)}
+function capture(){var sh=shell(),doc,a,c,ctx,src,img,wid=legacy()?280:420,hei=Math.round(wid*9/16),scale,ww,hh,r,title;if(!sh)return'';doc=frameDoc(sh);a=active(sh);title=a&&a.title||'App360';c=d.createElement('canvas');c.width=wid;c.height=hei;ctx=c.getContext('2d');ctx.fillStyle='#f7fbfa';ctx.fillRect(0,0,wid,hei);src=bestCanvas(doc);if(src){try{scale=Math.min(wid/src.width,hei/src.height);ww=src.width*scale;hh=src.height*scale;ctx.drawImage(src,(wid-ww)/2,(hei-hh)/2,ww,hh);r=encode(c);if(r)return r}catch(e){}}
+img=bestImage(doc);if(img){try{var iw=img.naturalWidth||img.width||1,ih=img.naturalHeight||img.height||1;scale=Math.min((wid-16)/iw,(hei-16)/ih);ww=iw*scale;hh=ih*scale;ctx.fillStyle='#fff';ctx.fillRect(0,0,wid,hei);ctx.drawImage(img,(wid-ww)/2,(hei-hh)/2,ww,hh);r=encode(c);if(r)return r}catch(e2){}}
+return fallback(sh,doc,wid,hei,title)}
+function install(){var sh=shell();if(!sh||!sh.__ready){tries++;if(tries<80)timer=setTimeout(install,120);return}if(sh.__a360PreviewV2)return;sh.capturePreview=capture;sh.__a360PreviewV2=true;w.APP360_FAMILY_PREVIEW={__ready:true,version:VERSION,capture:capture}}
+if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',install,false);else if(w.attachEvent)w.attachEvent('onload',install)}else install();
+})(window,document);
