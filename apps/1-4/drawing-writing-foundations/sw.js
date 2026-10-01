@@ -1,5 +1,5 @@
-var CACHE='app360-drawing-writing-v25-family';
-var SHELL=['./','./index.html','./manifest.json','./icon.svg','./icon-192.png','./icon-512.png','./sync-v10-extra.js','./ui-v11.js?v=19','./ui-v11-original.js?v=19','./audio-pcm-v18.js?v=18','./audio-v21.js?v=22','./version.json','./app.json','../../../assets/js/app360-ai-shell.js?v=2','../../../assets/js/app360-session-v1.js?v=1','../../../assets/js/app360-family-sync-v1.js?v=1','../../../assets/js/app360-family-catalog-v1.js?v=1','../../../data/catalog.json'];
+var CACHE='app360-drawing-writing-v26-family-stable';
+var SHELL=['./','./index.html','./manifest.json','./icon.svg','./icon-192.png','./icon-512.png','./sync-v10-extra.js','./ui-v11.js?v=19','./ui-v11-original.js?v=19','./audio-pcm-v18.js?v=18','./audio-v21.js?v=22','./version.json','./app.json','../../../assets/js/app360-ai-shell.js?v=2','../../../assets/js/app360-session-v1.js?v=1','../../../assets/js/app360-family-sync-v1.js?v=13','../../../assets/js/app360-family-catalog-v1.js?v=8','../../../data/catalog.json'];
 self.addEventListener('install',function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}));
   if(self.skipWaiting)self.skipWaiting();
