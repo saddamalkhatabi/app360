@@ -1,4 +1,4 @@
-var CACHE='app360-template-v2-family-school-v98';
+var CACHE='app360-template-v2-family-school-v99';
 var SHELL=['../../../assets/brand/family-school-360-icon-192.png?v=98','../../../assets/brand/family-school-360-logo.png?v=98','./','./index.html','./manifest.webmanifest','./icon.svg','./app.json','../../../assets/js/app360-ai-shell.js?v=2&brand=98','../../../assets/js/ai-content-studio.js?v=2&brand=98','../../../assets/js/app-pwa.js?v=2'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});

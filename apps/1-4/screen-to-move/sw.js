@@ -1,5 +1,5 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v18-family-school-v98';
+var CACHE='app360-app-screen-to-move-v18-family-school-v99';
 var PREVIOUS='app360-app-screen-to-move-v17';
 var CORE=['../../../assets/brand/family-school-360-icon-192.png?v=98','../../../assets/brand/family-school-360-logo.png?v=98',
  './','./index.html','./index.html?v=18','./styles.css?v=18','./v8.css?v=18','./v9.css?v=18','./v10.css?v=18','./v13.css?v=18','./v14.css?v=18','./v15.css?v=18','./v16.css?v=18','./v17.css?v=18','./v18.css?v=18',

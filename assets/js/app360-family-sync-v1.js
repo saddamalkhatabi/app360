@@ -7,7 +7,7 @@ function installProxy(){var pa=parentApi();if(!pa||!pa.__ready)return false;w.AP
 if(w.parent!==w){if(installProxy())return;var n=0,pt=setInterval(function(){n++;if(installProxy()||n>160)clearInterval(pt)},50);return}
 function root(){var p=(w.location&&w.location.pathname)||'/',i=p.indexOf('/apps/');if(i>=0)return p.substring(0,i+1);i=p.lastIndexOf('/');return i>=0?p.substring(0,i+1):'/'}
 var base=w.location.protocol+'//'+w.location.host+root(),h=d.head||d.getElementsByTagName('head')[0]||d.body,started=false;
-function core(){if(started)return;started=true;if(w.APP360_FAMILY_SYNC&&w.APP360_FAMILY_SYNC.__ready)return;var s=d.createElement('script');s.src=base+'assets/js/app360-family-core-v2.js?v=98&brand=98';s.async=false;h.appendChild(s)}
+function core(){if(started)return;started=true;if(w.APP360_FAMILY_SYNC&&w.APP360_FAMILY_SYNC.__ready)return;var s=d.createElement('script');s.src=base+'assets/js/app360-family-core-v2.js?v=99&brand=98';s.async=false;h.appendChild(s)}
 function wsPrimary(){var x=w.APP360_FAMILY_HYBRID_TRANSPORT;try{return !!(x&&x.isInstalled&&x.isInstalled())}catch(e){return false}}
 function afterBootstrap(){if(wsPrimary()){core();return}var b=w.APP360_PEER_BOOTSTRAP;if(b&&b.ready){b.ready(function(ok){if(ok)core()});setTimeout(core,11500)}else core()}
 if(wsPrimary()){core();return}

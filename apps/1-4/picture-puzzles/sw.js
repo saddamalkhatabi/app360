@@ -1,4 +1,4 @@
-var CACHE='app360-a1-picture-puzzles-v4-family-school-v98';
+var CACHE='app360-a1-picture-puzzles-v4-family-school-v99';
 var CORE=['../../../assets/brand/family-school-360-icon-192.png?v=98','../../../assets/brand/family-school-360-logo.png?v=98','./','./index.html?v=4','./styles.css?v=4','./audio-v2.css?v=4','./v3.css?v=4','./legacy-overlays-v4.js?v=4','./app-v3.js?v=4','./audio-v3.js?v=4','./icon.svg?v=4','./manifest.webmanifest?v=4','../say-and-name/data/word-images-context-map.js?v=24','../say-and-name/data/translations-en.js?v=24','../say-and-name/data/audio-map.js?v=24','../say-and-name/data/audio-map-en.js?v=24','../../../resources/early-child-name-audio/audio/registry.json?v=21'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(CORE)}).then(function(){return self.skipWaiting()}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-a1-picture-puzzles-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
