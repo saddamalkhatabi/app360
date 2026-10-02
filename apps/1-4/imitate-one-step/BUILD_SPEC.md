@@ -89,6 +89,6 @@ Runtime: `static-web` · Depth: `standard` · Offline المستهدف: `offline
 
 ## أساس الفكرة والمراجع
 
-تصميم مقترح للمختبر يستأنس بالنمط الموثق في المراجع؛ ليس نسخًا للتطبيق المرجعي أو ادعاءً بفعالية نسختنا قبل اختبارها.
+تصميم مقترح للمدرسة يستأنس بالنمط الموثق في المراجع؛ ليس نسخًا للتطبيق المرجعي أو ادعاءً بفعالية نسختنا قبل اختبارها.
 
 - [Harvard — Serve and Return](https://developingchild.harvard.edu/key-concept/serve-and-return/)

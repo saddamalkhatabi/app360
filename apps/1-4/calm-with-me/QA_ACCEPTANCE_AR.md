@@ -79,7 +79,7 @@
 
 ## تحقق آلي — Build v6
 
-GitHub Actions: **Validate App 360 Lab — Run 495 — PASSED**.
+GitHub Actions: **Validate Family School 360 — Run 495 — PASSED**.
 
 - [x] تثبيت Workspace بالـ lockfile المشترك.
 - [x] `validate-platform.js`.

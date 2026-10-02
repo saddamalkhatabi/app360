@@ -68,16 +68,16 @@ fs.writeFileSync(appPath, JSON.stringify(app, null, 2) + '\n');
 const pkgPath = path.join(target, 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
 pkg.name = `@app360/app-${slug}`;
-pkg.description = `${title} - App 360 Lab`;
+pkg.description = `${title} - Family School 360`;
 pkg.app360.appId = app.id;
 pkg.app360.ageGroup = age;
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
 
 const manifestPath = path.join(target, 'manifest.webmanifest');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-manifest.name = `${title} - مختبر التطبيق 360`;
+manifest.name = `${title} - مدرسة العائلة 360`;
 manifest.short_name = title.length > 22 ? title.slice(0, 22) : title;
-manifest.description = `${title}: تطبيق عملي من مختبر التطبيق 360 لنظام الريلز الآمن 360.`;
+manifest.description = `${title}: تطبيق عملي من مدرسة العائلة 360 لمدرسة العائلة 360.`;
 manifest.theme_color = primary;
 manifest.icons = [
   {src:'icon-192.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},
@@ -88,12 +88,12 @@ fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
 
 const indexPath = path.join(target, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
-html = html.replace(/<title>[^<]*<\/title>/, `<title>${title} | مختبر التطبيق 360</title>`);
+html = html.replace(/<title>[^<]*<\/title>/, `<title>${title} | مدرسة العائلة 360</title>`);
 html = html.replace(/<h1>اسم التطبيق<\/h1>/, `<h1>${title}</h1>`);
-html = html.replace('مختبر التطبيق 360 · الفئة العمرية', `مختبر التطبيق 360 · ${age}`);
+html = html.replace('مدرسة العائلة 360 · الفئة العمرية', `مدرسة العائلة 360 · ${age}`);
 html = html.replace(/<meta name="theme-color" content="[^"]+">/, `<meta name="theme-color" content="${primary}">`);
 html = html.replace(/\.head\{background:#0f8f8a/, `.head{background:${primary}`);
-if (!html.includes('app360-ai-shell.js')) html = html.replace('</body>', '<script src="../../../assets/js/app360-ai-shell.js?v=2"></script>\n</body>');
+if (!html.includes('app360-ai-shell.js')) html = html.replace('</body>', '<script src="../../../assets/js/app360-ai-shell.js?v=2&brand=96"></script>\n</body>');
 fs.writeFileSync(indexPath, html);
 
 const iconPath = path.join(target, 'icon.svg');

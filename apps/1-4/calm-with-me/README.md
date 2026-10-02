@@ -134,7 +134,7 @@ Service Worker الحالي:
 
 ## التحقق الآلي
 
-Build v6 اجتاز **Validate App 360 Lab — Run 495** ويشمل:
+Build v6 اجتاز **Validate Family School 360 — Run 495** ويشمل:
 
 - Workspace lockfile.
 - بنية المنصة والكتالوج وBlueprint freshness.

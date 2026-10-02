@@ -103,7 +103,7 @@ function finishSession(){
   $('finishSummary').textContent='تم تسجيل '+session.attempts.length+' موقف من أصل '+session.task_ids.length+' صور مختارة. الإشارة والمحاولة والكلمة كلها تُحفظ كملاحظات وصفية فقط.';
   var counts={pointed:0,imitated:0,said:0,used:0,'not-yet':0};session.attempts.forEach(function(a){counts[a.artifact.response_type]=(counts[a.artifact.response_type]||0)+1});
   var parts=[];Object.keys(counts).forEach(function(k){if(counts[k])parts.push('<div class="stat"><b>'+counts[k]+'</b><span>'+RESPONSE_LABELS[k]+'</span></div>')});$('finishStats').innerHTML=parts.join('')||'<div class="stat"><b>0</b><span>مواقف مسجلة</span></div>';
-  session=null;document.title='كلماتي مع أشيائي | مختبر التطبيق 360';playCue('saved');persistSessions();window.scrollTo(0,0);
+  session=null;document.title='كلماتي مع أشيائي | مدرسة العائلة 360';playCue('saved');persistSessions();window.scrollTo(0,0);
 }
 function cancelSession(){
   if(session&&session.attempts.length&&!confirm('لديك مواقف في الجولة الحالية لم تُضف إلى السجل بعد. هل تريد العودة للاختيار؟'))return;

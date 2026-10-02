@@ -8,8 +8,8 @@ ROOT = Path(__file__).resolve().parents[4]
 APP = Path(__file__).resolve().parents[1]
 MAP = APP / 'data' / 'word-images-map.js'
 IMG_DIR = APP / 'assets' / 'word-images'
-BRAND_WEBP = ROOT / 'assets' / 'brand' / 'app360-lab-logo.webp'
-BRAND_PNG = ROOT / 'assets' / 'brand' / 'app360-lab-logo.png'
+BRAND_WEBP = ROOT / 'assets' / 'brand' / 'family-school-360-logo.webp'
+BRAND_PNG = ROOT / 'assets' / 'brand' / 'family-school-360-logo.png'
 ROOT_INDEX = ROOT / 'index.html'
 
 
@@ -70,8 +70,8 @@ def convert_brand():
         BRAND_PNG.parent.mkdir(parents=True, exist_ok=True)
         rgba.save(BRAND_PNG, format='PNG', optimize=True)
     text = ROOT_INDEX.read_text(encoding='utf-8')
-    text = text.replace('assets/brand/app360-lab-logo.webp?v=20', 'assets/brand/app360-lab-logo.png?v=20')
-    text = text.replace('data-legacy-src="assets/brand/app360-lab-icon-512.png?v=20"', 'data-legacy-src="assets/brand/app360-lab-logo.png?v=20"')
+    text = text.replace('assets/brand/family-school-360-logo.webp?v=20', 'assets/brand/family-school-360-logo.png?v=20')
+    text = text.replace('data-legacy-src="assets/brand/family-school-360-icon-512.png?v=20"', 'data-legacy-src="assets/brand/family-school-360-logo.png?v=20"')
     ROOT_INDEX.write_text(text, encoding='utf-8')
     return True
 

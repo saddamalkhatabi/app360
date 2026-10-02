@@ -159,11 +159,11 @@ for (const rel of ['package.json','pnpm-workspace.yaml','pnpm-lock.yaml','packag
 for (const rel of [
   'manifest.webmanifest',
   'sw.js',
-  'assets/brand/app360-lab-logo.webp',
-  'assets/brand/app360-lab-icon-180.png',
-  'assets/brand/app360-lab-icon-192.png',
-  'assets/brand/app360-lab-icon-512.png',
-  'assets/brand/app360-lab-icon-32.png',
+  'assets/brand/family-school-360-logo.webp',
+  'assets/brand/family-school-360-icon-180.png',
+  'assets/brand/family-school-360-icon-192.png',
+  'assets/brand/family-school-360-icon-512.png',
+  'assets/brand/family-school-360-icon-32.png',
   'assets/js/pwa-install.js'
 ]) if (!exists(rel)) fail(`missing portal PWA/brand asset: ${rel}`);
 ok('portal PWA/brand checks use the current WebP logo and PNG icons referenced by index.html');
@@ -215,7 +215,7 @@ for (const app of apps) counts[app.age_group] = (counts[app.age_group] || 0) + 1
 for (const age of AGE_GROUPS) console.log('AGE', age, 'apps:', counts[age] || 0, 'goals:', (goals.age_groups[age] || []).length);
 
 if (failed) {
-  console.error('\nApp 360 Lab validation FAILED');
+  console.error('\nFamily School 360 validation FAILED');
   process.exit(1);
 }
-console.log('\nApp 360 Lab validation PASSED');
+console.log('\nFamily School 360 validation PASSED');

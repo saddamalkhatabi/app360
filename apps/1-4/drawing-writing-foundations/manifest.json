@@ -1,21 +1,42 @@
 {
   "id": "./",
-  "name": "لوحة الطفل - الرسم والكتابة المبكرة",
+  "name": "لوحة الطفل - الرسم والكتابة المبكرة | مدرسة العائلة 360",
   "short_name": "لوحة الطفل",
-  "description": "تطبيق عملي لتعلم مسك القلم وتتبع الخطوط والأشكال والحروف والأرقام والرسم الحر ضمن مختبر التطبيق 360.",
+  "description": "تطبيق عملي لتعلم مسك القلم وتتبع الخطوط والأشكال والحروف والأرقام والرسم الحر ضمن مدرسة العائلة 360.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "background_color": "#ffffff",
   "theme_color": "#0f8f8a",
   "orientation": "any",
   "lang": "ar",
   "dir": "rtl",
-  "categories": ["education", "kids"],
+  "categories": [
+    "education",
+    "kids"
+  ],
   "icons": [
-    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }

@@ -43,6 +43,8 @@ for (const group of catalog.age_groups) {
   index.push(`## الفئة ${group.id}\n`, '| التطبيق | الناتج العملي | الحالة | البدء |\n|---|---|---|---|');
   for (const a of catalog.apps.filter(a => a.age_group === group.id).sort((a,b) => a.priority-b.priority)) {
     const b = a.blueprint, base = `apps/${a.age_group}/${a.slug}`;
+    // Runtime-only additions have their own app contract and no generated blueprint.
+    if (!b) continue;
     const live = a.status === 'live';
     const goalText = a.goal_links.map(l => {
       const g = goalMap.get(l.goal_key);
@@ -52,7 +54,7 @@ for (const group of catalog.age_groups) {
     }).join('\n');
     const referenceText = b.reference_ids.length ? bullet(b.reference_ids.map(id => {
       const r = refs.get(id); return `[${r.title}](${r.url})`;
-    })) : 'تصميم خاص بالمختبر؛ لا تنسب له تجربة منشورة لم تجرَ.';
+    })) : 'تصميم خاص بالمدرسة؛ لا تنسب له تجربة منشورة لم تجرَ.';
     const spec = header + `# ${a.title_ar}\n\n` +
       `- الفئة: ${a.age_group}\n- الهوية الثابتة: \`${a.id}\`\n- المسار الوحيد: \`${base}/\`\n- الحالة: ${live ? 'يعمل الآن؛ حافظ على التنفيذ الحالي' : 'مخطط للبناء؛ لا يوجد تطبيق تشغيلي بعد'}\n- أولوية البناء داخل الفئة: ${a.priority}\n\n` +
       `## الحاجة والناتج\n\n${a.description_ar}\n\n**الناتج:** ${b.output_ar}\n\n**المستخدم:** ${b.audience_ar}\n\n` +

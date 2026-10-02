@@ -2,9 +2,11 @@
   "name": "app360-monorepo",
   "private": true,
   "version": "0.2.0",
-  "description": "مختبر التطبيق 360 - practical learning applications monorepo for Safe Reels 360",
+  "description": "مدرسة العائلة 360 — independent family learning applications",
   "packageManager": "pnpm@10.15.1",
-  "engines": {"node": ">=20"},
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "validate": "node tooling/validate-platform-active.js && node tooling/build-blueprints-active.js --check && node tooling/validate-app-links.js && node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js && node tooling/validate-shared-app-shell.js && node tooling/test-legacy-touch-guard.js && node tooling/validate-next-app-requirements.js && node tooling/validate-session-data.js && node tooling/validate-usage-dashboard.js",
     "validate:links": "node tooling/validate-app-links.js",
@@ -21,6 +23,7 @@
     "workspaces:list": "pnpm -r list --depth -1",
     "new:app": "node tooling/scaffold-app.js",
     "inspect:app": "node tooling/inspect-app.js",
-    "clean:workspace": "node tooling/clean-workspace.js"
+    "clean:workspace": "node tooling/clean-workspace.js",
+    "validate:brand": "node tooling/validate-family-school-brand.js"
   }
 }

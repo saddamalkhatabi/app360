@@ -54,7 +54,7 @@ jobs:
           assert all(str(v).lower().endswith('.jpg') for v in data.values())
           missing=[v for v in data.values() if not (root/'assets/word-images'/v).exists()]
           assert not missing, missing[:10]
-          assert Path('assets/brand/app360-lab-logo.png').exists()
+          assert Path('assets/brand/family-school-360-logo.png').exists()
           for rel in ['data/audio-map.js','data/audio-sense-map.js']:
               raw=(root/rel).read_bytes()
               assert all(b < 128 for b in raw), rel+' is not ASCII-only'
@@ -70,7 +70,7 @@ jobs:
                      apps/1-4/say-and-name/data/word-images-map.js \
                      apps/1-4/say-and-name/data/audio-map.js \
                      apps/1-4/say-and-name/data/audio-sense-map.js \
-                     assets/brand/app360-lab-logo.png \
+                     assets/brand/family-school-360-logo.png \
                      index.html
           if git diff --cached --quiet; then
             echo "No compatibility changes to commit."

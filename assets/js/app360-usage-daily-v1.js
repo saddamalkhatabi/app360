@@ -15,7 +15,7 @@ function get(k){try{return w.localStorage.getItem(k)||''}catch(e){return''}}
 function set(k,v){try{w.localStorage.setItem(k,v);return true}catch(e){return false}}
 function today(){return new Date().toISOString().slice(0,10)}
 function now(){return new Date().toISOString()}
-function app(){var p=(w.location&&w.location.pathname)||'',m=/\/apps\/([^/]+)\/([^/]+)\//.exec(p),age=m&&m[1]||'',slug=m&&m[2]||'',x=MAP[slug]||{id:'app-'+slug,title:(d.title||slug||'App360').split('|')[0]};return{age_group:age,slug:slug,id:x.id,title:x.title}}
+function app(){var p=(w.location&&w.location.pathname)||'',m=/\/apps\/([^/]+)\/([^/]+)\//.exec(p),age=m&&m[1]||'',slug=m&&m[2]||'',x=MAP[slug]||{id:'app-'+slug,title:(d.title||slug||'مدرسة العائلة 360').split('|')[0]};return{age_group:age,slug:slug,id:x.id,title:x.title}}
 function profile(){try{if(w.APP360_SESSION&&w.APP360_SESSION.getProfile)return w.APP360_SESSION.getProfile()}catch(e){}try{return parse(w.sessionStorage.getItem('app360:auth-profile:v1')||'')}catch(e){return null}}
 function scopeKey(){var p=profile();return p&&p.user_id?'user:'+p.user_id:'guest'}
 function load(){var x=parse(get(KEY));if(!x||typeof x!=='object')x={};if(!x.scopes)x.scopes={};x.schema_version='1.0';return x}

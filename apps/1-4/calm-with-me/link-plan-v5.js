@@ -6,8 +6,7 @@ var DEFAULTS=[
 {id:'words',icon:'🗣️',title:'كلماتي مع أشيائي: اسمع وأشر وسمِّ',url:'apps/1-4/say-and-name/index.html',seconds:90,kind:'internal'},
 {id:'imitate',icon:'👏',title:'دوري ودورك: قلّد حركة واحدة',url:'apps/1-4/imitate-one-step/index.html',seconds:90,kind:'internal'},
 {id:'screen-move',icon:'🧩',title:'ألعاب إبداعية عبر الشاشة — أو بدون الشاشة',url:'apps/1-4/screen-to-move/index.html',seconds:120,kind:'internal'},
-{id:'drawing',icon:'✏️',title:'لوحة الطفل للرسم والكتابة المبكرة',url:'apps/1-4/drawing-writing-foundations/index.html?v=23',seconds:120,kind:'internal'},
-{id:'safe-reels',icon:'▶️',title:'الريلز الآمن 360',url:'https://yem1.com',seconds:120,kind:'external'}
+{id:'drawing',icon:'✏️',title:'لوحة الطفل للرسم والكتابة المبكرة',url:'apps/1-4/drawing-writing-foundations/index.html?v=23',seconds:120,kind:'internal'}
 ];
 var state=null;
 var run=null;

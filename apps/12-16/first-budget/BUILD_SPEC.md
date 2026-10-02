@@ -75,6 +75,6 @@ Runtime: `static-web` · Depth: `standard` · Offline المستهدف: `offline
 
 ## أساس الفكرة والمراجع
 
-تصميم مقترح للمختبر يستأنس بالنمط الموثق في المراجع؛ ليس نسخًا للتطبيق المرجعي أو ادعاءً بفعالية نسختنا قبل اختبارها.
+تصميم مقترح للمدرسة يستأنس بالنمط الموثق في المراجع؛ ليس نسخًا للتطبيق المرجعي أو ادعاءً بفعالية نسختنا قبل اختبارها.
 
 - [CFPB — Financial education activities](https://www.consumerfinance.gov/consumer-tools/educator-tools/youth-financial-education/teach/activities/)
