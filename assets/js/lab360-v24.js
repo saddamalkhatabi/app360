@@ -24,7 +24,7 @@ function statusAr(s){return s==='live'?'يعمل الآن':s==='planned'?'مخط
 function kindAr(k){return k==='goal_aligned'?'مرتبط بالأهداف':k==='modern_extension'?'إضافة عصرية':'هجين ومعزز'}
 function joinText(a){return a&&a.join?a.join(' '):''}
 function contains(a,v){var i;if(!a)return false;for(i=0;i<a.length;i++)if(a[i]===v)return true;return false}
-function applyPortalBrand(){var bm=d.querySelector?d.querySelector('.brand-mark'):null;if(bm)bm.innerHTML='<img src="'+esc(rootPath('assets/brand/family-school-360-icon-192.png?v=24'))+'" alt="">'}
+function applyPortalBrand(){var bm=d.querySelector?d.querySelector('.brand-mark'):null;if(bm)bm.innerHTML='<img src="'+esc(rootPath('assets/brand/family-school-360-icon-192.png?v=96'))+'" alt="">'}
 var catalog=null,goals=null,activeStatus='all',page=attr('data-page','home'),age=attr('data-age','');
 function applyLiveOverrides(o){var rows=o&&o.apps||[],apps=catalog&&catalog.apps||[],i,j,a,r,links,k;if(!rows.length||!apps.length)return;for(i=0;i<rows.length;i++){r=rows[i];for(j=0;j<apps.length;j++){a=apps[j];if(a.id!==r.id)continue;if(r.status)a.status=r.status;if(r.href)a.href=r.href;if(r.capabilities&&r.capabilities.join)a.capabilities=r.capabilities.slice(0);if(r.goal_delivery){links=a.goal_links||[];for(k=0;k<links.length;k++)links[k].delivery=r.goal_delivery}break}}}
 function findGoal(key){var groups=goals&&goals.age_groups||{},g,i,j;for(i in groups){if(!Object.prototype.hasOwnProperty.call(groups,i))continue;g=groups[i];for(j=0;j<g.length;j++)if(g[j].key===key)return g[j]}return null}
@@ -54,7 +54,7 @@ function bindSearch(){var s=byId('appSearch');if(s){s.oninput=renderApps;s.onkey
 function renderStats(){if(!catalog)return;var apps=catalog.apps||[],live=0,planned=0,idea=0,i;for(i=0;i<apps.length;i++){if(apps[i].status==='live')live++;else if(apps[i].status==='planned')planned++;else idea++}var a=byId('totalApps'),b=byId('liveApps'),c=byId('plannedApps');if(a)a.innerHTML=apps.length;if(b)b.innerHTML=live;if(c)c.innerHTML=planned+idea}
 function renderAll(){if(page==='home'){renderAges();renderStats()}else{renderAgeHeader();renderGoals()}statusFilters();bindSearch();renderApps()}
 function showCatalogError(){var a=byId('ageGrid'),x=byId('appGrid');if(a)a.innerHTML='<div class="empty">تعذر تحميل الفئات العمرية الآن. أعد المحاولة من زر التحديث.</div>';if(x)x.innerHTML='<div class="empty">تعذر تحميل فهرس التطبيقات الآن. أعد المحاولة من زر التحديث.</div>'}
-function rawCatalogFallback(cb){var u='https://raw.githubusercontent.com/saddamalkhatabi/app360/main/data/catalog.json';loadJson(u,cb)}
+function rawCatalogFallback(cb){var m=/\/saddamalkhatabi\/app360\/([^/]+)\//.exec((window.location&&window.location.pathname)||''),ref=m?m[1]:'main',u='https://raw.githubusercontent.com/saddamalkhatabi/app360/'+encodeURIComponent(ref)+'/data/catalog.json';loadJson(u,cb)}
 function init(){
   applyPortalBrand();
   var cu=attr('data-catalog',rootPath('data/catalog.json'));
