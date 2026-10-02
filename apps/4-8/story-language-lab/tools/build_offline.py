@@ -19,6 +19,8 @@ for scene in data['scenes'].values():
   if scene.get(name):core.append(scene[name])
 for word in data['words'].values():
  if word.get('image'):core.append(word['image'])
+core += ['../../../assets/js/app360-read-along-v1.js?v=1','../../../assets/css/app360-read-along-v1.css?v=1']
+core += [str(p.relative_to(ROOT))+'?v='+version for p in sorted((ROOT/'data/read-along').glob('*.json'))]
 core=list(dict.fromkeys(core+[x['path'] for x in manifest['items']]))
 source=source[:match.start(1)]+json.dumps(core,separators=(',',':'))+source[match.end(1):]
 source=re.sub(r'a4-story-language-preview-\d+','a4-story-language-preview-'+version,source)

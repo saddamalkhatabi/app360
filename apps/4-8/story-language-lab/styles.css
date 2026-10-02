@@ -14,3 +14,14 @@ html.app360-legacy .levels .track>span,html.app360-legacy .order-bank>button,htm
 
 .journey-actions{flex-wrap:wrap}.story-restart{background:#fff1d4;border-color:#d9c393;font-size:15px}.book-return{justify-content:center;margin:24px 0}.word-scene{width:180px;max-width:100%;margin:0 auto 16px}.word-scene .scene{border-radius:18px}
 @media(max-width:540px){.journey-actions .story-restart{flex-basis:100%;order:3}.book-return .story-restart{width:100%}}
+
+/* Always-visible text; full Arabic words keep their shaping and vowel marks. */
+.reading-sentence{font-size:clamp(1.35rem,2.8vw,1.85rem);font-size:1.55rem;line-height:2.05;padding:16px 20px;background:#fffaf0;border:2px solid #e5d9b8;border-radius:16px;color:#183f35;margin:16px 0;overflow-wrap:break-word}
+.reading-question{line-height:2!important;font-size:1.4rem!important}
+.word-reference{font-size:2rem;line-height:1.9;color:#174a3d;margin:10px 0}
+.picture-caption{display:block;font-size:1rem;line-height:1.9;margin:10px 4px;white-space:normal}
+.order-slot.filled{height:auto;min-height:140px;display:block}
+.order-slot .picture-caption{font-size:.95rem}
+.sentence-reference{text-align:center}
+.original-narration{font-size:1.1rem;line-height:2;color:#45675b}
+@media(max-width:600px){.reading-sentence{font-size:1.25rem;padding:12px 14px;line-height:2}.reading-question{font-size:1.2rem!important}.picture-caption{font-size:.9rem}}

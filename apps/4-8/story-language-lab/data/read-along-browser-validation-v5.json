@@ -1,0 +1,102 @@
+{
+  "version": 5,
+  "tests": [
+    "Picture text is mandatory and real Arabic scene narration follows its words",
+    "The question highlights the correctly vocalised name Umar",
+    "Titles and spoken instructions have synchronized visible text",
+    "Joined Arabic words, isolated sound tiles and their phrase all track audio",
+    "Continuous Arabic sentence tracks both its reference and placed word positions",
+    "Advanced English sentence keeps correct direction and highlights all five words",
+    "Picture endings track speech, then restart clears the previous cue without erasing work",
+    "Editing a saved caption never highlights it against original scene narration",
+    "HTMLAudio fallback uses real MP3 playback position for the same Arabic highlights"
+  ],
+  "passed": 9,
+  "observations": [
+    {
+      "clip": "audio/ar-ball-0.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "samples": 57
+    },
+    {
+      "clip": "audio/ar-ball-title.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2
+      ],
+      "samples": 24
+    },
+    {
+      "clip": "audio/ar-door-word.mp3",
+      "wordsSeen": [
+        0
+      ],
+      "samples": 9
+    },
+    {
+      "clip": "audio/ar-door-phrase.mp3",
+      "wordsSeen": [
+        0,
+        1
+      ],
+      "samples": 17
+    },
+    {
+      "clip": "audio/ar-ball-sentence-practice.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2
+      ],
+      "samples": 26
+    },
+    {
+      "clip": "audio/en-v4-cabb3b378ddb8501.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "samples": 32
+    },
+    {
+      "clip": "audio/en-v4-9ff846b1ce92db43.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "samples": 36
+    },
+    {
+      "clip": "audio/ar-ball-question.mp3",
+      "wordsSeen": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "samples": 38
+    }
+  ],
+  "mandatoryText": true,
+  "realClock": true,
+  "htmlAudioFallback": true,
+  "editedCaptionProtected": true,
+  "cueBytes": 207181,
+  "errors": []
+}
