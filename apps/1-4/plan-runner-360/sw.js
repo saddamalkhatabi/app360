@@ -1,7 +1,7 @@
-var CACHE='app360-plan-runner-360-v6-family-inline-family-school-v96';
-var SHELL=['../../../assets/brand/family-school-360-icon-192.png?v=96','../../../assets/brand/family-school-360-logo.png?v=96',
-  './','./index.html?v=3','./styles.css?v=3','./responsive-session-v2.css?v=3','./presets-merge-v3.js?v=3','./presets-merge-v3-original.js?v=3','./app.js?v=3&brand=96','./responsive-session-v3.js?v=3','./real-play.html?v=2','./data/presets.json','./manifest.webmanifest?v=3','./icon.svg?v=3','./app.json',
-  '../../../assets/css/legacy-compat.css?v=24','../../../assets/js/legacy-compat.js?v=24','../../../assets/js/app-pwa.js?v=3','../../../assets/js/app360-ai-shell.js?v=2&brand=96','../../../assets/js/app360-session-v1.js?v=1&brand=96','../../../assets/js/app360-family-sync-v1.js?v=1','../../../assets/js/app360-family-catalog-v1.js?v=2&brand=96','../../../assets/js/app360-family-ui-v2.js?v=2',
+var CACHE='app360-plan-runner-360-v6-family-inline-family-school-v97';
+var SHELL=['../../../assets/brand/family-school-360-icon-192.png?v=97','../../../assets/brand/family-school-360-logo.png?v=97',
+  './','./index.html?v=3','./styles.css?v=3','./responsive-session-v2.css?v=3','./presets-merge-v3.js?v=3','./presets-merge-v3-original.js?v=3','./app.js?v=3&brand=97','./responsive-session-v3.js?v=3','./real-play.html?v=2','./data/presets.json','./manifest.webmanifest?v=3','./icon.svg?v=3','./app.json',
+  '../../../assets/css/legacy-compat.css?v=24','../../../assets/js/legacy-compat.js?v=24','../../../assets/js/app-pwa.js?v=3','../../../assets/js/app360-ai-shell.js?v=2&brand=97','../../../assets/js/app360-session-v1.js?v=97&brand=97','../../../assets/js/app360-family-sync-v1.js?v=97','../../../assets/js/app360-family-catalog-v1.js?v=97&brand=97','../../../assets/js/app360-family-ui-v2.js?v=97',
   '../../../data/app-links-registry.json','../../../data/catalog.json',
   '../say-and-name/links.json','../imitate-one-step/links.json','../screen-to-move/links.json','../drawing-writing-foundations/links.json','../calm-with-me/links.json','../sensory-motion-missions/links.json','../my-little-routine/links.json','../tangram-builder/links.json','../picture-puzzles/links.json'
 ];
