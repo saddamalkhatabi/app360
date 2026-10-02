@@ -59,6 +59,24 @@ test('ages are required, remembered per profile and isolated by account identity
 test('age selection remains usable when local storage is unavailable', () => {
   const r=runtime(true);r.load('app360-family-core-v2.js');const api=r.window.APP360_FAMILY_SYNC;api.setName('نور');assert.equal(api.setAgeGroup('4-8'),true);assert.equal(api.getAgeGroup(),'4-8');
 });
+test('reading focus is enabled by default and local choices are isolated by profile and account', () => {
+  const r=runtime();r.load('app360-family-core-v2.js');const api=r.window.APP360_FAMILY_SYNC;
+  assert.equal(api.getReadingFocus(),true);api.setName('نور');assert.equal(api.setReadingFocus(false),true);assert.equal(api.getReadingFocus(),false);
+  assert.equal(api.getReadingFocusState().scope,'local');assert.equal(api.getReadingFocusState().canManage,true);
+  api.setName('سارة');assert.equal(api.getReadingFocus(),true);api.setName('نور');assert.equal(api.getReadingFocus(),false);
+  r.window.sessionStorage.setItem('app360:auth-profile:v1',JSON.stringify({user_id:'a'}));assert.equal(api.getReadingFocus(),true);api.setReadingFocus(false);
+  r.window.sessionStorage.setItem('app360:auth-profile:v1',JSON.stringify({user_id:'b'}));assert.equal(api.getReadingFocus(),true);
+  r.window.sessionStorage.setItem('app360:auth-profile:v1',JSON.stringify({user_id:'a'}));assert.equal(api.getReadingFocus(),false);
+  assert.equal(api.setReadingFocus('false'),false);assert.equal(api.setReadingFocus(null),false);assert.equal(api.setReadingFocus(true,'other-device'),false);assert.equal(api.getReadingFocus(),false);
+  assert(r.events.some(e=>e.type==='app360:reading-focus'&&e.detail.enabled===false));
+});
+test('reading focus remains usable when local storage is unavailable', () => {
+  const r=runtime(true);r.load('app360-family-core-v2.js');const api=r.window.APP360_FAMILY_SYNC;api.setName('نور');api.setReadingFocus(false);assert.equal(api.getReadingFocus(),false);api.setName('سارة');assert.equal(api.getReadingFocus(),true);api.setName('نور');assert.equal(api.getReadingFocus(),false);
+});
+test('malformed stored reading preferences safely fall back and can be replaced', () => {
+  const r=runtime();r.load('app360-family-core-v2.js');const api=r.window.APP360_FAMILY_SYNC;api.setName('نور');
+  for(const value of ['5','"bad"','[]','null','{broken']){r.window.localStorage.setItem('app360:teaching:reading-focus:v1',value);assert.equal(api.getReadingFocus(),true);assert.equal(api.setReadingFocus(false),true);assert.equal(api.getReadingFocus(),false);}
+});
 test('future live apps keep age metadata and homepage is shared across age groups', () => {
   const r=runtime();r.load('app360-family-core-v2.js');const api=r.window.APP360_FAMILY_SYNC;
   api.registerApps([{id:'future',age_group:'8-12',href:'apps/8-12/future/index.html',title_ar:'Future',status:'live'},{id:'coming',age_group:'4-8',href:'apps/4-8/coming/index.html',status:'planned'}]);

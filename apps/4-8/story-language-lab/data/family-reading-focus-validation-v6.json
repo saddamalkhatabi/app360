@@ -1,0 +1,20 @@
+{
+  "version": 6,
+  "passed": 10,
+  "checks": [
+    "A group change reaches embedded learners immediately while narration and instruction text continue",
+    "Individual on/off overrides take priority and inheritance returns to the group setting",
+    "Regular learners cannot change group or individual preferences or expose coach tools",
+    "Focus delivery is independent of a learner’s personal app navigation lock",
+    "An authorised assistant can manage group focus and learner overrides",
+    "An individual choice survives learner refresh and app close/reopen",
+    "Host refresh restores the session default, assistant role and each learner override",
+    "A revoked assistant cannot alter focus and session end restores each local profile choice",
+    "The professional coach switch remembers its local value after app reopen",
+    "Returning focus during current real MP3 playback highlights the current word without restarting sound"
+  ],
+  "pageErrors": [],
+  "transport": "real WebSocket relay",
+  "audio": "real MP3 playback",
+  "productionChanged": false
+}
