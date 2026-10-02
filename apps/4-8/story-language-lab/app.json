@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-story-language",
+  "slug": "story-language-lab",
+  "title_ar": "حكاية وكلمة: أسمع وأقرأ وأؤلف",
+  "audience": "shared",
+  "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+  "prebuild_path": "apps/4-8/story-language-lab/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/story-language-lab/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-early-reading-phonics-and-fluency",
+    "learner-4-8-creativity-art-storytelling-and-expression",
+    "coach-4-8-early-literacy-numeracy-and-learning-support"
+  ],
+  "entry_path": "apps/4-8/story-language-lab/index.html",
+  "manifest_path": "apps/4-8/story-language-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/story-language-lab/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core",
+    "audio.recorded",
+    "audio.tts",
+    "media.recorder"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر لغة ومادة مناسبة للاستعداد واستمع إلى حكاية قصيرة ← أشر إلى المعنى أو أعد السرد بالصور قبل عرض النص ← في مسار القراءة فقط: استمع إلى أصوات كلمة مضبوطة ثم امزجها واقرأها في عبارة ← غيّر حدثًا أو نهاية واحفظ حكايتك؛ يراجع المدرب نوع المساعدة لا درجة النطق",
+  "blueprint_path": "apps/4-8/story-language-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/story-language-lab/PROMPT_AR.md"
+}

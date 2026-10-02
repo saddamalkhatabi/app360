@@ -1,25 +1,84 @@
 {
-  "schema_version":"1.5",
-  "id":"a1-picture-puzzles",
-  "slug":"picture-puzzles",
-  "title_ar":"ألغاز الصور: رتّب الصورة",
-  "age_group":"1-4",
-  "version":3,
-  "status":"live",
-  "scaffold_state":"implementation-complete",
-  "kind":"goal_aligned",
-  "goal_keys":["learner-1-4-safe-sensory-motor-play","learner-1-4-shared-attention-imitation-simple-instructions","learner-1-4-confidence-first-attempts-and-kind-persistence","coach-1-4-safe-play-activity-design-and-independence"],
-  "entry_path":"apps/1-4/picture-puzzles/index.html?v=3",
-  "manifest_path":"apps/1-4/picture-puzzles/manifest.webmanifest",
-  "icon_path":"apps/1-4/picture-puzzles/icon.svg",
-  "runtime_profile":"legacy-web",
-  "depth":"advanced",
-  "offline_mode":"runtime-image-cache",
-  "capabilities":["practice.core","interaction.drag-drop","image.dynamic-slicing","image.cut-modes","challenge.adult-scatter","storage.local","audio.tts","audio.recorded","audio.legacy-pcm","audio.bilingual-labels","audio.name-cheer","audio.preloaded-cheer","celebration.confetti","pwa.offline","compat.legacy-web","ui.focus-mode","input.touch-recovery"],
-  "bundles":["static-core"],
-  "shared_resources":["early-child-name-audio-v1","say-and-name-word-audio-ar-en"],
-  "storage":{"schema_version":"1.2","key_prefix":"app360:a1-picture-puzzles:","local_first":true,"fallback":"in-memory"},
-  "artifact_type":"dynamic-real-image-piece-assembly-game",
-  "practice_model_ar":"اختر مستوى القطع ← اختر أو عشوِ صورة من مكتبة كلماتي مع أشيائي ← اسمع اسم الصورة بالعربية أو الإنجليزية أو كليهما ← اختر آلية تقطيع الصورة أو التنويع التلقائي ← رتّب القطع أو فعّل تحدي الكبار لبعثرة القطع بصورة أصعب ← اسحب القطع إلى أماكنها ← استخدم التلميح عند الحاجة ← عند الاكتمال يُعاد اسم الصورة ثم يبدأ التشجيع بالاسم فورًا ← انتقل للصورة التالية.",
-  "implementation":{"built_on":"2026-09-29","build":"v3","state":"live","legacy_core":"ES5 + Canvas 2D + Touch Events + mouse fallback","image_source":"apps/1-4/say-and-name/assets/word-images via shared word-images-context-map.js","audio_source":"Arabic and English word recordings from apps/1-4/say-and-name/audio plus shared early-child-name-audio name cheers with TTS fallback","audio_flow":"announce image name at start; on completion repeat image name and immediately start a preloaded personalized cheer; settings support Arabic, English, or both","levels":3,"piece_counts":[4,6,9],"cut_modes":["classic irregular","straight grid","zigzag harder","automatic variety"],"adult_challenge":"optional user-triggered scattered-piece layout below the pieces panel","touch_policy":"grace re-touch window, final-position sampling, safe return on cancel/blur/orientation so a piece never disappears","layout":"one-screen responsive target/tools panels; side-by-side wide and stacked narrow; optional fullscreen focus mode","offline":"shell and language maps offline-first; visited image and audio assets are cached at runtime"}
+  "schema_version": "1.5",
+  "id": "a1-picture-puzzles",
+  "slug": "picture-puzzles",
+  "title_ar": "ألغاز الصور: رتّب الصورة",
+  "age_group": "1-4",
+  "version": 3,
+  "status": "live",
+  "scaffold_state": "implementation-complete",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-1-4-safe-sensory-motor-play",
+    "learner-1-4-shared-attention-imitation-simple-instructions",
+    "learner-1-4-confidence-first-attempts-and-kind-persistence",
+    "coach-1-4-safe-play-activity-design-and-independence"
+  ],
+  "entry_path": "apps/1-4/picture-puzzles/index.html?v=3",
+  "manifest_path": "apps/1-4/picture-puzzles/manifest.webmanifest",
+  "icon_path": "apps/1-4/picture-puzzles/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "runtime-image-cache",
+  "capabilities": [
+    "practice.core",
+    "interaction.drag-drop",
+    "image.dynamic-slicing",
+    "image.cut-modes",
+    "challenge.adult-scatter",
+    "storage.local",
+    "audio.tts",
+    "audio.recorded",
+    "audio.legacy-pcm",
+    "audio.bilingual-labels",
+    "audio.name-cheer",
+    "audio.preloaded-cheer",
+    "celebration.confetti",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.focus-mode",
+    "input.touch-recovery"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "shared_resources": [
+    "early-child-name-audio-v1",
+    "say-and-name-word-audio-ar-en"
+  ],
+  "storage": {
+    "schema_version": "1.2",
+    "key_prefix": "app360:a1-picture-puzzles:",
+    "local_first": true,
+    "fallback": "in-memory"
+  },
+  "artifact_type": "dynamic-real-image-piece-assembly-game",
+  "practice_model_ar": "اختر مستوى القطع ← اختر أو عشوِ صورة من مكتبة كلماتي مع أشيائي ← اسمع اسم الصورة بالعربية أو الإنجليزية أو كليهما ← اختر آلية تقطيع الصورة أو التنويع التلقائي ← رتّب القطع أو فعّل تحدي الكبار لبعثرة القطع بصورة أصعب ← اسحب القطع إلى أماكنها ← استخدم التلميح عند الحاجة ← عند الاكتمال يُعاد اسم الصورة ثم يبدأ التشجيع بالاسم فورًا ← انتقل للصورة التالية.",
+  "implementation": {
+    "built_on": "2026-09-29",
+    "build": "v3",
+    "state": "live",
+    "legacy_core": "ES5 + Canvas 2D + Touch Events + mouse fallback",
+    "image_source": "apps/1-4/say-and-name/assets/word-images via shared word-images-context-map.js",
+    "audio_source": "Arabic and English word recordings from apps/1-4/say-and-name/audio plus shared early-child-name-audio name cheers with TTS fallback",
+    "audio_flow": "announce image name at start; on completion repeat image name and immediately start a preloaded personalized cheer; settings support Arabic, English, or both",
+    "levels": 3,
+    "piece_counts": [
+      4,
+      6,
+      9
+    ],
+    "cut_modes": [
+      "classic irregular",
+      "straight grid",
+      "zigzag harder",
+      "automatic variety"
+    ],
+    "adult_challenge": "optional user-triggered scattered-piece layout below the pieces panel",
+    "touch_policy": "grace re-touch window, final-position sampling, safe return on cancel/blur/orientation so a piece never disappears",
+    "layout": "one-screen responsive target/tools panels; side-by-side wide and stacked narrow; optional fullscreen focus mode",
+    "offline": "shell and language maps offline-first; visited image and audio assets are cached at runtime"
+  },
+  "audience": "learner",
+  "audience_note_ar": "الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده."
 }

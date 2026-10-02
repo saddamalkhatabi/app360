@@ -26,6 +26,8 @@ function plannedManifest(a) {
   const base = `apps/${a.age_group}/${a.slug}`;
   return {
     schema_version: '1.1', id: a.id, slug: a.slug, title_ar: a.title_ar,
+    ...(a.audience ? {audience:a.audience,audience_note_ar:a.audience_note_ar} : {}),
+    ...(a.blueprint&&a.blueprint.prebuild_path ? {prebuild_path:a.blueprint.prebuild_path,content_seed_path:a.blueprint.content_seed_path} : {}),
     age_group: a.age_group, version: 1, status: a.status, scaffold_state: 'blueprint-only',
     kind: a.kind, goal_keys: a.goal_keys,
     entry_path: `${base}/index.html`, manifest_path: `${base}/manifest.webmanifest`, icon_path: `${base}/icon.svg`,
@@ -41,7 +43,7 @@ const index = [header + '# دليل بناء التطبيقات العملية\n
   'لكل فئة ترتيب بناء مستقل حسب الأولوية ثم ترتيب الكتالوج. ابدأ تطبيقًا واحدًا، نفذ مهمة كاملة واختبرها مع مستخدم مناسب قبل الانتقال إلى التالي.\n'];
 for (const group of catalog.age_groups) {
   index.push(`## الفئة ${group.id}\n`, '| التطبيق | الناتج العملي | الحالة | البدء |\n|---|---|---|---|');
-  for (const a of catalog.apps.filter(a => a.age_group === group.id).sort((a,b) => a.priority-b.priority)) {
+  for (const a of catalog.apps.filter(a => a.age_group === group.id).sort((a,b) => (a.build_order||a.priority)-(b.build_order||b.priority))) {
     const b = a.blueprint, base = `apps/${a.age_group}/${a.slug}`;
     // Runtime-only additions have their own app contract and no generated blueprint.
     if (!b) continue;
@@ -60,6 +62,10 @@ for (const group of catalog.age_groups) {
       `## الحاجة والناتج\n\n${a.description_ar}\n\n**الناتج:** ${b.output_ar}\n\n**المستخدم:** ${b.audience_ar}\n\n` +
       `## نطاق النسخة الأولى وتسلسل الشاشات\n\n${bullet(b.mvp_steps_ar)}\n\n` +
       optBullets('مسارات التجربة والتدرج', b.experience_tracks_ar) +
+      optBullets('الاستمرار بين المراحل العمرية', b.continuity_ar) +
+      optBullets('الشاشات وحالاتها', b.screens_ar) +
+      optBullets('السلامة الخاصة', b.safety_ar) +
+      (b.prebuild_path ? `## عقد ما قبل البناء\n\nاقرأ [المتطلبات الخاصة](PREBUILD_REQUIREMENTS_AR.md) و[بذور المحتوى](CONTENT_SEEDS.json) كاملين؛ هذه الحزمة ملزمة مع docs/IMPLEMENTATION_MATURITY_BASELINE_AR.md قبل scaffold.\n\n` : '') +
       optBullets('البنية المشتركة التي يجب إعادة استخدامها', b.shared_infrastructure_ar) +
       optBullets('نظام المحتوى والتوسع', b.content_engine_ar) +
       optPara('التوافق والأجهزة', b.compatibility_ar) +
@@ -82,7 +88,7 @@ for (const group of catalog.age_groups) {
     const prompt = header + `# مطالبة بناء: ${a.title_ar}\n\n` +
       `اعمل في مستودع saddamalkhatabi/app360 على ${a.title_ar} للفئة ${a.age_group}، بهوية ${a.id} ومسار ${base}/ فقط.\n\n` +
       'اقرأ docs/FRAMEWORK_AR.md وdocs/ARCHITECTURE_AR.md وdocs/DEPENDENCY_POLICY_AR.md وdocs/PWA_OFFLINE_POLICY_AR.md وdocs/APP_SPEC_TEMPLATE_AR.md ثم data/catalog.json وdata/goals.json وdata/capabilities.json وعقد التطبيق ومواصفاته التالية.\n\n' +
-      `اقرأ ${a.blueprint_path} كاملًا. الناتج المطلوب: ${b.output_ar}\n\n` +
+      `اقرأ ${a.blueprint_path} كاملًا.${b.prebuild_path?' ثم '+b.prebuild_path+' و'+b.content_seed_path+' وdocs/IMPLEMENTATION_MATURITY_BASELINE_AR.md؛ هذه المتطلبات ملزمة ولا يبدأ scaffold قبلها.':''} الناتج المطلوب: ${b.output_ar}\n\n` +
       `ابنِ هذه الحلقة أولًا:\n\n${bullet(b.mvp_steps_ar)}\n\n` +
       (b.experience_tracks_ar&&b.experience_tracks_ar.length?`مسارات التجربة المطلوبة:\n\n${bullet(b.experience_tracks_ar)}\n\n`:'') +
       (b.shared_infrastructure_ar&&b.shared_infrastructure_ar.length?`أعد استخدام هذه البنية المشتركة ولا تبن نسخًا موازية منها:\n\n${bullet(b.shared_infrastructure_ar)}\n\n`:'') +

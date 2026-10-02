@@ -93,7 +93,7 @@ html = html.replace(/<h1>اسم التطبيق<\/h1>/, `<h1>${title}</h1>`);
 html = html.replace('مدرسة العائلة 360 · الفئة العمرية', `مدرسة العائلة 360 · ${age}`);
 html = html.replace(/<meta name="theme-color" content="[^"]+">/, `<meta name="theme-color" content="${primary}">`);
 html = html.replace(/\.head\{background:#0f8f8a/, `.head{background:${primary}`);
-if (!html.includes('app360-ai-shell.js')) html = html.replace('</body>', '<script src="../../../assets/js/app360-ai-shell.js?v=2&brand=97"></script>\n</body>');
+if (!html.includes('app360-ai-shell.js')) html = html.replace('</body>', '<script src="../../../assets/js/app360-ai-shell.js?v=2&brand=98"></script>\n</body>');
 fs.writeFileSync(indexPath, html);
 
 const iconPath = path.join(target, 'icon.svg');

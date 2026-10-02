@@ -51,6 +51,7 @@ function portal({ age = '', missingGoals = false, catalogData = catalog, overrid
     event: null
   };
 
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'assets/js/app360-app-audience-v1.js'), 'utf8'), {window});
   vm.runInNewContext(
     fs.readFileSync(path.join(root, 'assets/js/lab360.js'), 'utf8'),
     { document, XMLHttpRequest: XHR, window, setTimeout, clearTimeout, Promise }
@@ -67,7 +68,7 @@ function clickDetail(p, type, appId) {
 test('portal renders the full catalog, live links and modal detail contracts', () => {
   const p = portal();
   const html = p.elements.appGrid.innerHTML;
-  assert.equal((html.match(/class="app-card"/g) || []).length, 64);
+  assert.equal((html.match(/class="app-card"/g) || []).length, catalog.apps.length);
   assert.deepEqual(p.urls, ['./data/catalog.json', './data/goals.json', './data/live-overrides.json']);
   const overrideMap = new Map((liveOverrides.apps || []).map(a => [a.id, a]));
   const effectiveLive = catalog.apps.filter(a => {
@@ -114,7 +115,7 @@ test('Arabic goal search and every age page filter the catalog', () => {
   assert.ok(elements.appGrid.innerHTML.includes('لا توجد تطبيقات'));
   for (const group of catalog.age_groups) {
     const p = portal({ age: group.id });
-    assert.equal((p.elements.appGrid.innerHTML.match(/class="app-card"/g) || []).length, 8);
+    assert.equal((p.elements.appGrid.innerHTML.match(/class="app-card"/g) || []).length, catalog.apps.filter(a => a.age_group === group.id).length);
     const example = catalog.apps.find(a => a.age_group === group.id);
     assert.ok(example && p.elements.appGrid.innerHTML.includes(example.title_ar));
   }
@@ -133,7 +134,7 @@ test('goal and plan detail buttons use the current modal interaction', () => {
 
 test('failed goal loading keeps catalog usable; untrusted labels are escaped', () => {
   const p = portal({ missingGoals: true });
-  assert.equal((p.elements.appGrid.innerHTML.match(/class="app-card"/g) || []).length, 64);
+  assert.equal((p.elements.appGrid.innerHTML.match(/class="app-card"/g) || []).length, catalog.apps.length);
   const app = catalog.apps.find(a => a.id === 'a1-first-words');
   clickDetail(p, 'goals', app.id);
   assert.ok(p.swalCalls[0].html.includes(app.goal_keys[0]));
@@ -143,4 +144,18 @@ test('failed goal loading keeps catalog usable; untrusted labels are escaped', (
   const html = portal({ catalogData: changed }).elements.appGrid.innerHTML;
   assert.ok(!html.includes('<img src=x'));
   assert.ok(html.includes('&lt;img'));
+});
+
+
+test('audience roles and rebuilt 4–8 plans are visible with their implementation requirements', () => {
+  const p = portal({age:'1-4'});
+  assert.ok(p.elements.appGrid.innerHTML.includes('للمدرب أساسًا'));
+  assert.ok(p.elements.appGrid.innerHTML.includes('للطفل والمدرب معًا'));
+  assert.ok(p.elements.appGrid.innerHTML.includes('للطفل بإسناد المدرب'));
+  const next = portal({age:'4-8'}), a = catalog.apps.find(x=>x.id==='a4-story-language');
+  assert.equal((next.elements.appGrid.innerHTML.match(/class="app-card"/g)||[]).length, 12);
+  clickDetail(next,'plan',a.id);
+  assert.ok(next.swalCalls[0].html.includes('مسارات التجربة'));
+  assert.ok(next.swalCalls[0].html.includes(a.blueprint.prebuild_path));
+  assert.ok(next.swalCalls[0].html.includes('الجسر بين المراحل'));
 });

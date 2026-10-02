@@ -1,0 +1,262 @@
+{
+  "schema_version": "2.0",
+  "age_group": "4-8",
+  "status": "planning-only",
+  "updated": "2026-10-02",
+  "replaces": [
+    {
+      "id": "a4-phonics",
+      "slug": "phonics-reading-play",
+      "title_ar": "ورشة الكلمات: من الصوت إلى القراءة"
+    },
+    {
+      "id": "a4-math",
+      "slug": "math-pattern-adventure",
+      "title_ar": "متجري المصور: عدّ وكوّن نمطًا"
+    },
+    {
+      "id": "a4-active",
+      "slug": "active-body-control",
+      "title_ar": "مسار الحركة: تحرك ثم استعد"
+    },
+    {
+      "id": "a4-friends",
+      "slug": "feelings-friendship-lab",
+      "title_ar": "نلعب معًا: أدوار ومشاركة وحل خلاف"
+    },
+    {
+      "id": "a4-maker",
+      "slug": "first-maker-lab",
+      "title_ar": "اصنع واختبر: جسري الورقي"
+    },
+    {
+      "id": "a4-story",
+      "slug": "story-art-studio",
+      "title_ar": "قصتي المصورة: بداية ومشكلة وحل"
+    },
+    {
+      "id": "a4-routine",
+      "slug": "focus-routine-board",
+      "title_ar": "لوحة يومي: مهمة ومسؤولية واستراحة"
+    },
+    {
+      "id": "a4-logic",
+      "slug": "visual-logic-blocks",
+      "title_ar": "برمج رحلة: أوامر وصحح الخطأ"
+    }
+  ],
+  "build_sequence": [
+    "a4-story-language",
+    "a4-draw-write",
+    "a4-family-market",
+    "a4-shape-design",
+    "a4-wonder-lab",
+    "a4-maker-solutions",
+    "a4-command-path",
+    "a4-cooperate",
+    "a4-responsibility",
+    "a4-movement",
+    "a4-play-coach",
+    "a4-session-planner"
+  ],
+  "readiness_tracks": [
+    "entry",
+    "practice",
+    "extend"
+  ],
+  "age_transition_policy_ar": "لا يوجد ترقية آلية أو تقييم نمائي. ينتقل الطفل حين يستطيع المحاولة والتفسير أو طلب المساعدة، ويظل المستوى السابق متاحًا.",
+  "apps": [
+    {
+      "id": "a4-story-language",
+      "slug": "story-language-lab",
+      "title_ar": "حكاية وكلمة: أسمع وأقرأ وأؤلف",
+      "audience": "shared",
+      "from_apps": [
+        "a1-first-words",
+        "a1-picture-puzzles"
+      ],
+      "toward_apps": [
+        "a8-reading"
+      ],
+      "prebuild_path": "apps/4-8/story-language-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/story-language-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-draw-write",
+      "slug": "draw-write-studio",
+      "title_ar": "مرسم المعنى: أرسم وأكتب رسالة",
+      "audience": "learner",
+      "from_apps": [
+        "a1-drawing-writing",
+        "a1-screen-move"
+      ],
+      "toward_apps": [
+        "a8-reading"
+      ],
+      "prebuild_path": "apps/4-8/draw-write-studio/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/draw-write-studio/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-family-market",
+      "slug": "family-market-lab",
+      "title_ar": "سوق العائلة: أعدّ وأقسم وأوازن",
+      "audience": "shared",
+      "from_apps": [
+        "a1-first-words",
+        "a1-sensory",
+        "a1-screen-move"
+      ],
+      "toward_apps": [
+        "a8-math"
+      ],
+      "prebuild_path": "apps/4-8/family-market-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/family-market-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-shape-design",
+      "slug": "shape-design-studio",
+      "title_ar": "مهندسو الأشكال: أبني وأفسّر",
+      "audience": "learner",
+      "from_apps": [
+        "a1-tangram",
+        "a1-picture-puzzles",
+        "a1-drawing-writing"
+      ],
+      "toward_apps": [
+        "a8-maker",
+        "a8-math"
+      ],
+      "prebuild_path": "apps/4-8/shape-design-studio/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/shape-design-studio/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-wonder-lab",
+      "slug": "wonder-experiment-lab",
+      "title_ar": "مختبر لماذا: أتوقع وأجرّب",
+      "audience": "shared",
+      "from_apps": [
+        "a1-sensory",
+        "a1-screen-move"
+      ],
+      "toward_apps": [
+        "a8-maker",
+        "a8-ai-check"
+      ],
+      "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-maker-solutions",
+      "slug": "maker-solutions-lab",
+      "title_ar": "ورشة الحلول: أصنع وأحسّن",
+      "audience": "shared",
+      "from_apps": [
+        "a1-drawing-writing",
+        "a1-sensory",
+        "a1-screen-move"
+      ],
+      "toward_apps": [
+        "a8-maker",
+        "a8-coach"
+      ],
+      "prebuild_path": "apps/4-8/maker-solutions-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/maker-solutions-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-command-path",
+      "slug": "command-path-lab",
+      "title_ar": "مسار الأوامر: أخطط وأصحح",
+      "audience": "learner",
+      "from_apps": [
+        "a1-imitate",
+        "a1-screen-move",
+        "a1-tangram"
+      ],
+      "toward_apps": [
+        "a8-maker"
+      ],
+      "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-cooperate",
+      "slug": "cooperative-play-lab",
+      "title_ar": "نلعب ونتفق: دور وقاعدة وحل",
+      "audience": "shared",
+      "from_apps": [
+        "a1-imitate",
+        "a1-calm",
+        "a1-screen-move"
+      ],
+      "toward_apps": [
+        "a8-empathy"
+      ],
+      "prebuild_path": "apps/4-8/cooperative-play-lab/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/cooperative-play-lab/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-responsibility",
+      "slug": "my-responsibility-board",
+      "title_ar": "مهامي باختياري: أبدأ وأنهي وأراجع",
+      "audience": "shared",
+      "from_apps": [
+        "a1-routine",
+        "a1-calm",
+        "a1-first-words"
+      ],
+      "toward_apps": [
+        "a8-habits",
+        "a8-empathy"
+      ],
+      "prebuild_path": "apps/4-8/my-responsibility-board/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/my-responsibility-board/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-movement",
+      "slug": "movement-missions",
+      "title_ar": "مغامرات الحركة: قاعدة ومسار وتوازن",
+      "audience": "shared",
+      "from_apps": [
+        "a1-imitate",
+        "a1-screen-move",
+        "a1-sensory"
+      ],
+      "toward_apps": [
+        "a8-habits"
+      ],
+      "prebuild_path": "apps/4-8/movement-missions/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/movement-missions/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-play-coach",
+      "slug": "playful-learning-coach",
+      "title_ar": "مدرب اللعب والتعلّم: ألاحظ وأكيّف",
+      "audience": "coach",
+      "from_apps": [
+        "a1-calm",
+        "a1-plan-runner"
+      ],
+      "toward_apps": [
+        "a8-coach"
+      ],
+      "prebuild_path": "apps/4-8/playful-learning-coach/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/playful-learning-coach/CONTENT_SEEDS.json"
+    },
+    {
+      "id": "a4-session-planner",
+      "slug": "session-planner-4-8",
+      "title_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
+      "audience": "coach",
+      "from_apps": [
+        "a1-plan-runner",
+        "a1-routine"
+      ],
+      "toward_apps": [
+        "a8-coach",
+        "a8-habits"
+      ],
+      "prebuild_path": "apps/4-8/session-planner-4-8/PREBUILD_REQUIREMENTS_AR.md",
+      "content_seed_path": "apps/4-8/session-planner-4-8/CONTENT_SEEDS.json"
+    }
+  ]
+}

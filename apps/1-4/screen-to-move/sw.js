@@ -1,9 +1,9 @@
 'use strict';
-var CACHE='app360-app-screen-to-move-v18-family-school-v97';
+var CACHE='app360-app-screen-to-move-v18-family-school-v98';
 var PREVIOUS='app360-app-screen-to-move-v17';
-var CORE=['../../../assets/brand/family-school-360-icon-192.png?v=97','../../../assets/brand/family-school-360-logo.png?v=97',
+var CORE=['../../../assets/brand/family-school-360-icon-192.png?v=98','../../../assets/brand/family-school-360-logo.png?v=98',
  './','./index.html','./index.html?v=18','./styles.css?v=18','./v8.css?v=18','./v9.css?v=18','./v10.css?v=18','./v13.css?v=18','./v14.css?v=18','./v15.css?v=18','./v16.css?v=18','./v17.css?v=18','./v18.css?v=18',
- './games-data.js?v=18','./games-data-v12.js?v=18','./storage-v15.js?v=18','./legacy-v15.js?v=18','./app.js?v=18&brand=97','./designer-assets-v9.js?v=18','./designer-assets-v12.js?v=18','./designer-v9.js?v=18','./designer-v10.js?v=18','./game-designer-v10.js?v=18','./designer-v15.js?v=18','./designer-v16.js?v=18','./game-designer-v17.js?v=18','./game-designer-v18.js?v=18','./legacy-v13.js?v=18',
+ './games-data.js?v=18','./games-data-v12.js?v=18','./storage-v15.js?v=18','./legacy-v15.js?v=18','./app.js?v=18&brand=98','./designer-assets-v9.js?v=18','./designer-assets-v12.js?v=18','./designer-v9.js?v=18','./designer-v10.js?v=18','./game-designer-v10.js?v=18','./designer-v15.js?v=18','./designer-v16.js?v=18','./game-designer-v17.js?v=18','./game-designer-v18.js?v=18','./legacy-v13.js?v=18',
  './manifest.webmanifest?v=18','./icon.svg','./icon-192.png','./icon-512.png','../drawing-writing-foundations/audio-v21.js?v=18','../drawing-writing-foundations/audio/registry.json',
  '../../../assets/ui-icons/games.svg','../../../assets/ui-icons/print.svg','../../../assets/ui-icons/draw.svg','../../../assets/ui-icons/prev.svg','../../../assets/ui-icons/next.svg','../../../assets/ui-icons/check.svg','../../../assets/ui-icons/restart.svg','../../../assets/ui-icons/hint.svg','../../../assets/ui-icons/select.svg',
  '../say-and-name/assets/objects/apple.svg','../say-and-name/assets/objects/ball.svg','../say-and-name/assets/objects/banana.svg','../say-and-name/assets/objects/book.svg','../say-and-name/assets/objects/car.svg','../say-and-name/assets/objects/cat.svg','../say-and-name/assets/objects/chair.svg','../say-and-name/assets/objects/cup.svg','../say-and-name/assets/objects/shoe.svg','../say-and-name/assets/objects/spoon.svg','../say-and-name/assets/objects/toothbrush.svg','../say-and-name/assets/objects/water.svg'

@@ -24,6 +24,7 @@
     "new:app": "node tooling/scaffold-app.js",
     "inspect:app": "node tooling/inspect-app.js",
     "clean:workspace": "node tooling/clean-workspace.js",
-    "validate:brand": "node tooling/validate-family-school-brand.js"
+    "validate:brand": "node tooling/validate-family-school-brand.js",
+    "test:school": "node --test tooling/test-school-design.js tooling/test-portal.js tooling/test-family-navigation.js"
   }
 }

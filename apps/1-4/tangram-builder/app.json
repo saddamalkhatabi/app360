@@ -33,9 +33,18 @@
     "compat.legacy-web",
     "ui.responsive-maturity"
   ],
-  "bundles": ["static-core"],
-  "shared_resources": ["early-child-name-audio-v1"],
-  "storage": {"schema_version":"1.0","key_prefix":"app360:a1-tangram:","local_first":true,"fallback":"in-memory"},
+  "bundles": [
+    "static-core"
+  ],
+  "shared_resources": [
+    "early-child-name-audio-v1"
+  ],
+  "storage": {
+    "schema_version": "1.0",
+    "key_prefix": "app360:a1-tangram:",
+    "local_first": true,
+    "fallback": "in-memory"
+  },
   "artifact_type": "three-level-200-stage-geometric-curved-drag-drop-matching-game",
   "practice_model_ar": "اختر المستوى ← افتح خريطة المراحل وشاهد المكتمل والمتبقي ← اسحب نوع القطعة من مساحة الأدوات المجمعة بالعداد إلى موضعه في الشكل المطلوب ← قرّب القطعة بدرجة الضبط المناسبة للطفل ← أكمل النموذج ← مفرقعات وتشجيع صوتي بالاسم ← تابع المرحلة التالية.",
   "implementation": {
@@ -46,12 +55,18 @@
     "drag_policy": "group identical piece types in the tools tray with remaining-count badges; any identical dragged piece can satisfy the nearest compatible target; default snap sensitivity is deliberately tighter than v2 and is adjustable in settings",
     "levels": 3,
     "puzzles": 200,
-    "level_distribution": [60,70,70],
+    "level_distribution": [
+      60,
+      70,
+      70
+    ],
     "stage_map": "per-level stage screen showing completed, current, and remaining stages with direct selection",
     "workspace_layout": "wide screens use side-by-side target/tools panels separated visually; narrow screens switch to stacked responsive panels",
     "audio_policy": "recorded child-name cheers first, embedded/shared PCM path for legacy devices, Arabic device TTS fallback, tone fallback; recorded cheers only after full success",
     "compatibility_ar": "الوظائف الأساسية لا تعتمد Pointer Events أو CSS Grid في مسار اللعب نفسه، وتستخدم Canvas وTouch Events وES5 لتبقى قابلة للعمل على Android 4.4 مع تخطيط متجاوب للأجهزة الحديثة والقديمة."
   },
   "blueprint_path": "apps/1-4/tangram-builder/BUILD_SPEC.md",
-  "prompt_path": "apps/1-4/tangram-builder/PROMPT_AR.md"
+  "prompt_path": "apps/1-4/tangram-builder/PROMPT_AR.md",
+  "audience": "learner",
+  "audience_note_ar": "الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده."
 }

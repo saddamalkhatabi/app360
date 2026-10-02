@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-maker-solutions",
+  "slug": "maker-solutions-lab",
+  "title_ar": "ورشة الحلول: أصنع وأحسّن",
+  "audience": "shared",
+  "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+  "prebuild_path": "apps/4-8/maker-solutions-lab/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/maker-solutions-lab/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-curiosity-science-and-first-maker-projects",
+    "learner-4-8-creativity-art-storytelling-and-expression",
+    "coach-4-8-teach-through-play-projects-and-feedback"
+  ],
+  "entry_path": "apps/4-8/maker-solutions-lab/index.html",
+  "manifest_path": "apps/4-8/maker-solutions-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/maker-solutions-lab/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر مشكلة من البيت أو اللعب وحدد شرطًا قابلًا للملاحظة ← صمم بفكرة مرسومة واختر مواد كبيرة آمنة مع المدرب ← اصنع النموذج الأول واختبره بالشرط نفسه ← غيّر جزءًا واحدًا واحفظ مقارنة النموذجين والخطوة التالية",
+  "blueprint_path": "apps/4-8/maker-solutions-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/maker-solutions-lab/PROMPT_AR.md"
+}

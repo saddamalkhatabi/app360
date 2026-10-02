@@ -91,7 +91,7 @@ w.APP360_CALM_CONTENT={
     {id:'app-imitate',label_ar:'دوري ودورك: قلّد حركة واحدة',symbol:'🙌',speech_ar:'نفتح تطبيق دوري ودورك',kind:'app',age_group:'1-4',app_id:'a1-imitate',href:'../imitate-one-step/index.html?v=21'},
     {id:'app-screen-move',label_ar:'ألعاب إبداعية عبر الشاشة — أو بدون الشاشة',symbol:'🧩',speech_ar:'نفتح تطبيق الألعاب الإبداعية عبر الشاشة أو بدون الشاشة',kind:'app',age_group:'1-4',app_id:'a1-screen-move',href:'../screen-to-move/index.html?v=16'},
     {id:'app-drawing-writing',label_ar:'لوحة الطفل للرسم والكتابة المبكرة',symbol:'✏️',speech_ar:'نفتح لوحة الطفل للرسم والكتابة المبكرة',kind:'app',age_group:'1-4',app_id:'a1-drawing-writing',href:'../drawing-writing-foundations/index.html?v=23'},
-    {id:'app-plan-runner',label_ar:'مخطط التشغيل 360: ابنِ ونفّذ خطة',symbol:'🧭',speech_ar:'نفتح مخطط التشغيل ثلاثمئة وستين',kind:'app',age_group:'1-4',app_id:'a1-plan-runner',href:'../plan-runner-360/index.html?v=1'}
+    {id:'app-plan-runner',label_ar:'مخطط جلسات 1–4: ابنِ ونفّذ خطة',symbol:'🧭',speech_ar:'نفتح مخطط التشغيل ثلاثمئة وستين',kind:'app',age_group:'1-4',app_id:'a1-plan-runner',href:'../plan-runner-360/index.html?v=1'}
   ],
   assistance_levels:[
     {id:'child-points',label_ar:'الطفل أشار أو اختار'},

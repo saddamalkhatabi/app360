@@ -24,14 +24,18 @@
 
 | التطبيق | الناتج العملي | الحالة | البدء |
 |---|---|---|---|
-| ورشة الكلمات: من الصوت إلى القراءة | كلمة مبنية وعبارة يقرؤها الطفل ويفسر معناها. | مخطط | [المواصفات](../apps/4-8/phonics-reading-play/BUILD_SPEC.md) · [المطالبة](../apps/4-8/phonics-reading-play/PROMPT_AR.md) |
-| متجري المصور: عدّ وكوّن نمطًا | سلة تحقق طلبًا مصورًا ونمط يضيف إليه الطفل عنصرًا صحيحًا. | مخطط | [المواصفات](../apps/4-8/math-pattern-adventure/BUILD_SPEC.md) · [المطالبة](../apps/4-8/math-pattern-adventure/PROMPT_AR.md) |
-| اصنع واختبر: جسري الورقي | نموذجان لجسر ورقي مع ملاحظة ما تغير. | مخطط | [المواصفات](../apps/4-8/first-maker-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/first-maker-lab/PROMPT_AR.md) |
-| مسار الحركة: تحرك ثم استعد | مسار لعب من محطات بسيطة ينفذه الطفل حسب قدرته. | مخطط | [المواصفات](../apps/4-8/active-body-control/BUILD_SPEC.md) · [المطالبة](../apps/4-8/active-body-control/PROMPT_AR.md) |
-| نلعب معًا: أدوار ومشاركة وحل خلاف | اتفاق مشاركة ينفذ في لعبة واقعية. | مخطط | [المواصفات](../apps/4-8/feelings-friendship-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/feelings-friendship-lab/PROMPT_AR.md) |
-| قصتي المصورة: بداية ومشكلة وحل | قصة مصورة من 3 مشاهد قابلة للحفظ والطباعة. | مخطط | [المواصفات](../apps/4-8/story-art-studio/BUILD_SPEC.md) · [المطالبة](../apps/4-8/story-art-studio/PROMPT_AR.md) |
-| برمج رحلة: أوامر وصحح الخطأ | برنامج أوامر قصير يصل إلى وجهة يختارها الطفل. | مخطط | [المواصفات](../apps/4-8/visual-logic-blocks/BUILD_SPEC.md) · [المطالبة](../apps/4-8/visual-logic-blocks/PROMPT_AR.md) |
-| لوحة يومي: مهمة ومسؤولية واستراحة | خطة يوم قصيرة ومسؤولية نفذها الطفل. | مخطط | [المواصفات](../apps/4-8/focus-routine-board/BUILD_SPEC.md) · [المطالبة](../apps/4-8/focus-routine-board/PROMPT_AR.md) |
+| حكاية وكلمة: أسمع وأقرأ وأؤلف | حكاية من 3–5 مشاهد ومعها كلمة مفككة ومركبة وعبارة مرتبطة بمعناها، أو سرد شفهي لمن لم يستعد للقراءة. | مخطط | [المواصفات](../apps/4-8/story-language-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/story-language-lab/PROMPT_AR.md) |
+| مرسم المعنى: أرسم وأكتب رسالة | بطاقة أو قصة أو لافتة من رسم الطفل وتعليق شفهي أو كتابي، محفوظة مع محاولته الأصلية. | مخطط | [المواصفات](../apps/4-8/draw-write-studio/BUILD_SPEC.md) · [المطالبة](../apps/4-8/draw-write-studio/PROMPT_AR.md) |
+| سوق العائلة: أعدّ وأقسم وأوازن | طلب محلول بتمثيل مرئي أو بأشياء حقيقية وشرح طريقة العد أو التجميع أو التوزيع. | مخطط | [المواصفات](../apps/4-8/family-market-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/family-market-lab/PROMPT_AR.md) |
+| مهندسو الأشكال: أبني وأفسّر | تصميم يحقق شرطًا مكانيًا، مع حل بديل أو تفسير شفهي أو مصور لطريقة البناء. | مخطط | [المواصفات](../apps/4-8/shape-design-studio/BUILD_SPEC.md) · [المطالبة](../apps/4-8/shape-design-studio/PROMPT_AR.md) |
+| مختبر لماذا: أتوقع وأجرّب | بطاقة سؤال وتوقع وتجربة وملاحظة، مع تعديل لاحق أو عبارة «ما زلنا لا نعرف». | مخطط | [المواصفات](../apps/4-8/wonder-experiment-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/wonder-experiment-lab/PROMPT_AR.md) |
+| ورشة الحلول: أصنع وأحسّن | نموذجان متعاقبان لحل مشكلة واحدة، مع اختبار موثق وتفسير ما عُدّل ولماذا. | مخطط | [المواصفات](../apps/4-8/maker-solutions-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/maker-solutions-lab/PROMPT_AR.md) |
+| مسار الأوامر: أخطط وأصحح | برنامج أوامر محفوظ يصل إلى مقصد، مع أثر تنفيذ وخطأ صُحح أو قاعدة تكرار مفسرة. | مخطط | [المواصفات](../apps/4-8/command-path-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/command-path-lab/PROMPT_AR.md) |
+| نلعب ونتفق: دور وقاعدة وحل | اتفاق لعب قصير نفذه المشاركون، مع اختيار بديل أو تعديل عند عدم نجاحه. | مخطط | [المواصفات](../apps/4-8/cooperative-play-lab/BUILD_SPEC.md) · [المطالبة](../apps/4-8/cooperative-play-lab/PROMPT_AR.md) |
+| مهامي باختياري: أبدأ وأنهي وأراجع | خطة مسؤولية من 2–5 خطوات جرى استخدامها مع وصف المساعدة والتعديل للمرة التالية. | مخطط | [المواصفات](../apps/4-8/my-responsibility-board/BUILD_SPEC.md) · [المطالبة](../apps/4-8/my-responsibility-board/PROMPT_AR.md) |
+| مغامرات الحركة: قاعدة ومسار وتوازن | مسار حركي قصير بقاعدة مفهومة نفذه الطفل وعدله حسب قدرته أو رغبة المشاركين. | مخطط | [المواصفات](../apps/4-8/movement-missions/BUILD_SPEC.md) · [المطالبة](../apps/4-8/movement-missions/PROMPT_AR.md) |
+| مدرب اللعب والتعلّم: ألاحظ وأكيّف | بطاقة تكييف فيها ملاحظة فعلية ومساعدة مجربة وناتج طفل وتعديل للمتابعة، دون تشخيص أو درجة شاملة. | مخطط | [المواصفات](../apps/4-8/playful-learning-coach/BUILD_SPEC.md) · [المطالبة](../apps/4-8/playful-learning-coach/PROMPT_AR.md) |
+| مخطط جلسات 4–8: مسار مرن للتعلّم | خطة جلسة محفوظة من 2–4 خطوات قابلة للتعديل والتوقف، مع ملاحظة بعد التنفيذ وعودة مستقرة لكل نشاط. | مخطط | [المواصفات](../apps/4-8/session-planner-4-8/BUILD_SPEC.md) · [المطالبة](../apps/4-8/session-planner-4-8/PROMPT_AR.md) |
 
 ## الفئة 8-12
 
@@ -122,3 +126,7 @@
 - [FTC — Recognize and avoid phishing](https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams): مرجع لقرائن التصيد والتحقق بقناة معروفة مستقلة؛ المحاكاة المحلية لا تستخدم بيانات حقيقية. راجعنا المرجع في 2026-09-13.
 - [Pooja K. Agarwal — What is retrieval practice?](https://www.retrievalpractice.org/why-it-works): مرجع لممارسة استدعاء المعرفة قبل النظر إلى المادة. راجعنا المرجع في 2026-09-13.
 - [StoryCorps DIY — Learning hub](https://diy.storycorps.org/): مثال لتيسير السرد والتواصل؛ أرشيف المختبر المقترح محلي وخاص افتراضيًا. راجعنا المرجع في 2026-09-13.
+- [EEF — Preparing for Literacy](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/literacy-early-years): مرجع لتفاعل البالغ والطفل واللغة والوعي بالأصوات في الأعمار المبكرة؛ لا يمثل منهجًا عربيًا جاهزًا. راجعنا المرجع في 2026-10-02.
+- [EEF — Improving Literacy in Key Stage 1](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/literacy-ks-1): مرجع للغة وفك الترميز والفهم والكتابة؛ تكييف المحتوى العربي والإنجليزي يحتاج مراجعة لغوية منفصلة. راجعنا المرجع في 2026-10-02.
+- [EEF — Manipulatives and representations](https://educationendowmentfoundation.org.uk/early-years/maths/use-manipulatives-and-representations-to-develop-understanding): مرجع للربط بين الأشياء والتمثيلات والرموز في الرياضيات المبكرة؛ لا يثبت أثر التطبيق المقترح. راجعنا المرجع في 2026-10-02.
+- [NAEYC — Developmentally Appropriate Practice](https://www.naeyc.org/node/3799): مبادئ لممارسة ملائمة للنمو حتى عمر 8 تراعي الطفل والسياق واللعب والملاحظة؛ مستوياتنا تصميم مقترح وليست اختبار نمو. راجعنا المرجع في 2026-10-02.

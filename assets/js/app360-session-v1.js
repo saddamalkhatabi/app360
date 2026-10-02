@@ -9,7 +9,7 @@ var APP_MAP={
  'screen-to-move':{id:'a1-screen-move',title:'ألعاب إبداعية'},
  'drawing-writing-foundations':{id:'a1-drawing-writing',title:'الرسم والكتابة المبكرة'},
  'calm-with-me':{id:'a1-calm',title:'مشاعري معك'},
- 'plan-runner-360':{id:'a1-plan-runner',title:'مخطط التشغيل 360'}
+ 'plan-runner-360':{id:'a1-plan-runner',title:'مخطط جلسات 1–4'}
 };
 function parse(s){try{return JSON.parse(s)}catch(e){return null}}
 function get(k){try{return w.localStorage.getItem(k)||''}catch(e){return''}}

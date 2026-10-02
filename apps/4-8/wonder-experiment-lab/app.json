@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-wonder-lab",
+  "slug": "wonder-experiment-lab",
+  "title_ar": "مختبر لماذا: أتوقع وأجرّب",
+  "audience": "shared",
+  "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+  "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-curiosity-science-and-first-maker-projects",
+    "coach-4-8-teach-through-play-projects-and-feedback",
+    "learner-4-8-early-math-patterns-and-problem-solving"
+  ],
+  "entry_path": "apps/4-8/wonder-experiment-lab/index.html",
+  "manifest_path": "apps/4-8/wonder-experiment-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/wonder-experiment-lab/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر سؤالًا وتحقق مع المدرب من مواد التجربة ومساحة العمل ← سجل توقعًا بالصورة أو الصوت أو الإملاء ← حدد ما سنغيّره وما سنثبته ونفذ محاولتين ← قارن الملاحظات بالتوقع وحدد سؤالًا تاليًا دون فرض استنتاج واحد",
+  "blueprint_path": "apps/4-8/wonder-experiment-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/wonder-experiment-lab/PROMPT_AR.md"
+}

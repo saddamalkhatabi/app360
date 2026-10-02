@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-movement",
+  "slug": "movement-missions",
+  "title_ar": "مغامرات الحركة: قاعدة ومسار وتوازن",
+  "audience": "shared",
+  "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+  "prebuild_path": "apps/4-8/movement-missions/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/movement-missions/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-active-play-screen-balance-and-body-control",
+    "coach-4-8-channel-energy-focus-and-transitions",
+    "learner-4-8-emotional-regulation-friendship-and-cooperation"
+  ],
+  "entry_path": "apps/4-8/movement-missions/index.html",
+  "manifest_path": "apps/4-8/movement-missions/manifest.webmanifest",
+  "icon_path": "apps/4-8/movement-missions/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core",
+    "audio.recorded",
+    "audio.tts"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "تحقق من المساحة والمواد واختر مسارًا يناسب القدرة ← اعرض قاعدة واحدة ونموذجًا أو بطاقة بديلة للصوت ← أخف الشاشة ونفذ جولة ثم استراحة اختيارية ← غيّر قاعدة واحدة أو تبادل القيادة، ودوّن التعديل بدل درجة سرعة",
+  "blueprint_path": "apps/4-8/movement-missions/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/movement-missions/PROMPT_AR.md"
+}

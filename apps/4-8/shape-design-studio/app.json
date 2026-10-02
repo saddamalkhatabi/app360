@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-shape-design",
+  "slug": "shape-design-studio",
+  "title_ar": "مهندسو الأشكال: أبني وأفسّر",
+  "audience": "learner",
+  "audience_note_ar": "الممارسة بيد الطفل؛ إعداد المدرب ومساندته متاحان دون حل المهمة بدل الطفل.",
+  "prebuild_path": "apps/4-8/shape-design-studio/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/shape-design-studio/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-early-math-patterns-and-problem-solving",
+    "learner-4-8-creativity-art-storytelling-and-expression",
+    "coach-4-8-teach-through-play-projects-and-feedback"
+  ],
+  "entry_path": "apps/4-8/shape-design-studio/index.html",
+  "manifest_path": "apps/4-8/shape-design-studio/manifest.webmanifest",
+  "icon_path": "apps/4-8/shape-design-studio/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "افهم شرطًا واحدًا مثل ملء الإطار أو صنع شكل متناظر ← اختر قطعًا كبيرة وجرّب التدوير والانعكاس أو بدائل الأزرار ← تحقق من التغطية أو التماثل واعرض تلميحًا عند الطلب ← اصنع حلًا آخر أو لغزًا لصديق ثم ارسمه أو اطبعه",
+  "blueprint_path": "apps/4-8/shape-design-studio/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/shape-design-studio/PROMPT_AR.md"
+}

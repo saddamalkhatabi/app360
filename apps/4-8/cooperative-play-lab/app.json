@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.1",
+  "id": "a4-cooperate",
+  "slug": "cooperative-play-lab",
+  "title_ar": "نلعب ونتفق: دور وقاعدة وحل",
+  "audience": "shared",
+  "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+  "prebuild_path": "apps/4-8/cooperative-play-lab/PREBUILD_REQUIREMENTS_AR.md",
+  "content_seed_path": "apps/4-8/cooperative-play-lab/CONTENT_SEEDS.json",
+  "age_group": "4-8",
+  "version": 1,
+  "status": "planned",
+  "scaffold_state": "blueprint-only",
+  "kind": "goal_aligned",
+  "goal_keys": [
+    "learner-4-8-emotional-regulation-friendship-and-cooperation",
+    "coach-4-8-positive-behavior-routines-and-independence",
+    "coach-4-8-teach-through-play-projects-and-feedback"
+  ],
+  "entry_path": "apps/4-8/cooperative-play-lab/index.html",
+  "manifest_path": "apps/4-8/cooperative-play-lab/manifest.webmanifest",
+  "icon_path": "apps/4-8/cooperative-play-lab/icon.svg",
+  "runtime_profile": "legacy-web",
+  "depth": "advanced",
+  "offline_mode": "offline-first",
+  "update_policy": "service-worker-auto-activation",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web",
+    "ui.responsive-maturity",
+    "practice.core"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "practice_model_ar": "اختر لعبة أو موقفًا دون تصوير طفل آخر أو وصفه كمشكلة ← مثّل الأدوار وقل ما تحتاجه بالكلام أو البطاقات ← جرّب حلين واختَر قاعدة يتفق عليها المشاركون ← نفّذ دورة لعب ثم راجع الاتفاق؛ اطلب استراحة أو مساعدة عند الحاجة",
+  "blueprint_path": "apps/4-8/cooperative-play-lab/BUILD_SPEC.md",
+  "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md"
+}
