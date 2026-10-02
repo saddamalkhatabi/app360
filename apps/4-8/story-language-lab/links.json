@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.1",
+  "app_id": "a4-story-language",
+  "title_ar": "حكاية وكلمة: أسمع وأقرأ وأؤلف",
+  "base_path": "apps/4-8/story-language-lab/",
+  "app_href": "apps/4-8/story-language-lab/index.html",
+  "launch_path": "apps/4-8/story-language-lab/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "story-library",
+      "kind": "category",
+      "label_ar": "مكتبة الحكايات",
+      "href": "apps/4-8/story-language-lab/launch.html?action=library"
+    },
+    {
+      "id": "story-item",
+      "kind": "story",
+      "label_ar": "حكاية محددة",
+      "href_template": "apps/4-8/story-language-lab/launch.html?item={item}",
+      "collection_source": "data/stories.json"
+    },
+    {
+      "id": "word-workshop",
+      "kind": "service",
+      "label_ar": "ورشة كلمة الحكاية",
+      "href_template": "apps/4-8/story-language-lab/launch.html?stage=word&item={item}",
+      "collection_source": "data/stories.json"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

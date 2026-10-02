@@ -195,6 +195,75 @@
       ],
       "audience": "coach",
       "audience_note_ar": "المدرب يبني الجلسة ويشغّل أنشطتها؛ الطفل يشارك في الأنشطة التي يفتحها المخطط."
+    },
+    {
+      "id": "a4-story-language",
+      "slug": "story-language-lab",
+      "title_ar": "حكاية وكلمة: أسمع وأقرأ وأؤلف",
+      "age_group": "4-8",
+      "status": "live",
+      "kind": "goal_aligned",
+      "priority": 1,
+      "build_order": 1,
+      "description_ar": "حكايات مصورة بالعربية أو الإنجليزية للفئة 4–8. يستمع الطفل ويرتب الأحداث ويستكشف المعنى، ثم يبني كلمة بأصواتها ويؤلف نهاية ويحفظ حكايته. مكتب مدرب محلي وتسجيل اختياري وطباعة وتصدير دون الصوت أو الملاحظات الخاصة. نسخة تجريبية للمراجعة.",
+      "practice_model": "اختر لغة ومادة مناسبة للاستعداد واستمع إلى حكاية قصيرة ← أشر إلى المعنى أو أعد السرد بالصور قبل عرض النص ← في مسار القراءة فقط: استمع إلى أصوات كلمة مضبوطة ثم امزجها واقرأها في عبارة ← غيّر حدثًا أو نهاية واحفظ حكايتك؛ يراجع المدرب نوع المساعدة لا درجة النطق",
+      "audience": "shared",
+      "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
+      "goal_keys": [
+        "learner-4-8-early-reading-phonics-and-fluency",
+        "learner-4-8-creativity-art-storytelling-and-expression",
+        "coach-4-8-early-literacy-numeracy-and-learning-support"
+      ],
+      "tags": [
+        "حكاية وكلمة",
+        "استعداد متدرج",
+        "شاشة وواقع",
+        "نتيجة عملية",
+        "ممارسة الطفل"
+      ],
+      "runtime_profile": "legacy-web",
+      "depth": "advanced",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web",
+        "ui.responsive-maturity",
+        "practice.core",
+        "audio.recorded",
+        "media.recorder"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_links": [
+        {
+          "goal_key": "learner-4-8-early-reading-phonics-and-fluency",
+          "relationship": "supports",
+          "rationale_ar": "المزج والقراءة في سياق ومعنى، لا حفظ أسماء الحروف فقط",
+          "evidence_ar": "كلمة غير متدربة من النمط نفسه مع توثيق المساعدة",
+          "delivery": "available_with_facilitator"
+        },
+        {
+          "goal_key": "learner-4-8-creativity-art-storytelling-and-expression",
+          "relationship": "supports",
+          "rationale_ar": "تغيير نهاية الحكاية والتعبير عنها",
+          "evidence_ar": "حكاية الطفل ومشاهدها",
+          "delivery": "available_with_facilitator"
+        },
+        {
+          "goal_key": "coach-4-8-early-literacy-numeracy-and-learning-support",
+          "relationship": "supports",
+          "rationale_ar": "المدرب يختار هل الدعم للغة أو الوعي الصوتي أو المزج أو الفهم",
+          "evidence_ar": "ملاحظة وصفية ومهمة تالية مناسبة",
+          "delivery": "available_with_facilitator"
+        }
+      ],
+      "cover": "assets/covers/a4-story-language-v1.png",
+      "release_channel": "preview",
+      "acceptance_state": "technical-preview-family-pilot-pending",
+      "href": "apps/4-8/story-language-lab/index.html?v=1",
+      "icon": "apps/4-8/story-language-lab/icon.svg?v=1"
     }
   ]
 }

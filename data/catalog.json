@@ -948,11 +948,11 @@
       "slug": "story-language-lab",
       "title_ar": "حكاية وكلمة: أسمع وأقرأ وأؤلف",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 1,
       "build_order": 1,
-      "description_ar": "من مفردة مألوفة إلى حكاية قصيرة: يسمع الطفل قصة ويناقش معناها، ثم يكتشف أصوات كلمات منتقاة ويبني كلمة ويقرأ عبارة ويؤلف نهاية. مسار عربي مضبوط ومسار إنجليزي مستقل، ومكتبة الأسرة تحفظ القصص والتسجيل الاختياري محليًا.",
+      "description_ar": "حكايات مصورة بالعربية أو الإنجليزية للفئة 4–8. يستمع الطفل ويرتب الأحداث ويستكشف المعنى، ثم يبني كلمة بأصواتها ويؤلف نهاية ويحفظ حكايته. مكتب مدرب محلي وتسجيل اختياري وطباعة وتصدير دون الصوت أو الملاحظات الخاصة. نسخة تجريبية للمراجعة.",
       "practice_model": "اختر لغة ومادة مناسبة للاستعداد واستمع إلى حكاية قصيرة ← أشر إلى المعنى أو أعد السرد بالصور قبل عرض النص ← في مسار القراءة فقط: استمع إلى أصوات كلمة مضبوطة ثم امزجها واقرأها في عبارة ← غيّر حدثًا أو نهاية واحفظ حكايتك؛ يراجع المدرب نوع المساعدة لا درجة النطق",
       "audience": "shared",
       "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
@@ -977,7 +977,6 @@
         "ui.responsive-maturity",
         "practice.core",
         "audio.recorded",
-        "audio.tts",
         "media.recorder"
       ],
       "bundles": [
@@ -990,21 +989,21 @@
           "relationship": "supports",
           "rationale_ar": "المزج والقراءة في سياق ومعنى، لا حفظ أسماء الحروف فقط",
           "evidence_ar": "كلمة غير متدربة من النمط نفسه مع توثيق المساعدة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-creativity-art-storytelling-and-expression",
           "relationship": "supports",
           "rationale_ar": "تغيير نهاية الحكاية والتعبير عنها",
           "evidence_ar": "حكاية الطفل ومشاهدها",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-early-literacy-numeracy-and-learning-support",
           "relationship": "supports",
           "rationale_ar": "المدرب يختار هل الدعم للغة أو الوعي الصوتي أو المزج أو الفهم",
           "evidence_ar": "ملاحظة وصفية ومهمة تالية مناسبة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -1040,7 +1039,7 @@
           "recording_ref_optional",
           "coach_support_note"
         ],
-        "boundary_ar": "خطة بناء فقط. النسخة الأولى بمحتوى محلي مراجع، بلا ذكاء اصطناعي إلزامي أو رفع تلقائي أو مشتريات؛ الهوية السحابية ومشاركة الأسرة امتداد لاحق بعقود المنصة.",
+        "boundary_ar": "نسخة تقنية تجريبية محلية للمراجعة؛ تجربة الأسرة والمراجعة السمعية والأجهزة الفعلية تنتظر القبول قبل اعتماد الإنتاج. بلا ذكاء اصطناعي إلزامي أو رفع تلقائي أو مشتريات.",
         "reference_ids": [
           "eef-literacy-early",
           "eef-literacy-ks1",
@@ -1089,7 +1088,11 @@
       "blueprint_path": "apps/4-8/story-language-lab/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/story-language-lab/PROMPT_AR.md",
       "manifest": "apps/4-8/story-language-lab/app.json",
-      "cover": "assets/covers/a4-story-language.svg"
+      "cover": "assets/covers/a4-story-language-v1.png",
+      "release_channel": "preview",
+      "acceptance_state": "technical-preview-family-pilot-pending",
+      "href": "apps/4-8/story-language-lab/index.html?v=1",
+      "icon": "apps/4-8/story-language-lab/icon.svg?v=1"
     },
     {
       "id": "a4-draw-write",

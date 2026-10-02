@@ -58,7 +58,7 @@ for (const group of catalog.age_groups) {
       const r = refs.get(id); return `[${r.title}](${r.url})`;
     })) : 'تصميم خاص بالمدرسة؛ لا تنسب له تجربة منشورة لم تجرَ.';
     const spec = header + `# ${a.title_ar}\n\n` +
-      `- الفئة: ${a.age_group}\n- الهوية الثابتة: \`${a.id}\`\n- المسار الوحيد: \`${base}/\`\n- الحالة: ${live ? 'يعمل الآن؛ حافظ على التنفيذ الحالي' : 'مخطط للبناء؛ لا يوجد تطبيق تشغيلي بعد'}\n- أولوية البناء داخل الفئة: ${a.priority}\n\n` +
+      `- الفئة: ${a.age_group}\n- الهوية الثابتة: \`${a.id}\`\n- المسار الوحيد: \`${base}/\`\n- الحالة: ${live ? (a.release_channel==='preview'?'نسخة تجريبية للمراجعة؛ التجربة الأسرية والأجهزة الفعلية لم تعتمد بعد':'يعمل الآن؛ حافظ على التنفيذ الحالي') : 'مخطط للبناء؛ لا يوجد تطبيق تشغيلي بعد'}\n- أولوية البناء داخل الفئة: ${a.priority}\n\n` +
       `## الحاجة والناتج\n\n${a.description_ar}\n\n**الناتج:** ${b.output_ar}\n\n**المستخدم:** ${b.audience_ar}\n\n` +
       `## نطاق النسخة الأولى وتسلسل الشاشات\n\n${bullet(b.mvp_steps_ar)}\n\n` +
       optBullets('مسارات التجربة والتدرج', b.experience_tracks_ar) +
@@ -107,7 +107,7 @@ for (const group of catalog.age_groups) {
       emit(base+'/app.json', JSON.stringify(plannedManifest(a), null, 2)+'\n');
       emit(base+'/README.md', header+`# ${a.title_ar}\n\n${a.description_ar}\n\nمجلد خطة أولية للفئة ${a.age_group}، وليس تطبيقًا جاهزًا.\n\n- [مواصفات البناء](BUILD_SPEC.md)\n- [مطالبة البناء](PROMPT_AR.md)\n- [عقد التطبيق المستهدف](app.json)\n\nالمصدر المعتمد للتعديل هو data/catalog.json؛ لا تعدّل الملفات المشتقة يدويًا.\n`);
     }
-    index.push(`| ${a.title_ar} | ${b.output_ar} | ${live ? 'يعمل الآن' : 'مخطط'} | [المواصفات](../${a.blueprint_path}) · [المطالبة](../${a.prompt_path}) |`);
+    index.push(`| ${a.title_ar} | ${b.output_ar} | ${live ? (a.release_channel==='preview'?'نسخة تجريبية':'يعمل الآن') : 'مخطط'} | [المواصفات](../${a.blueprint_path}) · [المطالبة](../${a.prompt_path}) |`);
   }
   index.push('');
 }

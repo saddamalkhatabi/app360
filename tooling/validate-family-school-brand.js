@@ -33,7 +33,7 @@ for (const p of ['apps/1-4/plan-runner-360/app.js', 'apps/1-4/calm-with-me/scena
   check(!/yem1\.com|safe-reels/.test(read(p)), 'Automatic external ecosystem entry: ' + p);
 }
 for (const p of ['sw.js', 'sw-v24.js']) {
-  check(read(p).includes('family-school-v100') && read(p).includes('family-school-360-logo'), 'Portal cache identity: ' + p);
+  check(read(p).includes('family-school-v101') && read(p).includes('family-school-360-logo'), 'Portal cache identity: ' + p);
 }
 check(read('apps/1-4/drawing-writing-foundations/index.html').includes("document.title='لوحة '+userName+' - امسك القلم وارسم | " + brand + "'"), 'Personalized drawing title must retain school identity');
 if (failures.length) { failures.forEach(x => console.error('FAIL:', x)); process.exit(1); }

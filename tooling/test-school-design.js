@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p
 const catalog=json('data/catalog.json'),apps=catalog.apps.filter(a=>a.age_group==='4-8'),roadmap=json('data/family-school-4-8-roadmap.json');
 test('each rebuilt proposal binds its own requirements, seeds and canonical identity',()=>{
  assert.equal(apps.length,12);assert.equal(new Set(apps.map(a=>a.id)).size,12);assert.deepEqual(roadmap.build_sequence,apps.map(a=>a.id));
- for(const a of apps){const base=`apps/4-8/${a.slug}/`,m=json(a.manifest);assert.equal(m.id,a.id);assert.equal(m.slug,a.slug);assert.equal(m.title_ar,a.title_ar);assert.equal(m.status,'planned');assert(!a.href);assert(!fs.existsSync(path.join(root,base,'index.html')));
+ for(const a of apps){const base=`apps/4-8/${a.slug}/`,m=json(a.manifest);assert.equal(m.id,a.id);assert.equal(m.slug,a.slug);assert.equal(m.title_ar,a.title_ar);if(a.id==='a4-story-language'){assert.equal(m.status,'live');assert.equal(m.release_channel,'preview');assert(a.href);assert(fs.existsSync(path.join(root,base,'index.html')))}else{assert.equal(m.status,'planned');assert(!a.href);assert(!fs.existsSync(path.join(root,base,'index.html')))}
   const req=read(a.blueprint.prebuild_path),prompt=read(a.prompt_path);for(const token of ['APP360-PREBUILD-MATURITY-V1','الحلقة العملية الأساسية','نموذج البيانات','التكامل مع التطبيقات السابقة','Big TAB Android 4.4.2','Offline','Definition of Done'])assert(req.includes(token),`${a.id}: ${token}`);
   assert(prompt.includes(a.blueprint.prebuild_path));assert(prompt.includes(a.blueprint.content_seed_path));assert(a.blueprint.continuity_ar.length>=2);assert(a.blueprint.experience_tracks_ar.length===3);assert(fs.existsSync(path.join(root,a.cover)));
  }
@@ -15,7 +15,7 @@ test('initial content is explicitly draft and covers 72 unique practical tasks',
 });
 test('all 4–8 goals resolve in the correct age and have concrete contributions',()=>{
  const goals=json('data/goals.json').age_groups['4-8'],valid=new Set(goals.map(g=>g.key)),covered=new Set();
- for(const a of apps){assert.deepEqual(a.goal_keys,a.goal_links.map(l=>l.goal_key));for(const l of a.goal_links){assert(valid.has(l.goal_key));assert.equal(l.delivery,'planned');assert(l.rationale_ar&&l.evidence_ar);covered.add(l.goal_key)}}assert.deepEqual([...covered].sort(),[...valid].sort());
+ for(const a of apps){assert.deepEqual(a.goal_keys,a.goal_links.map(l=>l.goal_key));for(const l of a.goal_links){assert(valid.has(l.goal_key));assert.equal(l.delivery,a.id==='a4-story-language'?'available_with_facilitator':'planned');assert(l.rationale_ar&&l.evidence_ar);covered.add(l.goal_key)}}assert.deepEqual([...covered].sort(),[...valid].sort());
 });
 test('role labels respect primary coach, shared play and child practice',()=>{
  const w={};vm.runInNewContext(read('assets/js/app360-app-audience-v1.js'),{window:w});const helper=w.APP360_APP_AUDIENCE;

@@ -32,7 +32,7 @@ const target = path.join(root, 'apps', age, slug);
 let blueprint = null;
 if (fs.existsSync(target)) {
   const manifestFile = path.join(target, 'app.json');
-  const allowed = ['app.json', 'README.md', 'BUILD_SPEC.md', 'PROMPT_AR.md', 'PREBUILD_REQUIREMENTS_AR.md'];
+  const allowed = ['app.json', 'README.md', 'BUILD_SPEC.md', 'PROMPT_AR.md', 'PREBUILD_REQUIREMENTS_AR.md', 'CONTENT_SEEDS.json'];
   if (fs.existsSync(manifestFile)) blueprint = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
   if (!blueprint || blueprint.scaffold_state !== 'blueprint-only' || blueprint.age_group !== age || blueprint.slug !== slug || fs.readdirSync(target).some(name => !allowed.includes(name))) {
     console.error('Target already contains implementation; refusing to overwrite:', path.relative(root, target));
