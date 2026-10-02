@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "preview-2",
+  "release": "preview-3",
   "scenes": {
     "cup-0": {
       "id": "cup-0",
@@ -244,6 +244,378 @@
       "audio": {
         "ar": "audio/ar-door-3.mp3",
         "en": "audio/en-door-3.mp3"
+      }
+    },
+    "first-next-last-0": {
+      "id": "first-next-last-0",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 0,
+      "text": {
+        "ar": "هَذِهِ بَدَايَةُ الْحِكَايَةِ: كُوبٌ وَكِتَابٌ.",
+        "en": "First, Mia has a cup and a book."
+      },
+      "audio": {
+        "ar": "audio/ar-first-next-last-0.mp3",
+        "en": "audio/en-first-next-last-0.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "first-next-last-1": {
+      "id": "first-next-last-1",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 1,
+      "text": {
+        "ar": "وَبَعْدَ ذَلِكَ، حَجَبَ الْكِتَابُ الْكُوبَ.",
+        "en": "Next, the book hides the cup."
+      },
+      "audio": {
+        "ar": "audio/ar-first-next-last-1.mp3",
+        "en": "audio/en-first-next-last-1.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "first-next-last-2": {
+      "id": "first-next-last-2",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 2,
+      "text": {
+        "ar": "ثُمَّ ظَهَرَ الْكُوبُ مِنْ جَدِيدٍ.",
+        "en": "Then Mia moves the book and finds the cup."
+      },
+      "audio": {
+        "ar": "audio/ar-first-next-last-2.mp3",
+        "en": "audio/en-first-next-last-2.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "first-next-last-3": {
+      "id": "first-next-last-3",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 3,
+      "text": {
+        "ar": "وَفِي النِّهَايَةِ، أَمْسَكَتْ لَيْلَى كُوبَهَا.",
+        "en": "Last, Mia holds the cup and smiles."
+      },
+      "audio": {
+        "ar": "audio/ar-first-next-last-3.mp3",
+        "en": "audio/en-first-next-last-3.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "in-and-out-0": {
+      "id": "in-and-out-0",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 0,
+      "text": {
+        "ar": "القِطُّ خَارِجَ الصُّنْدُوقِ.",
+        "en": "The cat is outside the box."
+      },
+      "audio": {
+        "ar": "audio/ar-in-and-out-0.mp3",
+        "en": "audio/en-in-and-out-0.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "in-and-out-1": {
+      "id": "in-and-out-1",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 1,
+      "text": {
+        "ar": "دَخَلَ القِطُّ الصُّنْدُوقَ.",
+        "en": "Now the cat is inside."
+      },
+      "audio": {
+        "ar": "audio/ar-in-and-out-1.mp3",
+        "en": "audio/en-in-and-out-1.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "in-and-out-2": {
+      "id": "in-and-out-2",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 2,
+      "text": {
+        "ar": "خَرَجَ القِطُّ وَوَقَفَ بِجَانِبِهِ.",
+        "en": "The cat steps outside again."
+      },
+      "audio": {
+        "ar": "audio/ar-in-and-out-2.mp3",
+        "en": "audio/en-in-and-out-2.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "in-and-out-3": {
+      "id": "in-and-out-3",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 3,
+      "text": {
+        "ar": "وَضَعَ الوَلَدُ غِطَاءً نَاعِمًا فِي الصُّنْدُوقِ.",
+        "en": "Sam puts a soft blanket in the box."
+      },
+      "audio": {
+        "ar": "audio/ar-in-and-out-3.mp3",
+        "en": "audio/en-in-and-out-3.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "look-for-clues-0": {
+      "id": "look-for-clues-0",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 0,
+      "text": {
+        "ar": "أَرَى الكُوبَ بِجَانِبِ الكِتَابِ.",
+        "en": "I can see the cup beside the book."
+      },
+      "audio": {
+        "ar": "audio/ar-look-for-clues-0.mp3",
+        "en": "audio/en-look-for-clues-0.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "look-for-clues-1": {
+      "id": "look-for-clues-1",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 1,
+      "text": {
+        "ar": "وَقَفَ الكِتَابُ، فَحَجَبَ الكُوبَ.",
+        "en": "The upright book hides the cup."
+      },
+      "audio": {
+        "ar": "audio/ar-look-for-clues-1.mp3",
+        "en": "audio/en-look-for-clues-1.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "look-for-clues-2": {
+      "id": "look-for-clues-2",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 2,
+      "text": {
+        "ar": "هَذَا هُوَ الدَّلِيلُ: اِبْتَعَدَ الكِتَابُ فَظَهَرَ الكُوبُ.",
+        "en": "Here is a clue: move the book, and the cup appears."
+      },
+      "audio": {
+        "ar": "audio/ar-look-for-clues-2.mp3",
+        "en": "audio/en-look-for-clues-2.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "look-for-clues-3": {
+      "id": "look-for-clues-3",
+      "sheet": "assets/cup-story-1024.webp",
+      "tile": 3,
+      "text": {
+        "ar": "وَجَدَتْ لَيْلَى مَا كَانَتْ تَبْحَثُ عَنْهُ.",
+        "en": "Mia has found what she was looking for."
+      },
+      "audio": {
+        "ar": "audio/ar-look-for-clues-3.mp3",
+        "en": "audio/en-look-for-clues-3.mp3"
+      },
+      "small_sheet": "assets/cup-story-640.webp",
+      "fallback_sheet": "assets/cup-story-640.jpg",
+      "large_fallback": "assets/cup-story-1024.jpg"
+    },
+    "ball-actions-0": {
+      "id": "ball-actions-0",
+      "sheet": "assets/ball-story-1024.webp",
+      "tile": 0,
+      "text": {
+        "ar": "الوَلَدُ يَمْسِكُ الكُرَةَ.",
+        "en": "The boy holds the ball."
+      },
+      "audio": {
+        "ar": "audio/ar-ball-actions-0.mp3",
+        "en": "audio/en-ball-actions-0.mp3"
+      },
+      "small_sheet": "assets/ball-story-640.webp",
+      "fallback_sheet": "assets/ball-story-640.jpg",
+      "large_fallback": "assets/ball-story-1024.jpg"
+    },
+    "ball-actions-1": {
+      "id": "ball-actions-1",
+      "sheet": "assets/ball-story-1024.webp",
+      "tile": 1,
+      "text": {
+        "ar": "الوَلَدُ يُدَحْرِجُ الكُرَةَ.",
+        "en": "The boy rolls the ball."
+      },
+      "audio": {
+        "ar": "audio/ar-ball-actions-1.mp3",
+        "en": "audio/en-ball-actions-1.mp3"
+      },
+      "small_sheet": "assets/ball-story-640.webp",
+      "fallback_sheet": "assets/ball-story-640.jpg",
+      "large_fallback": "assets/ball-story-1024.jpg"
+    },
+    "ball-actions-2": {
+      "id": "ball-actions-2",
+      "sheet": "assets/ball-story-1024.webp",
+      "tile": 2,
+      "text": {
+        "ar": "البِنْتُ تَلْتَقِطُ الكُرَةَ.",
+        "en": "The girl catches the ball."
+      },
+      "audio": {
+        "ar": "audio/ar-ball-actions-2.mp3",
+        "en": "audio/en-ball-actions-2.mp3"
+      },
+      "small_sheet": "assets/ball-story-640.webp",
+      "fallback_sheet": "assets/ball-story-640.jpg",
+      "large_fallback": "assets/ball-story-1024.jpg"
+    },
+    "ball-actions-3": {
+      "id": "ball-actions-3",
+      "sheet": "assets/ball-story-1024.webp",
+      "tile": 3,
+      "text": {
+        "ar": "البِنْتُ تُعِيدُ الكُرَةَ إِلَى الوَلَدِ.",
+        "en": "The girl rolls the ball back."
+      },
+      "audio": {
+        "ar": "audio/ar-ball-actions-3.mp3",
+        "en": "audio/en-ball-actions-3.mp3"
+      },
+      "small_sheet": "assets/ball-story-640.webp",
+      "fallback_sheet": "assets/ball-story-640.jpg",
+      "large_fallback": "assets/ball-story-1024.jpg"
+    },
+    "notice-and-explain-0": {
+      "id": "notice-and-explain-0",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 0,
+      "text": {
+        "ar": "صُنْدُوقٌ فَارِغٌ، وَالقِطُّ بِجَانِبِهِ.",
+        "en": "An empty box sits beside the cat."
+      },
+      "audio": {
+        "ar": "audio/ar-notice-and-explain-0.mp3",
+        "en": "audio/en-notice-and-explain-0.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "notice-and-explain-1": {
+      "id": "notice-and-explain-1",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 1,
+      "text": {
+        "ar": "القِطُّ يَخْتَارُ الدُّخُولَ إِلَى الصُّنْدُوقِ.",
+        "en": "The cat chooses to climb inside."
+      },
+      "audio": {
+        "ar": "audio/ar-notice-and-explain-1.mp3",
+        "en": "audio/en-notice-and-explain-1.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "notice-and-explain-2": {
+      "id": "notice-and-explain-2",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 2,
+      "text": {
+        "ar": "يَخْرُجُ القِطُّ. لَمْ يُغْلَقِ الصُّنْدُوقُ.",
+        "en": "The cat walks out. The box stays open."
+      },
+      "audio": {
+        "ar": "audio/ar-notice-and-explain-2.mp3",
+        "en": "audio/en-notice-and-explain-2.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "notice-and-explain-3": {
+      "id": "notice-and-explain-3",
+      "sheet": "assets/cat-story-1024.webp",
+      "tile": 3,
+      "text": {
+        "ar": "أَصْبَحَ دَاخِلُ الصُّنْدُوقِ نَاعِمًا. مَاذَا قَدْ يَخْتَارُ القِطُّ بَعْدَ ذَلِكَ؟",
+        "en": "Now the box has a soft blanket. What might the cat choose next?"
+      },
+      "audio": {
+        "ar": "audio/ar-notice-and-explain-3.mp3",
+        "en": "audio/en-notice-and-explain-3.mp3"
+      },
+      "small_sheet": "assets/cat-story-640.webp",
+      "fallback_sheet": "assets/cat-story-640.jpg",
+      "large_fallback": "assets/cat-story-1024.jpg"
+    },
+    "polite-words-0": {
+      "id": "polite-words-0",
+      "sheet": "assets/door-story.svg",
+      "tile": 0,
+      "text": {
+        "ar": "وَقَفَ عُمَرُ أَمَامَ البَابِ.",
+        "en": "Sam stands at the door."
+      },
+      "audio": {
+        "ar": "audio/ar-polite-words-0.mp3",
+        "en": "audio/en-polite-words-0.mp3"
+      }
+    },
+    "polite-words-1": {
+      "id": "polite-words-1",
+      "sheet": "assets/door-story.svg",
+      "tile": 1,
+      "text": {
+        "ar": "طَرَقَ عُمَرُ البَابَ بِرِفْقٍ.",
+        "en": "Sam knocks gently."
+      },
+      "audio": {
+        "ar": "audio/ar-polite-words-1.mp3",
+        "en": "audio/en-polite-words-1.mp3"
+      }
+    },
+    "polite-words-2": {
+      "id": "polite-words-2",
+      "sheet": "assets/door-story.svg",
+      "tile": 2,
+      "text": {
+        "ar": "اِنْتَظَرَ عُمَرُ حَتَّى فُتِحَ البَابُ.",
+        "en": "Sam waits until the door opens."
+      },
+      "audio": {
+        "ar": "audio/ar-polite-words-2.mp3",
+        "en": "audio/en-polite-words-2.mp3"
+      }
+    },
+    "polite-words-3": {
+      "id": "polite-words-3",
+      "sheet": "assets/door-story.svg",
+      "tile": 3,
+      "text": {
+        "ar": "حَيَّا عُمَرُ مَنْ فِي الدَّاخِلِ، ثُمَّ دَخَلَ.",
+        "en": "Sam says hello, then steps inside."
+      },
+      "audio": {
+        "ar": "audio/ar-polite-words-3.mp3",
+        "en": "audio/en-polite-words-3.mp3"
       }
     }
   },
@@ -732,6 +1104,87 @@
         "audio/en-sat-new-sound-0.mp3",
         "audio/en-sat-new-sound-1.mp3",
         "audio/en-sat-new-sound-2.mp3"
+      ]
+    },
+    "ar-ball-word": {
+      "id": "ar-ball-word",
+      "language": "ar",
+      "text": "كُرَة",
+      "units": [
+        "كُ",
+        "رَة"
+      ],
+      "phonetic_units": [
+        "kU",
+        "ra"
+      ],
+      "unit_audio": [
+        "audio/ar-ball-word-sound-0.mp3",
+        "audio/ar-ball-word-sound-1.mp3"
+      ],
+      "audio": "audio/ar-ball-word-word.mp3",
+      "phrase": "كُرَةٌ تَتَدَحْرَجُ.",
+      "phrase_audio": "audio/ar-ball-word-phrase.mp3",
+      "transfer": "كُرَات",
+      "transfer_audio": "audio/ar-ball-word-transfer.mp3",
+      "image": "../../../resources/early-child-visuals/objects/ball.svg",
+      "mode": "syllables",
+      "transfer_units": [
+        "كُ",
+        "رَا",
+        "ت"
+      ],
+      "transfer_phonetic_units": [
+        "kU",
+        "ra:",
+        "t"
+      ],
+      "transfer_unit_audio": [
+        "audio/ar-ball-word-new-sound-0.mp3",
+        "audio/ar-ball-word-new-sound-1.mp3",
+        "audio/ar-ball-word-new-sound-2.mp3"
+      ]
+    },
+    "en-ball-word": {
+      "id": "en-ball-word",
+      "language": "en",
+      "text": "ball",
+      "units": [
+        "b",
+        "a",
+        "ll"
+      ],
+      "phonetic_units": [
+        "b",
+        "O:",
+        "l"
+      ],
+      "unit_audio": [
+        "audio/en-ball-word-sound-0.mp3",
+        "audio/en-ball-word-sound-1.mp3",
+        "audio/en-ball-word-sound-2.mp3"
+      ],
+      "audio": "audio/en-ball-word-word.mp3",
+      "phrase": "Roll the ball.",
+      "phrase_audio": "audio/en-ball-word-phrase.mp3",
+      "transfer": "bell",
+      "transfer_audio": "audio/en-ball-word-transfer.mp3",
+      "image": "../../../resources/early-child-visuals/objects/ball.svg",
+      "mode": "phonemes",
+      "transfer_units": [
+        "b",
+        "e",
+        "ll"
+      ],
+      "transfer_phonetic_units": [
+        "b",
+        "E",
+        "l"
+      ],
+      "transfer_unit_audio": [
+        "audio/en-ball-word-new-sound-0.mp3",
+        "audio/en-ball-word-new-sound-1.mp3",
+        "audio/en-ball-word-new-sound-2.mp3"
       ]
     }
   },
@@ -1659,6 +2112,950 @@
           "audio": "audio/en-cat-ending-1.mp3"
         }
       ]
+    },
+    {
+      "id": "ar-first-next-last",
+      "language": "ar",
+      "title": "أولًا… ثم… أخيرًا",
+      "track": "entry",
+      "scenes": [
+        "first-next-last-0",
+        "first-next-last-1",
+        "first-next-last-2"
+      ],
+      "optional_scene": "first-next-last-3",
+      "word": "ar-cup",
+      "question": "أي صورة يظهر فيها الكوب من جديد؟",
+      "question_audio": "audio/ar-first-next-last-question.mp3",
+      "choices": [
+        {
+          "label": "وجدت الكوب",
+          "scene": "first-next-last-2"
+        },
+        {
+          "label": "الكوب مخفي",
+          "scene": "first-next-last-1"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "رتّب ثلاث صور من يومك، وقل: أولًا، ثم، أخيرًا.",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-first-next-last-title.mp3",
+      "skill": "أرتّب الأحداث",
+      "sentences": {
+        "practice": {
+          "text": "لَيْلَى وَجَدَتِ الْكُوبَ.",
+          "units": [
+            "لَيْلَى",
+            "وَجَدَتِ",
+            "الْكُوبَ"
+          ],
+          "scene": "first-next-last-2",
+          "audio": "audio/ar-first-next-last-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-ec1fb5a282.mp3",
+            "audio/ar-token-c8ac1d2fda.mp3",
+            "audio/ar-token-15d5f09922.mp3"
+          ]
+        },
+        "extend": {
+          "text": "فِي النِّهَايَةِ أَمْسَكَتْ لَيْلَى الْكُوبَ.",
+          "units": [
+            "فِي",
+            "النِّهَايَةِ",
+            "أَمْسَكَتْ",
+            "لَيْلَى",
+            "الْكُوبَ"
+          ],
+          "scene": "first-next-last-3",
+          "audio": "audio/ar-first-next-last-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-eca34af797.mp3",
+            "audio/ar-token-22caae1164.mp3",
+            "audio/ar-token-d2d76bedc0.mp3",
+            "audio/ar-token-ec1fb5a282.mp3",
+            "audio/ar-token-15d5f09922.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "عَادَ الْكُوبُ إِلَى يَدَيْ لَيْلَى.",
+          "scene": "first-next-last-3",
+          "audio": "audio/ar-first-next-last-ending-0.mp3"
+        },
+        {
+          "text": "بَعُدَ الْكِتَابُ وَظَهَرَ الْكُوبُ.",
+          "scene": "first-next-last-2",
+          "audio": "audio/ar-first-next-last-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-first-next-last",
+      "language": "en",
+      "title": "First, next, last",
+      "track": "entry",
+      "scenes": [
+        "first-next-last-0",
+        "first-next-last-1",
+        "first-next-last-2"
+      ],
+      "optional_scene": "first-next-last-3",
+      "word": "en-cup",
+      "question": "Which picture shows the cup again?",
+      "question_audio": "audio/en-first-next-last-question.mp3",
+      "choices": [
+        {
+          "label": "Cup found",
+          "scene": "first-next-last-2"
+        },
+        {
+          "label": "Cup hidden",
+          "scene": "first-next-last-1"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "Tell three moments from your day: first, next, last.",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-first-next-last-title.mp3",
+      "skill": "Sequence events",
+      "sentences": {
+        "practice": {
+          "text": "Mia finds it.",
+          "units": [
+            "Mia",
+            "finds",
+            "it"
+          ],
+          "scene": "first-next-last-2",
+          "audio": "audio/en-first-next-last-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-3aa06745f0.mp3",
+            "audio/en-token-c23c07aee2.mp3",
+            "audio/en-token-6c5522ca8a.mp3"
+          ]
+        },
+        "extend": {
+          "text": "At last Mia finds it.",
+          "units": [
+            "At",
+            "last",
+            "Mia",
+            "finds",
+            "it"
+          ],
+          "scene": "first-next-last-3",
+          "audio": "audio/en-first-next-last-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-0855009c46.mp3",
+            "audio/en-token-213ed3ea45.mp3",
+            "audio/en-token-3aa06745f0.mp3",
+            "audio/en-token-c23c07aee2.mp3",
+            "audio/en-token-6c5522ca8a.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "Mia holds her cup at last.",
+          "scene": "first-next-last-3",
+          "audio": "audio/en-first-next-last-ending-0.mp3"
+        },
+        {
+          "text": "The book moves and the cup appears.",
+          "scene": "first-next-last-2",
+          "audio": "audio/en-first-next-last-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "ar-in-and-out",
+      "language": "ar",
+      "title": "داخل وخارج",
+      "track": "entry",
+      "scenes": [
+        "in-and-out-0",
+        "in-and-out-1",
+        "in-and-out-2"
+      ],
+      "optional_scene": "in-and-out-3",
+      "word": "ar-cat",
+      "question": "أين الصورة التي فيها القط داخل الصندوق؟",
+      "question_audio": "audio/ar-in-and-out-question.mp3",
+      "choices": [
+        {
+          "label": "داخل",
+          "scene": "in-and-out-1"
+        },
+        {
+          "label": "خارج",
+          "scene": "in-and-out-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "ضع لعبة آمنة داخل صندوق مفتوح ثم أخرجها وسمّ المكان.",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-in-and-out-title.mp3",
+      "skill": "أصف المكان",
+      "sentences": {
+        "practice": {
+          "text": "القِطُّ دَخَلَ الصُّنْدُوقَ.",
+          "units": [
+            "القِطُّ",
+            "دَخَلَ",
+            "الصُّنْدُوقَ"
+          ],
+          "scene": "in-and-out-1",
+          "audio": "audio/ar-in-and-out-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-1ad7ecd2e8.mp3",
+            "audio/ar-token-53e5842634.mp3",
+            "audio/ar-token-ee2f2039c2.mp3"
+          ]
+        },
+        "extend": {
+          "text": "خَرَجَ القِطُّ مِنَ الصُّنْدُوقِ بِهُدُوءٍ.",
+          "units": [
+            "خَرَجَ",
+            "القِطُّ",
+            "مِنَ",
+            "الصُّنْدُوقِ",
+            "بِهُدُوءٍ"
+          ],
+          "scene": "in-and-out-2",
+          "audio": "audio/ar-in-and-out-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-7926d3ef8f.mp3",
+            "audio/ar-token-1ad7ecd2e8.mp3",
+            "audio/ar-token-2413f35f7b.mp3",
+            "audio/ar-token-26b5accd2e.mp3",
+            "audio/ar-token-0811f14b9a.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "خَرَجَ القِطُّ، وَبَقِيَ الصُّنْدُوقُ مَفْتُوحًا.",
+          "scene": "in-and-out-2",
+          "audio": "audio/ar-in-and-out-ending-0.mp3"
+        },
+        {
+          "text": "صَارَ الصُّنْدُوقُ نَاعِمًا بِالْغِطَاءِ.",
+          "scene": "in-and-out-3",
+          "audio": "audio/ar-in-and-out-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-in-and-out",
+      "language": "en",
+      "title": "In and out",
+      "track": "entry",
+      "scenes": [
+        "in-and-out-0",
+        "in-and-out-1",
+        "in-and-out-2"
+      ],
+      "optional_scene": "in-and-out-3",
+      "word": "en-cat",
+      "question": "Which picture shows the cat inside?",
+      "question_audio": "audio/en-in-and-out-question.mp3",
+      "choices": [
+        {
+          "label": "Inside",
+          "scene": "in-and-out-1"
+        },
+        {
+          "label": "Outside",
+          "scene": "in-and-out-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "Put a safe toy in an open box, then take it out. Name its place.",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-in-and-out-title.mp3",
+      "skill": "Describe position",
+      "sentences": {
+        "practice": {
+          "text": "It goes in.",
+          "units": [
+            "It",
+            "goes",
+            "in"
+          ],
+          "scene": "in-and-out-1",
+          "audio": "audio/en-in-and-out-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-d7acc4a63b.mp3",
+            "audio/en-token-dda18e17a0.mp3",
+            "audio/en-token-af10ef20dd.mp3"
+          ]
+        },
+        "extend": {
+          "text": "The cat steps outside again.",
+          "units": [
+            "The",
+            "cat",
+            "steps",
+            "outside",
+            "again"
+          ],
+          "scene": "in-and-out-2",
+          "audio": "audio/en-in-and-out-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-93ef0dd827.mp3",
+            "audio/en-token-9d989e8d27.mp3",
+            "audio/en-token-6578912eab.mp3",
+            "audio/en-token-45e18dad51.mp3",
+            "audio/en-token-aaa4d5f872.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "The cat leaves the open box.",
+          "scene": "in-and-out-2",
+          "audio": "audio/en-in-and-out-ending-0.mp3"
+        },
+        {
+          "text": "The blanket makes the box soft.",
+          "scene": "in-and-out-3",
+          "audio": "audio/en-in-and-out-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "ar-look-for-clues",
+      "language": "ar",
+      "title": "أبحث بدليل",
+      "track": "practice",
+      "scenes": [
+        "look-for-clues-0",
+        "look-for-clues-1",
+        "look-for-clues-2",
+        "look-for-clues-3"
+      ],
+      "optional_scene": "look-for-clues-3",
+      "word": "ar-book",
+      "question": "ما الشيء الذي أخفى الكوب؟",
+      "question_audio": "audio/ar-look-for-clues-question.mp3",
+      "choices": [
+        {
+          "label": "الكتاب",
+          "scene": "look-for-clues-1"
+        },
+        {
+          "label": "الكوب ظهر",
+          "scene": "look-for-clues-2"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "ضع كوبًا خلف كتاب آمن. اسأل: ماذا أرى؟ وماذا أغيّر لكي أراه؟",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-look-for-clues-title.mp3",
+      "skill": "أربط السبب بالنتيجة",
+      "sentences": {
+        "practice": {
+          "text": "الكِتَابُ حَجَبَ الكُوبَ.",
+          "units": [
+            "الكِتَابُ",
+            "حَجَبَ",
+            "الكُوبَ"
+          ],
+          "scene": "look-for-clues-1",
+          "audio": "audio/ar-look-for-clues-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-f228d4d03e.mp3",
+            "audio/ar-token-1b552bc664.mp3",
+            "audio/ar-token-8a2a267295.mp3"
+          ]
+        },
+        "extend": {
+          "text": "أَبْعَدَتْ لَيْلَى الكِتَابَ فَظَهَرَ الكُوبُ.",
+          "units": [
+            "أَبْعَدَتْ",
+            "لَيْلَى",
+            "الكِتَابَ",
+            "فَظَهَرَ",
+            "الكُوبُ"
+          ],
+          "scene": "look-for-clues-2",
+          "audio": "audio/ar-look-for-clues-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-dcb0f5c2c4.mp3",
+            "audio/ar-token-ec1fb5a282.mp3",
+            "audio/ar-token-e195591131.mp3",
+            "audio/ar-token-4f6077994f.mp3",
+            "audio/ar-token-8b0f67e03a.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "اِسْتَخْدَمَتْ لَيْلَى الدَّلِيلَ، فَوَجَدَتْ كُوبَهَا.",
+          "scene": "look-for-clues-3",
+          "audio": "audio/ar-look-for-clues-ending-0.mp3"
+        },
+        {
+          "text": "ظَهَرَ الكُوبُ بَعْدَ تَحْرِيكِ الكِتَابِ.",
+          "scene": "look-for-clues-2",
+          "audio": "audio/ar-look-for-clues-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-look-for-clues",
+      "language": "en",
+      "title": "Look for a clue",
+      "track": "practice",
+      "scenes": [
+        "look-for-clues-0",
+        "look-for-clues-1",
+        "look-for-clues-2",
+        "look-for-clues-3"
+      ],
+      "optional_scene": "look-for-clues-3",
+      "word": "en-cup",
+      "question": "What hid the cup?",
+      "question_audio": "audio/en-look-for-clues-question.mp3",
+      "choices": [
+        {
+          "label": "The book",
+          "scene": "look-for-clues-1"
+        },
+        {
+          "label": "The cup appears",
+          "scene": "look-for-clues-2"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "Hide a cup behind a safe book. Ask what you can move to see it.",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-look-for-clues-title.mp3",
+      "skill": "Cause and effect",
+      "sentences": {
+        "practice": {
+          "text": "It is hidden.",
+          "units": [
+            "It",
+            "is",
+            "hidden"
+          ],
+          "scene": "look-for-clues-1",
+          "audio": "audio/en-look-for-clues-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-d7acc4a63b.mp3",
+            "audio/en-token-b47f363e2b.mp3",
+            "audio/en-token-99d72c7fc3.mp3"
+          ]
+        },
+        "extend": {
+          "text": "Mia moves the book aside.",
+          "units": [
+            "Mia",
+            "moves",
+            "the",
+            "book",
+            "aside"
+          ],
+          "scene": "look-for-clues-2",
+          "audio": "audio/en-look-for-clues-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-3aa06745f0.mp3",
+            "audio/en-token-9d86b0d4c0.mp3",
+            "audio/en-token-bbccdf2efb.mp3",
+            "audio/en-token-e7e694c58c.mp3",
+            "audio/en-token-b77cad1467.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "Mia follows the clue and finds her cup.",
+          "scene": "look-for-clues-3",
+          "audio": "audio/en-look-for-clues-ending-0.mp3"
+        },
+        {
+          "text": "The cup appears when the book moves.",
+          "scene": "look-for-clues-2",
+          "audio": "audio/en-look-for-clues-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "ar-ball-actions",
+      "language": "ar",
+      "title": "أفعال الكرة",
+      "track": "practice",
+      "scenes": [
+        "ball-actions-0",
+        "ball-actions-1",
+        "ball-actions-2",
+        "ball-actions-3"
+      ],
+      "optional_scene": "ball-actions-3",
+      "word": "ar-ball-word",
+      "question": "ماذا تفعل البنت عندما تصلها الكرة؟",
+      "question_audio": "audio/ar-ball-actions-question.mp3",
+      "choices": [
+        {
+          "label": "تلتقطها",
+          "scene": "ball-actions-2"
+        },
+        {
+          "label": "الكرة عند الولد",
+          "scene": "ball-actions-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "دحرج كرة آمنة مع مرافق، وسمّ الفعل: أمسك، أدحرج، ألتقط.",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-ball-actions-title.mp3",
+      "skill": "أبني جملة بفعل",
+      "sentences": {
+        "practice": {
+          "text": "البِنْتُ تَلْتَقِطُ الكُرَةَ.",
+          "units": [
+            "البِنْتُ",
+            "تَلْتَقِطُ",
+            "الكُرَةَ"
+          ],
+          "scene": "ball-actions-2",
+          "audio": "audio/ar-ball-actions-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-8966c65a5c.mp3",
+            "audio/ar-token-e5c0be9ae2.mp3",
+            "audio/ar-token-6ee7fbbed6.mp3"
+          ]
+        },
+        "extend": {
+          "text": "البِنْتُ تُعِيدُ الكُرَةَ إِلَى الوَلَدِ.",
+          "units": [
+            "البِنْتُ",
+            "تُعِيدُ",
+            "الكُرَةَ",
+            "إِلَى",
+            "الوَلَدِ"
+          ],
+          "scene": "ball-actions-3",
+          "audio": "audio/ar-ball-actions-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-8966c65a5c.mp3",
+            "audio/ar-token-329290b5ac.mp3",
+            "audio/ar-token-6ee7fbbed6.mp3",
+            "audio/ar-token-66010396fe.mp3",
+            "audio/ar-token-df9784fd64.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "عَادَتِ الكُرَةُ إِلَى الوَلَدِ.",
+          "scene": "ball-actions-3",
+          "audio": "audio/ar-ball-actions-ending-0.mp3"
+        },
+        {
+          "text": "اِلْتَقَطَتِ البِنْتُ الكُرَةَ بِيَدَيْهَا.",
+          "scene": "ball-actions-2",
+          "audio": "audio/ar-ball-actions-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-ball-actions",
+      "language": "en",
+      "title": "Ball actions",
+      "track": "practice",
+      "scenes": [
+        "ball-actions-0",
+        "ball-actions-1",
+        "ball-actions-2",
+        "ball-actions-3"
+      ],
+      "optional_scene": "ball-actions-3",
+      "word": "en-ball-word",
+      "question": "What does the girl do when the ball reaches her?",
+      "question_audio": "audio/en-ball-actions-question.mp3",
+      "choices": [
+        {
+          "label": "She catches it",
+          "scene": "ball-actions-2"
+        },
+        {
+          "label": "The boy has it",
+          "scene": "ball-actions-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "Roll a safe ball with a companion. Say hold, roll, catch.",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-ball-actions-title.mp3",
+      "skill": "Build an action sentence",
+      "sentences": {
+        "practice": {
+          "text": "She catches it.",
+          "units": [
+            "She",
+            "catches",
+            "it"
+          ],
+          "scene": "ball-actions-2",
+          "audio": "audio/en-ball-actions-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-b2a03bf05d.mp3",
+            "audio/en-token-fa8026e8d1.mp3",
+            "audio/en-token-6c5522ca8a.mp3"
+          ]
+        },
+        "extend": {
+          "text": "The girl rolls it back.",
+          "units": [
+            "The",
+            "girl",
+            "rolls",
+            "it",
+            "back"
+          ],
+          "scene": "ball-actions-3",
+          "audio": "audio/en-ball-actions-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-93ef0dd827.mp3",
+            "audio/en-token-25b732b342.mp3",
+            "audio/en-token-7d3ee563b4.mp3",
+            "audio/en-token-6c5522ca8a.mp3",
+            "audio/en-token-61bb8d29b5.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "The ball returns to the boy.",
+          "scene": "ball-actions-3",
+          "audio": "audio/en-ball-actions-ending-0.mp3"
+        },
+        {
+          "text": "The girl catches the ball with both hands.",
+          "scene": "ball-actions-2",
+          "audio": "audio/en-ball-actions-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "ar-notice-and-explain",
+      "language": "ar",
+      "title": "ألاحظ وأفسّر",
+      "track": "extend",
+      "scenes": [
+        "notice-and-explain-0",
+        "notice-and-explain-1",
+        "notice-and-explain-2",
+        "notice-and-explain-3"
+      ],
+      "optional_scene": "notice-and-explain-3",
+      "word": "ar-cat",
+      "question": "ما الذي أضافه الولد إلى الصندوق؟",
+      "question_audio": "audio/ar-notice-and-explain-question.mp3",
+      "choices": [
+        {
+          "label": "غطاء ناعم",
+          "scene": "notice-and-explain-3"
+        },
+        {
+          "label": "القط دخل",
+          "scene": "notice-and-explain-1"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "قل: أرى… ثم قل: أعتقد… ما الفرق بين ما رأيته وما توقعته؟",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-notice-and-explain-title.mp3",
+      "skill": "أفصل الملاحظة عن التوقع",
+      "sentences": {
+        "practice": {
+          "text": "الوَلَدُ أَضَافَ غِطَاءً.",
+          "units": [
+            "الوَلَدُ",
+            "أَضَافَ",
+            "غِطَاءً"
+          ],
+          "scene": "notice-and-explain-3",
+          "audio": "audio/ar-notice-and-explain-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-6d8d1bb89b.mp3",
+            "audio/ar-token-2e9766b64f.mp3",
+            "audio/ar-token-f17f66630f.mp3"
+          ]
+        },
+        "extend": {
+          "text": "وَضَعَ الوَلَدُ غِطَاءً نَاعِمًا دَاخِلًا.",
+          "units": [
+            "وَضَعَ",
+            "الوَلَدُ",
+            "غِطَاءً",
+            "نَاعِمًا",
+            "دَاخِلًا"
+          ],
+          "scene": "notice-and-explain-3",
+          "audio": "audio/ar-notice-and-explain-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-9df33386e4.mp3",
+            "audio/ar-token-6d8d1bb89b.mp3",
+            "audio/ar-token-f17f66630f.mp3",
+            "audio/ar-token-4aa40ae32e.mp3",
+            "audio/ar-token-ba792b92af.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "أَضَافَ الوَلَدُ غِطَاءً نَاعِمًا، وَتَرَكَ الصُّنْدُوقَ مَفْتُوحًا.",
+          "scene": "notice-and-explain-3",
+          "audio": "audio/ar-notice-and-explain-ending-0.mp3"
+        },
+        {
+          "text": "خَرَجَ القِطُّ بِحُرِّيَّةٍ، وَبَقِيَ بِجَانِبِ الصُّنْدُوقِ.",
+          "scene": "notice-and-explain-2",
+          "audio": "audio/ar-notice-and-explain-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-notice-and-explain",
+      "language": "en",
+      "title": "Notice and explain",
+      "track": "extend",
+      "scenes": [
+        "notice-and-explain-0",
+        "notice-and-explain-1",
+        "notice-and-explain-2",
+        "notice-and-explain-3"
+      ],
+      "optional_scene": "notice-and-explain-3",
+      "word": "en-cat",
+      "question": "What does Sam add to the box?",
+      "question_audio": "audio/en-notice-and-explain-question.mp3",
+      "choices": [
+        {
+          "label": "A soft blanket",
+          "scene": "notice-and-explain-3"
+        },
+        {
+          "label": "The cat went in",
+          "scene": "notice-and-explain-1"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "Say I see, then I think. Which idea did you observe, and which did you predict?",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-notice-and-explain-title.mp3",
+      "skill": "Observe and predict",
+      "sentences": {
+        "practice": {
+          "text": "Sam adds softness.",
+          "units": [
+            "Sam",
+            "adds",
+            "softness"
+          ],
+          "scene": "notice-and-explain-3",
+          "audio": "audio/en-notice-and-explain-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-265dc298e8.mp3",
+            "audio/en-token-034433e5ab.mp3",
+            "audio/en-token-44e96d1d4a.mp3"
+          ]
+        },
+        "extend": {
+          "text": "Sam puts a blanket inside.",
+          "units": [
+            "Sam",
+            "puts",
+            "a",
+            "blanket",
+            "inside"
+          ],
+          "scene": "notice-and-explain-3",
+          "audio": "audio/en-notice-and-explain-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-265dc298e8.mp3",
+            "audio/en-token-b98c7cd92e.mp3",
+            "audio/en-token-86f7e437fa.mp3",
+            "audio/en-token-607919897b.mp3",
+            "audio/en-token-fcc537881c.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "Sam adds a blanket and leaves the box open.",
+          "scene": "notice-and-explain-3",
+          "audio": "audio/en-notice-and-explain-ending-0.mp3"
+        },
+        {
+          "text": "The cat freely leaves the box and waits beside it.",
+          "scene": "notice-and-explain-2",
+          "audio": "audio/en-notice-and-explain-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "ar-polite-words",
+      "language": "ar",
+      "title": "أقول جملة لطيفة",
+      "track": "extend",
+      "scenes": [
+        "polite-words-0",
+        "polite-words-1",
+        "polite-words-2",
+        "polite-words-3"
+      ],
+      "optional_scene": "polite-words-3",
+      "word": "ar-door",
+      "question": "أي صورة تسبق الدخول؟",
+      "question_audio": "audio/ar-polite-words-question.mp3",
+      "choices": [
+        {
+          "label": "الباب مفتوح",
+          "scene": "polite-words-2"
+        },
+        {
+          "label": "وقف أولًا",
+          "scene": "polite-words-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "مع المرافق، مثّل التحية وانتظار الإذن عند باب داخلي في البيت.",
+      "coach_tip": "استمع للمحاولة وقل ما لاحظته. اقرأ أو مثّل مثالًا عند الحاجة ثم أعد الدور للطفل؛ لا تقييم آلي للنطق.",
+      "title_audio": "audio/ar-polite-words-title.mp3",
+      "skill": "أحكي حوارًا قصيرًا",
+      "sentences": {
+        "practice": {
+          "text": "عُمَرُ طَرَقَ البَابَ.",
+          "units": [
+            "عُمَرُ",
+            "طَرَقَ",
+            "البَابَ"
+          ],
+          "scene": "polite-words-1",
+          "audio": "audio/ar-polite-words-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/ar-token-06475b24ed.mp3",
+            "audio/ar-token-e8cc9aa9d3.mp3",
+            "audio/ar-token-b4b9e577cf.mp3"
+          ]
+        },
+        "extend": {
+          "text": "حَيَّا عُمَرُ مَنْ فِي الدَّاخِلِ.",
+          "units": [
+            "حَيَّا",
+            "عُمَرُ",
+            "مَنْ",
+            "فِي",
+            "الدَّاخِلِ"
+          ],
+          "scene": "polite-words-3",
+          "audio": "audio/ar-polite-words-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/ar-token-55357aad05.mp3",
+            "audio/ar-token-06475b24ed.mp3",
+            "audio/ar-token-2348694c3c.mp3",
+            "audio/ar-token-eca34af797.mp3",
+            "audio/ar-token-0ab36def36.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "فُتِحَ البَابُ، وَعُمَرُ يَنْتَظِرُ بِهُدُوءٍ.",
+          "scene": "polite-words-2",
+          "audio": "audio/ar-polite-words-ending-0.mp3"
+        },
+        {
+          "text": "حَيَّا عُمَرُ مَنْ فِي الدَّاخِلِ، ثُمَّ دَخَلَ.",
+          "scene": "polite-words-3",
+          "audio": "audio/ar-polite-words-ending-1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "en-polite-words",
+      "language": "en",
+      "title": "Polite words",
+      "track": "extend",
+      "scenes": [
+        "polite-words-0",
+        "polite-words-1",
+        "polite-words-2",
+        "polite-words-3"
+      ],
+      "optional_scene": "polite-words-3",
+      "word": "en-tap",
+      "question": "Which picture comes before going inside?",
+      "question_audio": "audio/en-polite-words-question.mp3",
+      "choices": [
+        {
+          "label": "An open door",
+          "scene": "polite-words-2"
+        },
+        {
+          "label": "First he stands",
+          "scene": "polite-words-0"
+        }
+      ],
+      "meaning": 0,
+      "real_world": "With your companion, practise a greeting and waiting at an inside door.",
+      "coach_tip": "Listen to the try and describe what you noticed. Model one example, then return the turn to the child. No automated pronunciation scores.",
+      "title_audio": "audio/en-polite-words-title.mp3",
+      "skill": "Tell a short dialogue",
+      "sentences": {
+        "practice": {
+          "text": "Sam knocks gently.",
+          "units": [
+            "Sam",
+            "knocks",
+            "gently"
+          ],
+          "scene": "polite-words-1",
+          "audio": "audio/en-polite-words-sentence-practice.mp3",
+          "unit_audio": [
+            "audio/en-token-265dc298e8.mp3",
+            "audio/en-token-f908613988.mp3",
+            "audio/en-token-5f4e484b31.mp3"
+          ]
+        },
+        "extend": {
+          "text": "Sam says hello before entering.",
+          "units": [
+            "Sam",
+            "says",
+            "hello",
+            "before",
+            "entering"
+          ],
+          "scene": "polite-words-3",
+          "audio": "audio/en-polite-words-sentence-extend.mp3",
+          "unit_audio": [
+            "audio/en-token-265dc298e8.mp3",
+            "audio/en-token-dcf06e8581.mp3",
+            "audio/en-token-aaf4c61ddc.mp3",
+            "audio/en-token-51de2b835b.mp3",
+            "audio/en-token-6c21f7e1c8.mp3"
+          ]
+        }
+      },
+      "endings": [
+        {
+          "text": "The door opens while Sam waits calmly.",
+          "scene": "polite-words-2",
+          "audio": "audio/en-polite-words-ending-0.mp3"
+        },
+        {
+          "text": "Sam says hello, then goes inside.",
+          "scene": "polite-words-3",
+          "audio": "audio/en-polite-words-ending-1.mp3"
+        }
+      ]
     }
   ],
   "review": {
@@ -1880,5 +3277,6 @@
         "audio": "audio/en-guide-next-level.mp3"
       }
     }
-  }
+  },
+  "library_version": 3
 }

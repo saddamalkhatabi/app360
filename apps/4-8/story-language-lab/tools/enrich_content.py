@@ -2,7 +2,7 @@
 import json, pathlib, hashlib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 d = json.loads((ROOT / 'data/stories.json').read_text())
-d['release'] = 'preview-2'
+d['release'] = 'preview-' + str(max(2, d.get('library_version', 2)))
 d['levels'] = [
  {'id':'entry','number':1,'age_min':4,'age_max':5,'ar':'أسمع وأكتشف','en':'Listen & discover','icon':'◉','steps':['listen','meaning','order','compose'],'compose_max':3},
  {'id':'practice','number':2,'age_min':5,'age_max':6,'ar':'أركّب وأقرأ','en':'Build & read','icon':'▦','steps':['listen','order','word','sentence','compose'],'compose_max':4},
@@ -50,6 +50,7 @@ endings={
  'door':{'ar':[('دَخَلَ عُمَرُ مَعَ أَبِيهِ وَحَكَى حِكَايَتَهُ.','door-3'),('رَحَّبَ الْأَبُ بِعُمَرَ عِنْدَ الْبَابِ.','door-2')], 'en':[('Sam walks in with Dad and tells his story.','door-3'),('Dad welcomes Sam at the door.','door-2')]}
 }
 for s in d['stories']:
+ if s['id'] not in sentences: continue
  s['title_audio']=f"audio/{s['id']}-title.mp3"
  s['sentences']={}
  for track,(text,scene) in zip(['practice','extend'],sentences[s['id']]):
@@ -66,6 +67,7 @@ transfers={
  'ar-write':(['كَ','تَ','مَ'],['ka','ta','ma']), 'ar-book':(['كِ','تَا','بِي'],['ki','ta:','bi:'])
 }
 for w in d['words'].values():
+ if w['language']=='ar' and w['id'] not in transfers: continue
  units,phones=transfers[w['id']] if w['language']=='ar' else (list(w['transfer']),[{'a':'a','u':'V','c':'k'}.get(x,x) for x in w['transfer']])
  w['transfer_units']=units;w['transfer_phonetic_units']=phones;w['transfer_unit_audio']=[f"audio/{w['id']}-new-sound-{i}.mp3" for i in range(len(units))]
 (ROOT/'data/stories.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')

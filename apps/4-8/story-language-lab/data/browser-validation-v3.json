@@ -1,0 +1,42 @@
+{
+  "passed": 17,
+  "checks": [
+    "Three open age levels, light responsive images and child controls",
+    "Entry child loop works entirely by picture taps and spoken help",
+    "Middle level builds a joined word and three-word sentence",
+    "Advanced English transfer word, longer sentence and optional authorship",
+    "Optional recording, private export, print and restore",
+    "Offline pack completes without reloading the first lesson and keeps all three levels",
+    "Update waits while authoring and age suggestions remain adjustable",
+    "Viewport matrix retains layout and all touch targets",
+    "Level progress and authorship isolate by learner",
+    "Legacy HTML audio and unavailable storage still support independent play",
+    "Denied microphone cannot block the picture ending or save",
+    "Existing launch links still open the requested English lesson",
+    "Guest learner has child play while age and template controls stay with the coach",
+    "Real cover and open button share the shell, swipes are ignored and returning restores scroll",
+    "Twelve stories per language play in all levels with new sounds, sentences and picture endings",
+    "Six-times CPU slowdown remains responsive during repeated lesson changes and audio taps",
+    "Portal service-worker installation and update cannot return a running lesson to homepage"
+  ],
+  "metrics": {
+    "usage": {
+      "cpuSlowdown": 6,
+      "timerDelayMs": 51,
+      "longTasks": 0,
+      "maxLongTaskMs": 0
+    }
+  },
+  "pageErrors": [],
+  "release": "preview-3",
+  "date": "2026-10-02",
+  "stories": 24,
+  "stories_per_language": 12,
+  "audio_clips": 477,
+  "delayed_core": {
+    "delay_ms": 2500,
+    "preview_timers_before": 46,
+    "preview_timers_after": 1
+  },
+  "note": "Chromium local UI/CPU simulation; not an actual BigTAB device or a child usability study."
+}
