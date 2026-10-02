@@ -1,0 +1,413 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "date": "2026-10-02",
+  "prompt_set": [
+    "data/asset-prompts-v4.json",
+    "data/asset-edit-prompts-v4.json"
+  ],
+  "optimization": "Pillow resize and WebP/JPEG encoding, requested web optimization. No semantic edits or panel cropping.",
+  "assets": [
+    {
+      "world": "seed",
+      "source_sha256": "068125eb8da135f3c09232a77ff1f788ff7a48aeacd3d91c463a7b734221c81b",
+      "source_bytes": 2139187,
+      "derivatives": [
+        {
+          "path": "assets/v4-seed-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 45630,
+          "sha256": "1fa160e52746c14aafb97b6ac3322c161bdff23ed90583d1577b7614a20634d2"
+        },
+        {
+          "path": "assets/v4-seed-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 71065,
+          "sha256": "9622b0c72656dc180371207b5805508746f54dfd0cb31d2223fcc5a954771a62"
+        },
+        {
+          "path": "assets/v4-seed-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 86760,
+          "sha256": "aaed8e9209d479c27707c8779dfb800c71f72edb1b3721f767de72b11a12571e"
+        },
+        {
+          "path": "assets/v4-seed-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 148208,
+          "sha256": "1826e9dd635edb43e9a5e291feb3b797f622867cc25a089f60fc2357f49cf541"
+        }
+      ]
+    },
+    {
+      "world": "bridge",
+      "source_sha256": "4a7e8bf1e23adba3182fd5b7f49f619c3224946e8ce317b5738339e311b488a4",
+      "source_bytes": 2089680,
+      "derivatives": [
+        {
+          "path": "assets/v4-bridge-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 43058,
+          "sha256": "53cbb51d65b4cfa494859422890fce4012979ed9c5f41a45dca45592791a041d"
+        },
+        {
+          "path": "assets/v4-bridge-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 68815,
+          "sha256": "9804b02f2d1abb508053ef534cd6510c25303ba60a40493de70d65b1233673af"
+        },
+        {
+          "path": "assets/v4-bridge-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 79526,
+          "sha256": "ace2bc6717198c38acbbc79cb270dfd1e283a35e35436777e94434d67d407c75"
+        },
+        {
+          "path": "assets/v4-bridge-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 141828,
+          "sha256": "9b6b7ae1ced83951406a3957c1f879d1b459d1d9f24ff506838ed10ed3ebfbb9"
+        }
+      ]
+    },
+    {
+      "world": "colors",
+      "source_sha256": "a4253e2bb2a222bbb17b14c71943a9b86087ae296f417b095aaf9bca7d276194",
+      "source_bytes": 2126682,
+      "derivatives": [
+        {
+          "path": "assets/v4-colors-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 43458,
+          "sha256": "feddbe432718b9ada2781a7e2cbc20dcc2bb67c98d58ec946042ab440b83148a"
+        },
+        {
+          "path": "assets/v4-colors-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 68246,
+          "sha256": "bbe469b4967f7e3d605357e39df13d2931fa98c74786227a38f5ddb66ef950dc"
+        },
+        {
+          "path": "assets/v4-colors-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 82386,
+          "sha256": "c01cfc29c174852505e47157fee214ca25932becda838ee2998bbd6a08dde126"
+        },
+        {
+          "path": "assets/v4-colors-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 142426,
+          "sha256": "9369e52e215d7a987f9ec175c40b665c695480dbe017b56788cd54404e3eb4d6"
+        }
+      ]
+    },
+    {
+      "world": "kindness",
+      "source_sha256": "6c59609d2ea407ab7631bef581a4f9f33210fe88d49c47f5c39042154aaef64c",
+      "source_bytes": 2185059,
+      "derivatives": [
+        {
+          "path": "assets/v4-kindness-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 48130,
+          "sha256": "a06db701e3c26e7f93a9100ce2b95aebc81713878a84b1e770c7f4fb38bf197e"
+        },
+        {
+          "path": "assets/v4-kindness-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 77204,
+          "sha256": "690eec0624ea3982831246d22c868053796636de2beb921098a03e75a2663544"
+        },
+        {
+          "path": "assets/v4-kindness-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 89990,
+          "sha256": "48d2767e41ba97de0cfd729415b0b04c9293a19ae34d359ff38b4591d2123e0d"
+        },
+        {
+          "path": "assets/v4-kindness-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 159421,
+          "sha256": "aead566fd9d16fe4e422667200bc8d1fb08ea33b352ddf3ec8b1bf626550476e"
+        }
+      ]
+    },
+    {
+      "world": "tidy",
+      "source_sha256": "ffc0decc784a7294a0b45cee6a96ead5dee4f9ae12208e8313aed4cb42ad31eb",
+      "source_bytes": 2268360,
+      "derivatives": [
+        {
+          "path": "assets/v4-tidy-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44718,
+          "sha256": "29760a032adddeabc6e5beeb66f9a04f43f1dfb481d69a0b58fa7ecd50a8a2f4"
+        },
+        {
+          "path": "assets/v4-tidy-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 70257,
+          "sha256": "a2c89c4ea4f030896f588c545181c44e6db6aaf51550dc6c6a5559b3c5bb6fb8"
+        },
+        {
+          "path": "assets/v4-tidy-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 86650,
+          "sha256": "1f419c5eaa96e6ac7bd4bed575fd82282b5e926921a6f32f746502ba08878695"
+        },
+        {
+          "path": "assets/v4-tidy-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 148314,
+          "sha256": "ea2af5a91b03ee45478a31192bef97a880ee4666eac3ffbea59970f2ed6afdcd"
+        }
+      ]
+    },
+    {
+      "world": "letter",
+      "source_sha256": "57f2d19056df52fd44e69a136c35e56da75a22f21d962f4a492cd99bb03f7b0c",
+      "source_bytes": 2286619,
+      "derivatives": [
+        {
+          "path": "assets/v4-letter-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 45824,
+          "sha256": "2b9b47f6ac649349ea4e1c1a89180de06d8f06092a44d45f3abc0f9735d50fd2"
+        },
+        {
+          "path": "assets/v4-letter-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 72432,
+          "sha256": "01a564476e9d52c2f157b438f1884cb81c22df0b2657ad9d05a84369f552f839"
+        },
+        {
+          "path": "assets/v4-letter-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 86844,
+          "sha256": "3662ab71d525e50b028f7e313038114da2859cf1fd25f9f9f8e0cd8b54ec6d8d"
+        },
+        {
+          "path": "assets/v4-letter-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 150962,
+          "sha256": "6b8662ec4b267d0d89a41f18203c2813773195c4209ef1ef947cc55d851f4992"
+        }
+      ]
+    },
+    {
+      "world": "rain",
+      "source_sha256": "1bc2e66aedae4a2d50a184a448bb7cd1d78605fbf9d12b56780b9da4ff09992f",
+      "source_bytes": 2415877,
+      "derivatives": [
+        {
+          "path": "assets/v4-rain-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 66488,
+          "sha256": "675e2d7926f0276a364d7f47cab0602f9f574444ccb98c42345cc425de69ab37"
+        },
+        {
+          "path": "assets/v4-rain-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 89925,
+          "sha256": "15b40d4cf41390b9d75276660991f40e0221ac863421da07532713cde3d66445"
+        },
+        {
+          "path": "assets/v4-rain-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 127194,
+          "sha256": "c2d342be9f14986c6059f8f43f56d824e5e0d047ec04e056cc69483fdbb6bd4b"
+        },
+        {
+          "path": "assets/v4-rain-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 188588,
+          "sha256": "568336492f3f75fb3be15346668d93278d011fc6835f5926d11acb5eb24ae372"
+        }
+      ],
+      "frames": [
+        [
+          0,
+          0,
+          0.5,
+          0.43620414673046254
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.43620414673046254
+        ],
+        [
+          0,
+          0.43620414673046254,
+          0.5,
+          0.5637958532695375
+        ],
+        [
+          0.5,
+          0.43620414673046254,
+          0.5,
+          0.5637958532695375
+        ]
+      ]
+    },
+    {
+      "world": "pack",
+      "source_sha256": "a54ce0f402349affda8ea383518780637916916f70f1f913fbd8dd33a093c5ee",
+      "source_bytes": 2177560,
+      "derivatives": [
+        {
+          "path": "assets/v4-pack-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 43084,
+          "sha256": "062e0f9425435aae07ee2b2e8afbbf1e92c97278043f5c7db4f424a57a756461"
+        },
+        {
+          "path": "assets/v4-pack-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 69504,
+          "sha256": "74b828701c5ea2b489bddc858731328af7931c4f9a1dea08fd6a0246a5c1d765"
+        },
+        {
+          "path": "assets/v4-pack-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 80966,
+          "sha256": "9db1c49c56b9ce5f2f1b161320e0111350a65b3950db5752579547a808507001"
+        },
+        {
+          "path": "assets/v4-pack-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 144962,
+          "sha256": "7700f93a5715f65286b3474ecd0b85c0dcd2d832072a59a71224468d4945b9e1"
+        }
+      ]
+    },
+    {
+      "world": "picnic",
+      "source_sha256": "3b95e62160a5d114103c26efcfa1ba2ce162d41389370a634ef1428baa4ead2d",
+      "source_bytes": 2649713,
+      "derivatives": [
+        {
+          "path": "assets/v4-picnic-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 78012,
+          "sha256": "27f7aadb60802215262a10a53eb15cf70477560bd2dcc7ba52ae9fd07c5c1fdb"
+        },
+        {
+          "path": "assets/v4-picnic-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 98349,
+          "sha256": "8fd80cbdb529fe31f1757827686e6754e66fbf8a94d521a4fa600f3f815920d8"
+        },
+        {
+          "path": "assets/v4-picnic-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 147742,
+          "sha256": "76747d926ef1cad4b790b16e2ef1b0d5e0fc1e1709fee040f7697f40bc6260d8"
+        },
+        {
+          "path": "assets/v4-picnic-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 208827,
+          "sha256": "ca6e0aa09877a4bc874dbdaf1cc026a1fb199a9876f80db83d3c2d6e191dbeac"
+        }
+      ],
+      "frames": [
+        [
+          0,
+          0,
+          0.5,
+          0.4529505582137161
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.4529505582137161
+        ],
+        [
+          0,
+          0.4529505582137161,
+          0.5,
+          0.5470494417862839
+        ],
+        [
+          0.5,
+          0.4529505582137161,
+          0.5,
+          0.5470494417862839
+        ]
+      ]
+    },
+    {
+      "world": "boat",
+      "source_sha256": "9ad9d3e343981f87ede33c557b6a71ad408f8f5afcdcf8f1dd226660bd14849e",
+      "source_bytes": 2279454,
+      "derivatives": [
+        {
+          "path": "assets/v4-boat-story-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 45436,
+          "sha256": "21628cbe267e0f0dce7d76539a8a1ee76f39834cf6d08fe70ff41ab1ebb31e56"
+        },
+        {
+          "path": "assets/v4-boat-story-640.jpg",
+          "width": 640,
+          "height": 640,
+          "bytes": 71330,
+          "sha256": "c49b86b914f9ee48ad23e9c998e2b576be427d4df7cc18eb6c3985acbb97ef84"
+        },
+        {
+          "path": "assets/v4-boat-story-1024.webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 89618,
+          "sha256": "ab09d6974e5cd30b824a9940e4683f4ad06f80b40e32a7154b32a2cd04a0a6c7"
+        },
+        {
+          "path": "assets/v4-boat-story-1024.jpg",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 151369,
+          "sha256": "4c93c12964c883c26efd1f828e97e0c56a9d9a01e6122c86031978de39070ccc"
+        }
+      ]
+    }
+  ]
+}

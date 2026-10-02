@@ -13,11 +13,25 @@ test('three age suggestions stay open and have different learning paths',()=>{A.
 test('sentence progress, transfer word and age restore without exposing age in exports',()=>{const s=M.blank(),st=D.stories[2],d=M.ensureDraft(s,st);d.readiness_track='extend';d.sentence_sequences.extend=st.sentences.extend.units.map((x,i)=>i);d.transfer_mode=true;d.transfer_graphemes=[0,1];d.order_picks=d.practice_scenes.slice();s.learner_age=7;s.progress.extend=[st.id];s.voice_guidance=false;const r=M.restore(JSON.stringify(s),D);A.equal(r.learner_age,7);A.equal(r.voice_guidance,false);A.equal(M.wordFor(D,st,r.drafts[st.id]).text,D.words[st.word].transfer);A.deepEqual(r.drafts[st.id].order_picks,d.order_picks);A.equal(M.sentenceText(r.drafts[st.id],st),st.sentences.extend.units.join(' '));const out=M.exportData([M.artifact(d,'profile',D)],D);A(out.stories[0].sentence_text);A(!JSON.stringify(out).includes('learner_age'))});
 test('sentence indices are bounded, unique and survive repeated-token content',()=>{const s=M.blank(),st=D.stories[0],d=M.ensureDraft(s,st);d.sentence_sequences.practice=[0,0,-1,2.5,99,1];d.order_picks=['cup-0','cup-0','cat-0'];d.transfer_graphemes=[0,0,99,1];const r=M.restore(JSON.stringify(s),D).drafts[st.id];A.deepEqual(r.sentence_sequences.practice,[0,1]);A.deepEqual(r.order_picks,['cup-0']);A.deepEqual(r.transfer_graphemes,[0,1])});
 test('sentence and alternate ending assets match library scenes and language',()=>{for(const st of D.stories){for(const se of Object.values(st.sentences)){A(D.scenes[se.scene]);A.equal(se.units.length,se.unit_audio.length);A.equal(se.text.replace(/\.$/,''),se.units.join(' '));if(st.language==='en')A(!/[\u0600-\u06ff]/.test(se.text))}for(const e of st.endings){A(D.scenes[e.scene]);A(fs.existsSync(path.join(root,e.audio)))}}});
-test('expanded library supplies four recommended stories per level in each language without extra raster images',()=>{
- for(const lang of ['ar','en'])for(const track of ['entry','practice','extend'])A.equal(D.stories.filter(s=>s.language===lang&&s.track===track).length,4);
+test('library retains earlier stories and adds ten recommended stories per level in each language',()=>{
+ for(const lang of ['ar','en'])for(const track of ['entry','practice','extend'])A.equal(D.stories.filter(s=>s.language===lang&&s.track===track).length,14);
  for(const st of D.stories){A(D.words[st.word]);A.equal(D.words[st.word].language,st.language);for(const track of ['entry','practice','extend']){const d=M.draft(st,track);A(d.practice_scenes.every(id=>D.scenes[id]));A.equal(d.compose.length,Math.min(track==='entry'?3:4,d.practice_scenes.length));}}
- A.equal(new Set(Object.values(D.scenes).map(s=>s.sheet)).size,4);
+ A.equal(new Set(Object.values(D.scenes).map(s=>s.sheet)).size,14);
  A.equal(D.stories.find(s=>s.id==='ar-in-and-out').sentences.extend.scene,'in-and-out-2');
  A.equal(D.stories.find(s=>s.id==='en-ball-actions').sentences.extend.scene,'ball-actions-3');
  A.equal(D.stories.find(s=>s.id==='ar-look-for-clues').sentences.practice.scene,'look-for-clues-1');
+});
+
+test('thirty new concepts have bilingual journeys, varied picture answers and graded sentences',()=>{
+ const added=D.stories.filter(s=>s.collection==='new-worlds-4');A.equal(added.length,60);
+ for(const lang of ['ar','en'])for(const track of ['entry','practice','extend']){
+  const rows=added.filter(s=>s.language===lang&&s.track===track);A.equal(rows.length,10);A.equal(new Set(rows.map(s=>s.world)).size,10);A.equal(new Set(rows.map(s=>s.title)).size,10);
+  A.deepEqual(new Set(rows.map(s=>s.meaning)),new Set([0,1]));
+  for(const st of rows){A.equal(st.scenes.length,4);A(st.scenes.includes(st.choices[st.meaning].scene));A.equal(st.sentences.practice.units.length,3);A.equal(st.sentences.extend.units.length,5);A.equal(st.endings.length,2);A.equal(D.words[st.word].language,lang)}
+ }
+ for(const w of Object.values(D.words)){A.equal(M.letters(w.transfer_units.join('')),M.letters(w.transfer));A.equal(w.transfer_units.length,w.transfer_unit_audio.length);if(w.support_scene)A(D.scenes[w.support_scene])}
+});
+test('nonuniform illustration panels keep all crop frames within their source sheet',()=>{
+ for(const scene of Object.values(D.scenes))if(scene.frame){const [x,y,width,height]=scene.frame;A(x>=0&&y>=0&&width>0&&height>0);A(x+width<=1.000001&&y+height<=1.000001)}
+ A(D.scenes['v4-rain-entry-0'].frame[3]<.5);A(D.scenes['v4-picnic-extend-2'].frame[1]<.5);
 });

@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "common": "Square story sprite, exactly four equally sized square panels in a seamless 2 by 2 layout filling the whole square. Reading order: top left, top right, bottom left, bottom right. No gutters, no frame, no text, no letters, no digits, no labels, no watermarks. Each quadrant is a complete, uncluttered scene with its own spacious background and clear central action; do not let props or people cross the center boundaries. Charming polished clay storybook illustration, gentle daylight, warm cream, jade, coral and honey palette, rounded tactile forms, expressive friendly faces. Designed to be readable as a small picture for children aged 4 to 8. One consistent Arab girl about six years old with brown eyes, dark curly hair in two short pigtails, a jade shirt and coral trousers throughout all panels. Objects and actions must be immediately recognizable. Avoid tiny decoration. Keep important subjects well inside each panel, not on its edges.",
+  "worlds": [
+    {
+      "id": "seed",
+      "prompt": "A story about patiently caring for a seed in a small terracotta pot, not instant growth. Top left: girl kneels at table placing a large seed into dark soil in an ordinary small pot, seed clearly visible between fingers, no plant yet. Top right: same girl gently waters the same pot with a small yellow watering can beside a bright window, soil still bare. Bottom left: several days later, same pot now has one small seedling with two green leaves, girl observes with delight. Bottom right: later still, same pot has a modest leafy green plant, girl smiles beside it at the window. No flowers or fruit. Correct progression from seed to sprout to plant."
+    },
+    {
+      "id": "bridge",
+      "prompt": "A story about improving a tiny toy bridge, entirely a tabletop toy in a playroom. Top left: girl looks at a red toy car and large smooth wooden blocks scattered on a play mat, with one short wooden plank. Top right: two toy block supports and plank make a visibly crooked bridge, one support out of line, plank tilted and the toy car waits before it; girl notices the problem. Bottom left: girl realigns the two block supports and levels the short plank, showing a stable little toy bridge; car still waits. Bottom right: red toy car crosses the now level sturdy little bridge and girl smiles. No real roads, rivers or traffic. The progression and contrasting crooked versus level bridge must be obvious."
+    },
+    {
+      "id": "colors",
+      "prompt": "A story about mixing red and yellow washable paint to discover orange. Top left: girl at art table with two open washable paint cups, one vivid red and one yellow, a white palette and clean paper. Top right: girl swirls the red and yellow on the palette with a soft brush, a clear orange patch appearing where they mix. Bottom left: girl holds up the palette to look at the now clearly orange paint, brush resting nearby, blank paper still on table. Bottom right: girl paints one simple orange flower with green stem on the paper and smiles. No writing on supplies or artwork. Make the red, yellow and orange unmistakable."
+    },
+    {
+      "id": "kindness",
+      "prompt": "A story about sharing the missing piece of a simple big-piece wooden jigsaw picture. Use a simple blue-sky and yellow-sun jigsaw, no text. Top left: girl looks at a nearly finished four-piece wooden jigsaw on a table with exactly one obvious square gap; a friendly boy with dark hair and blue shirt holds that matching missing piece beside her. Top right: boy kindly offers the missing piece to girl across the table; jigsaw still has the gap. Bottom left: girl places the matching piece into the gap while boy watches. Bottom right: completed simple sun jigsaw is visible on table and both children smile together. Keep characters and jigsaw design consistent."
+    },
+    {
+      "id": "tidy",
+      "prompt": "A story about finding matching socks and putting them away. Top left: girl sits on a soft mat with a small scatter of plain blue and orange socks, empty basket nearby. Top right: girl puts two matching blue socks side by side on the mat; orange socks remain apart nearby. Bottom left: girl gently folds that blue pair together, an orange pair lies matched beside it. Bottom right: both folded sock pairs rest neatly in the small open basket and girl smiles. Socks should remain sock shaped, not shoes or mittens. Very simple objects, no patterned text or labels."
+    },
+    {
+      "id": "letter",
+      "prompt": "A story about sending a friendly drawing, without any writing. Top left: girl draws a big cheerful yellow sun on a small cream card with a yellow crayon. Top right: girl puts the finished sun drawing card into a coral envelope, flap open and some of the drawing still visible. Bottom left: girl offers the closed envelope to a friendly boy with dark hair and blue shirt in the same home playroom. Bottom right: boy has opened the envelope and holds up the sun drawing card; both children smile. No printed or handwritten words, stamps or addresses. Drawing, card and envelope must stay visually consistent."
+    },
+    {
+      "id": "rain",
+      "prompt": "A story about preparing for a gentle rainy day with an adult. Top left: girl looks out a closed window at gray clouds, cozy home interior. Top right: visible gentle rain on outside of window, girl and her mother prepare yellow rain boots and a blue umbrella indoors. Top left girl is jade shirt coral trousers; later she adds simple yellow rain coat. Bottom left: girl and mother walk together in a peaceful garden under one open blue umbrella during light rain; yellow boots visible, no roads or deep water. Bottom right: both are back indoors, girl puts boots beside the door, open umbrella stands in a shallow drip tray to dry; mother smiles nearby. No storms or frightening imagery."
+    },
+    {
+      "id": "pack",
+      "prompt": "A story about preparing a light school bag. Top left: girl at a table with an empty open coral backpack, a plain blue book, three chunky crayons, a small closed turquoise water bottle and one toy ball nearby. Top right: girl chooses the book, crayons and water bottle as useful bag items, leaving the toy ball on the table. Top right bag remains open. Bottom left: girl puts the chosen items in the backpack and closes it carefully; do not show items floating or spilling. Bottom right: girl wears the light closed backpack beside the home door, mother stands beside her ready to accompany her. No words on book, bottle or bag."
+    },
+    {
+      "id": "picnic",
+      "prompt": "A story about preparing and sharing a picnic with family. Top left: girl and mother at table with a small woven basket, reusable plates, a folded jade picnic mat and already cut apple wedges and berries in a bowl; no knives, heat or cutting. Top right: girl carefully packs the bowl, plates and folded mat in basket with mother nearby. Bottom left: girl and mother spread the jade picnic mat under a broad leafy tree in a quiet garden, open basket nearby. Bottom right: girl, mother and a friendly boy sit together on mat sharing fruit from reusable plates, relaxed joyful scene. Clear sequence and consistent basket and mat. No text or logos."
+    },
+    {
+      "id": "boat",
+      "prompt": "A story about making a simple paper boat with a companion. Top left: girl and mother at a small low table with one square sheet of pale blue paper flat on the table. Top right: girl folds the same paper with mother's hands guiding gently, simple recognizable folding action. Bottom left: finished pale blue folded paper boat sits on table, girl points at it and mother smiles. Bottom right: girl and mother float that small paper boat in a wide shallow transparent basin with just a little water on the same low table. Both stay beside it, no outdoors, oceans or pools. Preserve exact boat design. No words, numbers or instructional diagrams. Friendly story scenes only."
+    }
+  ],
+  "review": "Manually reviewed all ten story sheets. Rain illustration edited with built-in image_gen to separate dry clouds and observed rain. Unequal top-row boundaries for rain and picnic are displayed through CSS frames without altering the source art."
+}

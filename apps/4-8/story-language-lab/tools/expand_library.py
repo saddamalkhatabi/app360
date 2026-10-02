@@ -66,7 +66,7 @@ for p in pairs:
    story['sentences'][track]={'text':' '.join(units)+'.','units':units,'scene':scenes[picture],'audio':'audio/'+id+'-sentence-'+track+'.mp3','unit_audio':['audio/'+lang+'-token-'+hashlib.sha1(unit.encode()).hexdigest()[:10]+'.mp3' for unit in units]}
   for i,text in enumerate(p['endings'][li]):story['endings'].append({'text':text,'scene':scenes[p['ending_scenes'][i]],'audio':'audio/'+id+'-ending-'+str(i)+'.mp3'})
   d['stories'].append(story)
-d['release']='preview-3';d['library_version']=3
+d['library_version']=max(3,d.get('library_version',3));d['release']='preview-'+str(d['library_version'])
 (ROOT/'data/stories.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'data/stories.js').write_text('window.STORY_DATA='+json.dumps(d,ensure_ascii=False,separators=(',',':'))+';\n')
 print(json.dumps({'stories':len(d['stories']),'scenes':len(d['scenes']),'words':len(d['words'])}))

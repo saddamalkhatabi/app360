@@ -1,4 +1,4 @@
-var CACHE='app360-portal-v75-family-school-v103';
+var CACHE='app360-portal-v75-family-school-v104';
 var CORE=[
  './assets/covers/a4-story-language-v2-640.webp','./assets/covers/a4-story-language-v2-640.jpg','./assets/js/lab360-v24.js?v=102&brand=98','./assets/js/home-showcase-v31.js?v=102&brand=98',
   './assets/js/family-reels-v1.js?v=102','./assets/js/family-reels-launcher-v1.js?v=102','./assets/css/family-reels-v1.css?v=99','./reels/index.html','./assets/covers/family-reels-learner-art-640.webp','./assets/covers/family-reels-learner-art-640.jpg','./assets/covers/family-reels-coach-art-640.webp','./assets/covers/family-reels-coach-art-640.jpg','./assets/brand/family-reels-360-logo-160.png',

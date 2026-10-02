@@ -11,3 +11,6 @@ html.app360-legacy .levels .track>span,html.app360-legacy .order-bank>button,htm
 .ui-icon{display:inline-block;vertical-align:middle;flex-shrink:0;pointer-events:none}.age-range{display:inline-block;unicode-bidi:embed}.picture-play .ui-icon{width:26px;height:26px;vertical-align:middle}
 
 .story-skill{margin:0 0 12px;color:#425a54;font-size:.92rem;line-height:1.5}
+
+.journey-actions{flex-wrap:wrap}.story-restart{background:#fff1d4;border-color:#d9c393;font-size:15px}.book-return{justify-content:center;margin:24px 0}.word-scene{width:180px;max-width:100%;margin:0 auto 16px}.word-scene .scene{border-radius:18px}
+@media(max-width:540px){.journey-actions .story-restart{flex-basis:100%;order:3}.book-return .story-restart{width:100%}}
