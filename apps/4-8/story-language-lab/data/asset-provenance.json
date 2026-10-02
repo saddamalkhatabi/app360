@@ -20,5 +20,12 @@
     }
   ],
   "shared_objects": "resources/early-child-visuals/objects: cup.svg, ball.svg, book.svg; original project resource references",
-  "vectors": "Original source SVGs: door, cat, door story and app icon"
+  "vectors": "Original source SVGs: door, cat, door story and app icon",
+  "display_derivatives": {
+    "tool": "Pillow resize / WebP and JPEG encoding, requested image optimization; original artwork retained",
+    "date": "2026-10-02",
+    "cover": "assets/covers/a4-story-language-v2-{320,640}.{webp,jpg}",
+    "scenes": "apps/4-8/story-language-lab/assets/{cup,ball,cat}-story-{640,1024}.{webp,jpg}",
+    "policy": "No semantic edits or cropping; CSS still displays the original four panels. WebP with responsive JPEG fallback."
+  }
 }

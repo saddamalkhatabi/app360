@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/story-language-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/story-language-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر لغة ومادة مناسبة للاستعداد واستمع إلى حكاية قصيرة ← أشر إلى المعنى أو أعد السرد بالصور قبل عرض النص ← في مسار القراءة فقط: استمع إلى أصوات كلمة مضبوطة ثم امزجها واقرأها في عبارة ← غيّر حدثًا أو نهاية واحفظ حكايتك؛ يراجع المدرب نوع المساعدة لا درجة النطق",
+  "practice_model_ar": "اختر مستوى ولغة ثم اضغط صورة الحكاية؛ استمع للتعليمة والمشاهد ← في المستوى الأول: أشر إلى المعنى ورتب الصور واختر نهاية مصورة دون كتابة ← في المستوى الثاني: ركّب أصوات كلمة ثم كلمات جملة مسموعة؛ في الثالث جرّب كلمة جديدة وجملة أطول ← غيّر النهاية أو المشاهد، واحفظ حكايتك؛ الكتابة والتسجيل اختياريان ويظل تغيير المستوى متاحًا",
   "blueprint_path": "apps/4-8/story-language-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/story-language-lab/PROMPT_AR.md",
   "branding": {
@@ -55,5 +55,23 @@
     "profile_scoped": true
   },
   "launch_path": "apps/4-8/story-language-lab/launch.html",
-  "links_path": "apps/4-8/story-language-lab/links.json"
+  "links_path": "apps/4-8/story-language-lab/links.json",
+  "learning_levels": [
+    {
+      "level": 1,
+      "age_hint": "4-5",
+      "track": "entry"
+    },
+    {
+      "level": 2,
+      "age_hint": "5-6",
+      "track": "practice"
+    },
+    {
+      "level": 3,
+      "age_hint": "6-8",
+      "track": "extend"
+    }
+  ],
+  "media_policy": "responsive-webp-jpeg-fallback; local-mono-mp3; active-lesson-preload"
 }

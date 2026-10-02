@@ -205,8 +205,8 @@
       "kind": "goal_aligned",
       "priority": 1,
       "build_order": 1,
-      "description_ar": "حكايات مصورة بالعربية أو الإنجليزية للفئة 4–8. يستمع الطفل ويرتب الأحداث ويستكشف المعنى، ثم يبني كلمة بأصواتها ويؤلف نهاية ويحفظ حكايته. مكتب مدرب محلي وتسجيل اختياري وطباعة وتصدير دون الصوت أو الملاحظات الخاصة. نسخة تجريبية للمراجعة.",
-      "practice_model": "اختر لغة ومادة مناسبة للاستعداد واستمع إلى حكاية قصيرة ← أشر إلى المعنى أو أعد السرد بالصور قبل عرض النص ← في مسار القراءة فقط: استمع إلى أصوات كلمة مضبوطة ثم امزجها واقرأها في عبارة ← غيّر حدثًا أو نهاية واحفظ حكايتك؛ يراجع المدرب نوع المساعدة لا درجة النطق",
+      "description_ar": "حكاية وكلمة بثلاثة مستويات إرشادية: 4–5 للصور والاستماع، 5–6 للكلمات والجمل، و6–8 للتأليف والتفسير. تعليمات مسموعة، صور خفيفة، تركيب بالضغط، ونهايات مصورة وحفظ محلي. كل المستويات متاحة حسب الاستعداد. نسخة تجريبية.",
+      "practice_model": "اختر مستوى ولغة ثم اضغط صورة الحكاية؛ استمع للتعليمة والمشاهد ← في المستوى الأول: أشر إلى المعنى ورتب الصور واختر نهاية مصورة دون كتابة ← في المستوى الثاني: ركّب أصوات كلمة ثم كلمات جملة مسموعة؛ في الثالث جرّب كلمة جديدة وجملة أطول ← غيّر النهاية أو المشاهد، واحفظ حكايتك؛ الكتابة والتسجيل اختياريان ويظل تغيير المستوى متاحًا",
       "audience": "shared",
       "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
       "goal_keys": [
@@ -259,11 +259,29 @@
           "delivery": "available_with_facilitator"
         }
       ],
-      "cover": "assets/covers/a4-story-language-v1.png",
+      "cover": "assets/covers/a4-story-language-v2-640.webp",
       "release_channel": "preview",
       "acceptance_state": "technical-preview-family-pilot-pending",
-      "href": "apps/4-8/story-language-lab/index.html?v=1",
-      "icon": "apps/4-8/story-language-lab/icon.svg?v=1"
+      "href": "apps/4-8/story-language-lab/index.html?v=2",
+      "icon": "apps/4-8/story-language-lab/icon.svg?v=1",
+      "cover_fallback": "assets/covers/a4-story-language-v2-640.jpg",
+      "learning_levels": [
+        {
+          "level": 1,
+          "age_hint": "4-5",
+          "track": "entry"
+        },
+        {
+          "level": 2,
+          "age_hint": "5-6",
+          "track": "practice"
+        },
+        {
+          "level": 3,
+          "age_hint": "6-8",
+          "track": "extend"
+        }
+      ]
     }
   ]
 }

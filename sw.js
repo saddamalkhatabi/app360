@@ -1,14 +1,14 @@
-var CACHE='app360-portal-v74-family-school-v101';
+var CACHE='app360-portal-v75-family-school-v102';
 var CORE=[
- './assets/covers/a4-story-language-v1.png','./assets/js/lab360-v24.js?v=101&brand=98','./assets/js/home-showcase-v31.js?v=101&brand=98',
-  './assets/js/family-reels-v1.js?v=99','./assets/js/family-reels-launcher-v1.js?v=100','./assets/css/family-reels-v1.css?v=99','./reels/index.html','./assets/covers/family-reels-learner-art.png','./assets/covers/family-reels-coach-art.png','./assets/brand/family-reels-360-logo.png',
+ './assets/covers/a4-story-language-v2-640.webp','./assets/covers/a4-story-language-v2-640.jpg','./assets/js/lab360-v24.js?v=102&brand=98','./assets/js/home-showcase-v31.js?v=102&brand=98',
+  './assets/js/family-reels-v1.js?v=102','./assets/js/family-reels-launcher-v1.js?v=102','./assets/css/family-reels-v1.css?v=99','./reels/index.html','./assets/covers/family-reels-learner-art-640.webp','./assets/covers/family-reels-learner-art-640.jpg','./assets/covers/family-reels-coach-art-640.webp','./assets/covers/family-reels-coach-art-640.jpg','./assets/brand/family-reels-360-logo-160.png',
   './assets/js/app360-app-audience-v1.js?v=98',
   './','./index.html',
   './assets/css/lab360.css','./assets/css/legacy-compat.css','./assets/css/home-showcase-v31.css',
   './assets/js/lab360-v24.js','./assets/js/home-showcase-v31.js','./assets/js/home-cover-open-v32.js','./assets/js/retired-apps-v36.js','./assets/js/swal-modern-loader-v24.js','./assets/js/pwa-install-v24.js','./assets/js/app360-ai-shell.js',
   './assets/js/app360-family-hybrid-transport-v1.js','./assets/js/app360-peer-media-bootstrap-v1.js','./assets/js/app360-family-stability-v1.js','./assets/js/app360-family-fast-start-v1.js','./assets/js/app360-family-sync-v1.js','./assets/js/app360-family-core-v2.js','./assets/js/app360-family-catalog-v1.js','./assets/js/app360-family-ui-v2.js','./assets/js/app360-family-mutation-guard-v1.js','./assets/js/app360-family-shell-v1.js','./assets/js/app360-family-shell-viewport-fix-v1.js','./assets/js/app360-family-navigation-safety-v1.js','./assets/js/app360-family-preview-v2.js','./assets/js/app360-family-media-v1.js','./assets/js/app360-family-media-core-v3.js','./assets/js/app360-family-audio-guard-v1.js',
   './assets/js/app360-family-hybrid-transport-v1.js?v=3','./assets/js/app360-peer-media-bootstrap-v1.js?v=1','./assets/js/app360-family-stability-v1.js?v=2','./assets/js/app360-family-fast-start-v1.js?v=1','./assets/js/app360-family-sync-v1.js?v=99','./assets/js/app360-family-core-v2.js?v=99&brand=98','./assets/js/app360-family-catalog-v1.js?v=99&brand=98','./assets/js/app360-family-shell-v1.js?v=99&brand=98','./assets/js/app360-family-media-v1.js?v=7','./assets/js/app360-family-media-core-v3.js?v=3&brand=98','./assets/js/app360-family-audio-guard-v1.js?v=3',
-  './manifest.webmanifest?v=98','./assets/brand/family-school-360-logo.png?v=98','./assets/brand/family-school-360-icon-192.png?v=98','./assets/brand/family-school-360-share.jpg?v=98',
+  './manifest.webmanifest?v=98','./assets/brand/family-school-360-logo-640.webp','./assets/brand/family-school-360-logo-640.png','./assets/brand/family-school-360-icon-192.png?v=98','./assets/brand/family-school-360-share.jpg?v=98',
   './assets/covers/app-coming-soon-v30.svg',
   './assets/covers/a1-drawing-writing.jpg','./assets/covers/a1-first-words.jpg','./assets/covers/a1-imitate.jpg','./assets/covers/a1-screen-move.jpg','./assets/covers/a1-calm.jpg','./assets/covers/a1-sensory.jpg','./assets/covers/a1-routine.jpg','./assets/covers/a1-plan-runner.jpg','./assets/covers/a1-shape-builder.jpg','./assets/covers/a1-picture-puzzles.jpg',
   './data/catalog.json','./data/goals.json','./data/live-overrides.json',
