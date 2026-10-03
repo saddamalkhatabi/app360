@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -105,6 +105,13 @@
     "provenance": "AI-generated illustrative scenes",
     "archive": "assets/scenes/wonder-scenes-v1.zip",
     "selection": "preview-before-start",
-    "offline": true
+    "offline": true,
+    "workflow_stages": [
+      "setup",
+      "predict",
+      "try",
+      "review",
+      "gallery"
+    ]
   }
 }

@@ -126,6 +126,15 @@
     "unit_checks_rerun": 15,
     "browser_checks_rerun": 16,
     "archive_matches_unpacked_files": true,
-    "es5_parse": true
+    "es5_parse": true,
+    "workflow_photo_stages": [
+      "setup",
+      "predict",
+      "try",
+      "review",
+      "gallery"
+    ],
+    "six_complete_flows_with_loaded_images": true,
+    "release": "preview-3"
   }
 }
