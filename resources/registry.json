@@ -27,18 +27,21 @@
       "note_ar": "رُقّيت حزمة أسماء الأطفال والتشجيع المسجل وPCM إلى مورد مشترك عند ظهور تانغرامي الصغير كمستهلك ثانٍ. تبقى النسخة الأصلية في تطبيق الرسم مؤقتًا لحماية التوافق القديم حتى اكتمال الترحيل والاختبار."
     },
     {
-      "id": "early-child-market-objects-v1",
+      "id": "early-child-market-objects-v2",
       "path": "resources/early-child-market-objects",
       "type": "image-audio-pack",
-      "version": 1,
+      "version": 2,
       "status": "shared",
       "source_owner": "apps/1-4/say-and-name",
       "license": "existing-project-assets",
       "consumers": [
-        "a1-first-words",
         "a4-family-market"
       ],
-      "note_ar": "ترقية محدودة لصور وأصوات 12 شيئًا من أشيائي وفق فهارس التشغيل الفعلية، مع المصدر والبصمة وإبقاء المسارات القديمة لحماية النسخة الحية والعمل دون اتصال."
+      "note_ar": "فهرس مشترك محدود لـ43 صورة وأصواتها العربية والإنجليزية و22 تسجيلًا للأرقام من صفر إلى عشرة. يشير إلى المسارات الأصلية الحية في أشيائي مع البصمات؛ لا تُنسخ الأصول ولا تتغير مصادر التطبيق السابق.",
+      "source_consumers": [
+        "a1-first-words"
+      ],
+      "asset_policy": "canonical-source-references"
     }
   ],
   "candidates": []

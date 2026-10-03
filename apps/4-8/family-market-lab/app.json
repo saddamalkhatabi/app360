@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/family-market-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/family-market-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -73,5 +73,28 @@
       "level": 4,
       "age_hint": "7-8"
     }
-  ]
+  ],
+  "ready_exercise_types": [
+    "count",
+    "fill",
+    "return",
+    "share",
+    "split",
+    "combine",
+    "mixed",
+    "compare",
+    "pattern",
+    "measure"
+  ],
+  "numeral_policy": {
+    "ar": "Arabic voice and native Arabic numerals",
+    "en": "English voice and numerals"
+  },
+  "resource_index": "resources/early-child-market-objects/manifest.json",
+  "variation_policy": "bounded recent history; vary picture and quantity; optional coach ascending quantities",
+  "coach_patterns": {
+    "limit": 20,
+    "profile_scoped": true,
+    "export_import": true
+  }
 }

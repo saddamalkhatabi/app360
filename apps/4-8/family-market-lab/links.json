@@ -1,1 +1,37 @@
-{"schema_version":"1.1","app_id":"a4-family-market","title_ar":"سوق العائلة: أعدّ وأقسم وأوازن","base_path":"apps/4-8/family-market-lab/","app_href":"apps/4-8/family-market-lab/index.html","launch_path":"apps/4-8/family-market-lab/launch.html","domain_policy":"relative-only","events":"app360:interop:v1:events","routes":[{"id":"market-orders","kind":"category","label_ar":"طلبات سوق العائلة","href":"apps/4-8/family-market-lab/launch.html"},{"id":"market-order","kind":"activity","label_ar":"طلب سوق قابل للتمثيل","href_template":"apps/4-8/family-market-lab/launch.html?item={item}","collection_source":"data/content.json"}],"interop_params":["caller","launch_id","return_to","embedded"]}
+{
+  "schema_version": "1.1",
+  "app_id": "a4-family-market",
+  "title_ar": "سوق العائلة: أعدّ وأقسم وأوازن",
+  "base_path": "apps/4-8/family-market-lab/",
+  "app_href": "apps/4-8/family-market-lab/index.html",
+  "launch_path": "apps/4-8/family-market-lab/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "market-orders",
+      "kind": "category",
+      "label_ar": "طلبات سوق العائلة",
+      "href": "apps/4-8/family-market-lab/launch.html"
+    },
+    {
+      "id": "market-order",
+      "kind": "activity",
+      "label_ar": "طلب سوق قابل للتمثيل",
+      "href_template": "apps/4-8/family-market-lab/launch.html?item={item}",
+      "collection_source": "data/content.json"
+    },
+    {
+      "id": "market-varied-experience",
+      "kind": "activity",
+      "label_ar": "تجربة سوق متغيرة",
+      "href_template": "apps/4-8/family-market-lab/launch.html?experience={experience}&market={market}"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

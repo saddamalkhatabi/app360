@@ -1,7 +1,7 @@
-/* Family Market v1: quantities are counted from actual tokens, never screen positions. */
+/* Family Market v2: quantities are counted from actual tokens, never screen positions. */
 (function (w) {
   'use strict';
-  var products = ['apple','banana','orange','grapes','strawberry','carrot','tomato','cucumber','book','cup','ball','milk'];
+  var products = w.APP360_MARKET_OBJECTS?w.APP360_MARKET_OBJECTS.items.map(function(x){return x.id}):['apple','banana','orange','grapes','strawberry','carrot','tomato','cucumber','book','cup','ball','milk'];
   var kinds = ['count','share','partition','compare','pattern','combine','measure'];
   function copy(x) { return JSON.parse(JSON.stringify(x)); }
   function id() { return 'market-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,8); }
@@ -11,6 +11,7 @@
   function task(x) {
     if (!x || kinds.indexOf(x.kind) < 0 || !integer(x.level,1,4) || ['ar','en'].indexOf(x.language) < 0) throw Error('invalid-task');
     var q = {id:text(x.id,90)||id(),kind:x.kind,level:x.level,language:x.language,title:text(x.title,120),prompt:text(x.prompt,500),hint:text(x.hint,400),real:text(x.real,400),product:product(x.product),support:x.support||'together',audio:{},seller:!!x.seller};
+    if(x.exercise){if(['count','fill','return','share','split','combine','mixed','compare','pattern','measure'].indexOf(x.exercise)<0)throw Error('invalid-exercise');q.exercise=x.exercise;q.market=text(x.market,30);q.recipe_ref=text(x.recipe_ref,90);if(x.recipe_spec){if(!w.MARKET_EXERCISES)throw Error('recipe-engine');q.recipe_spec=w.MARKET_EXERCISES.recipe(x.recipe_spec)}}
     if (!q.title || !q.prompt) throw Error('missing-task-text');
     ['title','prompt','hint','real'].forEach(function(k) { if (x.audio && /^audio\/[a-z0-9-]+\.mp3$/.test(x.audio[k]||'')) q.audio[k]=x.audio[k]; });
     if (x.kind==='count' || x.kind==='measure') {
@@ -30,7 +31,7 @@
     }
     return q;
   }
-  function blank() { return {schema_version:1,language:'ar',level:1,view:'library',voice:true,support:'together',draft:null,saved:[],templates:[],notes:{}}; }
+  function blank() { return {schema_version:1,language:'ar',level:1,view:'library',voice:true,support:'together',draft:null,saved:[],templates:[],notes:{},market:'fruits',recent:[],recipes:[],practice:[]}; }
   function start(source,support) {
     var t=task(source),tokens=[],i,j,n=0;
     function add(p,z){tokens.push({id:'item-'+(++n),product:p,zone:z});}
@@ -49,7 +50,6 @@
     for(var i=0;i<d.tokens.length;i++)if(d.tokens[i].id===tokenId && d.tokens[i].zone!==zone){edit(d);d.tokens[i].zone=zone;return true;}return false;
   }
   function take(d,p,zone) {
-    if((d.task.kind==='count'||d.task.kind==='measure') && count(d,0)>=20)return false;
     for(var i=0;i<d.tokens.length;i++)if(d.tokens[i].product===p && (d.task.kind==='combine'?d.tokens[i].zone!==2:d.tokens[i].zone===-1))return move(d,d.tokens[i].id,zone);return false;
   }
   function append(d,p) { if(d.task.kind!=='pattern'||d.sequence.length>=d.task.length||d.task.rule.indexOf(p)<0)return false;edit(d);d.sequence.push(p);return true; }
@@ -82,7 +82,7 @@
     d.attempt_history=x.attempt_history.map(function(a){if(!a||typeof a!=='object')throw Error('invalid-attempt');return{at:Number(a.at)||0,reason:text(a.reason,60),support:text(a.support,30),board:cleanBoard(a.board,t)};});return d;
   }
   function restore(raw) {
-    if(!raw)return blank();var x=JSON.parse(raw);if(!x||x.schema_version!==1||!Array.isArray(x.saved)||x.saved.length>50||!Array.isArray(x.templates)||x.templates.length>20)throw Error('invalid-save');var s=blank();s.language=x.language==='en'?'en':'ar';s.level=integer(x.level,1,4)?x.level:1;s.view=['library','play','saved','coach','builder','review'].indexOf(x.view)>=0?x.view:'library';s.voice=x.voice!==false;s.support=['together','hint','independent'].indexOf(x.support)>=0?x.support:'together';s.draft=x.draft?artifact(x.draft):null;s.saved=x.saved.map(artifact);s.templates=x.templates.map(task);s.notes=x.notes&&typeof x.notes==='object'?x.notes:{};return s;
+    if(!raw)return blank();var x=JSON.parse(raw);if(!x||x.schema_version!==1||!Array.isArray(x.saved)||x.saved.length>50||!Array.isArray(x.templates)||x.templates.length>20)throw Error('invalid-save');var s=blank();s.language=x.language==='en'?'en':'ar';s.level=integer(x.level,1,4)?x.level:1;s.view=['library','play','saved','coach','builder','review'].indexOf(x.view)>=0?x.view:'library';s.voice=x.voice!==false;s.support=['together','hint','independent'].indexOf(x.support)>=0?x.support:'together';s.draft=x.draft?artifact(x.draft):null;s.saved=x.saved.map(artifact);s.templates=x.templates.map(task);s.notes=x.notes&&typeof x.notes==='object'?x.notes:{};s.market=w.APP360_MARKET_OBJECTS&&w.APP360_MARKET_OBJECTS.markets.some(function(m){return m.id===x.market})?x.market:'fruits';if(x.recent&&!Array.isArray(x.recent)||x.recipes&&!Array.isArray(x.recipes))throw Error('invalid-practice');s.recent=(x.recent||[]).slice(-80).map(function(r){if(!r||typeof r.key!=='string'||r.key.length>140||typeof r.signature!=='string'||r.signature.length>1500||products.indexOf(r.product)<0||!integer(r.quantity,1,20))throw Error('invalid-rotation');return{key:r.key,product:r.product,quantity:r.quantity,signature:r.signature}});if((x.recipes||[]).length>20)throw Error('recipe-limit');if(x.practice&&!Array.isArray(x.practice)||(x.practice||[]).length>20)throw Error('practice-limit');s.practice=(x.practice||[]).map(artifact);s.recipes=(x.recipes||[]).map(function(r){if(!w.MARKET_EXERCISES)throw Error('recipe-engine');return w.MARKET_EXERCISES.recipe(r)});return s;
   }
   function saved(s) { if(!s.draft)return null;checkpoint(s.draft,'saved');var a=artifact(s.draft);a.id=id();a.state='saved';a.history=[];a.future=[];s.saved.push(a);return a; }
   function exportData(items) { return {schema_version:1,app_id:'a4-family-market',privacy:'Account identity and private coach notes excluded',projects:items.map(function(x){var a=artifact(x);a.history=[];a.future=[];return a;})}; }

@@ -1,224 +1,828 @@
 {
-  "schema_version": 1,
-  "id": "early-child-market-objects-v1",
-  "license": "existing-project-assets; provenance retained from say-and-name",
-  "migration_policy": "selected 12 objects promoted byte-for-byte from the active runtime maps; original paths retained for live/offline compatibility",
+  "schema_version": 2,
+  "id": "early-child-market-objects-v2",
+  "license": "existing-project-assets; original provenance retained",
+  "asset_policy": "canonical-source-references; no new copies or source edits",
+  "source_root": "apps/1-4/say-and-name/",
+  "markets": [
+    {
+      "id": "fruits",
+      "ar": "الفواكه",
+      "en": "Fruit",
+      "cover": "apple",
+      "products": [
+        "apple",
+        "banana",
+        "orange",
+        "grapes",
+        "strawberry",
+        "watermelon"
+      ]
+    },
+    {
+      "id": "vegetables",
+      "ar": "الخضروات",
+      "en": "Vegetables",
+      "cover": "carrot",
+      "products": [
+        "carrot",
+        "tomato",
+        "cucumber",
+        "potato",
+        "onion",
+        "pepper"
+      ]
+    },
+    {
+      "id": "toys",
+      "ar": "الألعاب",
+      "en": "Toys",
+      "cover": "ball",
+      "products": [
+        "ball",
+        "cube",
+        "doll",
+        "balloon",
+        "puzzle",
+        "bear"
+      ]
+    },
+    {
+      "id": "school",
+      "ar": "أدوات المدرسة",
+      "en": "School things",
+      "cover": "book",
+      "products": [
+        "book",
+        "pencil",
+        "paper",
+        "bag",
+        "ruler",
+        "eraser"
+      ]
+    },
+    {
+      "id": "home",
+      "ar": "أدوات البيت",
+      "en": "Home things",
+      "cover": "cup",
+      "products": [
+        "cup",
+        "plate",
+        "spoon",
+        "bottle",
+        "chair",
+        "box",
+        "milk"
+      ]
+    },
+    {
+      "id": "animals",
+      "ar": "عالم الحيوانات",
+      "en": "Animals",
+      "cover": "rabbit",
+      "products": [
+        "cat",
+        "rabbit",
+        "bird",
+        "horse",
+        "cow",
+        "fish"
+      ]
+    },
+    {
+      "id": "vehicles",
+      "ar": "وسائل النقل",
+      "en": "Vehicles",
+      "cover": "car",
+      "products": [
+        "car",
+        "bus",
+        "truck",
+        "bicycle",
+        "train",
+        "boat"
+      ]
+    }
+  ],
   "items": [
     {
       "id": "apple",
+      "market": "fruits",
       "ar": "تفاح",
       "en": "Apple",
-      "image": "images/apple.jpg",
-      "audio_ar": "audio/ar-apple.mp3",
-      "audio_en": "audio/en-apple.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0080.jpg",
-        "audio_ar": "audio/edge/w_9ac6036f1833ec5f6d3d.mp3",
-        "audio_en": "audio/edge-en/e_3a7bd3e2360a3d29eea4.mp3"
-      },
       "sha256": {
         "image": "a1568315bb0a0c6dfb07a7e4bd784577cb94cc4fb2f6a627d1ba289b0bf2ecf3",
         "audio_ar": "eb05ebdaede7c3162592746f5d09bebc42ebb06e4ad01489a95c2f3056ccfdcd",
         "audio_en": "25f2a5dc907e02e5990389953f0d672ab2c8703c61c2a5e79b35530ca1f060a5"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0080.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_9ac6036f1833ec5f6d3d.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_3a7bd3e2360a3d29eea4.mp3"
     },
     {
       "id": "banana",
+      "market": "fruits",
       "ar": "موز",
       "en": "Banana",
-      "image": "images/banana.jpg",
-      "audio_ar": "audio/ar-banana.mp3",
-      "audio_en": "audio/en-banana.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0081.jpg",
-        "audio_ar": "audio/edge/w_97a91b07543f318cf327.mp3",
-        "audio_en": "audio/edge-en/e_b493d48364afe44d11c0.mp3"
-      },
       "sha256": {
         "image": "fa4b254d4e55afaad0d00f606f363afc59f851d1b70e9584d5efac2f8bad2a57",
         "audio_ar": "96d40cd0c6b27773d39ac1ac382ab0cba5af247801a0d8ee53ebd886e5becf87",
         "audio_en": "fb7700e0c65f270acd4617b8bf72861e2ee2d4e148048586df3defbb8525e23c"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0081.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_97a91b07543f318cf327.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_b493d48364afe44d11c0.mp3"
     },
     {
       "id": "orange",
+      "market": "fruits",
       "ar": "برتقال",
       "en": "Orange",
-      "image": "images/orange.jpg",
-      "audio_ar": "audio/ar-orange.mp3",
-      "audio_en": "audio/en-orange.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0082.jpg",
-        "audio_ar": "audio/edge/w_62e0c7bebbaee518600f.mp3",
-        "audio_en": "audio/edge-en/e_1b4c9133da73a7113224.mp3"
-      },
       "sha256": {
         "image": "53037114f65936a7a6e1b9a067da3cfbeb1dae6fb4f54051a5b849b9623c1511",
         "audio_ar": "8ec2b586becc5bc0f9b77b7eb684c317fc83c0df3c4a2ed8d1188690cb07b9e5",
         "audio_en": "e7157ff31ed81f9406c906299de2e91156b4b5ffc551e7d1598adacbeed73b76"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0082.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_62e0c7bebbaee518600f.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_1b4c9133da73a7113224.mp3"
     },
     {
       "id": "grapes",
+      "market": "fruits",
       "ar": "عنب",
       "en": "Grapes",
-      "image": "images/grapes.jpg",
-      "audio_ar": "audio/ar-grapes.mp3",
-      "audio_en": "audio/en-grapes.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0083.jpg",
-        "audio_ar": "audio/edge/w_63aae1d495c651d3d0e8.mp3",
-        "audio_en": "audio/edge-en/e_8286ee4ea8f54f0276bc.mp3"
-      },
       "sha256": {
         "image": "ee136a0f6f026d72722baf91a1454d91e81970617b3f16124b3ff784a8627e78",
         "audio_ar": "23bd989673b7eef64b000154027963f52d827ec9ad01b397bc9013a6326f81db",
         "audio_en": "068a16cb79cd8f67d91fd81fdeea68d69ee194c6effa03e56b71e2258474cf74"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0083.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_63aae1d495c651d3d0e8.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_8286ee4ea8f54f0276bc.mp3"
     },
     {
       "id": "strawberry",
+      "market": "fruits",
       "ar": "فراولة",
       "en": "Strawberry",
-      "image": "images/strawberry.jpg",
-      "audio_ar": "audio/ar-strawberry.mp3",
-      "audio_en": "audio/en-strawberry.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0084.jpg",
-        "audio_ar": "audio/edge/w_a30c37eabf58b60af584.mp3",
-        "audio_en": "audio/edge-en/e_5e737f891db1175442a3.mp3"
-      },
       "sha256": {
         "image": "ee1c718dd7f35e2ec0b332cf1bcbfbe88ab461fb8c4968170f5579f2fe224259",
         "audio_ar": "26d5684fc138a7f708565b6554fbb4410940bf5b1694923bcd102d703001827e",
         "audio_en": "981fdbca4a4095254d59906c1e445e58cff32fdd8026d6d8e1439d357c6d9931"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0084.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_a30c37eabf58b60af584.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_5e737f891db1175442a3.mp3"
+    },
+    {
+      "id": "watermelon",
+      "market": "fruits",
+      "ar": "بطيخ",
+      "en": "Watermelon",
+      "sha256": {
+        "image": "b5c344c1f5dcb78883459865b497f1c0e74bd45992cab52d5f1bd99215cb327f",
+        "audio_ar": "8bf98c406ef6fafe853f84bfd9b2a6f5f97cad0fdf2e0755d87fd0c75944aaca",
+        "audio_en": "60f13f53887a1a5b1837a30bcdcf2d687c5b179e82e393f0f89a3fd62e1574cd"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0085.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_856f41dfa0ea70a35bce.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_31a2d5282683edb3a22c.mp3"
     },
     {
       "id": "carrot",
+      "market": "vegetables",
       "ar": "جزر",
       "en": "Carrot",
-      "image": "images/carrot.jpg",
-      "audio_ar": "audio/ar-carrot.mp3",
-      "audio_en": "audio/en-carrot.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0090.jpg",
-        "audio_ar": "audio/edge/w_2a7d07390ac66c80d009.mp3",
-        "audio_en": "audio/edge-en/e_b96482290a873ee98752.mp3"
-      },
       "sha256": {
         "image": "e3163cf211c9c68e5e43e542e27f5a68b23d30ec589fa9530a3ade50207076bb",
         "audio_ar": "dab45c8138e01e9c38aacbeee2c5fe97bf1cc7cc1a3ba0bd013e6aa43d3f18f1",
         "audio_en": "1b043a4c0774a90f04eeed56bb7f00ff2388e7a17f541dfc1e67583cef4eae0d"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0090.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_2a7d07390ac66c80d009.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_b96482290a873ee98752.mp3"
     },
     {
       "id": "tomato",
+      "market": "vegetables",
       "ar": "طماطم",
       "en": "Tomato",
-      "image": "images/tomato.jpg",
-      "audio_ar": "audio/ar-tomato.mp3",
-      "audio_en": "audio/en-tomato.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0088.jpg",
-        "audio_ar": "audio/edge/w_c4da5ca676f9764a910c.mp3",
-        "audio_en": "audio/edge-en/e_5ed728c2fa5d767bc6c1.mp3"
-      },
       "sha256": {
         "image": "755b2cd940b14de4dcbe663273dcfec2c0eddffa61e61ebad8fee5515138ab8f",
         "audio_ar": "5ca9db13255265c7b010627ef95b520178f708751d430a9c96c2e9479b836931",
         "audio_en": "2123194b95eb71dcb6ab3c8648d6830c6c1cb85ef5f49608e7070664c4858e2f"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0088.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_c4da5ca676f9764a910c.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_5ed728c2fa5d767bc6c1.mp3"
     },
     {
       "id": "cucumber",
+      "market": "vegetables",
       "ar": "خيار",
       "en": "Cucumber",
-      "image": "images/cucumber.jpg",
-      "audio_ar": "audio/ar-cucumber.mp3",
-      "audio_en": "audio/en-cucumber.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0091.jpg",
-        "audio_ar": "audio/edge/w_ea7e1328626560a301b0.mp3",
-        "audio_en": "audio/edge-en/e_dd832404e8eeb90793f0.mp3"
-      },
       "sha256": {
         "image": "ec62fffaf11273af61663655e52daf1c836839561215338b35cd2967ac10befb",
         "audio_ar": "9d400df8277a4f280ff3560349e4839906a68ab594471e8f6a3d274b44ca379a",
         "audio_en": "278778a6d995c562ae016a38416f51ce8a445596a047b1e825292ca732881ec8"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0091.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_ea7e1328626560a301b0.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_dd832404e8eeb90793f0.mp3"
     },
     {
-      "id": "book",
-      "ar": "كتاب",
-      "en": "Book",
-      "image": "images/book.jpg",
-      "audio_ar": "audio/ar-book.mp3",
-      "audio_en": "audio/en-book.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0038.jpg",
-        "audio_ar": "audio/edge/w_5eabb60f203c5c8130d6.mp3",
-        "audio_en": "audio/edge-en/e_92719fe0cf8cd51592af.mp3"
-      },
+      "id": "potato",
+      "market": "vegetables",
+      "ar": "بطاطس",
+      "en": "Potatoes",
       "sha256": {
-        "image": "6f2557166fb794cdf1893193176194f7899d69aa30108123fad1900af3f12a1d",
-        "audio_ar": "1984c825e325d8a8fab509aa675a2ba1dcfcc46a53bdfc9a1f9e4ae454a5db7f",
-        "audio_en": "1556855087a7c5e9132b1e078885698b509ef3031b11a030b2dbb92f296ae5a3"
-      }
+        "image": "be1c3788d47e06a83a88eb368290339ed50db69b5543923fe860b7134419f7ab",
+        "audio_ar": "16ebe02216921230da4e8ed3f30448acc3a9e826d17f770c1a64435a30440911",
+        "audio_en": "47aad359fe55cb6909facb9a9c91a9db2fc93f65cba65495a804af7dc45e7887"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0089.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_f692d757cfa1eedcdf63.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_292bdd381b06dfb9fee4.mp3"
     },
     {
-      "id": "cup",
-      "ar": "كوب",
-      "en": "Cup",
-      "image": "images/cup.jpg",
-      "audio_ar": "audio/ar-cup.mp3",
-      "audio_en": "audio/en-cup.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0055.jpg",
-        "audio_ar": "audio/edge/w_eed5da910e97d2f4ad25.mp3",
-        "audio_en": "audio/edge-en/e_c6171781d65f3ccce113.mp3"
-      },
+      "id": "onion",
+      "market": "vegetables",
+      "ar": "بصل",
+      "en": "Onion",
       "sha256": {
-        "image": "a364cc5ee86408a82a9118332cbcfcdda2f36e0b6149ad895622f2fcac0c4856",
-        "audio_ar": "44370330266555553e58325eacc8a0f124c2bbffb63d462ac1dfaf64234586c2",
-        "audio_en": "f0901cae11890e8f8e217a287b9cd2ab73cdf0a15da1b1658f1b380d39945ab4"
-      }
+        "image": "f38e80bebf497c530397f6e22f2b1228525c2131b9189b540e4e6e8c3071954b",
+        "audio_ar": "1d530ccc753ba39650db5ce17b969b3508e0e490391d0a827fa7145f0b393066",
+        "audio_en": "5b0a6bf0dce57e63721efa5e2e11ddb24bced2054d95f17958f29eef23ea7dc4"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0092.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_74b25ee7fc15e359abe3.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_288971671685b8da5662.mp3"
+    },
+    {
+      "id": "pepper",
+      "market": "vegetables",
+      "ar": "فلفل",
+      "en": "Pepper",
+      "sha256": {
+        "image": "808630a18cd209708aa249187160f3dc7f093094039e09003960b64459d99d43",
+        "audio_ar": "2f440a17d6cb44ffb54742fd902294e1c1bc8268f72ab97375c3fb0e082df203",
+        "audio_en": "e3aa72de1568fc9e35b5b4f1699b4a4e1120e73e2e665d3ed9aebfa0b3000eea"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0094.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_8ee5880ed2f88c551533.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_8cbbcf29d9cef89675c5.mp3"
     },
     {
       "id": "ball",
+      "market": "toys",
       "ar": "كرة",
       "en": "Ball",
-      "image": "images/ball.jpg",
-      "audio_ar": "audio/ar-ball.mp3",
-      "audio_en": "audio/en-ball.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0037.jpg",
-        "audio_ar": "audio/edge/w_48849fd3d695be76b83b.mp3",
-        "audio_en": "audio/edge-en/e_e9de08263f4ad49131d3.mp3"
-      },
       "sha256": {
         "image": "5e8672188eff36b576cbd5737be94edd50a85076b8ff0bcc36d8d84bf9d3e2f0",
         "audio_ar": "bca73a23cdb101bb137c7265696cba78ed0fd6dcdf06ac9064cf0e84d0263093",
         "audio_en": "7c88807e938250a1ead7694d2564dc079ed6e94d8e9189fdad6dba3c0cc2e779"
-      }
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0037.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_48849fd3d695be76b83b.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_e9de08263f4ad49131d3.mp3"
+    },
+    {
+      "id": "cube",
+      "market": "toys",
+      "ar": "مكعب",
+      "en": "Cube",
+      "sha256": {
+        "image": "f4bf28a3d4c85ac4d623d569d049e16ced5f1946bfbaf411d50fceef05ad34fe",
+        "audio_ar": "28118a5e0563de59dc431300e651eb71648515f0f59d794138ece6e2f37c07d0",
+        "audio_en": "14e9989f10e0cc4035e177c9daab75268ab839ded6446928d0c83c96ba8f2912"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0141.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_091e307754f7fbfe2bf8.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_4f3c4172a4fe308cebc8.mp3"
+    },
+    {
+      "id": "doll",
+      "market": "toys",
+      "ar": "دمية",
+      "en": "Doll",
+      "sha256": {
+        "image": "07cd9c647fcfebd817d92f23b81ff933a339d90c77631312f356c98621a2596f",
+        "audio_ar": "3d9ed84308d41a5b16f96cdbc8edbbfef3d9b4d3c01e7faa7de7a9b2dddab46e",
+        "audio_en": "7370377c46d7d32c6c52b7667c557e036f0b657d4e991624ae8ffe254f7ca2a7"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0036.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_7d965a8d1362a578f6c6.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_44c3e574dac5455e6749.mp3"
+    },
+    {
+      "id": "balloon",
+      "market": "toys",
+      "ar": "بالون",
+      "en": "Balloon",
+      "sha256": {
+        "image": "317295de4d9ad1f6e5d69e1843c3b1a3d02d2225c48b1576fd20c0b828dfc8e2",
+        "audio_ar": "2bc66bfb41fc3e733767c2ba30591da7ffb99ddae6367f054e1bd3298011ef32",
+        "audio_en": "0efa5397432eca9c0c7135a0875c38c7ffdde979c2e4262b4e3dc0cd9c72533d"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0142.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_bd6471ad9560e134377b.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_00477ad8a4431d45d6ea.mp3"
+    },
+    {
+      "id": "puzzle",
+      "market": "toys",
+      "ar": "أحجية",
+      "en": "Puzzle",
+      "sha256": {
+        "image": "d9d104e0e5e2704b642accdcfd12eb3b0c3d389245640c4d5f13191da9c5e794",
+        "audio_ar": "bb27c3aa20aa546d6d64e6267c7c8ca95946824b7266fe3515dc49959c08f0e8",
+        "audio_en": "c92947a78bf337ebe08a76b3d13c71fc83fe31847192df35fa34f78ab3215402"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0143.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_254f4e97d3009d386bdc.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_d4fba09b856cc0aa0f2b.mp3"
+    },
+    {
+      "id": "bear",
+      "market": "toys",
+      "ar": "دب",
+      "en": "Bear",
+      "sha256": {
+        "image": "d29a7427530aea6d6bb2fadd092ddebead58015d28889ed058051258740825ad",
+        "audio_ar": "4127a179ac1f5cb2bcb8bb4f47cc676caad782e23dac6bc694325b769dae0aac",
+        "audio_en": "40d594d3a763c36b2b59f0ee00e0ad49490ca1d543326363679a1addc5dd82ed"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0265.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_973843418644f277afaa.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_bc98bb50e8094b2ac3ce.mp3"
+    },
+    {
+      "id": "book",
+      "market": "school",
+      "ar": "كتاب",
+      "en": "Book",
+      "sha256": {
+        "image": "6f2557166fb794cdf1893193176194f7899d69aa30108123fad1900af3f12a1d",
+        "audio_ar": "1984c825e325d8a8fab509aa675a2ba1dcfcc46a53bdfc9a1f9e4ae454a5db7f",
+        "audio_en": "1556855087a7c5e9132b1e078885698b509ef3031b11a030b2dbb92f296ae5a3"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0038.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_5eabb60f203c5c8130d6.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_92719fe0cf8cd51592af.mp3"
+    },
+    {
+      "id": "pencil",
+      "market": "school",
+      "ar": "قلم",
+      "en": "Pen",
+      "sha256": {
+        "image": "49bf5e00c216e5202efa224c43bb78c68aa8c28b3d2da8de75aa8b95458d966d",
+        "audio_ar": "2499ad113670dd153d867958e0c866e911e90e650fa0d7f629cc53790a44aa11",
+        "audio_en": "41adece17918501c8f74e7c98e1bca64164b6ecfb7fdc536b92eb58610992c40"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0148.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_cb8520ad82a222326889.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_e21a6b0cb193057e06ac.mp3"
+    },
+    {
+      "id": "paper",
+      "market": "school",
+      "ar": "ورقة",
+      "en": "Paper",
+      "sha256": {
+        "image": "8cbb6777ea5f00d59e96a9553e5bff51369ea332d57a9f177b24ffb924916175",
+        "audio_ar": "9fb1f6f2a318c0db73c29cb83894f3c291e2b0fbd43123c32696a83324d7114b",
+        "audio_en": "fb878021e3771dd670c96c939bda02a018bbd29f7d383ce9cf666672abfd3d80"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0149.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_d0471e4a7a91b8b54687.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_382635c9325bf3273d19.mp3"
+    },
+    {
+      "id": "bag",
+      "market": "school",
+      "ar": "حقيبة",
+      "en": "Bag",
+      "sha256": {
+        "image": "28783a5c31487c5c7a52bf07fac4aee21e606f69a1f47d79dfc4ba02b831eda6",
+        "audio_ar": "662a81763c10615e2cb99bf81c1cef1b10539df6662909414fe1cff9e9bbc2db",
+        "audio_en": "c8fd866f850e4bee1a9f66ac7cb6337b9e3a4210bbc6dbc0761c128539aedeb4"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0147.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_2f653b11f84aac1dbc05.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_c018019b6a8b01ab5868.mp3"
+    },
+    {
+      "id": "ruler",
+      "market": "school",
+      "ar": "مسطرة",
+      "en": "Ruler",
+      "sha256": {
+        "image": "027836df49da0811d1f2cc4f5855266368fa4e364f2e07f3f364e5b44d184001",
+        "audio_ar": "0cd893b1f4bd1449bf454e2d560184db4bbfb1a948bc5f5816d1cc99b86deef1",
+        "audio_en": "40d9b09bfb61aec3a2d79a6c3e9c82c3c22540db8bb6a821d0b5e512197bd6e7"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0339.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_aaa372b2664c3bdf0b9d.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_5972814068a183e232d6.mp3"
+    },
+    {
+      "id": "eraser",
+      "market": "school",
+      "ar": "ممحاة",
+      "en": "Eraser",
+      "sha256": {
+        "image": "496b153377f9253dae14a05ddee22226399ff0bc854d68e58152463179cfa380",
+        "audio_ar": "c2fbe477317734116f862838ff1455d2aaf7e839550ff5e64f0dbe6f44e5832c",
+        "audio_en": "8d5a0dddad01342c145d0b49653b6767c004c8edc32883a8883354b32121d843"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0338.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_14c34747239dacfc43e0.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_9010072f85ea54692588.mp3"
+    },
+    {
+      "id": "cup",
+      "market": "home",
+      "ar": "كوب",
+      "en": "Cup",
+      "sha256": {
+        "image": "a364cc5ee86408a82a9118332cbcfcdda2f36e0b6149ad895622f2fcac0c4856",
+        "audio_ar": "44370330266555553e58325eacc8a0f124c2bbffb63d462ac1dfaf64234586c2",
+        "audio_en": "f0901cae11890e8f8e217a287b9cd2ab73cdf0a15da1b1658f1b380d39945ab4"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0055.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_eed5da910e97d2f4ad25.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_c6171781d65f3ccce113.mp3"
+    },
+    {
+      "id": "plate",
+      "market": "home",
+      "ar": "طبق",
+      "en": "Plate",
+      "sha256": {
+        "image": "3e8d1d4a4a73ce218b8d34967a7833e2d8ee8d2452fc5a4626b73be8d355b054",
+        "audio_ar": "2d1307aa487264d6206199f6a7a72d51b05be7d28cd91ba2a78e3a56d4fca073",
+        "audio_en": "816893ec8c0a1a8a4e80fc35bc4f64bb25acbd6a3e866b9501e7e0946008c300"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0057.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_d2a654c105a9fa4679ca.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_3b56c3520006aaeb038c.mp3"
+    },
+    {
+      "id": "spoon",
+      "market": "home",
+      "ar": "ملعقة",
+      "en": "Spoon",
+      "sha256": {
+        "image": "0507c0b9a6ce934710e7bbd3d3bbda92a873df6a9974e3ab7b9b38f675a8ba0a",
+        "audio_ar": "0cffccdd9aaebe5409fd28c22bf44d7de4398a8e24ae5cc3e1c5ec44ea7ede79",
+        "audio_en": "545f311370161b1d48c77dfd50486d4c05c7cd97d6017be6ad9bc420793cdf41"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0058.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_44d41e12cecc46daa285.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_7f480e744a79953eb916.mp3"
+    },
+    {
+      "id": "bottle",
+      "market": "home",
+      "ar": "زجاجة",
+      "en": "Bottle",
+      "sha256": {
+        "image": "81f5ba1a4025959b39833ef8746281a129d9134056b7ccb435fc8ab77510662b",
+        "audio_ar": "553b8c44dc7f1bada93926f1b1b4a2c0beb8c0399049a1865fe2b7932b713023",
+        "audio_en": "9f89d5530b183070dcc959e3122cb021fa5a1c497f41e286b49f8d2ad21ee971"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0063.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_91e8a18418385360ac34.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_7def9c79e5be6d7a7002.mp3"
+    },
+    {
+      "id": "chair",
+      "market": "home",
+      "ar": "كرسي",
+      "en": "Chair",
+      "sha256": {
+        "image": "f927dae6dc9fdf0e21393480da61de3f2e9c4f891bb80efa4aaa6bfd872a137c",
+        "audio_ar": "016925a5c8a786ec3e2397c1beced710c1139c6ea70b7d7cc89c456e6dd98e01",
+        "audio_en": "2afdc66456a3be716f3a8e5f12f200ef279a5bd812f34cc4856ccedd71137223"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0039.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_28d76d04d528adb87679.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_3d7eb3d3dab17ee509a6.mp3"
+    },
+    {
+      "id": "box",
+      "market": "home",
+      "ar": "صندوق",
+      "en": "Box",
+      "sha256": {
+        "image": "4085fb9213f5de81781da78a46b6f20da1883d494ca1098fa8d7206a8e9f203d",
+        "audio_ar": "46564413be859838f809b38294e03030153420c2888693b63a572a9674ddf021",
+        "audio_en": "aec4d8c12cf84adef2e82b3caa85bb09ce94a7a4726b06a50ad3ff16771263ad"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0041.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_e8c39755d5e8255c5be2.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_26f8567f2569182294c3.mp3"
     },
     {
       "id": "milk",
+      "market": "home",
       "ar": "حليب",
       "en": "Milk",
-      "image": "images/milk.jpg",
-      "audio_ar": "audio/ar-milk.mp3",
-      "audio_en": "audio/en-milk.mp3",
-      "source_paths": {
-        "image": "assets/word-images/w0075.jpg",
-        "audio_ar": "audio/edge/w_efd3aeab5885d3ddd4c2.mp3",
-        "audio_en": "audio/edge-en/e_8825e76530f87ff5c737.mp3"
-      },
       "sha256": {
         "image": "a1d5977eb5ed712721c7c3d665932ddadf4c92b7e71d0ca9b75658740dae38cd",
         "audio_ar": "cab8a1cfd10c352e55b170eff02fc2b975127696349972f00e00de70e105f8ff",
         "audio_en": "1e59559e75a568ac1b433acf1f391cec27e6d900c65991cd1ef359936f7e7d3b"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0075.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_efd3aeab5885d3ddd4c2.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_8825e76530f87ff5c737.mp3"
+    },
+    {
+      "id": "cat",
+      "market": "animals",
+      "ar": "قطة",
+      "en": "Cat",
+      "sha256": {
+        "image": "e3f5c7822d86633a0308a798f227b4335e99514e3e60d50ba77f949058295c6b",
+        "audio_ar": "4f8b482ab12c68b5d71206005c5b7e4e9f4e55ab9a2ce69207468377daa35de4",
+        "audio_en": "9e8765c1f3decbd8e93787a3930538e398572d2c8837969d0a945a0aabff70ed"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0095.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_df97da85fab02da83903.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_77af778b51abd4a3c51c.mp3"
+    },
+    {
+      "id": "rabbit",
+      "market": "animals",
+      "ar": "أرنب",
+      "en": "Rabbit",
+      "sha256": {
+        "image": "885e99843ccb04b41e611da80f2df5322d57a66dd56bd8ca72dd997725b3b89c",
+        "audio_ar": "b45a46796010d5e0ad080a44295fa89d70d3a2f372411ad46748ceeb6a8f27fc",
+        "audio_en": "7cce7e105571e6cb0c4e0fa32da2068acfd8191bab3fbd90a97eecfac7f60ef1"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0099.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_3e401173281b59e62fd8.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_d37d96b42ad43384915e.mp3"
+    },
+    {
+      "id": "bird",
+      "market": "animals",
+      "ar": "طائر",
+      "en": "Bird",
+      "sha256": {
+        "image": "7b6fa4420b3e222bca92db6e0de02cbf2f8b77935ecfafed1d106140c7c7d67c",
+        "audio_ar": "88e52839436095c299941cda908175e3bbeebc51cadf591a8da61027c15f7fd4",
+        "audio_en": "7563e065f3f3cafea04816518c195ec3d0e864017b8063f4c2957a4bb6d175bf"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0097.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_5c6c7b03fd27765a0a0e.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_7a5179eecc0fe18760ba.mp3"
+    },
+    {
+      "id": "horse",
+      "market": "animals",
+      "ar": "حصان",
+      "en": "Horse",
+      "sha256": {
+        "image": "55cea1c04506907f9fe35982eacd3f9f1423c1b928046c4f930f194f6ec4918c",
+        "audio_ar": "eb0173109e825c3312f2fb177762cd0d4d3971c1b5c6684962c2f9616f312ac1",
+        "audio_en": "28ba6d62240e74ac86363e1b9857728b5ab0e113a0382d617a727bd0eb4e63d7"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0102.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_7d82449e4687ffa471d7.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_fd62862b6dc213bee77c.mp3"
+    },
+    {
+      "id": "cow",
+      "market": "animals",
+      "ar": "بقرة",
+      "en": "Cow",
+      "sha256": {
+        "image": "da9661e92abc44004e21a362e1474cd260f7afc093015f05e3e465173314c4e8",
+        "audio_ar": "acdcbe8bff26f37523d9e9641e0ef88d2a8fd5c7cb21864b685696c116993649",
+        "audio_en": "cabe9a419e3822a170087c0fece6ff928c429a1d579b0ec0f97450177d043ebb"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0101.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_55772945499ecfb099bf.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_beb134754910a4b4790c.mp3"
+    },
+    {
+      "id": "fish",
+      "market": "animals",
+      "ar": "سمكة",
+      "en": "Fish",
+      "sha256": {
+        "image": "068d8eb05d843422623631af955d35a4915bd4db9ad71b7ed9659097ab5e96e3",
+        "audio_ar": "dcdd631c011e375fb9bd8d0748aa2149c0162fe01e4ee746d61c180e2ae0b6e2",
+        "audio_en": "1497e47e7b4523cd38d7635994a0c15f1c7d885a7081ee5433be8368bf08afe5"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0098.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_dd6b797efbb3e1049ef8.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_b474a99a2705e23cf905.mp3"
+    },
+    {
+      "id": "car",
+      "market": "vehicles",
+      "ar": "سيارة",
+      "en": "Car",
+      "sha256": {
+        "image": "916599a1f8d31cba43e3f22b5cec5aa155b6c0ac12b5abbcba5c9ab78cf30fe6",
+        "audio_ar": "2df3608231fa87cb52e5145319c0c709cb585613cd128a4f4e6fee392bfdb597",
+        "audio_en": "29ce840a67dec78f516b24e99696d5945cceb5fcd69e464552a8a055b44638b7"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0111.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_89aef3a3a84bf4c043b7.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_2b2961a431b23c9007ef.mp3"
+    },
+    {
+      "id": "bus",
+      "market": "vehicles",
+      "ar": "حافلة",
+      "en": "Bus",
+      "sha256": {
+        "image": "855be0d23fcb943f648cd6c6ea8fc7198c9043b4aa349e1490abbfc25545176b",
+        "audio_ar": "866c46d2771709cf94078c90d17e5deee0b2530c653419d1a618f5b3aa1ea2fe",
+        "audio_en": "a9a7ed8ead30488e1eb0c5b6ad3d96fd5f599412daa639b389c14eeacaf46b56"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0112.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_abe6314077665ac69c1e.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_04e027e4990a203f4899.mp3"
+    },
+    {
+      "id": "truck",
+      "market": "vehicles",
+      "ar": "شاحنة",
+      "en": "Truck",
+      "sha256": {
+        "image": "df7047cf8981758bc2788dc84dc2c7e3bf89fdd73c5acf5589a3ad6009be8cf7",
+        "audio_ar": "e99c4e03f46859a52eff8e38da47d86f08436c1948e7f3a84b40c9ba5351e0a0",
+        "audio_en": "66906694802fdfde9a836f28cd9fef07bb62e8af2807f1974f5dce333a2521c8"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0113.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_5f2843c2bb1fb14cac06.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_24611dec0a0a3ae6f9f3.mp3"
+    },
+    {
+      "id": "bicycle",
+      "market": "vehicles",
+      "ar": "دراجة",
+      "en": "Bicycle",
+      "sha256": {
+        "image": "15404b77b3bb23b2a4afa4c755041ddf9b5a54b1f53e0ddf754d87da696aeeed",
+        "audio_ar": "171d741170e5514c68e7e34d5051f89bcaa1776fe7525b45909ac8e7d611f562",
+        "audio_en": "c0380a9a247909c67b652aa26ce17814fa7739459fe75b7e5d77b7ea01d17d8a"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0114.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_025f17f60f0c9bf86290.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_d29af8a2e160dd867fe4.mp3"
+    },
+    {
+      "id": "train",
+      "market": "vehicles",
+      "ar": "قطار",
+      "en": "Train",
+      "sha256": {
+        "image": "2f9f0ab0b13f233eb6a4935d0601694ce4ea25b0839768471d6d7be26a211d40",
+        "audio_ar": "bb318d8c364556341a5514f74e0b59f7280aed5e160e3e184302dae97b126ded",
+        "audio_en": "c64a6384c8bd3f5860efa7d9505a7d698112b7ec0bfddeb7585f53d7a65f0422"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0115.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_c407c8cc48e0f23952e2.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_116f54c41d0405dbb10e.mp3"
+    },
+    {
+      "id": "boat",
+      "market": "vehicles",
+      "ar": "قارب",
+      "en": "Boat",
+      "sha256": {
+        "image": "b1a1588bc79c518e21674adf81139c369cb1285e3935fd6aab9845964cb60c83",
+        "audio_ar": "a02bc2caebecd057bda302540ecf5cd14d82d072fe674f71233f15b8fa712367",
+        "audio_en": "495c5975ec4cddc251c59410196d503bf0925ad7529e408f3c74f015df6967ab"
+      },
+      "image": "apps/1-4/say-and-name/assets/word-images/w0118.jpg",
+      "audio_ar": "apps/1-4/say-and-name/audio/edge/w_9f23e5b0616fafaada5b.mp3",
+      "audio_en": "apps/1-4/say-and-name/audio/edge-en/e_25cdb46d8d2115a24eb1.mp3"
+    }
+  ],
+  "numbers": {
+    "ar": {
+      "0": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_9b17175f90623796d499.mp3",
+        "sha256": "bba64dd74693ed5b8b71780f41197ca687e253bd1e2e241feafd943a8cb5b600",
+        "source_word": "صفر"
+      },
+      "1": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_9515528190c2eda55388.mp3",
+        "sha256": "ccc919cbdb540febd0d76db216072d33969ab1703fb81e254ff70062bb400814",
+        "source_word": "واحد"
+      },
+      "2": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_ee97d9b12d4ac28f5866.mp3",
+        "sha256": "fa9ed54ac3506bc1db99832f9026d621f252652fb25adde6f340141e91ccfd6d",
+        "source_word": "اثنان"
+      },
+      "3": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_d8323c7d8c2b77971696.mp3",
+        "sha256": "054119284290fa48dd301496ff19d23c8999d7f4595fd4af5949a8389b6500d0",
+        "source_word": "ثلاثة"
+      },
+      "4": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_5322f6f60175ed76b011.mp3",
+        "sha256": "b956feed92c949e70efb70f0968bb26d609a919e2e4e9646453e8461cac2d11c",
+        "source_word": "أربعة"
+      },
+      "5": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_1ba32ae2545bf97f72f5.mp3",
+        "sha256": "e89ae207d31fa9102ffbca72d11fb3b38e2a6fc7d6fecede3acbb474cc540227",
+        "source_word": "خمسة"
+      },
+      "6": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_df6742c458c70d2e6c79.mp3",
+        "sha256": "18749ff088a3b3f27b27b9b1797ec5633237e60aa720c9e73fc1521942a2f27a",
+        "source_word": "ستة"
+      },
+      "7": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_339eaf337a4c78a0d4ab.mp3",
+        "sha256": "3993371251ad126a9092f300c6bfbb2e96a93babac06a4225a8a29e5519c7611",
+        "source_word": "سبعة"
+      },
+      "8": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_4fbf97840cf38fbf3b63.mp3",
+        "sha256": "d508fe9054068f6ddb5b3152ba2c03ce6952dcad45c347dacd311870386725fa",
+        "source_word": "ثمانية"
+      },
+      "9": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_2a60e1e84b83f8525341.mp3",
+        "sha256": "5456fec5d52215ada0ec3327a56f0d019cd83dd75f4816e201c9460621aa3b39",
+        "source_word": "تسعة"
+      },
+      "10": {
+        "path": "apps/1-4/say-and-name/audio/edge/w_f2d35f5ab78606e98c12.mp3",
+        "sha256": "56856651f1d759f0721abda1b4540646d06e51556b841d73350ae7b160eb2681",
+        "source_word": "عشرة"
+      }
+    },
+    "en": {
+      "0": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_f9194e73f9e9459e3450.mp3",
+        "sha256": "ec809a6eb5d54f74f2241a20e9d46f4a3d7751e82eba64feb9415c2a66cfc427",
+        "source_word": "Zero"
+      },
+      "1": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_7692c3ad3540bb803c02.mp3",
+        "sha256": "7cebb91840aafdc177fec7cc325b607a8e97342227e976cc09584bdd713890fc",
+        "source_word": "One"
+      },
+      "2": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_3fc4ccfe745870e2c0d9.mp3",
+        "sha256": "07d50f58f992e0d18368f49980956ff15a0e97bdfe9e272c0feaccc778920217",
+        "source_word": "Two"
+      },
+      "3": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_8b5b9db0c13db24256c8.mp3",
+        "sha256": "43725e3f8671dafae37f5f567fcde35a8562d54fd4bf680488e0aef4e85c1ab6",
+        "source_word": "Three"
+      },
+      "4": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_04efaf080f5a3e74e1c2.mp3",
+        "sha256": "b040bd891e2f68cc3a64ce48e6c92b5ce461f570f5c56516f89f09fd572313a9",
+        "source_word": "Four"
+      },
+      "5": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_222b0bd51fcef7e65c2e.mp3",
+        "sha256": "5253e36730692fea3f32cfde8d119de6224e92416a2f606186367fa776e2a7ab",
+        "source_word": "Five"
+      },
+      "6": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_44778d82365e4af681c4.mp3",
+        "sha256": "78a0058e38d73142d93904588da481d4c6875a0e333153a92f8392c6206eb119",
+        "source_word": "Six"
+      },
+      "7": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_3ba8d02b16fd2a01c1a8.mp3",
+        "sha256": "b895147ce2d0560149929a0cd766f559d8c660d3b87ac358dffa746ba108e5ef",
+        "source_word": "Seven"
+      },
+      "8": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_c195d2d8756234367242.mp3",
+        "sha256": "f5d2c364afb3b89af189a380502c51868dc7e43185c60e05a08d6b0c5f3bac68",
+        "source_word": "Eight"
+      },
+      "9": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_edcd8e701a2df0cd66a3.mp3",
+        "sha256": "497cbf7dd0262b56d0ae6ff539b3d42582e9d33d01ecba5e5a100c1dd03f216b",
+        "source_word": "Nine"
+      },
+      "10": {
+        "path": "apps/1-4/say-and-name/audio/edge-en/e_e4432baa90819aaef51d.mp3",
+        "sha256": "da28adc470785e89a5ac4bbae1efff3faba1c188c42d9d8497c300a20e1d94ec",
+        "source_word": "Ten"
       }
     }
-  ]
+  }
 }

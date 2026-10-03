@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "numeral_policy": "All numeral tokens voiced in English, including Arabic instructions",
+  "schema_version": 2,
+  "numeral_policy": "Numbers follow activity language: Arabic in Arabic; English in English. Existing 0-10 clips referenced from Say and Name.",
   "items": [
     {
       "path": "audio/ar-little-order-title.mp3",
@@ -9,7 +9,7 @@
     },
     {
       "path": "audio/ar-little-order-prompt.mp3",
-      "text": "ضَعْ 3 بَطَاقَاتِ تُفَّاحٍ فِي السَّلَّةِ.",
+      "text": "ضَعْ ٣ بَطَاقَاتِ تُفَّاحٍ فِي السَّلَّةِ.",
       "language": "ar"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "path": "audio/ar-cups-for-friends-prompt.mp3",
-      "text": "وَزِّعْ 4 بَطَاقَاتِ أَكْوَابٍ عَلَى سَلَّتَيْنِ بِالتَّسَاوِي.",
+      "text": "وَزِّعْ ٤ بَطَاقَاتِ أَكْوَابٍ عَلَى سَلَّتَيْنِ بِالتَّسَاوِي.",
       "language": "ar"
     },
     {
@@ -169,7 +169,7 @@
     },
     {
       "path": "audio/ar-missing-order-prompt.mp3",
-      "text": "الطَّلَبُ 5 بَطَاقَاتِ جَزَرٍ. فِي السَّلَّةِ 3. أَكْمِلِ الطَّلَبَ.",
+      "text": "الطَّلَبُ ٥ بَطَاقَاتِ جَزَرٍ. فِي السَّلَّةِ ٣. أَكْمِلِ الطَّلَبَ.",
       "language": "ar"
     },
     {
@@ -209,7 +209,7 @@
     },
     {
       "path": "audio/ar-two-ways-prompt.mp3",
-      "text": "قَسِّمْ 8 بَطَاقَاتٍ بَيْنَ سَلَّتَيْنِ. ضَعْ بَطَاقَاتٍ فِي كِلْتَيْهِمَا.",
+      "text": "قَسِّمْ ٨ بَطَاقَاتٍ بَيْنَ سَلَّتَيْنِ. ضَعْ بَطَاقَاتٍ فِي كِلْتَيْهِمَا.",
       "language": "ar"
     },
     {
@@ -249,7 +249,7 @@
     },
     {
       "path": "audio/ar-two-friends-prompt.mp3",
-      "text": "وَزِّعْ 6 بَطَاقَاتِ فَرَاوْلَةٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+      "text": "وَزِّعْ ٦ بَطَاقَاتِ فَرَاوْلَةٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
       "language": "ar"
     },
     {
@@ -369,7 +369,7 @@
     },
     {
       "path": "audio/ar-return-extras-prompt.mp3",
-      "text": "فِي السَّلَّةِ 9 بَطَاقَاتٍ. الطَّلَبُ 6. أَعِدِ الزَّائِدَ إِلَى الرَّفِ.",
+      "text": "فِي السَّلَّةِ ٩ بَطَاقَاتٍ. الطَّلَبُ ٦. أَعِدِ الزَّائِدَ إِلَى الرَّفِ.",
       "language": "ar"
     },
     {
@@ -409,7 +409,7 @@
     },
     {
       "path": "audio/ar-mixed-order-prompt.mp3",
-      "text": "جَهِّزْ 2 مِنْ بَطَاقَاتِ الْجَزَرِ وَ3 مِنْ بَطَاقَاتِ الطَّمَاطِمِ.",
+      "text": "جَهِّزْ ٢ مِنْ بَطَاقَاتِ الْجَزَرِ وَ٣ مِنْ بَطَاقَاتِ الطَّمَاطِمِ.",
       "language": "ar"
     },
     {
@@ -449,7 +449,7 @@
     },
     {
       "path": "audio/ar-fair-eight-prompt.mp3",
-      "text": "وَزِّعْ 8 بَطَاقَاتِ كُرَاتٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+      "text": "وَزِّعْ ٨ بَطَاقَاتِ كُرَاتٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
       "language": "ar"
     },
     {
@@ -489,7 +489,7 @@
     },
     {
       "path": "audio/ar-three-baskets-prompt.mp3",
-      "text": "وَزِّعْ 12 بَطَاقَةً بِالتَّسَاوِي بَيْنَ 3 سَلَالٍ.",
+      "text": "وَزِّعْ ١٢ بَطَاقَةً بِالتَّسَاوِي بَيْنَ ٣ سَلَالٍ.",
       "language": "ar"
     },
     {
@@ -644,63 +644,33 @@
     },
     {
       "path": "audio/ar-guide-library.mp3",
-      "text": "اِخْتَرْ طَلَبًا وَجَرِّبْهُ عَلَى طَاوِلَةِ السُّوقِ.",
+      "text": "اِخْتَرْ تَجْرِبَةً وَالْعَبْ. فِي كُلِّ مَرَّةٍ طَلَبٌ جَدِيدٌ وَصُوَرٌ مُخْتَلِفَةٌ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-library.mp3",
-      "text": "Choose an order and try it on the market table.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-count.mp3",
-      "text": "اِضْغَطْ عَلَى الصُّورَةِ لِأَخْذِ بَطَاقَةٍ. اِضْغَطْ عَلَى بَطَاقَةِ السَّلَّةِ لِإِعَادَتِهَا.",
+      "text": "اِضْغَطْ عَلَى الصُّورَةِ لِتَضَعَ بَطَاقَةً فِي السَّلَّةِ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-count.mp3",
-      "text": "Tap a picture to take a card. Tap a basket card to return it.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-share.mp3",
-      "text": "اِخْتَرِ السَّلَّةَ، ثُمَّ أَضِفْ بَطَاقَةً. يُمْكِنُكَ إِعَادَتُهَا وَتَغْيِيرُ تَقْسِيمِكَ.",
+      "text": "اِخْتَرْ سَلَّةً، ثُمَّ اضْغَطْ عَلَى الصُّورَةِ. وَزِّعْ كُلَّ الْبَطَاقَاتِ بِالتَّسَاوِي.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-share.mp3",
-      "text": "Choose a basket, then add a card. You can return it and change your groups.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-combine.mp3",
-      "text": "اِضْغَطْ عَلَى بَطَاقَاتِ الْمَجْمُوعَتَيْنِ لِتَجْمَعَهَا فِي سَلَّةِ الطَّلَبِ.",
+      "text": "اِضْغَطْ عَلَى صُوَرِ الْمَجْمُوعَتَيْنِ لِتَضُمَّهَا فِي سَلَّةٍ وَاحِدَةٍ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-combine.mp3",
-      "text": "Tap cards in both groups to move them into the order basket.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-compare.mp3",
-      "text": "قَارِنْ عَدَدَ الْبَطَاقَاتِ. جَرِّبْ وَضْعَ بَطَاقَةٍ مُقَابِلَ بَطَاقَةٍ.",
+      "text": "أَيُّ صَفٍّ فِيهِ بَطَاقَاتٌ أَكْثَرُ؟ الْعَدَدُ هُوَ الْمُهِمُّ، وَلَيْسَ التَّبَاعُدَ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-compare.mp3",
-      "text": "Compare the number of cards. Try matching cards one to one.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-pattern.mp3",
-      "text": "تَابِعْ النَّمَطَ مِنَ الْبِدَايَةِ. اِخْتَرْ صُورَةً لِلْمَكَانِ التَّالِي.",
+      "text": "اُنْظُرْ إِلَى تَرْتِيبِ الصُّوَرِ. اِخْتَرِ الصُّورَةَ التَّالِيَةَ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-pattern.mp3",
-      "text": "Follow the pattern from the start. Choose a picture for the next space.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-review.mp3",
@@ -708,19 +678,9 @@
       "language": "ar"
     },
     {
-      "path": "audio/en-guide-review.mp3",
-      "text": "Tell how you solved the order. Save or print it, then swap roles.",
-      "language": "en"
-    },
-    {
       "path": "audio/ar-guide-match.mp3",
       "text": "عَدَدُ الْبَطَاقَاتِ يَطَابِقُ الطَّلَبَ. اِحْكِ طَرِيقَتَكَ.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-match.mp3",
-      "text": "The cards match the order. Tell how you did it.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-retry.mp3",
@@ -728,19 +688,9 @@
       "language": "ar"
     },
     {
-      "path": "audio/en-guide-retry.mp3",
-      "text": "Let us check again. Match the cards to the order, or ask for a hint.",
-      "language": "en"
-    },
-    {
       "path": "audio/ar-guide-pause.mp3",
       "text": "حَفِظْنَا مَكَانَكَ إِنْ كَانَ الْحَفْظُ مُتَاحًا. خُذْ وَقْتَكَ وَعُدْ عِنْدَمَا تَكُونُ مُسْتَعِدًّا.",
       "language": "ar"
-    },
-    {
-      "path": "audio/en-guide-pause.mp3",
-      "text": "Your place is kept when storage is available. Take your time and return when ready.",
-      "language": "en"
     },
     {
       "path": "audio/ar-guide-role.mp3",
@@ -748,14 +698,199 @@
       "language": "ar"
     },
     {
-      "path": "audio/en-guide-role.mp3",
-      "text": "I am the seller now. I make a clear order and check it with my grown-up.",
-      "language": "en"
-    },
-    {
       "path": "audio/ar-guide-safety.mp3",
       "text": "اِسْتَخْدِمْ بَطَاقَاتٍ أَوْ قِطَعًا كَبِيرَةً آمِنَةً مَعَ الْمَرَافِقِ. لَا يَلْزَمُ طَعَامٌ حَقِيقِيٌّ.",
       "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-fill.mp3",
+      "text": "أَكْمِلِ السَّلَّةَ حَتَّى تُطَابِقَ بَطَاقَةَ الطَّلَبِ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-return.mp3",
+      "text": "اِضْغَطْ عَلَى بَطَاقَةٍ فِي السَّلَّةِ لِإِعَادَةِ الزَّائِدِ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-split.mp3",
+      "text": "اِخْتَرْ سَلَّةً، ثُمَّ ضَعْ بَطَاقَةً. اصْنَعْ مَجْمُوعَتَيْنِ بِطَرِيقَتِكَ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-mixed.mp3",
+      "text": "عُدَّ بَطَاقَاتِ كُلِّ صُورَةٍ وَطَابِقْهَا بِالطَّلَبِ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-measure.mp3",
+      "text": "ضَعِ الْبَطَاقَاتِ الْمُتَسَاوِيَةَ عَلَى الْخَطِّ دُونَ فَرَاغٍ أَوْ تَدَاخُلٍ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-order.mp3",
+      "text": "الْمَطْلُوبُ",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-total.mp3",
+      "text": "عَدَدُ الْبَطَاقَاتِ",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-baskets.mp3",
+      "text": "عَدَدُ السَّلَالِ",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-picture.mp3",
+      "text": "الصُّورَةُ",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-demo.mp3",
+      "text": "هَذَا مِثَالٌ لِلطَّرِيقَةِ. طَلَبُكَ الْأَصْلِيُّ يَنْتَظِرُكَ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-guide-coach.mp3",
+      "text": "اِخْتَرْ نَمَطًا وَصُوَرًا وَمَدَى الْعَدَدِ. نُجَهِّزُ طَلَبًا مُخْتَلِفًا كُلَّ مَرَّةٍ.",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-11.mp3",
+      "text": "١١",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-12.mp3",
+      "text": "١٢",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-13.mp3",
+      "text": "١٣",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-14.mp3",
+      "text": "١٤",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-15.mp3",
+      "text": "١٥",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-16.mp3",
+      "text": "١٦",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-17.mp3",
+      "text": "١٧",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-18.mp3",
+      "text": "١٨",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-19.mp3",
+      "text": "١٩",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-20.mp3",
+      "text": "٢٠",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-21.mp3",
+      "text": "٢١",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-22.mp3",
+      "text": "٢٢",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-23.mp3",
+      "text": "٢٣",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-24.mp3",
+      "text": "٢٤",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-25.mp3",
+      "text": "٢٥",
+      "language": "ar"
+    },
+    {
+      "path": "audio/ar-number-26.mp3",
+      "text": "٢٦",
+      "language": "ar"
+    },
+    {
+      "path": "audio/en-guide-library.mp3",
+      "text": "Choose an activity and play. Each time brings a new order and different pictures.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-count.mp3",
+      "text": "Tap the picture to put a card in the basket.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-share.mp3",
+      "text": "Choose a basket, then tap the picture. Share all the cards equally.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-combine.mp3",
+      "text": "Tap the pictures in the two groups to join them in one basket.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-compare.mp3",
+      "text": "Which row has more cards? Quantity matters, not the spacing.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-pattern.mp3",
+      "text": "Look at the order of the pictures. Choose the next picture.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-review.mp3",
+      "text": "Tell how you solved the order. Save or print it, then swap roles.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-match.mp3",
+      "text": "The cards match the order. Tell how you did it.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-retry.mp3",
+      "text": "Let us check again. Match the cards to the order, or ask for a hint.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-pause.mp3",
+      "text": "Your place is kept when storage is available. Take your time and return when ready.",
+      "language": "en"
+    },
+    {
+      "path": "audio/en-guide-role.mp3",
+      "text": "I am the seller now. I make a clear order and check it with my grown-up.",
+      "language": "en"
     },
     {
       "path": "audio/en-guide-safety.mp3",
@@ -763,58 +898,58 @@
       "language": "en"
     },
     {
-      "path": "audio/number-0.mp3",
-      "text": "0",
+      "path": "audio/en-guide-fill.mp3",
+      "text": "Complete the basket until it matches the order card.",
       "language": "en"
     },
     {
-      "path": "audio/number-1.mp3",
-      "text": "1",
+      "path": "audio/en-guide-return.mp3",
+      "text": "Tap a card in the basket to return the extras.",
       "language": "en"
     },
     {
-      "path": "audio/number-2.mp3",
-      "text": "2",
+      "path": "audio/en-guide-split.mp3",
+      "text": "Choose a basket, then add a card. Make two groups in your own way.",
       "language": "en"
     },
     {
-      "path": "audio/number-3.mp3",
-      "text": "3",
+      "path": "audio/en-guide-mixed.mp3",
+      "text": "Count the cards of each picture and match them to the order.",
       "language": "en"
     },
     {
-      "path": "audio/number-4.mp3",
-      "text": "4",
+      "path": "audio/en-guide-measure.mp3",
+      "text": "Put equal cards along the line with no gaps or overlaps.",
       "language": "en"
     },
     {
-      "path": "audio/number-5.mp3",
-      "text": "5",
+      "path": "audio/en-guide-order.mp3",
+      "text": "The order",
       "language": "en"
     },
     {
-      "path": "audio/number-6.mp3",
-      "text": "6",
+      "path": "audio/en-guide-total.mp3",
+      "text": "Number of cards",
       "language": "en"
     },
     {
-      "path": "audio/number-7.mp3",
-      "text": "7",
+      "path": "audio/en-guide-baskets.mp3",
+      "text": "Number of baskets",
       "language": "en"
     },
     {
-      "path": "audio/number-8.mp3",
-      "text": "8",
+      "path": "audio/en-guide-picture.mp3",
+      "text": "The picture",
       "language": "en"
     },
     {
-      "path": "audio/number-9.mp3",
-      "text": "9",
+      "path": "audio/en-guide-demo.mp3",
+      "text": "This is an example of how to play. Your own order is waiting.",
       "language": "en"
     },
     {
-      "path": "audio/number-10.mp3",
-      "text": "10",
+      "path": "audio/en-guide-coach.mp3",
+      "text": "Choose an activity, pictures and a number range. We make a different order each time.",
       "language": "en"
     },
     {
@@ -865,6 +1000,36 @@
     {
       "path": "audio/number-20.mp3",
       "text": "20",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-21.mp3",
+      "text": "21",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-22.mp3",
+      "text": "22",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-23.mp3",
+      "text": "23",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-24.mp3",
+      "text": "24",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-25.mp3",
+      "text": "25",
+      "language": "en"
+    },
+    {
+      "path": "audio/number-26.mp3",
+      "text": "26",
       "language": "en"
     }
   ]
