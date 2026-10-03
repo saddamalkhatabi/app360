@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -92,5 +92,19 @@
     "ar": "Arabic recorded voice and native Arabic numerals",
     "en": "English voice and numerals"
   },
-  "resource_index": "resources/early-child-market-objects/manifest.json"
+  "resource_index": "resources/early-child-market-objects/manifest.json",
+  "photographic_scenes": {
+    "experiences": 6,
+    "frames": 24,
+    "format": "JPEG",
+    "atlas_size": [
+      1024,
+      1024
+    ],
+    "total_image_bytes": 587280,
+    "provenance": "AI-generated illustrative scenes",
+    "archive": "assets/scenes/wonder-scenes-v1.zip",
+    "selection": "preview-before-start",
+    "offline": true
+  }
 }

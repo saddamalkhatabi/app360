@@ -55,10 +55,14 @@
     "borrowed_images": 7,
     "borrowed_name_clips": 14,
     "borrowed_numeral_clips": 34,
-    "offline_urls": 264,
+    "offline_urls": 270,
     "source_hashes": "all matching",
     "cue_source": "Actual recording WordBoundary; punctuation tokens have no fabricated cue",
-    "decoded_duration_check": "all 156 MP3 files decoded; ffprobe durations match cue records"
+    "decoded_duration_check": "all 156 MP3 files decoded; ffprobe durations match cue records",
+    "photographic_scene_atlases": 6,
+    "photographic_scene_frames": 24,
+    "photographic_scene_bytes": 587280,
+    "scene_zip_bytes": 587757
   },
   "viewports": [
     [
@@ -95,5 +99,33 @@
     "Physical install and printer",
     "Family pilot with guardian consent",
     "Educational field review"
-  ]
+  ],
+  "scene_validation": {
+    "date": "2026-10-03",
+    "pilot": [
+      "paper",
+      "ramp"
+    ],
+    "all_experiences": [
+      "paper",
+      "ramp",
+      "float",
+      "shadow",
+      "plant",
+      "absorb"
+    ],
+    "viewports": [
+      360,
+      768
+    ],
+    "real_audio_and_word_cues": true,
+    "preview_does_not_mutate_draft": true,
+    "selection_starts_draft": true,
+    "manual_navigation_and_all_scenes": true,
+    "offline_images_and_update_preserve_draft": true,
+    "unit_checks_rerun": 15,
+    "browser_checks_rerun": 16,
+    "archive_matches_unpacked_files": true,
+    "es5_parse": true
+  }
 }

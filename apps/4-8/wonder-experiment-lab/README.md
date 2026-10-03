@@ -44,3 +44,7 @@ python apps/4-8/wonder-experiment-lab/tools/build_audio.py /path/to/recording-ca
 ```
 
 الفحوص الاختيارية للمتصفح: `tools/qa-browser.cjs` مع Playwright في بيئة الاختبار و`CHROMIUM_EXECUTABLE_PATH` و`WONDER_BROWSER_ARGS` عند الحاجة. تفاصيل النتائج والحدود في `QA_AR.md` و`data/technical-validation.json`. النشر إلى Railway مؤجل؛ هذه الإضافة على فرع المعاينة فقط.
+
+## Photographic scenes — preview 2
+
+The library opens a four-frame photo preview before creating a draft. Next/previous, direct thumbnails and all-scenes mode are available. Viewing does not archive or change a draft or advance a variant. Choose explicitly to start; return to the current draft from its preview. Six AI-generated illustrative JPEG atlases contain 24 frames and total 587,280 bytes. The 1024px atlases use 512px frames, without new audio duplication. Existing authored recordings and real word-boundary cues accompany each frame. Dynamic model results remain separate from the fixed reference photos. Every atlas is included in the offline bundle. `assets/scenes/wonder-scenes-v1.zip` contains the exact unpacked assets already committed alongside it, below 25MB. `tools/qa-scenes.cjs` verifies all scenes, real audio/cues, draft preservation and responsive selection.
