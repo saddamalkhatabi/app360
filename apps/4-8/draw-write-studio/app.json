@@ -9,8 +9,8 @@
   "content_seed_path": "apps/4-8/draw-write-studio/CONTENT_SEEDS.json",
   "age_group": "4-8",
   "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-creativity-art-storytelling-and-expression",
@@ -39,5 +39,40 @@
   ],
   "practice_model_ar": "اختر رسالة حقيقية: شكر أو دعوة أو عنوان لركن اللعب ← ارسم بحرية أو استخدم دليل حركة اختياري ← أضف تسمية أو حروفًا أو عبارة حسب الاستعداد؛ يظل السرد الصوتي بديلًا ← قارن محاولتك بنفسك واحفظ أو اطبع رسالة يمكن استخدامها فعليًا",
   "blueprint_path": "apps/4-8/draw-write-studio/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/draw-write-studio/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/draw-write-studio/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#65519b",
+    "accent_color": "#e6b24c",
+    "raster_icons": [
+      "apps/4-8/draw-write-studio/icon-192.png",
+      "apps/4-8/draw-write-studio/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "technical-preview-family-pilot-pending",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-draw-write:schema-1:<profile>"
+  },
+  "learning_levels": [
+    {
+      "level": 1,
+      "age_hint": "4-5"
+    },
+    {
+      "level": 2,
+      "age_hint": "5-6"
+    },
+    {
+      "level": 3,
+      "age_hint": "6-7"
+    },
+    {
+      "level": 4,
+      "age_hint": "7-8"
+    }
+  ],
+  "launch_path": "apps/4-8/draw-write-studio/launch.html",
+  "links_path": "apps/4-8/draw-write-studio/links.json"
 }
