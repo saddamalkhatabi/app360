@@ -1,13 +1,21 @@
-<!-- Generated from data/catalog.json by tooling/build-blueprints.js; edit the catalog, then regenerate. -->
-
 # مهندسو الأشكال: أبني وأفسّر
 
-من مطابقة القطعة إلى تصميم بناء له شروط: يدير الطفل قطعًا أو يعكسها، يكمل شكلًا بأكثر من حل، يبني مساحة أو تماثلًا ويقارن مسارين. يتاح لغز صورة لأخذ فكرة ثم إعادة تكوينها بقطع أو رسم، دون جعل زيادة عدد القطع وحدها معيار التقدم.
+Technical preview for ages 4–8, app `a4-shape-design`. Family pilot and physical Big TAB acceptance remain pending. This commit targets `family-school-360-preview`; it does not deploy Railway or change main.
 
-مجلد خطة أولية للفئة 4-8، وليس تطبيقًا جاهزًا.
+Eight illustrated activities start with one tap: house, mirror wings, space filling, boat from a familiar picture, three-piece bridge, rocket, robot and a puzzle for a friend. Presets cycle through three bounded layouts; free building starts a clean canvas. Four flexible levels suggest ages 4–5, 5–6, 6–7 and 7–8 without age gates: visible outlines, transformation practice, alternative decomposition, and designing/explaining constraints. In the third/fourth house levels two genuinely different piece decompositions are needed; swapping identical piece identities is the same solution.
 
-- [مواصفات البناء](BUILD_SPEC.md)
-- [مطالبة البناء](PROMPT_AR.md)
-- [عقد التطبيق المستهدف](app.json)
+Children select a piece and tap a place, or move it with arrows. Entry outlines have orientation-aware snap assistance. Rotate, reflect, return, undo and redo always have buttons. Desktop dragging is optional; touch scrolling uses the shared Touch Guard. The independent two-step demonstration never changes the learner draft. Hints expose outlines without placing pieces. The actual supported integer lattice has four triangular atoms per square, so coverage, overlap, missing space, reflection across the middle line and exact piece counts are checked geometrically. Only axis/45-degree polygons and integer anchors are supported; arbitrary freehand geometry is not assessed.
 
-المصدر المعتمد للتعديل هو data/catalog.json؛ لا تعدّل الملفات المشتقة يدويًا.
+Completed designs have optional spoken-to-coach, written or pictured explanations, comparison of up to four actual solutions, local saving, immutable copy/reopen, SVG picture export, JSON export/import, deletion confirmation and printing from the same model. Coach patterns are independent copies, capped at twenty, with title, mirror/count constraints, optional outlines, export/import and replay. A requested mirror condition cannot be saved with an asymmetric source design. Private coach notes are excluded from export. Forty manually saved designs and twenty rolling earlier attempts are separate: a full gallery does not block a new practice.
+
+There are 88 authored Arabic/English MP3 clips, with actual recording WordBoundary timings in `data/read-along.json`. Arabic numerals use Arabic recordings and native numerals. `resources/shape-numeral-audio` references existing zero-to-sixteen recordings; `resources/early-child-market-objects` references the existing boat image and name audio. There are no copied picture or numeral recordings. The shape graphics and maskable icon are project-original SVG. Authored curriculum alone is sent by the optional build tool; learner text never enters it. Reading a learner's own writing requires a voice explicitly marked `localService: true`, uses the appropriate language and Arabic number words, and skips silent punctuation. Actual local voice availability depends on the device; unavailable or remote-only voices leave text and the coach alternative available.
+
+The existing family API supplies identity, session roles and shared/individual reading-focus settings. Disabling word highlighting leaves MP3 narration usable. Guest learners cannot manage coach settings or pattern imports; authorised assistants can manage inherited family controls. Local state keys include profile and schema. Storage denial keeps a temporary in-memory activity with an explicit export notice. Invalid stored data is retained until the user exports it or deliberately starts a fresh save. The shared core's opt-in `APP360_PROFILE_OPTIONAL` skips its automatic profile prompt at standalone boot for this app; explicitly opening family sync still uses the normal profile flow. Other apps keep their previous behavior.
+
+Piece hit testing, inverse coordinates and compatible snapping were extracted to `packages/piece-core`. The original tangram's active geometry classifier remains supplied by its adapter; its shapes, curated levels and snap thresholds are unchanged. Regression fixtures preserve the original formulas and tie ordering. That app's cache advances to version 18 to include the shared package.
+
+The isolated shape worker pre-caches 179 core URLs, including both languages and referenced assets. An offline-ready marker is written only after the entire install succeeds. An update reload saves the draft first. Cache deletion is restricted to this app's prefix and does not delete user data. The shell and runtime use ES5, XHR-based cue loading and Flexbox; modern optional APIs have fallbacks. The parent portal receives a cache version change for the updated catalog.
+
+Validation: `node --test test/*.test.cjs` from this app; piece tests are under `packages/piece-core/test`; repository commands run from the root. `QA_AR.md` and `data/technical-validation.json` record the actual checks and limitations. The repository's pre-existing platform, links and calm-shell failures are unchanged; the global validator is not claimed green.
+
+Audio rebuild: in a build-only Python environment with `edge-tts` and `ffmpeg`, run `python apps/4-8/shape-design-studio/tools/build_audio.py <scratch-source-cache>` from the root. No production JS or npm dependency is required for synthesis.

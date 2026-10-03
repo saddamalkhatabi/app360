@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-03",
+  "release_channel": "technical-preview",
+  "unit_regression_tests": 67,
+  "bounded_recipes": 96,
+  "recorded_audio_clips": 88,
+  "shared_numeral_clips": 34,
+  "physical_big_tab_tested": false,
+  "family_pilot_completed": false,
+  "browser_tests_local": true,
+  "own_text_voice_test": "simulated local SpeechSynthesis callbacks; actual voice availability not claimed",
+  "baseline_failures_unchanged": {
+    "platform": 12,
+    "links": 6,
+    "calm_shell_cache": 1
+  },
+  "browser": {
+    "passes": [
+      "Independent demo preserves all learner pieces and history",
+      "Solve → explanation → save → reload → copy → download → print",
+      "Spatial mirror and undo operate through actual buttons",
+      "Two valid house decompositions reach a compared review",
+      "Free build, piece copies, undo library integrity, independent coach templates and replay",
+      "Five screen sizes, 48px cells, rotation without piece loss",
+      "Original boat image and actual Arabic MP3 with active word cues",
+      "Learner profile isolation and word-focus disabled without muting",
+      "Storage denial keeps activity usable with an explicit temporary-save notice"
+    ],
+    "errors": []
+  },
+  "pwa": {
+    "core": 179,
+    "cached": 186,
+    "offline": true,
+    "originalImage": true,
+    "arabicRecordedNumber": true,
+    "updateReloads": 1,
+    "draftPreserved": true,
+    "pageErrors": []
+  },
+  "extra": {
+    "checks": [
+      "Android 4.4 user-agent path: shared scroll guard blocks swipe click; a fresh tap starts once",
+      "The original tangram boots its unchanged puzzles, hit tests and compatible snapping through the extracted package",
+      "Local text voice uses the matching language, Arabic numeral words and skips silent punctuation",
+      "Remote-only text voices are refused while the learner text remains local"
+    ],
+    "errors": []
+  },
+  "family": {
+    "version": 6,
+    "passed": 10,
+    "checks": [
+      "A group change reaches embedded learners immediately while narration and instruction text continue",
+      "Individual on/off overrides take priority and inheritance returns to the group setting",
+      "Regular learners cannot change group or individual preferences or expose coach tools",
+      "Focus delivery is independent of a learner’s personal app navigation lock",
+      "An authorised assistant can manage group focus and learner overrides",
+      "An individual choice survives learner refresh and app close/reopen",
+      "Host refresh restores the session default, assistant role and each learner override",
+      "A revoked assistant cannot alter focus and session end restores each local profile choice",
+      "The professional coach switch remembers its local value after app reopen",
+      "Returning focus during current real MP3 playback highlights the current word without restarting sound"
+    ],
+    "pageErrors": [],
+    "transport": "real WebSocket relay",
+    "audio": "real MP3 playback",
+    "productionChanged": false
+  }
+}

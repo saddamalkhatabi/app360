@@ -1,0 +1,15 @@
+{
+  "name": "@app360/app-shape-design-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "مهندسو الأشكال: أبني وأفسّر - Family School 360",
+  "app360": {
+    "appId": "a4-shape-design",
+    "ageGroup": "4-8",
+    "runtimeProfile": "legacy-web"
+  },
+  "scripts": {
+    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
+    "test": "node --test test/*.test.cjs"
+  }
+}

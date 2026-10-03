@@ -35,13 +35,32 @@
       "source_owner": "apps/1-4/say-and-name",
       "license": "existing-project-assets",
       "consumers": [
-        "a4-family-market"
+        "a4-family-market",
+        "a4-shape-design"
       ],
       "note_ar": "فهرس مشترك محدود لـ43 صورة وأصواتها العربية والإنجليزية و22 تسجيلًا للأرقام من صفر إلى عشرة. يشير إلى المسارات الأصلية الحية في أشيائي مع البصمات؛ لا تُنسخ الأصول ولا تتغير مصادر التطبيق السابق.",
       "source_consumers": [
         "a1-first-words"
       ],
       "asset_policy": "canonical-source-references"
+    },
+    {
+      "id": "shape-numeral-audio-v1",
+      "path": "resources/shape-numeral-audio",
+      "type": "audio-pack",
+      "version": 1,
+      "status": "shared",
+      "license": "existing-project-assets",
+      "source_owner": "apps/4-8/family-market-lab; apps/1-4/say-and-name",
+      "consumers": [
+        "a4-shape-design"
+      ],
+      "source_consumers": [
+        "a4-family-market",
+        "a1-first-words"
+      ],
+      "asset_policy": "canonical-source-references",
+      "note_ar": "مراجع أرقام صفر إلى ستة عشر من أشيائي وسوق العائلة. لا نسخ للتسجيلات ولا تغيير لسلوك التطبيقات المصدر."
     }
   ],
   "candidates": []

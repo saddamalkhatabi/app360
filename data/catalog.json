@@ -1420,7 +1420,7 @@
       "slug": "shape-design-studio",
       "title_ar": "مهندسو الأشكال: أبني وأفسّر",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "build_order": 4,
@@ -1447,7 +1447,9 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.recorded",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -1459,21 +1461,21 @@
           "relationship": "supports",
           "rationale_ar": "تركيب الأشكال والتحويل والتماثل والتفسير",
           "evidence_ar": "حل مكاني مستوفٍ للقيد",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-creativity-art-storytelling-and-expression",
           "relationship": "supports",
           "rationale_ar": "تصميم لغز أو بناء أصلي",
           "evidence_ar": "تصميم يمكن مشاركته محليًا",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "المدرب يضبط القيد والمساعدة دون حل بدل الطفل",
           "evidence_ar": "سجل تلميح ومحاولة تالية",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -1556,7 +1558,14 @@
       "blueprint_path": "apps/4-8/shape-design-studio/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/shape-design-studio/PROMPT_AR.md",
       "manifest": "apps/4-8/shape-design-studio/app.json",
-      "cover": "assets/covers/a4-shape-design.svg"
+      "cover": "apps/4-8/shape-design-studio/icon.svg",
+      "href": "apps/4-8/shape-design-studio/index.html?v=1",
+      "launch_path": "apps/4-8/shape-design-studio/launch.html",
+      "links_path": "apps/4-8/shape-design-studio/links.json",
+      "release_channel": "preview",
+      "acceptance_state": "technical-preview-family-pilot-pending",
+      "version": 1,
+      "scaffold_state": "implemented-preview"
     },
     {
       "id": "a4-wonder-lab",

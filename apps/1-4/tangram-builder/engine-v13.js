@@ -63,12 +63,5 @@ drawTrayStack=function(g){
  if(g.count>1){badgeR=Math.max(11,Math.min(17,g.size*.19));ctx.save();ctx.fillStyle='#e85a34';ctx.beginPath();ctx.arc(g.x+g.size*.43,g.y-g.size*.43,badgeR,0,PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold '+Math.max(11,Math.round(badgeR*.95))+'px Tahoma';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(g.count),g.x+g.size*.43,g.y-g.size*.43+1);ctx.restore()}
 };
 
-nearestCompatibleTarget=function(p){
- var i,q,best=null,bestD=1e9,dd,k=geomKey13(p);
- for(i=0;i<pieces.length;i++){
-  q=pieces[i];if(q.placed||geomKey13(q)!==k)continue;
-  dd=dist({x:p.x,y:p.y},{x:q.tx,y:q.ty});if(dd<bestD){bestD=dd;best=q}
- }
- return best?{p:best,d:bestD}:null;
-};
+nearestCompatibleTarget=function(p){return w.APP360_PIECES.nearestCompatible(p,pieces,geomKey13)};
 })();
