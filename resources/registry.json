@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-27",
+  "updated": "2026-10-03",
   "resources": [
     {
       "id": "early-child-common-objects-v1",
@@ -20,8 +20,25 @@
       "status": "shared",
       "source_owner": "apps/1-4/drawing-writing-foundations/audio",
       "license": "project-original",
-      "consumers": ["a1-drawing-writing", "a1-tangram"],
+      "consumers": [
+        "a1-drawing-writing",
+        "a1-tangram"
+      ],
       "note_ar": "رُقّيت حزمة أسماء الأطفال والتشجيع المسجل وPCM إلى مورد مشترك عند ظهور تانغرامي الصغير كمستهلك ثانٍ. تبقى النسخة الأصلية في تطبيق الرسم مؤقتًا لحماية التوافق القديم حتى اكتمال الترحيل والاختبار."
+    },
+    {
+      "id": "early-child-market-objects-v1",
+      "path": "resources/early-child-market-objects",
+      "type": "image-audio-pack",
+      "version": 1,
+      "status": "shared",
+      "source_owner": "apps/1-4/say-and-name",
+      "license": "existing-project-assets",
+      "consumers": [
+        "a1-first-words",
+        "a4-family-market"
+      ],
+      "note_ar": "ترقية محدودة لصور وأصوات 12 شيئًا من أشيائي وفق فهارس التشغيل الفعلية، مع المصدر والبصمة وإبقاء المسارات القديمة لحماية النسخة الحية والعمل دون اتصال."
     }
   ],
   "candidates": []

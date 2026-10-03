@@ -9,8 +9,8 @@
   "content_seed_path": "apps/4-8/family-market-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
   "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-early-math-patterns-and-problem-solving",
@@ -29,12 +29,49 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.recorded",
+    "audio.tts"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر سلة وطلبًا قابلًا للتمثيل وليس ورقة عمليات مجردة ← كوّن الكمية أو قارن أو وزع على أشخاص افتراضيين ← جرّب تمثيلًا آخر وافحص النتيجة بالعد أو المطابقة ← بدّل الدور أو صمّم طلبًا جديدًا وفسر حلّك للمدرب",
   "blueprint_path": "apps/4-8/family-market-lab/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/family-market-lab/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/family-market-lab/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#287a65",
+    "accent_color": "#e4b768",
+    "raster_icons": [
+      "apps/4-8/family-market-lab/icon-192.png",
+      "apps/4-8/family-market-lab/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "technical-preview-family-pilot-pending",
+  "launch_path": "apps/4-8/family-market-lab/launch.html",
+  "links_path": "apps/4-8/family-market-lab/links.json",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-family-market:schema-1:<profile>"
+  },
+  "learning_levels": [
+    {
+      "level": 1,
+      "age_hint": "4-5"
+    },
+    {
+      "level": 2,
+      "age_hint": "5-6"
+    },
+    {
+      "level": 3,
+      "age_hint": "6-7"
+    },
+    {
+      "level": 4,
+      "age_hint": "7-8"
+    }
+  ]
 }

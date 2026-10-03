@@ -1,0 +1,15 @@
+{
+  "name": "@app360/app-family-market-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "سوق العائلة: أعدّ وأقسم وأوازن - Family School 360",
+  "app360": {
+    "appId": "a4-family-market",
+    "ageGroup": "4-8",
+    "runtimeProfile": "static-web"
+  },
+  "scripts": {
+    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
+    "test": "node --test test/*.test.cjs"
+  }
+}

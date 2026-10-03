@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "id": "early-child-market-objects-v1",
+  "license": "existing-project-assets; provenance retained from say-and-name",
+  "migration_policy": "selected 12 objects promoted byte-for-byte from the active runtime maps; original paths retained for live/offline compatibility",
+  "items": [
+    {
+      "id": "apple",
+      "ar": "تفاح",
+      "en": "Apple",
+      "image": "images/apple.jpg",
+      "audio_ar": "audio/ar-apple.mp3",
+      "audio_en": "audio/en-apple.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0080.jpg",
+        "audio_ar": "audio/edge/w_9ac6036f1833ec5f6d3d.mp3",
+        "audio_en": "audio/edge-en/e_3a7bd3e2360a3d29eea4.mp3"
+      },
+      "sha256": {
+        "image": "a1568315bb0a0c6dfb07a7e4bd784577cb94cc4fb2f6a627d1ba289b0bf2ecf3",
+        "audio_ar": "eb05ebdaede7c3162592746f5d09bebc42ebb06e4ad01489a95c2f3056ccfdcd",
+        "audio_en": "25f2a5dc907e02e5990389953f0d672ab2c8703c61c2a5e79b35530ca1f060a5"
+      }
+    },
+    {
+      "id": "banana",
+      "ar": "موز",
+      "en": "Banana",
+      "image": "images/banana.jpg",
+      "audio_ar": "audio/ar-banana.mp3",
+      "audio_en": "audio/en-banana.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0081.jpg",
+        "audio_ar": "audio/edge/w_97a91b07543f318cf327.mp3",
+        "audio_en": "audio/edge-en/e_b493d48364afe44d11c0.mp3"
+      },
+      "sha256": {
+        "image": "fa4b254d4e55afaad0d00f606f363afc59f851d1b70e9584d5efac2f8bad2a57",
+        "audio_ar": "96d40cd0c6b27773d39ac1ac382ab0cba5af247801a0d8ee53ebd886e5becf87",
+        "audio_en": "fb7700e0c65f270acd4617b8bf72861e2ee2d4e148048586df3defbb8525e23c"
+      }
+    },
+    {
+      "id": "orange",
+      "ar": "برتقال",
+      "en": "Orange",
+      "image": "images/orange.jpg",
+      "audio_ar": "audio/ar-orange.mp3",
+      "audio_en": "audio/en-orange.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0082.jpg",
+        "audio_ar": "audio/edge/w_62e0c7bebbaee518600f.mp3",
+        "audio_en": "audio/edge-en/e_1b4c9133da73a7113224.mp3"
+      },
+      "sha256": {
+        "image": "53037114f65936a7a6e1b9a067da3cfbeb1dae6fb4f54051a5b849b9623c1511",
+        "audio_ar": "8ec2b586becc5bc0f9b77b7eb684c317fc83c0df3c4a2ed8d1188690cb07b9e5",
+        "audio_en": "e7157ff31ed81f9406c906299de2e91156b4b5ffc551e7d1598adacbeed73b76"
+      }
+    },
+    {
+      "id": "grapes",
+      "ar": "عنب",
+      "en": "Grapes",
+      "image": "images/grapes.jpg",
+      "audio_ar": "audio/ar-grapes.mp3",
+      "audio_en": "audio/en-grapes.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0083.jpg",
+        "audio_ar": "audio/edge/w_63aae1d495c651d3d0e8.mp3",
+        "audio_en": "audio/edge-en/e_8286ee4ea8f54f0276bc.mp3"
+      },
+      "sha256": {
+        "image": "ee136a0f6f026d72722baf91a1454d91e81970617b3f16124b3ff784a8627e78",
+        "audio_ar": "23bd989673b7eef64b000154027963f52d827ec9ad01b397bc9013a6326f81db",
+        "audio_en": "068a16cb79cd8f67d91fd81fdeea68d69ee194c6effa03e56b71e2258474cf74"
+      }
+    },
+    {
+      "id": "strawberry",
+      "ar": "فراولة",
+      "en": "Strawberry",
+      "image": "images/strawberry.jpg",
+      "audio_ar": "audio/ar-strawberry.mp3",
+      "audio_en": "audio/en-strawberry.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0084.jpg",
+        "audio_ar": "audio/edge/w_a30c37eabf58b60af584.mp3",
+        "audio_en": "audio/edge-en/e_5e737f891db1175442a3.mp3"
+      },
+      "sha256": {
+        "image": "ee1c718dd7f35e2ec0b332cf1bcbfbe88ab461fb8c4968170f5579f2fe224259",
+        "audio_ar": "26d5684fc138a7f708565b6554fbb4410940bf5b1694923bcd102d703001827e",
+        "audio_en": "981fdbca4a4095254d59906c1e445e58cff32fdd8026d6d8e1439d357c6d9931"
+      }
+    },
+    {
+      "id": "carrot",
+      "ar": "جزر",
+      "en": "Carrot",
+      "image": "images/carrot.jpg",
+      "audio_ar": "audio/ar-carrot.mp3",
+      "audio_en": "audio/en-carrot.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0090.jpg",
+        "audio_ar": "audio/edge/w_2a7d07390ac66c80d009.mp3",
+        "audio_en": "audio/edge-en/e_b96482290a873ee98752.mp3"
+      },
+      "sha256": {
+        "image": "e3163cf211c9c68e5e43e542e27f5a68b23d30ec589fa9530a3ade50207076bb",
+        "audio_ar": "dab45c8138e01e9c38aacbeee2c5fe97bf1cc7cc1a3ba0bd013e6aa43d3f18f1",
+        "audio_en": "1b043a4c0774a90f04eeed56bb7f00ff2388e7a17f541dfc1e67583cef4eae0d"
+      }
+    },
+    {
+      "id": "tomato",
+      "ar": "طماطم",
+      "en": "Tomato",
+      "image": "images/tomato.jpg",
+      "audio_ar": "audio/ar-tomato.mp3",
+      "audio_en": "audio/en-tomato.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0088.jpg",
+        "audio_ar": "audio/edge/w_c4da5ca676f9764a910c.mp3",
+        "audio_en": "audio/edge-en/e_5ed728c2fa5d767bc6c1.mp3"
+      },
+      "sha256": {
+        "image": "755b2cd940b14de4dcbe663273dcfec2c0eddffa61e61ebad8fee5515138ab8f",
+        "audio_ar": "5ca9db13255265c7b010627ef95b520178f708751d430a9c96c2e9479b836931",
+        "audio_en": "2123194b95eb71dcb6ab3c8648d6830c6c1cb85ef5f49608e7070664c4858e2f"
+      }
+    },
+    {
+      "id": "cucumber",
+      "ar": "خيار",
+      "en": "Cucumber",
+      "image": "images/cucumber.jpg",
+      "audio_ar": "audio/ar-cucumber.mp3",
+      "audio_en": "audio/en-cucumber.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0091.jpg",
+        "audio_ar": "audio/edge/w_ea7e1328626560a301b0.mp3",
+        "audio_en": "audio/edge-en/e_dd832404e8eeb90793f0.mp3"
+      },
+      "sha256": {
+        "image": "ec62fffaf11273af61663655e52daf1c836839561215338b35cd2967ac10befb",
+        "audio_ar": "9d400df8277a4f280ff3560349e4839906a68ab594471e8f6a3d274b44ca379a",
+        "audio_en": "278778a6d995c562ae016a38416f51ce8a445596a047b1e825292ca732881ec8"
+      }
+    },
+    {
+      "id": "book",
+      "ar": "كتاب",
+      "en": "Book",
+      "image": "images/book.jpg",
+      "audio_ar": "audio/ar-book.mp3",
+      "audio_en": "audio/en-book.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0038.jpg",
+        "audio_ar": "audio/edge/w_5eabb60f203c5c8130d6.mp3",
+        "audio_en": "audio/edge-en/e_92719fe0cf8cd51592af.mp3"
+      },
+      "sha256": {
+        "image": "6f2557166fb794cdf1893193176194f7899d69aa30108123fad1900af3f12a1d",
+        "audio_ar": "1984c825e325d8a8fab509aa675a2ba1dcfcc46a53bdfc9a1f9e4ae454a5db7f",
+        "audio_en": "1556855087a7c5e9132b1e078885698b509ef3031b11a030b2dbb92f296ae5a3"
+      }
+    },
+    {
+      "id": "cup",
+      "ar": "كوب",
+      "en": "Cup",
+      "image": "images/cup.jpg",
+      "audio_ar": "audio/ar-cup.mp3",
+      "audio_en": "audio/en-cup.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0055.jpg",
+        "audio_ar": "audio/edge/w_eed5da910e97d2f4ad25.mp3",
+        "audio_en": "audio/edge-en/e_c6171781d65f3ccce113.mp3"
+      },
+      "sha256": {
+        "image": "a364cc5ee86408a82a9118332cbcfcdda2f36e0b6149ad895622f2fcac0c4856",
+        "audio_ar": "44370330266555553e58325eacc8a0f124c2bbffb63d462ac1dfaf64234586c2",
+        "audio_en": "f0901cae11890e8f8e217a287b9cd2ab73cdf0a15da1b1658f1b380d39945ab4"
+      }
+    },
+    {
+      "id": "ball",
+      "ar": "كرة",
+      "en": "Ball",
+      "image": "images/ball.jpg",
+      "audio_ar": "audio/ar-ball.mp3",
+      "audio_en": "audio/en-ball.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0037.jpg",
+        "audio_ar": "audio/edge/w_48849fd3d695be76b83b.mp3",
+        "audio_en": "audio/edge-en/e_e9de08263f4ad49131d3.mp3"
+      },
+      "sha256": {
+        "image": "5e8672188eff36b576cbd5737be94edd50a85076b8ff0bcc36d8d84bf9d3e2f0",
+        "audio_ar": "bca73a23cdb101bb137c7265696cba78ed0fd6dcdf06ac9064cf0e84d0263093",
+        "audio_en": "7c88807e938250a1ead7694d2564dc079ed6e94d8e9189fdad6dba3c0cc2e779"
+      }
+    },
+    {
+      "id": "milk",
+      "ar": "حليب",
+      "en": "Milk",
+      "image": "images/milk.jpg",
+      "audio_ar": "audio/ar-milk.mp3",
+      "audio_en": "audio/en-milk.mp3",
+      "source_paths": {
+        "image": "assets/word-images/w0075.jpg",
+        "audio_ar": "audio/edge/w_efd3aeab5885d3ddd4c2.mp3",
+        "audio_en": "audio/edge-en/e_8825e76530f87ff5c737.mp3"
+      },
+      "sha256": {
+        "image": "a1d5977eb5ed712721c7c3d665932ddadf4c92b7e71d0ca9b75658740dae38cd",
+        "audio_ar": "cab8a1cfd10c352e55b170eff02fc2b975127696349972f00e00de70e105f8ff",
+        "audio_en": "1e59559e75a568ac1b433acf1f391cec27e6d900c65991cd1ef359936f7e7d3b"
+      }
+    }
+  ]
+}

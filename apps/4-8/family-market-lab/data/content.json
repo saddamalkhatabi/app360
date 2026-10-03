@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "levels": [
+    {
+      "level": 1,
+      "age": "4-5",
+      "ar": "أعدّ وأطابق",
+      "en": "Count & match"
+    },
+    {
+      "level": 2,
+      "age": "5-6",
+      "ar": "أكمل وأقسّم",
+      "en": "Complete & split"
+    },
+    {
+      "level": 3,
+      "age": "6-7",
+      "ar": "أجمع وأوازن",
+      "en": "Combine & balance"
+    },
+    {
+      "level": 4,
+      "age": "7-8",
+      "ar": "أفسّر وأصمّم",
+      "en": "Explain & design"
+    }
+  ],
+  "missions": [
+    {
+      "id": "ar-little-order",
+      "language": "ar",
+      "level": 1,
+      "kind": "count",
+      "product": "apple",
+      "requests": [
+        {
+          "product": "apple",
+          "quantity": 3
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/ar-little-order-title.mp3",
+        "prompt": "audio/ar-little-order-prompt.mp3",
+        "hint": "audio/ar-little-order-hint.mp3",
+        "real": "audio/ar-little-order-real.mp3"
+      },
+      "title": "سَلَّةُ التُّفَّاحِ",
+      "prompt": "ضَعْ 3 بَطَاقَاتِ تُفَّاحٍ فِي السَّلَّةِ.",
+      "hint": "لِكُلِّ بَطَاقَةٍ مَكَانٌ. أَشِرْ إِلَيْهَا وَأَنْتَ تَعُدُّ.",
+      "real": "اِصْنَعْ طَلَبًا صَغِيرًا بِبَطَاقَاتٍ وَرَقِيَّةٍ."
+    },
+    {
+      "id": "en-little-order",
+      "language": "en",
+      "level": 1,
+      "kind": "count",
+      "product": "apple",
+      "requests": [
+        {
+          "product": "apple",
+          "quantity": 3
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/en-little-order-title.mp3",
+        "prompt": "audio/en-little-order-prompt.mp3",
+        "hint": "audio/en-little-order-hint.mp3",
+        "real": "audio/en-little-order-real.mp3"
+      },
+      "title": "An apple order",
+      "prompt": "Put 3 apple cards in the basket.",
+      "hint": "Touch each card once as you count. Try the spaces in the frame.",
+      "real": "Make a small order using paper cards."
+    },
+    {
+      "id": "ar-cups-for-friends",
+      "language": "ar",
+      "level": 1,
+      "kind": "share",
+      "product": "cup",
+      "total": 4,
+      "groups": 2,
+      "audio": {
+        "title": "audio/ar-cups-for-friends-title.mp3",
+        "prompt": "audio/ar-cups-for-friends-prompt.mp3",
+        "hint": "audio/ar-cups-for-friends-hint.mp3",
+        "real": "audio/ar-cups-for-friends-real.mp3"
+      },
+      "title": "كُوبٌ لِكُلِّ صَدِيقٍ",
+      "prompt": "وَزِّعْ 4 بَطَاقَاتِ أَكْوَابٍ عَلَى سَلَّتَيْنِ بِالتَّسَاوِي.",
+      "hint": "ضَعْ بَطَاقَةً هُنَا، ثُمَّ بَطَاقَةً هُنَاكَ. هَلْ تَتَقَابَلُ الْبَطَاقَاتُ؟",
+      "real": "رَتِّبْ بَطَاقَاتِ أَكْوَابٍ لِشَخْصَيْنِ عَلَى الطَّاوِلَةِ."
+    },
+    {
+      "id": "en-cups-for-friends",
+      "language": "en",
+      "level": 1,
+      "kind": "share",
+      "product": "cup",
+      "total": 4,
+      "groups": 2,
+      "audio": {
+        "title": "audio/en-cups-for-friends-title.mp3",
+        "prompt": "audio/en-cups-for-friends-prompt.mp3",
+        "hint": "audio/en-cups-for-friends-hint.mp3",
+        "real": "audio/en-cups-for-friends-real.mp3"
+      },
+      "title": "Cups for friends",
+      "prompt": "Share 4 cup cards equally between 2 baskets.",
+      "hint": "Give one card here, then one there. Match the cards in pairs.",
+      "real": "Set out paper cup cards for two people at a table."
+    },
+    {
+      "id": "ar-more-or-longer",
+      "language": "ar",
+      "level": 1,
+      "kind": "compare",
+      "product": "orange",
+      "left": 4,
+      "right": 3,
+      "audio": {
+        "title": "audio/ar-more-or-longer-title.mp3",
+        "prompt": "audio/ar-more-or-longer-prompt.mp3",
+        "hint": "audio/ar-more-or-longer-hint.mp3",
+        "real": "audio/ar-more-or-longer-real.mp3"
+      },
+      "title": "أَكْثَرُ أَمْ أَطْوَلُ؟",
+      "prompt": "أَيُّ صَفٍّ فِيهِ بَطَاقَاتٌ أَكْثَرُ؟ لَا تَعْتَمِدْ عَلَى طُولِهِ.",
+      "hint": "جَرِّبْ عَرْضَ بَطَاقَةٍ مُقَابِلَ بَطَاقَةٍ. هَلْ تَبْقَى بَطَاقَةٌ؟",
+      "real": "قَارِنْ صَفَّيْنِ مِنْ بَطَاقَاتِ الْوَرَقِ، ثُمَّ بَاعِدْ بَيْنَهُمَا."
+    },
+    {
+      "id": "en-more-or-longer",
+      "language": "en",
+      "level": 1,
+      "kind": "compare",
+      "product": "orange",
+      "left": 4,
+      "right": 3,
+      "audio": {
+        "title": "audio/en-more-or-longer-title.mp3",
+        "prompt": "audio/en-more-or-longer-prompt.mp3",
+        "hint": "audio/en-more-or-longer-hint.mp3",
+        "real": "audio/en-more-or-longer-real.mp3"
+      },
+      "title": "More or longer?",
+      "prompt": "Which row has more cards? A longer row may have fewer cards.",
+      "hint": "Match one card from each row. Is a card left over?",
+      "real": "Compare two rows of paper cards, then change the spaces between them."
+    },
+    {
+      "id": "ar-small-pattern",
+      "language": "ar",
+      "level": 1,
+      "kind": "pattern",
+      "product": "apple",
+      "rule": [
+        "apple",
+        "banana"
+      ],
+      "prefix": 2,
+      "length": 4,
+      "audio": {
+        "title": "audio/ar-small-pattern-title.mp3",
+        "prompt": "audio/ar-small-pattern-prompt.mp3",
+        "hint": "audio/ar-small-pattern-hint.mp3",
+        "real": "audio/ar-small-pattern-real.mp3"
+      },
+      "title": "رَفٌّ مُتَنَاوِبٌ",
+      "prompt": "أَكْمِلْ نَمَطَ الرَّفِ. تَابِعْ نَفْسَ التَّرْتِيبِ.",
+      "hint": "اِسْمَعْ أَسْمَاءَ الْبَطَاقَاتِ الْمَوْجُودَةِ، ثُمَّ جَرِّبْ تَكْرَارَهَا.",
+      "real": "اِصْنَعْ نَمَطًا بِبَطَاقَتَيْنِ مُخْتَلِفَتَيْنِ."
+    },
+    {
+      "id": "en-small-pattern",
+      "language": "en",
+      "level": 1,
+      "kind": "pattern",
+      "product": "apple",
+      "rule": [
+        "apple",
+        "banana"
+      ],
+      "prefix": 2,
+      "length": 4,
+      "audio": {
+        "title": "audio/en-small-pattern-title.mp3",
+        "prompt": "audio/en-small-pattern-prompt.mp3",
+        "hint": "audio/en-small-pattern-hint.mp3",
+        "real": "audio/en-small-pattern-real.mp3"
+      },
+      "title": "A repeating shelf",
+      "prompt": "Continue the shelf pattern. Keep the same order.",
+      "hint": "Say the names of the cards already there. Try repeating that order.",
+      "real": "Make a pattern with two different kinds of paper cards."
+    },
+    {
+      "id": "ar-missing-order",
+      "language": "ar",
+      "level": 2,
+      "kind": "count",
+      "product": "carrot",
+      "requests": [
+        {
+          "product": "carrot",
+          "quantity": 5
+        }
+      ],
+      "initial": 3,
+      "audio": {
+        "title": "audio/ar-missing-order-title.mp3",
+        "prompt": "audio/ar-missing-order-prompt.mp3",
+        "hint": "audio/ar-missing-order-hint.mp3",
+        "real": "audio/ar-missing-order-real.mp3"
+      },
+      "title": "طَلَبٌ نَاقِصٌ",
+      "prompt": "الطَّلَبُ 5 بَطَاقَاتِ جَزَرٍ. فِي السَّلَّةِ 3. أَكْمِلِ الطَّلَبَ.",
+      "hint": "عُدَّ مَا فِي السَّلَّةِ، ثُمَّ اِمْلَأِ الْأَمَاكِنَ الْفَارِغَةَ حَتَّى يَكْتَمِلَ الطَّلَبُ.",
+      "real": "أَخْفِ بَعْضَ بَطَاقَاتِ طَلَبٍ، وَدَعِ الْمَرَافِقَ يُكْمِلُهُ."
+    },
+    {
+      "id": "en-missing-order",
+      "language": "en",
+      "level": 2,
+      "kind": "count",
+      "product": "carrot",
+      "requests": [
+        {
+          "product": "carrot",
+          "quantity": 5
+        }
+      ],
+      "initial": 3,
+      "audio": {
+        "title": "audio/en-missing-order-title.mp3",
+        "prompt": "audio/en-missing-order-prompt.mp3",
+        "hint": "audio/en-missing-order-hint.mp3",
+        "real": "audio/en-missing-order-real.mp3"
+      },
+      "title": "A missing order",
+      "prompt": "The order needs 5 carrot cards. The basket has 3. Complete it.",
+      "hint": "Count the cards you have. Fill spaces until the order is complete.",
+      "real": "Hide some cards from an order and let your grown-up complete it."
+    },
+    {
+      "id": "ar-two-ways",
+      "language": "ar",
+      "level": 2,
+      "kind": "partition",
+      "product": "banana",
+      "total": 8,
+      "groups": 2,
+      "audio": {
+        "title": "audio/ar-two-ways-title.mp3",
+        "prompt": "audio/ar-two-ways-prompt.mp3",
+        "hint": "audio/ar-two-ways-hint.mp3",
+        "real": "audio/ar-two-ways-real.mp3"
+      },
+      "title": "الْعَدَدُ بِطَرِيقَتَيْنِ",
+      "prompt": "قَسِّمْ 8 بَطَاقَاتٍ بَيْنَ سَلَّتَيْنِ. ضَعْ بَطَاقَاتٍ فِي كِلْتَيْهِمَا.",
+      "hint": "غَيِّرْ تَقْسِيمَ السَّلَّتَيْنِ. هَلْ تَغَيَّرَ الْمَجْمُوعُ؟",
+      "real": "رَتِّبْ نَفْسَ الْبَطَاقَاتِ فِي مَجْمُوعَتَيْنِ، ثُمَّ غَيِّرْ تَقْسِيمَهَا."
+    },
+    {
+      "id": "en-two-ways",
+      "language": "en",
+      "level": 2,
+      "kind": "partition",
+      "product": "banana",
+      "total": 8,
+      "groups": 2,
+      "audio": {
+        "title": "audio/en-two-ways-title.mp3",
+        "prompt": "audio/en-two-ways-prompt.mp3",
+        "hint": "audio/en-two-ways-hint.mp3",
+        "real": "audio/en-two-ways-real.mp3"
+      },
+      "title": "One number, two ways",
+      "prompt": "Split 8 cards between 2 baskets. Put cards in both baskets.",
+      "hint": "Try another split. Did the total number change?",
+      "real": "Split the same paper cards into two groups, then change the split."
+    },
+    {
+      "id": "ar-two-friends",
+      "language": "ar",
+      "level": 2,
+      "kind": "share",
+      "product": "strawberry",
+      "total": 6,
+      "groups": 2,
+      "audio": {
+        "title": "audio/ar-two-friends-title.mp3",
+        "prompt": "audio/ar-two-friends-prompt.mp3",
+        "hint": "audio/ar-two-friends-hint.mp3",
+        "real": "audio/ar-two-friends-real.mp3"
+      },
+      "title": "سَلَّةٌ لِصَدِيقَيْنِ",
+      "prompt": "وَزِّعْ 6 بَطَاقَاتِ فَرَاوْلَةٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+      "hint": "وَزِّعْ بِالدَّوْرِ، ثُمَّ قَابِلْ كُلَّ بَطَاقَةٍ بِبَطَاقَةٍ.",
+      "real": "اِسْتَخْدِمْ بَطَاقَاتٍ كَبِيرَةً لِتَقْسِيمِ طَلَبٍ بَيْنَ صَدِيقَيْنِ."
+    },
+    {
+      "id": "en-two-friends",
+      "language": "en",
+      "level": 2,
+      "kind": "share",
+      "product": "strawberry",
+      "total": 6,
+      "groups": 2,
+      "audio": {
+        "title": "audio/en-two-friends-title.mp3",
+        "prompt": "audio/en-two-friends-prompt.mp3",
+        "hint": "audio/en-two-friends-hint.mp3",
+        "real": "audio/en-two-friends-real.mp3"
+      },
+      "title": "Baskets for two friends",
+      "prompt": "Share 6 strawberry cards equally between 2 baskets.",
+      "hint": "Take turns adding one card to each basket. Match the groups.",
+      "real": "Use large paper cards to share an order between two friends."
+    },
+    {
+      "id": "ar-shelf-pattern",
+      "language": "ar",
+      "level": 2,
+      "kind": "pattern",
+      "product": "tomato",
+      "rule": [
+        "tomato",
+        "cucumber"
+      ],
+      "prefix": 4,
+      "length": 8,
+      "audio": {
+        "title": "audio/ar-shelf-pattern-title.mp3",
+        "prompt": "audio/ar-shelf-pattern-prompt.mp3",
+        "hint": "audio/ar-shelf-pattern-hint.mp3",
+        "real": "audio/ar-shelf-pattern-real.mp3"
+      },
+      "title": "نَمَطُ الرَّفِ",
+      "prompt": "أَكْمِلْ نَمَطَ الرَّفِ، ثُمَّ اِحْكِ الْقَاعِدَةَ.",
+      "hint": "اِبْحَثْ عَنِ الْجُزْءِ الَّذِي يَتَكَرَّرُ. اِبْدَأْ مِنْ أَوَّلِ الرَّفِ.",
+      "real": "اِخْتَرْ صُوَرًا جَدِيدَةً وَطَبِّقْ نَفْسَ الْقَاعِدَةِ."
+    },
+    {
+      "id": "en-shelf-pattern",
+      "language": "en",
+      "level": 2,
+      "kind": "pattern",
+      "product": "tomato",
+      "rule": [
+        "tomato",
+        "cucumber"
+      ],
+      "prefix": 4,
+      "length": 8,
+      "audio": {
+        "title": "audio/en-shelf-pattern-title.mp3",
+        "prompt": "audio/en-shelf-pattern-prompt.mp3",
+        "hint": "audio/en-shelf-pattern-hint.mp3",
+        "real": "audio/en-shelf-pattern-real.mp3"
+      },
+      "title": "The shelf rule",
+      "prompt": "Complete the shelf pattern, then tell its rule.",
+      "hint": "Find the part that repeats. Start from the beginning of the shelf.",
+      "real": "Choose new pictures and use the same repeating rule."
+    },
+    {
+      "id": "ar-join-order",
+      "language": "ar",
+      "level": 3,
+      "kind": "combine",
+      "product": "grapes",
+      "total": 7,
+      "left": 3,
+      "groups": 3,
+      "audio": {
+        "title": "audio/ar-join-order-title.mp3",
+        "prompt": "audio/ar-join-order-prompt.mp3",
+        "hint": "audio/ar-join-order-hint.mp3",
+        "real": "audio/ar-join-order-real.mp3"
+      },
+      "title": "نَجْمَعُ الطَّلَبَ",
+      "prompt": "اِنْقُلْ بَطَاقَاتِ السَّلَّتَيْنِ إِلَى سَلَّةِ الطَّلَبِ. كَمْ بَطَاقَةً أَصْبَحَ لَدَيْكَ؟",
+      "hint": "اِنْقُلْ كُلَّ بَطَاقَةٍ مَرَّةً وَاحِدَةً، ثُمَّ عُدَّ السَّلَّةَ الْجَدِيدَةَ.",
+      "real": "اِجْمَعْ مَجْمُوعَتَيْنِ مِنْ بَطَاقَاتٍ كَبِيرَةٍ فِي طَلَبٍ وَاحِدٍ."
+    },
+    {
+      "id": "en-join-order",
+      "language": "en",
+      "level": 3,
+      "kind": "combine",
+      "product": "grapes",
+      "total": 7,
+      "left": 3,
+      "groups": 3,
+      "audio": {
+        "title": "audio/en-join-order-title.mp3",
+        "prompt": "audio/en-join-order-prompt.mp3",
+        "hint": "audio/en-join-order-hint.mp3",
+        "real": "audio/en-join-order-real.mp3"
+      },
+      "title": "Join the order",
+      "prompt": "Move both groups into the order basket. How many cards do you have now?",
+      "hint": "Move every card once, then count the new basket.",
+      "real": "Combine two groups of large paper cards into one order."
+    },
+    {
+      "id": "ar-return-extras",
+      "language": "ar",
+      "level": 3,
+      "kind": "count",
+      "product": "orange",
+      "requests": [
+        {
+          "product": "orange",
+          "quantity": 6
+        }
+      ],
+      "initial": 9,
+      "audio": {
+        "title": "audio/ar-return-extras-title.mp3",
+        "prompt": "audio/ar-return-extras-prompt.mp3",
+        "hint": "audio/ar-return-extras-hint.mp3",
+        "real": "audio/ar-return-extras-real.mp3"
+      },
+      "title": "نُعِيدُ الزَّائِدَ",
+      "prompt": "فِي السَّلَّةِ 9 بَطَاقَاتٍ. الطَّلَبُ 6. أَعِدِ الزَّائِدَ إِلَى الرَّفِ.",
+      "hint": "قَارِنْ بَطَاقَاتِ السَّلَّةِ بِبَطَاقَةِ الطَّلَبِ. اِضْغَطْ عَلَى بَطَاقَةٍ لِإِعَادَتِهَا.",
+      "real": "اِطْلُبْ كَمِّيَّةً أَقَلَّ مِمَّا عَلَى الطَّاوِلَةِ، ثُمَّ أَعِدِ الزَّائِدَ."
+    },
+    {
+      "id": "en-return-extras",
+      "language": "en",
+      "level": 3,
+      "kind": "count",
+      "product": "orange",
+      "requests": [
+        {
+          "product": "orange",
+          "quantity": 6
+        }
+      ],
+      "initial": 9,
+      "audio": {
+        "title": "audio/en-return-extras-title.mp3",
+        "prompt": "audio/en-return-extras-prompt.mp3",
+        "hint": "audio/en-return-extras-hint.mp3",
+        "real": "audio/en-return-extras-real.mp3"
+      },
+      "title": "Return the extras",
+      "prompt": "The basket has 9 cards. The order needs 6. Return the extras.",
+      "hint": "Match the basket to the order card. Tap a card to return it.",
+      "real": "Ask for fewer cards than are on the table, then return the extras."
+    },
+    {
+      "id": "ar-mixed-order",
+      "language": "ar",
+      "level": 3,
+      "kind": "count",
+      "product": "carrot",
+      "requests": [
+        {
+          "product": "carrot",
+          "quantity": 2
+        },
+        {
+          "product": "tomato",
+          "quantity": 3
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/ar-mixed-order-title.mp3",
+        "prompt": "audio/ar-mixed-order-prompt.mp3",
+        "hint": "audio/ar-mixed-order-hint.mp3",
+        "real": "audio/ar-mixed-order-real.mp3"
+      },
+      "title": "طَلَبٌ مُنَوَّعٌ",
+      "prompt": "جَهِّزْ 2 مِنْ بَطَاقَاتِ الْجَزَرِ وَ3 مِنْ بَطَاقَاتِ الطَّمَاطِمِ.",
+      "hint": "قَارِنْ كُلَّ نَوْعٍ بِطَلَبِهِ. الْمَجْمُوعُ وَحْدَهُ لَا يَكْفِي.",
+      "real": "اِصْنَعْ طَلَبًا بِصُورَتَيْنِ مُخْتَلِفَتَيْنِ وَتَبَادَلِ الدَّوْرَ."
+    },
+    {
+      "id": "en-mixed-order",
+      "language": "en",
+      "level": 3,
+      "kind": "count",
+      "product": "carrot",
+      "requests": [
+        {
+          "product": "carrot",
+          "quantity": 2
+        },
+        {
+          "product": "tomato",
+          "quantity": 3
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/en-mixed-order-title.mp3",
+        "prompt": "audio/en-mixed-order-prompt.mp3",
+        "hint": "audio/en-mixed-order-hint.mp3",
+        "real": "audio/en-mixed-order-real.mp3"
+      },
+      "title": "A mixed order",
+      "prompt": "Prepare 2 carrot cards and 3 tomato cards.",
+      "hint": "Check each kind against its order. The total alone is not enough.",
+      "real": "Make an order with two kinds of pictures and swap roles."
+    },
+    {
+      "id": "ar-fair-eight",
+      "language": "ar",
+      "level": 3,
+      "kind": "share",
+      "product": "ball",
+      "total": 8,
+      "groups": 2,
+      "audio": {
+        "title": "audio/ar-fair-eight-title.mp3",
+        "prompt": "audio/ar-fair-eight-prompt.mp3",
+        "hint": "audio/ar-fair-eight-hint.mp3",
+        "real": "audio/ar-fair-eight-real.mp3"
+      },
+      "title": "لُعَبٌ بِالتَّسَاوِي",
+      "prompt": "وَزِّعْ 8 بَطَاقَاتِ كُرَاتٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+      "hint": "هَلْ لِكُلِّ بَطَاقَةٍ فِي السَّلَّةِ مُقَابِلَةٌ فِي الْأُخْرَى؟",
+      "real": "قَسِّمْ بَطَاقَاتِ اللُّعَبِ بِالتَّسَاوِي عَلَى شَخْصَيْنِ."
+    },
+    {
+      "id": "en-fair-eight",
+      "language": "en",
+      "level": 3,
+      "kind": "share",
+      "product": "ball",
+      "total": 8,
+      "groups": 2,
+      "audio": {
+        "title": "audio/en-fair-eight-title.mp3",
+        "prompt": "audio/en-fair-eight-prompt.mp3",
+        "hint": "audio/en-fair-eight-hint.mp3",
+        "real": "audio/en-fair-eight-real.mp3"
+      },
+      "title": "Fair toy baskets",
+      "prompt": "Share 8 ball cards equally between 2 baskets.",
+      "hint": "Can you match every card in one basket with a card in the other?",
+      "real": "Share paper toy cards equally between two people."
+    },
+    {
+      "id": "ar-three-baskets",
+      "language": "ar",
+      "level": 4,
+      "kind": "share",
+      "product": "apple",
+      "total": 12,
+      "groups": 3,
+      "audio": {
+        "title": "audio/ar-three-baskets-title.mp3",
+        "prompt": "audio/ar-three-baskets-prompt.mp3",
+        "hint": "audio/ar-three-baskets-hint.mp3",
+        "real": "audio/ar-three-baskets-real.mp3"
+      },
+      "title": "سَلَالٌ لِأَصْدِقَائِي",
+      "prompt": "وَزِّعْ 12 بَطَاقَةً بِالتَّسَاوِي بَيْنَ 3 سَلَالٍ.",
+      "hint": "وَزِّعْ بِالدَّوْرِ عَلَى السَّلَالِ. اِفْحَصْهَا بِالْمُطَابَقَةِ وَالْعَدِّ.",
+      "real": "صَمِّمْ طَلَبًا يُقْسَمُ بِالتَّسَاوِي عَلَى أَكْثَرَ مِنْ شَخْصٍ."
+    },
+    {
+      "id": "en-three-baskets",
+      "language": "en",
+      "level": 4,
+      "kind": "share",
+      "product": "apple",
+      "total": 12,
+      "groups": 3,
+      "audio": {
+        "title": "audio/en-three-baskets-title.mp3",
+        "prompt": "audio/en-three-baskets-prompt.mp3",
+        "hint": "audio/en-three-baskets-hint.mp3",
+        "real": "audio/en-three-baskets-real.mp3"
+      },
+      "title": "Baskets for friends",
+      "prompt": "Share 12 cards equally between 3 baskets.",
+      "hint": "Give one to each basket in turn. Check by matching and counting.",
+      "real": "Design an order that can be shared equally by several people."
+    },
+    {
+      "id": "ar-double-pattern",
+      "language": "ar",
+      "level": 4,
+      "kind": "pattern",
+      "product": "banana",
+      "rule": [
+        "banana",
+        "banana",
+        "orange"
+      ],
+      "prefix": 6,
+      "length": 9,
+      "audio": {
+        "title": "audio/ar-double-pattern-title.mp3",
+        "prompt": "audio/ar-double-pattern-prompt.mp3",
+        "hint": "audio/ar-double-pattern-hint.mp3",
+        "real": "audio/ar-double-pattern-real.mp3"
+      },
+      "title": "قَاعِدَةٌ جَدِيدَةٌ",
+      "prompt": "أَكْمِلِ النَّمَطَ. اِكْتَشِفْ مَا يَتَكَرَّرُ وَاحْكِهِ.",
+      "hint": "أَشِرْ إِلَى الْجُزْءِ الْمُتَكَرِّرِ. جَرِّبْ نَفْسَ الْقَاعِدَةِ بِصُوَرٍ أُخْرَى.",
+      "real": "اِرْسُمْ رَمْزَيْنِ جَدِيدَيْنِ وَابْنِ بِهِمَا نَفْسَ النَّمَطِ."
+    },
+    {
+      "id": "en-double-pattern",
+      "language": "en",
+      "level": 4,
+      "kind": "pattern",
+      "product": "banana",
+      "rule": [
+        "banana",
+        "banana",
+        "orange"
+      ],
+      "prefix": 6,
+      "length": 9,
+      "audio": {
+        "title": "audio/en-double-pattern-title.mp3",
+        "prompt": "audio/en-double-pattern-prompt.mp3",
+        "hint": "audio/en-double-pattern-hint.mp3",
+        "real": "audio/en-double-pattern-real.mp3"
+      },
+      "title": "A new repeating rule",
+      "prompt": "Continue the pattern. Find and describe what repeats.",
+      "hint": "Point to the repeating part. Try the same rule with new pictures.",
+      "real": "Draw two new symbols and use the same pattern rule."
+    },
+    {
+      "id": "ar-measure-shelf",
+      "language": "ar",
+      "level": 4,
+      "kind": "measure",
+      "product": "book",
+      "requests": [
+        {
+          "product": "book",
+          "quantity": 6
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/ar-measure-shelf-title.mp3",
+        "prompt": "audio/ar-measure-shelf-prompt.mp3",
+        "hint": "audio/ar-measure-shelf-hint.mp3",
+        "real": "audio/ar-measure-shelf-real.mp3"
+      },
+      "title": "نَقِيسُ الرَّفَّ",
+      "prompt": "غَطِّ طُولَ الرَّفِّ بِبَطَاقَاتِ كُتُبٍ مُتَسَاوِيَةٍ، بِدُونِ فَرَاغٍ أَوْ تَدَاخُلٍ.",
+      "hint": "اِسْتَخْدِمْ نَفْسَ الْوَحْدَةِ فِي كُلِّ مَكَانٍ، ثُمَّ عُدَّ الْوَحَدَاتِ.",
+      "real": "قِسْ طُولَ كِتَابٍ بِوَحْدَاتٍ وَرَقِيَّةٍ مُتَسَاوِيَةٍ."
+    },
+    {
+      "id": "en-measure-shelf",
+      "language": "en",
+      "level": 4,
+      "kind": "measure",
+      "product": "book",
+      "requests": [
+        {
+          "product": "book",
+          "quantity": 6
+        }
+      ],
+      "initial": 0,
+      "audio": {
+        "title": "audio/en-measure-shelf-title.mp3",
+        "prompt": "audio/en-measure-shelf-prompt.mp3",
+        "hint": "audio/en-measure-shelf-hint.mp3",
+        "real": "audio/en-measure-shelf-real.mp3"
+      },
+      "title": "Measure the shelf",
+      "prompt": "Cover the shelf with equal book cards, with no gaps or overlaps.",
+      "hint": "Use the same unit in each space, then count the units.",
+      "real": "Measure a book with equal paper units."
+    },
+    {
+      "id": "ar-seller-today",
+      "language": "ar",
+      "level": 4,
+      "kind": "count",
+      "product": "milk",
+      "requests": [
+        {
+          "product": "milk",
+          "quantity": 10
+        }
+      ],
+      "initial": 0,
+      "seller": true,
+      "audio": {
+        "title": "audio/ar-seller-today-title.mp3",
+        "prompt": "audio/ar-seller-today-prompt.mp3",
+        "hint": "audio/ar-seller-today-hint.mp3",
+        "real": "audio/ar-seller-today-real.mp3"
+      },
+      "title": "بَائِعُ الْيَوْمِ",
+      "prompt": "صَمِّمْ طَلَبَكَ، ثُمَّ دَعِ الْمَرَافِقَ يُجَهِّزُهُ وَافْحَصْهُ مَعَهُ.",
+      "hint": "اِجْعَلِ الطَّلَبَ وَاضِحًا: نَوْعُ الْبَطَاقَةِ وَعَدَدُهَا.",
+      "real": "تَبَادَلَا دَوْرَ الْبَائِعِ وَالْمُشْتَرِي فِي سُوقٍ وَرَقِيٍّ."
+    },
+    {
+      "id": "en-seller-today",
+      "language": "en",
+      "level": 4,
+      "kind": "count",
+      "product": "milk",
+      "requests": [
+        {
+          "product": "milk",
+          "quantity": 10
+        }
+      ],
+      "initial": 0,
+      "seller": true,
+      "audio": {
+        "title": "audio/en-seller-today-title.mp3",
+        "prompt": "audio/en-seller-today-prompt.mp3",
+        "hint": "audio/en-seller-today-hint.mp3",
+        "real": "audio/en-seller-today-real.mp3"
+      },
+      "title": "Seller for today",
+      "prompt": "Design your order. Let your grown-up prepare it, then check together.",
+      "hint": "Make the order clear: the kind of card and its quantity.",
+      "real": "Swap buyer and seller roles in a paper market."
+    }
+  ],
+  "guides": {
+    "ar": {
+      "library": {
+        "text": "اِخْتَرْ طَلَبًا وَجَرِّبْهُ عَلَى طَاوِلَةِ السُّوقِ.",
+        "path": "audio/ar-guide-library.mp3"
+      },
+      "count": {
+        "text": "اِضْغَطْ عَلَى الصُّورَةِ لِأَخْذِ بَطَاقَةٍ. اِضْغَطْ عَلَى بَطَاقَةِ السَّلَّةِ لِإِعَادَتِهَا.",
+        "path": "audio/ar-guide-count.mp3"
+      },
+      "share": {
+        "text": "اِخْتَرِ السَّلَّةَ، ثُمَّ أَضِفْ بَطَاقَةً. يُمْكِنُكَ إِعَادَتُهَا وَتَغْيِيرُ تَقْسِيمِكَ.",
+        "path": "audio/ar-guide-share.mp3"
+      },
+      "combine": {
+        "text": "اِضْغَطْ عَلَى بَطَاقَاتِ الْمَجْمُوعَتَيْنِ لِتَجْمَعَهَا فِي سَلَّةِ الطَّلَبِ.",
+        "path": "audio/ar-guide-combine.mp3"
+      },
+      "compare": {
+        "text": "قَارِنْ عَدَدَ الْبَطَاقَاتِ. جَرِّبْ وَضْعَ بَطَاقَةٍ مُقَابِلَ بَطَاقَةٍ.",
+        "path": "audio/ar-guide-compare.mp3"
+      },
+      "pattern": {
+        "text": "تَابِعْ النَّمَطَ مِنَ الْبِدَايَةِ. اِخْتَرْ صُورَةً لِلْمَكَانِ التَّالِي.",
+        "path": "audio/ar-guide-pattern.mp3"
+      },
+      "review": {
+        "text": "اِحْكِ كَيْفَ حَلَلْتَ الطَّلَبَ. يُمْكِنُكَ حِفْظُهُ أَوْ طِبَاعَتُهُ وَتَبَادُلُ الدَّوْرِ.",
+        "path": "audio/ar-guide-review.mp3"
+      },
+      "match": {
+        "text": "عَدَدُ الْبَطَاقَاتِ يَطَابِقُ الطَّلَبَ. اِحْكِ طَرِيقَتَكَ.",
+        "path": "audio/ar-guide-match.mp3"
+      },
+      "retry": {
+        "text": "لِنُعِدِ الْفَحْصَ بِهُدُوءٍ. قَارِنِ الْبَطَاقَاتِ بِالطَّلَبِ، أَوِ اِطْلُبْ تَلْمِيحًا.",
+        "path": "audio/ar-guide-retry.mp3"
+      },
+      "pause": {
+        "text": "حَفِظْنَا مَكَانَكَ إِنْ كَانَ الْحَفْظُ مُتَاحًا. خُذْ وَقْتَكَ وَعُدْ عِنْدَمَا تَكُونُ مُسْتَعِدًّا.",
+        "path": "audio/ar-guide-pause.mp3"
+      },
+      "role": {
+        "text": "أَنَا الْبَائِعُ الْآنَ. أَصْنَعُ طَلَبًا وَاضِحًا وَأَفْحَصُهُ مَعَ الْمَرَافِقِ.",
+        "path": "audio/ar-guide-role.mp3"
+      },
+      "safety": {
+        "text": "اِسْتَخْدِمْ بَطَاقَاتٍ أَوْ قِطَعًا كَبِيرَةً آمِنَةً مَعَ الْمَرَافِقِ. لَا يَلْزَمُ طَعَامٌ حَقِيقِيٌّ.",
+        "path": "audio/ar-guide-safety.mp3"
+      }
+    },
+    "en": {
+      "library": {
+        "text": "Choose an order and try it on the market table.",
+        "path": "audio/en-guide-library.mp3"
+      },
+      "count": {
+        "text": "Tap a picture to take a card. Tap a basket card to return it.",
+        "path": "audio/en-guide-count.mp3"
+      },
+      "share": {
+        "text": "Choose a basket, then add a card. You can return it and change your groups.",
+        "path": "audio/en-guide-share.mp3"
+      },
+      "combine": {
+        "text": "Tap cards in both groups to move them into the order basket.",
+        "path": "audio/en-guide-combine.mp3"
+      },
+      "compare": {
+        "text": "Compare the number of cards. Try matching cards one to one.",
+        "path": "audio/en-guide-compare.mp3"
+      },
+      "pattern": {
+        "text": "Follow the pattern from the start. Choose a picture for the next space.",
+        "path": "audio/en-guide-pattern.mp3"
+      },
+      "review": {
+        "text": "Tell how you solved the order. Save or print it, then swap roles.",
+        "path": "audio/en-guide-review.mp3"
+      },
+      "match": {
+        "text": "The cards match the order. Tell how you did it.",
+        "path": "audio/en-guide-match.mp3"
+      },
+      "retry": {
+        "text": "Let us check again. Match the cards to the order, or ask for a hint.",
+        "path": "audio/en-guide-retry.mp3"
+      },
+      "pause": {
+        "text": "Your place is kept when storage is available. Take your time and return when ready.",
+        "path": "audio/en-guide-pause.mp3"
+      },
+      "role": {
+        "text": "I am the seller now. I make a clear order and check it with my grown-up.",
+        "path": "audio/en-guide-role.mp3"
+      },
+      "safety": {
+        "text": "Use cards or large safe pieces with your grown-up. Real food is not needed.",
+        "path": "audio/en-guide-safety.mp3"
+      }
+    }
+  }
+}

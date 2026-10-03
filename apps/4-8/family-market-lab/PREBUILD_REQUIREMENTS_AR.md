@@ -2,7 +2,7 @@
 
 APP360-PREBUILD-MATURITY-V1
 
-تُلزم هذه الخطة `docs/IMPLEMENTATION_MATURITY_BASELINE_AR.md`. لا يبدأ scaffold قبل قراءة هذا الملف وBUILD_SPEC وCONTENT_SEEDS. الحالة مخطط؛ لم يبن التطبيق بعد.
+تُلزم هذه الخطة `docs/IMPLEMENTATION_MATURITY_BASELINE_AR.md`. لا يبدأ scaffold قبل قراءة هذا الملف وBUILD_SPEC وCONTENT_SEEDS. هذه متطلبات ما قبل التنفيذ المحفوظة. نُفذت معاينة تقنية؛ راجع README وVALIDATION_AR لحدود القبول الفعلي.
 
 ## خصوصية هذا التطبيق
 
