@@ -1,0 +1,791 @@
+{
+  "schema_version": 1,
+  "voices": {
+    "ar": "ar-SA-ZariyahNeural",
+    "en": "en-US-JennyNeural"
+  },
+  "rate": "-15%",
+  "privacy": "Only authored public curriculum rendered at build time. No learner data sent.",
+  "items": [
+    {
+      "language": "ar",
+      "text": "اختر صورة تجربة. نتوقع ثم نجرّب ونلاحظ.",
+      "path": "audio/ar-library.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Choose an experiment picture. Predict, try and observe.",
+      "path": "audio/en-library.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "اختر النموذج على الشاشة، أو اطلب من المربي تجهيز التجربة الواقعية.",
+      "path": "audio/ar-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Choose the screen model, or ask a coach to prepare a real experiment.",
+      "path": "audio/en-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ماذا تتوقع؟ اختر صورة أو قل: لا أعرف بعد. يمكن أن تختلف الملاحظة.",
+      "path": "audio/ar-predict.mp3"
+    },
+    {
+      "language": "en",
+      "text": "What do you predict? Choose a picture, or say: I do not know yet. Your observation may differ.",
+      "path": "audio/en-predict.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نجرب كل حالة ونحتفظ بما لاحظناه. نغير شيئًا واحدًا فقط.",
+      "path": "audio/ar-try.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Try each condition and keep what you observe. Change just one thing.",
+      "path": "audio/en-try.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "سجل ما رأيت، وليس ما توقعت. لا توجد إجابة مفروضة.",
+      "path": "audio/ar-observe.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Record what you saw, rather than what you predicted. No answer is imposed.",
+      "path": "audio/en-observe.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "انظر إلى التوقع والملاحظتين. ماذا لاحظت؟ وما السؤال التالي؟",
+      "path": "audio/ar-compare.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Look at your prediction and both observations. What did you notice? What is your next question?",
+      "path": "audio/en-compare.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نكرر بنفس الشروط لنقارن الملاحظات. المحاولة السابقة تبقى في الدفتر.",
+      "path": "audio/ar-repeat.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Repeat with the same conditions to compare observations. The earlier trial stays in your notebook.",
+      "path": "audio/en-repeat.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بطاقة تجربتك جاهزة. يمكنك فتح نسخة أو طباعتها.",
+      "path": "audio/ar-save.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Your experiment card is ready. Open a copy or print it.",
+      "path": "audio/en-save.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يمكنك التوقف والعودة إلى نفس الدفتر.",
+      "path": "audio/ar-pause.mp3"
+    },
+    {
+      "language": "en",
+      "text": "You can pause and return to the same notebook.",
+      "path": "audio/en-pause.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "اطلب من المربي قراءة الخطوة معك أو الإشارة إلى الصور. أنت تختار الملاحظة.",
+      "path": "audio/ar-help.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Ask a coach to read the step with you or point to pictures. You choose the observation.",
+      "path": "audio/en-help.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لا أعرف بعد. هذا مكان جيد لنبدأ السؤال.",
+      "path": "audio/ar-unknown.mp3"
+    },
+    {
+      "language": "en",
+      "text": "I do not know yet. That is a good place to start a question.",
+      "path": "audio/en-unknown.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لاحظت شيئًا يشبه توقعي.",
+      "path": "audio/ar-same.mp3"
+    },
+    {
+      "language": "en",
+      "text": "I noticed something like my prediction.",
+      "path": "audio/en-same.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لاحظت شيئًا مختلفًا عن توقعي.",
+      "path": "audio/ar-different.mp3"
+    },
+    {
+      "language": "en",
+      "text": "I noticed something different from my prediction.",
+      "path": "audio/en-different.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ما زلنا لا نعرف. نحتاج ملاحظة أخرى.",
+      "path": "audio/ar-uncertain.mp3"
+    },
+    {
+      "language": "en",
+      "text": "We still do not know. We need another observation.",
+      "path": "audio/en-uncertain.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ماذا يحدث إذا كررنا نفس الشروط؟",
+      "path": "audio/ar-next-repeat.mp3"
+    },
+    {
+      "language": "en",
+      "text": "What happens if we repeat the same conditions?",
+      "path": "audio/en-next-repeat.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ما الشيء الواحد الذي يمكن تغييره لاحقًا؟",
+      "path": "audio/ar-next-change.mp3"
+    },
+    {
+      "language": "en",
+      "text": "What one thing could we change next?",
+      "path": "audio/en-next-change.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ما الذي نحتاج أن نلاحظه بدقة أكبر؟",
+      "path": "audio/ar-next-look.mp3"
+    },
+    {
+      "language": "en",
+      "text": "What do we need to observe more carefully?",
+      "path": "audio/en-next-look.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "هذا نموذج توضيحي على الشاشة. النتيجة الواقعية تسجلها أنت.",
+      "path": "audio/ar-model-only.mp3"
+    },
+    {
+      "language": "en",
+      "text": "This is an illustrative screen model. You record the real result yourself.",
+      "path": "audio/en-model-only.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "أي ورقة تحمل أكثر؟",
+      "path": "audio/ar-paper-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Which paper might hold more?",
+      "path": "audio/en-paper-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يجهز المربي ورقتين متماثلتين فوق دعامتين منخفضتين ثابتتين. نضيف مكعبات إسفنج كبيرة متماثلة واحدًا واحدًا، ونتوقف عند الانحناء. لا نضع وزنًا ثقيلًا.",
+      "path": "audio/ar-paper-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach places two matching sheets on stable low supports. Add matching large foam blocks one at a time and stop when the paper bends. Use no heavy weights.",
+      "path": "audio/en-paper-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "هذا نموذج توضيحي فقط. الأعداد المذكورة في قاعدة هذه النسخة تصف نموذج الشاشة، ولا تتنبأ بقياس تجربتك الواقعية. سجّل ملاحظتك حتى لو اختلفت.",
+      "path": "audio/ar-paper-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "This is an illustrative model only. The counts listed in this version describe the screen model, not a measurement prediction for your real experiment. Keep your own observation even if it differs.",
+      "path": "audio/en-paper-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "أي بداية تجعل السيارة تسير أبعد؟",
+      "path": "audio/ar-ramp-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Which start might make the car roll farther?",
+      "path": "audio/en-ramp-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يثبت المربي مسارًا عريضًا منخفضًا وسيارة كبيرة بلا أجزاء صغيرة. نترك السيارة من نفس علامة البداية دون دفع. نقيس الطريق بشرائط ورق كبيرة متساوية. لا نجلس فوق المنحدر.",
+      "path": "audio/ar-ramp-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach secures a wide low track and a large toy car without small parts. Release at the same starting mark without pushing. Measure with equal large paper strips. Do not sit on the ramp.",
+      "path": "audio/en-ramp-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "هذا نموذج توضيحي فقط. الأعداد المذكورة في قاعدة هذه النسخة تصف نموذج الشاشة، ولا تتنبأ بقياس تجربتك الواقعية. سجّل ملاحظتك حتى لو اختلفت.",
+      "path": "audio/ar-ramp-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "This is an illustrative model only. The counts listed in this version describe the screen model, not a measurement prediction for your real experiment. Keep your own observation even if it differs.",
+      "path": "audio/en-ramp-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "أين سيبقى كل غرض في الماء؟",
+      "path": "audio/ar-float-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Where might each object stay in water?",
+      "path": "audio/en-float-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يشرف المربي بجانب الطفل طوال الوقت: ماء قليل في حوض ثابت ضحل فوق صينية. زجاجة بلاستيكية مغلقة وملعقة معدنية كبيرة سليمة، دون زجاج أو أجزاء صغيرة. لا نتذوق الماء ونجفف المكان بعد التجربة.",
+      "path": "audio/ar-float-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach stays beside the child: use a little water in a stable shallow basin on a tray. Use a closed plastic bottle and an intact large metal spoon, no glass or small parts. Do not taste the water; dry the space afterwards.",
+      "path": "audio/en-float-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "في النموذج: الزجاجة الفارغة المغلقة عند السطح، والملعقة المعدنية في الأسفل. نتحدث عن هذين الغرضين في النموذج فقط؛ لا نحكم من اسم الغرض على كل النسخ الحقيقية.",
+      "path": "audio/ar-float-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "In the model, the closed empty bottle stays at the surface and the metal spoon at the bottom. This represents these two model objects only; an object name does not predict every real version.",
+      "path": "audio/en-float-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "إلى أين يتحرك الظل؟",
+      "path": "audio/ar-shadow-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Where might the shadow move?",
+      "path": "audio/en-shadow-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يجهز المربي ضوءًا آمنًا مغلقًا دون أسلاك أو فتح بطارية. لا ضوء نحو العيون ولا شمس مباشرة ولا توصيل كهرباء. نبقي الغرض والبعد ثابتين، ونرسم مكان الظل على ورقة مرتين.",
+      "path": "audio/ar-shadow-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach prepares a safe enclosed light without exposed wires or opening a battery. Never point it at eyes; use no direct sun or electrical connections. Keep the object and distance fixed and draw the shadow position twice.",
+      "path": "audio/en-shadow-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "في النموذج: الظل في الجهة المقابلة لموضع الضوء. نثبت الغرض والبعد. الرسم يوضح الموضع فقط، ولا يقيس ضوءًا حقيقيًا.",
+      "path": "audio/ar-shadow-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "In this model the shadow is opposite the light. The object and distance stay fixed. The drawing represents position only and does not measure real light.",
+      "path": "audio/en-shadow-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ماذا سنلاحظ بعد أيام؟",
+      "path": "audio/ar-plant-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "What might we notice over several days?",
+      "path": "audio/en-plant-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يبقي المربي نباتًا آمنًا بعيدًا عن التذوق، في مكان ثابت مناسب دون شمس مباشرة حارة. لا نغيّر الماء أو الضوء لاختبار الطفل. نسجل التاريخ وما نراه في يوم آخر؛ يمكن حفظ المسودة والعودة لاحقًا.",
+      "path": "audio/ar-plant-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach keeps a safe plant out of reach for tasting, in a suitable fixed place away from hot direct sun. Do not change water or light to test the child. Record the date and what you see on another day; save the draft and return later.",
+      "path": "audio/en-plant-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "هذه صورتان توضيحيتان لنبات متخيل، وليستا نموًا مباشرًا أو دليلًا أن الضوء سبب التغير. في الدفتر الواقعي لا تتقدم الأيام بزر.",
+      "path": "audio/ar-plant-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "These are two illustrative pictures of an imaginary plant, not live growth or evidence that light caused a change. Real notebook days do not advance by a button.",
+      "path": "audio/en-plant-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "أي مادة تمتص أكثر؟",
+      "path": "audio/ar-absorb-question.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Which material might absorb more?",
+      "path": "audio/en-absorb-question.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يضع المربي قطعتين كبيرتين متساويتين على صينية: قماش وبلاستيك سليم. نضيف مقدارًا قليلًا متساويًا بملعقة كبيرة وننتظر نفس المدة. لا نعصر نحو الوجه ولا نتذوق الماء. نجفف السطح بعدها.",
+      "path": "audio/ar-absorb-setup.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A coach puts two equally sized large pieces on a tray: cloth and an intact plastic sheet. Add the same small amount with a large spoon and wait equally long. Do not squeeze towards a face or taste water. Dry the surface afterwards.",
+      "path": "audio/en-absorb-setup.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "في النموذج فقط: الماء يدخل القماش ويبقى فوق البلاستيك. لا يقيس النموذج سعة مواد حقيقية؛ سجل ملاحظتك حتى لو اختلفت.",
+      "path": "audio/ar-absorb-model_rule.mp3"
+    },
+    {
+      "language": "en",
+      "text": "In this model only, water enters the cloth and stays on the plastic. The model does not measure real material capacity; keep your own observation even if it differs.",
+      "path": "audio/en-absorb-model_rule.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "طي الورقة",
+      "path": "audio/ar-paper-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "The paper fold",
+      "path": "audio/en-paper-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس الورق والدعامات والمسافة والمكعبات الكبيرة",
+      "path": "audio/ar-paper-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same paper, supports, gap and large blocks",
+      "path": "audio/en-paper-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "مسطحة",
+      "path": "audio/ar-paper-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Flat",
+      "path": "audio/en-paper-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "مطوية",
+      "path": "audio/ar-paper-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Folded",
+      "path": "audio/en-paper-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بقيت فوق الدعامتين",
+      "path": "audio/ar-paper-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Stayed on the supports",
+      "path": "audio/en-paper-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "انحنت",
+      "path": "audio/ar-paper-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Bent",
+      "path": "audio/en-paper-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-paper-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-paper-outcome-2.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ارتفاع بداية المنحدر",
+      "path": "audio/ar-ramp-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Ramp starting height",
+      "path": "audio/en-ramp-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس السيارة والمسار والسطح، دون دفع",
+      "path": "audio/ar-ramp-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same car, track and surface; no pushing",
+      "path": "audio/en-ramp-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بداية منخفضة",
+      "path": "audio/ar-ramp-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Low start",
+      "path": "audio/en-ramp-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بداية أعلى قليلًا",
+      "path": "audio/ar-ramp-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Slightly higher start",
+      "path": "audio/en-ramp-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "قريبة",
+      "path": "audio/ar-ramp-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Near",
+      "path": "audio/en-ramp-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بعيدة",
+      "path": "audio/ar-ramp-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Far",
+      "path": "audio/en-ramp-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-ramp-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-ramp-outcome-2.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الغرض الكبير",
+      "path": "audio/ar-float-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "The large object",
+      "path": "audio/en-float-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس الحوض والماء وطريقة الوضع",
+      "path": "audio/ar-float-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same basin, water and placement",
+      "path": "audio/en-float-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "زجاجة بلاستيكية فارغة مغلقة",
+      "path": "audio/ar-float-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Closed empty plastic bottle",
+      "path": "audio/en-float-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ملعقة معدنية كبيرة",
+      "path": "audio/ar-float-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Large metal spoon",
+      "path": "audio/en-float-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "عند السطح",
+      "path": "audio/ar-float-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "At the surface",
+      "path": "audio/en-float-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "في الأسفل",
+      "path": "audio/ar-float-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "At the bottom",
+      "path": "audio/en-float-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-float-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-float-outcome-2.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "موضع ضوء المربي",
+      "path": "audio/ar-shadow-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "The coach light position",
+      "path": "audio/en-shadow-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس الغرض ومكانه وبعد الضوء عنه",
+      "path": "audio/ar-shadow-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same object, position and light distance",
+      "path": "audio/en-shadow-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الضوء على اليسار",
+      "path": "audio/ar-shadow-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Light on the left",
+      "path": "audio/en-shadow-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الضوء على اليمين",
+      "path": "audio/ar-shadow-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Light on the right",
+      "path": "audio/en-shadow-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الظل يسار الغرض",
+      "path": "audio/ar-shadow-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Shadow left of the object",
+      "path": "audio/en-shadow-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الظل يمين الغرض",
+      "path": "audio/ar-shadow-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Shadow right of the object",
+      "path": "audio/en-shadow-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-shadow-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-shadow-outcome-2.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "يوم الملاحظة فقط",
+      "path": "audio/ar-plant-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Observation day only",
+      "path": "audio/en-plant-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس النبات ومكانه والعناية المعتادة",
+      "path": "audio/ar-plant-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same plant, place and usual care",
+      "path": "audio/en-plant-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "الملاحظة الأولى",
+      "path": "audio/ar-plant-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "First observation",
+      "path": "audio/en-plant-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "ملاحظة في يوم لاحق",
+      "path": "audio/ar-plant-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Observation on a later day",
+      "path": "audio/en-plant-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "تغير ظاهر",
+      "path": "audio/ar-plant-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "A visible change",
+      "path": "audio/en-plant-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لا تغير ظاهر",
+      "path": "audio/ar-plant-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "No visible change",
+      "path": "audio/en-plant-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-plant-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-plant-outcome-2.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نوع المادة",
+      "path": "audio/ar-absorb-changed_variable.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Material type",
+      "path": "audio/en-absorb-changed_variable.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "نفس مساحة المادة والماء وزمن الانتظار",
+      "path": "audio/ar-absorb-held_constants.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Same material area, water amount and waiting time",
+      "path": "audio/en-absorb-held_constants.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "قطعة قماش قطنية",
+      "path": "audio/ar-absorb-condition-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Cotton cloth",
+      "path": "audio/en-absorb-condition-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "قطعة بلاستيك",
+      "path": "audio/ar-absorb-condition-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Plastic sheet",
+      "path": "audio/en-absorb-condition-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "دخل الماء في المادة",
+      "path": "audio/ar-absorb-outcome-0.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Water entered the material",
+      "path": "audio/en-absorb-outcome-0.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "بقي الماء على السطح",
+      "path": "audio/ar-absorb-outcome-1.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Water stayed on the surface",
+      "path": "audio/en-absorb-outcome-1.mp3"
+    },
+    {
+      "language": "ar",
+      "text": "لم يتضح",
+      "path": "audio/ar-absorb-outcome-2.mp3"
+    },
+    {
+      "language": "en",
+      "text": "Unclear",
+      "path": "audio/en-absorb-outcome-2.mp3"
+    }
+  ]
+}

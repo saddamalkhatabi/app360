@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1",
+  "app_id": "a4-wonder-lab",
+  "title_ar": "مختبر لماذا: أتوقع وأجرّب",
+  "base_path": "apps/4-8/wonder-experiment-lab/",
+  "app_href": "apps/4-8/wonder-experiment-lab/index.html",
+  "launch_path": "apps/4-8/wonder-experiment-lab/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "wonder-library",
+      "kind": "category",
+      "label_ar": "مكتبة التجارب",
+      "href": "apps/4-8/wonder-experiment-lab/launch.html"
+    },
+    {
+      "id": "wonder-experience",
+      "kind": "activity",
+      "label_ar": "تجربة جاهزة",
+      "href_template": "apps/4-8/wonder-experiment-lab/launch.html?experience={experience}"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

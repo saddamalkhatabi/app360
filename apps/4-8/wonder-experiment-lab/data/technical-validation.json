@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "app_id": "a4-wonder-lab",
+  "date": "2026-10-03",
+  "channel": "preview",
+  "production_changed": false,
+  "unit_regression_checks": 82,
+  "new_domain_checks": 15,
+  "browser": {
+    "passed": 16,
+    "checks": [
+      "All six illustrated activities complete through visible controls, save and reopen independent cards",
+      "Model counts and order vary across ready activity openings without randomising repeated conditions",
+      "Real preparation gate, borrowed material images and unexpected observations remain valid",
+      "Plant real notebook refuses same-day second observation and resumes from a retained draft",
+      "Coach templates are independent, retain model rules and private notes stay out of exports",
+      "Real MP3 playback uses actual current-word cues; focus off preserves narration",
+      "Responsive library, prediction and record screens fit five sizes and rotation retains evidence",
+      "Print output derives from the notebook model and exports/imports owned copies",
+      "Profile switching isolates drafts and notes; guest coach rights are checked at action time",
+      "Storage refusal keeps the full loop exportable with a visible temporary-save notice",
+      "Corrupt local save is retained until explicit recovery",
+      "Unavailable audio does not block a complete exercise",
+      "Arabic numerals use existing Arabic files and local-only custom TTS handles both languages",
+      "Remote device voices are refused for private writing",
+      "Legacy touch guard blocks scroll activation and a fresh tap opens exactly one activity",
+      "Isolated complete PWA bundle opens offline with images and MP3, and a worker update preserves the draft"
+    ],
+    "pageErrors": [],
+    "externalProductionChanged": false
+  },
+  "family": {
+    "version": 6,
+    "passed": 10,
+    "checks": [
+      "A group change reaches embedded learners immediately while narration and instruction text continue",
+      "Individual on/off overrides take priority and inheritance returns to the group setting",
+      "Regular learners cannot change group or individual preferences or expose coach tools",
+      "Focus delivery is independent of a learner’s personal app navigation lock",
+      "An authorised assistant can manage group focus and learner overrides",
+      "An individual choice survives learner refresh and app close/reopen",
+      "Host refresh restores the session default, assistant role and each learner override",
+      "A revoked assistant cannot alter focus and session end restores each local profile choice",
+      "The professional coach switch remembers its local value after app reopen",
+      "Returning focus during current real MP3 playback highlights the current word without restarting sound"
+    ],
+    "pageErrors": [],
+    "transport": "real WebSocket relay",
+    "audio": "real MP3 playback",
+    "productionChanged": false
+  },
+  "assets": {
+    "authored_clips": 156,
+    "authored_mp3_bytes": 4690632,
+    "borrowed_images": 7,
+    "borrowed_name_clips": 14,
+    "borrowed_numeral_clips": 34,
+    "offline_urls": 264,
+    "source_hashes": "all matching",
+    "cue_source": "Actual recording WordBoundary; punctuation tokens have no fabricated cue",
+    "decoded_duration_check": "all 156 MP3 files decoded; ffprobe durations match cue records"
+  },
+  "viewports": [
+    [
+      360,
+      640
+    ],
+    [
+      412,
+      915
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1280,
+      800
+    ],
+    [
+      1366,
+      900
+    ]
+  ],
+  "legacy": "ES5 parse and synthetic touch guard using Android 4.4.2 UA in modern Chromium; physical device pending",
+  "tts": "Local-voice callback simulation only; real MP3 playback verified",
+  "pwa": "Complete isolated bundle, offline MP3 and material images, controlled worker update with one reload and retained draft",
+  "global_baseline_failures_unchanged": {
+    "platform": 12,
+    "app_links": 6,
+    "shared_shell": 1
+  },
+  "pending": [
+    "Physical Big TAB test",
+    "Physical install and printer",
+    "Family pilot with guardian consent",
+    "Educational field review"
+  ]
+}

@@ -1,4 +1,4 @@
-var CACHE='app360-portal-v79-family-school-v110-shape-play';
+var CACHE='app360-portal-v80-family-school-v111-wonder';
 var CORE=[
  './assets/covers/a4-story-language-v2-640.webp','./assets/covers/a4-story-language-v2-640.jpg','./assets/js/lab360-v24.js?v=102&brand=98','./assets/js/home-showcase-v31.js?v=102&brand=98',
   './assets/js/family-reels-v1.js?v=102','./assets/js/family-reels-launcher-v1.js?v=102','./assets/css/family-reels-v1.css?v=99','./reels/index.html','./assets/covers/family-reels-learner-art-640.webp','./assets/covers/family-reels-learner-art-640.jpg','./assets/covers/family-reels-coach-art-640.webp','./assets/covers/family-reels-coach-art-640.jpg','./assets/brand/family-reels-360-logo-160.png',
@@ -11,7 +11,7 @@ var CORE=[
   './manifest.webmanifest?v=98','./assets/brand/family-school-360-logo-640.webp','./assets/brand/family-school-360-logo-640.png','./assets/brand/family-school-360-icon-192.png?v=98','./assets/brand/family-school-360-share.jpg?v=98',
   './assets/covers/app-coming-soon-v30.svg',
   './assets/covers/a1-drawing-writing.jpg','./assets/covers/a1-first-words.jpg','./assets/covers/a1-imitate.jpg','./assets/covers/a1-screen-move.jpg','./assets/covers/a1-calm.jpg','./assets/covers/a1-sensory.jpg','./assets/covers/a1-routine.jpg','./assets/covers/a1-plan-runner.jpg','./assets/covers/a1-shape-builder.jpg','./assets/covers/a1-picture-puzzles.jpg',
-  './apps/4-8/shape-design-studio/icon.svg','./data/catalog.json','./data/goals.json','./data/live-overrides.json',
+  './apps/4-8/shape-design-studio/icon.svg','./apps/4-8/wonder-experiment-lab/icon.svg','./data/catalog.json','./data/goals.json','./data/live-overrides.json',
   './ages/1-4/index.html','./ages/4-8/index.html','./ages/8-12/index.html','./ages/12-16/index.html',
   './ages/16-24/index.html','./ages/24-45/index.html','./ages/45-60/index.html','./ages/60-80/index.html'
 ];
