@@ -5,7 +5,7 @@
   "channel": "preview",
   "production_changed": false,
   "unit_regression_checks": 82,
-  "new_domain_checks": 15,
+  "new_domain_checks": 18,
   "browser": {
     "passed": 16,
     "checks": [
@@ -136,5 +136,25 @@
     ],
     "six_complete_flows_with_loaded_images": true,
     "release": "preview-3"
+  },
+  "simple_player": {
+    "release": "preview-4",
+    "default": true,
+    "experiences": 6,
+    "viewports": [
+      360,
+      768
+    ],
+    "automatic_sequence": true,
+    "pause_resume": true,
+    "direct_frame_selection": true,
+    "all_frames_overview": true,
+    "real_audio_and_word_tracking": true,
+    "independent_observation_choices": true,
+    "no_answer_grading": true,
+    "save_restore_export": true,
+    "duplicate_save_prevented": true,
+    "coach_notebook_preserved": true,
+    "physical_device_pending": true
   }
 }

@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 3,
+  "version": 4,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر سؤالًا وتحقق مع المدرب من مواد التجربة ومساحة العمل ← سجل توقعًا بالصورة أو الصوت أو الإملاء ← حدد ما سنغيّره وما سنثبته ونفذ محاولتين ← قارن الملاحظات بالتوقع وحدد سؤالًا تاليًا دون فرض استنتاج واحد",
+  "practice_model_ar": "اختر صورة تجربة ← شغّل المشاهد وأوقفها أو تنقل بينها بحرية ← اختر ما لاحظته في نفس الشاشة ← احفظ اكتشافك أو أعد اللعب. الشرح والتجربة الواقعية والقياس في أدوات المربي.",
   "blueprint_path": "apps/4-8/wonder-experiment-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/wonder-experiment-lab/PROMPT_AR.md",
   "branding": {
@@ -104,7 +104,7 @@
     "total_image_bytes": 587280,
     "provenance": "AI-generated illustrative scenes",
     "archive": "assets/scenes/wonder-scenes-v1.zip",
-    "selection": "preview-before-start",
+    "selection": "direct-one-screen-story-player",
     "offline": true,
     "workflow_stages": [
       "setup",
@@ -112,6 +112,7 @@
       "try",
       "review",
       "gallery"
-    ]
+    ],
+    "workflow": "play-pause-observe-save-repeat"
   }
 }
