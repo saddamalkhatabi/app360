@@ -1,0 +1,79 @@
+{
+  "mode": "Built-in image generation",
+  "use_case": "scientific-educational",
+  "layout": "Four equal square photographs in 2x2, TL action A/TR result A/BL action B/BR result B; no text or numbers",
+  "prompts": [
+    {
+      "id": "roll",
+      "description": "Photorealistic 2x2 storyboard: gentle push of foam ball, rolled ball, gentle push of foam cube, cube on flat face."
+    },
+    {
+      "id": "transparent",
+      "description": "A hand shines a small battery flashlight through a clear acrylic sheet. TL setup flashlight clear sheet white wall. TR bright light spot clearly on wall through clear sheet. BL identical setup with opaque thick cardboard replacing sheet. BR cardboard blocks light, wall has dark rectangular shadow."
+    },
+    {
+      "id": "shadow-basic",
+      "description": "A hand holds a large wooden toy tree in front of small battery flashlight and white wall. TL toy near wall with light on. TR distinct tree silhouette on wall. BL same toy and light switched off. BR wall has no tree silhouette, ambient soft daylight still shows objects."
+    },
+    {
+      "id": "mirror",
+      "description": "A child's open hand in front of upright safe acrylic mirror. TL open palm held near mirror. TR clear matching open-palm reflection. BL same hand now closed into fist. BR clear fist reflection. Mirror must show only same single hand, no extra fingers or face."
+    },
+    {
+      "id": "sponge",
+      "description": "A yellow sponge and transparent shallow bowl of water. TL visibly dry sponge held above bowl. TR dry sponge on tray with no drops. BL same sponge has been dipped into bowl then held by adult hand. BR adult gently squeezes wet sponge, clear drops fall into bowl. No duplication or water overflows."
+    },
+    {
+      "id": "paper-air",
+      "description": "TL an adult hand releases a flat sheet of white paper above shallow tray from low height. TR flat paper fluttering sideways mid-fall near tray, physically plausible, no arrows. BL same hand releases a matching sheet crumpled into ball. BR crumpled paper ball rests on tray. Show no comparison of measured speed."
+    },
+    {
+      "id": "clay",
+      "description": "TL a large round ball of blue play dough on wood tabletop. TR close same round blue dough ball. BL an adult palm presses blue dough ball down. BR same dough flattened into round pancake. One object, no tools."
+    },
+    {
+      "id": "elastic",
+      "description": "TL adult hands hold a wide red elastic fabric band a short distance apart, band unstretched. TR hands gently farther apart stretching the wide red band longer. BL hands slowly brought closer relaxing stretch while holding both ends. BR wide band shorter and relaxed, held safely. Do not release ends or point toward face."
+    },
+    {
+      "id": "push",
+      "description": "TL adult hand behind large red toy car at a small blue tape starting marker on long pale wood tabletop, gentle push. TR same car stopped a SHORT distance from marker, hand no longer touching. BL same car again at same starting marker with adult hand stronger push. BR same car stopped FARTHER from marker clearly, within table edge. Consistent wide camera angle, show both fixed starting mark and car in result panels."
+    },
+    {
+      "id": "tower",
+      "description": "TL adult hands build short tower of exactly two large foam blocks on low mat. TR same short two-block tower standing unsupported. BL tall narrow tower of five large foam blocks same mat. BR same five blocks visibly fallen onto mat. No changing block sizes, no heavy weights. Bright chunky safe foam blocks."
+    },
+    {
+      "id": "container",
+      "description": "Same small amount of pale blue water. TL adult pouring measured water into a wide shallow clear plastic bowl on tray. TR wide bowl water level very low. BL adult transferring ALL same water from bowl into narrow tall clear plastic cup. BR narrow cup water level much higher, wide bowl now empty nearby. Show no added water, consistent amount, no overflow, plastic vessels."
+    },
+    {
+      "id": "droplet",
+      "description": "TL hand with large dropper places one water drop onto white absorbent paper on tray. TR close visibly spreading dark wet patch on same paper. BL dropper places one water drop onto smooth rigid safe plastic sheet on tray. BR close raised rounded water bead on plastic, no wet patch. Macro clearly visible, transparent drop."
+    },
+    {
+      "id": "fan",
+      "description": "TL adult holds folded large paper fan still near a short blue fabric ribbon attached safely to small wooden stand. TR ribbon hangs vertically motionless. BL adult waves same paper fan towards ribbon, slight motion blur only on fan. BR ribbon clearly blown sideways while still attached. Fan non-electric, no strings, bright visible ribbon, consistent angle."
+    },
+    {
+      "id": "tracks",
+      "description": "TL adult rolls large blue toy car with smooth thick wheels over slab of soft cream play dough. TR close two smooth parallel wheel grooves in cream dough. BL adult rolls a large red toy car with chunky tread patterned wheels over fresh matching slab of dough. BR close two grooved wheel tracks with clear zigzag tread imprint. Keep scale and show toy cars beside tracks."
+    },
+    {
+      "id": "leaf-print",
+      "description": "TL a whole green leaf with visible branching veins beside flat cream play dough slab. TR close the same whole leaf with visible veins. BL adult palm presses the whole leaf vein-side down into the dough. BR leaf lifted and set beside slab, dough shows clear branching vein impression in exact leaf shape. No paints tools or text, large leaf, visible tactile print."
+    },
+    {
+      "id": "blocks",
+      "description": "Same exactly four large colorful foam blocks: red blue green yellow. TL adult places four separate foam cubes in row on tabletop. TR same four cubes visibly separate with gaps. BL adult stacks same four cubes into short tower. BR same four cubes tower standing. Exact same objects and count, no extra pieces."
+    },
+    {
+      "id": "shiny",
+      "description": "TL large red toy apple in front of an upright safe silver reflective acrylic sheet. TR clear reflection of red toy apple on silver sheet, real toy visible in front. BL same toy apple placed in front of matte gray opaque sheet same size. BR same apple visible but matte sheet shows no reflected apple. Same lighting, no flashlights, close large reflection, no text."
+    },
+    {
+      "id": "funnel",
+      "description": "An adult pours a tiny amount of pale blue water into a large yellow funnel on shallow tray. TL funnel spout centered directly above a clear plastic cup mouth, small blue water stream from pourer into funnel. TR water emerges from funnel spout into the cup, water inside cup. BL funnel held beside same cup, spout now above tray outside cup. BR water emerges from spout into tray, cup remains beside stream. Clear exact geometry and gravity, no detached streams, transparent cup, same objects."
+    }
+  ]
+}

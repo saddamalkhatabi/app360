@@ -82,7 +82,8 @@
         "ar": "مكعب كبير",
         "en": "large blocks"
       },
-      "seed_ref": "a4-wonder-lab-seed-1"
+      "seed_ref": "a4-wonder-lab-seed-1",
+      "catalog_level": 3
     },
     {
       "id": "ramp",
@@ -166,7 +167,8 @@
         "ar": "شريط ورق",
         "en": "paper strips"
       },
-      "seed_ref": "a4-wonder-lab-seed-2"
+      "seed_ref": "a4-wonder-lab-seed-2",
+      "catalog_level": 2
     },
     {
       "id": "float",
@@ -242,7 +244,38 @@
         "ar": "ملاحظة",
         "en": "observation"
       },
-      "seed_ref": "a4-wonder-lab-seed-3"
+      "seed_ref": "a4-wonder-lab-seed-3",
+      "catalog_level": 1,
+      "audio_key": "float",
+      "scene_key": "float",
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت مع زجاجة بلاستيكية فارغة مغلقة؟",
+          "en": "What did you notice with closed empty plastic bottle?"
+        },
+        {
+          "ar": "ماذا لاحظت مع ملعقة معدنية كبيرة؟",
+          "en": "What did you notice with large metal spoon?"
+        }
+      ],
+      "frames": [
+        {
+          "ar": "نجهز الماء والزجاجة المغلقة والملعقة الكبيرة.",
+          "en": "We prepare water, a closed bottle and a large spoon."
+        },
+        {
+          "ar": "بقيت الزجاجة المغلقة عند سطح الماء.",
+          "en": "The closed bottle stayed at the water surface."
+        },
+        {
+          "ar": "وصلت الملعقة المعدنية إلى أسفل الوعاء.",
+          "en": "The metal spoon reached the bottom of the container."
+        },
+        {
+          "ar": "نقارن الزجاجة عند السطح والملعقة في الأسفل.",
+          "en": "We compare the bottle at the surface and the spoon at the bottom."
+        }
+      ]
     },
     {
       "id": "shadow",
@@ -317,7 +350,8 @@
         "ar": "موضع",
         "en": "position"
       },
-      "seed_ref": "a4-wonder-lab-seed-4"
+      "seed_ref": "a4-wonder-lab-seed-4",
+      "catalog_level": 2
     },
     {
       "id": "plant",
@@ -397,7 +431,8 @@
         "ar": "ورقة نبات",
         "en": "leaves"
       },
-      "seed_ref": "a4-wonder-lab-seed-5"
+      "seed_ref": "a4-wonder-lab-seed-5",
+      "catalog_level": 3
     },
     {
       "id": "absorb",
@@ -472,13 +507,1916 @@
         "ar": "ملاحظة",
         "en": "observation"
       },
-      "seed_ref": "a4-wonder-lab-seed-6"
+      "seed_ref": "a4-wonder-lab-seed-6",
+      "catalog_level": 1,
+      "audio_key": "absorb",
+      "scene_key": "absorb",
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت مع قطعة قماش قطنية؟",
+          "en": "What did you notice with cotton cloth?"
+        },
+        {
+          "ar": "ماذا لاحظت مع قطعة بلاستيك؟",
+          "en": "What did you notice with plastic sheet?"
+        }
+      ],
+      "frames": [
+        {
+          "ar": "نجهز قطعة القماش وقطعة البلاستيك.",
+          "en": "We prepare a cloth and a plastic sheet."
+        },
+        {
+          "ar": "دخل الماء في القماش وظهرت بقعة مبللة.",
+          "en": "Water entered the cloth and a wet patch appeared."
+        },
+        {
+          "ar": "بقيت قطرة الماء على سطح البلاستيك.",
+          "en": "The water drop stayed on the plastic surface."
+        },
+        {
+          "ar": "نقارن بقعة القماش وقطرة البلاستيك.",
+          "en": "We compare the cloth patch and the plastic drop."
+        }
+      ]
+    },
+    {
+      "id": "roll",
+      "model_kind": "story",
+      "scene_key": "roll",
+      "audio_key": "roll",
+      "catalog_level": 1,
+      "title": {
+        "ar": "الكرة والمكعب",
+        "en": "Ball and cube"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "الكرة",
+          "en": "The ball"
+        },
+        {
+          "ar": "المكعب",
+          "en": "The cube"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تدحرج",
+            "en": "Rolled"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي على وجهه",
+            "en": "Stayed on its flat face"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ادفع كرة إسفنج ومكعب إسفنج برفق على سطح ثابت.",
+        "en": "Gently push a foam ball and a foam cube on a stable surface."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-roll",
+      "frames": [
+        {
+          "ar": "ندفع الكرة برفق.",
+          "en": "We gently push the ball."
+        },
+        {
+          "ar": "تدحرجت الكرة بعيدًا عن اليد.",
+          "en": "The ball rolled away from the hand."
+        },
+        {
+          "ar": "ندفع المكعب برفق.",
+          "en": "We gently push the cube."
+        },
+        {
+          "ar": "بقي المكعب على وجهه المسطح.",
+          "en": "The cube stayed on its flat face."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة الكرة؟",
+          "en": "What did you notice with the ball?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المكعب؟",
+          "en": "What did you notice with the cube?"
+        }
+      ]
+    },
+    {
+      "id": "transparent",
+      "model_kind": "story",
+      "scene_key": "transparent",
+      "audio_key": "transparent",
+      "catalog_level": 1,
+      "title": {
+        "ar": "هل يمر الضوء؟",
+        "en": "Does light pass through?"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "لوح شفاف",
+          "en": "Clear sheet"
+        },
+        {
+          "ar": "ورق مقوى",
+          "en": "Cardboard"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "مر الضوء",
+            "en": "Light passed through"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "حجب الضوء",
+            "en": "Light was blocked"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم مصباح بطارية ولوحًا شفافًا آمنًا وورقًا مقوى. لا توجه الضوء للعين.",
+        "en": "Use a battery flashlight, a safe clear sheet and cardboard. Keep light away from eyes."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-transparent",
+      "frames": [
+        {
+          "ar": "نضع اللوح الشفاف أمام الضوء.",
+          "en": "We place the clear sheet in front of the light."
+        },
+        {
+          "ar": "مر الضوء وظهر على الحائط.",
+          "en": "Light passed through and reached the wall."
+        },
+        {
+          "ar": "نضع الورق المقوى أمام الضوء.",
+          "en": "We place cardboard in front of the light."
+        },
+        {
+          "ar": "حجب الورق المقوى الضوء.",
+          "en": "The cardboard blocked the light."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة لوح شفاف؟",
+          "en": "What did you notice with clear sheet?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ورق مقوى؟",
+          "en": "What did you notice with cardboard?"
+        }
+      ]
+    },
+    {
+      "id": "shadow-basic",
+      "model_kind": "story",
+      "scene_key": "shadow-basic",
+      "audio_key": "shadow-basic",
+      "catalog_level": 1,
+      "title": {
+        "ar": "يظهر الظل ويختفي",
+        "en": "A shadow appears and disappears"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "المصباح مضاء",
+          "en": "Light on"
+        },
+        {
+          "ar": "المصباح مطفأ",
+          "en": "Light off"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "ظهر ظل واضح",
+            "en": "A clear shadow appeared"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "اختفى الظل الواضح",
+            "en": "The clear shadow disappeared"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم مصباح بطارية ولعبة كبيرة أمام حائط. لا توجه الضوء للعين.",
+        "en": "Use a battery flashlight and a large toy facing a wall. Do not point light at eyes."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-shadow-basic",
+      "frames": [
+        {
+          "ar": "نضيء المصباح خلف اللعبة.",
+          "en": "We turn on the flashlight behind the toy."
+        },
+        {
+          "ar": "ظهر ظل اللعبة على الحائط.",
+          "en": "The toy shadow appeared on the wall."
+        },
+        {
+          "ar": "نطفئ المصباح.",
+          "en": "We turn off the flashlight."
+        },
+        {
+          "ar": "اختفى ظل المصباح من الحائط.",
+          "en": "The flashlight shadow disappeared from the wall."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة المصباح مضاء؟",
+          "en": "What did you notice with light on?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المصباح مطفأ؟",
+          "en": "What did you notice with light off?"
+        }
+      ]
+    },
+    {
+      "id": "mirror",
+      "model_kind": "story",
+      "scene_key": "mirror",
+      "audio_key": "mirror",
+      "catalog_level": 1,
+      "title": {
+        "ar": "المرآة وحركة يدي",
+        "en": "A mirror follows my hand"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "يد مفتوحة",
+          "en": "Open hand"
+        },
+        {
+          "ar": "يد مغلقة",
+          "en": "Closed hand"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت يدًا مفتوحة",
+            "en": "I saw an open hand"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت يدًا مغلقة",
+            "en": "I saw a closed hand"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم مرآة أكريليك آمنة مثبتة. افتح اليد ثم أغلقها أمام المرآة.",
+        "en": "Use a secured safe acrylic mirror. Open and close your hand in front of it."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-mirror",
+      "frames": [
+        {
+          "ar": "نفتح اليد أمام المرآة.",
+          "en": "We open a hand in front of the mirror."
+        },
+        {
+          "ar": "ظهرت اليد مفتوحة في المرآة.",
+          "en": "The reflection showed an open hand."
+        },
+        {
+          "ar": "نغلق اليد أمام المرآة.",
+          "en": "We close the hand in front of the mirror."
+        },
+        {
+          "ar": "ظهرت اليد مغلقة في المرآة.",
+          "en": "The reflection showed a closed hand."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة يد مفتوحة؟",
+          "en": "What did you notice with open hand?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة يد مغلقة؟",
+          "en": "What did you notice with closed hand?"
+        }
+      ]
+    },
+    {
+      "id": "sponge",
+      "model_kind": "story",
+      "scene_key": "sponge",
+      "audio_key": "sponge",
+      "catalog_level": 1,
+      "title": {
+        "ar": "إسفنجة جافة ومبللة",
+        "en": "A dry and a wet sponge"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "إسفنجة جافة",
+          "en": "Dry sponge"
+        },
+        {
+          "ar": "إسفنجة مبللة",
+          "en": "Wet sponge"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "لم تسقط قطرات",
+            "en": "No drops fell"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "سقطت قطرات",
+            "en": "Drops fell"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "جهز إسفنجة كبيرة وقليلًا من الماء في وعاء ثابت. اضغط برفق.",
+        "en": "Prepare a large sponge and a little water in a stable bowl. Squeeze gently."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-sponge",
+      "frames": [
+        {
+          "ar": "نضغط الإسفنجة الجافة.",
+          "en": "We squeeze the dry sponge."
+        },
+        {
+          "ar": "لم تسقط منها قطرات ماء.",
+          "en": "No water drops fell from it."
+        },
+        {
+          "ar": "نبلل الإسفنجة بقليل من الماء.",
+          "en": "We wet the sponge with a little water."
+        },
+        {
+          "ar": "نضغطها فتسقط قطرات الماء.",
+          "en": "We squeeze it and water drops fall."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة إسفنجة جافة؟",
+          "en": "What did you notice with dry sponge?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة إسفنجة مبللة؟",
+          "en": "What did you notice with wet sponge?"
+        }
+      ]
+    },
+    {
+      "id": "paper-air",
+      "model_kind": "story",
+      "scene_key": "paper-air",
+      "audio_key": "paper-air",
+      "catalog_level": 1,
+      "title": {
+        "ar": "ورقة مسطحة ومجعّدة",
+        "en": "Flat and crumpled paper"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "ورقة مسطحة",
+          "en": "Flat paper"
+        },
+        {
+          "ar": "ورقة مجعدة",
+          "en": "Crumpled paper"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "هبطت وهي تتمايل",
+            "en": "It fluttered down"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "هبطت ككرة صغيرة",
+            "en": "It fell as a small ball"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "اترك ورقة مسطحة وأخرى مجعدة من ارتفاع منخفض فوق صينية. لا يقف الطفل على أثاث.",
+        "en": "Drop flat and crumpled paper from a low height above a tray. No climbing on furniture."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-paper-air",
+      "frames": [
+        {
+          "ar": "نترك الورقة المسطحة من ارتفاع منخفض.",
+          "en": "We release flat paper from a low height."
+        },
+        {
+          "ar": "تهبط الورقة المسطحة وهي تتمايل.",
+          "en": "The flat paper flutters down."
+        },
+        {
+          "ar": "نجعد ورقة مماثلة ثم نتركها.",
+          "en": "We crumple a matching sheet and release it."
+        },
+        {
+          "ar": "تهبط الورقة المجعدة ككرة صغيرة.",
+          "en": "The crumpled paper falls as a small ball."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ورقة مسطحة؟",
+          "en": "What did you notice with flat paper?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ورقة مجعدة؟",
+          "en": "What did you notice with crumpled paper?"
+        }
+      ]
+    },
+    {
+      "id": "clay",
+      "model_kind": "story",
+      "scene_key": "clay",
+      "audio_key": "clay",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أضغط الصلصال",
+        "en": "I press the clay"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "قبل الضغط",
+          "en": "Before pressing"
+        },
+        {
+          "ar": "بعد الضغط",
+          "en": "After pressing"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "شكل مستدير",
+            "en": "Round shape"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "شكل مسطح",
+            "en": "Flat shape"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم صلصال لعب مناسبًا للعمر وقطعة كبيرة. لا تذوق أو تسخين.",
+        "en": "Use age-appropriate play dough in a large piece. No tasting or heating."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-clay",
+      "frames": [
+        {
+          "ar": "نضع كرة صلصال على الطاولة.",
+          "en": "We put a play dough ball on the table."
+        },
+        {
+          "ar": "نلاحظ شكلها المستدير.",
+          "en": "We notice its round shape."
+        },
+        {
+          "ar": "نضغط الصلصال بكف اليد.",
+          "en": "We press the dough with a palm."
+        },
+        {
+          "ar": "أصبح الصلصال مسطحًا.",
+          "en": "The dough became flat."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قبل الضغط؟",
+          "en": "What did you notice with before pressing?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة بعد الضغط؟",
+          "en": "What did you notice with after pressing?"
+        }
+      ]
+    },
+    {
+      "id": "elastic",
+      "model_kind": "story",
+      "scene_key": "elastic",
+      "audio_key": "elastic",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أشد الشريط وأتركه",
+        "en": "I stretch and release a band"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "أشد برفق",
+          "en": "Gently stretching"
+        },
+        {
+          "ar": "أرخي الشريط",
+          "en": "Releasing gently"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "صار أطول",
+            "en": "It became longer"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "عاد أقصر",
+            "en": "It became shorter again"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يمسك المربي شريط قماش مرنًا عريضًا ويشده قليلًا ثم يرخي الشد ببطء. لا إطلاق أو لف حول الجسم.",
+        "en": "An adult holds a wide elastic fabric band, stretches a little and relaxes it slowly. No snapping or wrapping around the body."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-elastic",
+      "frames": [
+        {
+          "ar": "نشد الشريط العريض برفق.",
+          "en": "We gently stretch the wide band."
+        },
+        {
+          "ar": "أصبح الشريط أطول.",
+          "en": "The band became longer."
+        },
+        {
+          "ar": "نرخي الشد ببطء دون إطلاق الشريط.",
+          "en": "We slowly relax the stretch without letting go."
+        },
+        {
+          "ar": "عاد الشريط أقصر.",
+          "en": "The band became shorter again."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة أشد برفق؟",
+          "en": "What did you notice with gently stretching?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة أرخي الشريط؟",
+          "en": "What did you notice with releasing gently?"
+        }
+      ]
+    },
+    {
+      "id": "push",
+      "model_kind": "story",
+      "scene_key": "push",
+      "audio_key": "push",
+      "catalog_level": 1,
+      "title": {
+        "ar": "دفعة خفيفة وأقوى",
+        "en": "A gentle and a stronger push"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "دفعة خفيفة",
+          "en": "Gentle push"
+        },
+        {
+          "ar": "دفعة أقوى",
+          "en": "Stronger push"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تحركت مسافة قصيرة",
+            "en": "It moved a short distance"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "تحركت مسافة أطول",
+            "en": "It moved farther"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ادفع سيارة لعبة كبيرة من علامة بداية واحدة على سطح ثابت وخالٍ.",
+        "en": "Push a large toy car from the same starting mark on a clear stable surface."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-push",
+      "frames": [
+        {
+          "ar": "ندفع السيارة دفعة خفيفة.",
+          "en": "We give the car a gentle push."
+        },
+        {
+          "ar": "تحركت السيارة مسافة قصيرة في المشهد.",
+          "en": "The car moved a short distance in this scene."
+        },
+        {
+          "ar": "نعيد السيارة للبداية وندفعها أقوى.",
+          "en": "We return the car to the start and push harder."
+        },
+        {
+          "ar": "تحركت السيارة مسافة أطول في المشهد.",
+          "en": "The car moved farther in this scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة دفعة خفيفة؟",
+          "en": "What did you notice with gentle push?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة دفعة أقوى؟",
+          "en": "What did you notice with stronger push?"
+        }
+      ]
+    },
+    {
+      "id": "tower",
+      "model_kind": "story",
+      "scene_key": "tower",
+      "audio_key": "tower",
+      "catalog_level": 1,
+      "title": {
+        "ar": "برج صغير وبرج مرتفع",
+        "en": "A short and a tall tower"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "برج صغير",
+          "en": "Short tower"
+        },
+        {
+          "ar": "برج مرتفع",
+          "en": "Tall tower"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي واقفًا",
+            "en": "Stayed standing"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "مال وسقط",
+            "en": "Tilted and fell"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ابن برجين منخفضين بمكعبات إسفنج كبيرة. اجعل السقوط على بساط بعيدًا عن الوجه.",
+        "en": "Build two low towers from large foam blocks. Let blocks fall on a mat away from faces."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-tower",
+      "frames": [
+        {
+          "ar": "نبني برجًا صغيرًا.",
+          "en": "We build a short tower."
+        },
+        {
+          "ar": "بقي البرج الصغير واقفًا في المشهد.",
+          "en": "The short tower stayed standing in this scene."
+        },
+        {
+          "ar": "نزيد مكعبات البرج نفسه.",
+          "en": "We add blocks to the same tower."
+        },
+        {
+          "ar": "مال البرج المرتفع وسقط في المشهد.",
+          "en": "The tall tower tilted and fell in this scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة برج صغير؟",
+          "en": "What did you notice with short tower?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة برج مرتفع؟",
+          "en": "What did you notice with tall tower?"
+        }
+      ]
+    },
+    {
+      "id": "container",
+      "model_kind": "story",
+      "scene_key": "container",
+      "audio_key": "container",
+      "catalog_level": 1,
+      "title": {
+        "ar": "الماء وشكل الوعاء",
+        "en": "Water and the shape of a container"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "وعاء عريض",
+          "en": "Wide container"
+        },
+        {
+          "ar": "وعاء ضيق",
+          "en": "Narrow container"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "سطح الماء أقل ارتفاعًا",
+            "en": "The water level is lower"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "سطح الماء أعلى",
+            "en": "The water level is higher"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ينقل المربي نفس الماء بين وعاءين شفافين مختلفي العرض. لا نزيد كمية الماء.",
+        "en": "An adult transfers the same water between two clear containers of different widths. Do not add water."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-container",
+      "frames": [
+        {
+          "ar": "نضع قليلًا من الماء في وعاء عريض.",
+          "en": "We put a little water in a wide container."
+        },
+        {
+          "ar": "نلاحظ مستوى الماء في الوعاء العريض.",
+          "en": "We notice the water level in the wide container."
+        },
+        {
+          "ar": "ننقل الماء نفسه إلى وعاء ضيق.",
+          "en": "We transfer the same water into a narrow container."
+        },
+        {
+          "ar": "ارتفع مستوى الماء دون إضافة ماء.",
+          "en": "The water level rose without adding water."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة وعاء عريض؟",
+          "en": "What did you notice with wide container?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة وعاء ضيق؟",
+          "en": "What did you notice with narrow container?"
+        }
+      ]
+    },
+    {
+      "id": "droplet",
+      "model_kind": "story",
+      "scene_key": "droplet",
+      "audio_key": "droplet",
+      "catalog_level": 1,
+      "title": {
+        "ar": "قطرة على الورق والبلاستيك",
+        "en": "A drop on paper and plastic"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "ورق جاف",
+          "en": "Dry paper"
+        },
+        {
+          "ar": "لوح بلاستيك",
+          "en": "Plastic sheet"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "انتشرت بقعة مبللة",
+            "en": "A wet patch spread"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقيت قطرة بارزة",
+            "en": "A raised drop remained"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ضع قطرة ماء على ورق وقطرة مماثلة على بلاستيك آمن فوق صينية.",
+        "en": "Place a drop on paper and a matching drop on safe plastic over a tray."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-droplet",
+      "frames": [
+        {
+          "ar": "نضع قطرة ماء على الورق.",
+          "en": "We put a water drop on paper."
+        },
+        {
+          "ar": "انتشرت بقعة مبللة على الورق.",
+          "en": "A wet patch spread on the paper."
+        },
+        {
+          "ar": "نضع قطرة ماء على البلاستيك.",
+          "en": "We put a water drop on plastic."
+        },
+        {
+          "ar": "بقيت القطرة بارزة على البلاستيك.",
+          "en": "The drop remained raised on the plastic."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ورق جاف؟",
+          "en": "What did you notice with dry paper?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة لوح بلاستيك؟",
+          "en": "What did you notice with plastic sheet?"
+        }
+      ]
+    },
+    {
+      "id": "fan",
+      "model_kind": "story",
+      "scene_key": "fan",
+      "audio_key": "fan",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أحرك الهواء بالورق",
+        "en": "I move air with paper"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "الورق ساكن",
+          "en": "Paper held still"
+        },
+        {
+          "ar": "أحرك الورق",
+          "en": "Paper moving"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي الشريط ساكنًا",
+            "en": "The ribbon stayed still"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "تحرك الشريط",
+            "en": "The ribbon moved"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يحرك المربي مروحة ورقية كبيرة أمام شريط قماش مثبت. لا أجهزة كهربائية أو خيوط طويلة.",
+        "en": "An adult moves a large paper fan in front of a secured fabric ribbon. No electrical devices or long strings."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-fan",
+      "frames": [
+        {
+          "ar": "نمسك المروحة الورقية ساكنة.",
+          "en": "We hold the paper fan still."
+        },
+        {
+          "ar": "بقي شريط القماش ساكنًا.",
+          "en": "The fabric ribbon stayed still."
+        },
+        {
+          "ar": "نحرك المروحة الورقية أمام الشريط.",
+          "en": "We move the paper fan in front of the ribbon."
+        },
+        {
+          "ar": "حرك الهواء شريط القماش.",
+          "en": "The moving air moved the fabric ribbon."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة الورق ساكن؟",
+          "en": "What did you notice with paper held still?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة أحرك الورق؟",
+          "en": "What did you notice with paper moving?"
+        }
+      ]
+    },
+    {
+      "id": "tracks",
+      "model_kind": "story",
+      "scene_key": "tracks",
+      "audio_key": "tracks",
+      "catalog_level": 1,
+      "title": {
+        "ar": "آثار عجلات السيارة",
+        "en": "Toy car wheel tracks"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "سيارة بعجلات ناعمة",
+          "en": "Smooth wheels"
+        },
+        {
+          "ar": "سيارة بعجلات منقوشة",
+          "en": "Textured wheels"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "آثار ناعمة",
+            "en": "Smooth tracks"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "آثار منقوشة",
+            "en": "Textured tracks"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مرر سيارتي لعبة كبيرتين فوق صلصال مناسب للعمر. نظف اليدين بعد اللعب.",
+        "en": "Roll two large toy cars over age-appropriate dough. Clean hands after play."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-tracks",
+      "frames": [
+        {
+          "ar": "نمرر العجلات الناعمة فوق الصلصال.",
+          "en": "We roll smooth wheels over dough."
+        },
+        {
+          "ar": "تركت العجلات آثارًا ناعمة.",
+          "en": "The wheels left smooth tracks."
+        },
+        {
+          "ar": "نمرر العجلات المنقوشة فوق الصلصال.",
+          "en": "We roll textured wheels over dough."
+        },
+        {
+          "ar": "تركت العجلات آثارًا منقوشة.",
+          "en": "The wheels left textured tracks."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة سيارة بعجلات ناعمة؟",
+          "en": "What did you notice with smooth wheels?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة سيارة بعجلات منقوشة؟",
+          "en": "What did you notice with textured wheels?"
+        }
+      ]
+    },
+    {
+      "id": "leaf-print",
+      "model_kind": "story",
+      "scene_key": "leaf-print",
+      "audio_key": "leaf-print",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أطبع شكل الورقة",
+        "en": "I print a leaf pattern"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "ورقة نبات كاملة",
+          "en": "Whole leaf"
+        },
+        {
+          "ar": "طبعة الورقة",
+          "en": "Leaf print"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت ورقة نبات",
+            "en": "I saw a leaf"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت خطوط الورقة",
+            "en": "I saw the leaf lines"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يختار المربي ورقة نبات نظيفة غير مهيجة. اضغطها في صلصال ثم ارفعها. لا تذوق.",
+        "en": "An adult selects a clean non-irritating leaf. Press it into dough and lift it. No tasting."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-leaf-print",
+      "frames": [
+        {
+          "ar": "نلاحظ ورقة النبات وخطوطها.",
+          "en": "We look at a leaf and its lines."
+        },
+        {
+          "ar": "هذه ورقة النبات قبل الطباعة.",
+          "en": "This is the leaf before printing."
+        },
+        {
+          "ar": "نضغط الورقة في الصلصال ثم نرفعها.",
+          "en": "We press the leaf into dough and lift it."
+        },
+        {
+          "ar": "بقيت خطوط الورقة مطبوعة في الصلصال.",
+          "en": "The leaf lines remained printed in the dough."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ورقة نبات كاملة؟",
+          "en": "What did you notice with whole leaf?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة طبعة الورقة؟",
+          "en": "What did you notice with leaf print?"
+        }
+      ]
+    },
+    {
+      "id": "blocks",
+      "model_kind": "story",
+      "scene_key": "blocks",
+      "audio_key": "blocks",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أبني وأفكك",
+        "en": "I build and take apart"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "مكعبات متفرقة",
+          "en": "Separate blocks"
+        },
+        {
+          "ar": "مكعبات في برج",
+          "en": "Blocks in a tower"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت قطعًا متفرقة",
+            "en": "I saw separate pieces"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت برجًا",
+            "en": "I saw a tower"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم مكعبات إسفنج كبيرة. ابن برجًا قصيرًا ثم فككه برفق.",
+        "en": "Use large foam blocks. Build a short tower and take it apart gently."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-blocks",
+      "frames": [
+        {
+          "ar": "نضع المكعبات منفصلة.",
+          "en": "We put the blocks separately."
+        },
+        {
+          "ar": "نرى قطعًا متفرقة على الطاولة.",
+          "en": "We see separate pieces on the table."
+        },
+        {
+          "ar": "نركب المكعبات فوق بعضها.",
+          "en": "We stack the blocks."
+        },
+        {
+          "ar": "المكعبات نفسها أصبحت برجًا.",
+          "en": "The same blocks became a tower."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة مكعبات متفرقة؟",
+          "en": "What did you notice with separate blocks?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة مكعبات في برج؟",
+          "en": "What did you notice with blocks in a tower?"
+        }
+      ]
+    },
+    {
+      "id": "shiny",
+      "model_kind": "story",
+      "scene_key": "shiny",
+      "audio_key": "shiny",
+      "catalog_level": 1,
+      "title": {
+        "ar": "سطح لامع وسطح مطفي",
+        "en": "Shiny and matte surfaces"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "سطح لامع",
+          "en": "Shiny surface"
+        },
+        {
+          "ar": "سطح مطفي",
+          "en": "Matte surface"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت انعكاسًا أوضح",
+            "en": "I saw a clearer reflection"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "لم أر انعكاسًا واضحًا",
+            "en": "I saw no clear reflection"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "استخدم لوحًا عاكسًا آمنًا ولوحًا مطفيًا. قرّب لعبة ملونة دون توجيه ضوء قوي للعين.",
+        "en": "Use a safe reflective sheet and a matte sheet. Bring a colorful toy close. No strong light toward eyes."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-shiny",
+      "frames": [
+        {
+          "ar": "نضع لعبة أمام اللوح اللامع.",
+          "en": "We put a toy in front of the shiny sheet."
+        },
+        {
+          "ar": "ظهر انعكاس اللعبة على اللوح اللامع.",
+          "en": "The toy reflection appeared on the shiny sheet."
+        },
+        {
+          "ar": "نضع اللعبة أمام اللوح المطفي.",
+          "en": "We put the toy in front of the matte sheet."
+        },
+        {
+          "ar": "لم يظهر انعكاس واضح على اللوح المطفي.",
+          "en": "No clear reflection appeared on the matte sheet."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة سطح لامع؟",
+          "en": "What did you notice with shiny surface?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة سطح مطفي؟",
+          "en": "What did you notice with matte surface?"
+        }
+      ]
+    },
+    {
+      "id": "funnel",
+      "model_kind": "story",
+      "scene_key": "funnel",
+      "audio_key": "funnel",
+      "catalog_level": 1,
+      "title": {
+        "ar": "أوجه الماء بالقمع",
+        "en": "I guide water with a funnel"
+      },
+      "question": {
+        "ar": "ماذا يحدث؟ شاهد ثم اختر ما لاحظت.",
+        "en": "What happens? Watch, then choose what you noticed."
+      },
+      "changed_variable": {
+        "ar": "نغيّر الحالة الظاهرة في المشهد.",
+        "en": "We change the condition shown in the scene."
+      },
+      "held_constants": {
+        "ar": "نستخدم الأدوات نفسها ونغيّر شيئًا واحدًا.",
+        "en": "Use the same equipment and change one thing."
+      },
+      "conditions": [
+        {
+          "ar": "قمع فوق الكوب",
+          "en": "Funnel above the cup"
+        },
+        {
+          "ar": "قمع بجانب الكوب",
+          "en": "Funnel beside the cup"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "وصل الماء للكوب",
+            "en": "Water reached the cup"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "وصل الماء للصينية",
+            "en": "Water reached the tray"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يصب المربي قليلًا من الماء في قمع كبير فوق صينية. غيّر موضع القمع فقط.",
+        "en": "An adult pours a little water through a large funnel over a tray. Change only the funnel position."
+      },
+      "model_rule": {
+        "ar": "هذه مشاهد توضيحية مصممة. ملاحظتك في الواقع قد تختلف.",
+        "en": "These are designed illustrative scenes. Your real observation may differ."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level1-funnel",
+      "frames": [
+        {
+          "ar": "نضع القمع فوق الكوب ونصب قليلًا من الماء.",
+          "en": "We put the funnel above the cup and pour a little water."
+        },
+        {
+          "ar": "وصل الماء من القمع إلى الكوب.",
+          "en": "Water passed through the funnel into the cup."
+        },
+        {
+          "ar": "نحرك القمع بجانب الكوب فوق الصينية.",
+          "en": "We move the funnel beside the cup above the tray."
+        },
+        {
+          "ar": "وصل الماء إلى الصينية خارج الكوب.",
+          "en": "Water reached the tray outside the cup."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قمع فوق الكوب؟",
+          "en": "What did you notice with funnel above the cup?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة قمع بجانب الكوب؟",
+          "en": "What did you notice with funnel beside the cup?"
+        }
+      ]
     }
   ],
   "guides": {
     "library": {
-      "ar": "اختر صورة تجربة. نتوقع ثم نجرّب ونلاحظ.",
-      "en": "Choose an experiment picture. Predict, try and observe."
+      "ar": "اختر صورة تجربة. شاهد المشاهد ثم اختر ما لاحظت.",
+      "en": "Choose an experiment picture. Watch the scenes, then choose what you noticed."
     },
     "setup": {
       "ar": "اختر النموذج على الشاشة، أو اطلب من المربي تجهيز التجربة الواقعية.",
@@ -552,5 +2490,43 @@
   "languages": [
     "ar",
     "en"
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "title": {
+        "ar": "ألاحظ وأكتشف",
+        "en": "Notice and discover"
+      },
+      "age": {
+        "ar": "4–5 سنوات تقريبًا",
+        "en": "About ages 4–5"
+      },
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": {
+        "ar": "أجرّب وأقارن",
+        "en": "Try and compare"
+      },
+      "age": {
+        "ar": "5–6 سنوات تقريبًا",
+        "en": "About ages 5–6"
+      },
+      "available": false
+    },
+    {
+      "id": 3,
+      "title": {
+        "ar": "أبني وأبحث",
+        "en": "Build and investigate"
+      },
+      "age": {
+        "ar": "6–8 سنوات تقريبًا",
+        "en": "About ages 6–8"
+      },
+      "available": false
+    }
   ]
 }

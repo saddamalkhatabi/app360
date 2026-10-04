@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 4,
+  "version": 5,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر صورة تجربة ← شغّل المشاهد وأوقفها أو تنقل بينها بحرية ← اختر ما لاحظته في نفس الشاشة ← احفظ اكتشافك أو أعد اللعب. الشرح والتجربة الواقعية والقياس في أدوات المربي.",
+  "practice_model_ar": "اختر تجربة المستوى الأول ← شاهد المشاهد ← اسمع الحالة والسؤال واختر ملاحظتك ← انتقل بضغط زر إلى الحالة الأخرى ← راجع الملاحظتين واحفظ اكتشافك.",
   "blueprint_path": "apps/4-8/wonder-experiment-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/wonder-experiment-lab/PROMPT_AR.md",
   "branding": {
@@ -59,28 +59,41 @@
   "learning_levels": [
     {
       "level": 1,
-      "age_hint": "4-5"
+      "age_hint": "4-5",
+      "ready_count": 20
     },
     {
       "level": 2,
-      "age_hint": "5-6"
+      "age_hint": "5-6",
+      "ready_count": 0
     },
     {
       "level": 3,
-      "age_hint": "6-7"
-    },
-    {
-      "level": 4,
-      "age_hint": "7-8"
+      "age_hint": "6-8",
+      "ready_count": 0
     }
   ],
   "ready_experiences": [
-    "paper",
-    "ramp",
     "float",
-    "shadow",
-    "plant",
-    "absorb"
+    "absorb",
+    "roll",
+    "transparent",
+    "shadow-basic",
+    "mirror",
+    "sponge",
+    "paper-air",
+    "clay",
+    "elastic",
+    "push",
+    "tower",
+    "container",
+    "droplet",
+    "fan",
+    "tracks",
+    "leaf-print",
+    "blocks",
+    "shiny",
+    "funnel"
   ],
   "coach_patterns": {
     "profile_scoped": true,
@@ -94,16 +107,16 @@
   },
   "resource_index": "resources/early-child-market-objects/manifest.json",
   "photographic_scenes": {
-    "experiences": 6,
-    "frames": 24,
+    "experiences": 24,
+    "frames": 96,
     "format": "JPEG",
     "atlas_size": [
       1024,
       1024
     ],
-    "total_image_bytes": 587280,
+    "total_image_bytes": 2100849,
     "provenance": "AI-generated illustrative scenes",
-    "archive": "assets/scenes/wonder-scenes-v1.zip",
+    "archive": "assets/scenes/wonder-scenes-level1.zip",
     "selection": "direct-one-screen-story-player",
     "offline": true,
     "workflow_stages": [
@@ -113,6 +126,10 @@
       "review",
       "gallery"
     ],
-    "workflow": "play-pause-observe-save-repeat"
+    "workflow": "watch-condition-question-choice-explicit-next-review-save"
+  },
+  "support_levels": {
+    "count": 4,
+    "independent_of_content_level": true
   }
 }

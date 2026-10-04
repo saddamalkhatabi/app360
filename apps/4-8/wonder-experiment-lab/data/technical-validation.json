@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "app_id": "a4-wonder-lab",
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "channel": "preview",
   "production_changed": false,
-  "unit_regression_checks": 82,
-  "new_domain_checks": 18,
+  "unit_regression_checks": 19,
+  "new_domain_checks": 19,
   "browser": {
     "passed": 16,
     "checks": [
@@ -27,7 +27,8 @@
       "Isolated complete PWA bundle opens offline with images and MP3, and a worker update preserves the draft"
     ],
     "pageErrors": [],
-    "externalProductionChanged": false
+    "externalProductionChanged": false,
+    "evidence_date": "2026-10-04"
   },
   "family": {
     "version": 6,
@@ -47,22 +48,26 @@
     "pageErrors": [],
     "transport": "real WebSocket relay",
     "audio": "real MP3 playback",
-    "productionChanged": false
+    "productionChanged": false,
+    "evidence_date": "2026-10-03",
+    "rerun_in_final_pass": false
   },
   "assets": {
-    "authored_clips": 156,
-    "authored_mp3_bytes": 4690632,
+    "authored_clips": 760,
+    "authored_mp3_bytes": 17287320,
     "borrowed_images": 7,
     "borrowed_name_clips": 14,
     "borrowed_numeral_clips": 34,
-    "offline_urls": 270,
+    "offline_urls": 892,
     "source_hashes": "all matching",
     "cue_source": "Actual recording WordBoundary; punctuation tokens have no fabricated cue",
-    "decoded_duration_check": "all 156 MP3 files decoded; ffprobe durations match cue records",
-    "photographic_scene_atlases": 6,
-    "photographic_scene_frames": 24,
-    "photographic_scene_bytes": 587280,
-    "scene_zip_bytes": 587757
+    "decoded_duration_check": "All 760 MP3 duration records match ffprobe; every cue is ordered and within its recording",
+    "photographic_scene_atlases": 24,
+    "photographic_scene_frames": 96,
+    "photographic_scene_bytes": 2100849,
+    "scene_zip_bytes": 2081708,
+    "level1_photographic_frames": 80,
+    "scene_archive_matches_unpacked_files": true
   },
   "viewports": [
     [
@@ -135,7 +140,8 @@
       "gallery"
     ],
     "six_complete_flows_with_loaded_images": true,
-    "release": "preview-3"
+    "release": "preview-3",
+    "historical_release_evidence": true
   },
   "simple_player": {
     "release": "preview-4",
@@ -155,6 +161,54 @@
     "save_restore_export": true,
     "duplicate_save_prevented": true,
     "coach_notebook_preserved": true,
-    "physical_device_pending": true
+    "physical_device_pending": true,
+    "historical_release_evidence": true
+  },
+  "release": "preview-5-level1",
+  "level1": {
+    "release": "preview-5-level1",
+    "ready_experiences": 20,
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "content_levels_2_3_enabled": false,
+    "browser": {
+      "passed": 7,
+      "checks": [
+        "Twenty complete child activities, stable answer, explicit condition switch, photo sync and save at 360 ar",
+        "Twenty complete child activities, stable answer, explicit condition switch, photo sync and save at 360 en",
+        "Twenty complete child activities, stable answer, explicit condition switch, photo sync and save at 768 ar",
+        "Twenty complete child activities, stable answer, explicit condition switch, photo sync and save at 768 en",
+        "Real MP3 plays for every condition prompt and frame with matching highlighted text in both languages",
+        "Automatic sequence pause/resume, condition replay and mute remain usable",
+        "Full PWA bundle including level-one assets works offline with retained observation"
+      ],
+      "pageErrors": []
+    },
+    "observation_followup": "PASS compact layout, explicit next, stale-answer rejection, restored choice, new coach template and blocked-audio fallback",
+    "assets_regenerated_in_final_pass": false,
+    "real_mp3_and_word_cues": true,
+    "offline_with_retained_observation": true,
+    "physical_child_and_bigtab_test": false
+  },
+  "final_pass": {
+    "date": "2026-10-04",
+    "model_tests": 19,
+    "notebook_browser_groups": 16,
+    "level1_browser_groups": 7,
+    "page_errors": [],
+    "es5_files": [
+      "app.js",
+      "src/model.js",
+      "src/visuals.js",
+      "data/content.js",
+      "sw.js"
+    ],
+    "blueprint_stale_files": 0,
+    "next_app_requirements": "passed",
+    "scope": "local source restored from 248d8c3b5a7145cdccf6d2e081c3478457ed280d; preview branch only",
+    "production_changed": false,
+    "public_smoke_test": "To be recorded in the publication handoff after the branch update"
   }
 }
