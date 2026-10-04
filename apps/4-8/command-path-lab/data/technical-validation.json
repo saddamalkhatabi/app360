@@ -84,5 +84,24 @@
       "ES5"
     ],
     "physical_device_validation": "pending"
+  },
+  "responsiveness_update": {
+    "version": "preview-4",
+    "passed": [
+      "held audio request cannot lock direct input",
+      "second tap below 1500ms test ceiling while media stalled",
+      "no away audio after direct command",
+      "away only on explicit replay",
+      "interrupt direct multi-command sequence at observed position",
+      "debounced storage flushed on reload",
+      "first SW claim does not reload document",
+      "controller update waits for explicit update button",
+      "offline reload preserves draft",
+      "previous full UI and touch suites"
+    ],
+    "audio_start_timeout_ms": 2500,
+    "save_debounce_ms": 120,
+    "cache_parallel_requests": 2,
+    "device_specific_lag": "not measured on physical user device"
   }
 }

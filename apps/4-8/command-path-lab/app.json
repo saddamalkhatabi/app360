@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 3,
+  "version": 4,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -23,7 +23,7 @@
   "runtime_profile": "legacy-web",
   "depth": "advanced",
   "offline_mode": "offline-first",
-  "update_policy": "service-worker-auto-activation",
+  "update_policy": "background-cache-explicit-reload",
   "capabilities": [
     "storage.local",
     "pwa.offline",
@@ -87,6 +87,7 @@
     "drag_path": true,
     "double_tap_robot": "turn-right-in-place",
     "map_arrows": "explicit-turns-then-forward",
-    "prediction": "optional-separate-mode"
+    "prediction": "optional-separate-mode",
+    "interruptible_manual_input": true
   }
 }
