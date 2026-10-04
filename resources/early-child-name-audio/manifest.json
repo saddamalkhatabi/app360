@@ -1,12 +1,29 @@
 {
-  "schema_version":"1.0",
-  "id":"early-child-name-audio-v1",
-  "version":1,
-  "type":"audio-pack",
-  "status":"shared",
-  "source_owner":"apps/1-4/drawing-writing-foundations/audio",
-  "promoted_on":"2026-09-27",
-  "consumers":["a1-drawing-writing","a1-tangram"],
-  "paths":{"registry":"audio/registry.json","legacy_pcm":"audio-pcm-v18.js","per_name_pcm":"audio/pcm/"},
-  "policy":{"recorded_cheers_for_success_only":true,"wrong_answer_speech":"neutral","fallbacks":["recorded-file","embedded-pcm","device-tts","tone"]}
+  "schema_version": "1.0",
+  "id": "early-child-name-audio-v1",
+  "version": 1,
+  "type": "audio-pack",
+  "status": "shared",
+  "source_owner": "apps/1-4/drawing-writing-foundations/audio",
+  "promoted_on": "2026-09-27",
+  "consumers": [
+    "a1-drawing-writing",
+    "a1-tangram",
+    "a4-command-path"
+  ],
+  "paths": {
+    "registry": "audio/registry.json",
+    "legacy_pcm": "audio-pcm-v18.js",
+    "per_name_pcm": "audio/pcm/"
+  },
+  "policy": {
+    "recorded_cheers_for_success_only": true,
+    "wrong_answer_speech": "neutral",
+    "fallbacks": [
+      "recorded-file",
+      "embedded-pcm",
+      "device-tts",
+      "tone"
+    ]
+  }
 }

@@ -48,6 +48,7 @@
       (m.mode==='absolute'?['n','e','s','w']:['f','l','r']).forEach(function(op){var d=dirs[q.p.dir],p=copy(q.p);if(op==='l')p.dir=(p.dir+3)%4;else if(op==='r')p.dir=(p.dir+1)%4;else {var dir=op==='f'?p.dir:absolute[op];p.x+=dirs[dir][0];p.y+=dirs[dir][1];p.dir=dir;}if(!blocked(m,p))queue.push({p:p,commands:q.commands.concat([{op:op}])});});
     }return null;
   }
+  function observedPrefix(previous,next){var i=0;while(i<previous.length&&i<next.length&&JSON.stringify(previous[i])===JSON.stringify(next[i]))i++;return i;}
   function blank(){return {schema_version:1,app_id:'a4-command-path',language:'ar',sound:true,level:1,view:'library',draft:null,saved:[],maps:[],recent:[],note:'',support:'together',reading_focus:true};}
   function start(m,profile){m=map(m);return {id:'path-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),profile_ref:profile||'local-guest',map:m,commands:copy(m.starter),prediction:[],prediction_skipped:false,phase:'predict',cursor:0,result:null,history:[],reflection:'',assistance:'together',saved:false};}
   function validateDraft(d,profile) {
@@ -65,5 +66,5 @@
   function publicArtifact(d){var n=artifact(d);delete n.profile_ref;return n;}
   function exported(s){return {schema_version:1,app_id:'a4-command-path',language:s.language,draft:s.draft?publicArtifact(s.draft):null,saved:s.saved.map(publicArtifact),maps:s.maps.map(map),sound:s.sound,level:s.level};}
   function importData(value,profile){var o=copy(value);o.note='';o.recent=[];if(!o.maps)o.maps=[];if(!o.saved)o.saved=[];var n=restore(o,profile);n.saved.forEach(function(d,i){d.id='import-'+Date.now()+'-'+i;d.saved=true;});if(n.draft){n.draft.id='import-draft-'+Date.now();n.draft.saved=false;}return n;}
-  return {copy:copy,equal:equal,map:map,program:program,expand:expand,execute:execute,solve:solve,blank:blank,start:start,restore:restore,artifact:artifact,exported:exported,importData:importData,blocked:blocked};
+  return {copy:copy,observedPrefix:observedPrefix,equal:equal,map:map,program:program,expand:expand,execute:execute,solve:solve,blank:blank,start:start,restore:restore,artifact:artifact,exported:exported,importData:importData,blocked:blocked};
 }));

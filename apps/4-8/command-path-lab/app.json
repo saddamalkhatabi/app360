@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -77,5 +77,11 @@
     ],
     "timings": "actual-word-boundaries"
   },
-  "resource_index": "resources/early-child-market-objects/manifest.json"
+  "resource_index": "resources/early-child-market-objects/manifest.json",
+  "direct_execution": {
+    "on_command": true,
+    "full_replay": true,
+    "name_cheer_resource": "resources/early-child-name-audio/audio/registry.json",
+    "fallback": "google-tts-then-device-then-recorded-arrival"
+  }
 }

@@ -5,3 +5,10 @@
 
 /* Spacing fallback for browsers without flex gap. */
 .row>button,.controls>button,.palette>button,.designer-tools>button,.targets>button{margin:3px}.fields input{max-width:100%;border:1px solid #bbcdd0;border-radius:12px;padding:12px;width:100%;min-height:48px}
+
+.celebration{position:fixed;inset:0;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:11000;overflow:hidden}.celebration-badge{position:absolute;top:16px;left:8%;right:8%;max-width:620px;margin:auto;text-align:center;background:#fff3cb;color:#203b43;border:3px solid #e3ae43;border-radius:20px;padding:18px;font-size:24px;font-weight:bold;box-shadow:0 5px 25px #b7c7c9}.confetti-piece{position:absolute;top:-20px;width:12px;height:18px;border-radius:3px;animation:command-confetti 2.6s ease-out both;-webkit-animation:command-confetti 2.6s ease-out both}
+@keyframes command-confetti{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(95vh) rotate(650deg);opacity:0}}@-webkit-keyframes command-confetti{0%{-webkit-transform:translateY(0) rotate(0deg);opacity:1}100%{-webkit-transform:translateY(95vh) rotate(650deg);opacity:0}}
+@media(max-width:600px){.live-work>.map-side{background:white;padding-top:4px;padding-bottom:4px;align-self:stretch}.live-work>.map-side .board{max-width:272px}.live-work>.map-side .legend,.live-work>.map-side .phase-line{display:none}.live-work>.map-side .controls{justify-content:center;margin:4px 0}.celebration-badge{font-size:20px;padding:12px}.live-note{margin-top:4px}}
+@media(prefers-reduced-motion:reduce){.confetti-piece{display:none}}@media print{.celebration{display:none!important}}
+
+.spoken{pointer-events:none}.spoken button{pointer-events:auto}

@@ -2,6 +2,8 @@
 
 المستودع saddamalkhatabi/app360، فرع family-school-360-preview فقط. لا تعدل main أو Railway.
 
+تحديث preview-2: إضافة الأوامر تحرك الروبوت مباشرة مع النطق، وزر يعيد المسار من البداية، واحتفال بالاسم من مورد التسجيل المشترك مع بديل Google وصوت الجهاز وتسجيل وصول عام. الاختبارات الجديدة في tools/test-live-browser.cjs.
+
 التطبيق التالي من مجموعة 4–8 أصبح apps/4-8/command-path-lab، به 36 خريطة في ثلاثة مستويات، 68 تسجيلًا عربيًا/إنجليزيًا مع توقيت حقيقي، صور المقاصد المشتركة، مصمم ألغاز وحفظ وتصدير واستيراد وطباعة وحزمة دون اتصال. سجل الأدلة في QA_AR.md وdata/technical-validation.json والاختبارات داخل tools.
 
 رابط الفرع: https://raw.githack.com/saddamalkhatabi/app360/family-school-360-preview/apps/4-8/command-path-lab/index.html
