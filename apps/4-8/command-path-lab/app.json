@@ -9,8 +9,8 @@
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
   "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-curiosity-science-and-first-maker-projects",
@@ -29,12 +29,53 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.recorded"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر خريطة صغيرة وتوقع الطريق بالإشارة ← رتب أوامر لمس أو أزرار أو بطاقات مطبوعة ← شغل خطوة خطوة وقارن المتوقع بما حدث ← حدد أول خطوة تحتاج تعديلًا ثم احفظ لغزًا لصديق",
   "blueprint_path": "apps/4-8/command-path-lab/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/command-path-lab/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/command-path-lab/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#287f91",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/command-path-lab/icon-192.png",
+      "apps/4-8/command-path-lab/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "technical-preview-family-pilot-pending",
+  "launch_path": "apps/4-8/command-path-lab/launch.html",
+  "links_path": "apps/4-8/command-path-lab/links.json",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-command-path:schema-1:<profile>"
+  },
+  "learning_levels": [
+    {
+      "level": 1,
+      "ready_count": 12
+    },
+    {
+      "level": 2,
+      "ready_count": 12
+    },
+    {
+      "level": 3,
+      "ready_count": 12
+    }
+  ],
+  "audio": {
+    "clips": 68,
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "timings": "actual-word-boundaries"
+  },
+  "resource_index": "resources/early-child-market-objects/manifest.json"
 }

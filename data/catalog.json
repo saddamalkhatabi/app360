@@ -1863,7 +1863,7 @@
       "slug": "command-path-lab",
       "title_ar": "مسار الأوامر: أخطط وأصحح",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "build_order": 7,
@@ -1890,7 +1890,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.recorded"
       ],
       "bundles": [
         "static-core"
@@ -1902,21 +1903,21 @@
           "relationship": "supports",
           "rationale_ar": "تخطيط إجراء وتجريبه وتصحيح خطأه",
           "evidence_ar": "أثر أوامر قابل للمراجعة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-early-math-patterns-and-problem-solving",
           "relationship": "supports",
           "rationale_ar": "تتابع وأنماط واتجاهات ضمن خريطة",
           "evidence_ar": "تفسير المسار",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "تلميح عن أول اختلاف دون حل كامل",
           "evidence_ar": "محاولة قبل وبعد التلميح",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -1951,7 +1952,7 @@
           "loop_count_optional",
           "custom_map"
         ],
-        "boundary_ar": "خطة بناء فقط. النسخة الأولى بمحتوى محلي مراجع، بلا ذكاء اصطناعي إلزامي أو رفع تلقائي أو مشتريات؛ الهوية السحابية ومشاركة الأسرة امتداد لاحق بعقود المنصة.",
+        "boundary_ar": "نسخة تقنية للتجربة العائلية: محتوى محلي بالعربية والإنجليزية، دون ذكاء اصطناعي إلزامي أو رفع تلقائي أو مشتريات.",
         "reference_ids": [
           "naeyc-dap"
         ],
@@ -1998,7 +1999,12 @@
       "blueprint_path": "apps/4-8/command-path-lab/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/command-path-lab/PROMPT_AR.md",
       "manifest": "apps/4-8/command-path-lab/app.json",
-      "cover": "assets/covers/a4-command-path.svg"
+      "cover": "apps/4-8/command-path-lab/icon.svg",
+      "href": "apps/4-8/command-path-lab/index.html?v=1",
+      "launch_path": "apps/4-8/command-path-lab/launch.html",
+      "links_path": "apps/4-8/command-path-lab/links.json",
+      "release_channel": "preview",
+      "acceptance_state": "technical-preview-family-pilot-pending"
     },
     {
       "id": "a4-cooperate",

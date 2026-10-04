@@ -1,0 +1,1284 @@
+{
+  "schema_version": 1,
+  "coordinate_frame": "screen-fixed; x right, y down; robot direction 0 north, 1 east, 2 south, 3 west; never mirrored by RTL",
+  "levels": [
+    {
+      "id": 1,
+      "title": {
+        "ar": "أرتب الطريق",
+        "en": "Arrange the route"
+      },
+      "age": "4–5"
+    },
+    {
+      "id": 2,
+      "title": {
+        "ar": "أدور وأصحح",
+        "en": "Turn and debug"
+      },
+      "age": "5–6"
+    },
+    {
+      "id": 3,
+      "title": {
+        "ar": "أكرر وأبتكر",
+        "en": "Repeat and invent"
+      },
+      "age": "6–8"
+    }
+  ],
+  "phrases": {
+    "library": {
+      "ar": "اخْتَرْ خَرِيطَةً، ثُمَّ سَاعِدِ الرُّوبُوتَ عَلَى الْوُصُولِ.",
+      "en": "Choose a map, then help the robot reach its destination."
+    },
+    "predict": {
+      "ar": "كَيْفَ سَيَسِيرُ الرُّوبُوتُ؟ الْمَسِ الْمُرَبَّعَ التَّالِي لِتَرْسُمَ تَوَقُّعَكَ.",
+      "en": "How will the robot travel? Touch the next square to draw your prediction."
+    },
+    "plan": {
+      "ar": "الْمَسِ الْأَوَامِرَ لِتَرْتِيبِ الطَّرِيقِ. ثُمَّ شَغِّلْ خُطْوَةً وَشَاهِدْ.",
+      "en": "Touch commands to build the route. Then run a step and watch."
+    },
+    "n": {
+      "ar": "إِلَى أَعْلَى الْخَرِيطَةِ.",
+      "en": "Move up the map."
+    },
+    "e": {
+      "ar": "إِلَى يَمِينِ الْخَرِيطَةِ.",
+      "en": "Move right on the map."
+    },
+    "s": {
+      "ar": "إِلَى أَسْفَلِ الْخَرِيطَةِ.",
+      "en": "Move down the map."
+    },
+    "w": {
+      "ar": "إِلَى يَسَارِ الْخَرِيطَةِ.",
+      "en": "Move left on the map."
+    },
+    "f": {
+      "ar": "تَقَدَّمْ إِلَى الْمُرَبَّعِ التَّالِي أَمَامَ الرُّوبُوتِ.",
+      "en": "Move to the next square in front of the robot."
+    },
+    "l": {
+      "ar": "دُرْ إِلَى يَسَارِكَ فِي مَكَانِكَ.",
+      "en": "Turn left in place."
+    },
+    "r": {
+      "ar": "دُرْ إِلَى يَمِينِكَ فِي مَكَانِكَ.",
+      "en": "Turn right in place."
+    },
+    "repeat": {
+      "ar": "كَرِّرْ هَذِهِ الْمَجْمُوعَةَ مِنَ الْأَوَامِرِ.",
+      "en": "Repeat this group of commands."
+    },
+    "if": {
+      "ar": "إِذَا كَانَ أَمَامَكَ حَاجِزٌ أَوْ حَافَّةٌ، دُرْ يَمِينًا. وَإِلَّا، تَقَدَّمْ.",
+      "en": "If there is a barrier or edge ahead, turn right. Otherwise, move forward."
+    },
+    "blocked": {
+      "ar": "تَوَقَّفْنَا عِنْدَ حَاجِزٍ أَوْ حَافَّةٍ. أَيُّ أَمْرٍ نُغَيِّرُ؟",
+      "en": "We stopped at a barrier or edge. Which command could we change?"
+    },
+    "arrived": {
+      "ar": "وَصَلْنَا. شَاهِدْ طَرِيقَكَ، ثُمَّ احْفَظْهُ إِنْ شِئْتَ.",
+      "en": "We arrived. Look at your route, then save it if you wish."
+    },
+    "away": {
+      "ar": "انْتَهَتِ الْأَوَامِرُ هُنَا. هَلْ نُضِيفُ أَمْرًا أَمْ نُغَيِّرُ أَمْرًا؟",
+      "en": "The commands ended here. Could we add a command or change one?"
+    },
+    "step": {
+      "ar": "نُجَرِّبُ أَمْرًا وَاحِدًا، ثُمَّ نَتَوَقَّفُ لِنَرَى.",
+      "en": "Try one command, then stop and look."
+    },
+    "paused": {
+      "ar": "تَوَقَّفْنَا. يَبْقَى طَرِيقُكَ مَحْفُوظًا لِتُكْمِلَ.",
+      "en": "We paused. Your route stays here so you can continue."
+    },
+    "saved": {
+      "ar": "حَفِظْنَا طَرِيقَكَ. يُمْكِنُكَ فَتْحُ نُسْخَةٍ وَتَجْرِبَةُ فِكْرَةٍ أُخْرَى.",
+      "en": "We saved your route. Open a copy to try another idea."
+    },
+    "hint": {
+      "ar": "شَاهِدْ أَوَّلَ مُرَبَّعٍ لَمْ يَسِرْ كَمَا تَوَقَّعْتَ. عَدِّلْ أَمْرًا وَجَرِّبْ.",
+      "en": "Look at the first square that differed from your prediction. Change a command and try again."
+    },
+    "predictSkip": {
+      "ar": "يُمْكِنُكَ أَنْ تَتَوَقَّعَ أَوْ تَكْتَشِفَ بِالْمُشَاهَدَةِ.",
+      "en": "You can predict first or discover by watching."
+    },
+    "designer": {
+      "ar": "اخْتَرِ الْبِدَايَةَ أَوِ الْمَقْصِدَ أَوِ الْحَاجِزَ، ثُمَّ الْمَسِ الْمُرَبَّعَ.",
+      "en": "Choose start, destination or barrier, then touch a square."
+    },
+    "start": {
+      "ar": "اخْتَرْ مُرَبَّعَ الْبِدَايَةِ.",
+      "en": "Choose the starting square."
+    },
+    "goal": {
+      "ar": "اخْتَرْ مُرَبَّعَ الْمَقْصِدِ.",
+      "en": "Choose the destination square."
+    },
+    "wall": {
+      "ar": "ضَعْ حَاجِزًا فِي مُرَبَّعٍ فَارِغٍ.",
+      "en": "Place a barrier in an empty square."
+    },
+    "erase": {
+      "ar": "الْمَسْ حَاجِزًا لِتُزِيلَهُ.",
+      "en": "Touch a barrier to remove it."
+    },
+    "demo": {
+      "ar": "شَاهِدْ هَذَا الْمِثَالَ. نُرَتِّبُ الْأَوَامِرَ ثُمَّ نُجَرِّبُ خُطْوَةً خُطْوَةً.",
+      "en": "Watch this separate example. Arrange the commands, then try them one step at a time."
+    },
+    "rotation": {
+      "ar": "مُقَدِّمَةُ الرُّوبُوتِ تَدُلُّ عَلَى اتِّجَاهِهِ. الدَّوَرَانُ يُغَيِّرُ اتِّجَاهَهُ دُونَ أَنْ يَنْتَقِلَ.",
+      "en": "The robot points in its facing direction. Turning changes its direction without changing its square."
+    },
+    "real": {
+      "ar": "ضَعْ بَطَاقَاتِ الْأَوَامِرِ عَلَى طَاوِلَةٍ أَوْ فِي مَسَاحَةٍ آمِنَةٍ مَعَ الْمُرَبِّي.",
+      "en": "Use command cards on a table or in a safe space with your coach."
+    },
+    "goal-book": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كِتَاب.",
+      "en": "Our destination on this map is the book."
+    },
+    "goal-ball": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كُرَة.",
+      "en": "Our destination on this map is the ball."
+    },
+    "goal-apple": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: تُفَّاح.",
+      "en": "Our destination on this map is the apple."
+    },
+    "goal-bear": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: دُبّ.",
+      "en": "Our destination on this map is the bear."
+    },
+    "goal-cat": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: قِطَّة.",
+      "en": "Our destination on this map is the cat."
+    },
+    "goal-car": {
+      "ar": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: سَيَّارَة.",
+      "en": "Our destination on this map is the car."
+    }
+  },
+  "maps": [
+    {
+      "id": "entry-book",
+      "size": 3,
+      "start": {
+        "x": 0,
+        "y": 1,
+        "dir": 1
+      },
+      "goal": {
+        "x": 2,
+        "y": 1
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى الكتاب",
+        "en": "To the book"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-1",
+      "size": 3,
+      "start": {
+        "x": 2,
+        "y": 1,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى كرة",
+        "en": "To the ball"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "ball",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-2",
+      "size": 3,
+      "start": {
+        "x": 0,
+        "y": 1,
+        "dir": 1
+      },
+      "goal": {
+        "x": 2,
+        "y": 1
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى تفاح",
+        "en": "To the apple"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-3",
+      "size": 3,
+      "start": {
+        "x": 1,
+        "y": 2,
+        "dir": 0
+      },
+      "goal": {
+        "x": 1,
+        "y": 0
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى دب",
+        "en": "To the bear"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "bear",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-4",
+      "size": 3,
+      "start": {
+        "x": 0,
+        "y": 1,
+        "dir": 1
+      },
+      "goal": {
+        "x": 2,
+        "y": 1
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى قطة",
+        "en": "To the cat"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-5",
+      "size": 3,
+      "start": {
+        "x": 2,
+        "y": 1,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [],
+      "title": {
+        "ar": "إلى سيارة",
+        "en": "To the car"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "car",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-6",
+      "size": 4,
+      "start": {
+        "x": 1,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 1,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "إلى كتاب",
+        "en": "To the book"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-7",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 1,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "title": {
+        "ar": "إلى كرة",
+        "en": "To the ball"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "ball",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-8",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 1
+      },
+      "goal": {
+        "x": 2,
+        "y": 2
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "title": {
+        "ar": "إلى تفاح",
+        "en": "To the apple"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-9",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 1,
+        "y": 2
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "إلى دب",
+        "en": "To the bear"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "bear",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-10",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 1
+      },
+      "goal": {
+        "x": 2,
+        "y": 2
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "title": {
+        "ar": "إلى قطة",
+        "en": "To the cat"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "entry-11",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 1,
+        "y": 2
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "title": {
+        "ar": "إلى سيارة",
+        "en": "To the car"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "car",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-0",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 2
+      },
+      "walls": [],
+      "title": {
+        "ar": "أمر ثم دوران",
+        "en": "Move, then turn"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-1",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 2
+      },
+      "walls": [],
+      "title": {
+        "ar": "حول الحاجز",
+        "en": "Around a barrier"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "ball",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-2",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 2
+      },
+      "walls": [],
+      "title": {
+        "ar": "أغير اتجاهي",
+        "en": "Change my direction"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-3",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 2
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أول أمر أعدله",
+        "en": "The first command I change"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "bear",
+      "challenge": "debug",
+      "starter": [
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        }
+      ]
+    },
+    {
+      "id": "turn-4",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "طريق آخر للمقصد",
+        "en": "Another route to the goal"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-5",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أدور في مكاني",
+        "en": "Turn in place"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "car",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-6",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أمر ثم دوران",
+        "en": "Move, then turn"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-7",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حول الحاجز",
+        "en": "Around a barrier"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "ball",
+      "challenge": "debug",
+      "starter": [
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "f"
+        }
+      ]
+    },
+    {
+      "id": "turn-8",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أغير اتجاهي",
+        "en": "Change my direction"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-9",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أول أمر أعدله",
+        "en": "The first command I change"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "bear",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-10",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 3,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "طريق آخر للمقصد",
+        "en": "Another route to the goal"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "turn-11",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 1
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أدور في مكاني",
+        "en": "Turn in place"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "car",
+      "challenge": "debug",
+      "starter": [
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "r"
+        },
+        {
+          "op": "f"
+        },
+        {
+          "op": "f"
+        }
+      ]
+    },
+    {
+      "id": "build-0",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [],
+      "title": {
+        "ar": "أكرر مجموعة أوامر",
+        "en": "Repeat a command group"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": [
+        {
+          "op": "r"
+        },
+        {
+          "op": "repeat",
+          "count": 3,
+          "body": [
+            {
+              "op": "f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-1",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [],
+      "title": {
+        "ar": "طريقان إلى المقصد",
+        "en": "Two routes to the goal"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "ball",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-2",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [],
+      "title": {
+        "ar": "أرى الحاجز وأقرر",
+        "en": "Look ahead and decide"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": [
+        {
+          "op": "if"
+        }
+      ]
+    },
+    {
+      "id": "build-3",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [],
+      "title": {
+        "ar": "أقصر البطاقات بالتكرار",
+        "en": "A shorter tape with repeats"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "bear",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-4",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أختبر فكرتي",
+        "en": "Test my idea"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-5",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "لغز لصديقي",
+        "en": "A puzzle for a friend"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "car",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-6",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أكرر مجموعة أوامر",
+        "en": "Repeat a command group"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "book",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-7",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "طريقان إلى المقصد",
+        "en": "Two routes to the goal"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "ball",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-8",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أرى الحاجز وأقرر",
+        "en": "Look ahead and decide"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "apple",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-9",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أقصر البطاقات بالتكرار",
+        "en": "A shorter tape with repeats"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "bear",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-10",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "أختبر فكرتي",
+        "en": "Test my idea"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "cat",
+      "challenge": "route",
+      "starter": []
+    },
+    {
+      "id": "build-11",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "لغز لصديقي",
+        "en": "A puzzle for a friend"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "car",
+      "challenge": "route",
+      "starter": []
+    }
+  ]
+}
