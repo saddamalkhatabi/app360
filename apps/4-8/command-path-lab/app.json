@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 5,
+  "version": 6,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -70,7 +70,7 @@
     }
   ],
   "audio": {
-    "clips": 118,
+    "clips": 298,
     "languages": [
       "ar",
       "en"
@@ -102,8 +102,9 @@
       "reset-puddle"
     ],
     "deterministic": true,
-    "knowledge_scenes": 12,
+    "knowledge_scenes": 72,
     "illustration_atlas": "assets/knowledge-atlas.jpg",
-    "completion": "name-cheer-then-knowledge"
+    "completion": "name-cheer-then-knowledge",
+    "knowledge_objects": 36
   }
 }

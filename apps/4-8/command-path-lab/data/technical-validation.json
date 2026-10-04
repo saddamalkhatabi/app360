@@ -132,5 +132,28 @@
       "ES5"
     ],
     "physical_device_test": "pending"
+  },
+  "knowledge_variety_update": {
+    "version": "preview-6",
+    "distinct_objects_per_mode": 36,
+    "distinct_objects_per_level": 12,
+    "knowledge_scenes": 72,
+    "audio_clips": 298,
+    "self_contained_vector_scenes": 30,
+    "validation": "passed",
+    "physical_device_test": "pending",
+    "passed": [
+      "72 reachable routes with varied destinations",
+      "36 distinct objects per mode and 12 per level",
+      "72 unique bilingual story texts",
+      "298 local audio clips",
+      "exact transcript word count and monotonic actual timing cues for every story",
+      "all 36 adventure UI routes",
+      "named cheer then knowledge without overlap",
+      "five viewports and 48px tiles",
+      "new SVG scene and actual Arabic story playback offline",
+      "ES5 runtime",
+      "shared legacy touch guard"
+    ]
   }
 }
