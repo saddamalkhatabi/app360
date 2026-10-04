@@ -4,7 +4,7 @@
   "date": "2026-10-04",
   "channel": "preview",
   "production_changed": false,
-  "unit_regression_checks": 19,
+  "unit_regression_checks": 22,
   "new_domain_checks": 19,
   "browser": {
     "passed": 16,
@@ -210,5 +210,95 @@
     "scope": "local source restored from 248d8c3b5a7145cdccf6d2e081c3478457ed280d; preview branch only",
     "production_changed": false,
     "public_smoke_test": "To be recorded in the publication handoff after the branch update"
+  },
+  "levels_2_3_final_pass": {
+    "date": "2026-10-04",
+    "release": "preview-6-all-levels",
+    "current_model_tests": 22,
+    "recovered_verification": {
+      "model_tests": 22,
+      "notebook_browser_groups": 16,
+      "all_levels_browser_groups": 7,
+      "completed_flows": {
+        "experiences": 60,
+        "languages": [
+          "ar",
+          "en"
+        ],
+        "widths": [
+          360,
+          768
+        ],
+        "count": 240
+      },
+      "audio_playback_sample_ids": [
+        "float",
+        "funnel",
+        "compare-magnet-paper",
+        "compare-paper-wick",
+        "build-triangle-brace",
+        "build-periscope"
+      ],
+      "authored_mp3_clips": 2040,
+      "authored_mp3_bytes": 47664240,
+      "offline_references": 2212,
+      "scene_atlases": 64,
+      "scene_frames": 256,
+      "child_frames": 240,
+      "image_bytes": 5005217,
+      "scene_zip_bytes": 4943100,
+      "all_mp3_duration_and_cues_audited": true,
+      "scene_zip_matches_all_files": true,
+      "actual_preview5_to_preview6_upgrade_passed": true,
+      "upgrade_preserved": [
+        "saved card evidence after schema normalization",
+        "pending draft id and first choice",
+        "language",
+        "one automatic reload",
+        "new level2 save",
+        "new level3 offline picture, MP3 and word tracking"
+      ],
+      "observation_followup": "passed",
+      "es5_files": [
+        "app.js",
+        "src/model.js",
+        "src/visuals.js",
+        "data/content.js",
+        "sw.js"
+      ],
+      "blueprint_stale_files": 0,
+      "next_app_requirements": "passed",
+      "family_sync_suite": "10 groups from 2026-10-03 retained; not rerun",
+      "repository_wide_old_failures": "Historical only; no new repository-wide acceptance claim",
+      "public_new_runtime_smoke_test": false,
+      "physical_children_and_bigtab_test": false
+    },
+    "recovered_browser_results": {
+      "passed": 7,
+      "checks": [
+        "Sixty complete child activities across three levels, stable answer, explicit condition switch, photo sync and save at 360 ar",
+        "Sixty complete child activities across three levels, stable answer, explicit condition switch, photo sync and save at 360 en",
+        "Sixty complete child activities across three levels, stable answer, explicit condition switch, photo sync and save at 768 ar",
+        "Sixty complete child activities across three levels, stable answer, explicit condition switch, photo sync and save at 768 en",
+        "Real MP3 plays for sampled condition prompts and frames across all levels with matching highlighted text in both languages",
+        "Automatic sequence pause/resume, condition replay and mute remain usable",
+        "Full PWA bundle including all three levels works offline with retained observation"
+      ],
+      "pageErrors": []
+    },
+    "recovered_upgrade_results": {
+      "passed": true,
+      "baseline": "56216454d27306b9b36902c31c9c65998bb03c34",
+      "release": "preview-6-all-levels",
+      "one_reload": false,
+      "saved_card_evidence_preserved": true,
+      "draft_choice_preserved": true,
+      "all_levels_twenty": true,
+      "new_level_save": true,
+      "new_level_offline_image_audio_word_cues": true,
+      "pageErrors": []
+    },
+    "current_browser_rerun": "Unavailable: Chromium not installed; installation download unavailable. Preserved original test evidence.",
+    "public_smoke_test": "Pending publication"
   }
 }

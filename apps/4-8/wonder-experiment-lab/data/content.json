@@ -83,7 +83,8 @@
         "en": "large blocks"
       },
       "seed_ref": "a4-wonder-lab-seed-1",
-      "catalog_level": 3
+      "catalog_level": 3,
+      "coach_only": true
     },
     {
       "id": "ramp",
@@ -168,7 +169,8 @@
         "en": "paper strips"
       },
       "seed_ref": "a4-wonder-lab-seed-2",
-      "catalog_level": 2
+      "catalog_level": 2,
+      "coach_only": true
     },
     {
       "id": "float",
@@ -351,7 +353,8 @@
         "en": "position"
       },
       "seed_ref": "a4-wonder-lab-seed-4",
-      "catalog_level": 2
+      "catalog_level": 2,
+      "coach_only": true
     },
     {
       "id": "plant",
@@ -432,7 +435,8 @@
         "en": "leaves"
       },
       "seed_ref": "a4-wonder-lab-seed-5",
-      "catalog_level": 3
+      "catalog_level": 3,
+      "coach_only": true
     },
     {
       "id": "absorb",
@@ -2411,6 +2415,4166 @@
           "en": "What did you notice with funnel beside the cup?"
         }
       ]
+    },
+    {
+      "id": "compare-ramp-height",
+      "model_kind": "story",
+      "scene_key": "compare-ramp-height",
+      "audio_key": "compare-ramp-height",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أرفع المنحدر قليلًا",
+        "en": "I raise the ramp"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "ارتفاع المنحدر",
+        "en": "Ramp height"
+      },
+      "held_constants": {
+        "ar": "السيارة وطول المنحدر وبداية الإطلاق وسطح التوقف",
+        "en": "The car, ramp length, release point and stopping surface"
+      },
+      "conditions": [
+        {
+          "ar": "منحدر منخفض",
+          "en": "Low ramp"
+        },
+        {
+          "ar": "منحدر أعلى",
+          "en": "Higher ramp"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "توقفت قريبًا",
+            "en": "Stopped nearby"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "توقفت أبعد",
+            "en": "Stopped farther away"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يجهز المربي منحدرًا قصيرًا وسيارة كبيرة على بساط. يغيّر ارتفاع المنحدر فقط ويترك السيارة دون دفع.",
+        "en": "An adult prepares a short ramp and a large car on a mat. Change only ramp height and release without pushing."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-ramp-height",
+      "frames": [
+        {
+          "ar": "نترك السيارة من أعلى منحدر منخفض دون دفع.",
+          "en": "We release the car from a low ramp without pushing."
+        },
+        {
+          "ar": "توقفت السيارة قريبًا في هذا المشهد.",
+          "en": "The car stopped nearby in this scene."
+        },
+        {
+          "ar": "نرفع المنحدر ونترك السيارة من البداية نفسها.",
+          "en": "We raise the ramp and release the car from the same start."
+        },
+        {
+          "ar": "توقفت السيارة أبعد في هذا المشهد.",
+          "en": "The car stopped farther away in this scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة منحدر منخفض؟",
+          "en": "What did you notice with low ramp?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة منحدر أعلى؟",
+          "en": "What did you notice with higher ramp?"
+        }
+      ]
+    },
+    {
+      "id": "compare-ramp-surface",
+      "model_kind": "story",
+      "scene_key": "compare-ramp-surface",
+      "audio_key": "compare-ramp-surface",
+      "catalog_level": 2,
+      "title": {
+        "ar": "سطح ناعم وسطح خَشِن",
+        "en": "Smooth and rough surfaces"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "غطاء المسار",
+        "en": "Track covering"
+      },
+      "held_constants": {
+        "ar": "السيارة والميل والبداية وطول المسار",
+        "en": "The car, slope, start and track length"
+      },
+      "conditions": [
+        {
+          "ar": "مسار ناعم",
+          "en": "Smooth track"
+        },
+        {
+          "ar": "مسار مغطى بالقماش",
+          "en": "Cloth-covered track"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "وصلت أبعد",
+            "en": "Reached farther"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "توقفت أقرب",
+            "en": "Stopped closer"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ثبت المربي مسارًا منخفضًا. قارن سطحه الناعم بقماش مثبت دون تغيير الميل أو دفع السيارة.",
+        "en": "An adult secures a low track. Compare its smooth surface with secured cloth without changing the slope or pushing the car."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-ramp-surface",
+      "frames": [
+        {
+          "ar": "نترك السيارة على المسار الناعم.",
+          "en": "We release the car on the smooth track."
+        },
+        {
+          "ar": "وصلت السيارة إلى موضع أبعد في المشهد.",
+          "en": "The car reached a farther position in the scene."
+        },
+        {
+          "ar": "نغطي المسار بقماش ونكرر الإطلاق.",
+          "en": "We cover the track with cloth and repeat the release."
+        },
+        {
+          "ar": "توقفت السيارة أقرب في المشهد.",
+          "en": "The car stopped closer in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة مسار ناعم؟",
+          "en": "What did you notice with smooth track?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة مسار مغطى بالقماش؟",
+          "en": "What did you notice with cloth-covered track?"
+        }
+      ]
+    },
+    {
+      "id": "compare-magnet-material",
+      "model_kind": "story",
+      "scene_key": "compare-magnet-material",
+      "audio_key": "compare-magnet-material",
+      "catalog_level": 2,
+      "title": {
+        "ar": "المغناطيس والخشب والمعدن",
+        "en": "A magnet, wood and metal"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "نوع المادة",
+        "en": "Material type"
+      },
+      "held_constants": {
+        "ar": "المغناطيس ومسافة الاقتراب والسطح",
+        "en": "The magnet, approach distance and surface"
+      },
+      "conditions": [
+        {
+          "ar": "ملعقة من الفولاذ",
+          "en": "Steel spoon"
+        },
+        {
+          "ar": "قطعة خشب كبيرة",
+          "en": "Large wooden piece"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تحركت نحو المغناطيس",
+            "en": "Moved toward the magnet"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقيت في مكانها",
+            "en": "Stayed in place"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي وحده يمسك مغناطيسًا كبيرًا مغلقًا لا يُفتح، وملعقة فولاذية غير حادة وقطعة خشب كبيرة. لا مغناطيسات صغيرة.",
+        "en": "Only the adult handles a large sealed magnet that cannot be opened, a blunt steel spoon and a large wooden piece. No small magnets."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-magnet-material",
+      "frames": [
+        {
+          "ar": "يقرب المربي مغناطيسًا مغلقًا من ملعقة فولاذية.",
+          "en": "An adult brings an enclosed magnet near a steel spoon."
+        },
+        {
+          "ar": "تحركت الملعقة نحو المغناطيس.",
+          "en": "The spoon moved toward the magnet."
+        },
+        {
+          "ar": "نكرر مع قطعة خشب كبيرة.",
+          "en": "We repeat with a large wooden piece."
+        },
+        {
+          "ar": "بقي الخشب في مكانه.",
+          "en": "The wood stayed in place."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ملعقة من الفولاذ؟",
+          "en": "What did you notice with steel spoon?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة قطعة خشب كبيرة؟",
+          "en": "What did you notice with large wooden piece?"
+        }
+      ]
+    },
+    {
+      "id": "compare-magnet-distance",
+      "model_kind": "story",
+      "scene_key": "compare-magnet-distance",
+      "audio_key": "compare-magnet-distance",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أقرب المغناطيس وأبعده",
+        "en": "Near and far from a magnet"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "المسافة إلى المغناطيس",
+        "en": "Distance from the magnet"
+      },
+      "held_constants": {
+        "ar": "المغناطيس والملعقة والسطح",
+        "en": "The magnet, spoon and surface"
+      },
+      "conditions": [
+        {
+          "ar": "المغناطيس بعيد",
+          "en": "Magnet far away"
+        },
+        {
+          "ar": "المغناطيس قريب",
+          "en": "Magnet nearby"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقيت الملعقة ساكنة",
+            "en": "The spoon stayed still"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "تحركت الملعقة",
+            "en": "The spoon moved"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "يستخدم المربي مغناطيسًا كبيرًا مغلقًا وملعقة فولاذية كبيرة. غيّر المسافة فقط فوق سطح ثابت.",
+        "en": "An adult uses a large sealed magnet and a large steel spoon. Change only the distance on a stable surface."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-magnet-distance",
+      "frames": [
+        {
+          "ar": "يمسك المربي المغناطيس بعيدًا عن الملعقة.",
+          "en": "The adult holds the magnet far from the spoon."
+        },
+        {
+          "ar": "بقيت الملعقة ساكنة في المشهد.",
+          "en": "The spoon stayed still in the scene."
+        },
+        {
+          "ar": "يقرب المغناطيس من الملعقة دون لمسها.",
+          "en": "The adult brings the magnet close without touching the spoon."
+        },
+        {
+          "ar": "تحركت الملعقة نحو المغناطيس.",
+          "en": "The spoon moved toward the magnet."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة المغناطيس بعيد؟",
+          "en": "What did you notice with magnet far away?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المغناطيس قريب؟",
+          "en": "What did you notice with magnet nearby?"
+        }
+      ]
+    },
+    {
+      "id": "compare-magnet-paper",
+      "model_kind": "story",
+      "scene_key": "compare-magnet-paper",
+      "audio_key": "compare-magnet-paper",
+      "catalog_level": 2,
+      "title": {
+        "ar": "هل تمنع الورقة المغناطيس؟",
+        "en": "Does paper block a magnet?"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الورقة",
+        "en": "Presence of paper"
+      },
+      "held_constants": {
+        "ar": "المغناطيس والملعقة ومسافة الاقتراب",
+        "en": "The magnet, spoon and approach distance"
+      },
+      "conditions": [
+        {
+          "ar": "دون ورقة",
+          "en": "Without paper"
+        },
+        {
+          "ar": "ورقة بينهما",
+          "en": "Paper between them"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تحركت الملعقة",
+            "en": "The spoon moved"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "لم تتحرك الملعقة",
+            "en": "The spoon did not move"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يمسك مغناطيسًا كبيرًا مغلقًا. قارن وجود ورقة رقيقة وعدمها مع تثبيت المسافة الصغيرة والملعقة الفولاذية.",
+        "en": "An adult holds a large sealed magnet. Compare thin paper with no paper while keeping the same short distance and steel spoon."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          0
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-magnet-paper",
+      "frames": [
+        {
+          "ar": "يقرب المربي المغناطيس من الملعقة.",
+          "en": "The adult brings the magnet close to the spoon."
+        },
+        {
+          "ar": "تحركت الملعقة في هذا المشهد.",
+          "en": "The spoon moved in this scene."
+        },
+        {
+          "ar": "نضع ورقة رقيقة بين المغناطيس والملعقة.",
+          "en": "We place thin paper between the magnet and spoon."
+        },
+        {
+          "ar": "تحركت الملعقة أيضًا من وراء الورقة.",
+          "en": "The spoon also moved through the paper."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة دون ورقة؟",
+          "en": "What did you notice with without paper?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ورقة بينهما؟",
+          "en": "What did you notice with paper between them?"
+        }
+      ]
+    },
+    {
+      "id": "compare-floating-shape",
+      "model_kind": "story",
+      "scene_key": "compare-floating-shape",
+      "audio_key": "compare-floating-shape",
+      "catalog_level": 2,
+      "title": {
+        "ar": "صلصال بشكل كرة وقارب",
+        "en": "Dough shaped as a ball and boat"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "شكل القطعة",
+        "en": "The piece shape"
+      },
+      "held_constants": {
+        "ar": "كمية الصلصال والماء وحرارة الغرفة",
+        "en": "Amount of dough, water and room temperature"
+      },
+      "conditions": [
+        {
+          "ar": "قطعة بشكل كرة",
+          "en": "Ball shape"
+        },
+        {
+          "ar": "القطعة بشكل قارب",
+          "en": "Boat shape"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "وصلت للقاع",
+            "en": "Reached the bottom"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقيت عند السطح",
+            "en": "Stayed at the surface"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "صينية ماء ضحلة مع المربي وصلصال مناسب غير سام. استخدم الكمية نفسها، وشكل قاربًا واسعًا يمنع دخول الماء. قد تختلف نتيجة الواقع حسب المادة والشكل.",
+        "en": "Use a shallow water tray with an adult and suitable non-toxic dough. Keep the same amount and make a wide boat that keeps water out. Real results depend on the material and shape."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-floating-shape",
+      "frames": [
+        {
+          "ar": "يضع المربي قطعة صلصال كثيفة بشكل كرة في الماء.",
+          "en": "The adult places a dense dough ball in water."
+        },
+        {
+          "ar": "وصلت الكرة إلى القاع في المشهد.",
+          "en": "The ball reached the bottom in the scene."
+        },
+        {
+          "ar": "نشكل القطعة نفسها كقارب واسع ونضعها برفق.",
+          "en": "We shape the same piece into a wide boat and place it gently."
+        },
+        {
+          "ar": "بقي القارب عند السطح في المشهد.",
+          "en": "The boat stayed at the surface in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قطعة بشكل كرة؟",
+          "en": "What did you notice with ball shape?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة القطعة بشكل قارب؟",
+          "en": "What did you notice with boat shape?"
+        }
+      ]
+    },
+    {
+      "id": "compare-raft-load",
+      "model_kind": "story",
+      "scene_key": "compare-raft-load",
+      "audio_key": "compare-raft-load",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أضيف حمولة إلى القارب",
+        "en": "I add a boat load"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "مقدار الحمولة",
+        "en": "Amount of load"
+      },
+      "held_constants": {
+        "ar": "القارب وموضع الحمولة والماء",
+        "en": "The boat, load position and water"
+      },
+      "conditions": [
+        {
+          "ar": "حمولة خفيفة",
+          "en": "Light load"
+        },
+        {
+          "ar": "حمولة أكبر",
+          "en": "Larger load"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي القارب عائمًا",
+            "en": "The boat stayed afloat"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "دخل الماء إلى القارب",
+            "en": "Water entered the boat"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "قارب كبير في صينية ماء ضحلة مع المربي. حمولة خفيفة من مكعبات خشب كبيرة، ثم نضيف صلصالًا كبيرًا. لا أوزان معدنية أو قطع صغيرة.",
+        "en": "Use a large boat in a shallow water tray with an adult. Start with large wooden blocks, then add a large dough load. No metal weights or small pieces."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-raft-load",
+      "frames": [
+        {
+          "ar": "نضع حمولة خفيفة في قارب بلاستيكي كبير.",
+          "en": "We put a light load in a large plastic boat."
+        },
+        {
+          "ar": "بقي القارب عائمًا في المشهد.",
+          "en": "The boat stayed afloat in the scene."
+        },
+        {
+          "ar": "يضيف المربي صلصالًا كبيرًا إلى القارب نفسه.",
+          "en": "The adult adds a large piece of dough to the same boat."
+        },
+        {
+          "ar": "انخفض القارب ودخل إليه الماء في المشهد.",
+          "en": "The boat sank lower and water entered in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة حمولة خفيفة؟",
+          "en": "What did you notice with light load?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة حمولة أكبر؟",
+          "en": "What did you notice with larger load?"
+        }
+      ]
+    },
+    {
+      "id": "compare-balance-position",
+      "model_kind": "story",
+      "scene_key": "compare-balance-position",
+      "audio_key": "compare-balance-position",
+      "catalog_level": 2,
+      "title": {
+        "ar": "الحمل في الوسط وعند الطرف",
+        "en": "A load at the centre and edge"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "موضع الحمل",
+        "en": "Load position"
+      },
+      "held_constants": {
+        "ar": "اللوح والدعامة والحمل",
+        "en": "The board, support and load"
+      },
+      "conditions": [
+        {
+          "ar": "الحمل في الوسط",
+          "en": "Load at the centre"
+        },
+        {
+          "ar": "الحمل عند الطرف",
+          "en": "Load at the edge"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي اللوح متزنًا",
+            "en": "The board stayed balanced"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "مال اللوح",
+            "en": "The board tilted"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "لوح خفيف قصير ودعامة عريضة ومكعب خفيف كبير على بساط، مع المربي. غيّر موضع الحمل فقط.",
+        "en": "Use a short light board, a wide support and a large light block on a mat with an adult. Change only load position."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-balance-position",
+      "frames": [
+        {
+          "ar": "نضع مكعبًا كبيرًا في وسط لوح فوق دعامة.",
+          "en": "We put a large block at the centre of a supported board."
+        },
+        {
+          "ar": "بقي اللوح متزنًا في المشهد.",
+          "en": "The board stayed balanced in the scene."
+        },
+        {
+          "ar": "ننقل المكعب نفسه إلى طرف اللوح.",
+          "en": "We move the same block toward an edge."
+        },
+        {
+          "ar": "مال اللوح نحو الحمل.",
+          "en": "The board tilted toward the load."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة الحمل في الوسط؟",
+          "en": "What did you notice with load at the centre?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة الحمل عند الطرف؟",
+          "en": "What did you notice with load at the edge?"
+        }
+      ]
+    },
+    {
+      "id": "compare-tower-base",
+      "model_kind": "story",
+      "scene_key": "compare-tower-base",
+      "audio_key": "compare-tower-base",
+      "catalog_level": 2,
+      "title": {
+        "ar": "قاعدة ضيقة وقاعدة واسعة",
+        "en": "A narrow and a wide base"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "عرض القاعدة",
+        "en": "Base width"
+      },
+      "held_constants": {
+        "ar": "ارتفاع البرج والمكعبات وموضع اللمسة",
+        "en": "Tower height, blocks and touch position"
+      },
+      "conditions": [
+        {
+          "ar": "قاعدة ضيقة",
+          "en": "Narrow base"
+        },
+        {
+          "ar": "قاعدة واسعة",
+          "en": "Wide base"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "مال البرج",
+            "en": "The tower tilted"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي البرج قائمًا",
+            "en": "The tower stayed upright"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مكعبات إسفنج كبيرة وبرج منخفض فوق بساط. المربي يلمس من الموضع نفسه برفق.",
+        "en": "Use large foam blocks and a low tower on a mat. The adult touches the same position gently."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-tower-base",
+      "frames": [
+        {
+          "ar": "نبني برجًا منخفضًا بقاعدة ضيقة.",
+          "en": "We build a low tower with a narrow base."
+        },
+        {
+          "ar": "مال البرج بعد لمسة خفيفة في المشهد.",
+          "en": "The tower tilted after a gentle touch in the scene."
+        },
+        {
+          "ar": "نوسع القاعدة ونبقي الارتفاع نفسه.",
+          "en": "We widen the base and keep the same height."
+        },
+        {
+          "ar": "بقي البرج قائمًا بعد اللمسة في المشهد.",
+          "en": "The tower stayed upright after the touch in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قاعدة ضيقة؟",
+          "en": "What did you notice with narrow base?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة قاعدة واسعة؟",
+          "en": "What did you notice with wide base?"
+        }
+      ]
+    },
+    {
+      "id": "compare-bridge-gap",
+      "model_kind": "story",
+      "scene_key": "compare-bridge-gap",
+      "audio_key": "compare-bridge-gap",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أقرب دعامتي الجسر",
+        "en": "I move bridge supports closer"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "المسافة بين الدعامتين",
+        "en": "Distance between supports"
+      },
+      "held_constants": {
+        "ar": "الورقة والحمل وموضعه",
+        "en": "The sheet, load and its position"
+      },
+      "conditions": [
+        {
+          "ar": "فجوة واسعة",
+          "en": "Wide gap"
+        },
+        {
+          "ar": "فجوة ضيقة",
+          "en": "Narrow gap"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "انحنى الجسر كثيرًا",
+            "en": "The bridge bent more"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "انحنى الجسر قليلًا",
+            "en": "The bridge bent less"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ورقة مقوّاة ودعامتان منخفضتان ومكعب إسفنج كبير. ضع الحمل في الوسط وغيّر الفجوة فقط.",
+        "en": "Use card, low supports and a large foam block. Place the load at the centre and change only the gap."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-bridge-gap",
+      "frames": [
+        {
+          "ar": "نمد ورقة مقوّاة بين دعامتين متباعدتين.",
+          "en": "We span a card sheet across supports far apart."
+        },
+        {
+          "ar": "انحنت الورقة تحت المكعب في المشهد.",
+          "en": "The sheet bent under the block in the scene."
+        },
+        {
+          "ar": "نقرب الدعامتين ونضع المكعب نفسه.",
+          "en": "We move the supports closer and use the same block."
+        },
+        {
+          "ar": "انحنت الورقة أقل في المشهد.",
+          "en": "The sheet bent less in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة فجوة واسعة؟",
+          "en": "What did you notice with wide gap?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة فجوة ضيقة؟",
+          "en": "What did you notice with narrow gap?"
+        }
+      ]
+    },
+    {
+      "id": "compare-paper-layers",
+      "model_kind": "story",
+      "scene_key": "compare-paper-layers",
+      "audio_key": "compare-paper-layers",
+      "catalog_level": 2,
+      "title": {
+        "ar": "طبقة ورق وطبقات أكثر",
+        "en": "One paper layer and more layers"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "عدد طبقات الورق",
+        "en": "Number of paper layers"
+      },
+      "held_constants": {
+        "ar": "نوع الورق والفجوة والحمل",
+        "en": "Paper type, gap and load"
+      },
+      "conditions": [
+        {
+          "ar": "طبقة واحدة",
+          "en": "One layer"
+        },
+        {
+          "ar": "طبقات أكثر",
+          "en": "More layers"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "هبط الورق أكثر",
+            "en": "The paper sagged more"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي الورق أعلى",
+            "en": "The paper stayed higher"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ورق من النوع نفسه ودعامتان ثابتتان وحمل إسفنج خفيف. غيّر عدد الطبقات فقط.",
+        "en": "Use matching paper, fixed supports and a light foam load. Change only the number of layers."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-paper-layers",
+      "frames": [
+        {
+          "ar": "نضع طبقة ورق فوق دعامتين منخفضتين.",
+          "en": "We place one paper layer over low supports."
+        },
+        {
+          "ar": "هبط الورق تحت المكعب في المشهد.",
+          "en": "The paper sagged under the block in the scene."
+        },
+        {
+          "ar": "نضيف طبقات من الورق نفسه.",
+          "en": "We add layers of the same paper."
+        },
+        {
+          "ar": "بقي الورق أعلى تحت الحمل نفسه في المشهد.",
+          "en": "The paper stayed higher under the same load in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة طبقة واحدة؟",
+          "en": "What did you notice with one layer?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة طبقات أكثر؟",
+          "en": "What did you notice with more layers?"
+        }
+      ]
+    },
+    {
+      "id": "compare-color-mix",
+      "model_kind": "story",
+      "scene_key": "compare-color-mix",
+      "audio_key": "compare-color-mix",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أخلط لونين من الماء",
+        "en": "I mix two water colours"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "خلط اللونين",
+        "en": "Mixing the colours"
+      },
+      "held_constants": {
+        "ar": "نوع اللونين وكميتهما",
+        "en": "The two colour types and amounts"
+      },
+      "conditions": [
+        {
+          "ar": "اللونان منفصلان",
+          "en": "Colours separate"
+        },
+        {
+          "ar": "اللونان مخلوطان",
+          "en": "Colours mixed"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت لونين منفصلين",
+            "en": "I saw separate colours"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت لونًا أخضر",
+            "en": "I saw green"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يجهز قليلًا من ماء ملون بألوان مناسبة وآمنة في أكواب بلاستيكية. لا شرب أو تذوق.",
+        "en": "An adult prepares a little water with suitable safe colouring in plastic cups. No drinking or tasting."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-color-mix",
+      "frames": [
+        {
+          "ar": "نضع ماءً أصفر وماءً أزرق في كوبين.",
+          "en": "We place yellow and blue water in separate cups."
+        },
+        {
+          "ar": "نرى اللونين منفصلين.",
+          "en": "We see the colours separately."
+        },
+        {
+          "ar": "يخلط المربي الماءين في وعاء واحد.",
+          "en": "The adult mixes both waters in one container."
+        },
+        {
+          "ar": "ظهر لون أخضر في المشهد.",
+          "en": "Green appeared in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة اللونان منفصلان؟",
+          "en": "What did you notice with colours separate?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة اللونان مخلوطان؟",
+          "en": "What did you notice with colours mixed?"
+        }
+      ]
+    },
+    {
+      "id": "compare-oil-water",
+      "model_kind": "story",
+      "scene_key": "compare-oil-water",
+      "audio_key": "compare-oil-water",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أحرك الزيت والماء وأنتظر",
+        "en": "I mix oil and water, then wait"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "الوقت بعد التحريك",
+        "en": "Time after mixing"
+      },
+      "held_constants": {
+        "ar": "الزجاجة وكمية الزيت والماء",
+        "en": "The bottle and amounts of oil and water"
+      },
+      "conditions": [
+        {
+          "ar": "بعد التحريك",
+          "en": "After mixing"
+        },
+        {
+          "ar": "بعد الانتظار",
+          "en": "After waiting"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "قطرات مبعثرة",
+            "en": "Scattered droplets"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "طبقتان واضحتان",
+            "en": "Two clear layers"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يجهز زجاجة بلاستيكية محكمة الإغلاق فيها قليل من زيت وماء. لا فتح أو تذوق؛ الانتظار الحقيقي يحتاج وقتًا.",
+        "en": "The adult prepares a tightly sealed plastic bottle with a little oil and water. No opening or tasting; real settling takes time."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-oil-water",
+      "frames": [
+        {
+          "ar": "يقلب المربي زجاجة مغلقة فيها قليل من الزيت والماء.",
+          "en": "The adult turns a sealed bottle containing a little oil and water."
+        },
+        {
+          "ar": "نرى قطرات مبعثرة بعد التحريك.",
+          "en": "We see scattered droplets after mixing."
+        },
+        {
+          "ar": "نترك الزجاجة واقفة وننتظر مع المربي.",
+          "en": "We stand the bottle upright and wait with the adult."
+        },
+        {
+          "ar": "ظهرت طبقة زيت فوق الماء في المشهد.",
+          "en": "An oil layer appeared above the water in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة بعد التحريك؟",
+          "en": "What did you notice with after mixing?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة بعد الانتظار؟",
+          "en": "What did you notice with after waiting?"
+        }
+      ]
+    },
+    {
+      "id": "compare-water-slope",
+      "model_kind": "story",
+      "scene_key": "compare-water-slope",
+      "audio_key": "compare-water-slope",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أميل مجرى الماء",
+        "en": "I tilt a water channel"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "ميل المجرى",
+        "en": "Channel slope"
+      },
+      "held_constants": {
+        "ar": "المجرى والماء وموضع الصب",
+        "en": "The channel, water and pouring point"
+      },
+      "conditions": [
+        {
+          "ar": "المجرى مستوٍ",
+          "en": "Level channel"
+        },
+        {
+          "ar": "المجرى مائل",
+          "en": "Sloping channel"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي الماء قريبًا",
+            "en": "Water stayed nearby"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "وصل الماء إلى الوعاء",
+            "en": "Water reached the container"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مجرى بلاستيكي قصير آمن فوق صينية وكمية ماء قليلة مع المربي. غيّر الميل فقط.",
+        "en": "Use a short safe plastic channel over a tray and a little water with an adult. Change only the slope."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-water-slope",
+      "frames": [
+        {
+          "ar": "يضع المربي قليلًا من الماء في مجرى مستوٍ.",
+          "en": "The adult puts a little water in a level channel."
+        },
+        {
+          "ar": "بقي الماء قرب موضع الصب في المشهد.",
+          "en": "Water stayed near the pouring point in the scene."
+        },
+        {
+          "ar": "نميل المجرى قليلًا نحو الوعاء.",
+          "en": "We tilt the channel gently toward a container."
+        },
+        {
+          "ar": "وصل الماء إلى الوعاء المنخفض.",
+          "en": "Water reached the lower container."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة المجرى مستوٍ؟",
+          "en": "What did you notice with level channel?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المجرى مائل؟",
+          "en": "What did you notice with sloping channel?"
+        }
+      ]
+    },
+    {
+      "id": "compare-paper-wick",
+      "model_kind": "story",
+      "scene_key": "compare-paper-wick",
+      "audio_key": "compare-paper-wick",
+      "catalog_level": 2,
+      "title": {
+        "ar": "يلامس الورق الماء أم يبتعد؟",
+        "en": "Does paper touch the water?"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "ملامسة طرف الورق للماء",
+        "en": "Paper tip touching water"
+      },
+      "held_constants": {
+        "ar": "الورق والكوب وكمية الماء ومدة الملاحظة",
+        "en": "The paper, cup, water amount and observation time"
+      },
+      "conditions": [
+        {
+          "ar": "الورق فوق الماء",
+          "en": "Paper above water"
+        },
+        {
+          "ar": "طرف الورق في الماء",
+          "en": "Paper tip in water"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي الورق جافًا",
+            "en": "The paper stayed dry"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "صعد البلل في الورق",
+            "en": "Wetness climbed the paper"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "كوب بلاستيكي ثابت ومنشفة ورقية وقليل من ماء ملون مع المربي. لا شرب؛ راقب الانتظار الحقيقي.",
+        "en": "Use a stable plastic cup, paper towel and a little coloured water with an adult. No drinking; observe real waiting."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-paper-wick",
+      "frames": [
+        {
+          "ar": "نثبت شريط منشفة ورقية فوق الماء دون ملامسته.",
+          "en": "We hold a paper towel strip above water without touching it."
+        },
+        {
+          "ar": "بقي الشريط جافًا.",
+          "en": "The strip stayed dry."
+        },
+        {
+          "ar": "ننزل طرف الشريط إلى الماء الملون.",
+          "en": "We lower the strip tip into coloured water."
+        },
+        {
+          "ar": "صعد البلل في الورق بعد الانتظار في المشهد.",
+          "en": "Wetness climbed the paper after waiting in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة الورق فوق الماء؟",
+          "en": "What did you notice with paper above water?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة طرف الورق في الماء؟",
+          "en": "What did you notice with paper tip in water?"
+        }
+      ]
+    },
+    {
+      "id": "compare-water-level",
+      "model_kind": "story",
+      "scene_key": "compare-water-level",
+      "audio_key": "compare-water-level",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أضع جسمًا في الماء",
+        "en": "I put an object in water"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الجسم المغمور",
+        "en": "Presence of the immersed object"
+      },
+      "held_constants": {
+        "ar": "الوعاء وكمية الماء",
+        "en": "The container and water amount"
+      },
+      "conditions": [
+        {
+          "ar": "قبل وضع الجسم",
+          "en": "Before adding the object"
+        },
+        {
+          "ar": "بعد وضع الجسم",
+          "en": "After adding the object"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "مستوى أقل",
+            "en": "Lower level"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "مستوى أعلى",
+            "en": "Higher level"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "وعاء بلاستيكي شفاف وصينية وقليل ماء وجسم كبير غير حاد. المربي يضعه برفق دون زيادة ماء.",
+        "en": "Use a clear plastic container, a tray, a little water and a large blunt object. The adult lowers it gently without adding water."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-water-level",
+      "frames": [
+        {
+          "ar": "نلاحظ الماء في وعاء شفاف ثابت.",
+          "en": "We observe water in a stable clear container."
+        },
+        {
+          "ar": "هذا مستوى الماء قبل وضع الجسم.",
+          "en": "This is the water level before adding the object."
+        },
+        {
+          "ar": "ينزل المربي جسمًا كبيرًا نظيفًا في الماء.",
+          "en": "The adult lowers a large clean object into the water."
+        },
+        {
+          "ar": "ارتفع المستوى دون إضافة ماء.",
+          "en": "The level rose without adding water."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قبل وضع الجسم؟",
+          "en": "What did you notice with before adding the object?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة بعد وضع الجسم؟",
+          "en": "What did you notice with after adding the object?"
+        }
+      ]
+    },
+    {
+      "id": "compare-shadow-distance",
+      "model_kind": "story",
+      "scene_key": "compare-shadow-distance",
+      "audio_key": "compare-shadow-distance",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أغيّر حجم الظل",
+        "en": "I change shadow size"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "موضع اللعبة بين الضوء والحائط",
+        "en": "Toy position between light and wall"
+      },
+      "held_constants": {
+        "ar": "اللعبة والمصباح والحائط",
+        "en": "The toy, flashlight and wall"
+      },
+      "conditions": [
+        {
+          "ar": "اللعبة قرب الضوء",
+          "en": "Toy near the light"
+        },
+        {
+          "ar": "اللعبة قرب الحائط",
+          "en": "Toy near the wall"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "ظل أكبر",
+            "en": "Larger shadow"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "ظل أصغر",
+            "en": "Smaller shadow"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مصباح بطارية مغلق ولعبة كبيرة وحائط، مع المربي. ثبت الضوء والحائط وغيّر موضع اللعبة. لا ضوء إلى العين.",
+        "en": "Use a sealed battery flashlight, large toy and wall with an adult. Keep light and wall fixed and move only the toy. No light toward eyes."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-shadow-distance",
+      "frames": [
+        {
+          "ar": "نقرب اللعبة من المصباح الثابت.",
+          "en": "We move the toy close to the fixed flashlight."
+        },
+        {
+          "ar": "ظهر ظل أكبر على الحائط.",
+          "en": "A larger shadow appeared on the wall."
+        },
+        {
+          "ar": "ننقل اللعبة نفسها قرب الحائط.",
+          "en": "We move the same toy close to the wall."
+        },
+        {
+          "ar": "ظهر ظل أصغر على الحائط.",
+          "en": "A smaller shadow appeared on the wall."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة اللعبة قرب الضوء؟",
+          "en": "What did you notice with toy near the light?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة اللعبة قرب الحائط؟",
+          "en": "What did you notice with toy near the wall?"
+        }
+      ]
+    },
+    {
+      "id": "compare-mirror-direction",
+      "model_kind": "story",
+      "scene_key": "compare-mirror-direction",
+      "audio_key": "compare-mirror-direction",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أوجه المرآة نحو اللعبة",
+        "en": "I face a mirror toward a toy"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "اتجاه المرآة",
+        "en": "Mirror direction"
+      },
+      "held_constants": {
+        "ar": "اللعبة والمرآة وموضع النظر",
+        "en": "The toy, mirror and viewing position"
+      },
+      "conditions": [
+        {
+          "ar": "المرآة بعيدًا عن اللعبة",
+          "en": "Mirror facing away"
+        },
+        {
+          "ar": "المرآة نحو اللعبة",
+          "en": "Mirror facing the toy"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "لم أر انعكاس اللعبة",
+            "en": "I did not see the toy reflection"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت انعكاس اللعبة",
+            "en": "I saw the toy reflection"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مرآة أكريليك مثبتة ولعبة كبيرة. المربي يغيّر اتجاه المرآة فقط، ويبقي اللعبة وموضع النظر ثابتين.",
+        "en": "Use a secured acrylic mirror and large toy. The adult changes only mirror direction, keeping the toy and viewing position fixed."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-mirror-direction",
+      "frames": [
+        {
+          "ar": "نوجه المرآة الآمنة بعيدًا عن اللعبة.",
+          "en": "We turn the safe mirror away from the toy."
+        },
+        {
+          "ar": "لم يظهر انعكاس اللعبة من موضعنا.",
+          "en": "The toy reflection did not appear from our position."
+        },
+        {
+          "ar": "نوجه المرآة نحو اللعبة دون نقلها.",
+          "en": "We face the mirror toward the toy without moving the toy."
+        },
+        {
+          "ar": "ظهر انعكاس اللعبة من موضعنا.",
+          "en": "The toy reflection appeared from our position."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة المرآة بعيدًا عن اللعبة؟",
+          "en": "What did you notice with mirror facing away?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المرآة نحو اللعبة؟",
+          "en": "What did you notice with mirror facing the toy?"
+        }
+      ]
+    },
+    {
+      "id": "compare-light-spot",
+      "model_kind": "story",
+      "scene_key": "compare-light-spot",
+      "audio_key": "compare-light-spot",
+      "catalog_level": 2,
+      "title": {
+        "ar": "أقرب المصباح من الورقة",
+        "en": "I move a flashlight closer"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "مسافة المصباح إلى الورقة",
+        "en": "Distance from flashlight to paper"
+      },
+      "held_constants": {
+        "ar": "المصباح واتجاهه والورقة",
+        "en": "The flashlight, its direction and paper"
+      },
+      "conditions": [
+        {
+          "ar": "المصباح قريب",
+          "en": "Flashlight close"
+        },
+        {
+          "ar": "المصباح بعيد",
+          "en": "Flashlight farther away"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقعة صغيرة",
+            "en": "Small light spot"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقعة واسعة",
+            "en": "Wide light spot"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مصباح بطارية مغلق وورقة بيضاء مع المربي. لا ضوء إلى العين، وغيّر المسافة فقط.",
+        "en": "Use a sealed battery flashlight and white paper with an adult. No light toward eyes; change only the distance."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-light-spot",
+      "frames": [
+        {
+          "ar": "يمسك المربي مصباحًا قريبًا من ورقة بيضاء.",
+          "en": "The adult holds a flashlight near white paper."
+        },
+        {
+          "ar": "ظهرت بقعة ضوء صغيرة.",
+          "en": "A small light spot appeared."
+        },
+        {
+          "ar": "يبعد المصباح عن الورقة دون تغيير اتجاهه.",
+          "en": "The adult moves the flashlight farther away without changing its direction."
+        },
+        {
+          "ar": "ظهرت بقعة أوسع في هذا المشهد.",
+          "en": "A wider spot appeared in this scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة المصباح قريب؟",
+          "en": "What did you notice with flashlight close?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة المصباح بعيد؟",
+          "en": "What did you notice with flashlight farther away?"
+        }
+      ]
+    },
+    {
+      "id": "compare-sponge-amount",
+      "model_kind": "story",
+      "scene_key": "compare-sponge-amount",
+      "audio_key": "compare-sponge-amount",
+      "catalog_level": 2,
+      "title": {
+        "ar": "إسفنجة رطبة وإسفنجة أكثر بللًا",
+        "en": "A damp and a wetter sponge"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "كمية الماء في الإسفنجة",
+        "en": "Water amount in the sponge"
+      },
+      "held_constants": {
+        "ar": "الإسفنجة وطريقة الضغط والصينية",
+        "en": "The sponge, squeezing action and tray"
+      },
+      "conditions": [
+        {
+          "ar": "قليل من الماء",
+          "en": "A little water"
+        },
+        {
+          "ar": "ماء أكثر",
+          "en": "More water"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "قطرات قليلة",
+            "en": "A few drops"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "قطرات أكثر",
+            "en": "More drops"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "إسفنجة كبيرة وصينية مع المربي. قارن كمية الماء مع إبقاء طريقة الضغط نفسها وتجفيف المكان.",
+        "en": "Use a large sponge and tray with an adult. Compare water amount with the same squeezing action and dry the area."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level2-compare-sponge-amount",
+      "frames": [
+        {
+          "ar": "نبلل الإسفنجة بقليل من الماء ونضغط برفق.",
+          "en": "We wet the sponge with a little water and squeeze gently."
+        },
+        {
+          "ar": "سقطت قطرات قليلة في المشهد.",
+          "en": "A few drops fell in the scene."
+        },
+        {
+          "ar": "نضيف ماءً أكثر إلى الإسفنجة نفسها.",
+          "en": "We add more water to the same sponge."
+        },
+        {
+          "ar": "سقطت قطرات أكثر عند الضغط في المشهد.",
+          "en": "More drops fell when squeezed in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة قليل من الماء؟",
+          "en": "What did you notice with a little water?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ماء أكثر؟",
+          "en": "What did you notice with more water?"
+        }
+      ]
+    },
+    {
+      "id": "build-folded-bridge",
+      "model_kind": "story",
+      "scene_key": "build-folded-bridge",
+      "audio_key": "build-folded-bridge",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أبني جسرًا بطيات",
+        "en": "I build a folded bridge"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "شكل طيات الورقة",
+        "en": "Paper fold shape"
+      },
+      "held_constants": {
+        "ar": "الورقة والفجوة والحمل",
+        "en": "The sheet, gap and load"
+      },
+      "conditions": [
+        {
+          "ar": "ورقة مسطحة",
+          "en": "Flat sheet"
+        },
+        {
+          "ar": "ورقة مطوية",
+          "en": "Folded sheet"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "هبط الجسر",
+            "en": "The bridge sagged"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "حمل المكعب",
+            "en": "It supported the block"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يساعد على الطي. استخدم الورقة نفسها ودعامتين منخفضتين ومكعب إسفنج كبير، دون أدوات حادة.",
+        "en": "An adult helps with folding. Use the same sheet, low supports and a large foam block, without sharp tools."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-folded-bridge",
+      "frames": [
+        {
+          "ar": "نمد ورقة مسطحة بين دعامتين.",
+          "en": "We span a flat sheet across supports."
+        },
+        {
+          "ar": "هبطت الورقة تحت المكعب في المشهد.",
+          "en": "The sheet sagged under the block in the scene."
+        },
+        {
+          "ar": "نطوي الورقة مثل المروحة ونكرر الاختبار.",
+          "en": "We fold the paper like a fan and repeat the test."
+        },
+        {
+          "ar": "حملت الطيات المكعب في المشهد.",
+          "en": "The folds supported the block in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ورقة مسطحة؟",
+          "en": "What did you notice with flat sheet?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ورقة مطوية؟",
+          "en": "What did you notice with folded sheet?"
+        }
+      ]
+    },
+    {
+      "id": "build-arch-bridge",
+      "model_kind": "story",
+      "scene_key": "build-arch-bridge",
+      "audio_key": "build-arch-bridge",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أبني جسرًا مقوسًا",
+        "en": "I build an arch bridge"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "شكل الجسر مع تثبيت الطرفين",
+        "en": "Bridge shape with ends secured"
+      },
+      "held_constants": {
+        "ar": "البطاقة والحمل والفجوة",
+        "en": "The card, load and gap"
+      },
+      "conditions": [
+        {
+          "ar": "بطاقة مسطحة",
+          "en": "Flat card"
+        },
+        {
+          "ar": "بطاقة مقوسة ومثبتة",
+          "en": "Secured arched card"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "انحنى الوسط",
+            "en": "The centre bent"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي القوس حاملًا",
+            "en": "The arch kept supporting"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "بطاقة مرنة ودعامتان ثابتتان وحمل إسفنج خفيف. المربي يثبت نهايتي القوس حتى لا تنزلقا.",
+        "en": "Use flexible card, fixed supports and a light foam load. The adult secures the arch ends so they cannot slip."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-arch-bridge",
+      "frames": [
+        {
+          "ar": "نضع بطاقة مسطحة بين دعامتين.",
+          "en": "We place flat card between supports."
+        },
+        {
+          "ar": "انحنى الوسط تحت المكعب في المشهد.",
+          "en": "The centre bent under the block in the scene."
+        },
+        {
+          "ar": "يقوس المربي البطاقة ويثبت طرفيها.",
+          "en": "The adult arches the card and secures both ends."
+        },
+        {
+          "ar": "بقي القوس حاملًا للمكعب في المشهد.",
+          "en": "The arch kept supporting the block in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة بطاقة مسطحة؟",
+          "en": "What did you notice with flat card?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة بطاقة مقوسة ومثبتة؟",
+          "en": "What did you notice with secured arched card?"
+        }
+      ]
+    },
+    {
+      "id": "build-middle-support",
+      "model_kind": "story",
+      "scene_key": "build-middle-support",
+      "audio_key": "build-middle-support",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أضيف دعامة في الوسط",
+        "en": "I add a middle support"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الدعامة الوسطى",
+        "en": "Presence of the middle support"
+      },
+      "held_constants": {
+        "ar": "الجسر والحمل والدعامتان الطرفيتان",
+        "en": "The bridge, load and end supports"
+      },
+      "conditions": [
+        {
+          "ar": "دعامتان عند الطرفين",
+          "en": "Supports at both ends"
+        },
+        {
+          "ar": "دعامة إضافية في الوسط",
+          "en": "Extra support at the centre"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "هبط الوسط",
+            "en": "The centre sagged"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي الوسط أعلى",
+            "en": "The centre stayed higher"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "جسر ورقي ودعامات إسفنج كبيرة وحمل خفيف، فوق بساط ومع المربي. أضف الدعامة فقط.",
+        "en": "Use a paper bridge, large foam supports and a light load on a mat with an adult. Add only the support."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-middle-support",
+      "frames": [
+        {
+          "ar": "نضع جسرًا ورقيًا فوق دعامتين.",
+          "en": "We place a paper bridge over end supports."
+        },
+        {
+          "ar": "هبط وسط الجسر تحت الحمل.",
+          "en": "The bridge centre sagged under the load."
+        },
+        {
+          "ar": "نضيف دعامة منخفضة تحت الوسط.",
+          "en": "We add a low support under the centre."
+        },
+        {
+          "ar": "بقي الوسط أعلى مع الدعامة.",
+          "en": "The centre stayed higher with the support."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة دعامتان عند الطرفين؟",
+          "en": "What did you notice with supports at both ends?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة دعامة إضافية في الوسط؟",
+          "en": "What did you notice with extra support at the centre?"
+        }
+      ]
+    },
+    {
+      "id": "build-overhang",
+      "model_kind": "story",
+      "scene_key": "build-overhang",
+      "audio_key": "build-overhang",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أختبر طرف اللوح البارز",
+        "en": "I test a board overhang"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "طول الطرف البارز",
+        "en": "Overhang length"
+      },
+      "held_constants": {
+        "ar": "اللوح والدعامة والحمل عند الطرف",
+        "en": "The board, support and load at the end"
+      },
+      "conditions": [
+        {
+          "ar": "طرف قصير بارز",
+          "en": "Short overhang"
+        },
+        {
+          "ar": "طرف طويل بارز",
+          "en": "Long overhang"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي اللوح ثابتًا",
+            "en": "The board stayed stable"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "مال اللوح",
+            "en": "The board tilted"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "لوح خفيف قصير ودعامة عريضة وحمل إسفنج على بساط، مع المربي. لا أحمال ثقيلة أو حواف حادة.",
+        "en": "Use a short light board, wide support and foam load on a mat with an adult. No heavy loads or sharp edges."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-overhang",
+      "frames": [
+        {
+          "ar": "نترك طرفًا قصيرًا من اللوح خارج الدعامة.",
+          "en": "We leave a short board end beyond its support."
+        },
+        {
+          "ar": "بقي اللوح ثابتًا مع الحمل في المشهد.",
+          "en": "The board stayed stable with the load in the scene."
+        },
+        {
+          "ar": "نزيد طول الطرف البارز ونكرر بالحمل نفسه.",
+          "en": "We lengthen the overhang and repeat with the same load."
+        },
+        {
+          "ar": "مال اللوح في المشهد.",
+          "en": "The board tilted in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة طرف قصير بارز؟",
+          "en": "What did you notice with short overhang?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة طرف طويل بارز؟",
+          "en": "What did you notice with long overhang?"
+        }
+      ]
+    },
+    {
+      "id": "build-lever-arm",
+      "model_kind": "story",
+      "scene_key": "build-lever-arm",
+      "audio_key": "build-lever-arm",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أغيّر موضع ضغط العَتَلة",
+        "en": "I change where I press a lever"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "موضع الضغط عن الدعامة",
+        "en": "Pressing distance from support"
+      },
+      "held_constants": {
+        "ar": "اللوح والدعامة والحمل والقوة اللطيفة",
+        "en": "The board, support, load and gentle force"
+      },
+      "conditions": [
+        {
+          "ar": "أضغط قرب الدعامة",
+          "en": "Press near the support"
+        },
+        {
+          "ar": "أضغط بعيدًا عن الدعامة",
+          "en": "Press farther from the support"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي الحمل منخفضًا",
+            "en": "The load stayed low"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "ارتفع الحمل",
+            "en": "The load rose"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يستخدم لوحًا خفيفًا ودعامة ثابتة وحمل إسفنج كبير فقط. لا قذف أو أصابع تحت اللوح. لا نقيس القوة من الصور.",
+        "en": "The adult uses a light board, fixed support and only a large foam load. No launching or fingers under the board. We do not measure force from pictures."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-lever-arm",
+      "frames": [
+        {
+          "ar": "يضغط المربي لوحًا خفيفًا قرب دعامة العَتَلة.",
+          "en": "The adult presses a light board near the lever support."
+        },
+        {
+          "ar": "بقي حمل الإسفنج منخفضًا في المشهد.",
+          "en": "The foam load stayed low in the scene."
+        },
+        {
+          "ar": "يضغط أبعد عن الدعامة بالقوة اللطيفة نفسها.",
+          "en": "The adult presses farther from the support with the same gentle force."
+        },
+        {
+          "ar": "ارتفع الحمل في المشهد.",
+          "en": "The load rose in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة أضغط قرب الدعامة؟",
+          "en": "What did you notice with press near the support?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة أضغط بعيدًا عن الدعامة؟",
+          "en": "What did you notice with press farther from the support?"
+        }
+      ]
+    },
+    {
+      "id": "build-balance-arm",
+      "model_kind": "story",
+      "scene_key": "build-balance-arm",
+      "audio_key": "build-balance-arm",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أبني ميزانًا وأغيّر المسافة",
+        "en": "I build a balance and change distance"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "مسافة أحد الحملين عن الوسط",
+        "en": "Distance of one load from centre"
+      },
+      "held_constants": {
+        "ar": "اللوح والدعامة والحملان",
+        "en": "The board, support and both loads"
+      },
+      "conditions": [
+        {
+          "ar": "حملان على مسافتين متساويتين",
+          "en": "Loads at equal distances"
+        },
+        {
+          "ar": "حمل أبعد عن الوسط",
+          "en": "One load farther from centre"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "لوح متزن",
+            "en": "Balanced board"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "لوح مائل",
+            "en": "Tilted board"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "لوح خفيف ودعامة ثابتة وحملان خفيفان كبيران متماثلان، مع المربي. لا أوزان معدنية.",
+        "en": "Use a light board, fixed support and matching large light loads with an adult. No metal weights."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-balance-arm",
+      "frames": [
+        {
+          "ar": "نضع حملين متماثلين على بعد متساوٍ من الوسط.",
+          "en": "We place matching loads at equal distances from the centre."
+        },
+        {
+          "ar": "بقي لوح الميزان متزنًا في المشهد.",
+          "en": "The balance board stayed level in the scene."
+        },
+        {
+          "ar": "نحرك حملًا واحدًا أبعد عن الوسط.",
+          "en": "We move one load farther from the centre."
+        },
+        {
+          "ar": "مال اللوح نحو الحمل الأبعد.",
+          "en": "The board tilted toward the farther load."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة حملان على مسافتين متساويتين؟",
+          "en": "What did you notice with loads at equal distances?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة حمل أبعد عن الوسط؟",
+          "en": "What did you notice with one load farther from centre?"
+        }
+      ]
+    },
+    {
+      "id": "build-triangle-brace",
+      "model_kind": "story",
+      "scene_key": "build-triangle-brace",
+      "audio_key": "build-triangle-brace",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أقوي الإطار بدعامة مائلة",
+        "en": "I strengthen a frame with a brace"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الدعامة المائلة",
+        "en": "Presence of the diagonal brace"
+      },
+      "held_constants": {
+        "ar": "الإطار ووصلاته وموضع الدفع",
+        "en": "The frame, joints and push position"
+      },
+      "conditions": [
+        {
+          "ar": "إطار دون دعامة",
+          "en": "Frame without a brace"
+        },
+        {
+          "ar": "إطار بدعامة مائلة",
+          "en": "Frame with a diagonal brace"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تغير شكل الإطار",
+            "en": "The frame changed shape"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "حافظ الإطار على شكله",
+            "en": "The frame kept its shape"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "شرائط كرتون عريضة ووصلات من شريط لاصق، مع المربي. لا دبابيس أو أجزاء صغيرة؛ دفع خفيف فقط.",
+        "en": "Use wide cardboard strips and tape joints with an adult. No pins or small parts; only a gentle push."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-triangle-brace",
+      "frames": [
+        {
+          "ar": "نجهز إطارًا مربعًا بوصلات مرنة كبيرة.",
+          "en": "We prepare a square frame with large flexible joints."
+        },
+        {
+          "ar": "مال الإطار عند دفع زاويته برفق.",
+          "en": "The frame leaned when its corner was gently pushed."
+        },
+        {
+          "ar": "يضيف المربي دعامة مائلة بين زاويتين.",
+          "en": "The adult adds a diagonal brace between corners."
+        },
+        {
+          "ar": "حافظ الإطار على شكله في المشهد.",
+          "en": "The frame kept its shape in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة إطار دون دعامة؟",
+          "en": "What did you notice with frame without a brace?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة إطار بدعامة مائلة؟",
+          "en": "What did you notice with frame with a diagonal brace?"
+        }
+      ]
+    },
+    {
+      "id": "build-paper-tube",
+      "model_kind": "story",
+      "scene_key": "build-paper-tube",
+      "audio_key": "build-paper-tube",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أصنع عمودًا من الورق",
+        "en": "I make a paper column"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "شكل العمود الورقي",
+        "en": "Paper column shape"
+      },
+      "held_constants": {
+        "ar": "الورقة وارتفاع العمود والحمل",
+        "en": "The sheet, column height and load"
+      },
+      "conditions": [
+        {
+          "ar": "ورقة مطوية مسطحة",
+          "en": "Flat folded sheet"
+        },
+        {
+          "ar": "ورقة ملفوفة كأنبوب",
+          "en": "Sheet rolled into a tube"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "انثنت الورقة",
+            "en": "The paper bent"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "حمل الأنبوب المكعب",
+            "en": "The tube supported the block"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ورقة وشريط لاصق ومكعب إسفنج خفيف. المربي يساعد على البناء والاختبار فوق بساط.",
+        "en": "Use paper, tape and a light foam block. The adult helps build and test on a mat."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-paper-tube",
+      "frames": [
+        {
+          "ar": "نقف ورقة مطوية بين إصبعي المربي برفق.",
+          "en": "We stand a folded sheet gently between the adult fingers."
+        },
+        {
+          "ar": "انثنت تحت الحمل في المشهد.",
+          "en": "It bent under the load in the scene."
+        },
+        {
+          "ar": "نلف الورقة كأنبوب ونثبتها بشريط لاصق.",
+          "en": "We roll the paper into a tube and secure it with tape."
+        },
+        {
+          "ar": "حمل الأنبوب مكعب الإسفنج في المشهد.",
+          "en": "The tube supported the foam block in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة ورقة مطوية مسطحة؟",
+          "en": "What did you notice with flat folded sheet?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة ورقة ملفوفة كأنبوب؟",
+          "en": "What did you notice with sheet rolled into a tube?"
+        }
+      ]
+    },
+    {
+      "id": "build-raft-outrigger",
+      "model_kind": "story",
+      "scene_key": "build-raft-outrigger",
+      "audio_key": "build-raft-outrigger",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أوسع جانبي الطوف",
+        "en": "I widen a raft with floats"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود العوامات الجانبية",
+        "en": "Presence of side floats"
+      },
+      "held_constants": {
+        "ar": "الطوف والحمل وموضعه والماء",
+        "en": "The raft, load, load position and water"
+      },
+      "conditions": [
+        {
+          "ar": "طوف ضيق",
+          "en": "Narrow raft"
+        },
+        {
+          "ar": "طوف بدعامتين جانبيتين",
+          "en": "Raft with side floats"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "مال الطوف",
+            "en": "The raft tilted"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقي أكثر اتزانًا",
+            "en": "It stayed more balanced"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "طوف إسفنج كبير وعوامتان مثبتتان بشريط لاصق وصينية ماء ضحلة، مع المربي. لا خيوط أو أجزاء مفكوكة.",
+        "en": "Use a large foam raft, securely taped side floats and a shallow water tray with an adult. No strings or loose parts."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-raft-outrigger",
+      "frames": [
+        {
+          "ar": "نضع حمولة إسفنج عند جانب طوف ضيق.",
+          "en": "We put a foam load near one side of a narrow raft."
+        },
+        {
+          "ar": "مال الطوف في المشهد.",
+          "en": "The raft tilted in the scene."
+        },
+        {
+          "ar": "نضيف عوامتين كبيرتين عند الجانبين.",
+          "en": "We add large floats on both sides."
+        },
+        {
+          "ar": "بقي الطوف أكثر اتزانًا في المشهد.",
+          "en": "The raft stayed more balanced in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة طوف ضيق؟",
+          "en": "What did you notice with narrow raft?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة طوف بدعامتين جانبيتين؟",
+          "en": "What did you notice with raft with side floats?"
+        }
+      ]
+    },
+    {
+      "id": "build-sail-area",
+      "model_kind": "story",
+      "scene_key": "build-sail-area",
+      "audio_key": "build-sail-area",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أصنع شراعًا صغيرًا وكبيرًا",
+        "en": "I make a small and a large sail"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "مساحة الشراع",
+        "en": "Sail area"
+      },
+      "held_constants": {
+        "ar": "العربة وبداية المسار وحركة المروحة",
+        "en": "The cart, track start and fan action"
+      },
+      "conditions": [
+        {
+          "ar": "شراع صغير",
+          "en": "Small sail"
+        },
+        {
+          "ar": "شراع أكبر",
+          "en": "Larger sail"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "توقفت العربة قريبًا",
+            "en": "The cart stopped nearby"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "توقفت العربة أبعد",
+            "en": "The cart stopped farther away"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "عربة لعبة كبيرة وشراع ورقي مثبت ومروحة ورقية، مع المربي. لا أعواد حادة أو أجهزة كهربائية؛ الحركة مصورة وليست قياسًا للسرعة.",
+        "en": "Use a large toy cart, secured paper sail and paper fan with an adult. No sharp sticks or electrical devices; pictured motion is not a speed measurement."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-sail-area",
+      "frames": [
+        {
+          "ar": "نحرك مروحة ورقية أمام عربة بشراع صغير.",
+          "en": "We move a paper fan in front of a cart with a small sail."
+        },
+        {
+          "ar": "توقفت العربة قريبًا في المشهد.",
+          "en": "The cart stopped nearby in the scene."
+        },
+        {
+          "ar": "نركب شراعًا أكبر ونكرر من البداية نفسها.",
+          "en": "We fit a larger sail and repeat from the same start."
+        },
+        {
+          "ar": "توقفت العربة أبعد في المشهد.",
+          "en": "The cart stopped farther away in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة شراع صغير؟",
+          "en": "What did you notice with small sail?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة شراع أكبر؟",
+          "en": "What did you notice with larger sail?"
+        }
+      ]
+    },
+    {
+      "id": "build-maze-gate",
+      "model_kind": "story",
+      "scene_key": "build-maze-gate",
+      "audio_key": "build-maze-gate",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أفتح بوابة المسار",
+        "en": "I open a track gate"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "فتح البوابة أو إغلاقها",
+        "en": "Gate open or closed"
+      },
+      "held_constants": {
+        "ar": "المسار والكرة وبداية الإطلاق",
+        "en": "The track, ball and release point"
+      },
+      "conditions": [
+        {
+          "ar": "بوابة مغلقة",
+          "en": "Closed gate"
+        },
+        {
+          "ar": "بوابة مفتوحة",
+          "en": "Open gate"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "توقفت الكرة عند البوابة",
+            "en": "The ball stopped at the gate"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "وصلت الكرة إلى الهدف",
+            "en": "The ball reached the goal"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يجهز مسار كرتون قصيرًا وحواجز ثابتة وكرة إسفنج كبيرة لا تدخل الفم. لا كرات زجاجية.",
+        "en": "An adult prepares a short cardboard track, fixed barriers and a foam ball too large for the mouth. No marbles."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-maze-gate",
+      "frames": [
+        {
+          "ar": "نترك كرة إسفنج كبيرة نحو بوابة مغلقة.",
+          "en": "We release a large foam ball toward a closed gate."
+        },
+        {
+          "ar": "توقفت الكرة عند البوابة.",
+          "en": "The ball stopped at the gate."
+        },
+        {
+          "ar": "نفتح البوابة ونكرر من المكان نفسه.",
+          "en": "We open the gate and repeat from the same place."
+        },
+        {
+          "ar": "وصلت الكرة إلى الوعاء عند نهاية المسار.",
+          "en": "The ball reached the container at the end of the track."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة بوابة مغلقة؟",
+          "en": "What did you notice with closed gate?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة بوابة مفتوحة؟",
+          "en": "What did you notice with open gate?"
+        }
+      ]
+    },
+    {
+      "id": "build-route-switch",
+      "model_kind": "story",
+      "scene_key": "build-route-switch",
+      "audio_key": "build-route-switch",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أوجه الكرة في مفترق",
+        "en": "I guide a ball at a junction"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "اتجاه الحاجز",
+        "en": "Gate direction"
+      },
+      "held_constants": {
+        "ar": "المسار والكرة وموضع البداية",
+        "en": "The track, ball and starting point"
+      },
+      "conditions": [
+        {
+          "ar": "حاجز نحو المسار الأيسر",
+          "en": "Gate toward the left route"
+        },
+        {
+          "ar": "حاجز نحو المسار الأيمن",
+          "en": "Gate toward the right route"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "وصلت إلى الوعاء الأيسر",
+            "en": "Reached the left container"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "وصلت إلى الوعاء الأيمن",
+            "en": "Reached the right container"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مسار كرتون بحاجز قابل للتوجيه وكرة إسفنج كبيرة ووعاءان، مع المربي. جهز مسارًا منخفضًا ثابتًا.",
+        "en": "Use a cardboard junction, adjustable gate, large foam ball and containers with an adult. Prepare a low stable track."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-route-switch",
+      "frames": [
+        {
+          "ar": "نوجه الحاجز نحو المجرى الأيسر.",
+          "en": "We aim the gate toward the left channel."
+        },
+        {
+          "ar": "وصلت الكرة إلى الوعاء الأيسر.",
+          "en": "The ball reached the left container."
+        },
+        {
+          "ar": "نوجه الحاجز نحو المجرى الأيمن.",
+          "en": "We aim the gate toward the right channel."
+        },
+        {
+          "ar": "وصلت الكرة إلى الوعاء الأيمن.",
+          "en": "The ball reached the right container."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة حاجز نحو المسار الأيسر؟",
+          "en": "What did you notice with gate toward the left route?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة حاجز نحو المسار الأيمن؟",
+          "en": "What did you notice with gate toward the right route?"
+        }
+      ]
+    },
+    {
+      "id": "build-ramp-stop",
+      "model_kind": "story",
+      "scene_key": "build-ramp-stop",
+      "audio_key": "build-ramp-stop",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أضيف حاجز توقف",
+        "en": "I add a stopping barrier"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود حاجز النهاية",
+        "en": "Presence of the end barrier"
+      },
+      "held_constants": {
+        "ar": "السيارة والمسار والبداية",
+        "en": "The car, track and start"
+      },
+      "conditions": [
+        {
+          "ar": "دون حاجز عند النهاية",
+          "en": "No end barrier"
+        },
+        {
+          "ar": "حاجز إسفنج عند النهاية",
+          "en": "Foam barrier at the end"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تجاوزت السيارة النهاية",
+            "en": "The car passed the end"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "توقفت عند الحاجز",
+            "en": "The car stopped at the barrier"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "مسار منخفض وسيارة كبيرة وحاجز إسفنج على بساط، مع المربي. لا سقوط من طاولة أو إطلاق نحو أشخاص.",
+        "en": "Use a low track, large car and foam barrier on a mat with an adult. No falling from tables or launching toward people."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-ramp-stop",
+      "frames": [
+        {
+          "ar": "نترك السيارة على مسار منخفض بلا حاجز.",
+          "en": "We release the car on a low track without a barrier."
+        },
+        {
+          "ar": "وصلت السيارة إلى البساط بعد النهاية.",
+          "en": "The car reached the mat beyond the end."
+        },
+        {
+          "ar": "نضيف حاجز إسفنج كبيرًا عند النهاية.",
+          "en": "We add a large foam barrier at the end."
+        },
+        {
+          "ar": "توقفت السيارة عند الحاجز.",
+          "en": "The car stopped at the barrier."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة دون حاجز عند النهاية؟",
+          "en": "What did you notice with no end barrier?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة حاجز إسفنج عند النهاية؟",
+          "en": "What did you notice with foam barrier at the end?"
+        }
+      ]
+    },
+    {
+      "id": "build-filter-screen",
+      "model_kind": "story",
+      "scene_key": "build-filter-screen",
+      "audio_key": "build-filter-screen",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أصنع حاجزًا للقطع الكبيرة",
+        "en": "I make a screen for large pieces"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود المصفاة",
+        "en": "Presence of the strainer"
+      },
+      "held_constants": {
+        "ar": "الماء والقطع وموضع الصب",
+        "en": "The water, pieces and pouring position"
+      },
+      "conditions": [
+        {
+          "ar": "دون مصفاة",
+          "en": "Without a strainer"
+        },
+        {
+          "ar": "مصفاة واسعة آمنة",
+          "en": "Safe broad strainer"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "وصلت القطع إلى الوعاء",
+            "en": "The pieces reached the container"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقيت القطع في المصفاة",
+            "en": "The pieces stayed in the strainer"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "صينية وماء قليل وقطع إسفنج كبيرة ومصفاة بلاستيكية، مع المربي. هذا فصل للقطع فقط ولا يجعل الماء صالحًا للشرب.",
+        "en": "Use a tray, little water, large foam pieces and a plastic strainer with an adult. This only separates pieces and does not make water drinkable."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-filter-screen",
+      "frames": [
+        {
+          "ar": "يصب المربي ماءً مع قطع إسفنج كبيرة في وعاء.",
+          "en": "The adult pours water with large foam pieces into a container."
+        },
+        {
+          "ar": "وصل الماء والقطع إلى الوعاء.",
+          "en": "Water and pieces reached the container."
+        },
+        {
+          "ar": "يضع مصفاة ويكرر الصب.",
+          "en": "The adult adds a strainer and repeats the pour."
+        },
+        {
+          "ar": "مر الماء وبقيت القطع الكبيرة في المصفاة.",
+          "en": "Water passed through and large pieces stayed in the strainer."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة دون مصفاة؟",
+          "en": "What did you notice with without a strainer?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة مصفاة واسعة آمنة؟",
+          "en": "What did you notice with safe broad strainer?"
+        }
+      ]
+    },
+    {
+      "id": "build-wick-bridge",
+      "model_kind": "story",
+      "scene_key": "build-wick-bridge",
+      "audio_key": "build-wick-bridge",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أبني جسرًا ورقيًا للماء",
+        "en": "I build a paper wick bridge"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الجسر الورقي",
+        "en": "Presence of the paper bridge"
+      },
+      "held_constants": {
+        "ar": "الكوبان والورق والماء ومدة الانتظار",
+        "en": "The cups, paper, water and waiting time"
+      },
+      "conditions": [
+        {
+          "ar": "كوبان بلا جسر",
+          "en": "Cups without a bridge"
+        },
+        {
+          "ar": "جسر منشفة ورقية",
+          "en": "Paper towel bridge"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقي الوعاء الآخر جافًا",
+            "en": "The other container stayed dry"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "وصل إليه ماء ملون",
+            "en": "Coloured water reached it"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "كوبان بلاستيكيان ومنشفة ورقية وماء ملون قليل، مع المربي. الانتقال الحقيقي يحتاج انتظارًا وقد يختلف؛ لا شرب.",
+        "en": "Use plastic cups, paper towel and a little coloured water with an adult. Real transfer takes time and may vary; no drinking."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-wick-bridge",
+      "frames": [
+        {
+          "ar": "نضع ماءً ملونًا في كوب ونترك الآخر فارغًا.",
+          "en": "We put coloured water in one cup and leave another empty."
+        },
+        {
+          "ar": "بقي الكوب الآخر جافًا بلا اتصال.",
+          "en": "The other cup stayed dry without a connection."
+        },
+        {
+          "ar": "نصل الكوبين بمنشفة ورقية وننتظر.",
+          "en": "We connect the cups with paper towel and wait."
+        },
+        {
+          "ar": "وصل ماء ملون إلى الكوب الآخر بعد الانتظار في المشهد.",
+          "en": "Coloured water reached the other cup after waiting in the scene."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة كوبان بلا جسر؟",
+          "en": "What did you notice with cups without a bridge?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة جسر منشفة ورقية؟",
+          "en": "What did you notice with paper towel bridge?"
+        }
+      ]
+    },
+    {
+      "id": "build-water-refraction",
+      "model_kind": "story",
+      "scene_key": "build-water-refraction",
+      "audio_key": "build-water-refraction",
+      "catalog_level": 3,
+      "title": {
+        "ar": "هل انثنى العود أم تغير منظره؟",
+        "en": "Did the stick bend or only look different?"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود الماء حول العود",
+        "en": "Presence of water around the stick"
+      },
+      "held_constants": {
+        "ar": "الوعاء والعود وموضع النظر",
+        "en": "The container, stick and viewing position"
+      },
+      "conditions": [
+        {
+          "ar": "العود في وعاء فارغ",
+          "en": "Stick in an empty container"
+        },
+        {
+          "ar": "العود في الماء",
+          "en": "Stick in water"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بدا متصلًا مستقيمًا",
+            "en": "Looked straight and continuous"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بدا مختلفًا عند سطح الماء",
+            "en": "Looked shifted at the water surface"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "وعاء بلاستيكي شفاف وعود غير حاد وماء قليل مع المربي. ثبت زاوية النظر؛ لا زجاج أو تذوق.",
+        "en": "Use a clear plastic container, blunt stick and little water with an adult. Keep the viewing angle fixed; no glass or tasting."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-water-refraction",
+      "frames": [
+        {
+          "ar": "نلاحظ عودًا بلاستيكيًا غير حاد في وعاء فارغ.",
+          "en": "We observe a blunt plastic stick in an empty container."
+        },
+        {
+          "ar": "يبدو العود متصلًا ومستقيمًا.",
+          "en": "The stick looks straight and continuous."
+        },
+        {
+          "ar": "يضيف المربي ماءً مع تثبيت موضع العود والنظر.",
+          "en": "The adult adds water while keeping the stick and viewing position fixed."
+        },
+        {
+          "ar": "بدا العود مختلفًا عند السطح لكنه لم ينثنِ فعليًا.",
+          "en": "The stick looked shifted at the surface but did not actually bend."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة العود في وعاء فارغ؟",
+          "en": "What did you notice with stick in an empty container?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة العود في الماء؟",
+          "en": "What did you notice with stick in water?"
+        }
+      ]
+    },
+    {
+      "id": "build-mirror-symmetry",
+      "model_kind": "story",
+      "scene_key": "build-mirror-symmetry",
+      "audio_key": "build-mirror-symmetry",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أكمل الشكل بالمرآة",
+        "en": "I complete a shape with a mirror"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "وجود المرآة عند الحافة",
+        "en": "Presence of the mirror at the edge"
+      },
+      "held_constants": {
+        "ar": "نصف الشكل وحافته وموضع النظر",
+        "en": "The half-shape, edge and viewing position"
+      },
+      "conditions": [
+        {
+          "ar": "نصف شكل بلا مرآة",
+          "en": "Half a shape without a mirror"
+        },
+        {
+          "ar": "مرآة عند حافة النصف",
+          "en": "Mirror at the half-shape edge"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "رأيت نصف الشكل",
+            "en": "I saw half the shape"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بدا الشكل كاملًا",
+            "en": "The shape looked complete"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يجهز نصف شكل ورقي ومرآة أكريليك مثبتة. لا زجاج أو حواف حادة، والانعكاس لا يضيف ورقًا حقيقيًا.",
+        "en": "An adult prepares a paper half-shape and secured acrylic mirror. No glass or sharp edges; the reflection adds no real paper."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-mirror-symmetry",
+      "frames": [
+        {
+          "ar": "نضع نصف شكل فراشة ملونًا على الطاولة.",
+          "en": "We place half of a coloured butterfly shape on the table."
+        },
+        {
+          "ar": "نرى نصف الشكل فقط.",
+          "en": "We see only half the shape."
+        },
+        {
+          "ar": "يثبت المربي مرآة أكريليك عند الحافة المستقيمة.",
+          "en": "The adult secures an acrylic mirror at the straight edge."
+        },
+        {
+          "ar": "أكمل الانعكاس شكل الفراشة.",
+          "en": "The reflection completed the butterfly shape."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة نصف شكل بلا مرآة؟",
+          "en": "What did you notice with half a shape without a mirror?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة مرآة عند حافة النصف؟",
+          "en": "What did you notice with mirror at the half-shape edge?"
+        }
+      ]
+    },
+    {
+      "id": "build-periscope",
+      "model_kind": "story",
+      "scene_key": "build-periscope",
+      "audio_key": "build-periscope",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أنظر حول حاجز بالمرايا",
+        "en": "I look around a barrier with mirrors"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "مسار النظر المباشر أو عبر المرايا",
+        "en": "Direct view or view through mirrors"
+      },
+      "held_constants": {
+        "ar": "اللعبة والحاجز وموضع المشاهد",
+        "en": "The toy, barrier and viewer position"
+      },
+      "conditions": [
+        {
+          "ar": "نظر مباشر خلف الحاجز",
+          "en": "Direct view behind the barrier"
+        },
+        {
+          "ar": "نظر عبر منظار المرايا",
+          "en": "View through a mirror periscope"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "حجب الحاجز اللعبة",
+            "en": "The barrier hid the toy"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "رأيت اللعبة في المنظار",
+            "en": "I saw the toy through the periscope"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يجهز مسبقًا منظار كرتون بمرآتي أكريليك مثبتتين. لا زجاج أو قص للطفل أو نظر نحو الشمس.",
+        "en": "An adult prepares a cardboard periscope with secured acrylic mirrors beforehand. No glass, child cutting or looking toward the sun."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-periscope",
+      "frames": [
+        {
+          "ar": "نضع لعبة خلف حاجز كرتون.",
+          "en": "We place a toy behind a cardboard barrier."
+        },
+        {
+          "ar": "لا نراها بالنظر المباشر من الموضع المحدد.",
+          "en": "We cannot see it directly from the chosen position."
+        },
+        {
+          "ar": "يرفع المربي منظارًا جاهزًا بمرايا آمنة فوق الحاجز.",
+          "en": "The adult raises a prepared safe-mirror periscope above the barrier."
+        },
+        {
+          "ar": "ظهرت اللعبة في فتحة النظر.",
+          "en": "The toy appeared in the viewing opening."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة نظر مباشر خلف الحاجز؟",
+          "en": "What did you notice with direct view behind the barrier?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة نظر عبر منظار المرايا؟",
+          "en": "What did you notice with view through a mirror periscope?"
+        }
+      ]
+    },
+    {
+      "id": "build-color-filter",
+      "model_kind": "story",
+      "scene_key": "build-color-filter",
+      "audio_key": "build-color-filter",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أغيّر لون الضوء بلوح ملون",
+        "en": "I change light colour with a filter"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "لون اللوح الشفاف",
+        "en": "Transparent sheet colour"
+      },
+      "held_constants": {
+        "ar": "المصباح والورقة والمسافات",
+        "en": "The flashlight, paper and distances"
+      },
+      "conditions": [
+        {
+          "ar": "لوح شفاف بلا لون",
+          "en": "Clear colourless sheet"
+        },
+        {
+          "ar": "لوح شفاف أحمر",
+          "en": "Clear red sheet"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "بقعة ضوء بيضاء",
+            "en": "White light spot"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "بقعة ضوء حمراء",
+            "en": "Red light spot"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "المربي يستخدم مصباح بطارية مغلقًا ولوحين آمنين غير حادين. أبق الضوء بعيدًا عن العين ولا تستخدم حرارة.",
+        "en": "An adult uses a sealed battery flashlight and safe blunt sheets. Keep light away from eyes and use no heat."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-color-filter",
+      "frames": [
+        {
+          "ar": "نضع لوحًا شفافًا بلا لون أمام المصباح.",
+          "en": "We place a colourless clear sheet in front of the flashlight."
+        },
+        {
+          "ar": "ظهرت بقعة بيضاء على الورقة.",
+          "en": "A white spot appeared on the paper."
+        },
+        {
+          "ar": "نستبدله بلوح شفاف أحمر.",
+          "en": "We replace it with a clear red sheet."
+        },
+        {
+          "ar": "ظهرت بقعة حمراء على الورقة.",
+          "en": "A red spot appeared on the paper."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة لوح شفاف بلا لون؟",
+          "en": "What did you notice with clear colourless sheet?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة لوح شفاف أحمر؟",
+          "en": "What did you notice with clear red sheet?"
+        }
+      ]
+    },
+    {
+      "id": "build-magnifier",
+      "model_kind": "story",
+      "scene_key": "build-magnifier",
+      "audio_key": "build-magnifier",
+      "catalog_level": 3,
+      "title": {
+        "ar": "أنظر إلى التفاصيل بعدسة",
+        "en": "I look at details through a lens"
+      },
+      "question": {
+        "ar": "نغيّر شيئًا واحدًا. ماذا تلاحظ؟",
+        "en": "We change one thing. What do you notice?"
+      },
+      "changed_variable": {
+        "ar": "النظر عبر العدسة",
+        "en": "Viewing through a lens"
+      },
+      "held_constants": {
+        "ar": "الورقة والإضاءة وموضع النظر",
+        "en": "The leaf, lighting and viewing position"
+      },
+      "conditions": [
+        {
+          "ar": "أنظر دون عدسة",
+          "en": "View without a lens"
+        },
+        {
+          "ar": "أنظر عبر عدسة",
+          "en": "View through a lens"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "0",
+          "label": {
+            "ar": "تفاصيل صغيرة",
+            "en": "Small details"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "ar": "تفاصيل تبدو أكبر",
+            "en": "Details look larger"
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "ar": "لم يتضح لي",
+            "en": "I am not sure"
+          }
+        }
+      ],
+      "setup": {
+        "ar": "ورقة نبات آمنة وعدسة أكريليك كبيرة مع المربي وفي الداخل فقط. لا نظر إلى الشمس ولا ترك العدسة تحت الشمس.",
+        "en": "Use a safe leaf and large acrylic magnifier with an adult indoors only. Never look at the sun or leave the lens in sunlight."
+      },
+      "model_rule": {
+        "ar": "مشاهد توضيحية مصممة للمقارنة، وليست قياسات أو برهانًا على نتيجة الواقع. غيّر العامل المحدد فقط عند التجربة مع المربي.",
+        "en": "Designed scenes for comparison, not measurements or proof of real results. Change only the specified factor when testing with an adult."
+      },
+      "model_values": [
+        [
+          0,
+          1
+        ]
+      ],
+      "asset_ids": [],
+      "unit": {
+        "ar": "ملاحظة",
+        "en": "observation"
+      },
+      "seed_ref": "level3-build-magnifier",
+      "frames": [
+        {
+          "ar": "نلاحظ خطوط ورقة نبات نظيفة دون عدسة.",
+          "en": "We observe the lines of a clean leaf without a lens."
+        },
+        {
+          "ar": "تبدو التفاصيل صغيرة من موضع النظر.",
+          "en": "The details look small from the viewing position."
+        },
+        {
+          "ar": "يقرب المربي عدسة أكريليك من الورقة.",
+          "en": "The adult brings an acrylic lens close to the leaf."
+        },
+        {
+          "ar": "ظهرت تفاصيل الخطوط أكبر عبر العدسة.",
+          "en": "The line details appeared larger through the lens."
+        }
+      ],
+      "observe_prompts": [
+        {
+          "ar": "ماذا لاحظت في حالة أنظر دون عدسة؟",
+          "en": "What did you notice with view without a lens?"
+        },
+        {
+          "ar": "ماذا لاحظت في حالة أنظر عبر عدسة؟",
+          "en": "What did you notice with view through a lens?"
+        }
+      ]
     }
   ],
   "guides": {
@@ -2514,7 +6678,7 @@
         "ar": "5–6 سنوات تقريبًا",
         "en": "About ages 5–6"
       },
-      "available": false
+      "available": true
     },
     {
       "id": 3,
@@ -2526,7 +6690,7 @@
         "ar": "6–8 سنوات تقريبًا",
         "en": "About ages 6–8"
       },
-      "available": false
+      "available": true
     }
   ]
 }

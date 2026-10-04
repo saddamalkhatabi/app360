@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/wonder-experiment-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/wonder-experiment-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 5,
+  "version": 6,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر تجربة المستوى الأول ← شاهد المشاهد ← اسمع الحالة والسؤال واختر ملاحظتك ← انتقل بضغط زر إلى الحالة الأخرى ← راجع الملاحظتين واحفظ اكتشافك.",
+  "practice_model_ar": "اختر تجربة من أحد المستويات الثلاثة ← شاهد المشاهد ← اسمع الحالة والسؤال واختر ملاحظتك ← انتقل بضغط زر إلى الحالة الأخرى ← راجع الملاحظتين واحفظ اكتشافك.",
   "blueprint_path": "apps/4-8/wonder-experiment-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/wonder-experiment-lab/PROMPT_AR.md",
   "branding": {
@@ -65,12 +65,12 @@
     {
       "level": 2,
       "age_hint": "5-6",
-      "ready_count": 0
+      "ready_count": 20
     },
     {
       "level": 3,
       "age_hint": "6-8",
-      "ready_count": 0
+      "ready_count": 20
     }
   ],
   "ready_experiences": [
@@ -93,7 +93,47 @@
     "leaf-print",
     "blocks",
     "shiny",
-    "funnel"
+    "funnel",
+    "compare-ramp-height",
+    "compare-ramp-surface",
+    "compare-magnet-material",
+    "compare-magnet-distance",
+    "compare-magnet-paper",
+    "compare-floating-shape",
+    "compare-raft-load",
+    "compare-balance-position",
+    "compare-tower-base",
+    "compare-bridge-gap",
+    "compare-paper-layers",
+    "compare-color-mix",
+    "compare-oil-water",
+    "compare-water-slope",
+    "compare-paper-wick",
+    "compare-water-level",
+    "compare-shadow-distance",
+    "compare-mirror-direction",
+    "compare-light-spot",
+    "compare-sponge-amount",
+    "build-folded-bridge",
+    "build-arch-bridge",
+    "build-middle-support",
+    "build-overhang",
+    "build-lever-arm",
+    "build-balance-arm",
+    "build-triangle-brace",
+    "build-paper-tube",
+    "build-raft-outrigger",
+    "build-sail-area",
+    "build-maze-gate",
+    "build-route-switch",
+    "build-ramp-stop",
+    "build-filter-screen",
+    "build-wick-bridge",
+    "build-water-refraction",
+    "build-mirror-symmetry",
+    "build-periscope",
+    "build-color-filter",
+    "build-magnifier"
   ],
   "coach_patterns": {
     "profile_scoped": true,
@@ -107,16 +147,16 @@
   },
   "resource_index": "resources/early-child-market-objects/manifest.json",
   "photographic_scenes": {
-    "experiences": 24,
-    "frames": 96,
+    "experiences": 64,
+    "frames": 256,
     "format": "JPEG",
     "atlas_size": [
       1024,
       1024
     ],
-    "total_image_bytes": 2100849,
+    "total_image_bytes": 5005217,
     "provenance": "AI-generated illustrative scenes",
-    "archive": "assets/scenes/wonder-scenes-level1.zip",
+    "archive": "assets/scenes/wonder-scenes-all-levels.zip",
     "selection": "direct-one-screen-story-player",
     "offline": true,
     "workflow_stages": [
@@ -131,5 +171,6 @@
   "support_levels": {
     "count": 4,
     "independent_of_content_level": true
-  }
+  },
+  "notebook_limit": 120
 }
