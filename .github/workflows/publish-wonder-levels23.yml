@@ -1,0 +1,32 @@
+name: Publish verified Wonder levels two and three
+
+on:
+  push:
+    branches: [family-school-360-preview]
+    paths: ['.app360-publish/wonder-levels23.zip.part*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-wonder-levels23-preview
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/family-school-360-preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: family-school-360-preview
+          fetch-depth: 0
+      - name: Unpack and verify the exact approved source
+        run: python3 .github/scripts/publish-wonder-levels23.py
+      - name: Publish only to the preview branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish sixty bilingual Wonder experiments from verified archive"
+          git push origin HEAD:family-school-360-preview
