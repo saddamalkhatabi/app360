@@ -2,8 +2,8 @@
   "date": "2026-10-04",
   "browser": "Chromium 153 via Playwright",
   "release": "technical-preview-family-pilot-pending",
-  "maps": 36,
-  "audio_clips": 80,
+  "maps": 72,
+  "audio_clips": 118,
   "viewports": [
     [
       360,
@@ -103,5 +103,34 @@
     "save_debounce_ms": 120,
     "cache_parallel_requests": 2,
     "device_specific_lag": "not measured on physical user device"
+  },
+  "adventure_update": {
+    "version": "preview-5",
+    "worlds": 3,
+    "adventure_maps": 36,
+    "classic_maps": 36,
+    "knowledge_objects": 6,
+    "knowledge_scenes": 12,
+    "new_recordings": 38,
+    "image_atlas_bytes": 390477,
+    "passed": [
+      "36 deterministic solvable unique adventure maps",
+      "shield consumed once",
+      "puddle resets without shield",
+      "reset box opens once",
+      "hop and blocked fallback",
+      "early adventure goal completion",
+      "world restoration and malformed input rejection",
+      "36 adventure UI routes",
+      "progress restoration without repeated reward",
+      "actual bilingual knowledge audio with real word highlighting",
+      "recorded محمد cheer completes before knowledge audio",
+      "offline illustration and knowledge narration",
+      "drag pauses at surprise",
+      "five viewports and 48px tiles",
+      "prior training and responsiveness suites",
+      "ES5"
+    ],
+    "physical_device_test": "pending"
   }
 }

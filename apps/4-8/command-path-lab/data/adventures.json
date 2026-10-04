@@ -1,0 +1,1926 @@
+{
+  "schema_version": 1,
+  "worlds": [
+    {
+      "id": "garden",
+      "ar": "حديقة المفاجآت",
+      "en": "Surprise garden"
+    },
+    {
+      "id": "river",
+      "ar": "رحلة البرك والنَّوابض",
+      "en": "Puddles and springs"
+    },
+    {
+      "id": "stars",
+      "ar": "جزيرة الاكتشاف",
+      "en": "Discovery island"
+    }
+  ],
+  "maps": [
+    {
+      "id": "adventure-0-0",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 1
+      },
+      "goal": {
+        "x": 3,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الكتاب · 1",
+        "en": "Surprise garden · Book · 1"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-1",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 3,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الكرة · 2",
+        "en": "Surprise garden · Ball · 2"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-2",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 2
+        },
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · التفاحة · 3",
+        "en": "Surprise garden · Apple · 3"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 2,
+            "y": 0,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-3",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الدب · 4",
+        "en": "Surprise garden · Bear · 4"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-4",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 1
+      },
+      "goal": {
+        "x": 3,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · القطة · 5",
+        "en": "Surprise garden · Cat · 5"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-5",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 3,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · السيارة · 6",
+        "en": "Surprise garden · Car · 6"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-6",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 2
+        },
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الكتاب · 7",
+        "en": "Surprise garden · Book · 7"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 2,
+            "y": 0,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-7",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الكرة · 8",
+        "en": "Surprise garden · Ball · 8"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-8",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 3,
+        "dir": 1
+      },
+      "goal": {
+        "x": 3,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · التفاحة · 9",
+        "en": "Surprise garden · Apple · 9"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-9",
+      "size": 4,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 3,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · الدب · 10",
+        "en": "Surprise garden · Bear · 10"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-10",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 3
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 2
+        },
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · القطة · 11",
+        "en": "Surprise garden · Cat · 11"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 2,
+            "y": 0,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-0-11",
+      "size": 4,
+      "start": {
+        "x": 3,
+        "y": 3,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "title": {
+        "ar": "حديقة المفاجآت · السيارة · 12",
+        "en": "Surprise garden · Car · 12"
+      },
+      "mode": "absolute",
+      "level": 1,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "garden",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-0",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الكتاب · 1",
+        "en": "Puddles and springs · Book · 1"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-1",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الكرة · 2",
+        "en": "Puddles and springs · Ball · 2"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-2",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · التفاحة · 3",
+        "en": "Puddles and springs · Apple · 3"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-3",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الدب · 4",
+        "en": "Puddles and springs · Bear · 4"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-4",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · القطة · 5",
+        "en": "Puddles and springs · Cat · 5"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-5",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · السيارة · 6",
+        "en": "Puddles and springs · Car · 6"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-6",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الكتاب · 7",
+        "en": "Puddles and springs · Book · 7"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-7",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الكرة · 8",
+        "en": "Puddles and springs · Ball · 8"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-8",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · التفاحة · 9",
+        "en": "Puddles and springs · Apple · 9"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-9",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · الدب · 10",
+        "en": "Puddles and springs · Bear · 10"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-10",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · القطة · 11",
+        "en": "Puddles and springs · Cat · 11"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-1-11",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "رحلة البرك والنَّوابض · السيارة · 12",
+        "en": "Puddles and springs · Car · 12"
+      },
+      "mode": "relative",
+      "level": 2,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "river",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-0",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الكتاب · 1",
+        "en": "Discovery island · Book · 1"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-1",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الكرة · 2",
+        "en": "Discovery island · Ball · 2"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-2",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · التفاحة · 3",
+        "en": "Discovery island · Apple · 3"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-3",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الدب · 4",
+        "en": "Discovery island · Bear · 4"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-4",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · القطة · 5",
+        "en": "Discovery island · Cat · 5"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-5",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · السيارة · 6",
+        "en": "Discovery island · Car · 6"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-6",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الكتاب · 7",
+        "en": "Discovery island · Book · 7"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "book",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-7",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الكرة · 8",
+        "en": "Discovery island · Ball · 8"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "ball",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-8",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 4,
+        "dir": 1
+      },
+      "goal": {
+        "x": 4,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · التفاحة · 9",
+        "en": "Discovery island · Apple · 9"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "apple",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 1,
+            "y": 4,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-9",
+      "size": 5,
+      "start": {
+        "x": 0,
+        "y": 0,
+        "dir": 2
+      },
+      "goal": {
+        "x": 4,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · الدب · 10",
+        "en": "Discovery island · Bear · 10"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "bear",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 1,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-10",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 0,
+        "dir": 3
+      },
+      "goal": {
+        "x": 0,
+        "y": 4
+      },
+      "walls": [
+        {
+          "x": 4,
+          "y": 3
+        },
+        {
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · القطة · 11",
+        "en": "Discovery island · Cat · 11"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "cat",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 3,
+            "y": 0,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "kind": "box",
+            "outcome": "shield"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    },
+    {
+      "id": "adventure-2-11",
+      "size": 5,
+      "start": {
+        "x": 4,
+        "y": 4,
+        "dir": 0
+      },
+      "goal": {
+        "x": 0,
+        "y": 0
+      },
+      "walls": [
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "title": {
+        "ar": "جزيرة الاكتشاف · السيارة · 12",
+        "en": "Discovery island · Car · 12"
+      },
+      "mode": "relative",
+      "level": 3,
+      "goal_asset": "car",
+      "adventure": {
+        "world": "stars",
+        "tiles": [
+          {
+            "x": 4,
+            "y": 3,
+            "kind": "box",
+            "outcome": "reset"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "kind": "puddle"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "kind": "box",
+            "outcome": "hop"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "kind": "puddle"
+          }
+        ]
+      },
+      "starter": []
+    }
+  ],
+  "lessons": {
+    "book": {
+      "panel": 0,
+      "scenes": [
+        {
+          "phrase": "learn-book-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-book-1",
+          "image": "atlas"
+        }
+      ]
+    },
+    "ball": {
+      "panel": 1,
+      "scenes": [
+        {
+          "phrase": "learn-ball-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-ball-1",
+          "image": "atlas"
+        }
+      ]
+    },
+    "apple": {
+      "panel": 2,
+      "scenes": [
+        {
+          "phrase": "learn-apple-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-apple-1",
+          "image": "atlas"
+        }
+      ]
+    },
+    "bear": {
+      "panel": 3,
+      "scenes": [
+        {
+          "phrase": "learn-bear-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-bear-1",
+          "image": "atlas"
+        }
+      ]
+    },
+    "cat": {
+      "panel": 4,
+      "scenes": [
+        {
+          "phrase": "learn-cat-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-cat-1",
+          "image": "atlas"
+        }
+      ]
+    },
+    "car": {
+      "panel": 5,
+      "scenes": [
+        {
+          "phrase": "learn-car-0",
+          "image": "object"
+        },
+        {
+          "phrase": "learn-car-1",
+          "image": "atlas"
+        }
+      ]
+    }
+  }
+}
