@@ -300,5 +300,28 @@
     },
     "current_browser_rerun": "Unavailable: Chromium not installed; installation download unavailable. Preserved original test evidence.",
     "public_smoke_test": "Pending publication"
+  },
+  "published_delivery": {
+    "date": "2026-10-04",
+    "release": "preview-6-all-levels",
+    "commit": "b9582ca58f72596084220d44485c91a9dc5ad66e",
+    "tree": "53614c5f73f90b3d51d3eb8ee3154e29d80633c1",
+    "url": "https://raw.githack.com/saddamalkhatabi/app360/b9582ca58f72596084220d44485c91a9dc5ad66e/apps/4-8/wonder-experiment-lab/index.html",
+    "publication_workflow": "https://github.com/saddamalkhatabi/app360/actions/runs/37219908882",
+    "workflow_conclusion": "success",
+    "archive_bytes": 25766087,
+    "archive_sha256": "186a23f8cfdddc6a654e4046c60cc6d9de2b2a16ddf3f17b8edbe0c8ba198c10",
+    "exact_full_repository_tree_verified": true,
+    "model_checks_on_github": 22,
+    "live_browser_checks": [
+      "All three enabled levels show 20 activities each",
+      "Level two ramp activity: scenes advance, image naturalWidth 1024, narrated text appears",
+      "First answer remains selected until explicit condition transition",
+      "Second answer, discovery summary and saved confirmation succeed",
+      "Level three library and folded bridge open in English with loaded image",
+      "Arabic/English switching works"
+    ],
+    "live_browser_limit": "Focused smoke test; the original 240-flow and offline suites were not rerun in this browser",
+    "physical_child_and_bigtab_test": false
   }
 }
