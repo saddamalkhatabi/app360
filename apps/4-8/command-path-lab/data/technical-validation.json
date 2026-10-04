@@ -3,7 +3,7 @@
   "browser": "Chromium 153 via Playwright",
   "release": "technical-preview-family-pilot-pending",
   "maps": 36,
-  "audio_clips": 68,
+  "audio_clips": 80,
   "viewports": [
     [
       360,
@@ -64,5 +64,25 @@
     "family child pilot",
     "physical print/download/install"
   ],
-  "runtime_version": "preview-2"
+  "runtime_version": "preview-2",
+  "touch_update": {
+    "version": "preview-3",
+    "passed": [
+      "default live tiles",
+      "native double tap and in-place turn",
+      "map arrows generate explicit turns then forward",
+      "native adjacent touch drag",
+      "optional prediction",
+      "36 maps with mixed command model",
+      "blocked recovery",
+      "saved orientation and replay",
+      "real recorded محمد cheer on touch arrival",
+      "offline new recorded feedback",
+      "TouchEvent fallback without PointerEvent",
+      "unexecuted starter takeover at visible position",
+      "five viewports and 48px cells",
+      "ES5"
+    ],
+    "physical_device_validation": "pending"
+  }
 }

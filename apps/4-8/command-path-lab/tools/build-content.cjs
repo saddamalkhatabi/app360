@@ -1,6 +1,7 @@
 'use strict';
 const fs=require('fs'),path=require('path');
 const app=path.resolve(__dirname,'..'),M=require('../src/model.js');
+const touchPhrases=require('../data/touch-phrases.json');
 const pair=(ar,en)=>({ar,en});
 const phrases={
  library:pair('اخْتَرْ خَرِيطَةً، ثُمَّ سَاعِدِ الرُّوبُوتَ عَلَى الْوُصُولِ.','Choose a map, then help the robot reach its destination.'),
@@ -23,6 +24,7 @@ const phrases={
  rotation:pair('مُقَدِّمَةُ الرُّوبُوتِ تَدُلُّ عَلَى اتِّجَاهِهِ. الدَّوَرَانُ يُغَيِّرُ اتِّجَاهَهُ دُونَ أَنْ يَنْتَقِلَ.','The robot points in its facing direction. Turning changes its direction without changing its square.'),
  real:pair('ضَعْ بَطَاقَاتِ الْأَوَامِرِ عَلَى طَاوِلَةٍ أَوْ فِي مَسَاحَةٍ آمِنَةٍ مَعَ الْمُرَبِّي.','Use command cards on a table or in a safe space with your coach.')
 };
+Object.assign(phrases,touchPhrases);
 const missions=[{id:'entry-book',size:3,start:{x:0,y:1,dir:1},goal:{x:2,y:1},walls:[],title:pair('إلى الكتاب','To the book'),mode:'absolute',level:1,goal_asset:'book'}];
 if(process.argv.includes('--one')){write(missions);process.exit();}
 const assets=['book','ball','apple','bear','cat','car'];

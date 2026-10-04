@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -35,7 +35,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر خريطة صغيرة وتوقع الطريق بالإشارة ← رتب أوامر لمس أو أزرار أو بطاقات مطبوعة ← شغل خطوة خطوة وقارن المتوقع بما حدث ← حدد أول خطوة تحتاج تعديلًا ثم احفظ لغزًا لصديق",
+  "practice_model_ar": "المس المربع أمام الروبوت أو اسحب طريقًا ملاصقًا ← غيّر اتجاهه بالنقر المزدوج أو أزرار الدوران ← بدّل بين اللمس وأزرار الاتجاهات مع بناء البطاقات تلقائيًا ← أعد الطريق واحفظه؛ رسم التوقع أداة اختيارية مستقلة",
   "blueprint_path": "apps/4-8/command-path-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/command-path-lab/PROMPT_AR.md",
   "branding": {
@@ -70,7 +70,7 @@
     }
   ],
   "audio": {
-    "clips": 68,
+    "clips": 80,
     "languages": [
       "ar",
       "en"
@@ -82,6 +82,11 @@
     "on_command": true,
     "full_replay": true,
     "name_cheer_resource": "resources/early-child-name-audio/audio/registry.json",
-    "fallback": "google-tts-then-device-then-recorded-arrival"
+    "fallback": "google-tts-then-device-then-recorded-arrival",
+    "touch_tiles": true,
+    "drag_path": true,
+    "double_tap_robot": "turn-right-in-place",
+    "map_arrows": "explicit-turns-then-forward",
+    "prediction": "optional-separate-mode"
   }
 }

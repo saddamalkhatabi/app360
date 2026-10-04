@@ -12,3 +12,7 @@
 @media(prefers-reduced-motion:reduce){.confetti-piece{display:none}}@media print{.celebration{display:none!important}}
 
 .spoken{pointer-events:none}.spoken button{pointer-events:auto}
+
+/* Touch routes share the command engine; retain page scrolling outside the map. */
+.live-work .board{touch-action:none;-ms-touch-action:none}.cell.drag-preview{box-shadow:inset 0 0 0 4px #efaa32}.robot-controls button{min-height:48px}.tap-hint{line-height:1.7}.robot{pointer-events:none}
+.live-work .cell.front{border:3px solid #e4ad34!important;background-color:#fff7db}.live-work .cell.front.wall{background-color:#eedbc8}
