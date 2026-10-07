@@ -1,9 +1,2 @@
-var CACHE='app360-template-v2-family-school-v99';
-var SHELL=['../../../assets/brand/family-school-360-icon-192.png?v=98','../../../assets/brand/family-school-360-logo.png?v=98','./','./index.html','./manifest.webmanifest','./icon.svg','./app.json','../../../assets/js/app360-ai-shell.js?v=2&brand=98','../../../assets/js/ai-content-studio.js?v=2&brand=98','../../../assets/js/app-pwa.js?v=2'];
-self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(u).catch(function(){return null})}))}))});
-self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){if(k.indexOf('app360-app-')===0&&k!==CACHE)return caches.delete(k)}))}).then(function(){return self.clients&&self.clients.claim?self.clients.claim():null}))});
-self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING'&&self.skipWaiting)self.skipWaiting()});
-function same(req){try{return new URL(req.url).origin===self.location.origin}catch(e){return false}}
-function fresh(req){return fetch(req,{cache:'no-store'}).then(function(r){if(r&&r.ok&&same(req)){var x=r.clone();caches.open(CACHE).then(function(c){c.put(req,x)})}return r}).catch(function(){return caches.match(req).then(function(x){return x||caches.match('./index.html')})})}
-function cached(req){return caches.match(req).then(function(x){return x||fetch(req).then(function(r){if(r&&r.ok&&same(req)){var y=r.clone();caches.open(CACHE).then(function(c){c.put(req,y)})}return r})})}
-self.addEventListener('fetch',function(e){if(!e.request||e.request.method!=='GET'||!same(e.request))return;if(e.request.mode==='navigate'){e.respondWith(fresh(e.request));return}e.respondWith(cached(e.request))});
+self.APP360_OFFLINE_ROOT='../../../';
+importScripts('../../../assets/js/offline-worker-v1.js?v=1');

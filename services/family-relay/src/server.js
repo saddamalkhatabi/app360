@@ -287,7 +287,7 @@ function createApp360Server(options = {}) {
           text = text.includes('APP360_FAMILY_SERVER=true') ? text : text.replace('</head>', marker + '\n</head>');
           body = Buffer.from(text);
         }
-        res.writeHead(200, {'content-type': MIME[ext] || 'application/octet-stream', 'cache-control': ext === '.html' ? 'no-store' : 'public, max-age=300', 'content-length': body.length});
+        res.writeHead(200, {'content-type': MIME[ext] || 'application/octet-stream', 'cache-control': ext === '.html' || /(?:sw(?:-v24)?\.js|offline-worker-v1\.js|offline-catalog\.json)$/.test(filePath) || filePath.includes(path.sep+'data'+path.sep+'offline'+path.sep) ? 'no-store' : 'public, max-age=300', 'content-length': body.length});
         res.end(body);
       });
     });

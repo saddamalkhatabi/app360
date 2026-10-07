@@ -121,4 +121,5 @@ function refresh(rootId,slot){var root=d.getElementById(rootId),box=d.getElement
 function bind(rootId,slot){var root=d.getElementById(rootId);if(!root)return;function later(){setTimeout(function(){refresh(rootId,slot)},60)}if(root.addEventListener){root.addEventListener('click',later,false);root.addEventListener('touchend',later,false)}else root.onclick=later;if(w.MutationObserver){try{new w.MutationObserver(later).observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['class']})}catch(e){}}}
 ensure('nowPicker','now');ensure('thenPicker','then');bind('nowPicker','now');bind('thenPicker','then');setTimeout(function(){refresh('nowPicker','now');refresh('thenPicker','then')},140);
 })(window,document);</script>
+<script src="../../../assets/js/offline-client-v1.js?v=1"></script>
 </body></html>

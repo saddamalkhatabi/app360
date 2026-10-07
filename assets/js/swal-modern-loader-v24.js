@@ -1,5 +1,6 @@
 (function(w,d){
 'use strict';
+var swalBase=d.currentScript&&d.currentScript.src;
 if(w.APP360_LEGACY||w.Swal)return;
 
 /* Safe non-blocking SweetAlert2 preloader for modern browsers.
@@ -12,13 +13,13 @@ function load(){
     var head=d.head||d.getElementsByTagName('head')[0]||d.documentElement;
     var css=d.createElement('link');
     css.rel='stylesheet';
-    css.href='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css';
+    css.href='';
     css.setAttribute('data-app360-swal','css');
-    head.appendChild(css);
+    /* Styles are bundled in the local all build. */
 
     var sc=d.createElement('script');
     sc.id='app360-swal2-script';
-    sc.src='https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js';
+    sc.src=new URL('../vendor/sweetalert2-11.23.0.all.min.js',swalBase||new URL('assets/js/swal-modern-loader.js',location.href).href).href;
     sc.async=true;
     sc.onerror=function(){
       /* Do nothing: portal rendering is independent from SweetAlert2.
