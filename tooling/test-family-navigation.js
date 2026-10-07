@@ -108,3 +108,17 @@ test('cover and open links share embedded navigation while swipes and external l
   r.window.APP360_COVER_GESTURE.shouldSuppress=()=>false;link.getAttribute=k=>k==='href'?'https://elsewhere.example/apps/4-8/story-language-lab/':null;
   const external=click();r.document.dispatchEvent(Object.assign(external,{type:'click'}));assert.equal(opened.length,1);assert.equal(external.prevented,undefined);
 });
+test('children with duplicate names retain independent identities, ages and reading preferences',()=>{
+ const r=runtime();r.load('app360-family-core-v2.js');const a=r.window.APP360_FAMILY_SYNC;a.setName('المرافق');a.setAgeGroup('24-45');
+ const one=a.saveChild({name:'نور',age_group:'4-8'}),two=a.saveChild({name:'نور',age_group:'8-12'});assert.notEqual(one,two);assert.equal(a.getChildren().length,2);
+ assert.equal(a.selectChild(one),true);const key=a.getProfileKey();assert.equal(a.getAgeGroup(),'4-8');a.setReadingFocus(false);
+ a.selectChild(two);assert.notEqual(a.getProfileKey(),key);assert.equal(a.getAgeGroup(),'8-12');assert.equal(a.getReadingFocus(),true);
+ a.selectChild(one);assert.equal(a.getReadingFocus(),false);a.saveChild({id:one,name:'نور الصغيرة',age_group:'1-4'});assert.equal(a.getName(),'نور الصغيرة');assert.equal(a.getAgeGroup(),'1-4');
+ a.removeChild(one);assert.equal(a.getActiveChildId(),'');assert.equal(a.getName(),'المرافق');assert.equal(a.getAgeGroup(),'24-45');
+ r.window.sessionStorage.setItem('app360:auth-profile:v1',JSON.stringify({id:99,name:'حساب آخر'}));assert.equal(a.getChildren().length,0);assert.equal(a.getActiveChildId(),'');
+});
+test('children remain usable with blocked storage and reject invalid profile mutations',()=>{
+ const r=runtime(true);r.load('app360-family-core-v2.js');const a=r.window.APP360_FAMILY_SYNC;
+ assert.equal(a.saveChild({name:'',age_group:'4-8'}),false);assert.equal(a.saveChild({name:'نور',age_group:'bad'}),false);assert.equal(a.saveChild({id:'unknown',name:'نور',age_group:'4-8'}),false);
+ const id=a.saveChild({name:'نور',age_group:'4-8'});assert.equal(a.selectChild(id),true);assert.equal(a.getAgeGroup(),'4-8');assert.equal(a.getChildren().length,1);
+});

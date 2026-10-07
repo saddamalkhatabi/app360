@@ -54,8 +54,9 @@ if(!checked)fail('no implemented apps were checked');
 const calmIndex=read('apps/1-4/calm-with-me/index.html');
 if(calmIndex.indexOf('legacy-compat.js')<0)fail('calm-with-me must load legacy compatibility before interaction scripts');
 const calmSw=read('apps/1-4/calm-with-me/sw.js');
-if(calmSw.indexOf('app360-app-calm-with-me-v11')<0)fail('calm-with-me cache version must invalidate pre-responsive/safety cache');
-['app360-ai-shell.js?v=2&brand=98','app360-responsive-policy-v1.css?v=1','early-child-safety-v1.js?v=1'].forEach(x=>{if(calmSw.indexOf(x)<0)fail('calm-with-me offline shell missing '+x)});
+if(calmSw.indexOf('offline-worker-v1.js')<0)fail('calm-with-me must use the shared cache-on-use worker');
+const calmOffline=JSON.parse(read('data/offline/a1-calm.json'));
+['assets/js/app360-ai-shell.js','assets/css/app360-responsive-policy-v1.css','assets/js/early-child-safety-v1.js','assets/js/app360-access-v1.js','data/public-links.json'].forEach(x=>{if(!calmOffline.files.some(f=>f.path===x))fail('calm-with-me offline shell missing '+x)});
 if(shell.indexOf("/apps/1-4/calm-with-me/")<0)fail('early-child safety layer must be scoped to calm-with-me, not every 1-4 app');
 
 if(failed){console.error('\nShared App360 shell validation FAILED');process.exit(1)}

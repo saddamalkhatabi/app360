@@ -50,8 +50,8 @@ function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}if(aut
 function profileView(){var api=w.APP360_FAMILY_SYNC;return {key:api&&api.getProfileKey?api.getProfileKey():'visitor',age:api&&api.getAgeGroup?api.getAgeGroup():''}}
 function ageStorageKey(){var p=profileView();return 'app360:home-age:v3:'+p.key+':'+(p.age||'unset')}
 function validViewAge(id){return id==='all'||!!ageInfo(id)}
-function setAge(id){activeAge=validViewAge(id)?id:'all';activeIndex=0;storageSet(ageStorageKey(),activeAge);render();restartAuto()}
-function applyProfileAge(){if(!catalog||!el('showcaseAges'))return;var p=profileView(),saved=storageGet(ageStorageKey(),p.age||'all');activeAge=validViewAge(saved)?saved:'all';activeIndex=0;render();restartAuto()}
+function setAge(id){activeAge=validViewAge(id)?id:'all';activeIndex=0;storageSet(ageStorageKey(),activeAge);try{var q=String(w.location.search||'').replace(/([?&])age=[^&]*&?/g,'$1').replace(/[?&]$/,'');q+=(q?'&':'?')+'age='+encodeURIComponent(activeAge);w.history.replaceState(w.history.state,d.title,w.location.pathname+q+w.location.hash)}catch(e){}render();restartAuto();if(w.APP360_ACCESS)w.APP360_ACCESS.refresh()}
+function applyProfileAge(){if(!catalog||!el('showcaseAges'))return;var p=profileView(),saved=queryAge()||storageGet(ageStorageKey(),p.age||'all');activeAge=validViewAge(saved)?saved:'all';activeIndex=0;render();restartAuto()}
 function setStatus(s){activeStatus=s||'all';activeIndex=0;render()}
 function setMode(m){activeMode=m==='classic'?'classic':'carousel';storageSet('app360:home-mode:v2',activeMode);var c=el('carouselPanel'),g=el('classicPanel'),bc=el('modeCarousel'),bg=el('modeClassic');if(c)c.className='carousel-panel'+(activeMode==='carousel'?'':' off');if(g)g.className='classic-panel'+(activeMode==='classic'?' on':'');if(bc)bc.className='showcase-mode'+(activeMode==='carousel'?' on':'');if(bg)bg.className='showcase-mode'+(activeMode==='classic'?' on':'');if(activeMode==='carousel')setTimeout(layoutTrack,30)}
 function findApp(id){var i;for(i=0;i<apps.length;i++)if(apps[i].id===id)return apps[i];return null}

@@ -53,6 +53,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 ;(function(w,d){
 'use strict';
 if(w.APP360_AI_SHELL||d.getElementById('app360AiShellScript'))return;
-function load(){if(w.APP360_AI_SHELL||d.getElementById('app360AiShellScript'))return;var s=d.createElement('script');s.id='app360AiShellScript';s.src='../../../assets/js/app360-ai-shell.js?v=2&brand=98';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
+function load(){if(w.APP360_AI_SHELL||d.getElementById('app360AiShellScript'))return;var s=d.createElement('script');s.id='app360AiShellScript';s.src='../../../assets/js/app360-ai-shell.js?v=107&brand=98';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',load,false);else if(w.attachEvent)w.attachEvent('onload',load)}else load();
 })(window,document);

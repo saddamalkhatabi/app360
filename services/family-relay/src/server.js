@@ -270,6 +270,11 @@ function createApp360Server(options = {}) {
   const relay = createRelayState(options);
   const server = http.createServer((req, res) => {
     const pathname = normalizeWsPath(req.url);
+    const publicLinks = pathname === '/data/public-links.json';
+    if(publicLinks)res.setHeader('Vary','Origin');
+    const integrationOrigins = ['https://yem1.com','https://www.yem1.com','https://school.yem1.com'];
+    if(publicLinks && integrationOrigins.includes(req.headers.origin)){res.setHeader('Access-Control-Allow-Origin',req.headers.origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET, OPTIONS');}
+    if(publicLinks && req.method === 'OPTIONS'){res.writeHead(204);return res.end();}
     if (pathname === '/health' || pathname === '/family-health') return json(res, 200, {ok:true, service:'app360-family-relay', rooms:relay.rooms.size, clients:relay.clients.size, uptime:Math.round(process.uptime()), now:Date.now()});
     let rel = pathname === '/' ? '/index.html' : pathname;
     let filePath;
@@ -280,6 +285,7 @@ function createApp360Server(options = {}) {
       fs.readFile(filePath, (readErr, data) => {
         if (readErr) { res.writeHead(readErr.code === 'ENOENT' ? 404 : 500, {'content-type':'text/plain; charset=utf-8'}); return res.end('Not found'); }
         const ext = path.extname(filePath).toLowerCase();
+        if(ext === '.html')res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://yem1.com https://www.yem1.com https://school.yem1.com");
         let body = data;
         if (path.basename(filePath) === 'index.html') {
           let text = data.toString('utf8');
