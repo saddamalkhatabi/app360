@@ -17,6 +17,8 @@ for(const dir of directories){
  if((live&&live.status||meta.status)!=='live')continue;
  const worker="self.APP360_OFFLINE_ROOT='../../../';\nimportScripts('../../../assets/js/offline-worker-v1.js?v=1');\n";fs.writeFileSync(path.join(root,dir,'sw.js'),worker);
  let files=walk(dir).filter(runtime).concat(common,deps[dir]||[],['index.html','manifest.webmanifest','data/catalog.json','data/goals.json','data/live-overrides.json']);
+ const card=catalog.apps.find(a=>a.id===meta.id)||{};
+ ['cover','cover_fallback','cover_small','cover_small_fallback'].forEach(field=>{if(card[field])files.push(card[field].split('?')[0]);});
  // Include dynamically selected media directories and sibling-app audio bases, not just old precache literals.
  for(const source of walk(dir).filter(p=>/\.(js|html|json|css)$/.test(p))){
   const text=fs.readFileSync(path.join(root,source),'utf8');
