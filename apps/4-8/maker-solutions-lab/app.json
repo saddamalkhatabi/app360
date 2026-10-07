@@ -9,8 +9,8 @@
   "content_seed_path": "apps/4-8/maker-solutions-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
   "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-curiosity-science-and-first-maker-projects",
@@ -29,12 +29,59 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.recorded",
+    "audio.tts"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر مشكلة من البيت أو اللعب وحدد شرطًا قابلًا للملاحظة ← صمم بفكرة مرسومة واختر مواد كبيرة آمنة مع المدرب ← اصنع النموذج الأول واختبره بالشرط نفسه ← غيّر جزءًا واحدًا واحفظ مقارنة النموذجين والخطوة التالية",
   "blueprint_path": "apps/4-8/maker-solutions-lab/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/maker-solutions-lab/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/maker-solutions-lab/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#26777c",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/maker-solutions-lab/icon-192.png",
+      "apps/4-8/maker-solutions-lab/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "technical-preview-family-pilot-pending",
+  "launch_path": "apps/4-8/maker-solutions-lab/launch.html",
+  "links_path": "apps/4-8/maker-solutions-lab/links.json",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-maker-solutions:schema-1:<profile>"
+  },
+  "learning_levels": [
+    {
+      "level": 1,
+      "track": "entry"
+    },
+    {
+      "level": 2,
+      "track": "practice"
+    },
+    {
+      "level": 3,
+      "track": "extend"
+    }
+  ],
+  "ready_experiences": [
+    "book",
+    "house",
+    "track",
+    "box",
+    "bridge",
+    "drawing"
+  ],
+  "drawing_engine": "packages/pencil-core/browser.js",
+  "coach_patterns": {
+    "profile_scoped": true,
+    "limit": 20,
+    "export_import": true
+  }
 }

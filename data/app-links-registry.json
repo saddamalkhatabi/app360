@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "updated": "2026-10-04",
+  "updated": "2026-10-08",
   "domain_policy": "relative-only",
   "resolver_ar": "التطبيق المستدعي يأخذ origin ومسار جذر المستودع من location الحالي ثم يضيف المسار النسبي المسجل هنا؛ لا يخزن أي Domain داخل الأرشيف.",
   "event_store_key": "app360:interop:v1:events",
@@ -122,6 +122,13 @@
       "title_ar": "مسار الأوامر: أخطط وأصحح",
       "archive_path": "apps/4-8/command-path-lab/links.json",
       "launch_path": "apps/4-8/command-path-lab/launch.html"
+    },
+    {
+      "app_id": "a4-maker-solutions",
+      "age_group": "4-8",
+      "title_ar": "ورشة الحلول: أصنع وأحسّن",
+      "archive_path": "apps/4-8/maker-solutions-lab/links.json",
+      "launch_path": "apps/4-8/maker-solutions-lab/launch.html"
     }
   ],
   "future_app_contract_ar": [

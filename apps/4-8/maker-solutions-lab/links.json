@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.1",
+  "app_id": "a4-maker-solutions",
+  "title_ar": "ورشة الحلول: أصنع وأحسّن",
+  "base_path": "apps/4-8/maker-solutions-lab/",
+  "app_href": "apps/4-8/maker-solutions-lab/index.html",
+  "launch_path": "apps/4-8/maker-solutions-lab/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "maker-projects",
+      "kind": "category",
+      "label_ar": "المشروعات الستة",
+      "href": "apps/4-8/maker-solutions-lab/launch.html"
+    },
+    {
+      "id": "maker-project",
+      "kind": "activity",
+      "label_ar": "مشروع محدد",
+      "href_template": "apps/4-8/maker-solutions-lab/launch.html?project={project}",
+      "allowed_values": [
+        "book",
+        "house",
+        "track",
+        "box",
+        "bridge",
+        "drawing"
+      ]
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

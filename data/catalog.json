@@ -1733,11 +1733,11 @@
       "slug": "maker-solutions-lab",
       "title_ar": "ورشة الحلول: أصنع وأحسّن",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "build_order": 6,
-      "description_ar": "مشروعات صغيرة لحل مشكلة يلاحظها الطفل: حامل كتاب أو بيت لدمية أو مسار كرة كبيرة. يحدد شرط النجاح، يختار المواد، يصنع نموذجًا، يختبره ويعدله. تصميم على الشاشة وخطة مواد وورقة عمل لنشاط الواقع، مع معرض للمحاولات لا مسابقة أجمل منتج.",
+      "description_ar": "ستة مشروعات ورقية بثلاثة مسارات استعداد: تصميم تفاعلي ورسم اختياري، اختباران بالطريقة نفسها، وتغيير جزء واحد مع مقارنة النموذجين. نموذج شاشة معلن أو بناء واقعي بمساعدة البالغ، صوت عربي وإنجليزي متزامن، حفظ مستقل لكل طفل وطباعة وتصدير. نسخة تجريبية.",
       "practice_model": "اختر مشكلة من البيت أو اللعب وحدد شرطًا قابلًا للملاحظة ← صمم بفكرة مرسومة واختر مواد كبيرة آمنة مع المدرب ← اصنع النموذج الأول واختبره بالشرط نفسه ← غيّر جزءًا واحدًا واحفظ مقارنة النموذجين والخطوة التالية",
       "audience": "shared",
       "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
@@ -1760,7 +1760,9 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.recorded",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -1772,21 +1774,21 @@
           "relationship": "supports",
           "rationale_ar": "التصميم والبناء والاختبار والتحسين",
           "evidence_ar": "نموذجان واختبار واحد ثابت",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-creativity-art-storytelling-and-expression",
           "relationship": "supports",
           "rationale_ar": "رسم الحل وتبرير تغييره",
           "evidence_ar": "مخطط مع معنى",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "مراجعة عملية واحدة قابلة للتنفيذ",
           "evidence_ar": "ملاحظة المدرب وتعديل الطفل",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -1868,7 +1870,27 @@
       "blueprint_path": "apps/4-8/maker-solutions-lab/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/maker-solutions-lab/PROMPT_AR.md",
       "manifest": "apps/4-8/maker-solutions-lab/app.json",
-      "cover": "assets/covers/a4-maker-solutions.svg"
+      "cover": "assets/covers/a4-maker-solutions.jpg",
+      "href": "apps/4-8/maker-solutions-lab/index.html?v=1",
+      "icon": "apps/4-8/maker-solutions-lab/icon.svg?v=1",
+      "release_channel": "preview",
+      "acceptance_state": "technical-preview-family-pilot-pending",
+      "launch_path": "apps/4-8/maker-solutions-lab/launch.html",
+      "links_path": "apps/4-8/maker-solutions-lab/links.json",
+      "learning_levels": [
+        {
+          "level": 1,
+          "track": "entry"
+        },
+        {
+          "level": 2,
+          "track": "practice"
+        },
+        {
+          "level": 3,
+          "track": "extend"
+        }
+      ]
     },
     {
       "id": "a4-command-path",
