@@ -75,3 +75,8 @@ html.app360-legacy .showcase-logo{width:62px!important;height:62px!important}
 html.app360-legacy .showcase-age-row{margin-bottom:2px!important}
 html.app360-legacy .age-picker button{min-height:35px!important;padding:5px 9px!important}
 html.app360-legacy .showcase-meta{margin:0 0 4px!important}
+
+/* Preserve complete portrait app covers, including title and age badges. */
+.classic-cover.portrait-cover-frame{height:auto;aspect-ratio:4/5}
+.classic-cover .portrait-app-cover{height:auto;aspect-ratio:4/5;object-fit:contain}
+.showcase-cover-link .portrait-app-cover{object-fit:contain}
