@@ -19,3 +19,5 @@
 /* Experiment player stays next to the moving model. */
 .simulation-tools{display:flex;gap:4px;margin:3px 0}.simulation-tools button{flex:1;min-height:40px;font-size:12px;padding:4px 6px}.simulation-progress{height:5px;background:#dae7dd;border-radius:8px;overflow:hidden;margin:2px 0}.simulation-progress span{display:block;width:0;height:100%;background:#e5af33}.simulation-caption{padding:4px 6px;font-size:13px;line-height:1.4;background:#fff2be;border-radius:8px;margin:3px 0;flex-shrink:0}.simulation-caption:empty{display:none}.test-workspace .result{padding:3px 6px;font-size:12px}.test-workspace .scene-wrap{min-height:150px}.test-workspace .controls>button{margin:3px 0}.observation-details{margin-top:10px}.test-workspace .scene svg{will-change:auto}
 @media(max-height:500px) and (min-width:540px){.simulation-tools button{min-height:32px;padding:2px 4px}.simulation-caption{font-size:11px}.test-workspace .scene-wrap{min-height:0}}
+
+.design-panel{overflow-anchor:none}
