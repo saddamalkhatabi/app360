@@ -1,0 +1,808 @@
+{
+  "schema": 1,
+  "pilot": true,
+  "levels": [
+    {
+      "id": 1,
+      "age": "4–5",
+      "title": {
+        "ar": "أشاهد وألاحظ",
+        "en": "Watch and notice"
+      },
+      "goal": {
+        "ar": "توقع بسيط ثم إشارة إلى ما تغيّر.",
+        "en": "Make a simple prediction and point to a change."
+      }
+    },
+    {
+      "id": 2,
+      "age": "5–6",
+      "title": {
+        "ar": "أقارن تغييرًا واحدًا",
+        "en": "Compare one change"
+      },
+      "goal": {
+        "ar": "قارن قبل وبعد مع إبقاء الأشياء الأخرى قدر الإمكان.",
+        "en": "Compare before and after while keeping other things as similar as possible."
+      }
+    },
+    {
+      "id": 3,
+      "age": "6–8",
+      "title": {
+        "ar": "أفسر وأجرّب مع المدرب",
+        "en": "Explain and try with a coach"
+      },
+      "goal": {
+        "ar": "ناقش وظيفة الجزء، ثم جرّب كل تغيير على حدة.",
+        "en": "Discuss what each part does, then try each change separately."
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "bridge",
+      "title": {
+        "ar": "جسر اللعب",
+        "en": "Toy bridge"
+      },
+      "scenes": [
+        {
+          "id": "bridge-0",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "ورقة مسطحة",
+            "en": "Flat paper"
+          },
+          "text": {
+            "ar": "هٰذا جِسْرٌ مِنْ وَرَقَةٍ مُسَطَّحَةٍ. السَّيَّارَةُ تَنْتَظِرُ. هَلْ تَحْمِلُها الوَرَقَةُ؟",
+            "en": "This bridge uses flat paper. The car is waiting. Will the paper hold it?"
+          },
+          "variable": {
+            "ar": "شكل الطي",
+            "en": "Paper fold"
+          },
+          "value": {
+            "ar": "مسطحة",
+            "en": "Flat"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على شكل الطي",
+            "en": "Toy and paper • focus on Paper fold"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-0.mp3",
+            "en": "audio/en/scene-bridge-0.mp3"
+          }
+        },
+        {
+          "id": "bridge-1",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "نلاحظ الانحناء",
+            "en": "Notice the bend"
+          },
+          "text": {
+            "ar": "وَصَلَتِ السَّيَّارَةُ إِلى الوَسَطِ. اِنْحَنَتِ الوَرَقَةُ في هٰذا المَشْهَدِ. أَشِرْ إِلى الاِنْحِناءِ.",
+            "en": "The car reached the middle. The paper bent in this scene. Point to the bend."
+          },
+          "variable": {
+            "ar": "شكل الطي",
+            "en": "Paper fold"
+          },
+          "value": {
+            "ar": "مسطحة",
+            "en": "Flat"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على شكل الطي",
+            "en": "Toy and paper • focus on Paper fold"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-1.mp3",
+            "en": "audio/en/scene-bridge-1.mp3"
+          }
+        },
+        {
+          "id": "bridge-2",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نطوي الورقة",
+            "en": "Fold the paper"
+          },
+          "text": {
+            "ar": "نَطْوي الوَرَقَةَ ثَنَياتٍ مُتَتابِعَةً. نُبْقي السَّيَّارَةَ وَالدَّعامَتَيْنِ. تَوَقَّعْ ما سَيَحْدُثُ.",
+            "en": "We fold the paper into pleats. We keep the car and supports. Predict what will happen."
+          },
+          "variable": {
+            "ar": "شكل الطي",
+            "en": "Paper fold"
+          },
+          "value": {
+            "ar": "ثنيات متتابعة",
+            "en": "Pleated"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على شكل الطي",
+            "en": "Toy and paper • focus on Paper fold"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-2.mp3",
+            "en": "audio/en/scene-bridge-2.mp3"
+          }
+        },
+        {
+          "id": "bridge-3",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "السيارة تعبر",
+            "en": "The car crosses"
+          },
+          "text": {
+            "ar": "في هٰذا المَشْهَدِ، عَبَرَتِ السَّيَّارَةُ الجِسْرَ المَطْوِيَّ. ما الَّذي غَيَّرْناهُ في الوَرَقَةِ؟",
+            "en": "In this scene, the car crossed the folded bridge. What did we change in the paper?"
+          },
+          "variable": {
+            "ar": "شكل الطي",
+            "en": "Paper fold"
+          },
+          "value": {
+            "ar": "ثنيات متتابعة",
+            "en": "Pleated"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على شكل الطي",
+            "en": "Toy and paper • focus on Paper fold"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-3.mp3",
+            "en": "audio/en/scene-bridge-3.mp3"
+          }
+        },
+        {
+          "id": "bridge-4",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "فجوة طويلة",
+            "en": "A long gap"
+          },
+          "text": {
+            "ar": "نُبْعِدُ الدَّعامَتَيْنِ. يَصيرُ الاِمْتِدادُ طَويلًا. نُبْقي الوَرَقَةَ مَطْوِيَّةً وَاللُّعْبَةَ نَفْسَها.",
+            "en": "We move the supports apart. The span becomes long. We keep folded paper and the same toy."
+          },
+          "variable": {
+            "ar": "امتداد الجسر",
+            "en": "Bridge span"
+          },
+          "value": {
+            "ar": "طويل",
+            "en": "Long"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على امتداد الجسر",
+            "en": "Toy and paper • focus on Bridge span"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-4.mp3",
+            "en": "audio/en/scene-bridge-4.mp3"
+          }
+        },
+        {
+          "id": "bridge-5",
+          "atlas": "assets/scenes/bridge-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "نلاحظ الوسط",
+            "en": "Watch the middle"
+          },
+          "text": {
+            "ar": "في هٰذا المَشْهَدِ، هَبَطَ وَسَطُ الجِسْرِ الطَّويلِ تَحْتَ السَّيَّارَةِ. كَيْفَ نُقَلِّلُ الاِمْتِدادَ؟",
+            "en": "In this scene, the middle of the long bridge sagged under the car. How could we shorten the span?"
+          },
+          "variable": {
+            "ar": "امتداد الجسر",
+            "en": "Bridge span"
+          },
+          "value": {
+            "ar": "طويل",
+            "en": "Long"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على امتداد الجسر",
+            "en": "Toy and paper • focus on Bridge span"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-5.mp3",
+            "en": "audio/en/scene-bridge-5.mp3"
+          }
+        },
+        {
+          "id": "bridge-6",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "نقرب الدعامتين",
+            "en": "Move supports closer"
+          },
+          "text": {
+            "ar": "نُقَرِّبُ الدَّعامَتَيْنِ. يَصيرُ الاِمْتِدادُ أَقْصَرَ. اِخْتَبِرْ نَفْسَ اللُّعْبَةِ مَرَّةً أُخْرى.",
+            "en": "We move the supports closer. The span is shorter. Test the same toy again."
+          },
+          "variable": {
+            "ar": "امتداد الجسر",
+            "en": "Bridge span"
+          },
+          "value": {
+            "ar": "قصير",
+            "en": "Short"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على امتداد الجسر",
+            "en": "Toy and paper • focus on Bridge span"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-6.mp3",
+            "en": "audio/en/scene-bridge-6.mp3"
+          }
+        },
+        {
+          "id": "bridge-7",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "عبور على امتداد قصير",
+            "en": "Crossing a short span"
+          },
+          "text": {
+            "ar": "عَبَرَتِ السَّيَّارَةُ في هٰذا المَشْهَدِ. غَيَّرْنا المَسافَةَ بَيْنَ الدَّعامَتَيْنِ. قارِنْها بِالمَشْهَدِ الطَّويلِ.",
+            "en": "The car crossed in this scene. We changed the distance between the supports. Compare it with the long span."
+          },
+          "variable": {
+            "ar": "امتداد الجسر",
+            "en": "Bridge span"
+          },
+          "value": {
+            "ar": "قصير",
+            "en": "Short"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على امتداد الجسر",
+            "en": "Toy and paper • focus on Bridge span"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-7.mp3",
+            "en": "audio/en/scene-bridge-7.mp3"
+          }
+        },
+        {
+          "id": "bridge-8",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "دعامات ضيقة",
+            "en": "Narrow supports"
+          },
+          "text": {
+            "ar": "هٰذِهِ دَعاماتٌ ضَيِّقَةٌ. نُبْقي الجِسْرَ مَطْوِيًّا. راقِبْ ثَباتَ الدَّعامَةِ عِنْدَ مُرورِ السَّيَّارَةِ.",
+            "en": "These supports are narrow. We keep the bridge folded. Watch the support as the car passes."
+          },
+          "variable": {
+            "ar": "عرض الدعامات",
+            "en": "Support width"
+          },
+          "value": {
+            "ar": "ضيقة",
+            "en": "Narrow"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على عرض الدعامات",
+            "en": "Toy and paper • focus on Support width"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-8.mp3",
+            "en": "audio/en/scene-bridge-8.mp3"
+          }
+        },
+        {
+          "id": "bridge-9",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "دعامة تميل",
+            "en": "A support tilts"
+          },
+          "text": {
+            "ar": "مالَتْ دَعامَةٌ وَهَبَطَ طَرَفُ الجِسْرِ في هٰذا المَشْهَدِ. ما الَّذي يَحْتاجُ إِلى تَثْبيتٍ؟",
+            "en": "A support tilted and the bridge end dropped in this scene. What needs to be made stable?"
+          },
+          "variable": {
+            "ar": "عرض الدعامات",
+            "en": "Support width"
+          },
+          "value": {
+            "ar": "ضيقة",
+            "en": "Narrow"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على عرض الدعامات",
+            "en": "Toy and paper • focus on Support width"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-9.mp3",
+            "en": "audio/en/scene-bridge-9.mp3"
+          }
+        },
+        {
+          "id": "bridge-10",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "دعامات عريضة",
+            "en": "Wide supports"
+          },
+          "text": {
+            "ar": "نَسْتَخْدِمُ دَعاماتٍ أَعْرَضَ. نُبْقي الطَّيَّ وَاللُّعْبَةَ. تَوَقَّعْ ثَباتَ الجِسْرِ.",
+            "en": "We use wider supports. We keep the fold and toy. Predict how stable the bridge will be."
+          },
+          "variable": {
+            "ar": "عرض الدعامات",
+            "en": "Support width"
+          },
+          "value": {
+            "ar": "عريضة",
+            "en": "Wide"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على عرض الدعامات",
+            "en": "Toy and paper • focus on Support width"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-10.mp3",
+            "en": "audio/en/scene-bridge-10.mp3"
+          }
+        },
+        {
+          "id": "bridge-11",
+          "atlas": "assets/scenes/bridge-b.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "نلاحظ الثبات",
+            "en": "Notice stability"
+          },
+          "text": {
+            "ar": "عَبَرَتِ السَّيَّارَةُ وَبَقِيَتِ الدَّعاماتُ ثابِتَةً في هٰذا المَشْهَدِ. اِشْرَحْ دَوْرَ الدَّعاماتِ لِمُدَرِّبِكَ.",
+            "en": "The car crossed and the supports stayed stable in this scene. Explain the role of supports to your coach."
+          },
+          "variable": {
+            "ar": "عرض الدعامات",
+            "en": "Support width"
+          },
+          "value": {
+            "ar": "عريضة",
+            "en": "Wide"
+          },
+          "kept": {
+            "ar": "اللعبة والورقة • نركز على عرض الدعامات",
+            "en": "Toy and paper • focus on Support width"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-bridge-11.mp3",
+            "en": "audio/en/scene-bridge-11.mp3"
+          }
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "3": [
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "coach": {
+        "ar": "جهّز ورقًا كبيرًا ودعامتين ثابتتين ولعبة خفيفة. أبعد الأصابع عند ميل الدعامة. لا تحمل الجسور أشخاصًا. جرّب نوع الورق والحمل الفعلي؛ الصور حالات توضيحية وليست قياسات.",
+        "en": "Prepare large paper, stable supports and a light toy. Keep fingers clear of a tilting support. Never put people on a bridge. Test your actual paper and load; images illustrate cases, not measurements."
+      }
+    },
+    {
+      "id": "track",
+      "title": {
+        "ar": "مسار الكرة",
+        "en": "Ball ramp"
+      },
+      "scenes": [
+        {
+          "id": "track-0",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "ميل قليل",
+            "en": "A shallow slope"
+          },
+          "text": {
+            "ar": "هٰذا مَسارٌ بِمَيْلٍ قَليلٍ. الكُرَةُ في البِدايَةِ. تَوَقَّعْ أَيْنَ سَتَتَوَقَّفُ.",
+            "en": "This ramp has a shallow slope. The ball is at the start. Predict where it will stop."
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "قليل",
+            "en": "Shallow"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-0.mp3",
+            "en": "audio/en/scene-track-0.mp3"
+          }
+        },
+        {
+          "id": "track-1",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "قبل الهدف",
+            "en": "Before the target"
+          },
+          "text": {
+            "ar": "في هٰذا المَشْهَدِ، تَوَقَّفَتِ الكُرَةُ قَبْلَ الحَلْقَةِ. أَشِرْ إِلى الكُرَةِ ثُمَّ الهَدَفِ.",
+            "en": "In this scene, the ball stopped before the ring. Point to the ball, then the target."
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "قليل",
+            "en": "Shallow"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-1.mp3",
+            "en": "audio/en/scene-track-1.mp3"
+          }
+        },
+        {
+          "id": "track-2",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "ميل متوسط",
+            "en": "A moderate slope"
+          },
+          "text": {
+            "ar": "نَرْفَعُ بِدايَةَ المَسارِ قَليلًا. يَصيرُ المَيْلُ مُتَوَسِّطًا. نُبْقي الكُرَةَ وَالهَدَفَ.",
+            "en": "We raise the start a little. The slope becomes moderate. We keep the ball and target."
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "متوسط",
+            "en": "Moderate"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-2.mp3",
+            "en": "audio/en/scene-track-2.mp3"
+          }
+        },
+        {
+          "id": "track-3",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "داخل الهدف",
+            "en": "Inside the target"
+          },
+          "text": {
+            "ar": "وَصَلَتِ الكُرَةُ إِلى الحَلْقَةِ في هٰذا المَشْهَدِ. كَيْفَ تَغَيَّرَ مَيْلُ المَسارِ؟",
+            "en": "The ball reached the ring in this scene. How did the slope change?"
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "متوسط",
+            "en": "Moderate"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-3.mp3",
+            "en": "audio/en/scene-track-3.mp3"
+          }
+        },
+        {
+          "id": "track-4",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "ميل كبير",
+            "en": "A steep slope"
+          },
+          "text": {
+            "ar": "نَرْفَعُ البِدايَةَ أَكْثَرَ. يَصيرُ المَيْلُ كَبيرًا. هَلْ تَتَوَقَّفُ الكُرَةُ عِنْدَ الهَدَفِ؟",
+            "en": "We raise the start more. The slope becomes steep. Will the ball stop at the target?"
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "كبير",
+            "en": "Steep"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-4.mp3",
+            "en": "audio/en/scene-track-4.mp3"
+          }
+        },
+        {
+          "id": "track-5",
+          "atlas": "assets/scenes/track-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "تجاوزت الهدف",
+            "en": "Past the target"
+          },
+          "text": {
+            "ar": "تَجاوَزَتِ الكُرَةُ الحَلْقَةَ في هٰذا المَشْهَدِ. قارِنِ المَيْلَ الكَبيرَ بِالمُتَوَسِّطِ.",
+            "en": "The ball passed the ring in this scene. Compare the steep slope with the moderate slope."
+          },
+          "variable": {
+            "ar": "ميل المسار",
+            "en": "Ramp slope"
+          },
+          "value": {
+            "ar": "كبير",
+            "en": "Steep"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على ميل المسار",
+            "en": "Same ball • focus on Ramp slope"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-5.mp3",
+            "en": "audio/en/scene-track-5.mp3"
+          }
+        },
+        {
+          "id": "track-6",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "دون حواف",
+            "en": "Without rails"
+          },
+          "text": {
+            "ar": "هٰذا مَسارٌ بِلا حَوافٍّ جانِبِيَّةٍ. نُبْقي المَيْلَ مُتَوَسِّطًا. راقِبْ اِتِّجاهَ الكُرَةِ.",
+            "en": "This ramp has no side rails. We keep a moderate slope. Watch the direction of the ball."
+          },
+          "variable": {
+            "ar": "الحواف الجانبية",
+            "en": "Side rails"
+          },
+          "value": {
+            "ar": "دون حواف",
+            "en": "No rails"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على الحواف الجانبية",
+            "en": "Same ball • focus on Side rails"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-6.mp3",
+            "en": "audio/en/scene-track-6.mp3"
+          }
+        },
+        {
+          "id": "track-7",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "خارج المسار",
+            "en": "Off the path"
+          },
+          "text": {
+            "ar": "في هٰذا المَشْهَدِ، خَرَجَتِ الكُرَةُ عَنْ اِتِّجاهِ المَسارِ. ما الَّذي قَدْ يُساعِدُها عَلى البَقاءِ فيهِ؟",
+            "en": "In this scene, the ball moved off the intended path. What might help it stay on the path?"
+          },
+          "variable": {
+            "ar": "الحواف الجانبية",
+            "en": "Side rails"
+          },
+          "value": {
+            "ar": "دون حواف",
+            "en": "No rails"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على الحواف الجانبية",
+            "en": "Same ball • focus on Side rails"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-7.mp3",
+            "en": "audio/en/scene-track-7.mp3"
+          }
+        },
+        {
+          "id": "track-8",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نضيف الحواف",
+            "en": "Add rails"
+          },
+          "text": {
+            "ar": "نُضيفُ حَوافَّ جانِبِيَّةً. نُبْقي المَيْلَ وَالكُرَةَ. تَوَقَّعْ اِتِّجاهَ حَرَكَتِها.",
+            "en": "We add side rails. We keep the slope and ball. Predict the direction it will travel."
+          },
+          "variable": {
+            "ar": "الحواف الجانبية",
+            "en": "Side rails"
+          },
+          "value": {
+            "ar": "حواف مرتفعة",
+            "en": "Raised rails"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على الحواف الجانبية",
+            "en": "Same ball • focus on Side rails"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-8.mp3",
+            "en": "audio/en/scene-track-8.mp3"
+          }
+        },
+        {
+          "id": "track-9",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "تتبع المسار",
+            "en": "Following the path"
+          },
+          "text": {
+            "ar": "بَقِيَتِ الكُرَةُ في اِتِّجاهِ المَسارِ وَوَصَلَتْ إِلى الحَلْقَةِ في هٰذا المَشْهَدِ. ما دَوْرُ الحَوافِّ؟",
+            "en": "The ball followed the path and reached the ring in this scene. What did the rails do?"
+          },
+          "variable": {
+            "ar": "الحواف الجانبية",
+            "en": "Side rails"
+          },
+          "value": {
+            "ar": "حواف مرتفعة",
+            "en": "Raised rails"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على الحواف الجانبية",
+            "en": "Same ball • focus on Side rails"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-9.mp3",
+            "en": "audio/en/scene-track-9.mp3"
+          }
+        },
+        {
+          "id": "track-10",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "هدف بعيد",
+            "en": "A far target"
+          },
+          "text": {
+            "ar": "الحَلْقَةُ بَعيدَةٌ عَنْ نِهايَةِ المَسارِ. لَمْ تَصِلْ إِلَيْها الكُرَةُ في هٰذا المَشْهَدِ. أَيْنَ نَضَعُها؟",
+            "en": "The ring is far from the ramp end. The ball has not reached it in this scene. Where could we put it?"
+          },
+          "variable": {
+            "ar": "مكان الهدف",
+            "en": "Target position"
+          },
+          "value": {
+            "ar": "بعيد",
+            "en": "Far"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على مكان الهدف",
+            "en": "Same ball • focus on Target position"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-10.mp3",
+            "en": "audio/en/scene-track-10.mp3"
+          }
+        },
+        {
+          "id": "track-11",
+          "atlas": "assets/scenes/track-b.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "هدف قريب",
+            "en": "A near target"
+          },
+          "text": {
+            "ar": "نُقَرِّبُ الحَلْقَةَ مِنْ نِهايَةِ المَسارِ. وَصَلَتِ الكُرَةُ في هٰذا المَشْهَدِ. غَيَّرْنا مَكانَ الهَدَفِ.",
+            "en": "We move the ring closer to the ramp end. The ball reached it in this scene. We changed the target position."
+          },
+          "variable": {
+            "ar": "مكان الهدف",
+            "en": "Target position"
+          },
+          "value": {
+            "ar": "قريب",
+            "en": "Near"
+          },
+          "kept": {
+            "ar": "الكرة نفسها • نركز على مكان الهدف",
+            "en": "Same ball • focus on Target position"
+          },
+          "audio": {
+            "ar": "audio/ar/scene-track-11.mp3",
+            "en": "audio/en/scene-track-11.mp3"
+          }
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "coach": {
+        "ar": "استخدم كرة كبيرة غير قابلة للبلع، وميلًا منخفضًا ومكانًا خاليًا. ثبّت المسار مع بالغ. تختلف الحركة باختلاف السطح والكرة؛ الصور حالات توضيحية.",
+        "en": "Use a large ball that cannot be swallowed, a low ramp and a clear area. Secure it with an adult. Movement varies with the surface and ball; the pictures are illustrative cases."
+      }
+    }
+  ]
+}
