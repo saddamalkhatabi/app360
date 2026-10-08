@@ -10,6 +10,6 @@
   },
   "scripts": {
     "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
-    "test": "node --test test/model.test.cjs"
+    "test": "node --test test/model.test.cjs test/simulation.test.cjs"
   }
 }
