@@ -36,6 +36,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Ensure shared FFmpeg libraries are available for TorchCodec
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          ldconfig -p | grep libavutil
+
       - name: Install CPU SILMA dependencies
         run: |
           python -m pip install --upgrade pip
