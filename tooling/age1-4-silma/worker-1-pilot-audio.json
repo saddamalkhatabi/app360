@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "status": "CURATED_SCRIPTS_ONLY_NO_MP3",
+  "engine": "silma-tts",
+  "language": "ar",
+  "worker": 1,
+  "description": "25 manually vocalized pilot utterances from 4 source activities; no model or audio generated in this run.",
+  "requires": [
+    "SILMA model weights locally available in dedicated build environment",
+    "silma-tts==1.0.5, torch, torchaudio, uroman, ffmpeg",
+    "Human pronunciation and safety approval",
+    "Browser playback test before release"
+  ],
+  "items": [
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/intro.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "intro",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "صيد الألوان في الغرفة",
+      "text": "هَيَّا نَلْعَبُ لُعْبَةَ صَيْدِ الْأَلْوَانِ فِي الْغُرْفَةِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "title_pronunciation"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/question.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "question",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "أي شيء يشبه اللون المطلوب؟",
+      "text": "أَيُّ شَيْءٍ يُشْبِهُ اللَّوْنَ الْمَطْلُوبَ؟",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "question_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/step-1.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "step-1",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "اختر لونًا واحدًا",
+      "text": "اِخْتَرْ لَوْنًا وَاحِدًا.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/step-2.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "step-2",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "ابحث عن شيء قريب",
+      "text": "اِبْحَثْ عَنْ شَيْءٍ قَرِيبٍ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/step-3.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "step-3",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "ضع الشيء بجانب اللون",
+      "text": "ضَعِ الشَّيْءَ بِجَانِبِ اللَّوْنِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/step-4.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "step-4",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "بدّل اللون",
+      "text": "بَدِّلِ اللَّوْنَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G01/step-5.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G01",
+      "cue": "step-5",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_text": "انتهوا واتركوا الشاشة",
+      "text": "اِنْتَهَتِ اللُّعْبَةُ. هَيَّا نَتْرُكُ الشَّاشَةَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/intro.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "intro",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "طريق النقاط الأربع",
+      "text": "هَيَّا نَرْسُمُ طَرِيقَ النُّقَاطِ الْأَرْبَعِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "title_pronunciation"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/step-1.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "step-1",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "ابدأ من النقطة الكبيرة",
+      "text": "اِبْدَأْ مِنَ النُّقْطَةِ الْكَبِيرَةِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/step-2.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "step-2",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "صل النقطة التالية",
+      "text": "صِلِ النُّقْطَةَ التَّالِيَةَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/step-3.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "step-3",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "واصل ببطء",
+      "text": "وَاصِلْ بِبُطْءٍ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/step-4.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "step-4",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "توقف عند الأخيرة",
+      "text": "تَوَقَّفْ عِنْدَ النُّقْطَةِ الْأَخِيرَةِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/screen-to-move/audio/silma/worker-1/G05/step-5.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "screen-to-move",
+      "item_id": "G05",
+      "cue": "step-5",
+      "source_title": "طريق النقاط الأربع",
+      "source_text": "لوّن الطريق إن أحب الطفل",
+      "text": "لَوِّنِ الطَّرِيقَ إِنْ أَحْبَبْتَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "screen_or_offline_context"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/intro.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "intro",
+      "source_title": "صفقة مثلي",
+      "source_text": "صفقة مثلي",
+      "text": "هَيَّا نُصَفِّقُ مَعًا.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "title_pronunciation",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/step-1.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "step-1",
+      "source_title": "صفقة مثلي",
+      "source_text": "جهّز: اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "text": "اِجْلِسْ مَعَ الْمُرَافِقِ فِي مَكَانٍ آمِنٍ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "adult_to_child_adaptation",
+        "adult_supervision_required",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/step-2.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "step-2",
+      "source_title": "صفقة مثلي",
+      "source_text": "دوري: اعرض «صفقة مثلي» مرة واحدة ببطء.",
+      "text": "شَاهِدِ الْمُرَافِقَ وَهُوَ يُصَفِّقُ بِبُطْءٍ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "adult_to_child_adaptation",
+        "adult_supervision_required",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/step-3.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "step-3",
+      "source_title": "صفقة مثلي",
+      "source_text": "دورك: دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "text": "الآنَ دَوْرُكَ. صَفِّقْ بِطَرِيقَتِكَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "adult_to_child_adaptation",
+        "adult_supervision_required",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/step-4.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "step-4",
+      "source_title": "صفقة مثلي",
+      "source_text": "بدّل: الطفل يبدأ حركة وأنت تقلده.",
+      "text": "الآنَ أَنْتَ الْقَائِدُ. صَفِّقْ، وَدَعِ الْمُرَافِقَ يُقَلِّدُكَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "adult_to_child_adaptation",
+        "adult_supervision_required",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/imitate-one-step/audio/silma/worker-1/001/step-5.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "imitate-one-step",
+      "item_id": "001",
+      "cue": "step-5",
+      "source_title": "صفقة مثلي",
+      "source_text": "طوّر: إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "text": "أَحْسَنْتَ! هَيَّا نَسْتَرِيحُ، أَوْ نُجَرِّبُ مَرَّةً أُخْرَى.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "adult_to_child_adaptation",
+        "adult_supervision_required",
+        "original_title_ambiguous_safqa_vs_saffiq"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/intro.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "intro",
+      "source_title": "أغسل يدي",
+      "source_text": "أغسل يدي",
+      "text": "هَيَّا نَغْسِلُ أَيْدِيَنَا مَعَ الْمُرَافِقِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "title_pronunciation"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/step-1.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "step-1",
+      "source_title": "أغسل يدي",
+      "source_text": "أفتح الماء",
+      "text": "أَفْتَحُ الْمَاءَ بِمُسَاعَدَةِ الْمُرَافِقِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "routine_safety_review"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/step-2.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "step-2",
+      "source_title": "أغسل يدي",
+      "source_text": "أضع الصابون",
+      "text": "أَضَعُ الصَّابُونَ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "routine_safety_review"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/step-3.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "step-3",
+      "source_title": "أغسل يدي",
+      "source_text": "أفرك يدي جيدًا",
+      "text": "أَفْرُكُ يَدَيَّ جَيِّدًا.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "routine_safety_review"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/step-4.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "step-4",
+      "source_title": "أغسل يدي",
+      "source_text": "أشطف يدي بالماء",
+      "text": "أَشْطُفُ يَدَيَّ بِالْمَاءِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "routine_safety_review"
+      ]
+    },
+    {
+      "path": "apps/1-4/my-little-routine/audio/silma/worker-1/wash-hands/step-5.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "app": "my-little-routine",
+      "item_id": "wash-hands",
+      "cue": "step-5",
+      "source_title": "أغسل يدي",
+      "source_text": "أجفف يدي بالمنشفة",
+      "text": "أُجَفِّفُ يَدَيَّ بِالْمِنْشَفَةِ.",
+      "review_status": "pilot_diacritized_pending_human_listening_and_safety_approval",
+      "review_flags": [
+        "routine_safety_review"
+      ]
+    }
+  ]
+}
