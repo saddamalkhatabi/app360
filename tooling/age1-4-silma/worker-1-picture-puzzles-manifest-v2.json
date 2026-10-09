@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "CURATED_TEXT_ONLY_NO_AUDIO",
+  "engine": "silma-tts",
+  "worker": 1,
+  "app": "picture-puzzles",
+  "notes": [
+    "No MP3 files generated or verified",
+    "Must coordinate with existing audio-v3.js before activation",
+    "Global cues only: individual image naming continues through existing app assets",
+    "SILMA generation requires locally cached model weights and silma-tts"
+  ],
+  "items": [
+    {
+      "id": "picture-puzzles:global:start",
+      "item_id": "global",
+      "event_id": "start",
+      "focus_id": "boardWrap",
+      "language": "ar",
+      "engine": "silma",
+      "text": "هَيَّا نُرَكِّبُ الصُّورَةَ. اِخْتَرْ قِطْعَةً.",
+      "path": "apps/1-4/picture-puzzles/audio/silma/worker-1/picture-puzzles/start.mp3",
+      "verified_audio": false
+    },
+    {
+      "id": "picture-puzzles:global:hint",
+      "item_id": "global",
+      "event_id": "hint",
+      "focus_id": "hintBtn",
+      "language": "ar",
+      "engine": "silma",
+      "text": "اُنْظُرْ إِلَى الصُّورَةِ. أَيْنَ مَكَانُ الْقِطْعَةِ؟",
+      "path": "apps/1-4/picture-puzzles/audio/silma/worker-1/picture-puzzles/hint.mp3",
+      "verified_audio": false
+    },
+    {
+      "id": "picture-puzzles:global:finish",
+      "item_id": "global",
+      "event_id": "finish",
+      "focus_id": "winCard",
+      "language": "ar",
+      "engine": "silma",
+      "text": "رَائِعٌ! اِكْتَمَلَتِ الصُّورَةُ.",
+      "path": "apps/1-4/picture-puzzles/audio/silma/worker-1/picture-puzzles/finish.mp3",
+      "verified_audio": false
+    },
+    {
+      "id": "picture-puzzles:global:reset",
+      "item_id": "global",
+      "event_id": "reset",
+      "focus_id": "resetBtn",
+      "language": "ar",
+      "engine": "silma",
+      "text": "هَيَّا نُحَاوِلُ مَرَّةً أُخْرَى.",
+      "path": "apps/1-4/picture-puzzles/audio/silma/worker-1/picture-puzzles/reset.mp3",
+      "verified_audio": false
+    },
+    {
+      "id": "picture-puzzles:global:level",
+      "item_id": "global",
+      "event_id": "level",
+      "focus_id": "boardWrap",
+      "language": "ar",
+      "engine": "silma",
+      "text": "اُنْظُرْ إِلَى الْقِطَعِ الْجَدِيدَةِ.",
+      "path": "apps/1-4/picture-puzzles/audio/silma/worker-1/picture-puzzles/level.mp3",
+      "verified_audio": false
+    }
+  ]
+}
