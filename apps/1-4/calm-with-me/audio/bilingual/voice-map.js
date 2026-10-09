@@ -1190,7 +1190,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'm close by. We'll do our usual bedtime steps, and I'll see you in the morning."
     },
     "أنت تريده جدا الجواب الآن لا سأبقى معك": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/8eb04ef12fdc94a7.mp3",
+        "sha256": "b894d502bcf5184a0e6f31daaeea8c3021b26f9abb53947ac2b1fd5a06a6a181",
+        "duration_s": 3.77
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/8eb04ef12fdc94a7.mp3",
         "sha256": "c6c63b4fc81d756fba3b072ea5808780910119c9086a032f90d774fda7832413",
@@ -1370,7 +1374,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "A mistake happened, but you are not the mistake. We'll fix it together."
     },
     "المكان مزدحم يمكننا أخذ استراحة في مكان أهدأ": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/71931bd93e319f30.mp3",
+        "sha256": "f32d33078aa79d1acd200ee43c0fc1a49355c9eb8ab3a50fff9c41a14f026e7b",
+        "duration_s": 4.08
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/71931bd93e319f30.mp3",
         "sha256": "9dcaf4310385504b0c329fe36d99b718758706c31c953fc313490482f4dd5f94",
@@ -1550,7 +1558,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You're safe now."
     },
     "يمكننا الابتعاد قليلا": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/3fdf82fe2d78b55d.mp3",
+        "sha256": "02aab60cb711cbd505f27f993926f7737954ded0edc950d3d53fe4239ed25dc4",
+        "duration_s": 2.33
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/3fdf82fe2d78b55d.mp3",
         "sha256": "309dcc82b745d9bb8cca0313b13f7014ecfe04aa085660eb1ba1eb86e734a093",
@@ -1730,7 +1742,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I see that you want some time with me."
     },
     "سنأخذ دورك بعد هذه الخطوة": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/bbf1c753052fd4de.mp3",
+        "sha256": "af47fad08f90c412562f150550f4fe3a9c87a02321b25db2d68c0125eaae7690",
+        "duration_s": 2.23
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/bbf1c753052fd4de.mp3",
         "sha256": "cb6c6a712de44a3abf9b20f3c929b29b40147cc9b40ed9cbbf3ca377ed22c27c",
@@ -1910,7 +1926,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'm here, and our home is safe now."
     },
     "سنفعل روتيننا المعتاد ثم ننام": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/09a8ae66e637d02e.mp3",
+        "sha256": "0c008c981b4fdeb55de5e5f9978847b7deb2809ffb9ab8600085df1ac389d271",
+        "duration_s": 2.54
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/09a8ae66e637d02e.mp3",
         "sha256": "8b3cd1278b23cfddaba080f66958c8fd56f06a5ece58ac1bf1b3c990eb45a50b",
@@ -2090,7 +2110,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'll show you what comes next."
     },
     "لديك وقت قصير إضافي ثم ننتقل": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/3e62e871b22464b5.mp3",
+        "sha256": "c663211b4f5c77126369dd6cf4d7e076f4477aba8289f3bcd122551c7ee563b8",
+        "duration_s": 2.64
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/3e62e871b22464b5.mp3",
         "sha256": "27083b5c620c1b197e423a9927ace117dbc456db9a2b271928445f3e2f99345a",
