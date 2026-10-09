@@ -5,6 +5,20 @@ const dir='apps/1-4/picture-puzzles/';
 const manifest=JSON.parse(fs.readFileSync('tooling/age1-4-silma/worker-1-picture-puzzles-pilot.json','utf8'));
 const source=fs.readFileSync(dir+'silma-guidance-v1.js','utf8');
 const errors=[];
+const html=fs.readFileSync(dir+'index.html','utf8');
+const game=fs.readFileSync(dir+'app-v3.js','utf8');
+const audio=fs.readFileSync(dir+'audio-v3.js','utf8');
+const wiring={
+  guideScriptLoaded: /<script[^>]+src=["']silma-guidance-v1\.js/.test(html),
+  focusCssLoaded: /<link[^>]+href=["']silma-guidance-v1\.css/.test(html),
+  hintHook: game.includes("guidePlay('hint','hintBtn')"),
+  resetHook: game.includes("guidePlay('reset','resetBtn')"),
+  levelHook: game.includes("guidePlay('level','boardWrap')"),
+  muteStop: game.includes('else guideStop()'),
+  startSequence: audio.includes("guideCue('start','boardWrap')"),
+  finishSequence: audio.includes("guideCue('finish','winCard')")
+};
+for(const key of Object.keys(wiring))if(!wiring[key])errors.push('Incomplete puzzle integration: '+key);
 if(manifest.status!=='TEXT_ONLY_NO_AUDIO')errors.push('Status must not claim generated audio');
 if(manifest.items.length!==5)errors.push('Expected 5 guidance cues');
 const cues=new Set(),paths=new Set();
@@ -38,5 +52,5 @@ for(const item of manifest.items){
  if(!fs.existsSync(item.path)||fs.statSync(item.path).size<800)missing.push(item.path);
 }
 if(process.argv.includes('--require-audio')&&missing.length)errors.push('Missing MP3 files: '+missing.join(', '));
-console.log(JSON.stringify({structural_tests:errors.length?'FAIL':'PASS',authored_cues:manifest.items.length,missing_mp3:missing.length,audio_test:missing.length?'NOT_RUN':'FILES_PRESENT_NOT_LISTENING_TESTED',errors},null,2));
+console.log(JSON.stringify({structural_tests:errors.length?'FAIL':'PASS',authored_cues:manifest.items.length,missing_mp3:missing.length,audio_test:missing.length?'NOT_RUN':'FILES_PRESENT_NOT_LISTENING_TESTED',wiring,errors},null,2));
 if(errors.length)process.exitCode=1;
