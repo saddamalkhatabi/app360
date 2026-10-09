@@ -3,7 +3,7 @@ on:
   push:
     branches: [feature/age1-4-silma-calm-serial-20261009]
     paths:
-      - apps/1-4/calm-with-me/audio/bilingual/manifest.json
+      - apps/1-4/calm-with-me/audio/bilingual/translation-ready.json
 permissions:
   contents: write
 concurrency:
