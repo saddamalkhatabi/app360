@@ -3,7 +3,7 @@
 'use strict';
 var map={},clip=null,lit=null,active=false,loaded=false;
 function el(id){return d.getElementById(id)}
-function clear(){if(lit){lit.className=lit.className.replace(/\\bsilma-lit\\b/g,'').replace(/\\s+/g,' ');lit=null}}
+function clear(){if(lit){lit.className=lit.className.replace(/\bsilma-lit\b/g,'').replace(/\s+/g,' ');lit=null}}
 function focus(id){clear();var e=el(id);if(!e)return;lit=e;if((' '+e.className+' ').indexOf(' silma-lit ')<0)e.className+=' silma-lit'}
 function stop(){if(clip){try{clip.pause();clip.currentTime=0}catch(e){}}clear()}
 function play(key,focusId){
