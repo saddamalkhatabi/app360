@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "app_id": "a1-calm",
-  "status": "74_AUTHORED_TEXTS_ZERO_GENERATED_AUDIO",
+  "status": "1_OF_74_GENERATED_PREVIEW_ONLY_AWAITING_REVIEW",
   "synthesis": "silma-tts 1.0.5; authored Arabic tashkeel; offline build",
   "items": [
     {
@@ -12,7 +12,9 @@
       "item_id": "need-help",
       "kind": "signals",
       "text": "سَاعِدْنِي مِنْ فَضْلِكَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "94a7ba21cefaa03001bc7e8b0901317721bcfddc3bac8f0a750e49fe34791ba0",
+      "duration_seconds": 1.56
     },
     {
       "path": "audio/silma/signals/stay-close.mp3",
