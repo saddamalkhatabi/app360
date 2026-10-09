@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "app_id": "a1-calm",
+  "intention": "Child-friendly prerecorded app welcome and purpose. Never runtime TTS.",
+  "items": [
+    {
+      "path": "audio/intro/intro-ar.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "text": "مَرْحَبًا يَا صَدِيقِي! هُنَا نُعَبِّرُ عَنْ مَشَاعِرِنَا. اِضْغَطْ عَلَى صُورَةٍ لِتَقُولَ: أَنَا سَعِيدٌ، أَوْ أَنَا حَزِينٌ، أَوْ أَنَا خَائِفٌ. ثُمَّ نَخْتَارُ شَيْئًا يُسَاعِدُنَا. أَنَا مَعَكَ."
+    },
+    {
+      "path": "audio/intro/intro-en.mp3",
+      "language": "en",
+      "engine": "en-US-JennyNeural",
+      "text": "Hello, my friend! Here we can talk about our feelings. Tap a picture to say: I'm happy, I'm sad, or I'm scared. Then let's choose something that helps. I'm here with you!"
+    }
+  ]
+}

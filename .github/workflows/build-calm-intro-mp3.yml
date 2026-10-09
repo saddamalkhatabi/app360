@@ -1,0 +1,119 @@
+name: Build Child-Friendly Calm App Introduction Audio
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/build-calm-intro-mp3.yml
+permissions:
+  contents: write
+concurrency:
+  group: calm-introduction-audio-build
+  cancel-in-progress: false
+jobs:
+  arabic-silma:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local SILMA Arabic voice environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Prepare publisher's SILMA model in cached offline mode
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id="silma-ai/silma-tts",allow_patterns=["*.pt","*.safetensors","*.json","*.txt","*.yaml","*.wav","*.model"])
+          snapshot_download(repo_id="charactr/vocos-mel-24khz")
+          PY
+      - name: Record real Arabic SILMA introduction
+        run: |
+          python tooling/build-silma-audio.py --root apps/1-4/calm-with-me --manifest audio/intro/scripts.json --cache "${{runner.temp}}/silma-cache" --model-cache "$HF_HOME/hub" --precision bf16 --generate-only
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calm-intro-ar-mp3
+          path: apps/1-4/calm-with-me/audio/intro/intro-ar.mp3
+          if-no-files-found: error
+          retention-days: 7
+  english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install English voice recorder
+        run: python -m pip install --no-cache-dir edge-tts==7.2.8
+      - name: Record child-friendly English MP3
+        run: |
+          python - <<'PY'
+          import asyncio,json,pathlib,edge_tts
+          root=pathlib.Path('apps/1-4/calm-with-me')
+          items=json.loads((root/'audio/intro/scripts.json').read_text(encoding='utf8'))['items']
+          x=next(x for x in items if x['language']=='en')
+          target=root/x['path']
+          target.parent.mkdir(parents=True,exist_ok=True)
+          asyncio.run(edge_tts.Communicate(x['text'],voice='en-US-JennyNeural',rate='-12%').save(str(target)))
+          assert target.stat().st_size>1000
+          print('English real MP3 created',target,target.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calm-intro-en-mp3
+          path: apps/1-4/calm-with-me/audio/intro/intro-en.mp3
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: [arabic-silma,english]
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: calm-intro-*-mp3
+          merge-multiple: true
+          path: apps/1-4/calm-with-me/audio/intro/
+      - name: Verify the two complete MP3 recordings and build release record
+        run: |
+          python - <<'PY'
+          import json,subprocess,pathlib,hashlib
+          root=pathlib.Path('apps/1-4/calm-with-me')
+          data=json.loads((root/'audio/intro/scripts.json').read_text(encoding='utf8'))
+          result={"schema_version":1,"app_id":"a1-calm","status":"recorded_complete","items":{}}
+          for x in data['items']:
+            p=root/x['path']
+            assert p.is_file() and p.stat().st_size>1500,str(p)
+            meta=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,sample_rate,channels:format=duration','-of','json',str(p)],text=True))
+            assert meta['streams'][0]['codec_name']=='mp3'
+            assert float(meta['format']['duration'])>3
+            result['items'][x['language']]={"path":x['path'],"text":x['text'],"size_bytes":p.stat().st_size,"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"duration_s":round(float(meta['format']['duration']),2),"engine":x['engine']}
+          (root/'audio/intro/recordings.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+          print(json.dumps({k:{"duration_s":v['duration_s'],"size_bytes":v['size_bytes']} for k,v in result['items'].items()}))
+          PY
+      - name: Commit recordings directly into original project main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/calm-with-me/audio/intro/
+          git commit -m "Record friendly Arabic SILMA and English intro for independent child exploration"
+          git pull --rebase origin main
+          git push origin HEAD:main
