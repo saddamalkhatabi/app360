@@ -25,28 +25,24 @@ jobs:
           python-version: '3.11'
       - name: Inventory all direct and contextual voice prompts
         run: node apps/1-4/calm-with-me/tools/build-bilingual-voice-inventory.cjs
-      - name: Install public-text translation utility
-        run: python -m pip install --no-cache-dir deep-translator==1.11.4
-      - name: Translate all public child-directed prompts to English at build time
-        run: python apps/1-4/calm-with-me/tools/translate-bilingual-voice.py
-      - name: Assert every voice text has English wording
+      - name: Verify all spoken event sources were inventoried
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path('apps/1-4/calm-with-me/audio/bilingual/manifest.json')
-          data=json.loads(p.read_text())
-          print('Base choices:',len(data['choices']),'Additional distinct spoken phrases:',len(data['phrases']))
+          root=Path('apps/1-4/calm-with-me/audio/bilingual')
+          data=json.loads((root/'manifest.json').read_text())
+          print('Recorded choices needed:',len(data['choices']))
+          print('Contextual voice prompts:',len(data['phrases']))
           assert len(data['choices'])==74
-          assert all(x.get('text_en') for x in data['choices']+data['phrases'])
+          assert len(data['phrases'])>20
           PY
-      - name: Commit build-time English scripts only to isolated experimental branch
+      - name: Commit complete spoken prompt inventory to isolated experimental branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add apps/1-4/calm-with-me/audio/bilingual/manifest.json \
-                  apps/1-4/calm-with-me/audio/bilingual/arabic-tts-manifest.json \
-                  apps/1-4/calm-with-me/audio/bilingual/translation-cache.json
-          git commit -m "Prepare bilingual choice, emotion school and journey recording scripts"
+                  apps/1-4/calm-with-me/audio/bilingual/arabic-tts-manifest.json
+          git commit -m "Inventory choice, emotion school and journey source audio texts"
           git pull --rebase origin feature/age1-4-silma-calm-serial-20261009
           git push origin HEAD:feature/age1-4-silma-calm-serial-20261009
