@@ -41,8 +41,11 @@ def probe(path):
 def run(write):
     m = json.loads(MANIFEST.read_text(encoding="utf-8"))
     items = m["items"]
-    expected = set(source_ids("signals", "feelings")) | set(source_ids("feelings", "helps"))
-    ids = [item["item_id"] for item in items]
+    expected = set()
+    for kind, following in (("signals", "feelings"), ("feelings", "helps"),
+                            ("helps", "transitions"), ("transitions", "assistance_levels")):
+        expected.update((kind, value) for value in source_ids(kind, following))
+    ids = [(item["kind"], item["item_id"]) for item in items]
     assert len(ids) == len(set(ids)) == len(expected) and set(ids) == expected, "source ID mismatch"
     assert len({x["event_id"] for x in items}) == len(items), "duplicate event"
     assert len({x["path"] for x in items}) == len(items), "duplicate path"
@@ -75,7 +78,7 @@ def run(write):
             if problem: summary["problems"].append({"event_id":item["event_id"],"reason":problem})
         else:
             summary["problems"].append({"event_id":item["event_id"],"reason":"MP3 file missing"})
-        output[item["item_id"]] = {"path":rel.as_posix(), "engine":"silma", "verified":good,
+        output[item["kind"] + ":" + item["item_id"]] = {"path":rel.as_posix(), "engine":"silma", "verified":good,
                                    "kind":item["kind"], "event_id":item["event_id"]}
         if good: summary["activated"] += 1
     if write:
