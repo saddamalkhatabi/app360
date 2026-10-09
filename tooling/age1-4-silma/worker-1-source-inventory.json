@@ -1,0 +1,2581 @@
+{
+  "schema_version": "1.0-draft",
+  "status": "source-inventory-only-not-generated-audio",
+  "branch_base": "family-school-360-preview",
+  "worker": 1,
+  "source_hashes": {
+    "screen.games-data": "955b498179dc4cdbe4f6a5f027c9646e0890200b",
+    "screen.games-data-v12": "aa51397054c43e531cd653847b48c307abd347d8",
+    "imitate.experiences": "534e0411c46bfc4866ca82206f121cae13e4b6c1",
+    "routine.storyboard-v6": "4032a6b037059edb681ef3abea150938d298d5f3",
+    "routine.storyboard-v7": "0afd4e6a805bffb03026fcdcdd4af5b299a9ecc4"
+  },
+  "items": [
+    {
+      "app": "screen-to-move",
+      "id": "G01",
+      "level": 1,
+      "type": "choice",
+      "source_title": "صيد الألوان في الغرفة",
+      "source_question": "أي شيء يشبه اللون المطلوب؟",
+      "source_steps": [
+        "اختر لونًا واحدًا",
+        "ابحث عن شيء قريب",
+        "ضع الشيء بجانب اللون",
+        "بدّل اللون",
+        "انتهوا واتركوا الشاشة"
+      ],
+      "choice_labels_need_review": [
+        "🍎",
+        "🍌",
+        "🫐"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G01",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G05",
+      "level": 1,
+      "type": "dots",
+      "source_title": "طريق النقاط الأربع",
+      "source_question": null,
+      "source_steps": [
+        "ابدأ من النقطة الكبيرة",
+        "صل النقطة التالية",
+        "واصل ببطء",
+        "توقف عند الأخيرة",
+        "لوّن الطريق إن أحب الطفل"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G05",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G09",
+      "level": 2,
+      "type": "memory",
+      "source_title": "ذاكرة الصور الأربع",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الأزواج",
+        "اقلب البطاقات",
+        "افتح بطاقتين",
+        "احتفظ بالزوج المتشابه",
+        "توقف متى فقد الطفل الاهتمام"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G09",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G13",
+      "level": 3,
+      "type": "sort",
+      "source_title": "فاكهة أم خضار؟",
+      "source_question": null,
+      "source_steps": [
+        "جهّز سلتين",
+        "اعرض مثالًا واحدًا",
+        "دع الطفل يفرز قطعة",
+        "سمِّ أو صف اللون فقط",
+        "اطبخوا لعبة خيالية بالقطع"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G13",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G17",
+      "level": 4,
+      "type": "pattern",
+      "source_title": "الجسر الناقص",
+      "source_question": null,
+      "source_steps": [
+        "شاهد تكرار شكلين",
+        "غطِّ الشكل الأخير",
+        "اختر من ثلاث قطع",
+        "ضع القطعة مكان الفراغ",
+        "اصنع نمطًا جديدًا"
+      ],
+      "choice_labels_need_review": [
+        "△",
+        "□",
+        "◯"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G17",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G21",
+      "level": 1,
+      "type": "choice",
+      "source_title": "أين الأحمر؟",
+      "source_question": "المس اللون الأحمر",
+      "source_steps": [
+        "شاهد اللون الأحمر",
+        "قارن بين ثلاثة ألوان",
+        "المس الأحمر",
+        "ابحث عن شيء أحمر قريب",
+        "بدّل اللون وأنهِ الجولة"
+      ],
+      "choice_labels_need_review": [
+        "🔵",
+        "🔴",
+        "🟡"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G21",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G25",
+      "level": 1,
+      "type": "choice",
+      "source_title": "أيهما أكبر؟",
+      "source_question": "المس الشكل الأكبر",
+      "source_steps": [
+        "شاهد شكلًا كبيرًا",
+        "شاهد شكلًا صغيرًا",
+        "قارن بينهما",
+        "المس الأكبر",
+        "ابحث عن شيء كبير قريب"
+      ],
+      "choice_labels_need_review": [
+        "•",
+        "●"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G25",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G29",
+      "level": 1,
+      "type": "path",
+      "source_title": "الأرنب إلى الجزرة",
+      "source_question": null,
+      "source_steps": [
+        "ضع الأرنب عند البداية",
+        "اتبع الخط الأول",
+        "واصل نحو الجزرة",
+        "توقف عند النهاية",
+        "كرر المسار بإصبعك"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G29",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G33",
+      "level": 1,
+      "type": "puzzle",
+      "source_title": "وجهي من أربع قطع",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الوجه كاملًا",
+        "اختر قطعة العينين",
+        "ضع الأنف",
+        "ضع الفم",
+        "ابتسموا ثم اخلطوا القطع"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G33",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G37",
+      "level": 2,
+      "type": "pattern",
+      "source_title": "ألوان تتناوب",
+      "source_question": null,
+      "source_steps": [
+        "راقب لونين يتناوبان",
+        "ردد النمط بالإشارة",
+        "غطِّ اللون التالي",
+        "اختر اللون المناسب",
+        "اصنع نمطًا بأغطية أو مكعبات"
+      ],
+      "choice_labels_need_review": [
+        "🟡",
+        "🔴",
+        "🔵"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G37",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G41",
+      "level": 2,
+      "type": "match",
+      "source_title": "الأداة وصاحبها",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الأداة",
+        "شاهد الشخص أو النشاط",
+        "صل زوجًا واحدًا",
+        "جرّب أداة أخرى",
+        "مثّل استخدام الأداة بالحركة"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G41",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G45",
+      "level": 2,
+      "type": "match",
+      "source_title": "الحيوان وبيته",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الحيوان",
+        "شاهد الأماكن",
+        "اختر البيت المناسب",
+        "جرّب حيوانًا آخر",
+        "اصنع بيتًا بلعب الطفل"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G45",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G49",
+      "level": 3,
+      "type": "memory",
+      "source_title": "ذاكرة ست صور",
+      "source_question": null,
+      "source_steps": [
+        "شاهد أربعة أزواج",
+        "اقلبها",
+        "افتح بطاقتين",
+        "تذكر أماكن الصور",
+        "أكمل ما دمت مستمتعًا"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G49",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G53",
+      "level": 3,
+      "type": "sort",
+      "source_title": "بر وبحر وجو",
+      "source_question": null,
+      "source_steps": [
+        "جهّز البر والبحر والجو",
+        "ضع السيارة في البر",
+        "ضع القارب في البحر",
+        "ضع الطائرة في الجو",
+        "افرز البطاقات الباقية"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G53",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G57",
+      "level": 3,
+      "type": "puzzle",
+      "source_title": "بازل الإشارات الأربع",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الأسهم الأربعة",
+        "اختر سهمًا",
+        "ضعه في موضعه",
+        "أكمل الاتجاهات",
+        "تحرك خطوة باتجاه يختاره المرافق"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G57",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G61",
+      "level": 4,
+      "type": "memory",
+      "source_title": "ذاكرة خمسة أزواج",
+      "source_question": null,
+      "source_steps": [
+        "شاهد خمسة أزواج",
+        "اختر موقعين لتذكرهما",
+        "اقلب البطاقات",
+        "ابحث عن الأزواج",
+        "توقف أو قلل العدد إذا صعبت"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G61",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G65",
+      "level": 4,
+      "type": "choice",
+      "source_title": "أين المفتاح؟",
+      "source_question": "المفتاح ليس فوق الكرسي وهو بجانب الصندوق. أين هو؟",
+      "source_steps": [
+        "شاهد الأماكن الثلاثة",
+        "اسمع قرينة واحدة",
+        "استبعد المكان الخطأ",
+        "اختر المكان الموافق للقرينة",
+        "اصنع قرينة جديدة للمرافق"
+      ],
+      "choice_labels_need_review": [
+        "🪑",
+        "📦",
+        "🛋️"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G65",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G69",
+      "level": 4,
+      "type": "create",
+      "source_title": "اصنع نمطك الخاص",
+      "source_question": null,
+      "source_steps": [
+        "اختر ثلاثة رموز",
+        "ضعها في ترتيب",
+        "كرر أو أخفِ رمزًا",
+        "دع المرافق يكتشف القاعدة",
+        "بدّلوا الأدوار"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G69",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G73",
+      "level": 1,
+      "type": "mark",
+      "source_title": "ضع صح على الحيوانات",
+      "source_question": "ضع علامة ✓ على كل حيوان",
+      "source_steps": [
+        "شاهد الصور كلها",
+        "ابحث عن الحيوانات",
+        "ضع صح على الحيوان",
+        "راجع ما بقي مع المرافق",
+        "قلّد حركة حيوان تختاره"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G73",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G77",
+      "level": 2,
+      "type": "mark",
+      "source_title": "ضع صح على ما نأكله",
+      "source_question": "ضع علامة ✓ على كل شيء نأكله أو نشربه",
+      "source_steps": [
+        "شاهد الطعام والأشياء",
+        "ابحث عما يمكن أكله أو شربه",
+        "ضع الصح",
+        "اترك الألعاب والأثاث",
+        "كوّن وجبة خيالية من ثلاثة اختيارات"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G77",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G81",
+      "level": 3,
+      "type": "mark",
+      "source_title": "ضع صح على الكائنات التي تطير",
+      "source_question": "ضع علامة ✓ على كل كائن يستطيع الطيران عادة",
+      "source_steps": [
+        "شاهد الكائنات المتنوعة",
+        "فكر في طريقة حركتها",
+        "ضع صح على من يطير",
+        "راجع ما اخترته",
+        "مثّل الطيران بيديك"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G81",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G85",
+      "level": 3,
+      "type": "mark",
+      "source_title": "ضع صح على ما نجده في الطبيعة",
+      "source_question": "ضع علامة ✓ على الأشياء الطبيعية وليست المصنوعة هنا",
+      "source_steps": [
+        "شاهد الطبيعي والمصنوع",
+        "فكر أين نجده",
+        "ضع صح على الطبيعي",
+        "اشرح اختيارًا بالإشارة أو كلمة",
+        "ابحث من النافذة عن شيء طبيعي"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G85",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G89",
+      "level": 4,
+      "type": "mark",
+      "source_title": "ضع صح على الأحمر الدائري معًا",
+      "source_question": "ضع علامة ✓ فقط على كل خيار أحمر ودائري في الوقت نفسه",
+      "source_steps": [
+        "تذكر القاعدة الأولى: أحمر",
+        "تذكر القاعدة الثانية: دائري",
+        "ابحث عمن يحقق القاعدتين",
+        "ضع الصح فقط عند تحقق الشرطين",
+        "اصنع قاعدة مزدوجة جديدة للمرافق"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G89",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G93",
+      "level": 1,
+      "type": "sort",
+      "source_title": "طعام هنا ولعب هنا",
+      "source_question": null,
+      "source_steps": [
+        "شاهد المجموعات أولًا",
+        "اعرض مثالًا واحدًا",
+        "ضع عنصرًا في مكانه المناسب",
+        "دع الطفل يكمل عنصرًا آخر",
+        "بدّل عنصرين واطلب تصحيحهما"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G93",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G97",
+      "level": 1,
+      "type": "dots",
+      "source_title": "بالون من خمس نقاط — تحدي المستوى 1",
+      "source_question": null,
+      "source_steps": [
+        "ابدأ من النقطة الحمراء رقم 1",
+        "صل إلى الرقم التالي",
+        "تابع ببطء دون قفز",
+        "توقف عند نقطة النهاية",
+        "لوّن الشكل أو سمّه بعد الانتهاء"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G97",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G101",
+      "level": 1,
+      "type": "choice",
+      "source_title": "من يطير؟",
+      "source_question": "من الحيوان الذي يطير؟",
+      "source_steps": [
+        "شاهد الخيارات بهدوء",
+        "استمع إلى السؤال وحدد المطلوب",
+        "أشر إلى الاختيار المناسب",
+        "سمِّه أو صفه بكلمة بسيطة",
+        "مثّل الفكرة بأشياء حقيقية إن أمكن"
+      ],
+      "choice_labels_need_review": [
+        "🐱",
+        "🐦",
+        "🐟"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G101",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G105",
+      "level": 1,
+      "type": "memory",
+      "source_title": "ذاكرة البيت الصغير",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الصور قبل إخفائها",
+        "اقلب البطاقات",
+        "افتح بطاقتين فقط",
+        "احتفظ بالزوج المتشابه",
+        "توقف قبل التعب وكرر لاحقًا"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G105",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G109",
+      "level": 1,
+      "type": "mark",
+      "source_title": "اختر الأشياء الحمراء",
+      "source_question": "اختر كل ما لونه أحمر",
+      "source_steps": [
+        "شاهد كل الصور أولًا",
+        "اختر كل ما لونه أحمر",
+        "اضغط على كل عنصر مناسب",
+        "راجع اختياراتك",
+        "كرر بقاعدة جديدة إذا بقي الحماس"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G109",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G113",
+      "level": 2,
+      "type": "sort",
+      "source_title": "المطبخ أم الحمام؟",
+      "source_question": null,
+      "source_steps": [
+        "شاهد المجموعات أولًا",
+        "اعرض مثالًا واحدًا",
+        "ضع عنصرًا في مكانه المناسب",
+        "دع الطفل يكمل عنصرًا آخر",
+        "بدّل عنصرين واطلب تصحيحهما"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G113",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G117",
+      "level": 2,
+      "type": "dots",
+      "source_title": "قارب من ست نقاط",
+      "source_question": null,
+      "source_steps": [
+        "ابدأ من النقطة الحمراء رقم 1",
+        "صل إلى الرقم التالي",
+        "تابع ببطء دون قفز",
+        "توقف عند نقطة النهاية",
+        "لوّن الشكل أو سمّه بعد الانتهاء"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G117",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G121",
+      "level": 2,
+      "type": "choice",
+      "source_title": "أين يعيش السمك؟",
+      "source_question": "أين يعيش السمك؟",
+      "source_steps": [
+        "شاهد الخيارات بهدوء",
+        "استمع إلى السؤال وحدد المطلوب",
+        "أشر إلى الاختيار المناسب",
+        "سمِّه أو صفه بكلمة بسيطة",
+        "مثّل الفكرة بأشياء حقيقية إن أمكن"
+      ],
+      "choice_labels_need_review": [
+        "🌳",
+        "💧",
+        "🏠"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G121",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G125",
+      "level": 2,
+      "type": "memory",
+      "source_title": "ذاكرة وسائل النقل",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الصور قبل إخفائها",
+        "اقلب البطاقات",
+        "افتح بطاقتين فقط",
+        "احتفظ بالزوج المتشابه",
+        "توقف قبل التعب وكرر لاحقًا"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G125",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G129",
+      "level": 2,
+      "type": "mark",
+      "source_title": "اختر كل ما يتحرك",
+      "source_question": "اختر الأشياء أو الكائنات التي يمكنها التحرك",
+      "source_steps": [
+        "شاهد كل الصور أولًا",
+        "اختر الأشياء أو الكائنات التي يمكنها التحرك",
+        "اضغط على كل عنصر مناسب",
+        "راجع اختياراتك",
+        "كرر بقاعدة جديدة إذا بقي الحماس"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G129",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G133",
+      "level": 3,
+      "type": "sort",
+      "source_title": "بر أم بحر؟",
+      "source_question": null,
+      "source_steps": [
+        "شاهد المجموعات أولًا",
+        "اعرض مثالًا واحدًا",
+        "ضع عنصرًا في مكانه المناسب",
+        "دع الطفل يكمل عنصرًا آخر",
+        "بدّل عنصرين واطلب تصحيحهما"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G133",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G137",
+      "level": 3,
+      "type": "dots",
+      "source_title": "قطة من ثماني نقاط",
+      "source_question": null,
+      "source_steps": [
+        "ابدأ من النقطة الحمراء رقم 1",
+        "صل إلى الرقم التالي",
+        "تابع ببطء دون قفز",
+        "توقف عند نقطة النهاية",
+        "لوّن الشكل أو سمّه بعد الانتهاء"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G137",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G141",
+      "level": 3,
+      "type": "choice",
+      "source_title": "أي شيء نستخدمه للكتابة؟",
+      "source_question": "بماذا نكتب؟",
+      "source_steps": [
+        "شاهد الخيارات بهدوء",
+        "استمع إلى السؤال وحدد المطلوب",
+        "أشر إلى الاختيار المناسب",
+        "سمِّه أو صفه بكلمة بسيطة",
+        "مثّل الفكرة بأشياء حقيقية إن أمكن"
+      ],
+      "choice_labels_need_review": [
+        "🥄",
+        "✏️",
+        "👟"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G141",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G145",
+      "level": 3,
+      "type": "memory",
+      "source_title": "ذاكرة المشاهد الستة",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الصور قبل إخفائها",
+        "اقلب البطاقات",
+        "افتح بطاقتين فقط",
+        "احتفظ بالزوج المتشابه",
+        "توقف قبل التعب وكرر لاحقًا"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G145",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G149",
+      "level": 3,
+      "type": "mark",
+      "source_title": "اختر ما نأكله",
+      "source_question": "اختر كل الأشياء التي نأكلها",
+      "source_steps": [
+        "شاهد كل الصور أولًا",
+        "اختر كل الأشياء التي نأكلها",
+        "اضغط على كل عنصر مناسب",
+        "راجع اختياراتك",
+        "كرر بقاعدة جديدة إذا بقي الحماس"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G149",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G153",
+      "level": 4,
+      "type": "sort",
+      "source_title": "لون وحجم معًا",
+      "source_question": null,
+      "source_steps": [
+        "شاهد المجموعات أولًا",
+        "اعرض مثالًا واحدًا",
+        "ضع عنصرًا في مكانه المناسب",
+        "دع الطفل يكمل عنصرًا آخر",
+        "بدّل عنصرين واطلب تصحيحهما"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G153",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G157",
+      "level": 4,
+      "type": "dots",
+      "source_title": "فراشة من عشر نقاط",
+      "source_question": null,
+      "source_steps": [
+        "ابدأ من النقطة الحمراء رقم 1",
+        "صل إلى الرقم التالي",
+        "تابع ببطء دون قفز",
+        "توقف عند نقطة النهاية",
+        "لوّن الشكل أو سمّه بعد الانتهاء"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G157",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G161",
+      "level": 4,
+      "type": "choice",
+      "source_title": "أي حل يجعل الجسر كاملًا؟",
+      "source_question": "ما الشكل الذي يكمل الجسر؟",
+      "source_steps": [
+        "شاهد الخيارات بهدوء",
+        "استمع إلى السؤال وحدد المطلوب",
+        "أشر إلى الاختيار المناسب",
+        "سمِّه أو صفه بكلمة بسيطة",
+        "مثّل الفكرة بأشياء حقيقية إن أمكن"
+      ],
+      "choice_labels_need_review": [
+        "△",
+        "□",
+        "◯"
+      ],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G161",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G165",
+      "level": 4,
+      "type": "memory",
+      "source_title": "ذاكرة سبعة رموز",
+      "source_question": null,
+      "source_steps": [
+        "شاهد الصور قبل إخفائها",
+        "اقلب البطاقات",
+        "افتح بطاقتين فقط",
+        "احتفظ بالزوج المتشابه",
+        "توقف قبل التعب وكرر لاحقًا"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G165",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "screen-to-move",
+      "id": "G169",
+      "level": 4,
+      "type": "mark",
+      "source_title": "اختر ما يحقق القاعدة",
+      "source_question": "اختر كل كائن حي يمكنه الحركة بنفسه",
+      "source_steps": [
+        "شاهد كل الصور أولًا",
+        "اختر كل كائن حي يمكنه الحركة بنفسه",
+        "اضغط على كل عنصر مناسب",
+        "راجع اختياراتك",
+        "كرر بقاعدة جديدة إذا بقي الحماس"
+      ],
+      "choice_labels_need_review": [],
+      "target_dir": "apps/1-4/screen-to-move/audio/silma/items/G169",
+      "voice_copy_status": "editorial-review-required"
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "001",
+      "level": 1,
+      "source_title": "صفقة مثلي",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صفقة مثلي» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/001",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "005",
+      "level": 1,
+      "source_title": "قلّد وجهي",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «قلّد وجهي» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/005",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "009",
+      "level": 1,
+      "source_title": "تتبع خطًا عريضًا بإصبعك",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق أو قطعة قماش وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «تتبع خطًا عريضًا بإصبعك» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/009",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "013",
+      "level": 1,
+      "source_title": "ضع ورقة في الصندوق بالتناوب",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + صندوق وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «ضع ورقة في الصندوق بالتناوب» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/013",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "017",
+      "level": 1,
+      "source_title": "توقف عند كف اليد",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «توقف عند كف اليد» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/017",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "021",
+      "level": 1,
+      "source_title": "امشِ فوق أوراق الأرض",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «امشِ فوق أوراق الأرض» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/021",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "025",
+      "level": 1,
+      "source_title": "ارمِ كرة الجورب في سلة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز جورب + سلة + كرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «ارمِ كرة الجورب في سلة» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/025",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "029",
+      "level": 1,
+      "source_title": "اختر بين شيئين",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «اختر بين شيئين» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/029",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "033",
+      "level": 1,
+      "source_title": "كبير وصغير",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «كبير وصغير» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/033",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "037",
+      "level": 1,
+      "source_title": "نقطة لي ونقطة لك",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + قلم أو لون وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «نقطة لي ونقطة لك» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/037",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "041",
+      "level": 1,
+      "source_title": "دحرج العبوة المغلقة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز عبوة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «دحرج العبوة المغلقة» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/041",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "045",
+      "level": 1,
+      "source_title": "الصندوق يفتح ويغلق",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز صندوق وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «الصندوق يفتح ويغلق» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/045",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "049",
+      "level": 1,
+      "source_title": "أطعم الدمية أو الدب",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز دمية وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «أطعم الدمية أو الدب» مرة واحدة ببطء."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يبدأ حركة وأنت تقلده."
+        },
+        {
+          "label": "طوّر",
+          "text": "إذا استمتع، كررا مرة واحدة ثم أنهيا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/049",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "053",
+      "level": 2,
+      "source_title": "صفق ثم المس الركبة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صفق ثم المس الركبة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/053",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "057",
+      "level": 2,
+      "source_title": "اصنع كرة ورقية كبيرة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + كرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «اصنع كرة ورقية كبيرة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/057",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "061",
+      "level": 2,
+      "source_title": "برج بالتناوب حتى يسقط",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «برج بالتناوب حتى يسقط» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/061",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "065",
+      "level": 2,
+      "source_title": "قلب عبوة الماء بالتناوب",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ماء + عبوة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «قلب عبوة الماء بالتناوب» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/065",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "069",
+      "level": 2,
+      "source_title": "ابدأ بعد الإشارة فقط",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «ابدأ بعد الإشارة فقط» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/069",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "073",
+      "level": 2,
+      "source_title": "ارمِ نحو هدفين",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «ارمِ نحو هدفين» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/073",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "077",
+      "level": 2,
+      "source_title": "صف كبيرًا أو صغيرًا",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صف كبيرًا أو صغيرًا» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/077",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "081",
+      "level": 2,
+      "source_title": "فرز لونين",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «فرز لونين» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/081",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "085",
+      "level": 2,
+      "source_title": "عد ثلاث خطوات",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «عد ثلاث خطوات» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/085",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "089",
+      "level": 2,
+      "source_title": "صلصال: شكلي وشكلك",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز صلصال وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صلصال: شكلي وشكلك» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/089",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "093",
+      "level": 2,
+      "source_title": "نقل إسفنجة بالماء",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ماء + إسفنجة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «نقل إسفنجة بالماء» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/093",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "097",
+      "level": 2,
+      "source_title": "جهز كوبًا ومنديلًا",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز كوب وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «جهز كوبًا ومنديلًا» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يختار تغييرًا بسيطًا."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/097",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "101",
+      "level": 3,
+      "source_title": "سلسلة ثلاث حركات",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز سلة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «سلسلة ثلاث حركات» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/101",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "105",
+      "level": 3,
+      "source_title": "قائد الأصابع",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «قائد الأصابع» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/105",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "109",
+      "level": 3,
+      "source_title": "تتبع متاهة واسعة بالقلم",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز قلم وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «تتبع متاهة واسعة بالقلم» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/109",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "113",
+      "level": 3,
+      "source_title": "إنقاذ الدمية إلى المنطقة الآمنة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز دمية وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «إنقاذ الدمية إلى المنطقة الآمنة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/113",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "117",
+      "level": 3,
+      "source_title": "اسمع الصوت المستهدف",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «اسمع الصوت المستهدف» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/117",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "121",
+      "level": 3,
+      "source_title": "مسار حواجز ناعم",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «مسار حواجز ناعم» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/121",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "125",
+      "level": 3,
+      "source_title": "امشِ للخلف على مسار واسع",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «امشِ للخلف على مسار واسع» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/125",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "129",
+      "level": 3,
+      "source_title": "مكالمة هاتف تمثيلية",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «مكالمة هاتف تمثيلية» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/129",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "133",
+      "level": 3,
+      "source_title": "عد إلى خمسة أثناء اللعب",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «عد إلى خمسة أثناء اللعب» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/133",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "137",
+      "level": 3,
+      "source_title": "أكمل نصف رسمي",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + قلم أو لون وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «أكمل نصف رسمي» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/137",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "141",
+      "level": 3,
+      "source_title": "جسر ورق فوق كوبين",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + كوب وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «جسر ورق فوق كوبين» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/141",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "145",
+      "level": 3,
+      "source_title": "قارب ورقي يدفع بالنفخ",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «قارب ورقي يدفع بالنفخ» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/145",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "149",
+      "level": 3,
+      "source_title": "حل خلاف الدميتين",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «حل خلاف الدميتين» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "غيّر قاعدة واحدة فقط وأعيدا المحاولة."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/149",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "153",
+      "level": 4,
+      "source_title": "تحدي الحركة المعكوسة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «تحدي الحركة المعكوسة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/153",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "157",
+      "level": 4,
+      "source_title": "صلصال: اصنع أداة لحل مشكلة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز صلصال وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صلصال: اصنع أداة لحل مشكلة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/157",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "161",
+      "level": 4,
+      "source_title": "ابنِ مدينة من الصناديق والأكواب",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أكواب وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «ابنِ مدينة من الصناديق والأكواب» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/161",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "165",
+      "level": 4,
+      "source_title": "خطة مشتركة من ثلاث مهام",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «خطة مشتركة من ثلاث مهام» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/165",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "169",
+      "level": 4,
+      "source_title": "لعبة العكس: افعل المضاد",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «لعبة العكس: افعل المضاد» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/169",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "173",
+      "level": 4,
+      "source_title": "تحدي توازن مع تغيير الاتجاه",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «تحدي توازن مع تغيير الاتجاه» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/173",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "177",
+      "level": 4,
+      "source_title": "نهاية مختلفة للقصة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "اختر مساحة مريحة بحيث يرى كل منكما الآخر."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «نهاية مختلفة للقصة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/177",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "181",
+      "level": 4,
+      "source_title": "لغز ترتيب أربع خطوات",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «لغز ترتيب أربع خطوات» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/181",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "185",
+      "level": 4,
+      "source_title": "لعبة تخمين بخصائص متعددة",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «لعبة تخمين بخصائص متعددة» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/185",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "189",
+      "level": 4,
+      "source_title": "صلصال: نبني عالمًا واحدًا",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز صلصال وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «صلصال: نبني عالمًا واحدًا» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/189",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "193",
+      "level": 4,
+      "source_title": "مسار كرة من أكواب وورق",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز ورق + أكواب + كرة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «مسار كرة من أكواب وورق» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/193",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "imitate-one-step",
+      "id": "197",
+      "level": 4,
+      "source_title": "تمثيل الاستعداد للخروج",
+      "source_steps": [
+        {
+          "label": "جهّز",
+          "text": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن."
+        },
+        {
+          "label": "دوري",
+          "text": "اعرض «تمثيل الاستعداد للخروج» واذكر القاعدة القصيرة مرة واحدة."
+        },
+        {
+          "label": "دورك",
+          "text": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل."
+        },
+        {
+          "label": "بدّل",
+          "text": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه."
+        },
+        {
+          "label": "طوّر",
+          "text": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه."
+        }
+      ],
+      "target_dir": "apps/1-4/imitate-one-step/audio/silma/items/197",
+      "voice_copy_status": "rewrite-adult-instructions-for-child-before-synthesis",
+      "physical_supervision_required": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "wash-hands",
+      "source_title": "أغسل يدي",
+      "source_steps": [
+        "أفتح الماء",
+        "أضع الصابون",
+        "أفرك يدي جيدًا",
+        "أشطف يدي بالماء",
+        "أجفف يدي بالمنشفة"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/wash-hands",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "wear-clothes",
+      "source_title": "أرتدي ملابسي",
+      "source_steps": [
+        "أختار قطعة الملابس",
+        "أدخل رأسي في القميص",
+        "ألبس البنطال أو الجزء السفلي",
+        "أرتب ملابسي على جسمي",
+        "أقف بملابسي مرتبة"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/wear-clothes",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "spoon",
+      "source_title": "أستخدم الملعقة",
+      "source_steps": [
+        "أضع الوعاء أمامي",
+        "أمسك الملعقة",
+        "آخذ كمية صغيرة",
+        "أرفع الملعقة إلى فمي",
+        "أعيد الملعقة للوعاء"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/spoon",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "comb-hair",
+      "source_title": "أمشط شعري",
+      "source_steps": [
+        "أمسك المشط",
+        "أبدأ من أعلى الشعر",
+        "أمشط الجوانب بلطف",
+        "أرتب شعري بيدي",
+        "أنظر لشعري المرتب"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/comb-hair",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "flush-toilet",
+      "source_title": "أشد السيفون",
+      "source_steps": [
+        "أجد زر السيفون",
+        "أضغط الزر",
+        "أشاهد الماء ينظف المرحاض",
+        "أتأكد أن المرحاض أصبح نظيفًا",
+        "أعطي إشارة أنني انتهيت"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/flush-toilet",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "blocks-box",
+      "source_title": "أجمع المكعبات في الصندوق",
+      "source_steps": [
+        "أرى المكعبات على الأرض",
+        "ألتقط مكعبًا",
+        "أضعه في الصندوق",
+        "أجمع البقية",
+        "أفرح بالصندوق المرتب"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/blocks-box",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "share-play",
+      "source_title": "أشارك اللعب",
+      "source_steps": [
+        "ألعب بلعبتي",
+        "يقترب صديق",
+        "أعطيه قطعة أو لعبة",
+        "نلعب معًا",
+        "نفرح بالمشاركة"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/share-play",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "sleep-early",
+      "source_title": "أنام مبكرًا",
+      "source_steps": [
+        "أجمع ألعابي قبل النوم",
+        "ألبس ملابس النوم",
+        "أقرأ قصة قصيرة",
+        "يدخلني المرافق إلى السرير",
+        "أنام بهدوء"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/sleep-early",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "ask-for-help",
+      "source_title": "أطلب المساعدة",
+      "source_steps": [
+        "أحاول فتح الشيء بنفسي",
+        "ألاحظ أنني أحتاج مساعدة",
+        "أقول ساعدني أو أشير",
+        "يساعدني المرافق",
+        "أكمل المهمة وأنا سعيد"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/ask-for-help",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "put-cup-in-sink",
+      "source_title": "أضع الكوب في المغسلة",
+      "source_steps": [
+        "أنتهي من الشرب",
+        "أمسك الكوب",
+        "أحمله نحو المغسلة",
+        "أضعه داخل المغسلة",
+        "أترك المكان مرتبًا"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/put-cup-in-sink",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "switch-off-light-when-leaving",
+      "source_title": "أطفئ الضوء عند الخروج",
+      "source_steps": [
+        "أستعد للخروج من الغرفة",
+        "ألاحظ أن الضوء ما زال مضاءً",
+        "أصل إلى المفتاح",
+        "أطفئ الضوء",
+        "أخرج بعد أن أصبحت الغرفة جاهزة"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/switch-off-light-when-leaving",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "put-socks-in-basket",
+      "source_title": "أخلع الجوارب وأضعها في السلة",
+      "source_steps": [
+        "أمسك الجورب وأبدأ خلعه",
+        "أخلع الجورب الآخر",
+        "أجمع الجوربين معًا",
+        "أضعهما في سلة الملابس",
+        "أنتهي والمكان مرتب"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/put-socks-in-basket",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    },
+    {
+      "app": "my-little-routine",
+      "id": "pair-my-shoes",
+      "source_title": "أرتب حذائي مع بعضه",
+      "source_steps": [
+        "أرى فردتي الحذاء",
+        "أقرب الفردتين",
+        "أضعهما بجانب بعض",
+        "أعيدهما قرب المكان المخصص",
+        "أفرح بالحذاء المرتب"
+      ],
+      "target_dir": "apps/1-4/my-little-routine/audio/silma/items/pair-my-shoes",
+      "voice_copy_status": "editorial-review-required",
+      "physical_supervision_review": true
+    }
+  ],
+  "coverage": {
+    "screen_games": 43,
+    "imitate_experiences": 50,
+    "routines": 13,
+    "step_prompts": 530,
+    "explicit_game_questions": 17,
+    "titles": 106
+  }
+}
