@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - .github/workflows/build-calm-intro-mp3.yml
+      - apps/1-4/calm-with-me/audio/intro/scripts.json
 permissions:
   contents: write
 concurrency:
@@ -92,6 +92,8 @@ jobs:
           pattern: calm-intro-*-mp3
           merge-multiple: true
           path: apps/1-4/calm-with-me/audio/intro/
+      - name: Install MP3 media verification tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Verify the two complete MP3 recordings and build release record
         run: |
           python - <<'PY'
