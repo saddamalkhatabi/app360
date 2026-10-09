@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'..');
 const file=path.join(root,'audio/bilingual/manifest.json');
 const manifest=JSON.parse(fs.readFileSync(file,'utf8'));
 const normalize=(s)=>String(s||'').normalize('NFKC').replace(/[\u064b-\u065f\u0670\u0640]/g,'').replace(/\s+/g,' ').trim().replace(/[.،؟!?؛:«»"']/g,'').trim();
-const issues=[],index={choices:{},phrases:{},complete:false,translation_review:'machine_translation_unreviewed'};
+const issues=[],index={choices:{},phrases:{},complete:false,translation_review:manifest.translation_review||'English_scripts_pending_listening_review'};
 let counts={ar_choices:0,en_choices:0,ar_phrases:0,en_phrases:0,expected_choices:manifest.choices.length,expected_phrases:manifest.phrases.length};
 function check(rel){
  if(!rel||rel.startsWith('/')||rel.includes('..'))return null;
@@ -35,7 +35,7 @@ for(const p of manifest.phrases){
 }
 index.complete=issues.length===0;
 const out=path.join(root,'audio/bilingual/voice-map.js');
-fs.writeFileSync(out,'/* Pre-recorded MP3 only. Machine-translated EN text awaits listening review. */\nwindow.APP360_CALM_BILINGUAL_AUDIO='+JSON.stringify(index,null,2)+';\n');
+fs.writeFileSync(out,'/* Pre-recorded MP3 only. Authored English voice scripts await listening review. */\nwindow.APP360_CALM_BILINGUAL_AUDIO='+JSON.stringify(index,null,2)+';\n');
 const report={...counts,missing:issues,complete:index.complete,engine_ar:'SILMA 1.0.5',engine_en:'English Neural prerecording',human_review:false,production_approved:false};
 fs.writeFileSync(path.join(root,'audio/bilingual/build-report.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
