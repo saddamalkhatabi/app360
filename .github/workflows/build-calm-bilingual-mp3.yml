@@ -1,0 +1,136 @@
+name: Build Calm Arabic and English Prerecorded MP3
+on:
+  push:
+    branches: [feature/age1-4-silma-calm-serial-20261009]
+    paths:
+      - apps/1-4/calm-with-me/audio/bilingual/manifest.json
+permissions:
+  contents: write
+concurrency:
+  group: calm-bilingual-mp3-audio-build
+  cancel-in-progress: false
+jobs:
+  english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install English natural prerecorded neural synthesizer
+        run: python -m pip install --no-cache-dir edge-tts==7.2.8
+      - name: Generate permanent English MP3 files for this partition
+        run: |
+          python apps/1-4/calm-with-me/tools/generate-bilingual-english.py --part ${{ matrix.part }} --parts 8 --voice en-US-JennyNeural
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calm-en-recordings-${{ matrix.part }}
+          path: apps/1-4/calm-with-me/audio/bilingual/en/
+          if-no-files-found: warn
+          retention-days: 20
+  arabic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg plus shared audio decode libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+      - name: Pin compatible CPU SILMA neural TTS dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' > /tmp/silma-cpu-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-cpu-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Prefetch original SILMA model and Vocos for restricted offline synthesis
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id="silma-ai/silma-tts",allow_patterns=["*.pt","*.safetensors","*.json","*.txt","*.yaml","*.wav","*.model"])
+          snapshot_download(repo_id="charactr/vocos-mel-24khz")
+          PY
+      - name: Synthesize extra Arabic SILMA files for emotion school and journey
+        run: |
+          python tooling/build-silma-audio.py \
+            --root apps/1-4/calm-with-me \
+            --manifest audio/bilingual/arabic-tts-manifest.json \
+            --cache "${{ runner.temp }}/silma-cache" \
+            --model-cache "$HF_HOME/hub" \
+            --precision bf16 \
+            --generate-only \
+            --part ${{ matrix.part }} --parts 16
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calm-ar-recordings-${{ matrix.part }}
+          path: apps/1-4/calm-with-me/audio/bilingual/ar/phrases/
+          if-no-files-found: warn
+          retention-days: 20
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    if: always()
+    needs: [arabic,english]
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: calm-en-recordings-*
+          merge-multiple: true
+          path: apps/1-4/calm-with-me/audio/bilingual/en/
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: calm-ar-recordings-*
+          merge-multiple: true
+          path: apps/1-4/calm-with-me/audio/bilingual/ar/phrases/
+      - name: Install FFprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Activate ONLY actual decoded prerecorded Arabic and English MP3
+        run: |
+          node apps/1-4/calm-with-me/tools/finalize-bilingual-audio.cjs
+          node --check apps/1-4/calm-with-me/calm-bilingual-voice-v1.js
+          node --check apps/1-4/calm-with-me/calm-silma-controller-serial-v1.js
+          node --check apps/1-4/calm-with-me/journey-v9.js
+          node --check apps/1-4/calm-with-me/emotion-school-v8.js
+      - name: Commit actual recorded bilingual MP3 assets exclusively to unapproved branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/calm-with-me/audio/bilingual
+          if git diff --cached --quiet; then
+            echo "No new bilingual audio files"
+            exit 0
+          fi
+          git commit -m "Store real bilingual prerecorded voice MP3 and technical QA lookup"
+          git pull --rebase origin feature/age1-4-silma-calm-serial-20261009
+          git push origin HEAD:feature/age1-4-silma-calm-serial-20261009
