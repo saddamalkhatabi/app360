@@ -1,69 +1,97 @@
 {
-  "schema_version": "2.0-draft",
+  "schema_version": "2.1-draft",
   "synthesis": "NOT_GENERATED",
+  "diacritics": "authored",
   "items": [
     {
       "key": "basket",
       "path": "audio/silma/worker-2/common/basket.mp3",
-      "text": "اختر صورة وضعها في السلة ثم افتحها",
+      "text": "اِخْتَرْ صُورَةً، وَضَعْهَا فِي السَّلَّةِ، ثُمَّ اِفْتَحِ السَّلَّةَ.",
       "focus": "basket",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "free",
       "path": "audio/silma/worker-2/common/free.mp3",
-      "text": "حرك الصورة بحرية",
+      "text": "اِخْتَرْ صُورَةً، وَحَرِّكْهَا بِحُرِّيَّةٍ.",
       "focus": "missionText",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "match",
       "path": "audio/silma/worker-2/common/match.mp3",
-      "text": "ضع كل صورة فوق شبيهتها",
+      "text": "اُنْظُرْ إِلَى الصُّوَرِ، وَضَعْ كُلَّ صُورَةٍ فَوْقَ شَبِيهَتِهَا.",
       "focus": "targets",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "sort",
       "path": "audio/silma/worker-2/common/sort.mp3",
-      "text": "ضع كل شيء مع مجموعته",
+      "text": "ضَعِ الفَاكِهَةَ مَعَ الفَاكِهَةِ، وَالحَيَوَانَ مَعَ الحَيَوَانِ.",
       "focus": "targets",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "real",
       "path": "audio/silma/worker-2/common/real.mp3",
-      "text": "العب مع شخص كبير بأشياء آمنة",
+      "text": "اِلْعَبْ مَعَ شَخْصٍ كَبِيرٍ، وَاخْتَرْ أَشْيَاءَ كَبِيرَةً وَآمِنَةً.",
       "focus": "realView",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": true
     },
     {
       "key": "welcome",
       "path": "audio/silma/worker-2/common/welcome.mp3",
-      "text": "مرحبا بك في سلتي العجيبة",
+      "text": "مَرْحَبًا بِكَ فِي سَلَّتِي العَجِيبَةِ.",
       "focus": "missionText",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "open",
       "path": "audio/silma/worker-2/common/open.mp3",
-      "text": "افتح السلة وشاهد ما بداخلها",
+      "text": "اِفْتَحِ السَّلَّةَ، وَشَاهِدْ مَا بِدَاخِلِهَا.",
       "focus": "openBasket",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "empty",
       "path": "audio/silma/worker-2/common/empty.mp3",
-      "text": "السلة فارغة ضع صورة فيها أولا",
+      "text": "السَّلَّةُ فَارِغَةٌ. ضَعْ صُورَةً فِيهَا أَوَّلًا.",
       "focus": "basket",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     },
     {
       "key": "retry",
       "path": "audio/silma/worker-2/common/retry.mp3",
-      "text": "لا بأس جرب مرة أخرى",
+      "text": "لَا بَأْسَ. جَرِّبْ مَرَّةً أُخْرَى.",
       "focus": "missionText",
-      "ready": false
+      "ready": false,
+      "language": "ar",
+      "engine": "silma",
+      "requires_adult": false
     }
   ]
 }
