@@ -9,6 +9,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "signals",
     "event_id": "calm-with-me:signals:need-help"
   },
+  "signals:stay-close": {
+    "path": "audio/silma/signals/stay-close.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "signals",
+    "event_id": "calm-with-me:signals:stay-close"
+  },
   "signals:pick-me-up": {
     "path": "audio/silma/signals/pick-me-up.mp3",
     "engine": "silma",
@@ -53,6 +62,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "signals",
     "event_id": "calm-with-me:signals:no"
+  },
+  "signals:water-now": {
+    "path": "audio/silma/signals/water-now.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "signals",
+    "event_id": "calm-with-me:signals:water-now"
   },
   "signals:what-next": {
     "path": "audio/silma/signals/what-next.mp3",
@@ -135,6 +153,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "signals",
     "event_id": "calm-with-me:signals:talk-later"
   },
+  "signals:two-solutions": {
+    "path": "audio/silma/signals/two-solutions.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "signals",
+    "event_id": "calm-with-me:signals:two-solutions"
+  },
   "signals:no-label": {
     "path": "audio/silma/signals/no-label.mp3",
     "engine": "silma",
@@ -179,6 +206,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "feelings",
     "event_id": "calm-with-me:feelings:upset"
+  },
+  "feelings:angry": {
+    "path": "audio/silma/feelings/angry.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "feelings",
+    "event_id": "calm-with-me:feelings:angry"
   },
   "feelings:tired": {
     "path": "audio/silma/feelings/tired.mp3",
@@ -261,6 +297,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "feelings",
     "event_id": "calm-with-me:feelings:unsure"
   },
+  "helps:close": {
+    "path": "audio/silma/helps/close.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:close"
+  },
   "helps:hold-if-wanted": {
     "path": "audio/silma/helps/hold-if-wanted.mp3",
     "engine": "silma",
@@ -305,6 +350,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "helps",
     "event_id": "calm-with-me:helps:reduce-noise"
+  },
+  "helps:familiar-object": {
+    "path": "audio/silma/helps/familiar-object.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:familiar-object"
   },
   "helps:quiet-book": {
     "path": "audio/silma/helps/quiet-book.mp3",
@@ -387,6 +441,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "helps",
     "event_id": "calm-with-me:helps:model-words"
   },
+  "helps:name-one-feeling": {
+    "path": "audio/silma/helps/name-one-feeling.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:name-one-feeling"
+  },
   "helps:draw-feeling": {
     "path": "audio/silma/helps/draw-feeling.mp3",
     "engine": "silma",
@@ -431,6 +494,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "helps",
     "event_id": "calm-with-me:helps:pillow-push"
+  },
+  "helps:heavy-walk": {
+    "path": "audio/silma/helps/heavy-walk.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:heavy-walk"
   },
   "helps:playdough": {
     "path": "audio/silma/helps/playdough.mp3",
@@ -513,6 +585,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "transitions",
     "event_id": "calm-with-me:transitions:shoe"
   },
+  "transitions:toothbrush": {
+    "path": "audio/silma/transitions/toothbrush.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "transitions",
+    "event_id": "calm-with-me:transitions:toothbrush"
+  },
   "transitions:cup": {
     "path": "audio/silma/transitions/cup.mp3",
     "engine": "silma",
@@ -557,6 +638,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "transitions",
     "event_id": "calm-with-me:transitions:app-imitate"
+  },
+  "transitions:app-screen-move": {
+    "path": "audio/silma/transitions/app-screen-move.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "transitions",
+    "event_id": "calm-with-me:transitions:app-screen-move"
   },
   "transitions:app-drawing-writing": {
     "path": "audio/silma/transitions/app-drawing-writing.mp3",
