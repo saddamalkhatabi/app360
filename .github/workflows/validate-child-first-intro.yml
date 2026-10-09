@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - apps/1-4/calm-with-me/audio/intro/recordings.json
+      - .github/workflows/validate-child-first-intro.yml
 permissions:
   contents: write
 jobs:
