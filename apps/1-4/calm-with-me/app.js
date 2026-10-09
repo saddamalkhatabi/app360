@@ -37,10 +37,17 @@ function itemById(list,id){var i;for(i=0;i<(list||[]).length;i++)if(list[i].id==
 function imageHtml(item,extra){var label=esc(item&&item.label_ar||'');if(item&&item.image)return '<img '+(extra||'')+' src="'+esc(item.image)+'" alt="'+label+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'inline-block\'"><span class="symbol image-fallback" style="display:none">'+esc(item.symbol||'◯')+'</span>';return '<span class="symbol" '+(extra||'')+'>'+esc(item&&item.symbol||'◯')+'</span>'}
 function closestButton(node,root){while(node&&node!==root&&node!==d){if(node.tagName&&node.tagName.toLowerCase()==='button')return node;node=node.parentNode}if(node&&node.tagName&&node.tagName.toLowerCase()==='button')return node;return null}
 function bindActivation(root,fn){if(!root)return;function run(e){e=e||w.event;var b=closestButton(e.target||e.srcElement,root);if(!b||b.disabled)return;var t=Date.now();if(e.type==='touchend'){lastTouchAt=t;if(e.preventDefault)e.preventDefault()}else if(t-lastTouchAt<650)return;fn(b,e)}if(root.addEventListener){root.addEventListener('touchend',run,false);root.addEventListener('click',run,false)}else root.onclick=run}
-function speakItem(item){if(!item)return;var phrase=item.speech_ar||item.label_ar||'';if(item.audio){try{var a=new Audio(item.audio);a.play();status('تشغيل الصوت المسجل المحلي.');return}catch(e){}}
-  if(state.settings.speech===false){status('الصوت متوقف. كل الخطوات ما زالت متاحة بصريًا.');return}
-  try{if('speechSynthesis'in w&&w.SpeechSynthesisUtterance){w.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(phrase);u.lang='ar';u.rate=.86;w.speechSynthesis.speak(u);status('الصوت اختياري؛ يمكنك متابعة التطبيق بصريًا بالكامل.');return}}catch(e){}
-  status('الصوت غير متاح على هذا الجهاز. استخدم النص والصورة أو اقرأ العبارة بصوتك.')
+var activeCalmClip=null;
+function speakItem(item){
+ if(!item||state.settings.speech===false)return;
+ if(w.APP360CalmNarration)return w.APP360CalmNarration.play(item,status);
+ if(activeCalmClip){try{activeCalmClip.pause()}catch(e){}activeCalmClip=null}
+ // If optional bilingual controller failed, play ONLY personally uploaded audio.
+ if(item.audio){
+  try{var a=new w.Audio(item.audio);activeCalmClip=a;a.play();status('تشغيل ملف الصوت المسجل.');return true}catch(e){}
+ }
+ status('التسجيل الجاهز غير متاح؛ استعمل العبارة المكتوبة والصورة.');
+ return false;
 }
 function switchView(name){var names=['child','transition','plans','caregiver'],i,p,b;for(i=0;i<names.length;i++){p=$(names[i]+'View');setHidden(p,names[i]!==name);b=$('nav-'+names[i]);if(b)b.className=names[i]===name?'nav-btn active':'nav-btn'}w.scrollTo(0,0);if(name==='plans')renderPlans();if(name==='caregiver'){renderLibrary();renderReviewForm()}if(name==='transition')renderTransition()}
 function selectionKey(kind,id){return kind+':'+id}

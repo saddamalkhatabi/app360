@@ -81,7 +81,7 @@ function currentScenario(){return byId(L.situations||[],j.scenario_id)}
 function currentHelp(){var lib=core().library||C.helps||[];return byId(lib,j.help_id)||byId(C.helps||[],j.help_id)}
 function currentNext(){return transition(j.next_id)}
 function listHtml(a){var h='<ul>',i;for(i=0;i<(a||[]).length;i++)h+='<li>'+esc(a[i])+'</li>';return h+'</ul>'}
-function speak(phrase){phrase=text(phrase);if(!phrase)return;try{if('speechSynthesis'in w&&w.SpeechSynthesisUtterance){w.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(phrase);u.lang='ar';u.rate=.84;w.speechSynthesis.speak(u);return}}catch(e){}var x=$('journeyMessage');if(x)x.textContent='الصوت غير متاح على هذا الجهاز؛ اقرأ العبارة المكتوبة بصوتك.'}
+function speak(phrase){phrase=text(phrase);if(!phrase)return;var v=w.APP360CalmVoice;if(v&&v.playPhrase)return v.playPhrase(phrase,function(msg){var x=$('journeyMessage');if(x&&msg)x.textContent=msg});var x=$('journeyMessage');if(x)x.textContent='التسجيل الصوتي غير متوفر بعد.'}
 function closestData(node,root,attr){while(node&&node!==root&&node!==d){if(node.getAttribute&&node.getAttribute(attr)!==null)return node;node=node.parentNode}if(node&&node.getAttribute&&node.getAttribute(attr)!==null)return node;return null}
 function bindTap(root,fn){if(!root)return;function run(e){e=e||w.event;var t=Date.now();if(e.type==='touchend')lastTouch=t;else if(t-lastTouch<650)return;fn(e)}if(root.addEventListener){root.addEventListener('touchend',run,false);root.addEventListener('click',run,false)}else root.onclick=run}
 function scroll(id){var x=$(id);if(!x)return;setTimeout(function(){try{x.scrollIntoView(true)}catch(e){}},40)}
