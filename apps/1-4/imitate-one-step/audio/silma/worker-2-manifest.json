@@ -1,0 +1,2994 @@
+{
+  "schema_version": 1,
+  "worker": 2,
+  "app": "imitate-one-step",
+  "stage": "narration-script-draft",
+  "synthesis": "NOT_GENERATED",
+  "diacritics": "REQUIRES_EDITORIAL_TASHKEEL_BEFORE_SILMA",
+  "language": "ar",
+  "engine": "silma-tts-1.0.5",
+  "source_branch": "family-school-360-preview",
+  "source_sha": {
+    "screen.games-data": "955b498179dc4cdbe4f6a5f027c9646e0890200b",
+    "screen.games-data-v12": "aa51397054c43e531cd653847b48c307abd347d8",
+    "imitate.experiences": "534e0411c46bfc4866ca82206f121cae13e4b6c1",
+    "routine.storyboard-v6": "4032a6b037059edb681ef3abea150938d298d5f3",
+    "routine.storyboard-v7": "0afd4e6a805bffb03026fcdcdd4af5b299a9ecc4"
+  },
+  "description": "Scripts for worker-2 allocated items only; MP3 files are not present until synthesis succeeds.",
+  "counts": {
+    "experiences": 50,
+    "clips": 302,
+    "steps": 250,
+    "questions": 0,
+    "options": 0
+  },
+  "items": [
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/002/intro.mp3",
+      "text": "هيا نجرب افتح وأغلق كفيك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/002/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/002/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: افتح وأغلق كفيك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «افتح وأغلق كفيك» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/002/step-3.mp3",
+      "text": "الآن دورك. جرّب افتح وأغلق كفيك بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/002/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/002/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/006/intro.mp3",
+      "text": "هيا نجرب نقر إصبع واحد ثم اثنين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/006/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق أو قطعة قماش وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/006/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: نقر إصبع واحد ثم اثنين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «نقر إصبع واحد ثم اثنين» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/006/step-3.mp3",
+      "text": "الآن دورك. جرّب نقر إصبع واحد ثم اثنين بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/006/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/006/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/010/intro.mp3",
+      "text": "هيا نجرب ضع المنديل داخل الكوب وأخرجه.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/010/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز كوب وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/010/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ضع المنديل داخل الكوب وأخرجه.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ضع المنديل داخل الكوب وأخرجه» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/010/step-3.mp3",
+      "text": "الآن دورك. جرّب ضع المنديل داخل الكوب وأخرجه بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/010/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/010/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/014/intro.mp3",
+      "text": "هيا نجرب مرر الملعقة ثم أعدها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/014/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ملعقة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/014/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: مرر الملعقة ثم أعدها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «مرر الملعقة ثم أعدها» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/014/step-3.mp3",
+      "text": "الآن دورك. جرّب مرر الملعقة ثم أعدها بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/014/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/014/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/018/intro.mp3",
+      "text": "هيا نجرب اختفت يدي وظهرت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/018/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/018/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: اختفت يدي وظهرت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «اختفت يدي وظهرت» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/018/step-3.mp3",
+      "text": "الآن دورك. جرّب اختفت يدي وظهرت بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/018/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/018/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/022/intro.mp3",
+      "text": "هيا نجرب لف حول الوسادة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/022/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز وسادة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/022/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: لف حول الوسادة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «لف حول الوسادة» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/022/step-3.mp3",
+      "text": "الآن دورك. جرّب لف حول الوسادة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/022/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/022/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/026/intro.mp3",
+      "text": "هيا نجرب صوتي وصوتك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/026/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/026/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صوتي وصوتك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صوتي وصوتك» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/026/step-3.mp3",
+      "text": "الآن دورك. جرّب صوتي وصوتك بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/026/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/026/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/030/intro.mp3",
+      "text": "هيا نجرب صوت حيوان وقلّده.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/030/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/030/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صوت حيوان وقلّده.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صوت حيوان وقلّده» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/030/step-3.mp3",
+      "text": "الآن دورك. جرّب صوت حيوان وقلّده بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/030/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/030/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/034/intro.mp3",
+      "text": "هيا نجرب طابق جوربين متشابهين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/034/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز جورب وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/034/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: طابق جوربين متشابهين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «طابق جوربين متشابهين» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/034/step-3.mp3",
+      "text": "الآن دورك. جرّب طابق جوربين متشابهين بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/034/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/034/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/038/intro.mp3",
+      "text": "هيا نجرب خط طويل وخط قصير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/038/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق + قلم أو لون وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/038/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: خط طويل وخط قصير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «خط طويل وخط قصير» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/038/step-3.mp3",
+      "text": "الآن دورك. جرّب خط طويل وخط قصير بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/038/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/038/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/042/intro.mp3",
+      "text": "هيا نجرب أكواب داخل بعضها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/042/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أكواب وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/042/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: أكواب داخل بعضها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «أكواب داخل بعضها» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/042/step-3.mp3",
+      "text": "الآن دورك. جرّب أكواب داخل بعضها بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/042/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/042/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/046/intro.mp3",
+      "text": "هيا نجرب ضع الأشياء في السلة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/046/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز سلة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/046/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ضع الأشياء في السلة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ضع الأشياء في السلة» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/046/step-3.mp3",
+      "text": "الآن دورك. جرّب ضع الأشياء في السلة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/046/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/046/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/050/intro.mp3",
+      "text": "هيا نجرب وجه سعيد ووجه هادئ.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/050/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/050/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: وجه سعيد ووجه هادئ.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «وجه سعيد ووجه هادئ» مرة واحدة ببطء.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/050/step-3.mp3",
+      "text": "الآن دورك. جرّب وجه سعيد ووجه هادئ بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/050/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يبدأ حركة وأنت تقلده.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/050/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "إذا استمتع، كررا مرة واحدة ثم أنهيا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/054/intro.mp3",
+      "text": "هيا نجرب امشِ كالحيوان الذي أقلده.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/054/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/054/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: امشِ كالحيوان الذي أقلده.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «امشِ كالحيوان الذي أقلده» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/054/step-3.mp3",
+      "text": "الآن دورك. جرّب امشِ كالحيوان الذي أقلده بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/054/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/054/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/058/intro.mp3",
+      "text": "هيا نجرب انقل الماء بكوب إلى كوب.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/058/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز كوب + ماء وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/058/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: انقل الماء بكوب إلى كوب.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «انقل الماء بكوب إلى كوب» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/058/step-3.mp3",
+      "text": "الآن دورك. جرّب انقل الماء بكوب إلى كوب بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/058/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/058/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/062/intro.mp3",
+      "text": "هيا نجرب املأ السلة قطعة قطعة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/062/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز سلة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/062/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: املأ السلة قطعة قطعة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «املأ السلة قطعة قطعة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/062/step-3.mp3",
+      "text": "الآن دورك. جرّب املأ السلة قطعة قطعة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/062/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/062/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/066/intro.mp3",
+      "text": "هيا نجرب أخضر تحرك وأحمر توقف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/066/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/066/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: أخضر تحرك وأحمر توقف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «أخضر تحرك وأحمر توقف» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/066/step-3.mp3",
+      "text": "الآن دورك. جرّب أخضر تحرك وأحمر توقف بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/066/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/066/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/070/intro.mp3",
+      "text": "هيا نجرب غيّر الاتجاه عند التصفيق.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/070/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/070/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: غيّر الاتجاه عند التصفيق.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «غيّر الاتجاه عند التصفيق» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/070/step-3.mp3",
+      "text": "الآن دورك. جرّب غيّر الاتجاه عند التصفيق بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/070/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/070/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/074/intro.mp3",
+      "text": "هيا نجرب تحرك حول الكراسي دون لمسها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/074/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/074/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: تحرك حول الكراسي دون لمسها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «تحرك حول الكراسي دون لمسها» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/074/step-3.mp3",
+      "text": "الآن دورك. جرّب تحرك حول الكراسي دون لمسها بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/074/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/074/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/078/intro.mp3",
+      "text": "هيا نجرب ماذا أفعل الآن؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/078/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/078/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ماذا أفعل الآن؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ماذا أفعل الآن؟» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/078/step-3.mp3",
+      "text": "الآن دورك. جرّب ماذا أفعل الآن؟ بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/078/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/078/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/082/intro.mp3",
+      "text": "هيا نجرب رتب ثلاثة أحجام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/082/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/082/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: رتب ثلاثة أحجام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «رتب ثلاثة أحجام» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/082/step-3.mp3",
+      "text": "الآن دورك. جرّب رتب ثلاثة أحجام بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/082/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/082/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/086/intro.mp3",
+      "text": "هيا نجرب أكمل خطي.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/086/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق + قلم أو لون وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/086/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: أكمل خطي.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «أكمل خطي» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/086/step-3.mp3",
+      "text": "الآن دورك. جرّب أكمل خطي بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/086/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/086/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/090/intro.mp3",
+      "text": "هيا نجرب صبورة رقمية: انسخ مساري.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/090/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/090/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صبورة رقمية: انسخ مساري.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صبورة رقمية: انسخ مساري» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/090/step-3.mp3",
+      "text": "الآن دورك. جرّب صبورة رقمية: انسخ مساري بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/090/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/090/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/094/intro.mp3",
+      "text": "هيا نجرب أي جسم يتدحرج؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/094/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أدوات منزلية آمنة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/094/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: أي جسم يتدحرج؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «أي جسم يتدحرج؟» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/094/step-3.mp3",
+      "text": "الآن دورك. جرّب أي جسم يتدحرج؟ بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/094/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/094/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/098/intro.mp3",
+      "text": "هيا نجرب مطبخ تمثيلي بأدوات آمنة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/098/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/098/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: مطبخ تمثيلي بأدوات آمنة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «مطبخ تمثيلي بأدوات آمنة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/098/step-3.mp3",
+      "text": "الآن دورك. جرّب مطبخ تمثيلي بأدوات آمنة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يجرب بطريقته وسجّل أقل مقدار من المساعدة احتاجه.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/098/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/098/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار تغييرًا بسيطًا.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/102/intro.mp3",
+      "text": "هيا نجرب مرآة بطيئة وسريعة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/102/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/102/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: مرآة بطيئة وسريعة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «مرآة بطيئة وسريعة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/102/step-3.mp3",
+      "text": "الآن دورك. جرّب مرآة بطيئة وسريعة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/102/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/102/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/106/intro.mp3",
+      "text": "هيا نجرب اطوِ ثم افتح ثم اطوِ.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/106/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق أو قطعة قماش وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/106/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: اطوِ ثم افتح ثم اطوِ.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «اطوِ ثم افتح ثم اطوِ» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/106/step-3.mp3",
+      "text": "الآن دورك. جرّب اطوِ ثم افتح ثم اطوِ بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/106/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/106/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/110/intro.mp3",
+      "text": "هيا نجرب انقل أجسامًا كبيرة بملعقة كبيرة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/110/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ملعقة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/110/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: انقل أجسامًا كبيرة بملعقة كبيرة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «انقل أجسامًا كبيرة بملعقة كبيرة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/110/step-3.mp3",
+      "text": "الآن دورك. جرّب انقل أجسامًا كبيرة بملعقة كبيرة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/110/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/110/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/114/intro.mp3",
+      "text": "هيا نجرب ارسم بيتًا جزءًا جزءًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/114/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/114/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ارسم بيتًا جزءًا جزءًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ارسم بيتًا جزءًا جزءًا» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/114/step-3.mp3",
+      "text": "الآن دورك. جرّب ارسم بيتًا جزءًا جزءًا بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/114/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/114/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/118/intro.mp3",
+      "text": "هيا نجرب تذكر مكان شيئين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/118/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/118/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: تذكر مكان شيئين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «تذكر مكان شيئين» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/118/step-3.mp3",
+      "text": "الآن دورك. جرّب تذكر مكان شيئين بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/118/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/118/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/122/intro.mp3",
+      "text": "هيا نجرب توازن مع كيس قماش خفيف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/122/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/122/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: توازن مع كيس قماش خفيف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «توازن مع كيس قماش خفيف» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/122/step-3.mp3",
+      "text": "الآن دورك. جرّب توازن مع كيس قماش خفيف بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/122/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/122/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/126/intro.mp3",
+      "text": "هيا نجرب قصة من صورتين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/126/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز صور واضحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/126/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: قصة من صورتين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «قصة من صورتين» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/126/step-3.mp3",
+      "text": "الآن دورك. جرّب قصة من صورتين بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/126/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/126/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/130/intro.mp3",
+      "text": "هيا نجرب ابحث عن كلمتين متشابهتي الصوت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/130/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/130/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ابحث عن كلمتين متشابهتي الصوت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ابحث عن كلمتين متشابهتي الصوت» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/130/step-3.mp3",
+      "text": "الآن دورك. جرّب ابحث عن كلمتين متشابهتي الصوت بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/130/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/130/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/134/intro.mp3",
+      "text": "هيا نجرب خريطة فوق تحت بجانب.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/134/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/134/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: خريطة فوق تحت بجانب.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «خريطة فوق تحت بجانب» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/134/step-3.mp3",
+      "text": "الآن دورك. جرّب خريطة فوق تحت بجانب بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/134/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/134/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/138/intro.mp3",
+      "text": "هيا نجرب ارسم خريطة الغرفة البسيطة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/138/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق + قلم أو لون وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/138/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ارسم خريطة الغرفة البسيطة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ارسم خريطة الغرفة البسيطة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/138/step-3.mp3",
+      "text": "الآن دورك. جرّب ارسم خريطة الغرفة البسيطة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/138/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/138/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/142/intro.mp3",
+      "text": "هيا نجرب اختبار منحدرين مختلفين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/142/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أدوات منزلية آمنة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/142/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: اختبار منحدرين مختلفين.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «اختبار منحدرين مختلفين» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/142/step-3.mp3",
+      "text": "الآن دورك. جرّب اختبار منحدرين مختلفين بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/142/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/142/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/146/intro.mp3",
+      "text": "هيا نجرب جهز المائدة البسيطة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/146/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/146/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: جهز المائدة البسيطة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «جهز المائدة البسيطة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/146/step-3.mp3",
+      "text": "الآن دورك. جرّب جهز المائدة البسيطة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/146/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/146/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/150/intro.mp3",
+      "text": "هيا نجرب اختر طريقة للهدوء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/150/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/150/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: اختر طريقة للهدوء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «اختر طريقة للهدوء» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/150/step-3.mp3",
+      "text": "الآن دورك. جرّب اختر طريقة للهدوء بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/150/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/150/step-5.mp3",
+      "text": "أحسنت. إذا أحببت، جرّب مرة أخرى، ثم خذ استراحة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر قاعدة واحدة فقط وأعيدا المحاولة.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/154/intro.mp3",
+      "text": "هيا نجرب إيقاع جسم يتطور كل دور.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/154/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/154/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: إيقاع جسم يتطور كل دور.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «إيقاع جسم يتطور كل دور» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/154/step-3.mp3",
+      "text": "الآن دورك. جرّب إيقاع جسم يتطور كل دور بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/154/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/154/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/158/intro.mp3",
+      "text": "هيا نجرب ارسم مسارًا ضيقًا ثم بدّل.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/158/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق أو قطعة قماش وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/158/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: ارسم مسارًا ضيقًا ثم بدّل.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «ارسم مسارًا ضيقًا ثم بدّل» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/158/step-3.mp3",
+      "text": "الآن دورك. جرّب ارسم مسارًا ضيقًا ثم بدّل بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/158/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/158/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/162/intro.mp3",
+      "text": "هيا نجرب انقل شيئًا دون لمسه مباشرة باليد.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/162/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/162/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: انقل شيئًا دون لمسه مباشرة باليد.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «انقل شيئًا دون لمسه مباشرة باليد» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/162/step-3.mp3",
+      "text": "الآن دورك. جرّب انقل شيئًا دون لمسه مباشرة باليد بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/162/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/162/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/166/intro.mp3",
+      "text": "هيا نجرب قانونان يتبدلان.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/166/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/166/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: قانونان يتبدلان.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «قانونان يتبدلان» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/166/step-3.mp3",
+      "text": "الآن دورك. جرّب قانونان يتبدلان بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/166/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/166/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/170/intro.mp3",
+      "text": "هيا نجرب صمم إشارة سرية وتذكرها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/170/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/170/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صمم إشارة سرية وتذكرها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صمم إشارة سرية وتذكرها» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/170/step-3.mp3",
+      "text": "الآن دورك. جرّب صمم إشارة سرية وتذكرها بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/170/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/170/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/174/intro.mp3",
+      "text": "هيا نجرب مهمة توصيل عبر محطات.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/174/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/174/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: مهمة توصيل عبر محطات.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «مهمة توصيل عبر محطات» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/174/step-3.mp3",
+      "text": "الآن دورك. جرّب مهمة توصيل عبر محطات بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/174/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/174/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/178/intro.mp3",
+      "text": "هيا نجرب وصف طريق لشخص آخر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/178/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/178/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: وصف طريق لشخص آخر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «وصف طريق لشخص آخر» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/178/step-3.mp3",
+      "text": "الآن دورك. جرّب وصف طريق لشخص آخر بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/178/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/178/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/182/intro.mp3",
+      "text": "هيا نجرب صمم نمطًا وأنا أكمله.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/182/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أشياء منزلية كبيرة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/182/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صمم نمطًا وأنا أكمله.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صمم نمطًا وأنا أكمله» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/182/step-3.mp3",
+      "text": "الآن دورك. جرّب صمم نمطًا وأنا أكمله بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/182/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/182/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/186/intro.mp3",
+      "text": "هيا نجرب قصة مصورة مشتركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/186/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز ورق + قلم أو لون وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/186/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: قصة مصورة مشتركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «قصة مصورة مشتركة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/186/step-3.mp3",
+      "text": "الآن دورك. جرّب قصة مصورة مشتركة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/186/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/186/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/190/intro.mp3",
+      "text": "هيا نجرب صبورة رقمية: لعبة مسار نصمم قواعدها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/190/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر مساحة مريحة بحيث يرى كل منكما الآخر.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/190/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: صبورة رقمية: لعبة مسار نصمم قواعدها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «صبورة رقمية: لعبة مسار نصمم قواعدها» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/190/step-3.mp3",
+      "text": "الآن دورك. جرّب صبورة رقمية: لعبة مسار نصمم قواعدها بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/190/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/190/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/194/intro.mp3",
+      "text": "هيا نجرب تجربة طفو بأجسام كبيرة آمنة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/194/step-1.mp3",
+      "text": "جهّز أدوات اللعبة مع شخص كبير، وفي مكان آمن.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أدوات منزلية آمنة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/194/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: تجربة طفو بأجسام كبيرة آمنة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «تجربة طفو بأجسام كبيرة آمنة» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/194/step-3.mp3",
+      "text": "الآن دورك. جرّب تجربة طفو بأجسام كبيرة آمنة بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/194/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/194/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/198/intro.mp3",
+      "text": "هيا نجرب لعبة المضيف والضيف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/198/step-1.mp3",
+      "text": "هيا نختار مكانًا مريحًا وآمنًا للعب معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جهّز أغراض الروتين المتاحة وضعها في مكان آمن.",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/198/step-2.mp3",
+      "text": "شاهد من يلعب معك وهو يريك كيف نلعب: لعبة المضيف والضيف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اعرض «لعبة المضيف والضيف» واذكر القاعدة القصيرة مرة واحدة.",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/198/step-3.mp3",
+      "text": "الآن دورك. جرّب لعبة المضيف والضيف بهدوء، واطلب المساعدة إذا احتجت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل ينفذ التسلسل أو القاعدة، وانتظر قبل التدخل.",
+      "focus": "step-3",
+      "requires_adult": true
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/198/step-4.mp3",
+      "text": "هيا نبدّل الأدوار. ابدأ أنت، ودع من يلعب معك يقلّدك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "الطفل يختار أو يبدأ الجولة التالية وأنت تتبعه.",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/198/step-5.mp3",
+      "text": "هل تستطيع أن تقترح طريقة جديدة للعبة؟ جرّبها مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشرح أو يصمم الجولة التالية ثم العبها معه.",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "shared-retry",
+      "path": "audio/silma/worker-2/common/retry.mp3",
+      "text": "حاول مرة أخرى، وخذ وقتك.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    },
+    {
+      "key": "shared-success",
+      "path": "audio/silma/worker-2/common/success.mp3",
+      "text": "أحسنت! لقد نجحت.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    }
+  ]
+}
