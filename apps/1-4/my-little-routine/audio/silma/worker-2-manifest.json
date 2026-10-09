@@ -1,0 +1,811 @@
+{
+  "schema_version": 1,
+  "worker": 2,
+  "app": "my-little-routine",
+  "stage": "narration-script-draft",
+  "synthesis": "NOT_GENERATED",
+  "diacritics": "REQUIRES_EDITORIAL_TASHKEEL_BEFORE_SILMA",
+  "language": "ar",
+  "engine": "silma-tts-1.0.5",
+  "source_branch": "family-school-360-preview",
+  "source_sha": {
+    "screen.games-data": "955b498179dc4cdbe4f6a5f027c9646e0890200b",
+    "screen.games-data-v12": "aa51397054c43e531cd653847b48c307abd347d8",
+    "imitate.experiences": "534e0411c46bfc4866ca82206f121cae13e4b6c1",
+    "routine.storyboard-v6": "4032a6b037059edb681ef3abea150938d298d5f3",
+    "routine.storyboard-v7": "0afd4e6a805bffb03026fcdcdd4af5b299a9ecc4"
+  },
+  "description": "Scripts for worker-2 allocated items only; MP3 files are not present until synthesis succeeds.",
+  "counts": {
+    "experiences": 13,
+    "clips": 80,
+    "steps": 65,
+    "questions": 0,
+    "options": 0
+  },
+  "items": [
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/brush-teeth/intro.mp3",
+      "text": "هيا نجرب أنظف أسناني.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/brush-teeth/step-1.mp3",
+      "text": "أجهز الفرشاة والمعجون",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجهز الفرشاة والمعجون",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/brush-teeth/step-2.mp3",
+      "text": "أضع المعجون على الفرشاة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضع المعجون على الفرشاة",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/brush-teeth/step-3.mp3",
+      "text": "أنظف أسناني بلطف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنظف أسناني بلطف",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/brush-teeth/step-4.mp3",
+      "text": "مع شخص كبير، أشطف فمي بالماء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أشطف فمي بالماء",
+      "focus": "step-4",
+      "requires_adult": true
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/brush-teeth/step-5.mp3",
+      "text": "أعيد الفرشاة إلى مكانها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعيد الفرشاة إلى مكانها",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/dirty-clothes/intro.mp3",
+      "text": "هيا نجرب أضع ملابسي في السلة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/dirty-clothes/step-1.mp3",
+      "text": "أجمع ملابسي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجمع ملابسي",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/dirty-clothes/step-2.mp3",
+      "text": "أحملها إلى السلة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أحملها إلى السلة",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/dirty-clothes/step-3.mp3",
+      "text": "أضعها داخل السلة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضعها داخل السلة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/dirty-clothes/step-4.mp3",
+      "text": "أرتب ما بقي داخلها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أرتب ما بقي داخلها",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/dirty-clothes/step-5.mp3",
+      "text": "أفرح لأن المكان مرتب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفرح لأن المكان مرتب",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/wipe-nose/intro.mp3",
+      "text": "هيا نجرب أمسح أنفي.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/wipe-nose/step-1.mp3",
+      "text": "ألاحظ أن أنفي يحتاج تنظيفًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألاحظ أن أنفي يحتاج تنظيفًا",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/wipe-nose/step-2.mp3",
+      "text": "آخذ منديلاً",
+      "language": "ar",
+      "engine": "silma",
+      "source": "آخذ منديلاً",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/wipe-nose/step-3.mp3",
+      "text": "أمسح أنفي بلطف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أمسح أنفي بلطف",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/wipe-nose/step-4.mp3",
+      "text": "أطوي المنديل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أطوي المنديل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/wipe-nose/step-5.mp3",
+      "text": "أصبح نظيفًا ومستعدًا للخطوة التالية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أصبح نظيفًا ومستعدًا للخطوة التالية",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/shoes-place/intro.mp3",
+      "text": "هيا نجرب أخلع حذائي وأضعه في مكانه.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/shoes-place/step-1.mp3",
+      "text": "أجلس بأمان",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجلس بأمان",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/shoes-place/step-2.mp3",
+      "text": "أفك الحذاء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفك الحذاء",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/shoes-place/step-3.mp3",
+      "text": "أخلع الحذاء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أخلع الحذاء",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/shoes-place/step-4.mp3",
+      "text": "أضعه على الرف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضعه على الرف",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/shoes-place/step-5.mp3",
+      "text": "أقف بعد أن عاد الحذاء لمكانه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أقف بعد أن عاد الحذاء لمكانه",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/hands-after-bathroom/intro.mp3",
+      "text": "هيا نجرب أغسل يدي بعد الحمام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/hands-after-bathroom/step-1.mp3",
+      "text": "مع شخص كبير، أفتح الماء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفتح الماء",
+      "focus": "step-1",
+      "requires_adult": true
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/hands-after-bathroom/step-2.mp3",
+      "text": "أضع الصابون",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضع الصابون",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/hands-after-bathroom/step-3.mp3",
+      "text": "أفرك يدي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفرك يدي",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/hands-after-bathroom/step-4.mp3",
+      "text": "أشطف يدي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أشطف يدي",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/hands-after-bathroom/step-5.mp3",
+      "text": "أجففهما جيدًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجففهما جيدًا",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/hello/intro.mp3",
+      "text": "هيا نجرب أحيي وأقول مرحباً.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/hello/step-1.mp3",
+      "text": "أرى الشخص القادم",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أرى الشخص القادم",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/hello/step-2.mp3",
+      "text": "ألوح بيدي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألوح بيدي",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/hello/step-3.mp3",
+      "text": "أقول مرحبًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أقول مرحبًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/hello/step-4.mp3",
+      "text": "أستمع للرد",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أستمع للرد",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/hello/step-5.mp3",
+      "text": "أبتسم وأكمل اللقاء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أبتسم وأكمل اللقاء",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/wait-turn/intro.mp3",
+      "text": "هيا نجرب أنتظر دوري.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/wait-turn/step-1.mp3",
+      "text": "أرى طفلًا قبلي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أرى طفلًا قبلي",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/wait-turn/step-2.mp3",
+      "text": "أنتظر بجانبه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنتظر بجانبه",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/wait-turn/step-3.mp3",
+      "text": "أراقب دوري يقترب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أراقب دوري يقترب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/wait-turn/step-4.mp3",
+      "text": "يأتي دوري",
+      "language": "ar",
+      "engine": "silma",
+      "source": "يأتي دوري",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/wait-turn/step-5.mp3",
+      "text": "ألعب عندما يصبح المكان لي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألعب عندما يصبح المكان لي",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/colors-away/intro.mp3",
+      "text": "هيا نجرب أحفظ ألواني بعد الرسم.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/colors-away/step-1.mp3",
+      "text": "أنتهي من الرسم",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنتهي من الرسم",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/colors-away/step-2.mp3",
+      "text": "أجمع الألوان",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجمع الألوان",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/colors-away/step-3.mp3",
+      "text": "أضعها في العلبة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضعها في العلبة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/colors-away/step-4.mp3",
+      "text": "أرتب أوراقي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أرتب أوراقي",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/colors-away/step-5.mp3",
+      "text": "أغلق العلبة وأفرح بالترتيب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أغلق العلبة وأفرح بالترتيب",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/knock-and-wait/intro.mp3",
+      "text": "هيا نجرب أطرق الباب وأنتظر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/knock-and-wait/step-1.mp3",
+      "text": "أصل إلى الباب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أصل إلى الباب",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/knock-and-wait/step-2.mp3",
+      "text": "أطرق الباب بلطف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أطرق الباب بلطف",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/knock-and-wait/step-3.mp3",
+      "text": "أنتظر أمام الباب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنتظر أمام الباب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/knock-and-wait/step-4.mp3",
+      "text": "أبقى هادئًا حتى يُفتح",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أبقى هادئًا حتى يُفتح",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/knock-and-wait/step-5.mp3",
+      "text": "أدخل مع المرافق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أدخل مع المرافق",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/intro.mp3",
+      "text": "هيا نجرب أمسح الطاولة بعد الأكل.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/step-1.mp3",
+      "text": "ألاحظ الفتات على الطاولة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألاحظ الفتات على الطاولة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/step-2.mp3",
+      "text": "آخذ قطعة المسح",
+      "language": "ar",
+      "engine": "silma",
+      "source": "آخذ قطعة المسح",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/step-3.mp3",
+      "text": "أمسح الفتات",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أمسح الفتات",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/step-4.mp3",
+      "text": "أراجع المكان",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أراجع المكان",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/wipe-table-after-eating/step-5.mp3",
+      "text": "أفرح بالطاولة النظيفة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفرح بالطاولة النظيفة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/wear-pajamas/intro.mp3",
+      "text": "هيا نجرب أرتدي البيجامة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/wear-pajamas/step-1.mp3",
+      "text": "أجهز ملابس النوم",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أجهز ملابس النوم",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/wear-pajamas/step-2.mp3",
+      "text": "ألبس الجزء السفلي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألبس الجزء السفلي",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/wear-pajamas/step-3.mp3",
+      "text": "ألبس القميص",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ألبس القميص",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/wear-pajamas/step-4.mp3",
+      "text": "أرتب الأزرار أو الملابس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أرتب الأزرار أو الملابس",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/wear-pajamas/step-5.mp3",
+      "text": "أصبح جاهزًا للنوم",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أصبح جاهزًا للنوم",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/put-plate-after-eating/intro.mp3",
+      "text": "هيا نجرب أضع طبقي بعد الأكل.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/put-plate-after-eating/step-1.mp3",
+      "text": "أنتهي من وجبتي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنتهي من وجبتي",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/put-plate-after-eating/step-2.mp3",
+      "text": "أنظر إلى الطبق الفارغ",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنظر إلى الطبق الفارغ",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/put-plate-after-eating/step-3.mp3",
+      "text": "أحمل الطبق بيدين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أحمل الطبق بيدين",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/put-plate-after-eating/step-4.mp3",
+      "text": "أضعه في مكان التنظيف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضعه في مكان التنظيف",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/put-plate-after-eating/step-5.mp3",
+      "text": "أفرح لأنني ساعدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفرح لأنني ساعدت",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/help-water-plant/intro.mp3",
+      "text": "هيا نجرب أساعد في سقي النبتة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/help-water-plant/step-1.mp3",
+      "text": "أنظر إلى النبتة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أنظر إلى النبتة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/help-water-plant/step-2.mp3",
+      "text": "يمد لي المرافق إبريق الماء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "يمد لي المرافق إبريق الماء",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/help-water-plant/step-3.mp3",
+      "text": "أسقي النبتة بكمية قليلة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أسقي النبتة بكمية قليلة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/help-water-plant/step-4.mp3",
+      "text": "أعيد الإبريق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعيد الإبريق",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/help-water-plant/step-5.mp3",
+      "text": "أفرح لأنني اعتنيت بها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أفرح لأنني اعتنيت بها",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "shared-retry",
+      "path": "audio/silma/worker-2/common/retry.mp3",
+      "text": "حاول مرة أخرى، وخذ وقتك.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    },
+    {
+      "key": "shared-success",
+      "path": "audio/silma/worker-2/common/success.mp3",
+      "text": "أحسنت! لقد نجحت.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    }
+  ]
+}
