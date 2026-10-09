@@ -9,8 +9,8 @@
   "content_seed_path": "apps/4-8/cooperative-play-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
   "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "status": "live",
+  "scaffold_state": "implemented",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-emotional-regulation-friendship-and-cooperation",
@@ -23,18 +23,36 @@
   "runtime_profile": "legacy-web",
   "depth": "advanced",
   "offline_mode": "offline-first",
-  "update_policy": "service-worker-auto-activation",
+  "update_policy": "explicit-safe-reload",
   "capabilities": [
     "storage.local",
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.recorded"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر لعبة أو موقفًا دون تصوير طفل آخر أو وصفه كمشكلة ← مثّل الأدوار وقل ما تحتاجه بالكلام أو البطاقات ← جرّب حلين واختَر قاعدة يتفق عليها المشاركون ← نفّذ دورة لعب ثم راجع الاتفاق؛ اطلب استراحة أو مساعدة عند الحاجة",
   "blueprint_path": "apps/4-8/cooperative-play-lab/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#2f8f5b",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/cooperative-play-lab/icon-192.png",
+      "apps/4-8/cooperative-play-lab/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "audio": {
+    "arabic_engine": "SILMA Arabic TTS v1",
+    "package": "silma-tts",
+    "package_version": "1.0.5",
+    "reference": "publisher bundled ar.ref.24k.wav",
+    "delivery": "prebuilt local MP3",
+    "alignment": "MMS_FA acoustic alignment"
+  }
 }

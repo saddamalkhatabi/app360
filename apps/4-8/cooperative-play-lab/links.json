@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.1",
+  "app_id": "a4-cooperate",
+  "title_ar": "نلعب ونتفق: دور وقاعدة وحل",
+  "base_path": "apps/4-8/cooperative-play-lab/",
+  "app_href": "apps/4-8/cooperative-play-lab/index.html",
+  "launch_path": "apps/4-8/cooperative-play-lab/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "library",
+      "kind": "service",
+      "label_ar": "الموقف الأول",
+      "href": "apps/4-8/cooperative-play-lab/launch.html"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "engine": "silma-tts",
+  "package_version": "1.0.5",
+  "model": "silma-ai/silma-tts",
+  "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+  "network": "Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports",
+  "diacritization": "Authored tashkeel; unused CATT/ONNX backend excluded from process",
+  "reference": "publisher bundled ar.ref.24k.wav",
+  "seed": 360,
+  "steps": 16,
+  "precision": "CPU BF16 autocast, Float32 waveform",
+  "speed": 0.95,
+  "alignment": "torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy",
+  "clips": [
+    {
+      "path": "audio/ar/intro.mp3",
+      "mean_alignment_score": 0.9743,
+      "duration_ms": 4886
+    },
+    {
+      "path": "audio/ar/needA.mp3",
+      "mean_alignment_score": 0.9755,
+      "duration_ms": 4642
+    },
+    {
+      "path": "audio/ar/needB.mp3",
+      "mean_alignment_score": 0.9416,
+      "duration_ms": 3585
+    },
+    {
+      "path": "audio/ar/solutions.mp3",
+      "mean_alignment_score": 0.9927,
+      "duration_ms": 3581
+    },
+    {
+      "path": "audio/ar/turns.mp3",
+      "mean_alignment_score": 0.9564,
+      "duration_ms": 3965
+    },
+    {
+      "path": "audio/ar/together.mp3",
+      "mean_alignment_score": 0.9864,
+      "duration_ms": 4410
+    },
+    {
+      "path": "audio/ar/agree.mp3",
+      "mean_alignment_score": 0.9717,
+      "duration_ms": 3863
+    },
+    {
+      "path": "audio/ar/trial.mp3",
+      "mean_alignment_score": 0.894,
+      "duration_ms": 3617
+    },
+    {
+      "path": "audio/ar/review.mp3",
+      "mean_alignment_score": 0.8642,
+      "duration_ms": 3638
+    },
+    {
+      "path": "audio/ar/saved.mp3",
+      "mean_alignment_score": 0.9079,
+      "duration_ms": 3591
+    },
+    {
+      "path": "audio/ar/help.mp3",
+      "mean_alignment_score": 0.9923,
+      "duration_ms": 3857
+    },
+    {
+      "path": "audio/ar/pause.mp3",
+      "mean_alignment_score": 0.9556,
+      "duration_ms": 4193
+    }
+  ]
+}

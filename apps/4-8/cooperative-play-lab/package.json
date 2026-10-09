@@ -1,0 +1,15 @@
+{
+  "name": "@app360/app-cooperative-play-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "نلعب ونتفق: دور وقاعدة وحل - Family School 360",
+  "app360": {
+    "appId": "a4-cooperate",
+    "ageGroup": "4-8",
+    "runtimeProfile": "legacy-web"
+  },
+  "scripts": {
+    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
+    "test": "node --test tools/test-model.cjs tools/test-assets.cjs"
+  }
+}
