@@ -79,7 +79,12 @@ for n,item in enumerate(items):
   start=time.time();print('SILMA generating',n+1,len(items),item['path'],flush=True)
   temporary_wav=cache/(key+'.'+str(os.getpid())+'.building.wav')
   wav,sr,_=engine.infer(ref_file=ref,ref_text=ref_text,gen_text=item['text'],file_wave=str(temporary_wav),seed=360,speed=.95,nfe_step=16,force_tashkeel=False,normalize_numbers=False)
-  assert sr==24000 and np.isfinite(wav).all() and 1<len(wav)/sr<40,item['path']
+  # Very short prompts may be shorter than one second. They are valid
+  # child-facing audio; pad with silence to preserve the review format.
+  assert sr==24000 and np.isfinite(wav).all() and len(wav)/sr>0.16 and len(wav)/sr<40,item['path']
+  if len(wav)/sr<1.10:
+   wav=np.pad(wav,(0,max(0,int(1.10*sr)-len(wav))),'constant')
+   sf.write(str(temporary_wav),wav,sr)
   os.replace(temporary_wav,wavfile)
   print('Generated in',round(time.time()-start,1),'seconds',flush=True)
  target=ROOT/item['path'];target.parent.mkdir(parents=True,exist_ok=True)
