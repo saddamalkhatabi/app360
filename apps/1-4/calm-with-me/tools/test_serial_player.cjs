@@ -35,4 +35,15 @@ assert(sad.className.includes('audio-target-active'));
 w.APP360CalmNarration.replay();assert.equal(voices.length,2);
 nodes.speechToggle.checked=false;w.APP360CalmNarration.replay();assert.equal(voices.length,2);
 w.APP360CalmNarration.stop();assert(!sad.className.includes('audio-target-active'));
-console.log('9/9 simulated narration/focus/replay checks passed; not a live browser or audio test');
+// Shared ID 'water' is present in both default help and transition content.
+nodes.speechToggle.checked=true;
+const help={id:'water',label_ar:'ماء إذا أراد',speech_ar:'هل تريد ماء',category:'care'};
+const transition={id:'water',label_ar:'نشرب ماء',speech_ar:'نشرب ماء'};
+w.APP360_CALM_CONTENT={signals:[],feelings:[],helps:[help],transitions:[transition]};
+w.APP360_CALM_SILMA_INDEX['helps:water']={path:'audio/silma/helps/water.mp3',engine:'silma',verified:true,kind:'helps',event_id:'calm-with-me:helps:water'};
+w.APP360_CALM_SILMA_INDEX['transitions:water']={path:'audio/silma/transitions/water.mp3',engine:'silma',verified:true,kind:'transitions',event_id:'calm-with-me:transitions:water'};
+w.APP360CalmNarration.play(help,()=>{});
+w.APP360CalmNarration.play(transition,()=>{});
+assert.equal(clips[1].src,'audio/silma/helps/water.mp3');
+assert.equal(clips[2].src,'audio/silma/transitions/water.mp3');
+console.log('11/11 simulated narration/focus/replay/compound-ID checks passed; not a live browser or audio test');
