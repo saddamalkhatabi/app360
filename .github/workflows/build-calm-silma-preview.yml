@@ -39,8 +39,11 @@ jobs:
       - name: Install CPU SILMA dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --no-cache-dir torch==2.5.1+cpu torchaudio==2.5.1+cpu --index-url https://download.pytorch.org/whl/cpu
-          python -m pip install --no-cache-dir silma-tts==1.0.5 uroman huggingface-hub
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\n' > /tmp/silma-torch-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-torch-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+          python -c 'import torch, torchaudio, torchvision, torchcodec; print("pinned versions:", torch.__version__, torchaudio.__version__, torchvision.__version__, torchcodec.__version__)'
           ffmpeg -version | head -1
           ffprobe -version | head -1
           python -c 'from silma_tts.api import SilmaTTS; print("SILMA engine import OK")'
