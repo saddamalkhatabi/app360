@@ -1,0 +1,426 @@
+{
+  "engine": "silma-tts",
+  "package_version": "1.0.5",
+  "model": "silma-ai/silma-tts",
+  "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+  "network": "Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports",
+  "diacritization": "Authored tashkeel; unused CATT/ONNX backend excluded from process",
+  "reference": "publisher bundled ar.ref.24k.wav",
+  "seed": 360,
+  "steps": 16,
+  "precision": "CPU FP32, Float32 waveform",
+  "speed": 0.95,
+  "alignment": "torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy",
+  "clips": [
+    {
+      "path": "audio/ar/same-truck-intro.mp3",
+      "mean_alignment_score": 0.9497,
+      "duration_ms": 4302
+    },
+    {
+      "path": "audio/ar/same-truck-needA.mp3",
+      "mean_alignment_score": 0.9363,
+      "duration_ms": 2077
+    },
+    {
+      "path": "audio/ar/same-truck-needB.mp3",
+      "mean_alignment_score": 0.7077,
+      "duration_ms": 1677
+    },
+    {
+      "path": "audio/ar/same-truck-turns.mp3",
+      "mean_alignment_score": 0.8938,
+      "duration_ms": 2384
+    },
+    {
+      "path": "audio/ar/same-truck-together.mp3",
+      "mean_alignment_score": 0.958,
+      "duration_ms": 3812
+    },
+    {
+      "path": "audio/ar/red-pencil-intro.mp3",
+      "mean_alignment_score": 0.9718,
+      "duration_ms": 4559
+    },
+    {
+      "path": "audio/ar/red-pencil-needA.mp3",
+      "mean_alignment_score": 0.9509,
+      "duration_ms": 2324
+    },
+    {
+      "path": "audio/ar/red-pencil-needB.mp3",
+      "mean_alignment_score": 0.8109,
+      "duration_ms": 1719
+    },
+    {
+      "path": "audio/ar/red-pencil-turns.mp3",
+      "mean_alignment_score": 0.9515,
+      "duration_ms": 2771
+    },
+    {
+      "path": "audio/ar/red-pencil-together.mp3",
+      "mean_alignment_score": 0.9563,
+      "duration_ms": 4292
+    },
+    {
+      "path": "audio/ar/ball-pass-intro.mp3",
+      "mean_alignment_score": 0.9626,
+      "duration_ms": 4228
+    },
+    {
+      "path": "audio/ar/ball-pass-needA.mp3",
+      "mean_alignment_score": 0.8834,
+      "duration_ms": 1771
+    },
+    {
+      "path": "audio/ar/ball-pass-needB.mp3",
+      "mean_alignment_score": 0.9471,
+      "duration_ms": 2028
+    },
+    {
+      "path": "audio/ar/ball-pass-turns.mp3",
+      "mean_alignment_score": 0.9818,
+      "duration_ms": 3187
+    },
+    {
+      "path": "audio/ar/ball-pass-together.mp3",
+      "mean_alignment_score": 0.9207,
+      "duration_ms": 3654
+    },
+    {
+      "path": "audio/ar/book-choice-intro.mp3",
+      "mean_alignment_score": 0.9347,
+      "duration_ms": 3974
+    },
+    {
+      "path": "audio/ar/book-choice-needA.mp3",
+      "mean_alignment_score": 0.9327,
+      "duration_ms": 1833
+    },
+    {
+      "path": "audio/ar/book-choice-needB.mp3",
+      "mean_alignment_score": 0.951,
+      "duration_ms": 1711
+    },
+    {
+      "path": "audio/ar/book-choice-turns.mp3",
+      "mean_alignment_score": 0.9713,
+      "duration_ms": 3695
+    },
+    {
+      "path": "audio/ar/book-choice-together.mp3",
+      "mean_alignment_score": 0.9812,
+      "duration_ms": 4293
+    },
+    {
+      "path": "audio/ar/tidy-toys-intro.mp3",
+      "mean_alignment_score": 0.9518,
+      "duration_ms": 4727
+    },
+    {
+      "path": "audio/ar/tidy-toys-needA.mp3",
+      "mean_alignment_score": 0.9842,
+      "duration_ms": 2130
+    },
+    {
+      "path": "audio/ar/tidy-toys-needB.mp3",
+      "mean_alignment_score": 0.8549,
+      "duration_ms": 1622
+    },
+    {
+      "path": "audio/ar/tidy-toys-turns.mp3",
+      "mean_alignment_score": 0.9407,
+      "duration_ms": 2422
+    },
+    {
+      "path": "audio/ar/tidy-toys-together.mp3",
+      "mean_alignment_score": 0.9865,
+      "duration_ms": 3520
+    },
+    {
+      "path": "audio/ar/block-bridge-intro.mp3",
+      "mean_alignment_score": 0.9376,
+      "duration_ms": 4112
+    },
+    {
+      "path": "audio/ar/block-bridge-needA.mp3",
+      "mean_alignment_score": 0.8601,
+      "duration_ms": 1691
+    },
+    {
+      "path": "audio/ar/block-bridge-needB.mp3",
+      "mean_alignment_score": 0.8349,
+      "duration_ms": 1697
+    },
+    {
+      "path": "audio/ar/block-bridge-turns.mp3",
+      "mean_alignment_score": 0.9609,
+      "duration_ms": 3698
+    },
+    {
+      "path": "audio/ar/block-bridge-together.mp3",
+      "mean_alignment_score": 0.9539,
+      "duration_ms": 3923
+    },
+    {
+      "path": "audio/ar/shop-roles-intro.mp3",
+      "mean_alignment_score": 0.8925,
+      "duration_ms": 4047
+    },
+    {
+      "path": "audio/ar/shop-roles-needA.mp3",
+      "mean_alignment_score": 0.9515,
+      "duration_ms": 1778
+    },
+    {
+      "path": "audio/ar/shop-roles-needB.mp3",
+      "mean_alignment_score": 0.9568,
+      "duration_ms": 2238
+    },
+    {
+      "path": "audio/ar/shop-roles-turns.mp3",
+      "mean_alignment_score": 0.9012,
+      "duration_ms": 3144
+    },
+    {
+      "path": "audio/ar/shop-roles-together.mp3",
+      "mean_alignment_score": 0.9814,
+      "duration_ms": 3514
+    },
+    {
+      "path": "audio/ar/picture-space-intro.mp3",
+      "mean_alignment_score": 0.9588,
+      "duration_ms": 4514
+    },
+    {
+      "path": "audio/ar/picture-space-needA.mp3",
+      "mean_alignment_score": 0.6884,
+      "duration_ms": 1791
+    },
+    {
+      "path": "audio/ar/picture-space-needB.mp3",
+      "mean_alignment_score": 0.8118,
+      "duration_ms": 1686
+    },
+    {
+      "path": "audio/ar/picture-space-turns.mp3",
+      "mean_alignment_score": 0.9411,
+      "duration_ms": 2820
+    },
+    {
+      "path": "audio/ar/picture-space-together.mp3",
+      "mean_alignment_score": 0.9586,
+      "duration_ms": 4354
+    },
+    {
+      "path": "audio/ar/quiet-loud-intro.mp3",
+      "mean_alignment_score": 0.9476,
+      "duration_ms": 4514
+    },
+    {
+      "path": "audio/ar/quiet-loud-needA.mp3",
+      "mean_alignment_score": 0.9254,
+      "duration_ms": 1962
+    },
+    {
+      "path": "audio/ar/quiet-loud-needB.mp3",
+      "mean_alignment_score": 0.8705,
+      "duration_ms": 1698
+    },
+    {
+      "path": "audio/ar/quiet-loud-turns.mp3",
+      "mean_alignment_score": 0.9499,
+      "duration_ms": 3692
+    },
+    {
+      "path": "audio/ar/quiet-loud-together.mp3",
+      "mean_alignment_score": 0.9653,
+      "duration_ms": 4159
+    },
+    {
+      "path": "audio/ar/puppet-story-intro.mp3",
+      "mean_alignment_score": 0.9556,
+      "duration_ms": 4113
+    },
+    {
+      "path": "audio/ar/puppet-story-needA.mp3",
+      "mean_alignment_score": 0.9665,
+      "duration_ms": 2462
+    },
+    {
+      "path": "audio/ar/puppet-story-needB.mp3",
+      "mean_alignment_score": 0.9506,
+      "duration_ms": 1826
+    },
+    {
+      "path": "audio/ar/puppet-story-turns.mp3",
+      "mean_alignment_score": 0.8794,
+      "duration_ms": 3181
+    },
+    {
+      "path": "audio/ar/puppet-story-together.mp3",
+      "mean_alignment_score": 0.9661,
+      "duration_ms": 3643
+    },
+    {
+      "path": "audio/ar/group-game-intro.mp3",
+      "mean_alignment_score": 0.9284,
+      "duration_ms": 4438
+    },
+    {
+      "path": "audio/ar/group-game-needA.mp3",
+      "mean_alignment_score": 0.9182,
+      "duration_ms": 1703
+    },
+    {
+      "path": "audio/ar/group-game-needB.mp3",
+      "mean_alignment_score": 0.9616,
+      "duration_ms": 1673
+    },
+    {
+      "path": "audio/ar/group-game-turns.mp3",
+      "mean_alignment_score": 0.9614,
+      "duration_ms": 4070
+    },
+    {
+      "path": "audio/ar/group-game-together.mp3",
+      "mean_alignment_score": 0.965,
+      "duration_ms": 3882
+    },
+    {
+      "path": "audio/ar/team-map-intro.mp3",
+      "mean_alignment_score": 0.9485,
+      "duration_ms": 4190
+    },
+    {
+      "path": "audio/ar/team-map-needA.mp3",
+      "mean_alignment_score": 0.9562,
+      "duration_ms": 1770
+    },
+    {
+      "path": "audio/ar/team-map-needB.mp3",
+      "mean_alignment_score": 0.882,
+      "duration_ms": 1750
+    },
+    {
+      "path": "audio/ar/team-map-turns.mp3",
+      "mean_alignment_score": 0.9573,
+      "duration_ms": 3698
+    },
+    {
+      "path": "audio/ar/team-map-together.mp3",
+      "mean_alignment_score": 0.9493,
+      "duration_ms": 3137
+    },
+    {
+      "path": "audio/ar/fair-materials-intro.mp3",
+      "mean_alignment_score": 0.8978,
+      "duration_ms": 4366
+    },
+    {
+      "path": "audio/ar/fair-materials-needA.mp3",
+      "mean_alignment_score": 0.9135,
+      "duration_ms": 1793
+    },
+    {
+      "path": "audio/ar/fair-materials-needB.mp3",
+      "mean_alignment_score": 0.8965,
+      "duration_ms": 1792
+    },
+    {
+      "path": "audio/ar/fair-materials-turns.mp3",
+      "mean_alignment_score": 0.9485,
+      "duration_ms": 4070
+    },
+    {
+      "path": "audio/ar/fair-materials-together.mp3",
+      "mean_alignment_score": 0.9731,
+      "duration_ms": 3891
+    },
+    {
+      "path": "audio/ar/change-rule-intro.mp3",
+      "mean_alignment_score": 0.9658,
+      "duration_ms": 4638
+    },
+    {
+      "path": "audio/ar/change-rule-needA.mp3",
+      "mean_alignment_score": 0.957,
+      "duration_ms": 2123
+    },
+    {
+      "path": "audio/ar/change-rule-needB.mp3",
+      "mean_alignment_score": 0.9863,
+      "duration_ms": 2114
+    },
+    {
+      "path": "audio/ar/change-rule-turns.mp3",
+      "mean_alignment_score": 0.9294,
+      "duration_ms": 3508
+    },
+    {
+      "path": "audio/ar/change-rule-together.mp3",
+      "mean_alignment_score": 0.9712,
+      "duration_ms": 3271
+    },
+    {
+      "path": "audio/ar/team-cleanup-intro.mp3",
+      "mean_alignment_score": 0.8674,
+      "duration_ms": 4194
+    },
+    {
+      "path": "audio/ar/team-cleanup-needA.mp3",
+      "mean_alignment_score": 0.9609,
+      "duration_ms": 1954
+    },
+    {
+      "path": "audio/ar/team-cleanup-needB.mp3",
+      "mean_alignment_score": 0.9449,
+      "duration_ms": 1934
+    },
+    {
+      "path": "audio/ar/team-cleanup-turns.mp3",
+      "mean_alignment_score": 0.9524,
+      "duration_ms": 4109
+    },
+    {
+      "path": "audio/ar/team-cleanup-together.mp3",
+      "mean_alignment_score": 0.9178,
+      "duration_ms": 4346
+    },
+    {
+      "path": "audio/ar/hint-listen.mp3",
+      "mean_alignment_score": 0.9555,
+      "duration_ms": 5352
+    },
+    {
+      "path": "audio/ar/hint-plan.mp3",
+      "mean_alignment_score": 0.9498,
+      "duration_ms": 4382
+    },
+    {
+      "path": "audio/ar/hint-both.mp3",
+      "mean_alignment_score": 0.9256,
+      "duration_ms": 4442
+    },
+    {
+      "path": "audio/ar/hint-rule.mp3",
+      "mean_alignment_score": 0.9578,
+      "duration_ms": 3811
+    },
+    {
+      "path": "audio/ar/hint-consent.mp3",
+      "mean_alignment_score": 0.9622,
+      "duration_ms": 4994
+    },
+    {
+      "path": "audio/ar/hint-trial.mp3",
+      "mean_alignment_score": 0.935,
+      "duration_ms": 5986
+    },
+    {
+      "path": "audio/ar/hint-reflection.mp3",
+      "mean_alignment_score": 0.9529,
+      "duration_ms": 4035
+    }
+  ]
+}
