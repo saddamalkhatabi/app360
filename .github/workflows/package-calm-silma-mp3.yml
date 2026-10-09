@@ -1,4 +1,4 @@
-name: Download SILMA MP3 Pack from Calm Preview
+name: Download Current SILMA MP3 Pack from Calm Preview
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ jobs:
         with:
           ref: feature/age1-4-silma-calm-serial-20261009
           fetch-depth: 1
-      - name: Verify at least 27 actual recorded files exist
+      - name: Verify at least 36 actual recorded files exist
         run: |
           python - <<'PY'
           import json
@@ -24,12 +24,12 @@ jobs:
           items=json.loads((root/"audio/silma/manifest.json").read_text())["items"]
           present=[x for x in items if (root/x["path"]).is_file() and (root/x["path"]).stat().st_size>1500]
           print("Existing real SILMA audio files:",len(present))
-          assert len(present)>=27, "Cannot publish a pack with fewer than 27 real MP3 files"
+          assert len(present)>=36, "Cannot publish a pack with fewer than 36 real MP3 files"
           PY
       - name: Make files available as one downloadable ZIP artifact
         uses: actions/upload-artifact@v4
         with:
-          name: calm-with-me-silma-real-mp3-pack
+          name: calm-with-me-silma-real-mp3-current-36-plus
           path: apps/1-4/calm-with-me/audio/silma/
           if-no-files-found: error
           retention-days: 30
