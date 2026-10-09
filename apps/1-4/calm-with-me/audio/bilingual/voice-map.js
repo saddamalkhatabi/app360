@@ -1060,7 +1060,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "The shadow looks strange, but it's made by light and objects. I'm here, and our home is safe."
     },
     "أعرف أن الفكرة مخيفة الوحش في الخيال ونحن الآن في غرفتنا الآمنة": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/af2e96bf1c8ff8dd.mp3",
+        "sha256": "1c067f2cda1bbcd27b98d38d023a1c41fc4b536ffff45ff2e4f7516304eae9f1",
+        "duration_s": 5.9
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/af2e96bf1c8ff8dd.mp3",
         "sha256": "80420711fc3dbc942d7060efc86134965067a39029aa427ef7e6d98aa6c51f25",
@@ -1100,7 +1104,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'll stay with you. I'll tell you what will happen, one step at a time."
     },
     "سنغسل جزءا صغيرا ثم نتوقف لنرى كيف أنت": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/1592200c5b92c94b.mp3",
+        "sha256": "f8f3c7ea60dcf1cd68a2a9019cc20a5b4fcc506634e82782434e2e3fabf33039",
+        "duration_s": 3.7
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/1592200c5b92c94b.mp3",
         "sha256": "45caaa8afedc789cbae07a172ed6bc3d4ad8a60e5ccb23be385c7f8ed3b2f337",
@@ -1120,7 +1128,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We won't force you. We can try one small step when you're ready."
     },
     "ذلك كان على الشاشة وانتهى أنت هنا معي الآن": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/200612464886e514.mp3",
+        "sha256": "2d11635e2ba8cde1c9dc25e22b62b65f6549909902777e45898127e048bad984",
+        "duration_s": 3.89
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/200612464886e514.mp3",
         "sha256": "e5c246771018bbd0337cdf514f71e8b1faa5710fca64c3d72abd9d716d20b7c0",
@@ -1220,7 +1232,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "Your turn is after this step. You can hold the card while you wait."
     },
     "تريد أن تجرب بنفسك جرب وأنا قريب": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/6f99462e4425972c.mp3",
+        "sha256": "37ca8a7aaf7f468cd7ab71630052ba16c86f1daa63291ce8e2f5a9c975898e6f",
+        "duration_s": 3.07
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/6f99462e4425972c.mp3",
         "sha256": "9613cc48a62f3b5d3743636b07e1ab38f273845ef541aa4911fea717bd4e6bf4",
@@ -1260,7 +1276,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "That toy matters to you, and you're sad it broke."
     },
     "كنت تريد أن تلعب معه ولم يحدث الآن هذا محزن": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/3919d1c9f215f550.mp3",
+        "sha256": "47438cf8a0c63229fa61e012db7b6093d3d631720034e0d3a054c18e48da95ad",
+        "duration_s": 3.98
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/3919d1c9f215f550.mp3",
         "sha256": "174ab91ad1fa719dd7d8bf913cc844e3ddc54432e3a4521cde86a737ccccd702",
@@ -1280,7 +1300,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "This is our new home. Some of our old things are here. We'll get to know it step by step."
     },
     "ما زال لك وقتك ومكانك معي تريدني الآن أيضا": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/3db572690fd3272d.mp3",
+        "sha256": "edaf3d360d95227b761fe611cef87ac3499d88c49b4354bad684197872b8e018",
+        "duration_s": 4.03
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/3db572690fd3272d.mp3",
         "sha256": "89417db124f4854e4c0cbd76bf6de0c82ee2948b6b7aa616d407fdef42ffbcf8",
@@ -1380,7 +1404,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "This step changed today, but afterward we'll return to our familiar routine."
     },
     "حان روتين النوم حمام قصة ثم سرير": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/766c69690b5474a1.mp3",
+        "sha256": "cea699ce3a5747b0777c019a190f0e425c00132ee11c7a4cf3fcdfd90d3434d3",
+        "duration_s": 3.22
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/766c69690b5474a1.mp3",
         "sha256": "5d5677e05c0c9a442522c0c1940a3fcafa7b1a8e2f15a6e51ec34bd9beaf2b1a",
@@ -1420,7 +1448,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You don't have to talk right now. I'm here whenever you want."
     },
     "سأبقى قريبا اذهب خطوتين وأنا أراك ثم عد": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/4189968474c3205e.mp3",
+        "sha256": "067ce0fa7a6801834ee85f72f5ea351272024684ff0ff05d3f41085195dfa612",
+        "duration_s": 3.82
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/4189968474c3205e.mp3",
         "sha256": "d33061ca1365bc835fd830e8970f3937467508c6a5518057f9faa4b44e69e9fb",
@@ -1440,7 +1472,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "An accident happened. We'll clean up and change clothes. It's okay to ask for help."
     },
     "أعرف أنك لا تريد الذهاب الآن أخبرني ما أصعب جزء وسنأخذ الصباح خطوة خطوة": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/694d63db8d766178.mp3",
+        "sha256": "8e2125e3254e8b79e30bdcc6d04b0499acb343ae26f4c00ef379ab56052da010",
+        "duration_s": 6.7
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/694d63db8d766178.mp3",
         "sha256": "61a6c5acad6ef0175751b2f4fd1567cecc4fef1c75a4e722e119dcc8cdb78081",
@@ -1540,7 +1576,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You missed me, and I'll come back."
     },
     "يمكنك الاحتفاظ بلعبتك حتى أعود": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/5b9e052c40ed9abe.mp3",
+        "sha256": "175ac7800e601a0fdff81de65a7d2680a370a1d6e22e91b6679982338cbb61e7",
+        "duration_s": 2.74
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/5b9e052c40ed9abe.mp3",
         "sha256": "57db37eddeca1682e80596993702af6fb9d6e2869921ed050d3154b542e599d9",
@@ -1580,7 +1620,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "It's okay to feel angry without hurting anyone."
     },
     "عندما تكون جاهزا سنختار ما نفعله": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/50c4c86e0af1c816.mp3",
+        "sha256": "22e198d0699eb45dc09cc81b0327c12b54aed597f4e9eaf8a60bb96cb834f90c",
+        "duration_s": 2.95
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/50c4c86e0af1c816.mp3",
         "sha256": "0ae8067734c49eedb8ee2d5a1e325c275389ae3a9aeba2beea85e29cdb13c71e",
@@ -1600,7 +1644,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "It's normal to feel sad when we lose something we love."
     },
     "أنا هنا معك": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/06b970fe3e880e6d.mp3",
+        "sha256": "78ed57ae9409d7de23861dc0c2b043ff9d4ae474bce6322d623770a7f7728d08",
+        "duration_s": 1.15
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/06b970fe3e880e6d.mp3",
         "sha256": "481a3a621ddb2d31451f1572f0322e5ac97b48186537ec14a7b3b995b8e156b6",
@@ -1700,7 +1748,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We'll say hello when you're ready."
     },
     "يمكنك البقاء بقربي": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/a36931c19243ee69.mp3",
+        "sha256": "eae0ef96f15d015a6de94d81b2a16d30e5ebad628309c2cf13b0f92e77faedc0",
+        "duration_s": 1.94
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/a36931c19243ee69.mp3",
         "sha256": "aecafa725468a0d42a99fe15e5f52719034b5bdd373f730f619d767a37e941da",
@@ -1740,7 +1792,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'm close by."
     },
     "لا تحتاج إلى الكلام الآن": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/7ccf5bc7206ff7c5.mp3",
+        "sha256": "ac4dce310b786718cd6bc968993ca5d4701115adebc0ea10b20c68ba15347c6f",
+        "duration_s": 1.94
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/7ccf5bc7206ff7c5.mp3",
         "sha256": "01ff12cd6d30d778aeaaa061cc955f365603d9a7ae4e1efdc702c24e0882934c",
@@ -1760,7 +1816,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We're finishing now. After that, we'll go."
     },
     "اختر تحمل الكرة أم الكتاب": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/97c7690241dddeb4.mp3",
+        "sha256": "0ea074d5639d21118dc232fb8b505c373773e7f294ad3db9a416564fd6ba41b1",
+        "duration_s": 2.35
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/97c7690241dddeb4.mp3",
         "sha256": "7d385c8fb37fc2ae0bd3cba6525b3a090411f2f1c2e5e4e85ca1828d553b58f9",
@@ -1860,7 +1920,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "Choose between these two options."
     },
     "هذا الحد ثابت ويمكنك اختيار كيف ننفذه": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/206f3b7e2e1f70f8.mp3",
+        "sha256": "e68cff6e97a7d1e682f8b1f51b9169e2696c5f45d9455cb5f29c028bbac76d00",
+        "duration_s": 3.46
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/206f3b7e2e1f70f8.mp3",
         "sha256": "dd35f445e3590c8c7861e903fc23e95e51c4bf6facbb6b335be74b159d0c1de0",
@@ -1900,7 +1964,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "If you want a hug, I'm here."
     },
     "سأعطيك مساحة وأبقى قريبا": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/25a3d615466b5316.mp3",
+        "sha256": "3777f9387d6fed5ff370e70a34c555e7d30cfe89e6c7ded1513961f329b02f95",
+        "duration_s": 2.33
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/25a3d615466b5316.mp3",
         "sha256": "8be1b5b26115440e43eec929e413e45e2e0376d185dd0c5bd3e5fae6460fe5ca",
@@ -1920,7 +1988,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We'll lower the noise and the light a little."
     },
     "يمكنك أن تمسك لعبتك المألوفة": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/003b9d82910d7513.mp3",
+        "sha256": "25d9a0e8740a5d07c6e8bdd28fd4f94efc0deab130b092ea556af7982c94c43a",
+        "duration_s": 2.57
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/003b9d82910d7513.mp3",
         "sha256": "b576ab97b77647d248827f76a4fce9b812cf5ff8bf9e004e95faad214c59e85d",
@@ -2020,7 +2092,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "This might be fear or discomfort. It's okay to say, I don't know."
     },
     "يمكننا أن نرسم ما حدث بدل أن نشرحه كله": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/a11261954e3454a1.mp3",
+        "sha256": "e5a0954c11be4feb354d53346deb777acd8ab59720e25bd1e468dfff05eaf6b7",
+        "duration_s": 3.55
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/a11261954e3454a1.mp3",
         "sha256": "d8f2ed90ff23059f45c25c180d1ffcbfee19c120ca5c90bb9ce2de6897f310d6",
@@ -2060,7 +2136,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We can push against the wall safely, then stop."
     },
     "يمكننا دفع الوسادة بأمان": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/7ce7c208301eca7d.mp3",
+        "sha256": "e1897fa87031df26df13d2cb5d46932dbb70be9385b08d618780a891f52c8a32",
+        "duration_s": 2.26
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/7ce7c208301eca7d.mp3",
         "sha256": "d1c7236179164a4082792202e0a229c8ae140836ac960b175d31c16bffa99d01",
@@ -2080,7 +2160,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "Let's walk with heavy steps, like a bear."
     },
     "يمكنك عصر عجينة اللعب بيديك": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/29f3b124562859f2.mp3",
+        "sha256": "56ec0cb8b9367da1e391e80860c1d56319f033020de34080a0fa39cdeaaf0e13",
+        "duration_s": 2.52
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/29f3b124562859f2.mp3",
         "sha256": "828821ef3a3f0718e18b3fb22ed53b3c9fbcdffc6c6874aa9f932a7d432116d3",
