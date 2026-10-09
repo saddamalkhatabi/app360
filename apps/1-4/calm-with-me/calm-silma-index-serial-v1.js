@@ -18,6 +18,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "signals",
     "event_id": "calm-with-me:signals:all-done"
   },
+  "signals:what-next": {
+    "path": "audio/silma/signals/what-next.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "signals",
+    "event_id": "calm-with-me:signals:what-next"
+  },
   "signals:want-mom-dad": {
     "path": "audio/silma/signals/want-mom-dad.mp3",
     "engine": "silma",
@@ -63,6 +72,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "signals",
     "event_id": "calm-with-me:signals:explain"
   },
+  "signals:talk-later": {
+    "path": "audio/silma/signals/talk-later.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "signals",
+    "event_id": "calm-with-me:signals:talk-later"
+  },
   "feelings:afraid": {
     "path": "audio/silma/feelings/afraid.mp3",
     "engine": "silma",
@@ -71,6 +89,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "feelings",
     "event_id": "calm-with-me:feelings:afraid"
+  },
+  "feelings:tired": {
+    "path": "audio/silma/feelings/tired.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "feelings",
+    "event_id": "calm-with-me:feelings:tired"
   },
   "feelings:worried": {
     "path": "audio/silma/feelings/worried.mp3",
@@ -117,6 +144,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "feelings",
     "event_id": "calm-with-me:feelings:lonely"
   },
+  "feelings:unsure": {
+    "path": "audio/silma/feelings/unsure.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "feelings",
+    "event_id": "calm-with-me:feelings:unsure"
+  },
   "helps:quiet-place": {
     "path": "audio/silma/helps/quiet-place.mp3",
     "engine": "silma",
@@ -125,6 +161,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "helps",
     "event_id": "calm-with-me:helps:quiet-place"
+  },
+  "helps:quiet-book": {
+    "path": "audio/silma/helps/quiet-book.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:quiet-book"
   },
   "helps:water": {
     "path": "audio/silma/helps/water.mp3",
@@ -171,6 +216,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "helps",
     "event_id": "calm-with-me:helps:two-choices"
   },
+  "helps:model-words": {
+    "path": "audio/silma/helps/model-words.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:model-words"
+  },
   "helps:wall-push": {
     "path": "audio/silma/helps/wall-push.mp3",
     "engine": "silma",
@@ -179,6 +233,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "helps",
     "event_id": "calm-with-me:helps:wall-push"
+  },
+  "helps:playdough": {
+    "path": "audio/silma/helps/playdough.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "helps",
+    "event_id": "calm-with-me:helps:playdough"
   },
   "helps:safe-jumps": {
     "path": "audio/silma/helps/safe-jumps.mp3",
@@ -225,6 +288,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "kind": "transitions",
     "event_id": "calm-with-me:transitions:ball"
   },
+  "transitions:shoe": {
+    "path": "audio/silma/transitions/shoe.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "transitions",
+    "event_id": "calm-with-me:transitions:shoe"
+  },
   "transitions:app-first-words": {
     "path": "audio/silma/transitions/app-first-words.mp3",
     "engine": "silma",
@@ -233,6 +305,15 @@ window.APP360_CALM_SILMA_INDEX = {
     "human_reviewed": false,
     "kind": "transitions",
     "event_id": "calm-with-me:transitions:app-first-words"
+  },
+  "transitions:app-drawing-writing": {
+    "path": "audio/silma/transitions/app-drawing-writing.mp3",
+    "engine": "silma",
+    "verified": true,
+    "preview_only": true,
+    "human_reviewed": false,
+    "kind": "transitions",
+    "event_id": "calm-with-me:transitions:app-drawing-writing"
   },
   "transitions:app-plan-runner": {
     "path": "audio/silma/transitions/app-plan-runner.mp3",
