@@ -14,6 +14,7 @@ function norm(s){
 function setText(s){
  if(!captionNode)return;
  captionNode.textContent=s||'';
+ captionNode.dir=lang==='en'?'ltr':'rtl';
  captionNode.hidden=!s;
 }
 function stop(){
