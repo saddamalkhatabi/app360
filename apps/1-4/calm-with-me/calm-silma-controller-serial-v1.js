@@ -32,7 +32,7 @@ function clearFocus(){if(timer){clearTimeout(timer);timer=null}remove(target);ta
 function stop(){
  generation++;clearFocus();
  if(current){try{current.onended=null;current.onerror=null;current.pause()}catch(e){}current=null}
- try{if(w.speechSynthesis&&w.speechSynthesis.cancel)w.speechSynthesis.cancel()}catch(e){}
+ if(w.APP360CalmVoice&&w.APP360CalmVoice.stop)w.APP360CalmVoice.stop();
 }
 function play(item,report){
  stop();if(!item)return false;
@@ -41,34 +41,26 @@ function play(item,report){
  target=findTarget(item.id,kind);add(target);
  if(target)timer=setTimeout(function(){if(token===generation)clearFocus()},20000);
  function finish(){if(token===generation){current=null;clearFocus()}}
- function browserVoice(){
-  if(token!==generation)return false;
-  if(!phrase){finish();status(report,'لا توجد عبارة صوتية لهذا الخيار.');return false}
-  try{
-   if(w.speechSynthesis&&w.SpeechSynthesisUtterance){
-    var u=new w.SpeechSynthesisUtterance(phrase);u.lang='ar-SA';u.rate=.86;
-    u.onend=finish;u.onerror=finish;w.speechSynthesis.speak(u);
-    status(report,'الصوت من المتصفح؛ تسجيل SILMA غير متوفر لهذا الخيار.');
-    return true;
-   }
-  }catch(e){}
-  finish();status(report,'الصوت غير متاح؛ اتبع النص والصورة.');return false;
- }
+ var locale=w.APP360CalmVoice?w.APP360CalmVoice.getLanguage():'ar';
  var index=w.APP360_CALM_SILMA_INDEX||{},entry=(kind&&index[kind+':'+item.id])||index[item.id],path='';
+ var bilingual=w.APP360_CALM_BILINGUAL_AUDIO||{},choice=kind&&bilingual.choices&&bilingual.choices[kind+':'+item.id];
  if(item.audio)path=item.audio;
- else if(entry&&entry.verified===true&&entry.path&&entry.engine==='silma'&&entry.event_id==='calm-with-me:'+entry.kind+':'+item.id)path=entry.path;
- if(!path)return browserVoice();
+ else if(locale==='en'){
+   if(choice&&choice.en&&choice.en.path)path=choice.en.path;
+ }else if(entry&&entry.verified===true&&entry.path&&entry.engine==='silma'&&entry.event_id==='calm-with-me:'+entry.kind+':'+item.id)path=entry.path;
+ if(!path){finish();status(report,locale==='en'?'English MP3 missing; recording is being prepared.':'التسجيل العربي غير متاح لهذا الخيار.');return false}
  function fallback(){
   if(token!==generation||failedOnce)return;
   failedOnce=true;
   if(current){try{current.pause()}catch(e){}current=null}
-  browserVoice();
+  finish();status(report,locale==='en'?'Could not play saved English MP3.':'تعذر تشغيل التسجيل المحفوظ.');
  }
  try{
   if(!w.Audio)return fallback(),false;
   var audio=new w.Audio(path);current=audio;
   audio.onended=finish;audio.onerror=fallback;
-  status(report,item.audio?'تشغيل التسجيل العائلي المحلي.':entry&&entry.preview_only?'تشغيل صوت SILMA التجريبي؛ لم يُعتمد بعد.':'تشغيل تسجيل SILMA المعتمد.');
+  if(w.APP360CalmVoice&&w.APP360CalmVoice.showChoiceCaption&&!item.audio)w.APP360CalmVoice.showChoiceCaption(kind,item.id);
+  status(report,item.audio?'تشغيل تسجيل الأسرة المحلي.':locale==='en'?'تشغيل ملف MP3 الإنجليزي المحفوظ.':'تشغيل ملف SILMA العربي المحفوظ.');
   var p=audio.play();
   if(p&&typeof p.then==='function')p.then(null,fallback);
   return true;
@@ -81,7 +73,7 @@ function addReplay(){
  b.setAttribute('aria-label','إعادة سماع آخر اختيار');b.onclick=replayLast;
  host.parentNode.insertBefore(b,host.nextSibling);
 }
-w.APP360CalmNarration={play:play,stop:stop,replay:replayLast,source:'optional-verified-SILMA'};
+w.APP360CalmNarration={play:play,stop:stop,replay:replayLast,source:'prerecorded-MP3-only-bilingual'};
 if(d.readyState==='loading'&&d.addEventListener)d.addEventListener('DOMContentLoaded',addReplay,false);else addReplay();
 if(d.addEventListener){d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);d.addEventListener('change',function(e){var t=e&&e.target;if(t&&t.id==='speechToggle'&&!t.checked)stop()},true);d.addEventListener('click',function(e){var t=e&&e.target;while(t&&t!==d){if(t.id&&(/^nav-/.test(t.id)||t.id==='schoolOpenNav')){stop();return}t=t.parentNode}},true)}
 })(window,document);
