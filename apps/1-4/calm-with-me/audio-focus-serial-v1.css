@@ -1,0 +1,14 @@
+/* Focus the selected control, never a word span. Small-screen and legacy friendly. */
+.audio-target-active {
+ outline: 4px solid #ffae00 !important;
+ outline-offset: 3px;
+ box-shadow: 0 0 0 7px rgba(255,174,0,.22) !important;
+ position: relative;
+ z-index: 1;
+}
+.calm-replay-btn { display:block; margin: 12px 0 18px; min-height:48px; padding:10px 16px; font-size: 1rem; }
+.calm-replay-btn:disabled { opacity:.55; }
+@media (prefers-reduced-motion: no-preference) {
+ .audio-target-active { animation: calm-focus-pulse 1.3s ease-in-out infinite alternate; }
+ @keyframes calm-focus-pulse { from {box-shadow:0 0 0 4px rgba(255,174,0,.16)} to {box-shadow:0 0 0 9px rgba(255,174,0,.35)} }
+}
