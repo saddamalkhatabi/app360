@@ -17,7 +17,7 @@ const sources={
  'routine.storyboard-v6':'apps/1-4/my-little-routine/storyboard-data-v6.js',
  'routine.storyboard-v7':'apps/1-4/my-little-routine/storyboard-data-v7-extra.js'
 };
-function gitSha(buffer){return crypto.createHash('sha1').update(Buffer.from('blob '+buffer.length+'\\0','utf8')).update(buffer).digest('hex');}
+function gitSha(buffer){return crypto.createHash('sha1').update(Buffer.from('blob '+buffer.length+'\0','utf8')).update(buffer).digest('hex');}
 const found={}; const keys=new Set(); const missing=[]; let units=0;
 for(let n=1;n<=4;n++){
  const fname=path.join(__dirname,'worker-'+n+'-source-inventory.json');
@@ -62,6 +62,6 @@ assert.strictEqual(units,2569);
 console.log('PASS: unique items='+keys.size+'; basic narration units='+units+'; step counts=2100');
 if(strict){
  console.log('Missing/invalid MP3s: '+missing.length);
- if(missing.length){console.error(missing.slice(0,12).join('\\n'));process.exitCode=1;}
+ if(missing.length){console.error(missing.slice(0,12).join('\n'));process.exitCode=1;}
  else console.log('PASS: every declared audio file exists (content and speech quality still require review).');
 }
