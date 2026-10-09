@@ -57,5 +57,5 @@ function play(item,report){
  }catch(e){fallback();return false}
 }
 w.APP360CalmNarration={play:play,stop:stop,source:'optional-verified-SILMA'};
-if(d.addEventListener)d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);
+if(d.addEventListener){d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);d.addEventListener('change',function(e){var t=e&&e.target;if(t&&t.id==='speechToggle'&&!t.checked)stop()},true);d.addEventListener('click',function(e){var t=e&&e.target;while(t&&t!==d){if(t.id&&(/^nav-/.test(t.id)||t.id==='schoolOpenNav')){stop();return}t=t.parentNode}},true)}
 })(window,document);
