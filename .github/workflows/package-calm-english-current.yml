@@ -1,0 +1,37 @@
+name: Download Calm English 183 and Arabic 74 MP3
+on:
+  push:
+    branches: [feature/age1-4-silma-calm-serial-20261009]
+    paths:
+      - .github/workflows/package-calm-english-current.yml
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+      - name: Require complete English and original SILMA Arabic assets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("apps/1-4/calm-with-me")
+          data=json.loads((root/"audio/bilingual/manifest.json").read_text())
+          assert len(data["choices"])==74 and len(data["phrases"])==109
+          en=[x["en_path"] for x in data["choices"]]+[x["english_path"] for x in data["phrases"]]
+          ar=[x["ar_path"] for x in data["choices"]]
+          assert all((root/p).is_file() and (root/p).stat().st_size>800 for p in en+ar)
+          print("Real English MP3:",len(en),"Real existing Arabic MP3:",len(ar))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calm-183-English-plus-74-Arabic-recorded-MP3-preview
+          path: |
+            apps/1-4/calm-with-me/audio/bilingual/en/**/*.mp3
+            apps/1-4/calm-with-me/audio/silma/**/*.mp3
+            apps/1-4/calm-with-me/audio/bilingual/manifest.json
+          if-no-files-found: error
+          retention-days: 30
