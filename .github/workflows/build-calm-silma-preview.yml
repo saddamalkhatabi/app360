@@ -51,6 +51,8 @@ jobs:
           from huggingface_hub import snapshot_download
           root = snapshot_download(repo_id="silma-ai/silma-tts", allow_patterns=["*.pt","*.safetensors","*.json","*.txt","*.yaml","*.wav","*.model"])
           print("SILMA cached model:", root)
+          vocoder = snapshot_download(repo_id="charactr/vocos-mel-24khz")
+          print("Required Vocos vocoder cached:", vocoder)
           PY
 
       - name: Generate all 74 distinct Arabic MP3 clips from approved-script manifest
