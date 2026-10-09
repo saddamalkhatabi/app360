@@ -1,0 +1,13 @@
+/* Optional SILMA guidance focus: no visual change while audio is unavailable. */
+.silma-cue-focus {
+  outline: 4px solid #ffd75c !important;
+  outline-offset: -4px;
+  box-shadow: 0 0 0 5px rgba(255, 192, 42, .28) !important;
+  position: relative;
+  z-index: 3;
+}
+#boardWrap.silma-cue-focus { outline-offset: -6px; }
+#winCard.silma-cue-focus { outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .silma-cue-focus { animation: none !important; transition: none !important; }
+}
