@@ -68,7 +68,7 @@ function play(item,report){
   if(!w.Audio)return fallback(),false;
   var audio=new w.Audio(path);current=audio;
   audio.onended=finish;audio.onerror=fallback;
-  status(report,item.audio?'تشغيل التسجيل العائلي المحلي.':'تشغيل تسجيل SILMA المحقق.');
+  status(report,item.audio?'تشغيل التسجيل العائلي المحلي.':entry&&entry.preview_only?'تشغيل صوت SILMA التجريبي؛ لم يُعتمد بعد.':'تشغيل تسجيل SILMA المعتمد.');
   var p=audio.play();
   if(p&&typeof p.then==='function')p.then(null,fallback);
   return true;
