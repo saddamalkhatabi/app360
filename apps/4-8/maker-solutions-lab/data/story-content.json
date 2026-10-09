@@ -1,6 +1,6 @@
 {
-  "schema": 1,
-  "pilot": true,
+  "schema": 2,
+  "pilot": false,
   "levels": [
     {
       "id": 1,
@@ -419,7 +419,8 @@
       "coach": {
         "ar": "جهّز ورقًا كبيرًا ودعامتين ثابتتين ولعبة خفيفة. أبعد الأصابع عند ميل الدعامة. لا تحمل الجسور أشخاصًا. جرّب نوع الورق والحمل الفعلي؛ الصور حالات توضيحية وليست قياسات.",
         "en": "Prepare large paper, stable supports and a light toy. Keep fingers clear of a tilting support. Never put people on a bridge. Test your actual paper and load; images illustrate cases, not measurements."
-      }
+      },
+      "voice_group": "original"
     },
     {
       "id": "track",
@@ -802,7 +803,1742 @@
       "coach": {
         "ar": "استخدم كرة كبيرة غير قابلة للبلع، وميلًا منخفضًا ومكانًا خاليًا. ثبّت المسار مع بالغ. تختلف الحركة باختلاف السطح والكرة؛ الصور حالات توضيحية.",
         "en": "Use a large ball that cannot be swallowed, a low ramp and a clear area. Secure it with an adult. Movement varies with the surface and ball; the pictures are illustrative cases."
-      }
+      },
+      "voice_group": "original"
+    },
+    {
+      "id": "tower",
+      "title": {
+        "ar": "برج ثابت",
+        "en": "A stable tower"
+      },
+      "scenes": [
+        {
+          "id": "tower-0",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "برج قصير",
+            "en": "Short tower"
+          },
+          "text": {
+            "ar": "هٰذا بُرْجٌ قَصيرٌ مِنْ مُكَعَّباتٍ كَبيرَةٍ. أَشِرْ إِلى القاعِدَةِ.",
+            "en": "This is a short tower made of large blocks. Point to its base."
+          },
+          "variable": {
+            "ar": "ارتفاع البرج",
+            "en": "Tower height"
+          },
+          "value": {
+            "ar": "قصير",
+            "en": "Short"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-0.mp3",
+            "en": "audio/en/scene-tower-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-0-previous.mp3"
+        },
+        {
+          "id": "tower-1",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "نضيف مكعبات",
+            "en": "Add blocks"
+          },
+          "text": {
+            "ar": "نُضيفُ مُكَعَّباتٍ فَوْقَ بَعْضِها. القاعِدَةُ نَفْسُها، وَالبُرْجُ أَطْوَلُ.",
+            "en": "We stack more blocks. The base stays the same and the tower is taller."
+          },
+          "variable": {
+            "ar": "ارتفاع البرج",
+            "en": "Tower height"
+          },
+          "value": {
+            "ar": "أطول",
+            "en": "Taller"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-1.mp3",
+            "en": "audio/en/scene-tower-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-1-previous.mp3"
+        },
+        {
+          "id": "tower-2",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "برج يميل",
+            "en": "A leaning tower"
+          },
+          "text": {
+            "ar": "هٰذا البُرْجُ الطَّويلُ يَميلُ. ما الجُزْءُ الَّذي يَحْتاجُ إِلى تَثْبيتٍ؟",
+            "en": "This tall tower leans. Which part needs support?"
+          },
+          "variable": {
+            "ar": "ارتفاع البرج",
+            "en": "Tower height"
+          },
+          "value": {
+            "ar": "طويل وضيق",
+            "en": "Tall and narrow"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-2.mp3",
+            "en": "audio/en/scene-tower-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-2-previous.mp3"
+        },
+        {
+          "id": "tower-3",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "نلاحظ السقوط",
+            "en": "Notice the fall"
+          },
+          "text": {
+            "ar": "سَقَطَ البُرْجُ في هٰذا المَشْهَدِ. لَا تَدْفَعْهُ نَحْوَ أَحَدٍ. فَكِّرْ في قاعِدَةٍ أَوْسَعَ.",
+            "en": "The tower fell in this scene. Never push it toward anyone. Think of a wider base."
+          },
+          "variable": {
+            "ar": "ارتفاع البرج",
+            "en": "Tower height"
+          },
+          "value": {
+            "ar": "سقط",
+            "en": "Fallen"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-3.mp3",
+            "en": "audio/en/scene-tower-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-3-previous.mp3"
+        },
+        {
+          "id": "tower-4",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "قاعدة أوسع",
+            "en": "Wider base"
+          },
+          "text": {
+            "ar": "نَبْني قاعِدَةً أَوْسَعَ بِالمُكَعَّباتِ نَفْسِها. تَوَقَّعْ أَيَّ بُرْجٍ أَثْبَتُ.",
+            "en": "We build a wider base with the same blocks. Predict which tower is more stable."
+          },
+          "variable": {
+            "ar": "عرض القاعدة",
+            "en": "Base width"
+          },
+          "value": {
+            "ar": "واسعة",
+            "en": "Wide"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-4.mp3",
+            "en": "audio/en/scene-tower-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-4-previous.mp3"
+        },
+        {
+          "id": "tower-5",
+          "atlas": "assets/scenes/tower-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "نختبر الثبات",
+            "en": "Test stability"
+          },
+          "text": {
+            "ar": "بَقِيَ البُرْجُ ذُو القاعِدَةِ الواسِعَةِ قائِمًا هُنا. جَرِّبْ بِرِفْقٍ، وَسَجِّلْ ما يَحْدُثُ عِنْدَكَ.",
+            "en": "The wide-base tower remains upright here. Try gently and record what happens in your own test."
+          },
+          "variable": {
+            "ar": "عرض القاعدة",
+            "en": "Base width"
+          },
+          "value": {
+            "ar": "بقي قائمًا",
+            "en": "Upright"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-tower-5.mp3",
+            "en": "audio/en/scene-tower-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-tower-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "مكعبات كبيرة خفيفة؛ جرّب على الأرض بعيدًا عن الوجه.",
+        "en": "Use large light blocks on the floor, away from faces."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "boat",
+      "title": {
+        "ar": "قارب يحمل لعبة",
+        "en": "A boat carries a toy"
+      },
+      "scenes": [
+        {
+          "id": "boat-0",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "قارب فارغ",
+            "en": "Empty boat"
+          },
+          "text": {
+            "ar": "هٰذا قارِبٌ فارِغٌ يَطْفو. ما الَّذي تَتَوَقَّعُهُ إِذا أَضَفْنا لُعْبَةً؟",
+            "en": "This empty boat floats. What do you predict if we add a toy?"
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "فارغ",
+            "en": "Empty"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-0.mp3",
+            "en": "audio/en/scene-boat-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-0-previous.mp3"
+        },
+        {
+          "id": "boat-1",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "لعبة في الوسط",
+            "en": "Toy in the middle"
+          },
+          "text": {
+            "ar": "نَضَعُ مُكَعَّبًا كَبيرًا في الوَسَطِ. بَقِيَ القارِبُ طافِيًا في هٰذا المَشْهَدِ.",
+            "en": "We put a large block in the middle. The boat still floats in this scene."
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "خفيف",
+            "en": "Light"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-1.mp3",
+            "en": "audio/en/scene-boat-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-1-previous.mp3"
+        },
+        {
+          "id": "boat-2",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "حمل أكبر",
+            "en": "More load"
+          },
+          "text": {
+            "ar": "نَزيدُ الحِمْلَ في القارِبِ نَفْسِهِ. راقِبْ قُرْبَ حافَتِهِ مِنَ الماءِ.",
+            "en": "We increase the load in the same boat. Watch how close its rim is to the water."
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "أكبر",
+            "en": "More"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-2.mp3",
+            "en": "audio/en/scene-boat-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-2-previous.mp3"
+        },
+        {
+          "id": "boat-3",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "يدخل الماء",
+            "en": "Water enters"
+          },
+          "text": {
+            "ar": "دَخَلَ الماءُ وَهَبَطَ القارِبُ هُنا. نُخَفِّفُ الحِمْلَ قَبْلَ مُحاوَلَةٍ جَديدَةٍ.",
+            "en": "Water entered and the boat sank lower here. Reduce the load before trying again."
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "أكثر من قدرة القارب",
+            "en": "Too much for this boat"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-3.mp3",
+            "en": "audio/en/scene-boat-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-3-previous.mp3"
+        },
+        {
+          "id": "boat-4",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "قارب أعرض",
+            "en": "Wider boat"
+          },
+          "text": {
+            "ar": "نُجَرِّبُ قارِبًا أَعْرَضَ وَالحِمْلَ نَفْسَهُ. هَلْ يَتَغَيَّرُ طُفُوُّهُ؟",
+            "en": "We try a wider boat with the same load. Does its floating change?"
+          },
+          "variable": {
+            "ar": "عرض القارب",
+            "en": "Boat width"
+          },
+          "value": {
+            "ar": "أعرض",
+            "en": "Wider"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-4.mp3",
+            "en": "audio/en/scene-boat-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-4-previous.mp3"
+        },
+        {
+          "id": "boat-5",
+          "atlas": "assets/scenes/boat-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "الحمل على الحافة",
+            "en": "Load at the edge"
+          },
+          "text": {
+            "ar": "نَنْقُلُ الحِمْلَ نَحْوَ حافَةٍ واحِدَةٍ. مالَ القارِبُ هُنا. أَعِدِ الحِمْلَ إِلى الوَسَطِ وَقارِنْ.",
+            "en": "We move the load toward one edge. The boat tilts here. Return the load to the middle and compare."
+          },
+          "variable": {
+            "ar": "مكان الحمل",
+            "en": "Load position"
+          },
+          "value": {
+            "ar": "على الحافة",
+            "en": "At the edge"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-boat-5.mp3",
+            "en": "audio/en/scene-boat-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-boat-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "وعاء ماء قليل العمق وقارب رقائق يجهزه بالغ؛ مكعبات كبيرة غير قابلة للبلع. أبعد الماء عن الأجهزة.",
+        "en": "An adult prepares a foil boat and a shallow water tray. Use large blocks and keep water away from devices."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "shade",
+      "title": {
+        "ar": "لعبة وظلها",
+        "en": "A toy and its shadow"
+      },
+      "scenes": [
+        {
+          "id": "shade-0",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "الضوء مطفأ",
+            "en": "Light off"
+          },
+          "text": {
+            "ar": "المِصْباحُ مُطْفَأٌ. لَا نَرى ظِلًّا واضِحًا لِلُّعْبَةِ هُنا.",
+            "en": "The flashlight is off. We see no distinct toy shadow here."
+          },
+          "variable": {
+            "ar": "الضوء",
+            "en": "Light"
+          },
+          "value": {
+            "ar": "مطفأ",
+            "en": "Off"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-0.mp3",
+            "en": "audio/en/scene-shade-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-0-previous.mp3"
+        },
+        {
+          "id": "shade-1",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "الضوء يعمل",
+            "en": "Light on"
+          },
+          "text": {
+            "ar": "نُشَغِّلُ المِصْباحَ مِنْ جانِبٍ. أَشِرْ إِلى ظِلِّ اللُّعْبَةِ.",
+            "en": "We turn on the light from one side. Point to the toy’s shadow."
+          },
+          "variable": {
+            "ar": "الضوء",
+            "en": "Light"
+          },
+          "value": {
+            "ar": "يعمل",
+            "en": "On"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-1.mp3",
+            "en": "audio/en/scene-shade-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-1-previous.mp3"
+        },
+        {
+          "id": "shade-2",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "مصباح قريب",
+            "en": "Light nearby"
+          },
+          "text": {
+            "ar": "نُقَرِّبُ المِصْباحَ مِنَ اللُّعْبَةِ. قارِنْ حَجْمَ الظِّلِّ.",
+            "en": "We move the light closer to the toy. Compare the shadow’s size."
+          },
+          "variable": {
+            "ar": "مسافة المصباح",
+            "en": "Light distance"
+          },
+          "value": {
+            "ar": "قريب",
+            "en": "Near"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-2.mp3",
+            "en": "audio/en/scene-shade-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-2-previous.mp3"
+        },
+        {
+          "id": "shade-3",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "مصباح أبعد",
+            "en": "Light farther away"
+          },
+          "text": {
+            "ar": "نُبْعِدُ المِصْباحَ، وَنُبْقي اللُّعْبَةَ في مَكانِها. كَيْفَ تَغَيَّرَ الظِّلُّ؟",
+            "en": "We move the light farther away and keep the toy in place. How did the shadow change?"
+          },
+          "variable": {
+            "ar": "مسافة المصباح",
+            "en": "Light distance"
+          },
+          "value": {
+            "ar": "أبعد",
+            "en": "Farther"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-3.mp3",
+            "en": "audio/en/scene-shade-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-3-previous.mp3"
+        },
+        {
+          "id": "shade-4",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "نغير جهة الضوء",
+            "en": "Change light direction"
+          },
+          "text": {
+            "ar": "نَنْقُلُ المِصْباحَ إِلى الجِهَةِ الأُخْرى. راقِبْ جِهَةَ الظِّلِّ.",
+            "en": "We move the light to the other side. Watch the shadow’s direction."
+          },
+          "variable": {
+            "ar": "جهة الضوء",
+            "en": "Light direction"
+          },
+          "value": {
+            "ar": "الجهة الأخرى",
+            "en": "Other side"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-4.mp3",
+            "en": "audio/en/scene-shade-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-4-previous.mp3"
+        },
+        {
+          "id": "shade-5",
+          "atlas": "assets/scenes/shade-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "حاجز شفاف",
+            "en": "Translucent screen"
+          },
+          "text": {
+            "ar": "نَضَعُ حاجِزًا شَفّافًا جُزْئِيًّا أَمامَ الضَّوْءِ. هَلْ بَقِيَ الظِّلُّ بِالوُضوحِ نَفْسِهِ؟",
+            "en": "We place a translucent screen in the light’s path. Is the shadow equally clear?"
+          },
+          "variable": {
+            "ar": "مرور الضوء",
+            "en": "Light transmission"
+          },
+          "value": {
+            "ar": "حاجز شفاف جزئيًا",
+            "en": "Translucent screen"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-shade-5.mp3",
+            "en": "audio/en/scene-shade-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-shade-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "مصباح بارد لا يوجه إلى العين، ولعبة كبيرة وورقة؛ لا تستخدم النار أو الليزر.",
+        "en": "Use a cool flashlight, a large toy and paper. Never aim at eyes or use flames or lasers."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "wind",
+      "title": {
+        "ar": "شريط يخبرنا عن الهواء",
+        "en": "A ribbon shows the air"
+      },
+      "scenes": [
+        {
+          "id": "wind-0",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "هواء هادئ",
+            "en": "Still air"
+          },
+          "text": {
+            "ar": "الشَّريطُ يَتَدَلّى في الهَواءِ الهادِئِ. أَشِرْ إِلى طَرَفِهِ.",
+            "en": "The ribbon hangs in still air. Point to its end."
+          },
+          "variable": {
+            "ar": "حركة الهواء",
+            "en": "Air movement"
+          },
+          "value": {
+            "ar": "هادئ",
+            "en": "Still"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-0.mp3",
+            "en": "audio/en/scene-wind-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-0-previous.mp3"
+        },
+        {
+          "id": "wind-1",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "نحرك الهواء",
+            "en": "Move the air"
+          },
+          "text": {
+            "ar": "يُحَرِّكُ المُدَرِّبُ الهَواءَ بِالمِنْفاخِ اليَدَوِيِّ. الشَّريطُ يَميلُ.",
+            "en": "The coach moves air with a hand fan. The ribbon tilts."
+          },
+          "variable": {
+            "ar": "حركة الهواء",
+            "en": "Air movement"
+          },
+          "value": {
+            "ar": "يتحرك",
+            "en": "Moving"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-1.mp3",
+            "en": "audio/en/scene-wind-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-1-previous.mp3"
+        },
+        {
+          "id": "wind-2",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نفخة خفيفة",
+            "en": "Gentle airflow"
+          },
+          "text": {
+            "ar": "نُحَرِّكُ الهَواءَ بِرِفْقٍ. راقِبْ مِقْدارَ مَيْلِ الشَّريطِ.",
+            "en": "We move air gently. Watch how far the ribbon tilts."
+          },
+          "variable": {
+            "ar": "قوة الهواء",
+            "en": "Air strength"
+          },
+          "value": {
+            "ar": "خفيفة",
+            "en": "Gentle"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-2.mp3",
+            "en": "audio/en/scene-wind-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-2-previous.mp3"
+        },
+        {
+          "id": "wind-3",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "نفخة أقوى",
+            "en": "Stronger airflow"
+          },
+          "text": {
+            "ar": "نَزيدُ حَرَكَةَ الهَواءِ قَليلًا. الشَّريطُ نَفْسُهُ، فَما الَّذي تَغَيَّرَ؟",
+            "en": "We increase airflow a little. The ribbon is the same. What changed?"
+          },
+          "variable": {
+            "ar": "قوة الهواء",
+            "en": "Air strength"
+          },
+          "value": {
+            "ar": "أقوى",
+            "en": "Stronger"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-3.mp3",
+            "en": "audio/en/scene-wind-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-3-previous.mp3"
+        },
+        {
+          "id": "wind-4",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "جهة أخرى",
+            "en": "Other direction"
+          },
+          "text": {
+            "ar": "نُحَرِّكُ الهَواءَ مِنَ الجِهَةِ الأُخْرى. راقِبْ اِتِّجاهَ الشَّريطِ.",
+            "en": "We move air from the other side. Watch the ribbon’s direction."
+          },
+          "variable": {
+            "ar": "جهة الهواء",
+            "en": "Air direction"
+          },
+          "value": {
+            "ar": "معاكسة",
+            "en": "Opposite"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-4.mp3",
+            "en": "audio/en/scene-wind-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-4-previous.mp3"
+        },
+        {
+          "id": "wind-5",
+          "atlas": "assets/scenes/wind-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "نضع حاجزًا",
+            "en": "Add a screen"
+          },
+          "text": {
+            "ar": "نَضَعُ حاجِزًا أَمامَ الهَواءِ. تَغَيَّرَتْ حَرَكَةُ الشَّريطِ هُنا. اِخْتَبِرْ مَوْضِعَ الحاجِزِ مَعَ المُدَرِّبِ.",
+            "en": "We put a screen in the airflow. The ribbon’s movement changes here. Test the screen position with a coach."
+          },
+          "variable": {
+            "ar": "الحاجز",
+            "en": "Screen"
+          },
+          "value": {
+            "ar": "بين المنفاخ والشريط",
+            "en": "Between fan and ribbon"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wind-5.mp3",
+            "en": "audio/en/scene-wind-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-wind-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "شريط قصير مثبت جيدًا ومنفاخ يدوي للمدرب؛ لا تُدخل شيئًا في المراوح.",
+        "en": "Use a short secured ribbon and a coach’s hand fan. Never put objects into fans."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "sponge",
+      "title": {
+        "ar": "من يجمع الماء؟",
+        "en": "Which material collects water?"
+      },
+      "scenes": [
+        {
+          "id": "sponge-0",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "إسفنجة جافة",
+            "en": "Dry sponge"
+          },
+          "text": {
+            "ar": "هٰذِهِ إِسْفَنْجَةٌ جافَّةٌ بِجانِبِ بُقْعَةِ ماءٍ صَغيرَةٍ. تَوَقَّعْ ما سَيَحْدُثُ.",
+            "en": "A dry sponge sits beside a small puddle. Predict what will happen."
+          },
+          "variable": {
+            "ar": "المادة",
+            "en": "Material"
+          },
+          "value": {
+            "ar": "إسفنجة",
+            "en": "Sponge"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-0.mp3",
+            "en": "audio/en/scene-sponge-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-0-previous.mp3"
+        },
+        {
+          "id": "sponge-1",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "الإسفنجة تبتل",
+            "en": "Sponge gets wet"
+          },
+          "text": {
+            "ar": "لَمَسَتِ الإِسْفَنْجَةُ الماءَ وَابْتَلَّتْ. قَلَّ الماءُ عَلى الصِّينِيَّةِ هُنا.",
+            "en": "The sponge touched the water and became wet. Less water remains on the tray here."
+          },
+          "variable": {
+            "ar": "المادة",
+            "en": "Material"
+          },
+          "value": {
+            "ar": "إسفنجة مبتلة",
+            "en": "Wet sponge"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-1.mp3",
+            "en": "audio/en/scene-sponge-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-1-previous.mp3"
+        },
+        {
+          "id": "sponge-2",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نختبر البلاستيك",
+            "en": "Test plastic"
+          },
+          "text": {
+            "ar": "نَضَعُ قِطْعَةَ بْلاسْتيكٍ بِجانِبِ ماءٍ مُشابِهٍ. هَلْ تَجْمَعُهُ مِثْلَ الإِسْفَنْجَةِ؟",
+            "en": "We place plastic beside a similar puddle. Will it collect water like the sponge?"
+          },
+          "variable": {
+            "ar": "المادة",
+            "en": "Material"
+          },
+          "value": {
+            "ar": "بلاستيك",
+            "en": "Plastic"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-2.mp3",
+            "en": "audio/en/scene-sponge-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-2-previous.mp3"
+        },
+        {
+          "id": "sponge-3",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "الماء على السطح",
+            "en": "Water on the surface"
+          },
+          "text": {
+            "ar": "بَقِيَ الماءُ عَلى سَطْحِ البْلاسْتيكِ هُنا. قارِنِ المادَّتَيْنِ بِرِفْقٍ.",
+            "en": "Water remains on the plastic surface here. Gently compare the two materials."
+          },
+          "variable": {
+            "ar": "المادة",
+            "en": "Material"
+          },
+          "value": {
+            "ar": "لا يمتص مثل الإسفنجة",
+            "en": "Does not absorb like sponge"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-3.mp3",
+            "en": "audio/en/scene-sponge-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-3-previous.mp3"
+        },
+        {
+          "id": "sponge-4",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "نعصر الإسفنجة",
+            "en": "Squeeze the sponge"
+          },
+          "text": {
+            "ar": "يَعْصِرُ المُدَرِّبُ الإِسْفَنْجَةَ فَوْقَ الصِّينِيَّةِ. نَرى الماءَ يَخْرُجُ مِنْها.",
+            "en": "The coach squeezes the sponge over the tray. We see water coming out."
+          },
+          "variable": {
+            "ar": "حالة الإسفنجة",
+            "en": "Sponge state"
+          },
+          "value": {
+            "ar": "معصورة",
+            "en": "Squeezed"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-4.mp3",
+            "en": "audio/en/scene-sponge-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-4-previous.mp3"
+        },
+        {
+          "id": "sponge-5",
+          "atlas": "assets/scenes/sponge-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "نجرب مرة أخرى",
+            "en": "Try again"
+          },
+          "text": {
+            "ar": "نُعيدُ الإِسْفَنْجَةَ إِلى الماءِ بَعْدَ عَصْرِها. هَلْ تَجْمَعُ الماءَ مَرَّةً أُخْرى؟",
+            "en": "We return the sponge to water after squeezing it. Does it collect water again?"
+          },
+          "variable": {
+            "ar": "حالة الإسفنجة",
+            "en": "Sponge state"
+          },
+          "value": {
+            "ar": "بعد العصر",
+            "en": "After squeezing"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-sponge-5.mp3",
+            "en": "audio/en/scene-sponge-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-sponge-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "قطرات ماء وصينية وإسفنجة نظيفة وقطعة بلاستيك؛ لا تشرب ماء التجربة.",
+        "en": "Use a few drops, a tray, a clean sponge and plastic. Do not drink the experiment water."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "balance",
+      "title": {
+        "ar": "ميزان اللعب",
+        "en": "A play balance"
+      },
+      "scenes": [
+        {
+          "id": "balance-0",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "ميزان فارغ",
+            "en": "Empty balance"
+          },
+          "text": {
+            "ar": "هٰذا لَوْحٌ فَوْقَ دَعامَةٍ في الوَسَطِ. طَرَفاهُ مُتَقارِبانِ في الاِرْتِفاعِ.",
+            "en": "This board rests on a central support. Its ends are at similar heights."
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "فارغ",
+            "en": "Empty"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-0.mp3",
+            "en": "audio/en/scene-balance-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-0-previous.mp3"
+        },
+        {
+          "id": "balance-1",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "حمل على جانب",
+            "en": "Load on one side"
+          },
+          "text": {
+            "ar": "نَضَعُ مُكَعَّبًا عَلى جانِبٍ واحِدٍ. هَبَطَ هٰذا الجانِبُ هُنا.",
+            "en": "We put a block on one side. That side drops here."
+          },
+          "variable": {
+            "ar": "الحمل",
+            "en": "Load"
+          },
+          "value": {
+            "ar": "جانب واحد",
+            "en": "One side"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-1.mp3",
+            "en": "audio/en/scene-balance-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-1-previous.mp3"
+        },
+        {
+          "id": "balance-2",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "حملان متشابهان",
+            "en": "Matching loads"
+          },
+          "text": {
+            "ar": "نَضَعُ مُكَعَّبًا مُشابِهًا عَلى الطَّرَفِ الآخَرِ، بِالمَسافَةِ نَفْسِها عَنِ الدَّعامَةِ.",
+            "en": "We put a matching block on the other side, at the same distance from the support."
+          },
+          "variable": {
+            "ar": "توزيع الحمل",
+            "en": "Load distribution"
+          },
+          "value": {
+            "ar": "متشابه",
+            "en": "Matching"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-2.mp3",
+            "en": "audio/en/scene-balance-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-2-previous.mp3"
+        },
+        {
+          "id": "balance-3",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "نضيف حملًا",
+            "en": "Add load"
+          },
+          "text": {
+            "ar": "نُضيفُ مُكَعَّبًا إِلى جانِبٍ واحِدٍ. قارِنْ اِرْتِفاعَ الطَّرَفَيْنِ الآنَ.",
+            "en": "We add a block to one side. Compare the heights of both ends now."
+          },
+          "variable": {
+            "ar": "توزيع الحمل",
+            "en": "Load distribution"
+          },
+          "value": {
+            "ar": "حمل أكبر على جانب",
+            "en": "More on one side"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-3.mp3",
+            "en": "audio/en/scene-balance-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-3-previous.mp3"
+        },
+        {
+          "id": "balance-4",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "نقرب الحمل",
+            "en": "Move load closer"
+          },
+          "text": {
+            "ar": "نُبْقي الحِمْلَيْنِ مُتَشابِهَيْنِ، وَنُقَرِّبُ أَحَدَهُما مِنَ الدَّعامَةِ.",
+            "en": "We keep matching loads and move one closer to the support."
+          },
+          "variable": {
+            "ar": "مسافة الحمل",
+            "en": "Load distance"
+          },
+          "value": {
+            "ar": "غير متساوية",
+            "en": "Unequal"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-4.mp3",
+            "en": "audio/en/scene-balance-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-4-previous.mp3"
+        },
+        {
+          "id": "balance-5",
+          "atlas": "assets/scenes/balance-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "مسافتان متشابهتان",
+            "en": "Matching distances"
+          },
+          "text": {
+            "ar": "نُعيدُ الحِمْلَيْنِ إِلى مَسافَتَيْنِ مُتَشابِهَتَيْنِ. هَلْ عادَ التَّوازُنُ في تَجْرِبَتِكَ؟",
+            "en": "We return the loads to matching distances. Did your own balance become level again?"
+          },
+          "variable": {
+            "ar": "مسافة الحمل",
+            "en": "Load distance"
+          },
+          "value": {
+            "ar": "متشابهة",
+            "en": "Matching"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-balance-5.mp3",
+            "en": "audio/en/scene-balance-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-balance-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "لوح خفيف ودعامة ثابتة ومكعبات كبيرة على الأرض؛ لا يجلس الطفل على الميزان.",
+        "en": "Use a light board, a stable support and large blocks on the floor. Never sit on the balance."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "wheel",
+      "title": {
+        "ar": "عجلات تحمل صندوقًا",
+        "en": "Wheels carry a box"
+      },
+      "scenes": [
+        {
+          "id": "wheel-0",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "صندوق على السطح",
+            "en": "Box on surface"
+          },
+          "text": {
+            "ar": "الصُّنْدوقُ يَلْمَسُ السَّطْحَ مُباشَرَةً. يَدْفَعُهُ المُدَرِّبُ بِرِفْقٍ.",
+            "en": "The box rests directly on the surface. The coach pushes gently."
+          },
+          "variable": {
+            "ar": "طريقة الحركة",
+            "en": "Movement method"
+          },
+          "value": {
+            "ar": "انزلاق",
+            "en": "Sliding"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-0.mp3",
+            "en": "audio/en/scene-wheel-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-0-previous.mp3"
+        },
+        {
+          "id": "wheel-1",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "نلاحظ الحركة",
+            "en": "Notice movement"
+          },
+          "text": {
+            "ar": "تَحَرَّكَ الصُّنْدوقُ بِالاِنْزِلاقِ. هَلْ كانَ دَفْعُهُ سَهْلًا في تَجْرِبَتِكَ؟",
+            "en": "The box moves by sliding. Was pushing it easy in your own test?"
+          },
+          "variable": {
+            "ar": "طريقة الحركة",
+            "en": "Movement method"
+          },
+          "value": {
+            "ar": "انزلاق",
+            "en": "Sliding"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-1.mp3",
+            "en": "audio/en/scene-wheel-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-1-previous.mp3"
+        },
+        {
+          "id": "wheel-2",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نضيف بكرات",
+            "en": "Add rollers"
+          },
+          "text": {
+            "ar": "نَضَعُ بَكْراتٍ كَبيرَةً تَحْتَ الصُّنْدوقِ. تَوَقَّعْ طَريقَةَ حَرَكَتِهِ.",
+            "en": "We put large rollers under the box. Predict how it will move."
+          },
+          "variable": {
+            "ar": "طريقة الحركة",
+            "en": "Movement method"
+          },
+          "value": {
+            "ar": "تدحرج",
+            "en": "Rolling"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-2.mp3",
+            "en": "audio/en/scene-wheel-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-2-previous.mp3"
+        },
+        {
+          "id": "wheel-3",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "البكرات تدور",
+            "en": "Rollers turn"
+          },
+          "text": {
+            "ar": "دارَتِ البَكْراتُ وَتَحَرَّكَ الصُّنْدوقُ هُنا. قارِنْ مَعَ الاِنْزِلاقِ.",
+            "en": "The rollers turn and the box moves here. Compare it with sliding."
+          },
+          "variable": {
+            "ar": "طريقة الحركة",
+            "en": "Movement method"
+          },
+          "value": {
+            "ar": "تدحرج",
+            "en": "Rolling"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-3.mp3",
+            "en": "audio/en/scene-wheel-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-3-previous.mp3"
+        },
+        {
+          "id": "wheel-4",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "سطح خشن",
+            "en": "Rough surface"
+          },
+          "text": {
+            "ar": "نَنْقُلُ الصُّنْدوقَ وَالبَكْراتِ إِلى سَطْحٍ أَخْشَنَ. نُغَيِّرُ السَّطْحَ فَقَطْ.",
+            "en": "We move the box and rollers to a rougher surface. We change only the surface."
+          },
+          "variable": {
+            "ar": "السطح",
+            "en": "Surface"
+          },
+          "value": {
+            "ar": "خشن",
+            "en": "Rough"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-4.mp3",
+            "en": "audio/en/scene-wheel-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-4-previous.mp3"
+        },
+        {
+          "id": "wheel-5",
+          "atlas": "assets/scenes/wheel-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "سطح أملس",
+            "en": "Smooth surface"
+          },
+          "text": {
+            "ar": "نُجَرِّبُ السَّطْحَ الأَمْلَسَ مَرَّةً أُخْرى. ناقِشْ سُهولَةَ الحَرَكَةِ مَعَ المُدَرِّبِ.",
+            "en": "We try the smooth surface again. Discuss how easy movement is with the coach."
+          },
+          "variable": {
+            "ar": "السطح",
+            "en": "Surface"
+          },
+          "value": {
+            "ar": "أملس",
+            "en": "Smooth"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-wheel-5.mp3",
+            "en": "audio/en/scene-wheel-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-wheel-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "صندوق خفيف وبكرات كبيرة غير قابلة للبلع ومسار قصير على الأرض؛ أبعد الأصابع.",
+        "en": "Use a light box, large rollers and a short floor path. Keep fingers clear."
+      },
+      "voice_group": "new"
+    },
+    {
+      "id": "canopy",
+      "title": {
+        "ar": "مظلة لعبة خفيفة",
+        "en": "A parachute for a light toy"
+      },
+      "scenes": [
+        {
+          "id": "canopy-0",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 0,
+          "title": {
+            "ar": "لعبة دون مظلة",
+            "en": "Toy without canopy"
+          },
+          "text": {
+            "ar": "يُمْسِكُ المُدَرِّبُ لُعْبَةً خَفيفَةً فَوْقَ بِساطٍ، دُونَ مِظَلَّةٍ.",
+            "en": "The coach holds a light toy above a mat without a canopy."
+          },
+          "variable": {
+            "ar": "وجود المظلة",
+            "en": "Canopy present"
+          },
+          "value": {
+            "ar": "دون مظلة",
+            "en": "No canopy"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-0.mp3",
+            "en": "audio/en/scene-canopy-0.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-0-previous.mp3"
+        },
+        {
+          "id": "canopy-1",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 1,
+          "title": {
+            "ar": "اللعبة على البساط",
+            "en": "Toy on the mat"
+          },
+          "text": {
+            "ar": "وَصَلَتِ اللُّعْبَةُ إِلى البِساطِ. الصُّورَةُ لَا تَقيسُ زَمَنَ السُّقوطِ.",
+            "en": "The toy reached the mat. A picture does not measure falling time."
+          },
+          "variable": {
+            "ar": "وجود المظلة",
+            "en": "Canopy present"
+          },
+          "value": {
+            "ar": "دون مظلة",
+            "en": "No canopy"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-1.mp3",
+            "en": "audio/en/scene-canopy-1.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-1-previous.mp3"
+        },
+        {
+          "id": "canopy-2",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 2,
+          "title": {
+            "ar": "نضيف مظلة",
+            "en": "Add a canopy"
+          },
+          "text": {
+            "ar": "نُضيفُ مِظَلَّةً وَرَقِيَّةً، وَنُبْقي اللُّعْبَةَ وَالاِرْتِفاعَ نَفْسَهُما.",
+            "en": "We add a paper canopy and keep the same toy and height."
+          },
+          "variable": {
+            "ar": "وجود المظلة",
+            "en": "Canopy present"
+          },
+          "value": {
+            "ar": "مع مظلة",
+            "en": "With canopy"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-2.mp3",
+            "en": "audio/en/scene-canopy-2.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-2-previous.mp3"
+        },
+        {
+          "id": "canopy-3",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 3,
+          "title": {
+            "ar": "بعد نزول المظلة",
+            "en": "After descent"
+          },
+          "text": {
+            "ar": "وَصَلَتِ اللُّعْبَةُ إِلى البِساطِ مَعَ المِظَلَّةِ هُنا. راقِبِ النُّزولَ الحَقيقيَّ مَعَ المُدَرِّبِ.",
+            "en": "The toy reached the mat with its canopy here. Watch the real descent with the coach."
+          },
+          "variable": {
+            "ar": "وجود المظلة",
+            "en": "Canopy present"
+          },
+          "value": {
+            "ar": "مفتوحة",
+            "en": "Open"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-3.mp3",
+            "en": "audio/en/scene-canopy-3.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-3-previous.mp3"
+        },
+        {
+          "id": "canopy-4",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 4,
+          "title": {
+            "ar": "مظلة صغيرة",
+            "en": "Small canopy"
+          },
+          "text": {
+            "ar": "نُجَرِّبُ مِظَلَّةً أَصْغَرَ لِلُّعْبَةِ نَفْسِها. تَوَقَّعْ، ثُمَّ شاهِدْ.",
+            "en": "We try a smaller canopy with the same toy. Predict, then watch."
+          },
+          "variable": {
+            "ar": "حجم المظلة",
+            "en": "Canopy size"
+          },
+          "value": {
+            "ar": "صغيرة",
+            "en": "Small"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-4.mp3",
+            "en": "audio/en/scene-canopy-4.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-4-previous.mp3"
+        },
+        {
+          "id": "canopy-5",
+          "atlas": "assets/scenes/canopy-a.jpg",
+          "cell": 5,
+          "title": {
+            "ar": "مظلة أكبر",
+            "en": "Larger canopy"
+          },
+          "text": {
+            "ar": "نُجَرِّبُ مِظَلَّةً أَكْبَرَ مِنَ الاِرْتِفاعِ نَفْسِهِ. سَجِّلْ ما تُلاحِظُهُ، دُونَ تَخْمينِ زَمَنٍ مِنَ الصُّورَةِ.",
+            "en": "We try a larger canopy from the same height. Record what you observe without guessing time from the picture."
+          },
+          "variable": {
+            "ar": "حجم المظلة",
+            "en": "Canopy size"
+          },
+          "value": {
+            "ar": "أكبر",
+            "en": "Larger"
+          },
+          "kept": {
+            "ar": "قارن تغييرًا واحدًا في كل مرة.",
+            "en": "Compare one change at a time."
+          },
+          "audio": {
+            "ar": "audio/ar/scene-canopy-5.mp3",
+            "en": "audio/en/scene-canopy-5.mp3"
+          },
+          "old_audio": "audio/ar/scene-canopy-5-previous.mp3"
+        }
+      ],
+      "routes": {
+        "1": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "2": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "coach": {
+        "ar": "مظلة ورقية وخيوط قصيرة ولعبة خفيفة يجهزها بالغ؛ أسقط من ارتفاع منخفض فوق بساط، ولا تصعد.",
+        "en": "An adult prepares a paper canopy, short cords and a light toy. Drop from low height onto a mat; never climb."
+      },
+      "voice_group": "new"
     }
-  ]
+  ],
+  "experiments_per_level": 10,
+  "voice_comparison": {
+    "text": "هٰذا بُرْجٌ قَصيرٌ مِنْ مُكَعَّباتٍ كَبيرَةٍ. أَشِرْ إِلى القاعِدَةِ.",
+    "old": "audio/ar/scene-tower-0-previous.mp3",
+    "new": "audio/ar/scene-tower-0.mp3"
+  }
 }

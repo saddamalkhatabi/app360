@@ -87,24 +87,36 @@
   "scene_pilot": {
     "experiences": [
       "bridge",
-      "track"
+      "track",
+      "tower",
+      "boat",
+      "shade",
+      "wind",
+      "sponge",
+      "balance",
+      "wheel",
+      "canopy"
     ],
     "levels": [
       {
         "level": 1,
-        "age": "4-5"
+        "age": "4–5"
       },
       {
         "level": 2,
-        "age": "5-6"
+        "age": "5–6"
       },
       {
         "level": 3,
-        "age": "6-8"
+        "age": "6–8"
       }
     ],
-    "unique_scenes": 24,
-    "recordings": 48,
-    "full_rollout": "awaiting-family-review"
+    "experiments_per_level": 10,
+    "unique_scenes": 72,
+    "recordings": 192,
+    "full_rollout": "expanded-preview-awaiting-family-voice-review",
+    "new_arabic_engine": "SILMA Arabic TTS v1",
+    "original_arabic_voice": "ar-SA-ZariyahNeural",
+    "comparison": "same scene and same text with old/new Arabic voices"
   }
 }
