@@ -1,0 +1,45 @@
+name: Publish Available SILMA MP3 Preview
+on:
+  push:
+    branches: [feature/age1-4-silma-calm-serial-20261009]
+    paths:
+      - .github/workflows/publish-available-calm-silma.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  publish-partial:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+          fetch-depth: 1
+      - name: Download genuine SILMA recordings already created by parallel synthesis
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 37968235991
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: calm-silma-part-*
+          merge-multiple: true
+          path: apps/1-4/calm-with-me/audio/silma
+      - name: Install ffprobe for file validity checks
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Map only real successfully decoded MP3 files
+        run: |
+          python apps/1-4/calm-with-me/tools/finalize_silma_preview.py --allow-partial
+          node apps/1-4/calm-with-me/tools/test_serial_player.cjs
+      - name: Publish files on isolated branch without touching main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/calm-with-me/audio/silma apps/1-4/calm-with-me/calm-silma-index-serial-v1.js
+          if git diff --cached --quiet; then
+            echo "Already published"
+            exit 0
+          fi
+          git commit -m "Publish more real SILMA MP3 files for partial calm-with-me preview"
+          git pull --rebase origin feature/age1-4-silma-calm-serial-20261009
+          git push origin HEAD:feature/age1-4-silma-calm-serial-20261009
