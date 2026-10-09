@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "app_id": "a1-calm",
-  "status": "TEXT_AUTHORED_AUDIO_NOT_GENERATED",
+  "status": "74_AUTHORED_TEXTS_ZERO_GENERATED_AUDIO",
   "synthesis": "silma-tts 1.0.5; authored Arabic tashkeel; offline build",
   "items": [
     {
@@ -333,6 +333,417 @@
       "kind": "feelings",
       "text": "لَا أَعْرِفُ",
       "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/close.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:close",
+      "item_id": "close",
+      "kind": "helps",
+      "text": "أَنَا قَرِيبٌ مِنْكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/hold-if-wanted.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:hold-if-wanted",
+      "item_id": "hold-if-wanted",
+      "kind": "helps",
+      "text": "إِذَا أَرَدْتَ، يُمْكِنُنِي أَنْ أَحْمِلَكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/comfort-touch.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:comfort-touch",
+      "item_id": "comfort-touch",
+      "kind": "helps",
+      "text": "إِذَا أَرَدْتَ حُضْنًا، أَنَا هُنَا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/space.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:space",
+      "item_id": "space",
+      "kind": "helps",
+      "text": "سَأُعْطِيكَ مَسَاحَةً، وَأَبْقَى قَرِيبًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/quiet-place.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:quiet-place",
+      "item_id": "quiet-place",
+      "kind": "helps",
+      "text": "يُمْكِنُنَا أَنْ نَذْهَبَ إِلَى مَكَانٍ أَهْدَأَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/reduce-noise.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:reduce-noise",
+      "item_id": "reduce-noise",
+      "kind": "helps",
+      "text": "سَنُخَفِّفُ الصَّوْتَ وَالضَّوْءَ قَلِيلًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/familiar-object.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:familiar-object",
+      "item_id": "familiar-object",
+      "kind": "helps",
+      "text": "يُمْكِنُكَ أَنْ تُمْسِكَ لُعْبَتَكَ الْمَأْلُوفَةَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/quiet-book.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:quiet-book",
+      "item_id": "quiet-book",
+      "kind": "helps",
+      "text": "هَلْ تُرِيدُ كِتَابًا هَادِئًا؟",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/water.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:water",
+      "item_id": "water",
+      "kind": "helps",
+      "text": "هَلْ تُرِيدُ مَاءً؟",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/body-check.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:body-check",
+      "item_id": "body-check",
+      "kind": "helps",
+      "text": "سَنَرَى أَوَّلًا مَاذَا يَحْتَاجُ جِسْمُكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/show-next.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:show-next",
+      "item_id": "show-next",
+      "kind": "helps",
+      "text": "سَأُرِيكَ مَاذَا بَعْدَ ذَلِكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/more-time.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:more-time",
+      "item_id": "more-time",
+      "kind": "helps",
+      "text": "لَدَيْكَ وَقْتٌ قَصِيرٌ، ثُمَّ نَنْتَقِلُ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/move-together.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:move-together",
+      "item_id": "move-together",
+      "kind": "helps",
+      "text": "سَنَنْتَقِلُ مَعًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/two-choices.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:two-choices",
+      "item_id": "two-choices",
+      "kind": "helps",
+      "text": "سَأُعْطِيكَ خِيَارَيْنِ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/one-choice.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:one-choice",
+      "item_id": "one-choice",
+      "kind": "helps",
+      "text": "سَنَخْتَارُ شَيْئًا وَاحِدًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/model-words.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:model-words",
+      "item_id": "model-words",
+      "kind": "helps",
+      "text": "سَأَقُولُ الْكَلِمَاتِ، وَأَنْتَ تُشِيرُ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/name-one-feeling.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:name-one-feeling",
+      "item_id": "name-one-feeling",
+      "kind": "helps",
+      "text": "رُبَّمَا هَذَا خَوْفٌ. وَيُمْكِنُكَ أَنْ تَقُولَ لَا أَعْرِفُ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/draw-feeling.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:draw-feeling",
+      "item_id": "draw-feeling",
+      "kind": "helps",
+      "text": "يُمْكِنُنَا أَنْ نَرْسُمَ مَا حَدَثَ مَعًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/role-play.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:role-play",
+      "item_id": "role-play",
+      "kind": "helps",
+      "text": "لِنُمَثِّلِ الْمَوْقِفَ بِالدُّمَى",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/short-story.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:short-story",
+      "item_id": "short-story",
+      "kind": "helps",
+      "text": "سَنَحْكِي مَا حَدَثَ فِي جُمْلَتَيْنِ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/wall-push.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:wall-push",
+      "item_id": "wall-push",
+      "kind": "helps",
+      "text": "مَعَ الْمُرَافِقِ، اِدْفَعِ الْجِدَارَ بِكَفَّيْكَ بِلُطْفٍ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/pillow-push.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:pillow-push",
+      "item_id": "pillow-push",
+      "kind": "helps",
+      "text": "مَعَ الْمُرَافِقِ، اِدْفَعْ وِسَادَةً كَبِيرَةً",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/heavy-walk.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:heavy-walk",
+      "item_id": "heavy-walk",
+      "kind": "helps",
+      "text": "لِنَمْشِ مَعًا مِثْلَ الدُّبِّ، بِهُدُوءٍ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/playdough.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:playdough",
+      "item_id": "playdough",
+      "kind": "helps",
+      "text": "مَعَ الْمُرَافِقِ، اِعْصِرْ عَجِينَةَ اللَّعِبِ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/safe-jumps.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:safe-jumps",
+      "item_id": "safe-jumps",
+      "kind": "helps",
+      "text": "مَعَ الْمُرَافِقِ، اِقْفِزْ قَفْزَةً صَغِيرَةً إِذَا أَرَدْتَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/check-reality.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:check-reality",
+      "item_id": "check-reality",
+      "kind": "helps",
+      "text": "هَلْ حَدَثَ هَذَا الْآنَ، أَمْ هِيَ فِكْرَةٌ أَخَافَتْكَ؟",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/two-solutions-help.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:two-solutions-help",
+      "item_id": "two-solutions-help",
+      "kind": "helps",
+      "text": "لَدَيَّ حَلَّانِ، اِخْتَرْ وَاحِدًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/helps/wait-nearby.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:helps:wait-nearby",
+      "item_id": "wait-nearby",
+      "kind": "helps",
+      "text": "سَأَنْتَظِرُ هُنَا قَرِيبًا مِنْكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/book.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:book",
+      "item_id": "book",
+      "kind": "transitions",
+      "text": "الْآنَ نَقْرَأُ كِتَابًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/ball.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:ball",
+      "item_id": "ball",
+      "kind": "transitions",
+      "text": "نَلْعَبُ بِالْكُرَةِ مَعًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/water.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:water",
+      "item_id": "water",
+      "kind": "transitions",
+      "text": "نَشْرَبُ مَاءً",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/shoe.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:shoe",
+      "item_id": "shoe",
+      "kind": "transitions",
+      "text": "نَرْتَدِي الْحِذَاءَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/toothbrush.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:toothbrush",
+      "item_id": "toothbrush",
+      "kind": "transitions",
+      "text": "نُنَظِّفُ أَسْنَانَنَا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/cup.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:cup",
+      "item_id": "cup",
+      "kind": "transitions",
+      "text": "نَسْتَخْدِمُ الْكُوبَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/leave.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:leave",
+      "item_id": "leave",
+      "kind": "transitions",
+      "text": "نَنْتَقِلُ إِلَى الْمَكَانِ التَّالِي مَعًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/wait.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:wait",
+      "item_id": "wait",
+      "kind": "transitions",
+      "text": "نَنْتَظِرُ قَلِيلًا مَعًا",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/app-first-words.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:app-first-words",
+      "item_id": "app-first-words",
+      "kind": "transitions",
+      "text": "نَفْتَحُ تَطْبِيقَ كَلِمَاتِي مَعَ أَشْيَائِي",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/app-imitate.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:app-imitate",
+      "item_id": "app-imitate",
+      "kind": "transitions",
+      "text": "نَفْتَحُ تَطْبِيقَ دَوْرِي وَدَوْرَكَ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/app-screen-move.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:app-screen-move",
+      "item_id": "app-screen-move",
+      "kind": "transitions",
+      "text": "نَفْتَحُ تَطْبِيقَ الْأَلْعَابِ الْإِبْدَاعِيَّةِ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/app-drawing-writing.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:app-drawing-writing",
+      "item_id": "app-drawing-writing",
+      "kind": "transitions",
+      "text": "نَفْتَحُ لَوْحَةَ الرَّسْمِ وَالْكِتَابَةِ",
+      "audio_generated": false
+    },
+    {
+      "path": "audio/silma/transitions/app-plan-runner.mp3",
+      "language": "ar",
+      "engine": "silma",
+      "event_id": "calm-with-me:transitions:app-plan-runner",
+      "item_id": "app-plan-runner",
+      "kind": "transitions",
+      "text": "نَفْتَحُ مُخَطِّطَ الْجَلَسَاتِ",
+      "audio_generated": false
     }
-  ]
+  ],
+  "notes": "Two source controls share item_id=water in helps/transitions; index uses kind:id compound key"
 }
