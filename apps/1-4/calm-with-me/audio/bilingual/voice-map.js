@@ -1250,7 +1250,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You were playing with it. Let's help you say: my turn, then their turn."
     },
     "هذا صعب الآن هل تريد تلميحا صغيرا أم محاولة أخرى": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/b7eb0894ac32ffa6.mp3",
+        "sha256": "28592f3af980c2ada417780aa0b228dedbb18a16bd08d36d2c7559f538080491",
+        "duration_s": 4.68
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/b7eb0894ac32ffa6.mp3",
         "sha256": "5fc7226e310ae7fe4f8241cb707c46485c4c0e9424f98e7816f82e091680a58c",
@@ -1470,7 +1474,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "This part of your clothing bothers you. Let's see whether something else feels better."
     },
     "سنفعل جزءا صغيرا ثم نتوقف لنرى كيف أنت": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/2bd10189d814a37c.mp3",
+        "sha256": "4e0d642d6f6c2de069673e98c4b1a8c944e1f486d9526361bdeac0910b423b5d",
+        "duration_s": 3.65
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/2bd10189d814a37c.mp3",
         "sha256": "0324ef5171fc533cf96b9e95e99ace29e48b8827f4a00818608115d1bc1b9d29",
@@ -1690,7 +1698,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "We'll understand what frightened you, one step at a time."
     },
     "سأعود بعد هذا الروتين": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/80b95d10652e5dff.mp3",
+        "sha256": "c168cd7c484be89438409ee98569e3b2b62eb68bcfd095ee35f4802cd4e27289",
+        "duration_s": 2.26
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/80b95d10652e5dff.mp3",
         "sha256": "56e5f95d1fcc07948af00868bb204da3ffa8f02ff4a5d00ad0d99c457d2a61c2",
@@ -1910,7 +1922,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You don't have to like this right now; we'll get through it together."
     },
     "يمكنك أن تشاهد أولا": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/5da23e3842d7c561.mp3",
+        "sha256": "aee61e4b16de3136ac014571d1aa1d8b03ca7ca015402ebb68e27faa612c4cd9",
+        "duration_s": 2.09
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/5da23e3842d7c561.mp3",
         "sha256": "74f39f500f51ab18fab98884df3efb8e6cc36dc3b36470f16a41951147edd5b8",
@@ -2130,7 +2146,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "You can hold your toy."
     },
     "تريد أن تفعلها بنفسك": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/87ab965362155b98.mp3",
+        "sha256": "486fc0299d127c48012d0f91338abb38b9cbf6ab7a29704342219d3926823b11",
+        "duration_s": 2.06
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/87ab965362155b98.mp3",
         "sha256": "6a1b0c7bac53b4bcb42c8a082b2ed1d7be007c79817222088e497f657f7fbe49",
@@ -2350,7 +2370,11 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'll give you just two choices."
     },
     "سنختار شيئا واحدا بسيطا الآن": {
-      "ar": null,
+      "ar": {
+        "path": "audio/bilingual/ar/phrases/3083fb7f72a332a8.mp3",
+        "sha256": "4c659a2807c5565e15adbd7c171ae22d88ef52ba9754e2048e3e9abd670c1f51",
+        "duration_s": 2.74
+      },
       "en": {
         "path": "audio/bilingual/en/phrases/3083fb7f72a332a8.mp3",
         "sha256": "6090c6f311df651154aad0e116499d39fd003f8be14edbb9f7505471ae302e45",
@@ -2542,6 +2566,6 @@ window.APP360_CALM_BILINGUAL_AUDIO={
       "text_en": "I'll wait right here nearby. You don't need to talk now."
     }
   },
-  "complete": false,
+  "complete": true,
   "translation_review": "authored_English_scripts_pending_human_listening_review"
 };
