@@ -1,4 +1,4 @@
-name: Download Current SILMA MP3 Pack from Calm Preview
+name: Download Complete SILMA 74 MP3 Pack
 on:
   push:
     branches:
@@ -15,21 +15,40 @@ jobs:
         with:
           ref: feature/age1-4-silma-calm-serial-20261009
           fetch-depth: 1
-      - name: Verify at least 36 actual recorded files exist
+      - name: Install audio verification tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Strict verification of all 74 generated real MP3 files
         run: |
           python - <<'PY'
-          import json
+          import json, hashlib, subprocess
           from pathlib import Path
           root=Path("apps/1-4/calm-with-me")
-          items=json.loads((root/"audio/silma/manifest.json").read_text())["items"]
-          present=[x for x in items if (root/x["path"]).is_file() and (root/x["path"]).stat().st_size>1500]
-          print("Existing real SILMA audio files:",len(present))
-          assert len(present)>=36, "Cannot publish a pack with fewer than 36 real MP3 files"
+          manifest=json.loads((root/"audio/silma/manifest.json").read_text(encoding="utf-8"))
+          items=manifest["items"]
+          assert len(items)==74
+          assert len({x["event_id"] for x in items})==74
+          assert all(x["audio_generated"] for x in items)
+          assert all(x["sha256"] for x in items)
+          for item in items:
+            path=root/item["path"]
+            assert path.is_file(),item["path"]
+            assert path.stat().st_size>1500,item["path"]
+            assert hashlib.sha256(path.read_bytes()).hexdigest()==item["sha256"],item["path"]
+            p=subprocess.run(["ffprobe","-v","error","-select_streams","a:0","-show_entries","stream=codec_name,sample_rate,channels:format=duration","-of","json",str(path)],capture_output=True,text=True,check=True)
+            meta=json.loads(p.stdout)
+            assert meta["streams"][0]["codec_name"]=="mp3",item["path"]
+            assert int(meta["streams"][0]["sample_rate"])==24000,item["path"]
+            assert int(meta["streams"][0]["channels"])==1,item["path"]
+            assert 0.45<float(meta["format"]["duration"])<45,item["path"]
+          print("SUCCESS: verified 74 actual SILMA MP3 files, SHA256 and MP3 24kHz mono.")
           PY
-      - name: Make files available as one downloadable ZIP artifact
+      - name: Create downloadable ZIP package of exactly 74 MP3 files
         uses: actions/upload-artifact@v4
         with:
-          name: calm-with-me-silma-real-mp3-current-36-plus
-          path: apps/1-4/calm-with-me/audio/silma/
+          name: calm-with-me-SILMA-74-real-MP3-complete
+          path: |
+            apps/1-4/calm-with-me/audio/silma/**/*.mp3
+            apps/1-4/calm-with-me/audio/silma/manifest.json
+            apps/1-4/calm-with-me/audio/silma/preview-build-report.json
           if-no-files-found: error
           retention-days: 30
