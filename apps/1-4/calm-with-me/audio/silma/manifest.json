@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "app_id": "a1-calm",
-  "status": "36_OF_74_GENERATED_PREVIEW_ONLY_AWAITING_REVIEW",
+  "status": "64_OF_74_GENERATED_PREVIEW_ONLY_AWAITING_REVIEW",
   "synthesis": "silma-tts 1.0.5; authored Arabic tashkeel; offline build",
   "items": [
     {
@@ -34,7 +34,9 @@
       "item_id": "pick-me-up",
       "kind": "signals",
       "text": "اِحْمِلْنِي مِنْ فَضْلِكَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "db0b60654a391c3df1bcfd96331cc964ac8f00c7f4fe8d8bd6ecc4558ed4e4ae",
+      "duration_seconds": 1.54
     },
     {
       "path": "audio/silma/signals/need-space.mp3",
@@ -44,7 +46,9 @@
       "item_id": "need-space",
       "kind": "signals",
       "text": "أُرِيدُ بَعْضَ الْمَسَاحَةِ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "b508f8ae910d465365a14ddfacdcf5276b43047f591563ec06e0ab070f50dd82",
+      "duration_seconds": 1.78
     },
     {
       "path": "audio/silma/signals/pause-now.mp3",
@@ -54,7 +58,9 @@
       "item_id": "pause-now",
       "kind": "signals",
       "text": "تَوَقَّفْ قَلِيلًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "43988c6afd2a162e9e7d8c1212f589edfe08987b3cd34100e6272ad7edcfb228",
+      "duration_seconds": 1.46
     },
     {
       "path": "audio/silma/signals/all-done.mp3",
@@ -76,7 +82,9 @@
       "item_id": "no",
       "kind": "signals",
       "text": "لَا أُرِيدُ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "5b557c0f6bdbacdaa1cdac3af62d4be71775fafe4731c39d36b5c3651c22616f",
+      "duration_seconds": 1.15
     },
     {
       "path": "audio/silma/signals/water-now.mp3",
@@ -120,7 +128,9 @@
       "item_id": "quiet",
       "kind": "signals",
       "text": "أُرِيدُ مَكَانًا هَادِئًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "d4b7aca95ae07587c011bef61b9f48807443a8b2d9ff445ec4a605ea227ba2b6",
+      "duration_seconds": 1.75
     },
     {
       "path": "audio/silma/signals/move.mp3",
@@ -178,7 +188,9 @@
       "item_id": "try-myself",
       "kind": "signals",
       "text": "أُرِيدُ أَنْ أُجَرِّبَ بِنَفْسِي",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "967d10f6b6d1e6cbfd7d3168f08a38b7254efd2a1c6c3d3647955149b5b282a0",
+      "duration_seconds": 2.06
     },
     {
       "path": "audio/silma/signals/talk-later.mp3",
@@ -210,7 +222,9 @@
       "item_id": "no-label",
       "kind": "signals",
       "text": "لَا أُرِيدُ تَسْمِيَةَ الشُّعُورِ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "43d86172c36fc3bcc5ce2964308558bbba6c3ac57c1b5af424066c973897bd37",
+      "duration_seconds": 2.11
     },
     {
       "path": "audio/silma/feelings/happy.mp3",
@@ -220,7 +234,9 @@
       "item_id": "happy",
       "kind": "feelings",
       "text": "أَنَا سَعِيدٌ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "c366a87ec0e5f05e3244a9e049202a9856eb382e71bd25197754810a3399ee2f",
+      "duration_seconds": 1.15
     },
     {
       "path": "audio/silma/feelings/sad.mp3",
@@ -230,7 +246,9 @@
       "item_id": "sad",
       "kind": "feelings",
       "text": "أَنَا حَزِينٌ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "a38d1e5441d260a09c621dcb9ca3e8d5c4ee56d51b9b3b01d3aae236425ff9a8",
+      "duration_seconds": 1.15
     },
     {
       "path": "audio/silma/feelings/afraid.mp3",
@@ -252,7 +270,9 @@
       "item_id": "upset",
       "kind": "feelings",
       "text": "أَنَا مُنْزَعِجٌ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "5fe2ffe680ad90a155a0ee176855c055ca51261c43bafe50c5b3f58468a2e6bf",
+      "duration_seconds": 1.27
     },
     {
       "path": "audio/silma/feelings/angry.mp3",
@@ -296,7 +316,9 @@
       "item_id": "frustrated",
       "kind": "feelings",
       "text": "أَنَا مُحْبَطٌ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "18cde9113fa26ac20fd207289bc1028bf8994d3a6b46628c4e4024036f125883",
+      "duration_seconds": 1.15
     },
     {
       "path": "audio/silma/feelings/jealous.mp3",
@@ -354,7 +376,9 @@
       "item_id": "disappointed",
       "kind": "feelings",
       "text": "أَنَا حَزِينٌ لِأَنَّ مَا أَرَدْتُهُ لَمْ يَحْدُثْ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "3ad588b2620e079caa5fd7d9ce379dc8a87fd81aafcf45711387c9c97a649c27",
+      "duration_seconds": 3.34
     },
     {
       "path": "audio/silma/feelings/unsure.mp3",
@@ -386,7 +410,9 @@
       "item_id": "hold-if-wanted",
       "kind": "helps",
       "text": "إِذَا أَرَدْتَ، يُمْكِنُنِي أَنْ أَحْمِلَكَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "2afe34d89a6144df10a3e319cf8812588dce60ffb7cb41c911613b006ad7d3bd",
+      "duration_seconds": 2.83
     },
     {
       "path": "audio/silma/helps/comfort-touch.mp3",
@@ -396,7 +422,9 @@
       "item_id": "comfort-touch",
       "kind": "helps",
       "text": "إِذَا أَرَدْتَ حُضْنًا، أَنَا هُنَا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "921ff4fc31e4900c8df960d6974052b7d67ac44a8e620b88c7f30a8b22a21aac",
+      "duration_seconds": 2.42
     },
     {
       "path": "audio/silma/helps/space.mp3",
@@ -406,7 +434,9 @@
       "item_id": "space",
       "kind": "helps",
       "text": "سَأُعْطِيكَ مَسَاحَةً، وَأَبْقَى قَرِيبًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "9903167d85f91f44cee790aaf97a6795c71d3528dd11f78ea3b238527f24cd99",
+      "duration_seconds": 2.88
     },
     {
       "path": "audio/silma/helps/quiet-place.mp3",
@@ -428,7 +458,9 @@
       "item_id": "reduce-noise",
       "kind": "helps",
       "text": "سَنُخَفِّفُ الصَّوْتَ وَالضَّوْءَ قَلِيلًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "ebe4b271f2cff09720b380bba1a16571f62248ff2f9b4c3280149967b7cf47a8",
+      "duration_seconds": 2.83
     },
     {
       "path": "audio/silma/helps/familiar-object.mp3",
@@ -472,7 +504,9 @@
       "item_id": "body-check",
       "kind": "helps",
       "text": "سَنَرَى أَوَّلًا مَاذَا يَحْتَاجُ جِسْمُكَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "edb8a8c1f6ac74f4c157198a676e050a3db457ca300847f35b6e1acb2de59398",
+      "duration_seconds": 2.83
     },
     {
       "path": "audio/silma/helps/show-next.mp3",
@@ -530,7 +564,9 @@
       "item_id": "one-choice",
       "kind": "helps",
       "text": "سَنَخْتَارُ شَيْئًا وَاحِدًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "cc92c7b0cd098d63667ac189f99afb3cda30b1930aac95b5cbfd7d8c9d90a6c6",
+      "duration_seconds": 1.94
     },
     {
       "path": "audio/silma/helps/model-words.mp3",
@@ -562,7 +598,9 @@
       "item_id": "draw-feeling",
       "kind": "helps",
       "text": "يُمْكِنُنَا أَنْ نَرْسُمَ مَا حَدَثَ مَعًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "911c11d1431e8d6be87680a51cab068db6441cd21bb0026bff5d7f8be3d68081",
+      "duration_seconds": 2.74
     },
     {
       "path": "audio/silma/helps/role-play.mp3",
@@ -572,7 +610,9 @@
       "item_id": "role-play",
       "kind": "helps",
       "text": "لِنُمَثِّلِ الْمَوْقِفَ بِالدُّمَى",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "5e5aabf32ea27a22a74686977380906d85f9e31839f3cb66691c8f63779bb2ce",
+      "duration_seconds": 2.18
     },
     {
       "path": "audio/silma/helps/short-story.mp3",
@@ -582,7 +622,9 @@
       "item_id": "short-story",
       "kind": "helps",
       "text": "سَنَحْكِي مَا حَدَثَ فِي جُمْلَتَيْنِ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "e92d6a9c21aca8c0ae9187c2e9ddeb6ccd0aad55c67a477991ca48e3760b520a",
+      "duration_seconds": 2.42
     },
     {
       "path": "audio/silma/helps/wall-push.mp3",
@@ -604,7 +646,9 @@
       "item_id": "pillow-push",
       "kind": "helps",
       "text": "مَعَ الْمُرَافِقِ، اِدْفَعْ وِسَادَةً كَبِيرَةً",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "5c67090cd7060b585a8dc9cddcb2f0a981d20b1b0fb465ef74057ff9e0fcea37",
+      "duration_seconds": 3.31
     },
     {
       "path": "audio/silma/helps/heavy-walk.mp3",
@@ -648,7 +692,9 @@
       "item_id": "check-reality",
       "kind": "helps",
       "text": "هَلْ حَدَثَ هَذَا الْآنَ، أَمْ هِيَ فِكْرَةٌ أَخَافَتْكَ؟",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "4ae90e32fbd0734bd785a06094c0f6c2056584c83e53e65d5821be38ab9fc877",
+      "duration_seconds": 3.84
     },
     {
       "path": "audio/silma/helps/two-solutions-help.mp3",
@@ -706,7 +752,9 @@
       "item_id": "water",
       "kind": "transitions",
       "text": "نَشْرَبُ مَاءً",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "95c279f22600fbd914787ea5038a4410905ccc17f125866cd072e7fb81f9906d",
+      "duration_seconds": 1.15
     },
     {
       "path": "audio/silma/transitions/shoe.mp3",
@@ -738,7 +786,9 @@
       "item_id": "cup",
       "kind": "transitions",
       "text": "نَسْتَخْدِمُ الْكُوبَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "d6a3b0e61a928afbf91aacc2c04d056736c6ee94411832d5f45361601875a87d",
+      "duration_seconds": 1.63
     },
     {
       "path": "audio/silma/transitions/leave.mp3",
@@ -748,7 +798,9 @@
       "item_id": "leave",
       "kind": "transitions",
       "text": "نَنْتَقِلُ إِلَى الْمَكَانِ التَّالِي مَعًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "cb29f18e7e0bea8684e3f52ea59719ce05d3762861c5987cb9f11a0299ee184e",
+      "duration_seconds": 2.78
     },
     {
       "path": "audio/silma/transitions/wait.mp3",
@@ -758,7 +810,9 @@
       "item_id": "wait",
       "kind": "transitions",
       "text": "نَنْتَظِرُ قَلِيلًا مَعًا",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "3da903a1ef2d3ddbf7d91296d3ff84f8f8c541fb306cf5bd78f12d637ac978ae",
+      "duration_seconds": 1.78
     },
     {
       "path": "audio/silma/transitions/app-first-words.mp3",
@@ -780,7 +834,9 @@
       "item_id": "app-imitate",
       "kind": "transitions",
       "text": "نَفْتَحُ تَطْبِيقَ دَوْرِي وَدَوْرَكَ",
-      "audio_generated": false
+      "audio_generated": true,
+      "sha256": "5e37b3b0c3bbd3b9046b6568ee1b2b9948d7131b1fa2dfd69933c3382bf5d460",
+      "duration_seconds": 2.45
     },
     {
       "path": "audio/silma/transitions/app-screen-move.mp3",
