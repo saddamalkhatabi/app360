@@ -1,0 +1,48 @@
+'use strict';
+/* Reusable check for child-first prerecorded intro in the original app, no testing branch. */
+var assert=require('assert'),fs=require('fs'),path=require('path'),crypto=require('crypto'),vm=require('vm');
+var root=path.resolve(__dirname,'../apps/1-4/calm-with-me'),read=function(p){return fs.readFileSync(path.join(root,p),'utf8')};
+var spec=JSON.parse(read('audio/intro/scripts.json'));
+var recorded=JSON.parse(read('audio/intro/recordings.json'));
+assert.equal(spec.items.length,2);
+assert.equal(recorded.status,'recorded_complete');
+var langs=['ar','en'];
+langs.forEach(function(lang){
+ var row=recorded.items[lang];
+ assert(row,'Intro recording missing for '+lang);
+ assert.equal(row.path,'audio/intro/intro-'+lang+'.mp3');
+ var bytes=fs.readFileSync(path.join(root,row.path));
+ assert(bytes.length>1500,'Empty MP3 '+lang);
+ assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),row.sha256);
+ assert(row.duration_s>3&&row.duration_s<55,'Suspicious audio length '+lang);
+});
+var html=read('index.html'),css=read('calm-child-welcome-v1.css'),js=read('calm-child-welcome-v1.js');
+['calmChildWelcome','calmPlayWelcomeBtn','calmQuickFeelings','calmWelcomeStatus'].forEach(function(id){assert(html.indexOf('id="'+id+'"')>=0,id)});
+assert(html.indexOf('calm-child-welcome-v1.js')>=0&&html.indexOf('calm-child-welcome-v1.css')>=0);
+['happy','sad','afraid'].forEach(function(id){assert(html.indexOf('data-intro-feeling="'+id+'"')>=0,id)});
+assert(css.indexOf('min-height:62px')>=0,'Child-friendly large voice button required');
+assert(!/\bconst\b|\blet\b|=>|speechSynthesis|SpeechSynthesisUtterance/.test(js),'Welcome must support legacy devices and prerecorded MP3 only');
+new Function(js);
+var arClicks=0,seen=[],lang='ar',timer=null;
+function element(id){return {id:id,textContent:'',attrs:{},setAttribute:function(k,v){this.attrs[k]=v;},getElementsByTagName:function(){return []}}}
+var ids={calmPlayWelcomeBtn:element('calmPlayWelcomeBtn'),calmWelcomeTitle:element('calmWelcomeTitle'),calmWelcomeDescription:element('calmWelcomeDescription'),calmWelcomeStatus:element('calmWelcomeStatus'),calmChildWelcome:element('calmChildWelcome'),speechToggle:{checked:true}};
+var quick=['happy','sad','afraid'].map(function(id){return {attrs:{'data-intro-feeling':id},getAttribute:function(k){return this.attrs[k]},setAttribute:function(k,v){this.attrs[k]=v;},getElementsByTagName:function(){return [{textContent:''}]}}});
+ids.calmQuickFeelings={setAttribute:function(){},getElementsByTagName:function(){return quick}};
+var real={getAttribute:function(){return 'happy'},click:function(){arClicks++}};
+ids.feelingCards={getElementsByTagName:function(){return [real]}};
+var doc={readyState:'complete',hidden:false,getElementById:function(id){return ids[id]||null},addEventListener:function(){}};
+var win={APP360CalmVoice:{getLanguage:function(){return lang},stop:function(){}},APP360CalmNarration:{stop:function(){}},APP360_CALM_CONTENT:{feelings:[]},Audio:function(src){this.src=src;this.paused=true;this.play=function(){this.paused=false;seen.push(src);return {then:function(ok){ok()}}};this.pause=function(){this.paused=true}}};
+vm.runInNewContext(js,{window:win,document:doc,setTimeout:function(f){timer=f;}},{timeout:1500});
+assert.equal(typeof ids.calmPlayWelcomeBtn.onclick,'function');
+ids.calmPlayWelcomeBtn.onclick();
+assert.equal(seen[0],'audio/intro/intro-ar.mp3');
+quick[0].onclick();
+assert.equal(arClicks,1,'Tapping a feeling must activate the existing app card');
+lang='en';win.APP360CalmIntro.onLanguageChange();
+ids.calmPlayWelcomeBtn.onclick();
+assert.equal(seen[seen.length-1],'audio/intro/intro-en.mp3');
+assert(ids.calmWelcomeTitle.textContent.indexOf('Hello')>=0);
+var offline=JSON.parse(fs.readFileSync(path.resolve(root,'../../../data/offline/a1-calm.json'),'utf8'));
+var mp3=offline.files.filter(function(x){return /^apps\/1-4\/calm-with-me\/audio\//.test(x.path)&&/\.mp3$/.test(x.path)});
+assert.equal(mp3.length,368,'Offline package must include original 366 + two intro MP3');
+console.log('PASS: 368 offline MP3, child intro audio AR/EN, 3 useful quick feelings, accessible replay, legacy JS.');

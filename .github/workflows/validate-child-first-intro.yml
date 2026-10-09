@@ -1,0 +1,41 @@
+name: Verify and Index Child-First Intro Audio
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/1-4/calm-with-me/audio/intro/recordings.json
+permissions:
+  contents: write
+jobs:
+  check-and-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Refresh official offline cache to include recorded intro MP3
+        run: node tooling/build-offline-catalog.js
+      - name: Validate child-friendly app and actual intro playback contract
+        run: |
+          npm --prefix apps/1-4/calm-with-me run validate
+          node tooling/validate-child-first-intro.cjs
+          node --check apps/1-4/calm-with-me/calm-child-welcome-v1.js
+          node --check apps/1-4/calm-with-me/calm-bilingual-voice-v1.js
+          node --check apps/1-4/calm-with-me/calm-silma-controller-serial-v1.js
+      - name: Commit official offline cache catalog to main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline/a1-calm.json data/offline-catalog.json
+          if git diff --cached --quiet; then
+            echo 'Offline catalog is current.'
+            exit 0
+          fi
+          git commit -m "Cache new spoken welcome clips for offline child-first exploration"
+          git pull --rebase origin main
+          git push origin HEAD:main
