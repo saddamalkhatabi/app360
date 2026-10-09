@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     env:
-      HF_HOME: ${{ runner.temp }}/silma-hf
+      HF_HOME: /tmp/silma-hf
       HF_HUB_DISABLE_TELEMETRY: "1"
       DO_NOT_TRACK: "1"
       PYTHONUNBUFFERED: "1"
