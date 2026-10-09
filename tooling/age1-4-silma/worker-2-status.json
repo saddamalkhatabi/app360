@@ -1,17 +1,25 @@
 {
   "worker": 2,
   "branch": "feature/age1-4-silma-worker-2-20261009",
+  "date": "2026-10-09",
   "clips_drafted": {
     "screen": 289,
     "imitate": 302,
     "routine": 80,
     "tangram": 207,
-    "basket": 3
+    "basket": 103
   },
+  "total_drafted": 981,
   "steps_drafted": 530,
+  "fully_vowelized_basket_prompts": 103,
   "silma_mp3_generated": 0,
+  "verified_audio_ready": 0,
+  "adapters_staged_not_loaded_in_original_html": true,
+  "structural_validation": "PASS: 981 unique clip paths across five apps",
+  "js_syntax_checks": "PASS: 4 files",
+  "adapter_simulation": "PASS: tangram and basket mocked audio; no browser test",
   "browser_tests": false,
+  "offline_audio_tests": false,
   "production_changed": false,
-  "blocker": "No SILMA model weights or silma_tts package in current runtime; narration requires diacritics review.",
-  "note": "Basket catalog generator can add 94 word-action scripts."
+  "blocker": "silma_tts package and local SILMA model weights are unavailable; real MP3, audible quality and browser testing pending"
 }
