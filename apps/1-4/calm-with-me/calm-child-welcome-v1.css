@@ -1,0 +1,15 @@
+/* Child-first voice welcome. ES5-compatible layout, no grid, works on older tablets. */
+.calm-child-welcome{box-sizing:border-box;max-width:1100px;margin:12px auto 18px;padding:16px 14px;background:#edf9f7;border:3px solid #178c83;border-radius:18px;box-shadow:0 3px 12px rgba(0,67,62,.12);text-align:center;color:#153b38}
+.calm-welcome-face{font-size:2.1rem;line-height:1.3;letter-spacing:.08em}
+.calm-welcome-copy h2{font-size:1.4rem;line-height:1.35;margin:8px 0;color:#13544d}
+.calm-welcome-copy p{font-size:1.05rem;line-height:1.55;margin:5px auto 12px;max-width:650px}
+.calm-quick-feelings{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:12px;margin:8px auto 16px}
+.calm-quick-feelings button{border:2px solid #147b75;background:#fff;color:#173d3a;min-width:88px;min-height:90px;border-radius:15px;padding:8px 14px;box-shadow:0 3px 0 #c4e5e0;cursor:pointer;touch-action:manipulation}
+.calm-quick-feelings button span{display:block;font-size:2.2rem;line-height:1.25}
+.calm-quick-feelings button b{display:block;font-size:1rem;margin-top:3px}
+.calm-quick-feelings button:focus,.calm-welcome-play:focus{outline:4px solid #f4ac24;outline-offset:3px}
+.calm-quick-feelings button:active{background:#d5f7e9}
+.calm-welcome-play{display:block;width:100%;max-width:370px;min-height:62px;margin:0 auto;padding:12px 16px;border:0;border-radius:14px;background:#087a71;color:#fff;font-family:inherit;font-size:1.19rem;font-weight:bold;line-height:1.4;cursor:pointer;touch-action:manipulation}
+.calm-welcome-play:disabled{opacity:.65}
+.calm-welcome-status{margin:10px 2px 0;font-size:.94rem;line-height:1.4;color:#37615c;min-height:1.4em}
+@media(max-width:480px){.calm-child-welcome{margin:8px 7px 16px;padding:12px 8px}.calm-quick-feelings{gap:7px}.calm-quick-feelings button{min-width:78px;min-height:84px;padding:6px 9px}.calm-welcome-copy h2{font-size:1.19rem}.calm-welcome-play{font-size:1.09rem}}

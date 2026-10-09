@@ -57,6 +57,7 @@ function change(){
  if(w.APP360CalmNarration&&w.APP360CalmNarration.stop)w.APP360CalmNarration.stop();
  stop();
  render();
+ if(w.APP360CalmIntro&&w.APP360CalmIntro.onLanguageChange)w.APP360CalmIntro.onLanguageChange();
 }
 function render(){
  if(button){

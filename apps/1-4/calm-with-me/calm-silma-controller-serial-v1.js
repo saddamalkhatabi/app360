@@ -33,6 +33,7 @@ function stop(){
  generation++;clearFocus();
  if(current){try{current.onended=null;current.onerror=null;current.pause()}catch(e){}current=null}
  if(w.APP360CalmVoice&&w.APP360CalmVoice.stop)w.APP360CalmVoice.stop();
+ if(w.APP360CalmIntro&&w.APP360CalmIntro.stop)w.APP360CalmIntro.stop();
 }
 function play(item,report){
  stop();if(!item)return false;
