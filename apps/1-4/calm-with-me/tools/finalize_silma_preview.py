@@ -4,6 +4,7 @@
 Technical verification is not a listening review or user approval. The original
 app and all production branches are intentionally left unchanged.
 """
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -33,6 +34,10 @@ def probe(path):
 
 
 def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--allow-partial", action="store_true",
+                   help="Create a preview map for available files only; never label complete")
+    args = p.parse_args()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     clips = {}
     ids = set()
@@ -62,10 +67,12 @@ def main():
             "kind": item["kind"],
             "event_id": event
         }
-    if missing:
+    if missing and not args.allow_partial:
         raise SystemExit("Missing " + str(len(missing)) + " clips: " + ", ".join(missing[:8]))
-    assert len(ids) == len(clips) == 74, "Audio coverage incomplete"
-    manifest["status"] = "74_GENERATED_PREVIEW_ONLY_AWAITING_LISTENING_AND_USER_APPROVAL"
+    assert len(ids) == 74, "Source event manifest incomplete"
+    if not args.allow_partial:
+        assert len(clips) == 74, "Audio coverage incomplete"
+    manifest["status"] = str(len(clips)) + "_OF_74_GENERATED_PREVIEW_ONLY_AWAITING_REVIEW"
     INDEX.write_text(
         "/* Preview-only: technically validated MP3; NOT listened/reviewed. */\n"
         "window.APP360_CALM_SILMA_INDEX = "
@@ -75,14 +82,16 @@ def main():
     REPORT.write_text(json.dumps({
         "engine": "SILMA TTS 1.0.5",
         "clips": len(clips),
-        "files_exist": True,
-        "mp3_technically_decodable": True,
+        "expected_clips": 74,
+        "missing_clips": missing,
+        "files_exist": not bool(missing),
+        "mp3_technically_decodable": not bool(missing),
         "human_listening_review": False,
         "user_approved": False,
         "production_ready": False,
         "notes": "Preview branch only. No published production code updated."
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("SILMA preview generated", len(clips), "technically checked clips.")
+    print("SILMA preview generated", len(clips), "of 74 technically checked clips.")
 
 
 if __name__ == "__main__":
