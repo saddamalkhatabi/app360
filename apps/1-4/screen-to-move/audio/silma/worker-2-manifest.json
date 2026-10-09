@@ -1,0 +1,2842 @@
+{
+  "schema_version": 1,
+  "worker": 2,
+  "app": "screen-to-move",
+  "stage": "narration-script-draft",
+  "synthesis": "NOT_GENERATED",
+  "diacritics": "REQUIRES_EDITORIAL_TASHKEEL_BEFORE_SILMA",
+  "language": "ar",
+  "engine": "silma-tts-1.0.5",
+  "source_branch": "family-school-360-preview",
+  "source_sha": {
+    "screen.games-data": "955b498179dc4cdbe4f6a5f027c9646e0890200b",
+    "screen.games-data-v12": "aa51397054c43e531cd653847b48c307abd347d8",
+    "imitate.experiences": "534e0411c46bfc4866ca82206f121cae13e4b6c1",
+    "routine.storyboard-v6": "4032a6b037059edb681ef3abea150938d298d5f3",
+    "routine.storyboard-v7": "0afd4e6a805bffb03026fcdcdd4af5b299a9ecc4"
+  },
+  "description": "Scripts for worker-2 allocated items only; MP3 files are not present until synthesis succeeds.",
+  "counts": {
+    "experiences": 43,
+    "clips": 289,
+    "steps": 215,
+    "questions": 8,
+    "options": 21
+  },
+  "items": [
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G02/intro.mp3",
+      "text": "هيا نلعب لعبة من يشبه من؟ حيوانات.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G02/step-1.mp3",
+      "text": "انظر إلى الحيوان",
+      "language": "ar",
+      "engine": "silma",
+      "source": "انظر إلى الحيوان",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G02/step-2.mp3",
+      "text": "ابحث عن صورته نفسها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن صورته نفسها",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G02/step-3.mp3",
+      "text": "قرّب البطاقتين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قرّب البطاقتين",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G02/step-4.mp3",
+      "text": "جرّب زوجًا آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جرّب زوجًا آخر",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G02/step-5.mp3",
+      "text": "ضع البطاقات جانبًا والعب بها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع البطاقات جانبًا والعب بها",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G06/intro.mp3",
+      "text": "هيا نلعب لعبة الحيوان وطعامه.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G06/step-1.mp3",
+      "text": "ضع الحيوانات في صف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الحيوانات في صف",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G06/step-2.mp3",
+      "text": "ضع الطعام في صف آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الطعام في صف آخر",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G06/step-3.mp3",
+      "text": "صل أول زوج",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل أول زوج",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G06/step-4.mp3",
+      "text": "اختر زوجًا من الصور، وقرّبهما من بعضهما.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يختار زوجًا",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G06/step-5.mp3",
+      "text": "إذا أردت اللعب بأشياء حقيقية، اطلب مساعدة شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "استخدم لعبًا حقيقية إن وجدت",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G10/intro.mp3",
+      "text": "هيا نلعب لعبة أكمل نصف الشكل.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G10/step-1.mp3",
+      "text": "شاهد نصف الشكل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد نصف الشكل",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G10/step-2.mp3",
+      "text": "مرر إصبعك على الحافة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مرر إصبعك على الحافة",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G10/step-3.mp3",
+      "text": "أكمل النصف بالقلم",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل النصف بالقلم",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G10/step-4.mp3",
+      "text": "لوّن الداخل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "لوّن الداخل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G10/step-5.mp3",
+      "text": "ارسم شكلًا حرًا بجانبه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ارسم شكلًا حرًا بجانبه",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G14/intro.mp3",
+      "text": "هيا نلعب لعبة رتّب قصة الخروج.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G14/step-1.mp3",
+      "text": "شاهد الصور الأربع",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الصور الأربع",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G14/step-2.mp3",
+      "text": "ما الصورة الأولى؟",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ما الصورة الأولى؟",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G14/step-3.mp3",
+      "text": "ضع التالية بجانبها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع التالية بجانبها",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G14/step-4.mp3",
+      "text": "أكمل الصف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل الصف",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G14/step-5.mp3",
+      "text": "إذا كان المكان آمنًا، مثّل الخطوات مع شخص كبير.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل الخطوات بالحركة إن أمكن",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G18/intro.mp3",
+      "text": "هيا نلعب لعبة من أخذ الموزة؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G18/step-1.mp3",
+      "text": "ضع صورتي الحيوانين أمامك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الحيوانين",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G18/step-2.mp3",
+      "text": "ضع الطعام بجانب أحدهما",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الطعام بجانب أحدهما",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G18/step-3.mp3",
+      "text": "استمع إلى السؤال، ثم فكّر في إجابتك.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اسأل سؤالًا واحدًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G18/step-4.mp3",
+      "text": "أشر إلى الصورة التي اخترتها.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دع الطفل يشير",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G18/step-5.mp3",
+      "text": "بدّل أماكن الصور، ثم جرّب مرة أخرى.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "بدّل الأماكن وكرر",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G18/question.mp3",
+      "text": "الموزة بجانب من؟",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G18/choice-1.mp3",
+      "text": "الأرنب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐰",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G18/choice-2.mp3",
+      "text": "القرد",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐵",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G18/choice-3.mp3",
+      "text": "السمكة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐟",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G22/intro.mp3",
+      "text": "هيا نلعب لعبة أين القطة؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G22/step-1.mp3",
+      "text": "شاهد القطة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد القطة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G22/step-2.mp3",
+      "text": "شاهد حيوانين آخرين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد حيوانين آخرين",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G22/step-3.mp3",
+      "text": "المس القطة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "المس القطة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G22/step-4.mp3",
+      "text": "قلّد صوتها أو أشر إليها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قلّد صوتها أو أشر إليها",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G22/step-5.mp3",
+      "text": "ابحث عن قطة في كتاب أو لعبة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن قطة في كتاب أو لعبة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G22/question.mp3",
+      "text": "أين القطة؟",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G22/choice-1.mp3",
+      "text": "الكلب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐶",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G22/choice-2.mp3",
+      "text": "الأرنب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐰",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G22/choice-3.mp3",
+      "text": "القطة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🐱",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G26/intro.mp3",
+      "text": "هيا نلعب لعبة فاكهتان متشابهتان.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G26/step-1.mp3",
+      "text": "اختر فاكهة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر فاكهة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G26/step-2.mp3",
+      "text": "ابحث عن صورتها نفسها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن صورتها نفسها",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G26/step-3.mp3",
+      "text": "ضعهما جنبًا إلى جنب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضعهما جنبًا إلى جنب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G26/step-4.mp3",
+      "text": "اختر زوجًا آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر زوجًا آخر",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G26/step-5.mp3",
+      "text": "سمِّ الفاكهة أو أشر إليها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "سمِّ الفاكهة أو أشر إليها",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G30/intro.mp3",
+      "text": "هيا نلعب لعبة شمس من ثلاث نقاط.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G30/step-1.mp3",
+      "text": "ابدأ من النقطة الكبيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابدأ من النقطة الكبيرة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G30/step-2.mp3",
+      "text": "صل إلى الثانية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل إلى الثانية",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G30/step-3.mp3",
+      "text": "صل إلى الثالثة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل إلى الثالثة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G30/step-4.mp3",
+      "text": "شاهد الشكل البسيط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الشكل البسيط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G30/step-5.mp3",
+      "text": "لوّن حوله بحرية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "لوّن حوله بحرية",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G34/intro.mp3",
+      "text": "هيا نلعب لعبة ماذا نلبس؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G34/step-1.mp3",
+      "text": "شاهد حالة الطقس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد حالة الطقس",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G34/step-2.mp3",
+      "text": "شاهد الملابس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الملابس",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G34/step-3.mp3",
+      "text": "صل زوجًا مناسبًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل زوجًا مناسبًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G34/step-4.mp3",
+      "text": "جرّب طقسًا آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جرّب طقسًا آخر",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G34/step-5.mp3",
+      "text": "مع شخص كبير، اختر قطعة حقيقية مناسبة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر قطعة حقيقية مناسبة",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G38/intro.mp3",
+      "text": "هيا نلعب لعبة النحلة إلى الزهرة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G38/step-1.mp3",
+      "text": "ابدأ من النحلة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابدأ من النحلة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G38/step-2.mp3",
+      "text": "اتبع أول منعطف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اتبع أول منعطف",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G38/step-3.mp3",
+      "text": "مر قرب الورقة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مر قرب الورقة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G38/step-4.mp3",
+      "text": "اقترب من الزهرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اقترب من الزهرة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G38/step-5.mp3",
+      "text": "صل إلى الزهرة ثم توقف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل إلى الزهرة ثم توقف",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G42/intro.mp3",
+      "text": "هيا نلعب لعبة كم تفاحة؟.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G42/step-1.mp3",
+      "text": "ضع تفاحة واحدة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع تفاحة واحدة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G42/step-2.mp3",
+      "text": "أضف الثانية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف الثانية",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G42/step-3.mp3",
+      "text": "أضف الثالثة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف الثالثة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G42/step-4.mp3",
+      "text": "عدّ بالإشارة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "عدّ بالإشارة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G42/step-5.mp3",
+      "text": "اختر الرقم 3",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر الرقم 3",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G42/question.mp3",
+      "text": "هناك ثلاث تفاحات. أي رقم يطابق العدد؟",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G42/choice-1.mp3",
+      "text": "واحد",
+      "language": "ar",
+      "engine": "silma",
+      "source": "1",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G42/choice-2.mp3",
+      "text": "اثنان",
+      "language": "ar",
+      "engine": "silma",
+      "source": "2",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G42/choice-3.mp3",
+      "text": "ثلاثة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "3",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G46/intro.mp3",
+      "text": "هيا نلعب لعبة سلة الفطور.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G46/step-1.mp3",
+      "text": "شاهد سلة الفطور",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد سلة الفطور",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G46/step-2.mp3",
+      "text": "ضع الحليب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الحليب",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G46/step-3.mp3",
+      "text": "أضف الخبز أو الفاكهة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف الخبز أو الفاكهة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G46/step-4.mp3",
+      "text": "ضع الحلوى في الجهة الأخرى",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الحلوى في الجهة الأخرى",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G46/step-5.mp3",
+      "text": "كوّن فطورًا تمثيليًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "كوّن فطورًا تمثيليًا",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G50/intro.mp3",
+      "text": "هيا نلعب لعبة من بذرة إلى نبتة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G50/step-1.mp3",
+      "text": "ابدأ بالبذرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابدأ بالبذرة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G50/step-2.mp3",
+      "text": "مع شخص كبير، أضف الماء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف الماء",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G50/step-3.mp3",
+      "text": "شاهد البادرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد البادرة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G50/step-4.mp3",
+      "text": "شاهد النبتة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد النبتة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G50/step-5.mp3",
+      "text": "رتب الصور من البداية للنهاية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "رتب الصور من البداية للنهاية",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G54/intro.mp3",
+      "text": "هيا نلعب لعبة العضو وما نفعله به.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G54/step-1.mp3",
+      "text": "شاهد العضو",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد العضو",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G54/step-2.mp3",
+      "text": "فكر ماذا نفعل به",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكر ماذا نفعل به",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G54/step-3.mp3",
+      "text": "صل مثالًا واحدًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "صل مثالًا واحدًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G54/step-4.mp3",
+      "text": "جرّب عضوًا آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "جرّب عضوًا آخر",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G54/step-5.mp3",
+      "text": "مع شخص كبير، مثّل الفعل بالحركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل الفعل بالحركة",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G58/intro.mp3",
+      "text": "هيا نلعب لعبة أكمل بيتًا بسيطًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G58/step-1.mp3",
+      "text": "شاهد مربع البيت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد مربع البيت",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G58/step-2.mp3",
+      "text": "أضف السقف",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف السقف",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G58/step-3.mp3",
+      "text": "أضف بابًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف بابًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G58/step-4.mp3",
+      "text": "أضف نافذة أو شمسًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أضف نافذة أو شمسًا",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G58/step-5.mp3",
+      "text": "ارسم شيئًا تحبه بجانب البيت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ارسم شيئًا تحبه بجانب البيت",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G62/intro.mp3",
+      "text": "هيا نلعب لعبة لون وشكل معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G62/step-1.mp3",
+      "text": "تذكر اللون أولًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تذكر اللون أولًا",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G62/step-2.mp3",
+      "text": "تذكر الشكل ثانيًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تذكر الشكل ثانيًا",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G62/step-3.mp3",
+      "text": "ضع مثالًا لكل منطقة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع مثالًا لكل منطقة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G62/step-4.mp3",
+      "text": "افرز قطعة بنفسك",
+      "language": "ar",
+      "engine": "silma",
+      "source": "افرز قطعة بنفسك",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G62/step-5.mp3",
+      "text": "اشرح القاعدة للمرافق بطريقتك",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اشرح القاعدة للمرافق بطريقتك",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G66/intro.mp3",
+      "text": "هيا نلعب لعبة رتّب يومًا قصيرًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G66/step-1.mp3",
+      "text": "ابدأ بالصباح",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابدأ بالصباح",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G66/step-2.mp3",
+      "text": "ضع حدثًا بعده",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع حدثًا بعده",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G66/step-3.mp3",
+      "text": "ضع وقت اللعب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع وقت اللعب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G66/step-4.mp3",
+      "text": "اختم بالليل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختم بالليل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G66/step-5.mp3",
+      "text": "غيّر حدثًا وناقش مكانه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غيّر حدثًا وناقش مكانه",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G70/intro.mp3",
+      "text": "هيا نلعب لعبة أكمل النصف الآخر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G70/step-1.mp3",
+      "text": "شاهد نصف الشكل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد نصف الشكل",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G70/step-2.mp3",
+      "text": "تخيل النصف المقابل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تخيل النصف المقابل",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G70/step-3.mp3",
+      "text": "ارسم امتدادًا مشابهًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ارسم امتدادًا مشابهًا",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G70/step-4.mp3",
+      "text": "قارن الجانبين دون حكم على الدقة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قارن الجانبين دون حكم على الدقة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G70/step-5.mp3",
+      "text": "اصنع شكلًا متناظرًا للمرافق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اصنع شكلًا متناظرًا للمرافق",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G74/intro.mp3",
+      "text": "هيا نلعب لعبة ضع صح على الفاكهة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G74/step-1.mp3",
+      "text": "شاهد الطعام والأشياء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الطعام والأشياء",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G74/step-2.mp3",
+      "text": "ابحث عن الفاكهة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن الفاكهة",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G74/step-3.mp3",
+      "text": "ضع صح على الفواكه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع صح على الفواكه",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G74/step-4.mp3",
+      "text": "سمِّ أو أشر إلى واحدة منها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "سمِّ أو أشر إلى واحدة منها",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G74/step-5.mp3",
+      "text": "كرر على الورقة المطبوعة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "كرر على الورقة المطبوعة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G74/question.mp3",
+      "text": "ضع علامة ✓ على كل فاكهة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G78/intro.mp3",
+      "text": "هيا نلعب لعبة ضع صح على الأشياء الصفراء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G78/step-1.mp3",
+      "text": "شاهد اللون الأصفر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد اللون الأصفر",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G78/step-2.mp3",
+      "text": "ابحث عنه داخل الصور",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عنه داخل الصور",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G78/step-3.mp3",
+      "text": "ضع صح على الأصفر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع صح على الأصفر",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G78/step-4.mp3",
+      "text": "قارن مع لون آخر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قارن مع لون آخر",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G78/step-5.mp3",
+      "text": "مع شخص كبير، ابحث عن شيء أصفر حقيقي.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن شيء أصفر حقيقي",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G78/question.mp3",
+      "text": "ضع علامة ✓ على الأشياء الصفراء غالبًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G82/intro.mp3",
+      "text": "هيا نلعب لعبة ضع صح على ما له عجلات.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G82/step-1.mp3",
+      "text": "شاهد الأشياء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الأشياء",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G82/step-2.mp3",
+      "text": "ابحث عن العجلات",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن العجلات",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G82/step-3.mp3",
+      "text": "ضع صح على ما له عجلات",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع صح على ما له عجلات",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G82/step-4.mp3",
+      "text": "فسر اختيارًا واحدًا للمرافق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فسر اختيارًا واحدًا للمرافق",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G82/step-5.mp3",
+      "text": "دحرج لعبة ذات عجلات إن وجدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "دحرج لعبة ذات عجلات إن وجدت",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G82/question.mp3",
+      "text": "ضع علامة ✓ على الأشياء التي لها عجلات واضحة للاستخدام",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G86/intro.mp3",
+      "text": "هيا نلعب لعبة ضع صح على الكائنات الحية.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G86/step-1.mp3",
+      "text": "شاهد أشياء وكائنات كثيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد أشياء وكائنات كثيرة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G86/step-2.mp3",
+      "text": "فكر ما الذي ينمو أو يعيش",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكر ما الذي ينمو أو يعيش",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G86/step-3.mp3",
+      "text": "ضع صح على الكائن الحي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع صح على الكائن الحي",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G86/step-4.mp3",
+      "text": "راجع سبب اختيارين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "راجع سبب اختيارين",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G86/step-5.mp3",
+      "text": "ابحث عن مثال حي حولك",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن مثال حي حولك",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G86/question.mp3",
+      "text": "ضع علامة ✓ على كل كائن حي",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G90/intro.mp3",
+      "text": "هيا نلعب لعبة ضع صح على الأزرق المثلث معًا.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G90/step-1.mp3",
+      "text": "تذكر اللون المطلوب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تذكر اللون المطلوب",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G90/step-2.mp3",
+      "text": "تذكر الشكل المطلوب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تذكر الشكل المطلوب",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G90/step-3.mp3",
+      "text": "افحص كل خيار بقاعدتين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "افحص كل خيار بقاعدتين",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G90/step-4.mp3",
+      "text": "ضع الصح على الأزرق المثلث فقط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الصح على الأزرق المثلث فقط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G90/step-5.mp3",
+      "text": "بدّل اللون أو الشكل واصنع تحديًا جديدًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "بدّل اللون أو الشكل واصنع تحديًا جديدًا",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "question",
+      "path": "audio/silma/worker-2/G90/question.mp3",
+      "text": "ضع علامة ✓ فقط على كل خيار أزرق ومثلث في الوقت نفسه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "source_question",
+      "focus": "question"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G94/intro.mp3",
+      "text": "هيا نلعب لعبة أحمر أزرق أحمر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G94/step-1.mp3",
+      "text": "شاهد الترتيب من البداية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الترتيب من البداية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G94/step-2.mp3",
+      "text": "قل النمط ببطء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قل النمط ببطء",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G94/step-3.mp3",
+      "text": "غطِّ القطعة الأخيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غطِّ القطعة الأخيرة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G94/step-4.mp3",
+      "text": "اختر ما يكمل النمط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يكمل النمط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G94/step-5.mp3",
+      "text": "مع شخص كبير، اصنع نمطًا مشابهًا بأشياء حقيقية.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اصنع نمطًا مشابهًا بأشياء حقيقية",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G94/choice-1.mp3",
+      "text": "الأحمر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔴",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G94/choice-2.mp3",
+      "text": "الأزرق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔵",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G94/choice-3.mp3",
+      "text": "الأخضر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟢",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G98/intro.mp3",
+      "text": "هيا نلعب لعبة النحلة إلى الزهرة — تحدي المستوى 1.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G98/step-1.mp3",
+      "text": "حدد البداية والنهاية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "حدد البداية والنهاية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G98/step-2.mp3",
+      "text": "مع شخص كبير، انظر إلى الطريق قبل الحركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "انظر إلى الطريق قبل الحركة",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G98/step-3.mp3",
+      "text": "تحرك خطوة خطوة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تحرك خطوة خطوة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G98/step-4.mp3",
+      "text": "تجنب العوائق إن وجدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تجنب العوائق إن وجدت",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G98/step-5.mp3",
+      "text": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G102/intro.mp3",
+      "text": "هيا نلعب لعبة كل شيء مع مثله.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G102/step-1.mp3",
+      "text": "شاهد العناصر في الجانبين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد العناصر في الجانبين",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G102/step-2.mp3",
+      "text": "ابحث عن العلاقة أو التشابه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن العلاقة أو التشابه",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G102/step-3.mp3",
+      "text": "قرّب كل زوج مناسب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قرّب كل زوج مناسب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G102/step-4.mp3",
+      "text": "راجع زوجًا واحدًا في كل مرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "راجع زوجًا واحدًا في كل مرة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G102/step-5.mp3",
+      "text": "مع شخص كبير، أعدها بأشياء حقيقية إن وجدت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعدها بأشياء حقيقية إن وجدت",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G106/intro.mp3",
+      "text": "هيا نلعب لعبة نبني البرج.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G106/step-1.mp3",
+      "text": "شاهد الصور كلها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الصور كلها",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G106/step-2.mp3",
+      "text": "اختر ما يحدث أولًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يحدث أولًا",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G106/step-3.mp3",
+      "text": "ضع الصورة التالية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الصورة التالية",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G106/step-4.mp3",
+      "text": "أكمل التسلسل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل التسلسل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G106/step-5.mp3",
+      "text": "مع شخص كبير، مثّل القصة بالحركة أو الكلام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل القصة بالحركة أو الكلام",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G110/intro.mp3",
+      "text": "هيا نلعب لعبة وجه سعيد من أربع قطع.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G110/step-1.mp3",
+      "text": "شاهد الفكرة أو الصورة كاملة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الفكرة أو الصورة كاملة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G110/step-2.mp3",
+      "text": "تعرف على القطع",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تعرف على القطع",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G110/step-3.mp3",
+      "text": "ضع أول قطعة كنموذج",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع أول قطعة كنموذج",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G110/step-4.mp3",
+      "text": "أكمل البقية بهدوء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل البقية بهدوء",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G110/step-5.mp3",
+      "text": "فكها وأعد تركيبها إذا بقي الحماس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكها وأعد تركيبها إذا بقي الحماس",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G114/intro.mp3",
+      "text": "هيا نلعب لعبة أحمر أحمر أزرق.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G114/step-1.mp3",
+      "text": "شاهد الترتيب من البداية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الترتيب من البداية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G114/step-2.mp3",
+      "text": "قل النمط ببطء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قل النمط ببطء",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G114/step-3.mp3",
+      "text": "غطِّ القطعة الأخيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غطِّ القطعة الأخيرة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G114/step-4.mp3",
+      "text": "اختر ما يكمل النمط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يكمل النمط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G114/step-5.mp3",
+      "text": "مع شخص كبير، اصنع نمطًا مشابهًا بأشياء حقيقية.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اصنع نمطًا مشابهًا بأشياء حقيقية",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G114/choice-1.mp3",
+      "text": "الأزرق",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔵",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G114/choice-2.mp3",
+      "text": "الأخضر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟢",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G114/choice-3.mp3",
+      "text": "الأحمر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔴",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G118/intro.mp3",
+      "text": "هيا نلعب لعبة السيارة حول الصخرة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G118/step-1.mp3",
+      "text": "حدد البداية والنهاية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "حدد البداية والنهاية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G118/step-2.mp3",
+      "text": "مع شخص كبير، انظر إلى الطريق قبل الحركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "انظر إلى الطريق قبل الحركة",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G118/step-3.mp3",
+      "text": "تحرك خطوة خطوة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تحرك خطوة خطوة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G118/step-4.mp3",
+      "text": "تجنب العوائق إن وجدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تجنب العوائق إن وجدت",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G118/step-5.mp3",
+      "text": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G122/intro.mp3",
+      "text": "هيا نلعب لعبة الحيوان وبيته — تحدي المستوى 2.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G122/step-1.mp3",
+      "text": "شاهد العناصر في الجانبين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد العناصر في الجانبين",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G122/step-2.mp3",
+      "text": "ابحث عن العلاقة أو التشابه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن العلاقة أو التشابه",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G122/step-3.mp3",
+      "text": "قرّب كل زوج مناسب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قرّب كل زوج مناسب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G122/step-4.mp3",
+      "text": "راجع زوجًا واحدًا في كل مرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "راجع زوجًا واحدًا في كل مرة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G122/step-5.mp3",
+      "text": "مع شخص كبير، أعدها بأشياء حقيقية إن وجدت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعدها بأشياء حقيقية إن وجدت",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G126/intro.mp3",
+      "text": "هيا نلعب لعبة نجهز للخروج.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G126/step-1.mp3",
+      "text": "شاهد الصور كلها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الصور كلها",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G126/step-2.mp3",
+      "text": "اختر ما يحدث أولًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يحدث أولًا",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G126/step-3.mp3",
+      "text": "ضع الصورة التالية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الصورة التالية",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G126/step-4.mp3",
+      "text": "أكمل التسلسل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل التسلسل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G126/step-5.mp3",
+      "text": "مع شخص كبير، مثّل القصة بالحركة أو الكلام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل القصة بالحركة أو الكلام",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G130/intro.mp3",
+      "text": "هيا نلعب لعبة زهرة من خمس قطع.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G130/step-1.mp3",
+      "text": "شاهد الفكرة أو الصورة كاملة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الفكرة أو الصورة كاملة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G130/step-2.mp3",
+      "text": "تعرف على القطع",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تعرف على القطع",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G130/step-3.mp3",
+      "text": "ضع أول قطعة كنموذج",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع أول قطعة كنموذج",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G130/step-4.mp3",
+      "text": "أكمل البقية بهدوء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل البقية بهدوء",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G130/step-5.mp3",
+      "text": "فكها وأعد تركيبها إذا بقي الحماس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكها وأعد تركيبها إذا بقي الحماس",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G134/intro.mp3",
+      "text": "هيا نلعب لعبة أحمر أزرق أخضر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G134/step-1.mp3",
+      "text": "شاهد الترتيب من البداية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الترتيب من البداية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G134/step-2.mp3",
+      "text": "قل النمط ببطء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قل النمط ببطء",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G134/step-3.mp3",
+      "text": "غطِّ القطعة الأخيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غطِّ القطعة الأخيرة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G134/step-4.mp3",
+      "text": "اختر ما يكمل النمط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يكمل النمط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G134/step-5.mp3",
+      "text": "مع شخص كبير، اصنع نمطًا مشابهًا بأشياء حقيقية.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اصنع نمطًا مشابهًا بأشياء حقيقية",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G134/choice-1.mp3",
+      "text": "الأخضر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟢",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G134/choice-2.mp3",
+      "text": "الأصفر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟡",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G134/choice-3.mp3",
+      "text": "الأحمر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔴",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G138/intro.mp3",
+      "text": "هيا نلعب لعبة طريقان إلى الهدف.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G138/step-1.mp3",
+      "text": "حدد البداية والنهاية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "حدد البداية والنهاية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G138/step-2.mp3",
+      "text": "مع شخص كبير، انظر إلى الطريق قبل الحركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "انظر إلى الطريق قبل الحركة",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G138/step-3.mp3",
+      "text": "تحرك خطوة خطوة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تحرك خطوة خطوة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G138/step-4.mp3",
+      "text": "تجنب العوائق إن وجدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تجنب العوائق إن وجدت",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G138/step-5.mp3",
+      "text": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G142/intro.mp3",
+      "text": "هيا نلعب لعبة المهنة والأداة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G142/step-1.mp3",
+      "text": "شاهد العناصر في الجانبين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد العناصر في الجانبين",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G142/step-2.mp3",
+      "text": "ابحث عن العلاقة أو التشابه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن العلاقة أو التشابه",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G142/step-3.mp3",
+      "text": "قرّب كل زوج مناسب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قرّب كل زوج مناسب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G142/step-4.mp3",
+      "text": "راجع زوجًا واحدًا في كل مرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "راجع زوجًا واحدًا في كل مرة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G142/step-5.mp3",
+      "text": "مع شخص كبير، أعدها بأشياء حقيقية إن وجدت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعدها بأشياء حقيقية إن وجدت",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G146/intro.mp3",
+      "text": "هيا نلعب لعبة من المطر إلى المظلة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G146/step-1.mp3",
+      "text": "شاهد الصور كلها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الصور كلها",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G146/step-2.mp3",
+      "text": "اختر ما يحدث أولًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يحدث أولًا",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G146/step-3.mp3",
+      "text": "ضع الصورة التالية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الصورة التالية",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G146/step-4.mp3",
+      "text": "أكمل التسلسل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل التسلسل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G146/step-5.mp3",
+      "text": "مع شخص كبير، مثّل القصة بالحركة أو الكلام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل القصة بالحركة أو الكلام",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G150/intro.mp3",
+      "text": "هيا نلعب لعبة صاروخ من ست قطع.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G150/step-1.mp3",
+      "text": "شاهد الفكرة أو الصورة كاملة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الفكرة أو الصورة كاملة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G150/step-2.mp3",
+      "text": "تعرف على القطع",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تعرف على القطع",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G150/step-3.mp3",
+      "text": "ضع أول قطعة كنموذج",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع أول قطعة كنموذج",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G150/step-4.mp3",
+      "text": "أكمل البقية بهدوء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل البقية بهدوء",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G150/step-5.mp3",
+      "text": "فكها وأعد تركيبها إذا بقي الحماس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكها وأعد تركيبها إذا بقي الحماس",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G154/intro.mp3",
+      "text": "هيا نلعب لعبة أحمر أزرق أزرق أخضر.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G154/step-1.mp3",
+      "text": "شاهد الترتيب من البداية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الترتيب من البداية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G154/step-2.mp3",
+      "text": "قل النمط ببطء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قل النمط ببطء",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G154/step-3.mp3",
+      "text": "غطِّ القطعة الأخيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "غطِّ القطعة الأخيرة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G154/step-4.mp3",
+      "text": "اختر ما يكمل النمط",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يكمل النمط",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G154/step-5.mp3",
+      "text": "مع شخص كبير، اصنع نمطًا مشابهًا بأشياء حقيقية.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اصنع نمطًا مشابهًا بأشياء حقيقية",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "choice-1",
+      "path": "audio/silma/worker-2/G154/choice-1.mp3",
+      "text": "الأخضر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟢",
+      "focus": "choice-1"
+    },
+    {
+      "key": "choice-2",
+      "path": "audio/silma/worker-2/G154/choice-2.mp3",
+      "text": "الأحمر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🔴",
+      "focus": "choice-2"
+    },
+    {
+      "key": "choice-3",
+      "path": "audio/silma/worker-2/G154/choice-3.mp3",
+      "text": "الأصفر",
+      "language": "ar",
+      "engine": "silma",
+      "source": "🟡",
+      "focus": "choice-3"
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G158/intro.mp3",
+      "text": "هيا نلعب لعبة طريق الهدف بأقل منعطفات.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G158/step-1.mp3",
+      "text": "حدد البداية والنهاية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "حدد البداية والنهاية",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G158/step-2.mp3",
+      "text": "مع شخص كبير، انظر إلى الطريق قبل الحركة.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "انظر إلى الطريق قبل الحركة",
+      "focus": "step-2",
+      "requires_adult": true
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G158/step-3.mp3",
+      "text": "تحرك خطوة خطوة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تحرك خطوة خطوة",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G158/step-4.mp3",
+      "text": "تجنب العوائق إن وجدت",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تجنب العوائق إن وجدت",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G158/step-5.mp3",
+      "text": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعد المسار بإصبعك أو لعبة صغيرة",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G162/intro.mp3",
+      "text": "هيا نلعب لعبة المشهد والسبب.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G162/step-1.mp3",
+      "text": "شاهد العناصر في الجانبين",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد العناصر في الجانبين",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G162/step-2.mp3",
+      "text": "ابحث عن العلاقة أو التشابه",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ابحث عن العلاقة أو التشابه",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G162/step-3.mp3",
+      "text": "قرّب كل زوج مناسب",
+      "language": "ar",
+      "engine": "silma",
+      "source": "قرّب كل زوج مناسب",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G162/step-4.mp3",
+      "text": "راجع زوجًا واحدًا في كل مرة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "راجع زوجًا واحدًا في كل مرة",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G162/step-5.mp3",
+      "text": "مع شخص كبير، أعدها بأشياء حقيقية إن وجدت.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أعدها بأشياء حقيقية إن وجدت",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G166/intro.mp3",
+      "text": "هيا نلعب لعبة من التخطيط إلى البناء.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G166/step-1.mp3",
+      "text": "شاهد الصور كلها",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الصور كلها",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G166/step-2.mp3",
+      "text": "اختر ما يحدث أولًا",
+      "language": "ar",
+      "engine": "silma",
+      "source": "اختر ما يحدث أولًا",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G166/step-3.mp3",
+      "text": "ضع الصورة التالية",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع الصورة التالية",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G166/step-4.mp3",
+      "text": "أكمل التسلسل",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل التسلسل",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G166/step-5.mp3",
+      "text": "مع شخص كبير، مثّل القصة بالحركة أو الكلام.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "مثّل القصة بالحركة أو الكلام",
+      "focus": "step-5",
+      "requires_adult": true
+    },
+    {
+      "key": "intro",
+      "path": "audio/silma/worker-2/G170/intro.mp3",
+      "text": "هيا نلعب لعبة قلعة من ثماني قطع.",
+      "language": "ar",
+      "engine": "silma",
+      "source": "authored from source_title",
+      "focus": "title"
+    },
+    {
+      "key": "step-1",
+      "path": "audio/silma/worker-2/G170/step-1.mp3",
+      "text": "شاهد الفكرة أو الصورة كاملة",
+      "language": "ar",
+      "engine": "silma",
+      "source": "شاهد الفكرة أو الصورة كاملة",
+      "focus": "step-1",
+      "requires_adult": false
+    },
+    {
+      "key": "step-2",
+      "path": "audio/silma/worker-2/G170/step-2.mp3",
+      "text": "تعرف على القطع",
+      "language": "ar",
+      "engine": "silma",
+      "source": "تعرف على القطع",
+      "focus": "step-2",
+      "requires_adult": false
+    },
+    {
+      "key": "step-3",
+      "path": "audio/silma/worker-2/G170/step-3.mp3",
+      "text": "ضع أول قطعة كنموذج",
+      "language": "ar",
+      "engine": "silma",
+      "source": "ضع أول قطعة كنموذج",
+      "focus": "step-3",
+      "requires_adult": false
+    },
+    {
+      "key": "step-4",
+      "path": "audio/silma/worker-2/G170/step-4.mp3",
+      "text": "أكمل البقية بهدوء",
+      "language": "ar",
+      "engine": "silma",
+      "source": "أكمل البقية بهدوء",
+      "focus": "step-4",
+      "requires_adult": false
+    },
+    {
+      "key": "step-5",
+      "path": "audio/silma/worker-2/G170/step-5.mp3",
+      "text": "فكها وأعد تركيبها إذا بقي الحماس",
+      "language": "ar",
+      "engine": "silma",
+      "source": "فكها وأعد تركيبها إذا بقي الحماس",
+      "focus": "step-5",
+      "requires_adult": false
+    },
+    {
+      "key": "shared-retry",
+      "path": "audio/silma/worker-2/common/retry.mp3",
+      "text": "حاول مرة أخرى، وخذ وقتك.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    },
+    {
+      "key": "shared-success",
+      "path": "audio/silma/worker-2/common/success.mp3",
+      "text": "أحسنت! لقد نجحت.",
+      "language": "ar",
+      "engine": "silma",
+      "focus": "current"
+    }
+  ]
+}
