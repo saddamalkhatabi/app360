@@ -5,10 +5,27 @@ var current=null,target=null,timer=null,generation=0,last=null,lastReport=null;
 function status(fn,msg){if(typeof fn==='function')try{fn(msg)}catch(e){}}
 function add(el){if(el&&(' '+(el.className||'')+' ').indexOf(' audio-target-active ')<0)el.className=(el.className?el.className+' ':'')+'audio-target-active'}
 function remove(el){if(el)el.className=(' '+(el.className||'')+' ').replace(' audio-target-active ',' ').replace(/^\s+|\s+$/g,'')}
-function findTarget(id){
+function sourceKind(item){
+ var source=w.APP360_CALM_CONTENT||{},names=['signals','feelings','helps','transitions'],i,j,arr,one;
+ if(!item||!item.id)return '';
+ for(i=0;i<names.length;i++){
+  arr=source[names[i]]||[];
+  for(j=0;j<arr.length;j++){one=arr[j];
+   if(one&&one.id===item.id&&(one===item||(one.speech_ar===item.speech_ar&&one.label_ar===item.label_ar)))return names[i];
+  }
+ }
+ return '';
+}
+function findTarget(id,kind){
  if(!id||!d.querySelectorAll)return null;
  var a=d.querySelectorAll('button[data-id],button[data-help],button[data-step]'),i,b;
- for(i=0;i<a.length;i++){b=a[i];if(b.getAttribute('data-id')===id||b.getAttribute('data-help')===id||b.getAttribute('data-step')===id)return b}
+ for(i=0;i<a.length;i++){
+  b=a[i];
+  if(kind==='helps'&&b.getAttribute('data-help')!==id)continue;
+  if(kind==='transitions'&&b.getAttribute('data-step')!==id)continue;
+  if((kind==='signals'||kind==='feelings')&&b.getAttribute('data-id')!==id)continue;
+  if(b.getAttribute('data-id')===id||b.getAttribute('data-help')===id||b.getAttribute('data-step')===id)return b;
+ }
  return null;
 }
 function clearFocus(){if(timer){clearTimeout(timer);timer=null}remove(target);target=null}
@@ -20,8 +37,8 @@ function stop(){
 function play(item,report){
  stop();if(!item)return false;
  last=item;lastReport=report;var replay=d.getElementById('calmReplayVoiceBtn');if(replay)replay.disabled=false;
- var token=generation,phrase=item.speech_ar||item.label_ar||'',failedOnce=false;
- target=findTarget(item.id);add(target);
+ var token=generation,phrase=item.speech_ar||item.label_ar||'',failedOnce=false,kind=sourceKind(item);
+ target=findTarget(item.id,kind);add(target);
  if(target)timer=setTimeout(function(){if(token===generation)clearFocus()},20000);
  function finish(){if(token===generation){current=null;clearFocus()}}
  function browserVoice(){
@@ -37,7 +54,7 @@ function play(item,report){
   }catch(e){}
   finish();status(report,'الصوت غير متاح؛ اتبع النص والصورة.');return false;
  }
- var index=w.APP360_CALM_SILMA_INDEX||{},entry=index[item.id],path='';
+ var index=w.APP360_CALM_SILMA_INDEX||{},entry=(kind&&index[kind+':'+item.id])||index[item.id],path='';
  if(item.audio)path=item.audio;
  else if(entry&&entry.verified===true&&entry.path&&entry.engine==='silma'&&entry.event_id==='calm-with-me:'+entry.kind+':'+item.id)path=entry.path;
  if(!path)return browserVoice();
