@@ -76,6 +76,10 @@ function init(){
  if(initDone)return;initDone=true;
  var button=$('calmPlayWelcomeBtn'),root=$('calmQuickFeelings'),buttons=root&&root.getElementsByTagName('button'),i;
  if(!button)return;
+ var picture=$('calmWelcomeImage');
+ if(picture&&w.APP360_CALM_VISUALS){
+   var img=d.createElement('img');img.src=w.APP360_CALM_VISUALS.getImage('happy');img.alt='';img.setAttribute('aria-hidden','true');picture.appendChild(img);
+ }
  render();
  button.onclick=function(){firstInteraction=true;play(false)};
  for(i=0;buttons&&i<buttons.length;i++){(function(el){el.onclick=function(){firstInteraction=true;quickFeeling(el.getAttribute('data-intro-feeling'))}})(buttons[i])}
