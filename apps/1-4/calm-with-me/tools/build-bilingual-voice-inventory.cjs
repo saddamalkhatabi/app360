@@ -43,6 +43,7 @@ for(const h of C.helps||[])add(h.speech_ar||h.label_ar,'help-speech',h.id);
 const result={schema_version:1,app_id:'a1-calm',purpose:'ALL prerecorded built-in spoken prompts across choices, emotion school, journey and experiment replay',translation_review:'pending',status:'INVENTORIED_NEEDS_BILINGUAL_GENERATION',choices,phrases,links};
 const target=path.join(root,'audio/bilingual/manifest.json');fs.mkdirSync(path.dirname(target),{recursive:true});
 fs.writeFileSync(target,JSON.stringify(result,null,2)+'\n');
+fs.writeFileSync(path.join(root,'audio/bilingual/arabic-tts-manifest.json'),JSON.stringify({schema_version:1,app_id:'a1-calm',items:phrases},null,2)+'\n');
 const kinds={};for(const a of phrases){const category=a.sources[0].split(':')[0];kinds[category]=(kinds[category]||0)+1}
 console.log(JSON.stringify({choices:choices.length,unique_other_phrases:phrases.length,groups:kinds,
    total_files_required:choices.length+phrases.length*2+choices.length,ar_existing:choices.length},null,2));
