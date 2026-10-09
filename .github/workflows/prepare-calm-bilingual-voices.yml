@@ -1,0 +1,52 @@
+name: Prepare Calm Bilingual Spoken Scripts
+on:
+  push:
+    branches: [feature/age1-4-silma-calm-serial-20261009]
+    paths:
+      - .github/workflows/prepare-calm-bilingual-voices.yml
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/age1-4-silma-calm-serial-20261009
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inventory all direct and contextual voice prompts
+        run: node apps/1-4/calm-with-me/tools/build-bilingual-voice-inventory.cjs
+      - name: Install public-text translation utility
+        run: python -m pip install --no-cache-dir deep-translator==1.11.4
+      - name: Translate all public child-directed prompts to English at build time
+        run: python apps/1-4/calm-with-me/tools/translate-bilingual-voice.py
+      - name: Assert every voice text has English wording
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('apps/1-4/calm-with-me/audio/bilingual/manifest.json')
+          data=json.loads(p.read_text())
+          print('Base choices:',len(data['choices']),'Additional distinct spoken phrases:',len(data['phrases']))
+          assert len(data['choices'])==74
+          assert all(x.get('text_en') for x in data['choices']+data['phrases'])
+          PY
+      - name: Commit build-time English scripts only to isolated experimental branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/calm-with-me/audio/bilingual/manifest.json \
+                  apps/1-4/calm-with-me/audio/bilingual/arabic-tts-manifest.json \
+                  apps/1-4/calm-with-me/audio/bilingual/translation-cache.json
+          git commit -m "Prepare bilingual choice, emotion school and journey recording scripts"
+          git pull --rebase origin feature/age1-4-silma-calm-serial-20261009
+          git push origin HEAD:feature/age1-4-silma-calm-serial-20261009
