@@ -2,15 +2,15 @@
   "schema_version": 1,
   "app_id": "a1-calm",
   "purpose": "ALL prerecorded built-in spoken prompts across choices, emotion school, journey and experiment replay",
-  "translation_review": "pending",
-  "status": "INVENTORIED_NEEDS_BILINGUAL_GENERATION",
+  "translation_review": "authored_English_scripts_pending_human_listening_review",
+  "status": "ALL_183_ENGLISH_SCRIPTS_AUTHORED_MP3_BUILD_PENDING",
   "choices": [
     {
       "id": "signals:need-help",
       "kind": "signals",
       "item_id": "need-help",
       "text_ar": "سَاعِدْنِي مِنْ فَضْلِكَ",
-      "text_en": "",
+      "text_en": "Help me, please.",
       "ar_path": "audio/silma/signals/need-help.mp3",
       "en_path": "audio/bilingual/en/choices/signals/need-help.mp3",
       "sha256_ar": "94a7ba21cefaa03001bc7e8b0901317721bcfddc3bac8f0a750e49fe34791ba0",
@@ -22,7 +22,7 @@
       "kind": "signals",
       "item_id": "stay-close",
       "text_ar": "اِبْقَ قَرِيبًا مِنِّي",
-      "text_en": "",
+      "text_en": "Stay close to me.",
       "ar_path": "audio/silma/signals/stay-close.mp3",
       "en_path": "audio/bilingual/en/choices/signals/stay-close.mp3",
       "sha256_ar": "9e0158daf7686db0e511e2ab35fc6aa96c6c1354bb3eb4cfa96c63fcd30bf4a4",
@@ -34,7 +34,7 @@
       "kind": "signals",
       "item_id": "pick-me-up",
       "text_ar": "اِحْمِلْنِي مِنْ فَضْلِكَ",
-      "text_en": "",
+      "text_en": "Please pick me up.",
       "ar_path": "audio/silma/signals/pick-me-up.mp3",
       "en_path": "audio/bilingual/en/choices/signals/pick-me-up.mp3",
       "sha256_ar": "db0b60654a391c3df1bcfd96331cc964ac8f00c7f4fe8d8bd6ecc4558ed4e4ae",
@@ -46,7 +46,7 @@
       "kind": "signals",
       "item_id": "need-space",
       "text_ar": "أُرِيدُ بَعْضَ الْمَسَاحَةِ",
-      "text_en": "",
+      "text_en": "I need some space.",
       "ar_path": "audio/silma/signals/need-space.mp3",
       "en_path": "audio/bilingual/en/choices/signals/need-space.mp3",
       "sha256_ar": "b508f8ae910d465365a14ddfacdcf5276b43047f591563ec06e0ab070f50dd82",
@@ -58,7 +58,7 @@
       "kind": "signals",
       "item_id": "pause-now",
       "text_ar": "تَوَقَّفْ قَلِيلًا",
-      "text_en": "",
+      "text_en": "Please stop for a moment.",
       "ar_path": "audio/silma/signals/pause-now.mp3",
       "en_path": "audio/bilingual/en/choices/signals/pause-now.mp3",
       "sha256_ar": "43988c6afd2a162e9e7d8c1212f589edfe08987b3cd34100e6272ad7edcfb228",
@@ -70,7 +70,7 @@
       "kind": "signals",
       "item_id": "all-done",
       "text_ar": "اِنْتَهَيْتُ",
-      "text_en": "",
+      "text_en": "I'm all done.",
       "ar_path": "audio/silma/signals/all-done.mp3",
       "en_path": "audio/bilingual/en/choices/signals/all-done.mp3",
       "sha256_ar": "cb4d10b26ceeac8e964ee5e499701ea75e058057c6ffc3cbe6e497e91dc47291",
@@ -82,7 +82,7 @@
       "kind": "signals",
       "item_id": "no",
       "text_ar": "لَا أُرِيدُ",
-      "text_en": "",
+      "text_en": "I don't want that.",
       "ar_path": "audio/silma/signals/no.mp3",
       "en_path": "audio/bilingual/en/choices/signals/no.mp3",
       "sha256_ar": "5b557c0f6bdbacdaa1cdac3af62d4be71775fafe4731c39d36b5c3651c22616f",
@@ -94,7 +94,7 @@
       "kind": "signals",
       "item_id": "water-now",
       "text_ar": "أُرِيدُ مَاءً",
-      "text_en": "",
+      "text_en": "I want some water.",
       "ar_path": "audio/silma/signals/water-now.mp3",
       "en_path": "audio/bilingual/en/choices/signals/water-now.mp3",
       "sha256_ar": "d056cf948d49f639e0de42d7c16853bc3940616ba9ddd62d3caba552e49abd4f",
@@ -106,7 +106,7 @@
       "kind": "signals",
       "item_id": "what-next",
       "text_ar": "أَرِنِي مَاذَا بَعْدَ ذَلِكَ",
-      "text_en": "",
+      "text_en": "Show me what happens next.",
       "ar_path": "audio/silma/signals/what-next.mp3",
       "en_path": "audio/bilingual/en/choices/signals/what-next.mp3",
       "sha256_ar": "22f4de5d2128db37a323ae4c3453e5c1fcf05447c782f11d8e2c21695242e8c9",
@@ -118,7 +118,7 @@
       "kind": "signals",
       "item_id": "want-mom-dad",
       "text_ar": "أُرِيدُ أُمِّي أَوْ أَبِي",
-      "text_en": "",
+      "text_en": "I want my mom or dad.",
       "ar_path": "audio/silma/signals/want-mom-dad.mp3",
       "en_path": "audio/bilingual/en/choices/signals/want-mom-dad.mp3",
       "sha256_ar": "4d047bd8100c78ba988482a24e8036cad3e6f19723666e6db68962a5944a9904",
@@ -130,7 +130,7 @@
       "kind": "signals",
       "item_id": "quiet",
       "text_ar": "أُرِيدُ مَكَانًا هَادِئًا",
-      "text_en": "",
+      "text_en": "I want a quiet place.",
       "ar_path": "audio/silma/signals/quiet.mp3",
       "en_path": "audio/bilingual/en/choices/signals/quiet.mp3",
       "sha256_ar": "d4b7aca95ae07587c011bef61b9f48807443a8b2d9ff445ec4a605ea227ba2b6",
@@ -142,7 +142,7 @@
       "kind": "signals",
       "item_id": "move",
       "text_ar": "أُرِيدُ أَنْ أَتَحَرَّكَ",
-      "text_en": "",
+      "text_en": "I want to move.",
       "ar_path": "audio/silma/signals/move.mp3",
       "en_path": "audio/bilingual/en/choices/signals/move.mp3",
       "sha256_ar": "7f7182a9003de6664e80a19ca14834f1ae66285a40b481be42931e23cb098747",
@@ -154,7 +154,7 @@
       "kind": "signals",
       "item_id": "my-turn",
       "text_ar": "أُرِيدُ دَوْرِي",
-      "text_en": "",
+      "text_en": "It's my turn.",
       "ar_path": "audio/silma/signals/my-turn.mp3",
       "en_path": "audio/bilingual/en/choices/signals/my-turn.mp3",
       "sha256_ar": "9e1904b005bcdb45d8ec5ba4e4da25e6af013a487149f596c2f5b4b681968140",
@@ -166,7 +166,7 @@
       "kind": "signals",
       "item_id": "my-toy",
       "text_ar": "أُرِيدُ لُعْبَتِي",
-      "text_en": "",
+      "text_en": "I want my toy.",
       "ar_path": "audio/silma/signals/my-toy.mp3",
       "en_path": "audio/bilingual/en/choices/signals/my-toy.mp3",
       "sha256_ar": "c421841f34ace5f92b12d91546e1ad7113c644552c81f66c15e43babd1283599",
@@ -178,7 +178,7 @@
       "kind": "signals",
       "item_id": "explain",
       "text_ar": "اِشْرَحْ لِي مَاذَا سَيَحْدُثُ",
-      "text_en": "",
+      "text_en": "Please explain what will happen.",
       "ar_path": "audio/silma/signals/explain.mp3",
       "en_path": "audio/bilingual/en/choices/signals/explain.mp3",
       "sha256_ar": "d886e3c36747f923a25d00271ae0ac167f30ddf34e667c71edd5ef66332e01dd",
@@ -190,7 +190,7 @@
       "kind": "signals",
       "item_id": "try-myself",
       "text_ar": "أُرِيدُ أَنْ أُجَرِّبَ بِنَفْسِي",
-      "text_en": "",
+      "text_en": "I want to try by myself.",
       "ar_path": "audio/silma/signals/try-myself.mp3",
       "en_path": "audio/bilingual/en/choices/signals/try-myself.mp3",
       "sha256_ar": "967d10f6b6d1e6cbfd7d3168f08a38b7254efd2a1c6c3d3647955149b5b282a0",
@@ -202,7 +202,7 @@
       "kind": "signals",
       "item_id": "talk-later",
       "text_ar": "سَأَتَكَلَّمُ بَعْدَ قَلِيلٍ",
-      "text_en": "",
+      "text_en": "I'll talk in a little while.",
       "ar_path": "audio/silma/signals/talk-later.mp3",
       "en_path": "audio/bilingual/en/choices/signals/talk-later.mp3",
       "sha256_ar": "62b6362ab74ff330029807b9f9889e8b3c47374fdf62acecfdf1e847d0b2aecc",
@@ -214,7 +214,7 @@
       "kind": "signals",
       "item_id": "two-solutions",
       "text_ar": "أَعْطِنِي حَلَّيْنِ لِأَخْتَارَ",
-      "text_en": "",
+      "text_en": "Give me two solutions to choose from.",
       "ar_path": "audio/silma/signals/two-solutions.mp3",
       "en_path": "audio/bilingual/en/choices/signals/two-solutions.mp3",
       "sha256_ar": "0a07426939cdf6092fc393c3b2b1511ca32f3063b8fb89b0d8ad5ecd66945846",
@@ -226,7 +226,7 @@
       "kind": "signals",
       "item_id": "no-label",
       "text_ar": "لَا أُرِيدُ تَسْمِيَةَ الشُّعُورِ",
-      "text_en": "",
+      "text_en": "I don't want to name the feeling.",
       "ar_path": "audio/silma/signals/no-label.mp3",
       "en_path": "audio/bilingual/en/choices/signals/no-label.mp3",
       "sha256_ar": "43d86172c36fc3bcc5ce2964308558bbba6c3ac57c1b5af424066c973897bd37",
@@ -238,7 +238,7 @@
       "kind": "feelings",
       "item_id": "happy",
       "text_ar": "أَنَا سَعِيدٌ",
-      "text_en": "",
+      "text_en": "I'm happy.",
       "ar_path": "audio/silma/feelings/happy.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/happy.mp3",
       "sha256_ar": "c366a87ec0e5f05e3244a9e049202a9856eb382e71bd25197754810a3399ee2f",
@@ -250,7 +250,7 @@
       "kind": "feelings",
       "item_id": "sad",
       "text_ar": "أَنَا حَزِينٌ",
-      "text_en": "",
+      "text_en": "I'm sad.",
       "ar_path": "audio/silma/feelings/sad.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/sad.mp3",
       "sha256_ar": "a38d1e5441d260a09c621dcb9ca3e8d5c4ee56d51b9b3b01d3aae236425ff9a8",
@@ -262,7 +262,7 @@
       "kind": "feelings",
       "item_id": "afraid",
       "text_ar": "أَنَا خَائِفٌ",
-      "text_en": "",
+      "text_en": "I'm scared.",
       "ar_path": "audio/silma/feelings/afraid.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/afraid.mp3",
       "sha256_ar": "705bf7a7b0c2fc153d87ab1b613bb250cd76bdfe5e3fc465a9dc1b0da01541e3",
@@ -274,7 +274,7 @@
       "kind": "feelings",
       "item_id": "upset",
       "text_ar": "أَنَا مُنْزَعِجٌ",
-      "text_en": "",
+      "text_en": "I'm upset.",
       "ar_path": "audio/silma/feelings/upset.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/upset.mp3",
       "sha256_ar": "5fe2ffe680ad90a155a0ee176855c055ca51261c43bafe50c5b3f58468a2e6bf",
@@ -286,7 +286,7 @@
       "kind": "feelings",
       "item_id": "angry",
       "text_ar": "أَنَا غَاضِبٌ",
-      "text_en": "",
+      "text_en": "I'm angry.",
       "ar_path": "audio/silma/feelings/angry.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/angry.mp3",
       "sha256_ar": "5fe8f114fc6fecbb44c7323165737e72cff5cbd5ab4b8f460d81ba80eb07fc74",
@@ -298,7 +298,7 @@
       "kind": "feelings",
       "item_id": "tired",
       "text_ar": "أَنَا مُتْعَبٌ",
-      "text_en": "",
+      "text_en": "I'm tired.",
       "ar_path": "audio/silma/feelings/tired.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/tired.mp3",
       "sha256_ar": "e88856b9ec568aa52b0253ac7613758cfa713fb47895fc5b8994c2ef6364f5ed",
@@ -310,7 +310,7 @@
       "kind": "feelings",
       "item_id": "worried",
       "text_ar": "أَنَا قَلِقٌ",
-      "text_en": "",
+      "text_en": "I'm worried.",
       "ar_path": "audio/silma/feelings/worried.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/worried.mp3",
       "sha256_ar": "94b20ba8832a2146c20508e298d3bf1be9896cabb5a6d7d83a33fa0b05e180f3",
@@ -322,7 +322,7 @@
       "kind": "feelings",
       "item_id": "frustrated",
       "text_ar": "أَنَا مُحْبَطٌ",
-      "text_en": "",
+      "text_en": "I'm frustrated.",
       "ar_path": "audio/silma/feelings/frustrated.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/frustrated.mp3",
       "sha256_ar": "18cde9113fa26ac20fd207289bc1028bf8994d3a6b46628c4e4024036f125883",
@@ -334,7 +334,7 @@
       "kind": "feelings",
       "item_id": "jealous",
       "text_ar": "أَنَا أَشْعُرُ بِالْغَيْرَةِ",
-      "text_en": "",
+      "text_en": "I feel jealous.",
       "ar_path": "audio/silma/feelings/jealous.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/jealous.mp3",
       "sha256_ar": "e1d9211f2c014ec218b03b15a011fcf8fe7db6ca9cf05a1940ee1588b80192c4",
@@ -346,7 +346,7 @@
       "kind": "feelings",
       "item_id": "shy",
       "text_ar": "أَنَا خَجُولٌ",
-      "text_en": "",
+      "text_en": "I'm shy.",
       "ar_path": "audio/silma/feelings/shy.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/shy.mp3",
       "sha256_ar": "36a95f78f6ce5dfceb75b25a1a2b8bafa7bb96e318415b018fa1ae035937ec88",
@@ -358,7 +358,7 @@
       "kind": "feelings",
       "item_id": "embarrassed",
       "text_ar": "أَنَا مُحْرَجٌ",
-      "text_en": "",
+      "text_en": "I'm embarrassed.",
       "ar_path": "audio/silma/feelings/embarrassed.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/embarrassed.mp3",
       "sha256_ar": "72dc2023e5fdedb9673cd9eb49ff7d05d0e63a6e8249ffd52402d72b7b3d614c",
@@ -370,7 +370,7 @@
       "kind": "feelings",
       "item_id": "lonely",
       "text_ar": "أَشْعُرُ بِالْوَحْدَةِ",
-      "text_en": "",
+      "text_en": "I feel lonely.",
       "ar_path": "audio/silma/feelings/lonely.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/lonely.mp3",
       "sha256_ar": "bf50ecb63093035d06f260b2701fbf31cefe950d2793efb32985d0dcbe29b9f9",
@@ -382,7 +382,7 @@
       "kind": "feelings",
       "item_id": "disappointed",
       "text_ar": "أَنَا حَزِينٌ لِأَنَّ مَا أَرَدْتُهُ لَمْ يَحْدُثْ",
-      "text_en": "",
+      "text_en": "I'm sad because what I wanted didn't happen.",
       "ar_path": "audio/silma/feelings/disappointed.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/disappointed.mp3",
       "sha256_ar": "3ad588b2620e079caa5fd7d9ce379dc8a87fd81aafcf45711387c9c97a649c27",
@@ -394,7 +394,7 @@
       "kind": "feelings",
       "item_id": "unsure",
       "text_ar": "لَا أَعْرِفُ",
-      "text_en": "",
+      "text_en": "I don't know.",
       "ar_path": "audio/silma/feelings/unsure.mp3",
       "en_path": "audio/bilingual/en/choices/feelings/unsure.mp3",
       "sha256_ar": "b234ee3bdb75b3527b6fdca59adbb60c918fb78c2059287ba8fa4c409dc7f2b3",
@@ -406,7 +406,7 @@
       "kind": "helps",
       "item_id": "close",
       "text_ar": "أَنَا قَرِيبٌ مِنْكَ",
-      "text_en": "",
+      "text_en": "I'm close to you.",
       "ar_path": "audio/silma/helps/close.mp3",
       "en_path": "audio/bilingual/en/choices/helps/close.mp3",
       "sha256_ar": "d6b8a129e9e36bf33663593fb2496040f445b62c11409f0963c7f4cf68ddc28d",
@@ -418,7 +418,7 @@
       "kind": "helps",
       "item_id": "hold-if-wanted",
       "text_ar": "إِذَا أَرَدْتَ، يُمْكِنُنِي أَنْ أَحْمِلَكَ",
-      "text_en": "",
+      "text_en": "If you want, I can pick you up.",
       "ar_path": "audio/silma/helps/hold-if-wanted.mp3",
       "en_path": "audio/bilingual/en/choices/helps/hold-if-wanted.mp3",
       "sha256_ar": "2afe34d89a6144df10a3e319cf8812588dce60ffb7cb41c911613b006ad7d3bd",
@@ -430,7 +430,7 @@
       "kind": "helps",
       "item_id": "comfort-touch",
       "text_ar": "إِذَا أَرَدْتَ حُضْنًا، أَنَا هُنَا",
-      "text_en": "",
+      "text_en": "If you want a hug, I'm here.",
       "ar_path": "audio/silma/helps/comfort-touch.mp3",
       "en_path": "audio/bilingual/en/choices/helps/comfort-touch.mp3",
       "sha256_ar": "921ff4fc31e4900c8df960d6974052b7d67ac44a8e620b88c7f30a8b22a21aac",
@@ -442,7 +442,7 @@
       "kind": "helps",
       "item_id": "space",
       "text_ar": "سَأُعْطِيكَ مَسَاحَةً، وَأَبْقَى قَرِيبًا",
-      "text_en": "",
+      "text_en": "I'll give you space, and I'll stay nearby.",
       "ar_path": "audio/silma/helps/space.mp3",
       "en_path": "audio/bilingual/en/choices/helps/space.mp3",
       "sha256_ar": "9903167d85f91f44cee790aaf97a6795c71d3528dd11f78ea3b238527f24cd99",
@@ -454,7 +454,7 @@
       "kind": "helps",
       "item_id": "quiet-place",
       "text_ar": "يُمْكِنُنَا أَنْ نَذْهَبَ إِلَى مَكَانٍ أَهْدَأَ",
-      "text_en": "",
+      "text_en": "We can go somewhere quieter.",
       "ar_path": "audio/silma/helps/quiet-place.mp3",
       "en_path": "audio/bilingual/en/choices/helps/quiet-place.mp3",
       "sha256_ar": "333574f2a6f501ca6f50e22a79ec8e634284246a5a6d89aa0c623b6f21189860",
@@ -466,7 +466,7 @@
       "kind": "helps",
       "item_id": "reduce-noise",
       "text_ar": "سَنُخَفِّفُ الصَّوْتَ وَالضَّوْءَ قَلِيلًا",
-      "text_en": "",
+      "text_en": "Let's turn down the noise and light a little.",
       "ar_path": "audio/silma/helps/reduce-noise.mp3",
       "en_path": "audio/bilingual/en/choices/helps/reduce-noise.mp3",
       "sha256_ar": "ebe4b271f2cff09720b380bba1a16571f62248ff2f9b4c3280149967b7cf47a8",
@@ -478,7 +478,7 @@
       "kind": "helps",
       "item_id": "familiar-object",
       "text_ar": "يُمْكِنُكَ أَنْ تُمْسِكَ لُعْبَتَكَ الْمَأْلُوفَةَ",
-      "text_en": "",
+      "text_en": "You can hold your familiar toy.",
       "ar_path": "audio/silma/helps/familiar-object.mp3",
       "en_path": "audio/bilingual/en/choices/helps/familiar-object.mp3",
       "sha256_ar": "af7f9f3e3fa6b0edfa639d31f3b7d5c365ec6cd85d30b771d2c2eef8cef0c959",
@@ -490,7 +490,7 @@
       "kind": "helps",
       "item_id": "quiet-book",
       "text_ar": "هَلْ تُرِيدُ كِتَابًا هَادِئًا؟",
-      "text_en": "",
+      "text_en": "Would you like a quiet book?",
       "ar_path": "audio/silma/helps/quiet-book.mp3",
       "en_path": "audio/bilingual/en/choices/helps/quiet-book.mp3",
       "sha256_ar": "50ab6c563280fbcfb0d589274a0df016d9b709167357bb9ad8b1405c5686d46e",
@@ -502,7 +502,7 @@
       "kind": "helps",
       "item_id": "water",
       "text_ar": "هَلْ تُرِيدُ مَاءً؟",
-      "text_en": "",
+      "text_en": "Would you like some water?",
       "ar_path": "audio/silma/helps/water.mp3",
       "en_path": "audio/bilingual/en/choices/helps/water.mp3",
       "sha256_ar": "d5c831c57ef68dfa18698c8ec1b3ee628f1cf218227ade4b73e11eda449932cb",
@@ -514,7 +514,7 @@
       "kind": "helps",
       "item_id": "body-check",
       "text_ar": "سَنَرَى أَوَّلًا مَاذَا يَحْتَاجُ جِسْمُكَ",
-      "text_en": "",
+      "text_en": "Let's find out what your body needs first.",
       "ar_path": "audio/silma/helps/body-check.mp3",
       "en_path": "audio/bilingual/en/choices/helps/body-check.mp3",
       "sha256_ar": "edb8a8c1f6ac74f4c157198a676e050a3db457ca300847f35b6e1acb2de59398",
@@ -526,7 +526,7 @@
       "kind": "helps",
       "item_id": "show-next",
       "text_ar": "سَأُرِيكَ مَاذَا بَعْدَ ذَلِكَ",
-      "text_en": "",
+      "text_en": "I'll show you what happens next.",
       "ar_path": "audio/silma/helps/show-next.mp3",
       "en_path": "audio/bilingual/en/choices/helps/show-next.mp3",
       "sha256_ar": "063d073c321e8bd7bbfda6eab448928482fdcf9cb2b9557dfe15269bb351c0cc",
@@ -538,7 +538,7 @@
       "kind": "helps",
       "item_id": "more-time",
       "text_ar": "لَدَيْكَ وَقْتٌ قَصِيرٌ، ثُمَّ نَنْتَقِلُ",
-      "text_en": "",
+      "text_en": "You have a little time, then we'll move on.",
       "ar_path": "audio/silma/helps/more-time.mp3",
       "en_path": "audio/bilingual/en/choices/helps/more-time.mp3",
       "sha256_ar": "c48b6ce8c56107b02836fe2230619a3830da6f5ce327626f7e7f6ea08e5c073e",
@@ -550,7 +550,7 @@
       "kind": "helps",
       "item_id": "move-together",
       "text_ar": "سَنَنْتَقِلُ مَعًا",
-      "text_en": "",
+      "text_en": "We'll move together.",
       "ar_path": "audio/silma/helps/move-together.mp3",
       "en_path": "audio/bilingual/en/choices/helps/move-together.mp3",
       "sha256_ar": "2462ca1a2f64be89f48c60cd1bc1967a2e81b42ea27b12c124a1c481c174f37f",
@@ -562,7 +562,7 @@
       "kind": "helps",
       "item_id": "two-choices",
       "text_ar": "سَأُعْطِيكَ خِيَارَيْنِ",
-      "text_en": "",
+      "text_en": "I'll give you two choices.",
       "ar_path": "audio/silma/helps/two-choices.mp3",
       "en_path": "audio/bilingual/en/choices/helps/two-choices.mp3",
       "sha256_ar": "6d12f5925cb11d0737b020a5f958c8272dcdad41a83eab015a5b186931b12aca",
@@ -574,7 +574,7 @@
       "kind": "helps",
       "item_id": "one-choice",
       "text_ar": "سَنَخْتَارُ شَيْئًا وَاحِدًا",
-      "text_en": "",
+      "text_en": "Let's choose one thing.",
       "ar_path": "audio/silma/helps/one-choice.mp3",
       "en_path": "audio/bilingual/en/choices/helps/one-choice.mp3",
       "sha256_ar": "cc92c7b0cd098d63667ac189f99afb3cda30b1930aac95b5cbfd7d8c9d90a6c6",
@@ -586,7 +586,7 @@
       "kind": "helps",
       "item_id": "model-words",
       "text_ar": "سَأَقُولُ الْكَلِمَاتِ، وَأَنْتَ تُشِيرُ",
-      "text_en": "",
+      "text_en": "I'll say the words, and you can point.",
       "ar_path": "audio/silma/helps/model-words.mp3",
       "en_path": "audio/bilingual/en/choices/helps/model-words.mp3",
       "sha256_ar": "a3cf1fe80b06bd85e5d9a927d491fcdd4be26dc764543cb93cd54e5d7a6067b5",
@@ -598,7 +598,7 @@
       "kind": "helps",
       "item_id": "name-one-feeling",
       "text_ar": "رُبَّمَا هَذَا خَوْفٌ. وَيُمْكِنُكَ أَنْ تَقُولَ لَا أَعْرِفُ",
-      "text_en": "",
+      "text_en": "Maybe you're feeling scared. It's okay to say you don't know.",
       "ar_path": "audio/silma/helps/name-one-feeling.mp3",
       "en_path": "audio/bilingual/en/choices/helps/name-one-feeling.mp3",
       "sha256_ar": "cd0d47fe8cae83ca90be271b72a235867674edd1a9b56f953b2c48c64db0a139",
@@ -610,7 +610,7 @@
       "kind": "helps",
       "item_id": "draw-feeling",
       "text_ar": "يُمْكِنُنَا أَنْ نَرْسُمَ مَا حَدَثَ مَعًا",
-      "text_en": "",
+      "text_en": "We can draw what happened together.",
       "ar_path": "audio/silma/helps/draw-feeling.mp3",
       "en_path": "audio/bilingual/en/choices/helps/draw-feeling.mp3",
       "sha256_ar": "911c11d1431e8d6be87680a51cab068db6441cd21bb0026bff5d7f8be3d68081",
@@ -622,7 +622,7 @@
       "kind": "helps",
       "item_id": "role-play",
       "text_ar": "لِنُمَثِّلِ الْمَوْقِفَ بِالدُّمَى",
-      "text_en": "",
+      "text_en": "Let's act out the situation with dolls.",
       "ar_path": "audio/silma/helps/role-play.mp3",
       "en_path": "audio/bilingual/en/choices/helps/role-play.mp3",
       "sha256_ar": "5e5aabf32ea27a22a74686977380906d85f9e31839f3cb66691c8f63779bb2ce",
@@ -634,7 +634,7 @@
       "kind": "helps",
       "item_id": "short-story",
       "text_ar": "سَنَحْكِي مَا حَدَثَ فِي جُمْلَتَيْنِ",
-      "text_en": "",
+      "text_en": "We'll tell what happened in two sentences.",
       "ar_path": "audio/silma/helps/short-story.mp3",
       "en_path": "audio/bilingual/en/choices/helps/short-story.mp3",
       "sha256_ar": "e92d6a9c21aca8c0ae9187c2e9ddeb6ccd0aad55c67a477991ca48e3760b520a",
@@ -646,7 +646,7 @@
       "kind": "helps",
       "item_id": "wall-push",
       "text_ar": "مَعَ الْمُرَافِقِ، اِدْفَعِ الْجِدَارَ بِكَفَّيْكَ بِلُطْفٍ",
-      "text_en": "",
+      "text_en": "With your grown-up, push the wall gently with both hands.",
       "ar_path": "audio/silma/helps/wall-push.mp3",
       "en_path": "audio/bilingual/en/choices/helps/wall-push.mp3",
       "sha256_ar": "2e26b7e6202606ac92f67ee4349dd7a93ddadf2d3e35d1e36d62ebf0fa206a57",
@@ -658,7 +658,7 @@
       "kind": "helps",
       "item_id": "pillow-push",
       "text_ar": "مَعَ الْمُرَافِقِ، اِدْفَعْ وِسَادَةً كَبِيرَةً",
-      "text_en": "",
+      "text_en": "With your grown-up, push a big pillow.",
       "ar_path": "audio/silma/helps/pillow-push.mp3",
       "en_path": "audio/bilingual/en/choices/helps/pillow-push.mp3",
       "sha256_ar": "5c67090cd7060b585a8dc9cddcb2f0a981d20b1b0fb465ef74057ff9e0fcea37",
@@ -670,7 +670,7 @@
       "kind": "helps",
       "item_id": "heavy-walk",
       "text_ar": "لِنَمْشِ مَعًا مِثْلَ الدُّبِّ، بِهُدُوءٍ",
-      "text_en": "",
+      "text_en": "Let's walk slowly and heavily, like a bear.",
       "ar_path": "audio/silma/helps/heavy-walk.mp3",
       "en_path": "audio/bilingual/en/choices/helps/heavy-walk.mp3",
       "sha256_ar": "5b6b58e655891fb23d476dbff1a7c42c6663728e08ab565618ff0ceba38dce52",
@@ -682,7 +682,7 @@
       "kind": "helps",
       "item_id": "playdough",
       "text_ar": "مَعَ الْمُرَافِقِ، اِعْصِرْ عَجِينَةَ اللَّعِبِ",
-      "text_en": "",
+      "text_en": "With your grown-up, squeeze some play dough.",
       "ar_path": "audio/silma/helps/playdough.mp3",
       "en_path": "audio/bilingual/en/choices/helps/playdough.mp3",
       "sha256_ar": "aa553b422ea29f53329093c424eae2b1ab144b378f22dea2430b121850626d73",
@@ -694,7 +694,7 @@
       "kind": "helps",
       "item_id": "safe-jumps",
       "text_ar": "مَعَ الْمُرَافِقِ، اِقْفِزْ قَفْزَةً صَغِيرَةً إِذَا أَرَدْتَ",
-      "text_en": "",
+      "text_en": "With your grown-up, do a small, safe jump if you want.",
       "ar_path": "audio/silma/helps/safe-jumps.mp3",
       "en_path": "audio/bilingual/en/choices/helps/safe-jumps.mp3",
       "sha256_ar": "6ca1e9badcf94bea2d64e761b9dc7b035759f88fc6454b044ad1bfc2730a515e",
@@ -706,7 +706,7 @@
       "kind": "helps",
       "item_id": "check-reality",
       "text_ar": "هَلْ حَدَثَ هَذَا الْآنَ، أَمْ هِيَ فِكْرَةٌ أَخَافَتْكَ؟",
-      "text_en": "",
+      "text_en": "Did this happen just now, or was it a scary thought?",
       "ar_path": "audio/silma/helps/check-reality.mp3",
       "en_path": "audio/bilingual/en/choices/helps/check-reality.mp3",
       "sha256_ar": "4ae90e32fbd0734bd785a06094c0f6c2056584c83e53e65d5821be38ab9fc877",
@@ -718,7 +718,7 @@
       "kind": "helps",
       "item_id": "two-solutions-help",
       "text_ar": "لَدَيَّ حَلَّانِ، اِخْتَرْ وَاحِدًا",
-      "text_en": "",
+      "text_en": "I have two solutions. Choose one.",
       "ar_path": "audio/silma/helps/two-solutions-help.mp3",
       "en_path": "audio/bilingual/en/choices/helps/two-solutions-help.mp3",
       "sha256_ar": "3ca3ba099047847afc4ab5f59b7cec3d8d9ac0542fd41281e091333fce012717",
@@ -730,7 +730,7 @@
       "kind": "helps",
       "item_id": "wait-nearby",
       "text_ar": "سَأَنْتَظِرُ هُنَا قَرِيبًا مِنْكَ",
-      "text_en": "",
+      "text_en": "I'll wait right here near you.",
       "ar_path": "audio/silma/helps/wait-nearby.mp3",
       "en_path": "audio/bilingual/en/choices/helps/wait-nearby.mp3",
       "sha256_ar": "06704a575a2f48463497dd6ff05757d6dd3da688a6f0446f27a5c5c315229de8",
@@ -742,7 +742,7 @@
       "kind": "transitions",
       "item_id": "book",
       "text_ar": "الْآنَ نَقْرَأُ كِتَابًا",
-      "text_en": "",
+      "text_en": "Now let's read a book.",
       "ar_path": "audio/silma/transitions/book.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/book.mp3",
       "sha256_ar": "5fc70ee85077ab08269c2b72958b7dde1a6aaedf63407a854a3f2f62079e9e6f",
@@ -754,7 +754,7 @@
       "kind": "transitions",
       "item_id": "ball",
       "text_ar": "نَلْعَبُ بِالْكُرَةِ مَعًا",
-      "text_en": "",
+      "text_en": "Let's play ball together.",
       "ar_path": "audio/silma/transitions/ball.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/ball.mp3",
       "sha256_ar": "bae607d79d1ee59e3f26ff55eff875db17268da18bfe899edef0970bc8a220af",
@@ -766,7 +766,7 @@
       "kind": "transitions",
       "item_id": "water",
       "text_ar": "نَشْرَبُ مَاءً",
-      "text_en": "",
+      "text_en": "Let's drink some water.",
       "ar_path": "audio/silma/transitions/water.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/water.mp3",
       "sha256_ar": "95c279f22600fbd914787ea5038a4410905ccc17f125866cd072e7fb81f9906d",
@@ -778,7 +778,7 @@
       "kind": "transitions",
       "item_id": "shoe",
       "text_ar": "نَرْتَدِي الْحِذَاءَ",
-      "text_en": "",
+      "text_en": "Let's put on our shoes.",
       "ar_path": "audio/silma/transitions/shoe.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/shoe.mp3",
       "sha256_ar": "7842a6d8c5dd0738aa4b172d1007323b359a087c33a179eae0aafc172fde1965",
@@ -790,7 +790,7 @@
       "kind": "transitions",
       "item_id": "toothbrush",
       "text_ar": "نُنَظِّفُ أَسْنَانَنَا",
-      "text_en": "",
+      "text_en": "Let's brush our teeth.",
       "ar_path": "audio/silma/transitions/toothbrush.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/toothbrush.mp3",
       "sha256_ar": "0714afa352b845f0629146065f57891a9c36dbfd9210fbaf2f5bb814e6ec022d",
@@ -802,7 +802,7 @@
       "kind": "transitions",
       "item_id": "cup",
       "text_ar": "نَسْتَخْدِمُ الْكُوبَ",
-      "text_en": "",
+      "text_en": "Let's use the cup.",
       "ar_path": "audio/silma/transitions/cup.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/cup.mp3",
       "sha256_ar": "d6a3b0e61a928afbf91aacc2c04d056736c6ee94411832d5f45361601875a87d",
@@ -814,7 +814,7 @@
       "kind": "transitions",
       "item_id": "leave",
       "text_ar": "نَنْتَقِلُ إِلَى الْمَكَانِ التَّالِي مَعًا",
-      "text_en": "",
+      "text_en": "Let's move to the next place together.",
       "ar_path": "audio/silma/transitions/leave.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/leave.mp3",
       "sha256_ar": "cb29f18e7e0bea8684e3f52ea59719ce05d3762861c5987cb9f11a0299ee184e",
@@ -826,7 +826,7 @@
       "kind": "transitions",
       "item_id": "wait",
       "text_ar": "نَنْتَظِرُ قَلِيلًا مَعًا",
-      "text_en": "",
+      "text_en": "Let's wait together for a little while.",
       "ar_path": "audio/silma/transitions/wait.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/wait.mp3",
       "sha256_ar": "3da903a1ef2d3ddbf7d91296d3ff84f8f8c541fb306cf5bd78f12d637ac978ae",
@@ -838,7 +838,7 @@
       "kind": "transitions",
       "item_id": "app-first-words",
       "text_ar": "نَفْتَحُ تَطْبِيقَ كَلِمَاتِي مَعَ أَشْيَائِي",
-      "text_en": "",
+      "text_en": "Let's open the My Words and Objects app.",
       "ar_path": "audio/silma/transitions/app-first-words.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/app-first-words.mp3",
       "sha256_ar": "63b6f9e8825dab763f8c65a7521a33336ad8b89b4fd96ab947861a074a8c9f25",
@@ -850,7 +850,7 @@
       "kind": "transitions",
       "item_id": "app-imitate",
       "text_ar": "نَفْتَحُ تَطْبِيقَ دَوْرِي وَدَوْرَكَ",
-      "text_en": "",
+      "text_en": "Let's open the My Turn, Your Turn app.",
       "ar_path": "audio/silma/transitions/app-imitate.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/app-imitate.mp3",
       "sha256_ar": "5e37b3b0c3bbd3b9046b6568ee1b2b9948d7131b1fa2dfd69933c3382bf5d460",
@@ -862,7 +862,7 @@
       "kind": "transitions",
       "item_id": "app-screen-move",
       "text_ar": "نَفْتَحُ تَطْبِيقَ الْأَلْعَابِ الْإِبْدَاعِيَّةِ",
-      "text_en": "",
+      "text_en": "Let's open the Creative Games app.",
       "ar_path": "audio/silma/transitions/app-screen-move.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/app-screen-move.mp3",
       "sha256_ar": "7050e6aa043ff78affa25a767e98d1b7ec12702dece58be009623cacbcae4a33",
@@ -874,7 +874,7 @@
       "kind": "transitions",
       "item_id": "app-drawing-writing",
       "text_ar": "نَفْتَحُ لَوْحَةَ الرَّسْمِ وَالْكِتَابَةِ",
-      "text_en": "",
+      "text_en": "Let's open the Drawing and Writing board.",
       "ar_path": "audio/silma/transitions/app-drawing-writing.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/app-drawing-writing.mp3",
       "sha256_ar": "74d4aeb793624b896af12b487149fa9207bdb53796c8804660b634c357db65b1",
@@ -886,7 +886,7 @@
       "kind": "transitions",
       "item_id": "app-plan-runner",
       "text_ar": "نَفْتَحُ مُخَطِّطَ الْجَلَسَاتِ",
-      "text_en": "",
+      "text_en": "Let's open the Session Planner app.",
       "ar_path": "audio/silma/transitions/app-plan-runner.mp3",
       "en_path": "audio/bilingual/en/choices/transitions/app-plan-runner.mp3",
       "sha256_ar": "349043208f9315135cd685ed014d5afbdfcce5912f807b799d0b2003dd03742f",
@@ -901,7 +901,7 @@
       "engine": "silma",
       "text": "أفهم أن فكرة الحرامي أخافتك. نحن آمنون الآن وأنا معك.",
       "path": "audio/bilingual/ar/phrases/60bbdd3038c47957.mp3",
-      "text_en": "",
+      "text_en": "I understand that thinking about a thief frightened you. We're safe now, and I'm with you.",
       "english_path": "audio/bilingual/en/phrases/60bbdd3038c47957.mp3",
       "sources": [
         "situation:thief-fear"
@@ -913,7 +913,7 @@
       "engine": "silma",
       "text": "الظل شكله غريب لكنه من الضوء والأشياء. أنا هنا والبيت آمن.",
       "path": "audio/bilingual/ar/phrases/05e50b699454a5e5.mp3",
-      "text_en": "",
+      "text_en": "The shadow looks strange, but it's made by light and objects. I'm here, and our home is safe.",
       "english_path": "audio/bilingual/en/phrases/05e50b699454a5e5.mp3",
       "sources": [
         "situation:dark"
@@ -925,7 +925,7 @@
       "engine": "silma",
       "text": "أعرف أن الفكرة مخيفة. الوحش في الخيال، ونحن الآن في غرفتنا الآمنة.",
       "path": "audio/bilingual/ar/phrases/af2e96bf1c8ff8dd.mp3",
-      "text_en": "",
+      "text_en": "I know that thought is scary. Monsters are make-believe, and we're safe in our room now.",
       "english_path": "audio/bilingual/en/phrases/af2e96bf1c8ff8dd.mp3",
       "sources": [
         "situation:monster"
@@ -937,7 +937,7 @@
       "engine": "silma",
       "text": "الصوت قوي. يمكننا أن نبتعد قليلًا.",
       "path": "audio/bilingual/ar/phrases/34d35b0fad57106b.mp3",
-      "text_en": "",
+      "text_en": "That sound is loud. We can move away for a little while.",
       "english_path": "audio/bilingual/en/phrases/34d35b0fad57106b.mp3",
       "sources": [
         "situation:loud-sound"
@@ -949,7 +949,7 @@
       "engine": "silma",
       "text": "الكلب بعيد ونحن هنا. يمكنك أن تشاهده من مكاني أو نبتعد.",
       "path": "audio/bilingual/ar/phrases/c18f1cb27cc61cdf.mp3",
-      "text_en": "",
+      "text_en": "The dog is far away, and we're here. You can watch from beside me, or we can walk away.",
       "english_path": "audio/bilingual/en/phrases/c18f1cb27cc61cdf.mp3",
       "sources": [
         "situation:dog"
@@ -961,7 +961,7 @@
       "engine": "silma",
       "text": "سأبقى معك. سأخبرك بما سيحدث خطوة خطوة.",
       "path": "audio/bilingual/ar/phrases/f4c01bb3c8fe0c8b.mp3",
-      "text_en": "",
+      "text_en": "I'll stay with you. I'll tell you what will happen, one step at a time.",
       "english_path": "audio/bilingual/en/phrases/f4c01bb3c8fe0c8b.mp3",
       "sources": [
         "situation:doctor"
@@ -973,7 +973,7 @@
       "engine": "silma",
       "text": "سنغسل جزءًا صغيرًا ثم نتوقف لنرى كيف أنت.",
       "path": "audio/bilingual/ar/phrases/1592200c5b92c94b.mp3",
-      "text_en": "",
+      "text_en": "We'll wash a little bit first, then stop and see how you feel.",
       "english_path": "audio/bilingual/en/phrases/1592200c5b92c94b.mp3",
       "sources": [
         "situation:bath"
@@ -985,7 +985,7 @@
       "engine": "silma",
       "text": "لن نجبرك. سنجرب خطوة صغيرة عندما تكون جاهزًا.",
       "path": "audio/bilingual/ar/phrases/ceb1ebb735eb31a2.mp3",
-      "text_en": "",
+      "text_en": "We won't force you. We can try one small step when you're ready.",
       "english_path": "audio/bilingual/en/phrases/ceb1ebb735eb31a2.mp3",
       "sources": [
         "situation:toilet"
@@ -997,7 +997,7 @@
       "engine": "silma",
       "text": "ذلك كان على الشاشة وانتهى. أنت هنا معي الآن.",
       "path": "audio/bilingual/ar/phrases/200612464886e514.mp3",
-      "text_en": "",
+      "text_en": "That was on the screen, and now it's over. You're here with me.",
       "english_path": "audio/bilingual/en/phrases/200612464886e514.mp3",
       "sources": [
         "situation:scary-media"
@@ -1009,7 +1009,7 @@
       "engine": "silma",
       "text": "يمكنك أن تبقى بقربي وتشاهد أولًا.",
       "path": "audio/bilingual/ar/phrases/56ed05bc76504bc4.mp3",
-      "text_en": "",
+      "text_en": "You can stay close to me and watch first.",
       "english_path": "audio/bilingual/en/phrases/56ed05bc76504bc4.mp3",
       "sources": [
         "situation:new-place"
@@ -1021,7 +1021,7 @@
       "engine": "silma",
       "text": "سأعود بعد الغداء. الآن وداعنا القصير ثم ستبقى مع من يعرفك.",
       "path": "audio/bilingual/ar/phrases/d358477db249e2c6.mp3",
-      "text_en": "",
+      "text_en": "I'll come back after lunch. Let's say a short goodbye, and you'll stay with someone you know.",
       "english_path": "audio/bilingual/en/phrases/d358477db249e2c6.mp3",
       "sources": [
         "situation:daycare-drop"
@@ -1033,7 +1033,7 @@
       "engine": "silma",
       "text": "أنت مشتاق له. يمكننا أن ننظر إلى الصورة ونكمل يومنا حتى يعود.",
       "path": "audio/bilingual/ar/phrases/8c96b7cca06dec94.mp3",
-      "text_en": "",
+      "text_en": "You miss them. We can look at the picture and go on with our day until they return.",
       "english_path": "audio/bilingual/en/phrases/8c96b7cca06dec94.mp3",
       "sources": [
         "situation:missing-parent"
@@ -1045,7 +1045,7 @@
       "engine": "silma",
       "text": "أنا قريب. سنفعل نفس خطوات النوم ثم أراك صباحًا.",
       "path": "audio/bilingual/ar/phrases/29b11484036e5975.mp3",
-      "text_en": "",
+      "text_en": "I'm close by. We'll do our usual bedtime steps, and I'll see you in the morning.",
       "english_path": "audio/bilingual/en/phrases/29b11484036e5975.mp3",
       "sources": [
         "situation:sleep-alone"
@@ -1057,7 +1057,7 @@
       "engine": "silma",
       "text": "أنت تريده جدًا. الجواب الآن لا. سأبقى معك.",
       "path": "audio/bilingual/ar/phrases/8eb04ef12fdc94a7.mp3",
-      "text_en": "",
+      "text_en": "You really want it. The answer is no for now. I'll stay with you.",
       "english_path": "audio/bilingual/en/phrases/8eb04ef12fdc94a7.mp3",
       "sources": [
         "situation:no-item"
@@ -1069,7 +1069,7 @@
       "engine": "silma",
       "text": "كنت تلعب بها. سنساعدك تقول: دوري، ثم دوره.",
       "path": "audio/bilingual/ar/phrases/65dad83d4d125c26.mp3",
-      "text_en": "",
+      "text_en": "You were playing with it. Let's help you say: my turn, then their turn.",
       "english_path": "audio/bilingual/en/phrases/65dad83d4d125c26.mp3",
       "sources": [
         "situation:toy-taken"
@@ -1081,7 +1081,7 @@
       "engine": "silma",
       "text": "هذا صعب الآن. هل تريد تلميحًا صغيرًا أم محاولة أخرى؟",
       "path": "audio/bilingual/ar/phrases/b7eb0894ac32ffa6.mp3",
-      "text_en": "",
+      "text_en": "This is hard right now. Would you like a little hint or another try?",
       "english_path": "audio/bilingual/en/phrases/b7eb0894ac32ffa6.mp3",
       "sources": [
         "situation:task-fail"
@@ -1093,7 +1093,7 @@
       "engine": "silma",
       "text": "هذه آخر مرة، وبعدها سنحمل أغراضنا ونذهب معًا.",
       "path": "audio/bilingual/ar/phrases/6d2b66fded10b84e.mp3",
-      "text_en": "",
+      "text_en": "This is the last time. Then we'll pick up our things and go together.",
       "english_path": "audio/bilingual/en/phrases/6d2b66fded10b84e.mp3",
       "sources": [
         "situation:leave-playground"
@@ -1105,7 +1105,7 @@
       "engine": "silma",
       "text": "دورك بعد هذه الخطوة. يمكنك أن تمسك البطاقة حتى يأتي دورك.",
       "path": "audio/bilingual/ar/phrases/8fad0a2d29eb792d.mp3",
-      "text_en": "",
+      "text_en": "Your turn is after this step. You can hold the card while you wait.",
       "english_path": "audio/bilingual/en/phrases/8fad0a2d29eb792d.mp3",
       "sources": [
         "situation:waiting"
@@ -1117,7 +1117,7 @@
       "engine": "silma",
       "text": "تريد أن تجرب بنفسك. جرّب وأنا قريب.",
       "path": "audio/bilingual/ar/phrases/6f99462e4425972c.mp3",
-      "text_en": "",
+      "text_en": "You want to try on your own. Go ahead; I'm nearby.",
       "english_path": "audio/bilingual/en/phrases/6f99462e4425972c.mp3",
       "sources": [
         "situation:do-myself"
@@ -1129,7 +1129,7 @@
       "engine": "silma",
       "text": "انتهى الفيديو. الآن نختار: كرة أم كتاب؟",
       "path": "audio/bilingual/ar/phrases/62079e0f41c43c9c.mp3",
-      "text_en": "",
+      "text_en": "The video has ended. Now we choose: ball or book?",
       "english_path": "audio/bilingual/en/phrases/62079e0f41c43c9c.mp3",
       "sources": [
         "situation:screen-stop"
@@ -1141,7 +1141,7 @@
       "engine": "silma",
       "text": "أنت حزين لأننا لم نجدها. بحثنا هنا وهنا، وسنخبرك إذا ظهرت.",
       "path": "audio/bilingual/ar/phrases/f889684d49b4bcf1.mp3",
-      "text_en": "",
+      "text_en": "You're sad because we couldn't find it. We've looked here and there. We'll tell you if we see it.",
       "english_path": "audio/bilingual/en/phrases/f889684d49b4bcf1.mp3",
       "sources": [
         "situation:lost-toy"
@@ -1153,7 +1153,7 @@
       "engine": "silma",
       "text": "هذه اللعبة مهمة لك، وانكسارها أحزنك.",
       "path": "audio/bilingual/ar/phrases/629c88438d07a424.mp3",
-      "text_en": "",
+      "text_en": "That toy matters to you, and you're sad it broke.",
       "english_path": "audio/bilingual/en/phrases/629c88438d07a424.mp3",
       "sources": [
         "situation:broken-toy"
@@ -1165,7 +1165,7 @@
       "engine": "silma",
       "text": "كنت تريد أن تلعب معه ولم يحدث الآن. هذا محزن.",
       "path": "audio/bilingual/ar/phrases/3919d1c9f215f550.mp3",
-      "text_en": "",
+      "text_en": "You wanted to play with them, but it couldn't happen right now. That feels sad.",
       "english_path": "audio/bilingual/en/phrases/3919d1c9f215f550.mp3",
       "sources": [
         "situation:friend-left"
@@ -1177,7 +1177,7 @@
       "engine": "silma",
       "text": "هذا بيتنا الجديد، وبعض أشيائنا القديمة معنا. سنعرف المكان خطوة خطوة.",
       "path": "audio/bilingual/ar/phrases/f5585cecccaacc74.mp3",
-      "text_en": "",
+      "text_en": "This is our new home. Some of our old things are here. We'll get to know it step by step.",
       "english_path": "audio/bilingual/en/phrases/f5585cecccaacc74.mp3",
       "sources": [
         "situation:move-house"
@@ -1189,7 +1189,7 @@
       "engine": "silma",
       "text": "ما زال لك وقتك ومكانك معي. تريدني الآن أيضًا.",
       "path": "audio/bilingual/ar/phrases/3db572690fd3272d.mp3",
-      "text_en": "",
+      "text_en": "You still have your own special time and place with me. You want me now, too.",
       "english_path": "audio/bilingual/en/phrases/3db572690fd3272d.mp3",
       "sources": [
         "situation:new-sibling"
@@ -1201,7 +1201,7 @@
       "engine": "silma",
       "text": "أراك. سأكمل هذه الخطوة ثم يأتي دورك معي.",
       "path": "audio/bilingual/ar/phrases/28d9a4ddbd73fb4d.mp3",
-      "text_en": "",
+      "text_en": "I see you. I'll finish this part, and then it'll be your turn with me.",
       "english_path": "audio/bilingual/en/phrases/28d9a4ddbd73fb4d.mp3",
       "sources": [
         "situation:adult-attention"
@@ -1213,7 +1213,7 @@
       "engine": "silma",
       "text": "يمكنك أن تقول مرحبًا بيدك أو فقط تبقى بقربي.",
       "path": "audio/bilingual/ar/phrases/af8c15b97f3f0f86.mp3",
-      "text_en": "",
+      "text_en": "You can wave hello, or just stay close to me.",
       "english_path": "audio/bilingual/en/phrases/af8c15b97f3f0f86.mp3",
       "sources": [
         "situation:visitor-shy"
@@ -1225,7 +1225,7 @@
       "engine": "silma",
       "text": "لن نسمح لأحد أن يضربك. أنت معي الآن.",
       "path": "audio/bilingual/ar/phrases/d0bd134f82e5457b.mp3",
-      "text_en": "",
+      "text_en": "I won't let anyone hit you. You're with me now.",
       "english_path": "audio/bilingual/en/phrases/d0bd134f82e5457b.mp3",
       "sources": [
         "situation:other-hit"
@@ -1237,7 +1237,7 @@
       "engine": "silma",
       "text": "حدث خطأ، وأنت لست الخطأ. سنصلحه معًا.",
       "path": "audio/bilingual/ar/phrases/b6c002058e68448c.mp3",
-      "text_en": "",
+      "text_en": "A mistake happened, but you are not the mistake. We'll fix it together.",
       "english_path": "audio/bilingual/en/phrases/b6c002058e68448c.mp3",
       "sources": [
         "situation:mistake-shame"
@@ -1249,7 +1249,7 @@
       "engine": "silma",
       "text": "المكان مزدحم. يمكننا أخذ استراحة في مكان أهدأ.",
       "path": "audio/bilingual/ar/phrases/71931bd93e319f30.mp3",
-      "text_en": "",
+      "text_en": "This place is crowded. We can take a break somewhere quieter.",
       "english_path": "audio/bilingual/en/phrases/71931bd93e319f30.mp3",
       "sources": [
         "situation:crowd"
@@ -1261,7 +1261,7 @@
       "engine": "silma",
       "text": "هذه القطعة تزعجك. سنرى إن كان هناك بديل مناسب.",
       "path": "audio/bilingual/ar/phrases/e12410c2913da61b.mp3",
-      "text_en": "",
+      "text_en": "This part of your clothing bothers you. Let's see whether something else feels better.",
       "english_path": "audio/bilingual/en/phrases/e12410c2913da61b.mp3",
       "sources": [
         "situation:clothes"
@@ -1273,7 +1273,7 @@
       "engine": "silma",
       "text": "سنفعل جزءًا صغيرًا ثم نتوقف لنرى كيف أنت.",
       "path": "audio/bilingual/ar/phrases/2bd10189d814a37c.mp3",
-      "text_en": "",
+      "text_en": "We'll do a little bit, then stop to see how you feel.",
       "english_path": "audio/bilingual/en/phrases/2bd10189d814a37c.mp3",
       "sources": [
         "situation:haircut"
@@ -1285,7 +1285,7 @@
       "engine": "silma",
       "text": "جسمك متعب الآن. سنهتم بالجسم أولًا ثم نتكلم.",
       "path": "audio/bilingual/ar/phrases/b48839c64e165ab7.mp3",
-      "text_en": "",
+      "text_en": "Your body is tired right now. Let's take care of your body first, then talk.",
       "english_path": "audio/bilingual/en/phrases/b48839c64e165ab7.mp3",
       "sources": [
         "situation:hungry-tired"
@@ -1297,7 +1297,7 @@
       "engine": "silma",
       "text": "اليوم تغيرت هذه الخطوة، لكن بعدها سنعود لروتيننا المعروف.",
       "path": "audio/bilingual/ar/phrases/6534cc3d2d2462e7.mp3",
-      "text_en": "",
+      "text_en": "This step changed today, but afterward we'll return to our familiar routine.",
       "english_path": "audio/bilingual/en/phrases/6534cc3d2d2462e7.mp3",
       "sources": [
         "situation:routine-change"
@@ -1309,7 +1309,7 @@
       "engine": "silma",
       "text": "حان روتين النوم: حمام، قصة، ثم سرير.",
       "path": "audio/bilingual/ar/phrases/766c69690b5474a1.mp3",
-      "text_en": "",
+      "text_en": "It's bedtime routine time: bath, story, then bed.",
       "english_path": "audio/bilingual/en/phrases/766c69690b5474a1.mp3",
       "sources": [
         "situation:bedtime-refusal"
@@ -1321,7 +1321,7 @@
       "engine": "silma",
       "text": "لن أسمح بالضرب أو العض. سأساعد جسمك يتوقف.",
       "path": "audio/bilingual/ar/phrases/75cb0370fbdb1aa1.mp3",
-      "text_en": "",
+      "text_en": "I won't allow hitting or biting. I'll help your body stop.",
       "english_path": "audio/bilingual/en/phrases/75cb0370fbdb1aa1.mp3",
       "sources": [
         "situation:hit-bite"
@@ -1333,7 +1333,7 @@
       "engine": "silma",
       "text": "لن نرمي هذا. يمكنك دفع الوسادة أو رمي الكرة اللينة هنا.",
       "path": "audio/bilingual/ar/phrases/245ffde13f7e2fff.mp3",
-      "text_en": "",
+      "text_en": "We won't throw that. You can push the pillow or throw a soft ball here.",
       "english_path": "audio/bilingual/en/phrases/245ffde13f7e2fff.mp3",
       "sources": [
         "situation:throw-break"
@@ -1345,7 +1345,7 @@
       "engine": "silma",
       "text": "لا تحتاج أن تتكلم الآن. أنا هنا عندما تريد.",
       "path": "audio/bilingual/ar/phrases/11b9a5fcd6356682.mp3",
-      "text_en": "",
+      "text_en": "You don't have to talk right now. I'm here whenever you want.",
       "english_path": "audio/bilingual/en/phrases/11b9a5fcd6356682.mp3",
       "sources": [
         "situation:withdrawn"
@@ -1357,7 +1357,7 @@
       "engine": "silma",
       "text": "سأبقى قريبًا. اذهب خطوتين وأنا أراك، ثم عد.",
       "path": "audio/bilingual/ar/phrases/4189968474c3205e.mp3",
-      "text_en": "",
+      "text_en": "I'll stay nearby. Take two steps while I watch, then come back.",
       "english_path": "audio/bilingual/en/phrases/4189968474c3205e.mp3",
       "sources": [
         "situation:alone-room"
@@ -1369,7 +1369,7 @@
       "engine": "silma",
       "text": "حدث حادث. سننظف ونبدل الملابس، ولا مشكلة في طلب المساعدة.",
       "path": "audio/bilingual/ar/phrases/cdf85b0b98c722c3.mp3",
-      "text_en": "",
+      "text_en": "An accident happened. We'll clean up and change clothes. It's okay to ask for help.",
       "english_path": "audio/bilingual/en/phrases/cdf85b0b98c722c3.mp3",
       "sources": [
         "situation:potty-accident"
@@ -1381,7 +1381,7 @@
       "engine": "silma",
       "text": "أعرف أنك لا تريد الذهاب الآن. أخبرني ما أصعب جزء، وسنأخذ الصباح خطوة خطوة.",
       "path": "audio/bilingual/ar/phrases/694d63db8d766178.mp3",
-      "text_en": "",
+      "text_en": "I know you don't want to go right now. Tell me the hardest part, and we'll take the morning step by step.",
       "english_path": "audio/bilingual/en/phrases/694d63db8d766178.mp3",
       "sources": [
         "situation:daycare-refusal"
@@ -1393,7 +1393,7 @@
       "engine": "silma",
       "text": "هذه لعبتك الآن. عندما ينتهي دورك نقرر ما الخطوة التالية.",
       "path": "audio/bilingual/ar/phrases/176ff444b314652f.mp3",
-      "text_en": "",
+      "text_en": "It's your toy right now. When your turn is over, we'll decide what happens next.",
       "english_path": "audio/bilingual/en/phrases/176ff444b314652f.mp3",
       "sources": [
         "situation:sharing-attention"
@@ -1405,7 +1405,7 @@
       "engine": "silma",
       "text": "أنا أحبك. الذي سنغيره هو هذا الفعل، وسأريك كيف.",
       "path": "audio/bilingual/ar/phrases/eb82ea2073645207.mp3",
-      "text_en": "",
+      "text_en": "I love you. We need to change this action, and I'll show you how.",
       "english_path": "audio/bilingual/en/phrases/eb82ea2073645207.mp3",
       "sources": [
         "situation:correction"
@@ -1417,7 +1417,7 @@
       "engine": "silma",
       "text": "أنا معك.",
       "path": "audio/bilingual/ar/phrases/9f156a64babe4924.mp3",
-      "text_en": "",
+      "text_en": "I'm with you.",
       "english_path": "audio/bilingual/en/phrases/9f156a64babe4924.mp3",
       "sources": [
         "category-audio:fear-0"
@@ -1429,7 +1429,7 @@
       "engine": "silma",
       "text": "أنت آمن الآن.",
       "path": "audio/bilingual/ar/phrases/beb4ee97a38feeda.mp3",
-      "text_en": "",
+      "text_en": "You're safe now.",
       "english_path": "audio/bilingual/en/phrases/beb4ee97a38feeda.mp3",
       "sources": [
         "category-audio:fear-1"
@@ -1441,7 +1441,7 @@
       "engine": "silma",
       "text": "يمكننا الابتعاد قليلًا.",
       "path": "audio/bilingual/ar/phrases/3fdf82fe2d78b55d.mp3",
-      "text_en": "",
+      "text_en": "We can move away for a little while.",
       "english_path": "audio/bilingual/en/phrases/3fdf82fe2d78b55d.mp3",
       "sources": [
         "category-audio:fear-2"
@@ -1453,7 +1453,7 @@
       "engine": "silma",
       "text": "سنفهم ما أخافك خطوة خطوة.",
       "path": "audio/bilingual/ar/phrases/f9236400c8f8fe4d.mp3",
-      "text_en": "",
+      "text_en": "We'll understand what frightened you, one step at a time.",
       "english_path": "audio/bilingual/en/phrases/f9236400c8f8fe4d.mp3",
       "sources": [
         "category-audio:fear-3"
@@ -1465,7 +1465,7 @@
       "engine": "silma",
       "text": "سأعود بعد هذا الروتين.",
       "path": "audio/bilingual/ar/phrases/80b95d10652e5dff.mp3",
-      "text_en": "",
+      "text_en": "I'll come back after this routine.",
       "english_path": "audio/bilingual/en/phrases/80b95d10652e5dff.mp3",
       "sources": [
         "category-audio:separation-0"
@@ -1477,7 +1477,7 @@
       "engine": "silma",
       "text": "أنت مع شخص يعرفك ويحميك.",
       "path": "audio/bilingual/ar/phrases/16caceb4b3aee7ff.mp3",
-      "text_en": "",
+      "text_en": "You're with someone who knows you and keeps you safe.",
       "english_path": "audio/bilingual/en/phrases/16caceb4b3aee7ff.mp3",
       "sources": [
         "category-audio:separation-1"
@@ -1489,7 +1489,7 @@
       "engine": "silma",
       "text": "اشتقت إليّ، وأنا سأعود.",
       "path": "audio/bilingual/ar/phrases/368c1cbe0cfc34c1.mp3",
-      "text_en": "",
+      "text_en": "You missed me, and I'll come back.",
       "english_path": "audio/bilingual/en/phrases/368c1cbe0cfc34c1.mp3",
       "sources": [
         "category-audio:separation-2"
@@ -1501,7 +1501,7 @@
       "engine": "silma",
       "text": "يمكنك الاحتفاظ بلعبتك حتى أعود.",
       "path": "audio/bilingual/ar/phrases/5b9e052c40ed9abe.mp3",
-      "text_en": "",
+      "text_en": "You can keep your toy until I return.",
       "english_path": "audio/bilingual/en/phrases/5b9e052c40ed9abe.mp3",
       "sources": [
         "category-audio:separation-3"
@@ -1513,7 +1513,7 @@
       "engine": "silma",
       "text": "أنا هنا ولن أسمح بالضرب.",
       "path": "audio/bilingual/ar/phrases/ec014bb2e8489932.mp3",
-      "text_en": "",
+      "text_en": "I'm here, and I won't let anyone hit.",
       "english_path": "audio/bilingual/en/phrases/ec014bb2e8489932.mp3",
       "sources": [
         "category-audio:anger-0"
@@ -1525,7 +1525,7 @@
       "engine": "silma",
       "text": "أنت غاضب لأنك أردت هذا.",
       "path": "audio/bilingual/ar/phrases/e3322b71107d7a16.mp3",
-      "text_en": "",
+      "text_en": "You're angry because you wanted that.",
       "english_path": "audio/bilingual/en/phrases/e3322b71107d7a16.mp3",
       "sources": [
         "category-audio:anger-1"
@@ -1537,7 +1537,7 @@
       "engine": "silma",
       "text": "يمكن أن نغضب دون أن نؤذي.",
       "path": "audio/bilingual/ar/phrases/856f6e021ee1fa76.mp3",
-      "text_en": "",
+      "text_en": "It's okay to feel angry without hurting anyone.",
       "english_path": "audio/bilingual/en/phrases/856f6e021ee1fa76.mp3",
       "sources": [
         "category-audio:anger-2"
@@ -1549,7 +1549,7 @@
       "engine": "silma",
       "text": "عندما تكون جاهزًا سنختار ما نفعله.",
       "path": "audio/bilingual/ar/phrases/50c4c86e0af1c816.mp3",
-      "text_en": "",
+      "text_en": "When you're ready, we'll choose what to do.",
       "english_path": "audio/bilingual/en/phrases/50c4c86e0af1c816.mp3",
       "sources": [
         "category-audio:anger-3"
@@ -1561,7 +1561,7 @@
       "engine": "silma",
       "text": "من الطبيعي أن نحزن عندما نفقد شيئًا نحبه.",
       "path": "audio/bilingual/ar/phrases/122bca22f2c67737.mp3",
-      "text_en": "",
+      "text_en": "It's normal to feel sad when we lose something we love.",
       "english_path": "audio/bilingual/en/phrases/122bca22f2c67737.mp3",
       "sources": [
         "category-audio:sadness-0"
@@ -1573,7 +1573,7 @@
       "engine": "silma",
       "text": "أنا هنا معك.",
       "path": "audio/bilingual/ar/phrases/06b970fe3e880e6d.mp3",
-      "text_en": "",
+      "text_en": "I'm right here with you.",
       "english_path": "audio/bilingual/en/phrases/06b970fe3e880e6d.mp3",
       "sources": [
         "category-audio:sadness-1"
@@ -1585,7 +1585,7 @@
       "engine": "silma",
       "text": "يمكنك أن تبكي.",
       "path": "audio/bilingual/ar/phrases/b756ec102b8dea55.mp3",
-      "text_en": "",
+      "text_en": "It's okay to cry.",
       "english_path": "audio/bilingual/en/phrases/b756ec102b8dea55.mp3",
       "sources": [
         "category-audio:sadness-2"
@@ -1597,7 +1597,7 @@
       "engine": "silma",
       "text": "هل تريد أن نحكي عنه أم نجلس قليلًا؟",
       "path": "audio/bilingual/ar/phrases/cb8a6892cff284ed.mp3",
-      "text_en": "",
+      "text_en": "Would you like to talk about it or sit together for a while?",
       "english_path": "audio/bilingual/en/phrases/cb8a6892cff284ed.mp3",
       "sources": [
         "category-audio:sadness-3"
@@ -1609,7 +1609,7 @@
       "engine": "silma",
       "text": "ما زال لك مكانك معي.",
       "path": "audio/bilingual/ar/phrases/47c4311a17cda1eb.mp3",
-      "text_en": "",
+      "text_en": "You still have your own special place with me.",
       "english_path": "audio/bilingual/en/phrases/47c4311a17cda1eb.mp3",
       "sources": [
         "category-audio:jealousy-0"
@@ -1621,7 +1621,7 @@
       "engine": "silma",
       "text": "أرى أنك تريد وقتًا معي.",
       "path": "audio/bilingual/ar/phrases/f82cdae1cd799cb7.mp3",
-      "text_en": "",
+      "text_en": "I see that you want some time with me.",
       "english_path": "audio/bilingual/en/phrases/f82cdae1cd799cb7.mp3",
       "sources": [
         "category-audio:jealousy-1"
@@ -1633,7 +1633,7 @@
       "engine": "silma",
       "text": "سنأخذ دورك بعد هذه الخطوة.",
       "path": "audio/bilingual/ar/phrases/bbf1c753052fd4de.mp3",
-      "text_en": "",
+      "text_en": "Your turn will come after this step.",
       "english_path": "audio/bilingual/en/phrases/bbf1c753052fd4de.mp3",
       "sources": [
         "category-audio:jealousy-2"
@@ -1645,7 +1645,7 @@
       "engine": "silma",
       "text": "لا يجب أن تحب الموقف الآن؛ سنمر به معًا.",
       "path": "audio/bilingual/ar/phrases/c3c3d098065239a5.mp3",
-      "text_en": "",
+      "text_en": "You don't have to like this right now; we'll get through it together.",
       "english_path": "audio/bilingual/en/phrases/c3c3d098065239a5.mp3",
       "sources": [
         "category-audio:jealousy-3"
@@ -1657,7 +1657,7 @@
       "engine": "silma",
       "text": "يمكنك أن تشاهد أولًا.",
       "path": "audio/bilingual/ar/phrases/5da23e3842d7c561.mp3",
-      "text_en": "",
+      "text_en": "You can watch first.",
       "english_path": "audio/bilingual/en/phrases/5da23e3842d7c561.mp3",
       "sources": [
         "category-audio:social-0"
@@ -1669,7 +1669,7 @@
       "engine": "silma",
       "text": "لا تحتاج أن تتكلم فورًا.",
       "path": "audio/bilingual/ar/phrases/bfa7e2e61fb6a45f.mp3",
-      "text_en": "",
+      "text_en": "You don't need to speak right away.",
       "english_path": "audio/bilingual/en/phrases/bfa7e2e61fb6a45f.mp3",
       "sources": [
         "category-audio:social-1"
@@ -1681,7 +1681,7 @@
       "engine": "silma",
       "text": "سنقول مرحبًا عندما تكون جاهزًا.",
       "path": "audio/bilingual/ar/phrases/e1bc856ce477de39.mp3",
-      "text_en": "",
+      "text_en": "We'll say hello when you're ready.",
       "english_path": "audio/bilingual/en/phrases/e1bc856ce477de39.mp3",
       "sources": [
         "category-audio:social-2"
@@ -1693,7 +1693,7 @@
       "engine": "silma",
       "text": "يمكنك البقاء بقربي.",
       "path": "audio/bilingual/ar/phrases/a36931c19243ee69.mp3",
-      "text_en": "",
+      "text_en": "You can stay by my side.",
       "english_path": "audio/bilingual/en/phrases/a36931c19243ee69.mp3",
       "sources": [
         "category-audio:social-3"
@@ -1705,7 +1705,7 @@
       "engine": "silma",
       "text": "الصوت قوي عليك.",
       "path": "audio/bilingual/ar/phrases/2dc113caf21b2599.mp3",
-      "text_en": "",
+      "text_en": "That sound feels very loud to you.",
       "english_path": "audio/bilingual/en/phrases/2dc113caf21b2599.mp3",
       "sources": [
         "category-audio:sensory-0"
@@ -1717,7 +1717,7 @@
       "engine": "silma",
       "text": "يمكننا الذهاب لمكان أهدأ.",
       "path": "audio/bilingual/ar/phrases/26c1cbf18e8594a0.mp3",
-      "text_en": "",
+      "text_en": "We can go somewhere quieter.",
       "english_path": "audio/bilingual/en/phrases/26c1cbf18e8594a0.mp3",
       "sources": [
         "category-audio:sensory-1",
@@ -1730,7 +1730,7 @@
       "engine": "silma",
       "text": "أنا قريب.",
       "path": "audio/bilingual/ar/phrases/03f37717da7380bf.mp3",
-      "text_en": "",
+      "text_en": "I'm close by.",
       "english_path": "audio/bilingual/en/phrases/03f37717da7380bf.mp3",
       "sources": [
         "category-audio:sensory-2"
@@ -1742,7 +1742,7 @@
       "engine": "silma",
       "text": "لا تحتاج إلى الكلام الآن.",
       "path": "audio/bilingual/ar/phrases/7ccf5bc7206ff7c5.mp3",
-      "text_en": "",
+      "text_en": "You don't need to talk right now.",
       "english_path": "audio/bilingual/en/phrases/7ccf5bc7206ff7c5.mp3",
       "sources": [
         "category-audio:sensory-3"
@@ -1754,7 +1754,7 @@
       "engine": "silma",
       "text": "الآن ننهي، وبعد ذلك نذهب.",
       "path": "audio/bilingual/ar/phrases/e7e2d58f7f0dc18d.mp3",
-      "text_en": "",
+      "text_en": "We're finishing now. After that, we'll go.",
       "english_path": "audio/bilingual/en/phrases/e7e2d58f7f0dc18d.mp3",
       "sources": [
         "category-audio:transition-0"
@@ -1766,7 +1766,7 @@
       "engine": "silma",
       "text": "اختر: تحمل الكرة أم الكتاب؟",
       "path": "audio/bilingual/ar/phrases/97c7690241dddeb4.mp3",
-      "text_en": "",
+      "text_en": "Choose: will you carry the ball or the book?",
       "english_path": "audio/bilingual/en/phrases/97c7690241dddeb4.mp3",
       "sources": [
         "category-audio:transition-1"
@@ -1778,7 +1778,7 @@
       "engine": "silma",
       "text": "سأخبرك قبل الخطوة التالية.",
       "path": "audio/bilingual/ar/phrases/dce268cfcb2b8b94.mp3",
-      "text_en": "",
+      "text_en": "I'll tell you before the next step.",
       "english_path": "audio/bilingual/en/phrases/dce268cfcb2b8b94.mp3",
       "sources": [
         "category-audio:transition-2"
@@ -1790,7 +1790,7 @@
       "engine": "silma",
       "text": "سننتقل معًا.",
       "path": "audio/bilingual/ar/phrases/0b9a570587be7269.mp3",
-      "text_en": "",
+      "text_en": "We'll move on together.",
       "english_path": "audio/bilingual/en/phrases/0b9a570587be7269.mp3",
       "sources": [
         "category-audio:transition-3",
@@ -1803,7 +1803,7 @@
       "engine": "silma",
       "text": "كان حلمًا مخيفًا وانتهى.",
       "path": "audio/bilingual/ar/phrases/304928f803814a75.mp3",
-      "text_en": "",
+      "text_en": "That was a scary dream, and it's over now.",
       "english_path": "audio/bilingual/en/phrases/304928f803814a75.mp3",
       "sources": [
         "category-audio:sleep-0"
@@ -1815,7 +1815,7 @@
       "engine": "silma",
       "text": "أنا هنا والبيت آمن الآن.",
       "path": "audio/bilingual/ar/phrases/4df1beec8518d50d.mp3",
-      "text_en": "",
+      "text_en": "I'm here, and our home is safe now.",
       "english_path": "audio/bilingual/en/phrases/4df1beec8518d50d.mp3",
       "sources": [
         "category-audio:sleep-1"
@@ -1827,7 +1827,7 @@
       "engine": "silma",
       "text": "سنفعل روتيننا المعتاد ثم ننام.",
       "path": "audio/bilingual/ar/phrases/09a8ae66e637d02e.mp3",
-      "text_en": "",
+      "text_en": "We'll do our usual routine, then go to sleep.",
       "english_path": "audio/bilingual/en/phrases/09a8ae66e637d02e.mp3",
       "sources": [
         "category-audio:sleep-2"
@@ -1839,7 +1839,7 @@
       "engine": "silma",
       "text": "يمكنك أن تمسك لعبتك.",
       "path": "audio/bilingual/ar/phrases/bb89ac0484b84fb2.mp3",
-      "text_en": "",
+      "text_en": "You can hold your toy.",
       "english_path": "audio/bilingual/en/phrases/bb89ac0484b84fb2.mp3",
       "sources": [
         "category-audio:sleep-3"
@@ -1851,7 +1851,7 @@
       "engine": "silma",
       "text": "تريد أن تفعلها بنفسك.",
       "path": "audio/bilingual/ar/phrases/87ab965362155b98.mp3",
-      "text_en": "",
+      "text_en": "You want to do it yourself.",
       "english_path": "audio/bilingual/en/phrases/87ab965362155b98.mp3",
       "sources": [
         "category-audio:autonomy-0"
@@ -1863,7 +1863,7 @@
       "engine": "silma",
       "text": "جرّب أولًا وأنا قريب.",
       "path": "audio/bilingual/ar/phrases/951b42a658579306.mp3",
-      "text_en": "",
+      "text_en": "You try first; I'm close by.",
       "english_path": "audio/bilingual/en/phrases/951b42a658579306.mp3",
       "sources": [
         "category-audio:autonomy-1"
@@ -1875,7 +1875,7 @@
       "engine": "silma",
       "text": "اختر بين هذين الخيارين.",
       "path": "audio/bilingual/ar/phrases/7fa56137aa4ecafa.mp3",
-      "text_en": "",
+      "text_en": "Choose between these two options.",
       "english_path": "audio/bilingual/en/phrases/7fa56137aa4ecafa.mp3",
       "sources": [
         "category-audio:autonomy-2"
@@ -1887,7 +1887,7 @@
       "engine": "silma",
       "text": "هذا الحد ثابت، ويمكنك اختيار كيف ننفذه.",
       "path": "audio/bilingual/ar/phrases/206f3b7e2e1f70f8.mp3",
-      "text_en": "",
+      "text_en": "This boundary stays the same, but you can choose how we follow it.",
       "english_path": "audio/bilingual/en/phrases/206f3b7e2e1f70f8.mp3",
       "sources": [
         "category-audio:autonomy-3"
@@ -1899,7 +1899,7 @@
       "engine": "silma",
       "text": "أنا قريب منك",
       "path": "audio/bilingual/ar/phrases/a5ca85ce14aebbac.mp3",
-      "text_en": "",
+      "text_en": "I'm close to you.",
       "english_path": "audio/bilingual/en/phrases/a5ca85ce14aebbac.mp3",
       "sources": [
         "help-speech:close"
@@ -1911,7 +1911,7 @@
       "engine": "silma",
       "text": "إذا أردت يمكنني أن أحملك",
       "path": "audio/bilingual/ar/phrases/6fd3f93764bc2487.mp3",
-      "text_en": "",
+      "text_en": "If you want, I can pick you up.",
       "english_path": "audio/bilingual/en/phrases/6fd3f93764bc2487.mp3",
       "sources": [
         "help-speech:hold-if-wanted"
@@ -1923,7 +1923,7 @@
       "engine": "silma",
       "text": "إذا أردت حضنًا أنا هنا",
       "path": "audio/bilingual/ar/phrases/dde4c11b96ee63a5.mp3",
-      "text_en": "",
+      "text_en": "If you want a hug, I'm here.",
       "english_path": "audio/bilingual/en/phrases/dde4c11b96ee63a5.mp3",
       "sources": [
         "help-speech:comfort-touch"
@@ -1935,7 +1935,7 @@
       "engine": "silma",
       "text": "سأعطيك مساحة وأبقى قريبًا",
       "path": "audio/bilingual/ar/phrases/25a3d615466b5316.mp3",
-      "text_en": "",
+      "text_en": "I'll give you some space and stay nearby.",
       "english_path": "audio/bilingual/en/phrases/25a3d615466b5316.mp3",
       "sources": [
         "help-speech:space"
@@ -1947,7 +1947,7 @@
       "engine": "silma",
       "text": "سنخفف الصوت والضوء قليلًا",
       "path": "audio/bilingual/ar/phrases/cff2f7d980185da7.mp3",
-      "text_en": "",
+      "text_en": "We'll lower the noise and the light a little.",
       "english_path": "audio/bilingual/en/phrases/cff2f7d980185da7.mp3",
       "sources": [
         "help-speech:reduce-noise"
@@ -1959,7 +1959,7 @@
       "engine": "silma",
       "text": "يمكنك أن تمسك لعبتك المألوفة",
       "path": "audio/bilingual/ar/phrases/003b9d82910d7513.mp3",
-      "text_en": "",
+      "text_en": "You can hold your familiar toy.",
       "english_path": "audio/bilingual/en/phrases/003b9d82910d7513.mp3",
       "sources": [
         "help-speech:familiar-object"
@@ -1971,7 +1971,7 @@
       "engine": "silma",
       "text": "هل تريد كتابًا أو نشاطًا هادئًا",
       "path": "audio/bilingual/ar/phrases/52939746cf225ea9.mp3",
-      "text_en": "",
+      "text_en": "Would you like a book or a quiet activity?",
       "english_path": "audio/bilingual/en/phrases/52939746cf225ea9.mp3",
       "sources": [
         "help-speech:quiet-book"
@@ -1983,7 +1983,7 @@
       "engine": "silma",
       "text": "هل تريد ماء",
       "path": "audio/bilingual/ar/phrases/b562d622ed3e4b03.mp3",
-      "text_en": "",
+      "text_en": "Would you like some water?",
       "english_path": "audio/bilingual/en/phrases/b562d622ed3e4b03.mp3",
       "sources": [
         "help-speech:water"
@@ -1995,7 +1995,7 @@
       "engine": "silma",
       "text": "سنرى أولًا ماذا يحتاج جسمك",
       "path": "audio/bilingual/ar/phrases/9e2acf51dcf0ed66.mp3",
-      "text_en": "",
+      "text_en": "Let's first see what your body needs.",
       "english_path": "audio/bilingual/en/phrases/9e2acf51dcf0ed66.mp3",
       "sources": [
         "help-speech:body-check"
@@ -2007,7 +2007,7 @@
       "engine": "silma",
       "text": "سأريك ماذا بعد",
       "path": "audio/bilingual/ar/phrases/3dc18693760351f6.mp3",
-      "text_en": "",
+      "text_en": "I'll show you what comes next.",
       "english_path": "audio/bilingual/en/phrases/3dc18693760351f6.mp3",
       "sources": [
         "help-speech:show-next"
@@ -2019,7 +2019,7 @@
       "engine": "silma",
       "text": "لديك وقت قصير إضافي ثم ننتقل",
       "path": "audio/bilingual/ar/phrases/3e62e871b22464b5.mp3",
-      "text_en": "",
+      "text_en": "You have a little more time, then we'll move on.",
       "english_path": "audio/bilingual/en/phrases/3e62e871b22464b5.mp3",
       "sources": [
         "help-speech:more-time"
@@ -2031,7 +2031,7 @@
       "engine": "silma",
       "text": "سأعطيك خيارين فقط",
       "path": "audio/bilingual/ar/phrases/b56aaf373dc661a5.mp3",
-      "text_en": "",
+      "text_en": "I'll give you just two choices.",
       "english_path": "audio/bilingual/en/phrases/b56aaf373dc661a5.mp3",
       "sources": [
         "help-speech:two-choices"
@@ -2043,7 +2043,7 @@
       "engine": "silma",
       "text": "سنختار شيئًا واحدًا بسيطًا الآن",
       "path": "audio/bilingual/ar/phrases/3083fb7f72a332a8.mp3",
-      "text_en": "",
+      "text_en": "Let's choose one simple thing for now.",
       "english_path": "audio/bilingual/en/phrases/3083fb7f72a332a8.mp3",
       "sources": [
         "help-speech:one-choice"
@@ -2055,7 +2055,7 @@
       "engine": "silma",
       "text": "يمكنني أن أقول الكلمات وأنت تشير فقط",
       "path": "audio/bilingual/ar/phrases/2bb9552613f81cba.mp3",
-      "text_en": "",
+      "text_en": "I can say the words, and you can just point.",
       "english_path": "audio/bilingual/en/phrases/2bb9552613f81cba.mp3",
       "sources": [
         "help-speech:model-words"
@@ -2067,7 +2067,7 @@
       "engine": "silma",
       "text": "قد يكون هذا خوفًا أو انزعاجًا، ويمكنك أن تقول لا أعرف",
       "path": "audio/bilingual/ar/phrases/c8318057edfc9463.mp3",
-      "text_en": "",
+      "text_en": "This might be fear or discomfort. It's okay to say, I don't know.",
       "english_path": "audio/bilingual/en/phrases/c8318057edfc9463.mp3",
       "sources": [
         "help-speech:name-one-feeling"
@@ -2079,7 +2079,7 @@
       "engine": "silma",
       "text": "يمكننا أن نرسم ما حدث بدل أن نشرحه كله",
       "path": "audio/bilingual/ar/phrases/a11261954e3454a1.mp3",
-      "text_en": "",
+      "text_en": "We can draw what happened instead of explaining everything.",
       "english_path": "audio/bilingual/en/phrases/a11261954e3454a1.mp3",
       "sources": [
         "help-speech:draw-feeling"
@@ -2091,7 +2091,7 @@
       "engine": "silma",
       "text": "يمكننا أن نمثل القصة بالدمى",
       "path": "audio/bilingual/ar/phrases/92fca3f1a14df587.mp3",
-      "text_en": "",
+      "text_en": "We can act out the story with dolls.",
       "english_path": "audio/bilingual/en/phrases/92fca3f1a14df587.mp3",
       "sources": [
         "help-speech:role-play"
@@ -2103,7 +2103,7 @@
       "engine": "silma",
       "text": "سنحكي ما حدث في جملتين فقط",
       "path": "audio/bilingual/ar/phrases/799e0c13a885a30f.mp3",
-      "text_en": "",
+      "text_en": "We'll tell what happened in just two sentences.",
       "english_path": "audio/bilingual/en/phrases/799e0c13a885a30f.mp3",
       "sources": [
         "help-speech:short-story"
@@ -2115,7 +2115,7 @@
       "engine": "silma",
       "text": "يمكننا دفع الجدار بقوة آمنة ثم التوقف",
       "path": "audio/bilingual/ar/phrases/030ee8576811263a.mp3",
-      "text_en": "",
+      "text_en": "We can push against the wall safely, then stop.",
       "english_path": "audio/bilingual/en/phrases/030ee8576811263a.mp3",
       "sources": [
         "help-speech:wall-push"
@@ -2127,7 +2127,7 @@
       "engine": "silma",
       "text": "يمكننا دفع الوسادة بأمان",
       "path": "audio/bilingual/ar/phrases/7ce7c208301eca7d.mp3",
-      "text_en": "",
+      "text_en": "We can push the pillow safely.",
       "english_path": "audio/bilingual/en/phrases/7ce7c208301eca7d.mp3",
       "sources": [
         "help-speech:pillow-push"
@@ -2139,7 +2139,7 @@
       "engine": "silma",
       "text": "لنمش خطوات ثقيلة مثل الدب",
       "path": "audio/bilingual/ar/phrases/8470565075299f36.mp3",
-      "text_en": "",
+      "text_en": "Let's walk with heavy steps, like a bear.",
       "english_path": "audio/bilingual/en/phrases/8470565075299f36.mp3",
       "sources": [
         "help-speech:heavy-walk"
@@ -2151,7 +2151,7 @@
       "engine": "silma",
       "text": "يمكنك عصر عجينة اللعب بيديك",
       "path": "audio/bilingual/ar/phrases/29f3b124562859f2.mp3",
-      "text_en": "",
+      "text_en": "You can squeeze play dough with your hands.",
       "english_path": "audio/bilingual/en/phrases/29f3b124562859f2.mp3",
       "sources": [
         "help-speech:playdough"
@@ -2163,7 +2163,7 @@
       "engine": "silma",
       "text": "إذا أردت يمكننا عمل قفزات قليلة وآمنة",
       "path": "audio/bilingual/ar/phrases/183a68140f07e7b7.mp3",
-      "text_en": "",
+      "text_en": "If you want, we can do a few small, safe jumps.",
       "english_path": "audio/bilingual/en/phrases/183a68140f07e7b7.mp3",
       "sources": [
         "help-speech:safe-jumps"
@@ -2175,7 +2175,7 @@
       "engine": "silma",
       "text": "سنرى: هل حدث هذا الآن أم أنها فكرة أخافتك",
       "path": "audio/bilingual/ar/phrases/a17b3b2e33578fc9.mp3",
-      "text_en": "",
+      "text_en": "Let's check: did this happen just now, or was it a scary thought?",
       "english_path": "audio/bilingual/en/phrases/a17b3b2e33578fc9.mp3",
       "sources": [
         "help-speech:check-reality"
@@ -2187,7 +2187,7 @@
       "engine": "silma",
       "text": "لدي حلان، اختر واحدًا منهما",
       "path": "audio/bilingual/ar/phrases/6bf3ef96e8f672ad.mp3",
-      "text_en": "",
+      "text_en": "I have two solutions. Choose one.",
       "english_path": "audio/bilingual/en/phrases/6bf3ef96e8f672ad.mp3",
       "sources": [
         "help-speech:two-solutions-help"
@@ -2199,7 +2199,7 @@
       "engine": "silma",
       "text": "سأنتظر هنا بقربك ولا تحتاج للكلام الآن",
       "path": "audio/bilingual/ar/phrases/d270a0bb7e895c9b.mp3",
-      "text_en": "",
+      "text_en": "I'll wait right here nearby. You don't need to talk now.",
       "english_path": "audio/bilingual/en/phrases/d270a0bb7e895c9b.mp3",
       "sources": [
         "help-speech:wait-nearby"
