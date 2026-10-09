@@ -31,7 +31,7 @@ from silma_tts.api import SilmaTTS
 assert 'onnxruntime' not in sys.modules, 'Unused telemetry-capable backend must not be imported'
 from uroman import Uroman
 
-parser=argparse.ArgumentParser();parser.add_argument('--cache',required=True);parser.add_argument('--model-cache',required=True);parser.add_argument('--limit',type=int,default=0);parser.add_argument('--part',type=int,default=0);parser.add_argument('--parts',type=int,default=1);parser.add_argument('--generate-only',action='store_true');parser.add_argument('--align-only',action='store_true');parser.add_argument('--only',help='One manifest path to rebuild')
+parser=argparse.ArgumentParser();parser.add_argument('--cache',required=True);parser.add_argument('--model-cache',required=True);parser.add_argument('--limit',type=int,default=0);parser.add_argument('--part',type=int,default=0);parser.add_argument('--parts',type=int,default=1);parser.add_argument('--generate-only',action='store_true');parser.add_argument('--align-only',action='store_true');parser.add_argument('--only',help='One manifest path to rebuild');parser.add_argument('--exclude',action='append',default=[],help='Skip a manifest audio path in partitioned builds')
 parser.add_argument('--memory-map-weights',action='store_true');parser.add_argument('--precision',choices=['bf16','fp32'],default='bf16');parser.add_argument('--root',required=True);parser.add_argument('--manifest',default='data/story-expansion-audio.json');parser.add_argument('--cues',default='data/silma-read-along.json');parser.add_argument('--report',default='data/silma-build-report.json')
 args=parser.parse_args();ROOT=pathlib.Path(args.root).resolve();cache=pathlib.Path(args.cache);cache.mkdir(parents=True,exist_ok=True)
 torch.set_num_threads(2)
@@ -70,6 +70,7 @@ if not args.align_only:
   fcntl.flock(lock,fcntl.LOCK_UN)
 items=[i for i in json.loads((ROOT/args.manifest).read_text())['items'] if i['language']=='ar' and i.get('engine','silma')=='silma']
 if args.only:items=[item for item in items if item['path']==args.only];assert items,'Unknown audio path'
+if args.exclude:items=[item for item in items if item['path'] not in args.exclude]
 if args.limit:items=items[:args.limit]
 if args.generate_only:items=[item for n,item in enumerate(items) if n%args.parts==args.part]
 outputs=[]
