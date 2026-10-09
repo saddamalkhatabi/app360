@@ -14,3 +14,9 @@ test('every new narration and hint has recorded audio and actual timing',()=>{
   for(const item of manifest.items.filter(x=>x.language===lang)){const audio=fs.readFileSync(path.join(root,item.path)),row=cues[item.path];assert(audio.length>1000,item.path);assert(row,item.path);assert.equal(row.text,item.text);assert(row.cues.length>0);if(lang==='ar')assert.equal(row.audio_sha256,crypto.createHash('sha256').update(audio).digest('hex'));for(const [i,a,b] of row.cues)assert(i>=0&&a>=0&&a<b&&b<=row.duration,item.path);}}
  for(const key of Object.keys(C.hints))assert(manifest.items.some(x=>x.path==='audio/ar/hint-'+key+'.mp3'));
 });
+
+test('offline package contains every expanded audio clip and illustrated frame',()=>{
+ const repo=path.resolve(root,'../../..'),bundle=JSON.parse(fs.readFileSync(path.join(repo,'data/offline/a4-cooperate.json'))),paths=new Set(bundle.files.map(x=>x.path)),prefix='apps/4-8/cooperative-play-lab/';
+ for(const item of JSON.parse(fs.readFileSync(path.join(root,'data/expansion-audio.json'))).items)assert(paths.has(prefix+item.path),item.path);
+ for(const e of C.experiments.filter(x=>x.id!=='same-truck'))for(let n=0;n<6;n++)assert(paths.has(prefix+'assets/scenes/'+e.id+'-'+n+'.svg'));
+});

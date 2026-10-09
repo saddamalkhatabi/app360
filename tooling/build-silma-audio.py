@@ -60,7 +60,7 @@ if not args.align_only:
   torch.load=memory_mapped_load
   try:engine=SilmaTTS(device='cpu',enable_normalizer=False,force_tashkeel=False,hf_cache_dir=args.model_cache)
   finally:torch.load=original_load
-  # Use the CPU BF16 matrix kernels; output remains Float32 before the vocoder.
+  # BF16 is the default; FP32 can be selected for CPU builds.
   original_sample=engine.ema_model.sample
   def bounded_sample(*a,**kw):
    with torch.autocast('cpu',dtype=torch.bfloat16,enabled=args.precision=='bf16'):
