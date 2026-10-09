@@ -38,5 +38,11 @@ const out=path.join(root,'audio/bilingual/voice-map.js');
 fs.writeFileSync(out,'/* Pre-recorded MP3 only. Authored English voice scripts await listening review. */\nwindow.APP360_CALM_BILINGUAL_AUDIO='+JSON.stringify(index,null,2)+';\n');
 const report={...counts,missing:issues,complete:index.complete,engine_ar:'SILMA 1.0.5',engine_en:'English Neural prerecording',human_review:false,production_approved:false};
 fs.writeFileSync(path.join(root,'audio/bilingual/build-report.json'),JSON.stringify(report,null,2)+'\n');
+if(index.complete){
+ const ready={schema_version:1,app_id:'a1-calm',ar_mp3:counts.ar_choices+counts.ar_phrases,
+   en_mp3:counts.en_choices+counts.en_phrases,all_mp3_verified:true,
+   human_listening_review:false,approved_for_production:false};
+ fs.writeFileSync(path.join(root,'audio/bilingual/complete-ready.json'),JSON.stringify(ready,null,2)+'\n');
+}
 console.log(JSON.stringify(report));
 if(process.argv.includes('--require-complete')&&!index.complete)process.exit(1);
