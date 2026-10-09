@@ -50,5 +50,6 @@ jobs:
           git add data/offline/a1-calm.json data/offline-catalog.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Refresh offline audio and child illustrations cache after main compatibility fix"
+          git stash push -u -m "temporary generated files outside the official offline catalog" || true
           git pull --rebase origin main
           git push origin HEAD:main
