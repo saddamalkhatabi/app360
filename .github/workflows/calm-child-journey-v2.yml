@@ -1,0 +1,23 @@
+name: Calm Child Journey V2 Smoke
+on:
+  push:
+    branches:
+      - fix/calm-child-meaningful-visuals-20261010
+    paths:
+      - 'apps/1-4/calm-with-me/**'
+      - '.github/workflows/calm-child-journey-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          node --check apps/1-4/calm-with-me/simple-mode-v12-original.js
+          node --check apps/1-4/calm-with-me/simple-mode-v12.js
+          node --check apps/1-4/calm-with-me/calm-silma-controller-serial-v1.js
+      - name: Audio, child controls and image audit
+        run: python3 apps/1-4/calm-with-me/tooling/verify-child-journey-v2.py
