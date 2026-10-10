@@ -1,0 +1,7 @@
+.routineLanguageToggle{font:inherit;line-height:1.3;white-space:nowrap;border:2px solid #147d77;background:#fff;color:#12635e;border-radius:12px;padding:.4rem .65rem;font-weight:750;cursor:pointer;min-height:40px}
+.routineLanguageToggle:focus-visible{outline:3px solid #ffce46;outline-offset:2px}
+.routineLangEnglish .habitWords,.routineLangEnglish .storyTitle,.routineLangEnglish .sceneCard b,.routineLangEnglish .brand,.routineLangEnglish .childStage,.routineLangEnglish .routineIntro,.routineLangEnglish .libraryHead,.routineLangEnglish .stepText{text-align:left;direction:ltr}
+.routineLangEnglish .sceneCard b,.routineLangEnglish .habitWords b,.routineLangEnglish .storyTitle h2{unicode-bidi:plaintext}
+.routineLangEnglish .habitCard{direction:ltr}
+.routineLangEnglish .habitActionBar,.routineLangEnglish .reelControls,.routineLangEnglish .topTools{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+@media(max-width:480px){.routineLanguageToggle{padding:.32rem .45rem;font-size:.83rem}}
