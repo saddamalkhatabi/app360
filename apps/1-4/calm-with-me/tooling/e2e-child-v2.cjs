@@ -42,6 +42,7 @@ const fs=require('fs');
  await page.waitForFunction(()=>document.querySelector('#simpleCalmHome h2')&&document.querySelector('#simpleCalmHome h2').textContent==='How do I feel?',{timeout:5000}).catch(()=>{});
  await must(await page.locator('#simpleCalmHome h2').first().textContent()==='How do I feel?','English child interface not translated: '+await page.evaluate(()=>({lang:window.APP360CalmVoice&&APP360CalmVoice.getLanguage(),heading:document.querySelector('#simpleCalmHome h2')&&document.querySelector('#simpleCalmHome h2').textContent})));
  await page.locator('#calmCoachBtn').click();
+ await page.waitForTimeout(550);
  await must(clips.some(x=>x.indexOf('coach-en.mp3')>=0),'English coach prerecorded MP3 not requested');
  await page.locator('#calmChildBtn').click();
  await page.locator('#calmBilingualAudioButton').click();
