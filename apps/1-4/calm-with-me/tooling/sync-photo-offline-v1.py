@@ -11,10 +11,12 @@ MANIFEST = ROOT/'data/offline/a1-calm.json'
 CATALOG = ROOT/'data/offline-catalog.json'
 app_dir = ROOT/PREFIX
 photos = [f'assets/images/emotions/{id}-{size}.webp' for id in ('happy','sad','afraid','angry') for size in (320,512)]
+stems = ['gentle_closeness_mom_daughter','happy_hug_mom_daughter','warm_hug_mom_daughter','reading_corner_child','read_story_with_mom','drink_water_child','teddy_comfort_child','walk_with_mom','sequence_learning_with_mom','sit_together_mom_child']
+photos += [f'assets/images/what-to-try/{name}-{size}.webp' for name in stems for size in (320,512)]
 important = [
  'index.html','simple-mode-v12.js','simple-mode-v12-original.js',
  'calm-bilingual-voice-v1.js','calm-child-experience-v2.css',
- 'calm-photo-emotions-v1.js'
+ 'calm-photo-emotions-v1.js','calm-photo-helps-v1.js'
 ] + photos
 
 def digest(path):
