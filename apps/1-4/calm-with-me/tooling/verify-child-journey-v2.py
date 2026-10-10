@@ -19,9 +19,9 @@ for lang in ('ar','en'):
 groups=['signals','feelings','helps','transitions']
 counts={'signals':19,'feelings':14,'helps':28,'transitions':13}
 for group in groups:
-    m=re.search(r'\\b'+group+r':\\{([^}]+)\\}',visual)
+    m=re.search(group+':'+chr(123)+'([^}]+)',visual)
     assert m,group
-    keys=re.findall(r"(?:'([^']+)'|\\b([a-z][a-z-]*))\\s*:",m.group(1))
+    keys=re.findall("([a-z-]+|'[^']+'):",m.group(1))
     assert len(keys)==counts[group],(group,len(keys))
 # No false pass: these checks cannot certify semantic picture clarity.
 print('PASS: source syntax, MP3 presence, controls, mappings; VISUAL REVIEW STILL REQUIRED')
