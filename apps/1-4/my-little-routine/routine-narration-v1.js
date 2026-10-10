@@ -5,17 +5,22 @@
 var reel=w.APP360_RoutineReel,media=null,clock=null,mode='',frame=0,token=0,sceneButton=null,statusNode=null;
 function E(id){return d.getElementById(id)}
 function current(){return reel&&reel.currentHabit?reel.currentHabit():null}
-function catalog(){return w.APP360_ROUTINE_NARRATIONS&&w.APP360_ROUTINE_NARRATIONS.habits||{}}
+function isEn(){return w.APP360_ROUTINE_LANG==='en'}
+function txt(ar,en){return isEn()?en:ar}
+function catalog(){
+ var index=isEn()?w.APP360_ROUTINE_NARRATIONS_EN:w.APP360_ROUTINE_NARRATIONS;
+ return index&&index.habits||{};
+}
 function entry(a){var x=a&&catalog()[a.id];return x&&x.verified===true&&x.segments&&x.segments.length===7?x:null}
 function muted(){return E('sound')&&E('sound').innerHTML.indexOf('🔇')>=0}
 function feedback(t){var x=E('toast');if(!x)return;x.textContent=t;x.style.display='block';w.setTimeout(function(){x.style.display='none'},1900)}
 function text(el,t){if(el)el.textContent=t}
 function setButtons(){
  var listen=E('listenFullRoutine'),play=E('playStory'),a=current(),v=entry(a);
- if(listen){listen.disabled=!v;listen.title=v?'شرح صوتي مسجل مع الصور':'لم تُنشر التسجيلات لهذا الروتين بعد';text(listen,mode==='full'?'⏸ إيقاف الشرح':'🔊 استمع للروتين كاملاً')}
- if(play)text(play,mode==='silent'?'⏸ إيقاف':'▶ تشغيل من البداية');
- if(sceneButton){sceneButton.disabled=!v;sceneButton.title=v?'تشغيل صوت هذه اللقطة':'التسجيل غير متاح';}
- if(statusNode)text(statusNode,v?'صوت مسجّل جاهز · تتزامن الصور مع الشرح':'التسجيل الصوتي لم يُنشر بعد · يمكن مشاهدة الصور');
+ if(listen){listen.disabled=!v;listen.title=v?txt('شرح صوتي مسجل مع الصور','Recorded voice with pictures'):txt('لم تُنشر التسجيلات لهذا الروتين بعد','This routine recording is not published yet');text(listen,mode==='full'?txt('⏸ إيقاف الشرح','⏸ Stop narration'):txt('🔊 استمع للروتين كاملاً','🔊 Listen to the whole routine'))}
+ if(play)text(play,mode==='silent'?txt('⏸ إيقاف','⏸ Stop'):txt('▶ تشغيل من البداية','▶ Play from the beginning'));
+ if(sceneButton){sceneButton.disabled=!v;sceneButton.title=v?txt('تشغيل صوت هذه اللقطة','Hear this scene'):txt('التسجيل غير متاح','Recording unavailable');}
+ if(statusNode)text(statusNode,v?txt('صوت مسجّل جاهز · تتزامن الصور مع الشرح','Recorded voice ready · pictures follow the narration'):txt('التسجيل الصوتي لم يُنشر بعد · يمكن مشاهدة الصور','Audio is being prepared · pictures are available'));
 }
 function clearAudio(){if(!media)return;var a=media;media=null;a.onended=null;a.onerror=null;a.ontimeupdate=null;a.onloadedmetadata=null;try{a.pause()}catch(e){}}
 function stop(keepFrame){
@@ -31,7 +36,7 @@ function showScene(n){
 }
 function ending(){
  stop(false);
- feedback('⭐ أحسنت! شاهدت الروتين كاملاً، والآن نجربه معًا.');
+ feedback(txt('⭐ أحسنت! شاهدت الروتين كاملاً، والآن نجربه معًا.','⭐ Great job! Now let us practice together.'));
 }
 function syncPosition(a,ms){
  var list=a.segments,last=null,i;
@@ -41,14 +46,14 @@ function syncPosition(a,ms){
  else if(last.kind==='outro'&&reel&&reel.showOverview)reel.showOverview();
 }
 function useAudio(a,kind,segment){
- if(muted()){feedback('الصوت مغلق. اضغط زر الصوت أولاً.');return}
- var e=entry(a);if(!e){feedback('التسجيل الصوتي لم يُنشر بعد.');return}
+ if(muted()){feedback(txt('الصوت مغلق. اضغط زر الصوت أولاً.','Sound is off. Turn it on first.'));return}
+ var e=entry(a);if(!e){feedback(txt('التسجيل الصوتي لم يُنشر بعد.','The recorded English audio is not published yet.'));return}
  stop(true);
  var myToken=token;mode=kind;frame=-1;setButtons();
  var audio;
- try{audio=new w.Audio(e.path+'?routine-audio=1')}catch(err){stop(true);feedback('هذا المتصفح لا يدعم تشغيل التسجيل');return}
+ try{audio=new w.Audio(e.path+'?routine-audio=1')}catch(err){stop(true);feedback(txt('هذا المتصفح لا يدعم تشغيل التسجيل','This browser cannot play the recording'));return}
  media=audio;audio.preload='auto';
- audio.onerror=function(){if(myToken!==token)return;stop(true);feedback('تعذر فتح الملف الصوتي المسجل');};
+ audio.onerror=function(){if(myToken!==token)return;stop(true);feedback(txt('تعذر فتح الملف الصوتي المسجل','Could not load the recorded audio'));};
  audio.onended=function(){if(myToken!==token)return;if(kind==='full')ending();else stop(true)};
  audio.ontimeupdate=function(){
   if(myToken!==token)return;
@@ -62,15 +67,15 @@ function useAudio(a,kind,segment){
    if(segment){audio.currentTime=Math.max(0,segment.start_ms/1000);if(typeof segment.step==='number')showScene(segment.step)}
    else if(reel&&reel.showOverview)reel.showOverview();
    var p=audio.play();
-   if(p&&typeof p.then==='function')p.then(null,function(){if(myToken===token){stop(true);feedback('اضغط زر التشغيل لتفعيل الصوت على جهازك')}})
-  }catch(err){stop(true);feedback('تعذر تشغيل الملف الصوتي')}
+   if(p&&typeof p.then==='function')p.then(null,function(){if(myToken===token){stop(true);feedback(txt('اضغط زر التشغيل لتفعيل الصوت على جهازك','Tap play to enable audio on your device'))}})
+  }catch(err){stop(true);feedback(txt('تعذر تشغيل الملف الصوتي','Unable to play recorded audio'))}
   setButtons();
  }
  // Start directly in the child's tap gesture for older mobile audio policies.
  try{
   var initial=audio.play();
   if(initial&&typeof initial.then==='function')initial.then(null,function(){if(myToken===token){stop(true);feedback('اضغط زر التشغيل لتفعيل الصوت على جهازك')}});
- }catch(ex){stop(true);feedback('تعذر بدء التسجيل على هذا الجهاز');return}
+ }catch(ex){stop(true);feedback(txt('تعذر بدء التسجيل على هذا الجهاز','Unable to start recording on this device'));return}
  if(audio.readyState>=1)go();else audio.onloadedmetadata=go;
 }
 function listenFull(){if(mode==='full'){stop(true);return}var a=current();if(a)useAudio(a,'full',null)}
@@ -82,35 +87,35 @@ function visualPlay(){
 }
 function replayStep(){
  var a=current(),e=entry(a),i=frame<0?0:frame,j;
- if(!e){feedback('هذا المشهد ليس له تسجيل منشور بعد');return}
+ if(!e){feedback(txt('هذا المشهد ليس له تسجيل منشور بعد','This scene has no published recording yet'));return}
  for(j=0;j<e.segments.length;j++)if(e.segments[j].kind==='step'&&e.segments[j].step===i){useAudio(a,'segment',e.segments[j]);return}
 }
 function playIntro(){
  var a=current(),e=entry(a);
- if(!e){feedback('التسجيل الصوتي لم يُنشر بعد');return}
+ if(!e){feedback(txt('التسجيل الصوتي لم يُنشر بعد','The recorded audio is not published yet'));return}
  useAudio(a,'segment',e.segments[0]);
 }
 function playChildStep(){
  var x=null,a,i,seg=null,e,k,j;
  try{x=JSON.parse(w.localStorage.getItem('app360-a1-routine-v2')||'null')}catch(err){}
- if(!x||!x.routine||!x.run){feedback('اختر روتينًا لتسمع الخطوة');return}
+ if(!x||!x.routine||!x.run){feedback(txt('اختر روتينًا لتسمع الخطوة','Choose a routine to hear the step'));return}
  a=(w.ROUTINE_DATA&&w.ROUTINE_DATA.habits||[]).filter(function(h){return h.id===x.routine.sourceHabit})[0];
- e=entry(a);if(!e){feedback('لا يوجد ملف صوتي مسجّل لهذا الروتين');return}
+ e=entry(a);if(!e){feedback(txt('لا يوجد ملف صوتي مسجّل لهذا الروتين','There is no recorded audio for this routine'));return}
  i=Math.min(x.run.current,x.routine.steps.length-1);
  for(k=0;k<a.steps.length;k++)if(a.steps[k]===x.routine.steps[i].label){seg=k;break}
- if(seg===null){feedback('هذه الخطوة المخصصة ليس لها تسجيل بعد');return}
+ if(seg===null){feedback(txt('هذه الخطوة المخصصة ليس لها تسجيل بعد','This custom step has no recording yet'));return}
  for(j=0;j<e.segments.length;j++)if(e.segments[j].kind==='step'&&e.segments[j].step===seg){useAudio(a,'segment',e.segments[j]);return}
 }
 function addButton(){
  var wrap=E('playStory')&&E('playStory').parentNode;
  if(!wrap||E('listenFullRoutine'))return;
  var b=d.createElement('button');b.id='listenFullRoutine';b.type='button';b.className='routineNarrationBtn';
- b.textContent='🔊 استمع للروتين كاملاً';b.onclick=listenFull;
+ b.textContent=txt('🔊 استمع للروتين كاملاً','🔊 Listen to the whole routine');b.onclick=listenFull;
  wrap.appendChild(b);
  var help=d.createElement('div');help.className='routineNarrationStatus';help.id='routineNarrationStatus';
  wrap.parentNode.insertBefore(help,wrap.nextSibling);statusNode=help;
  var bar=d.querySelector('.habitActionBar');
- if(bar){sceneButton=d.createElement('button');sceneButton.id='listenRoutineScene';sceneButton.className='routineSceneBtn';sceneButton.type='button';sceneButton.textContent='🔉 اسمع هذا المشهد';sceneButton.onclick=replayStep;bar.appendChild(sceneButton)}
+ if(bar){sceneButton=d.createElement('button');sceneButton.id='listenRoutineScene';sceneButton.className='routineSceneBtn';sceneButton.type='button';sceneButton.textContent=txt('🔉 اسمع هذا المشهد','🔉 Hear this scene');sceneButton.onclick=replayStep;bar.appendChild(sceneButton)}
 }
 function bind(){
  if(!reel)return;
