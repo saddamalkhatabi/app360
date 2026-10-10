@@ -1,0 +1,23 @@
+name: Verify Recorded Routine Stories Preview
+on:
+  push:
+    branches: [feature/routine-silma-voice-preview-20261010]
+    paths:
+      - .github/workflows/verify-routine-narration-preview.yml
+      - apps/1-4/my-little-routine/audio/narration-timings.js
+      - apps/1-4/my-little-routine/tools/test-narration-index.cjs
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify actual saved Arabic voice files and frame timestamps
+        run: node apps/1-4/my-little-routine/tools/test-narration-index.cjs
