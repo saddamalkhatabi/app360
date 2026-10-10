@@ -11,6 +11,23 @@ function ageAllowed(item,age){var a=item&&item.age_bands,i;if(!a||!a.length)retu
 function profile(age){var a=C.age_bands||[],i;for(i=0;i<a.length;i++)if(a[i].id===age)return a[i];return a[1]||a[0]||{id:'2-3',max_signals:10,max_feelings:6,max_helps:12}}
 function filtered(list,age,max){var out=[],i;for(i=0;i<(list||[]).length;i++){if(ageAllowed(list[i],age))out.push(list[i]);if(max&&out.length>=max)break}return out}
 function byId(list,id){var i;for(i=0;i<(list||[]).length;i++)if(list[i].id===id)return list[i];return null}
+function childCriticalSignals(list,age,max){
+ /* Four concrete needs are displayed on the child landing flow for every 1-4
+    age choice. Keep them discoverable before age-capped expert signals. */
+ var priority=['need-help','water-now','stay-close','quiet'];
+ var out=[],seen={},i,item;
+ for(i=0;i<priority.length;i++){
+  item=byId(list,priority[i]);
+  if(item&&!seen[item.id]){out.push(item);seen[item.id]=1}
+ }
+ for(i=0;i<(list||[]).length;i++){
+  item=list[i];
+  if(item&&!seen[item.id]&&ageAllowed(item,age)){out.push(item);seen[item.id]=1}
+  if(max&&out.length>=max)break;
+ }
+ return max?out.slice(0,max):out;
+}
+
 var storedState=parse(getStore(STATE_KEY));
 var age=getStore(AGE_KEY)||(storedState&&storedState.settings&&storedState.settings.age_band)||'2-3';
 if(!allowed[age])age='2-3';
@@ -30,7 +47,7 @@ if(storedState&&typeof storedState==='object'){
   storedState.library=newLib;
   setStore(STATE_KEY,JSON.stringify(storedState));
 }
-C.signals=filtered(C.signals||[],age,p.max_signals||0);
+C.signals=childCriticalSignals(C.signals||[],age,p.max_signals||0);
 C.feelings=filtered(C.feelings||[],age,p.max_feelings||0);
 C.helps=filtered(allHelps,age,p.max_helps||0);
 w.APP360_CALM_AGE_BAND=age;

@@ -1,72 +1,71 @@
 (function(w,d){
 'use strict';
-if(!d)return;
-var KEY='app360:a1-calm:simple-v12';
-var GAMES=[
- {id:'app-shape-builder',label_ar:'ألغاز تركيب الأشكال',symbol:'🧩',image:w.APP360_CALM_VISUALS&&w.APP360_CALM_VISUALS.getImage('block'),speech_ar:'نلعب تركيب الأشكال',href:'../tangram-builder/index.html?v=17',age_bands:['1-2','2-3','3-4','4-5'],category:'app'},
- {id:'app-picture-puzzles',label_ar:'ألغاز الصور',symbol:'🖼️',image:w.APP360_CALM_VISUALS&&w.APP360_CALM_VISUALS.getImage('book'),speech_ar:'نلعب ألغاز الصور',href:'../picture-puzzles/index.html?v=3',age_bands:['1-2','2-3','3-4','4-5'],category:'app'}
-];
-function E(id){return d.getElementById(id)}
-function store(v){try{if(w.localStorage)w.localStorage.setItem(KEY,v?'1':'0')}catch(e){}}
-function loadMode(){return true}
-function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]})}
-function clickNode(n){if(!n)return;try{if(n.click)n.click();else if(n.onclick)n.onclick()}catch(e){}}
-function smooth(id){var n=E(id);if(!n)return;setTimeout(function(){try{n.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){try{n.scrollIntoView(true)}catch(x){}}},60)}
-function extendTransitions(){var c=w.APP360_CALM_CONTENT,i,j,found;if(!c)return;if(!c.transitions)c.transitions=[];for(i=0;i<GAMES.length;i++){found=false;for(j=0;j<c.transitions.length;j++)if(c.transitions[j]&&c.transitions[j].id===GAMES[i].id){found=true;break}if(!found)c.transitions.push(GAMES[i])}}
-extendTransitions();
-function advanced(on){if(on){if((' '+d.body.className+' ').indexOf(' calm-advanced ')<0)d.body.className+=(d.body.className?' ':'')+'calm-advanced';store(false)}else{d.body.className=(' '+d.body.className+' ').replace(' calm-advanced ',' ').replace(/^\s+|\s+$/g,'');store(true);var b=E('nav-child');if(b)clickNode(b);setTimeout(function(){w.scrollTo(0,0)},40)}syncHeader();var coach=E('calmCoachBtn'),child=E('calmChildBtn');if(coach)coach.style.display=on?'none':'';if(child)child.style.display=on?'':'none'}
-function syncHeader(){var h=d.querySelector?d.querySelector('.head-copy'):null;if(!h)return;var eye=h.querySelector?h.querySelector('.eyebrow'):null,p=h.querySelector?h.querySelector('p'):null;if((' '+d.body.className+' ').indexOf(' calm-advanced ')>=0){if(eye)eye.innerHTML='مدرسة العائلة 360 · الفئة 1-4 · التفاصيل الكاملة';if(p)p.innerHTML='استكشف المواقف والمشاعر والمساعدات وبطاقات الآن/بعد والسجل عندما تحتاج تفاصيل أكثر.'}else{if(eye)eye.innerHTML='للطفل والمرافق · 3 خطوات فقط';if(p)p.innerHTML='المس صورة لتسمعها، ثم اختر ما يساعدك.';var s=d.querySelector?d.querySelector('.safety-line'):null;if(s)s.innerHTML='لا تحتاج لتسمية الشعور بدقة. ابدأ بما يحتاجه الطفل الآن، واختر مساعدة واحدة فقط.'}}
-function html(){return '<section id="simpleCalmHome" aria-label="واجهة الطفل">'+
-'<div class="simple-stepbar"><span id="simpleBar1" class="on">١ · أشعر</span><span id="simpleBar2">٢ · نجرب</span><span id="simpleBar3">٣ · الآن وبعد</span></div>'+
-'<section id="simpleStep1" class="simple-step ready"><h2>كيف أشعر؟</h2><p>المس الصورة لتسمع الشعور.</p><div id="simpleFeelingCards" class="simple-choice-grid" aria-label="صور المشاعر"></div><h3>ماذا أحتاج؟</h3><div id="simpleSignalCards" class="simple-choice-grid" aria-label="صور الاحتياجات"></div><div class="simple-wide-actions"><button id="simpleUnknown" type="button">لا أعرف بعد</button></div></section>'+
-'<section id="simpleStep2" class="simple-step" hidden><h2>ماذا نجرب الآن؟</h2><p>المس الصورة لتسمع المساعدة.</p><div id="simpleHelpCards" class="simple-choice-grid" aria-label="صور المساعدات"></div><div class="simple-wide-actions"><button id="simpleBackToFeeling" type="button">السابق: أشعر</button></div></section>'+
-'<section id="simpleStep3" class="simple-step" hidden><h2>بطاقة الآن وبعد ذلك</h2><p>اختر صورتين لنفعل شيئًا الآن ثم شيئًا بعده.</p><h3>الآن</h3><div id="simpleNowCards" class="simple-choice-grid"></div><h3>بعد ذلك</h3><div id="simpleThenCards" class="simple-choice-grid"></div><div id="simpleNowThenPreview" class="plan-preview" aria-live="polite"></div><div class="simple-wide-actions"><button id="simpleGood" class="primary" type="button">انتهينا ✓</button><button id="simpleAgain" type="button">مساعدة أخرى</button><button id="simpleBackToHelp" type="button">السابق</button></div><div id="simpleResult" class="simple-result">رائع! يمكنك المحاولة من جديد.</div></section>'+
-'</section>'}
-
-var SIGNALS={'need-help':1,'stay-close':1,'water-now':1,quiet:1},FEELINGS={happy:1,sad:1,afraid:1},HELPS={'comfort-touch':1,'quiet-place':1,'familiar-object':1,water:1,'move-together':1},ACTIVITIES={book:1,ball:1,water:1};
-var currentChildStep=1;
-function showStep(n){currentChildStep=n;for(var i=1;i<=3;i++){var el=E('simpleStep'+i),tab=E('simpleBar'+i);if(el){el.hidden=i!==n;el.style.display=i===n?'block':'none'}if(tab)tab.className=i===n?'on':i<n?'done':''}smooth('simpleStep'+n)}
-function cloneCard(src,type){
- var b=d.createElement('button');b.type='button';b.className='simple-choice';b.innerHTML=src.innerHTML;
- var kinds=['data-kind','data-id','data-help','data-step'];for(var i=0;i<kinds.length;i++){var v=src.getAttribute(kinds[i]);if(v)b.setAttribute(kinds[i],v)}
- b.onclick=function(){clickNode(src);setTimeout(function(){refreshSelected();if(type==='signal'||type==='feeling')showStep(2);else if(type==='help')showStep(3)},100)};return b
+/* Child-first layer: original domain, state, MP3 and trainer remain authoritative. ES5 for older tablets. */
+var C=w.APP360_CALM_CONTENT||{},root=null,step=1,group='feelings',chosen=null,chosenHelp=null,thenId='book',coachAudio=null,alive=false;
+var GROUPS={feelings:['happy','sad','afraid','angry'],signals:['need-help','water-now','stay-close','quiet']};
+var LABELS={
+ ar:{feeling:'كيف أشعر؟',need:'ماذا أحتاج؟',tap:'المس الصورة لتسمعها',next:'التالي ←',back:'السابق →',help:'ماذا نجرب؟',try:'اختر مساعدة واحدة',now:'الآن',then:'بعد ذلك',done:'انتهينا، أحسنت!',again:'نبدأ من جديد',coach:'مكان المدرب',child:'العودة للطفل',unk:'لا أعرف، أكمل',ready:'أحسنت! اضغط التالي',preparing:'اختر صورة أولًا',listen:'اسمع الترحيب',childPhrase:'للطفل',chooseAfter:'اختر ما نفعله بعد ذلك'},
+ en:{feeling:'How do I feel?',need:'What do I need?',tap:'Tap a picture to hear it',next:'Next →',back:'← Back',help:'What can we try?',try:'Choose one thing that helps',now:'Now',then:'Then',done:'Well done!',again:'Start again',coach:'Coach area',child:'Back to child',unk:"I don't know, continue",ready:'Great! Tap Next',preparing:'Choose a picture first',listen:'Listen to the welcome',childPhrase:'For children',chooseAfter:'Choose what we do next'}
+};
+var EN={'feelings:happy':'Happy','feelings:sad':'Sad','feelings:afraid':'Scared','feelings:angry':'Angry','signals:need-help':'Help me','signals:water-now':'I want water','signals:stay-close':'Stay close','signals:quiet':'A quiet place',
+'helps:close':'Stay with me','helps:hold-if-wanted':'Pick me up','helps:comfort-touch':'A hug','helps:space':'Give me space','helps:quiet-place':'A quiet room','helps:reduce-noise':'Less noise','helps:familiar-object':'My favorite toy','helps:water':'Drink water','helps:quiet-book':'Read a book','helps:move-together':'Walk together','helps:show-next':'Show me what comes next',
+'transitions:book':'Read a book','transitions:ball':'Play ball','transitions:water':'Drink water','transitions:wait':'Wait together'};
+function el(id){return d.getElementById(id)}
+function language(){return w.APP360CalmVoice&&w.APP360CalmVoice.getLanguage()==='en'?'en':'ar'}
+function tr(k){return LABELS[language()][k]||k}
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]})}
+function items(kind){return C[kind]||[]}
+function get(kind,id){var a=items(kind),i;for(i=0;i<a.length;i++)if(a[i]&&a[i].id===id)return a[i];return null}
+function name(kind,it){if(!it)return '';var key=kind+':'+it.id;var audio=w.APP360_CALM_BILINGUAL_AUDIO&&w.APP360_CALM_BILINGUAL_AUDIO.choices&&w.APP360_CALM_BILINGUAL_AUDIO.choices[key];return language()==='en'?(EN[key]||audio&&audio.text_en||it.label_ar):(it.label_ar||'')}
+function enabled(){var s=el('speechToggle');return !s||s.checked}
+function stopAll(){if(coachAudio){try{coachAudio.pause()}catch(e){}coachAudio=null}if(w.APP360CalmNarration)w.APP360CalmNarration.stop();if(w.APP360CalmVoice)w.APP360CalmVoice.stop();if(w.APP360CalmIntro)w.APP360CalmIntro.stop()}
+function picture(it){return it&&it.image||''}
+function photoImgAttrs(it,group){
+ if(!it||!it.imageSrcSet)return " onerror=\"this.style.display='none'\"";
+ return ' srcset="'+esc(it.imageSrcSet)+'" sizes="'+esc(it.imageSizes||'205px')+
+ '" data-calm-photo="'+esc(it.id)+'" data-calm-image-group="'+esc(group)+
+ '" onerror="window.APP360CalmPhotoFallback(this)"';
 }
-function cloneFiltered(srcId,dstId,type,allowed){
- var src=E(srcId),dst=E(dstId),bs=src?src.getElementsByTagName('button'):[],i,key;
- if(!dst)return;dst.innerHTML='';
- for(i=0;i<bs.length;i++){key=bs[i].getAttribute(type==='help'?'data-help':type==='transition'?'data-step':'data-id');if(allowed[key])dst.appendChild(cloneCard(bs[i],type))}
+function renderCard(kind,id,selection){
+ var it=get(kind,id);if(!it)return '';
+ var is=selection===id,im=picture(it);
+ return '<button type="button" class="calm-kid-card'+(is?' chosen':'')+'" data-calm-kind="'+kind+'" data-calm-id="'+esc(id)+'" aria-pressed="'+is+'">'+
+ (im?'<img src="'+esc(im)+'"'+photoImgAttrs(it,kind)+' loading="lazy" alt="'+esc(name(kind,it))+'">':'<span class="calm-card-fallback">'+esc(it.symbol||'♡')+'</span>')+
+ '<b>'+esc(name(kind,it))+'</b></button>';
 }
-function copyChoices(){
- cloneFiltered('feelingCards','simpleFeelingCards','feeling',FEELINGS);
- cloneFiltered('signalCards','simpleSignalCards','signal',SIGNALS);
- cloneFiltered('helpCards','simpleHelpCards','help',HELPS);
- cloneFiltered('nowPicker','simpleNowCards','transition',ACTIVITIES);
- cloneFiltered('thenPicker','simpleThenCards','transition',ACTIVITIES);
- refreshSelected()
+function sourceClick(kind,id){var base=kind==='feelings'?'feelingCards':kind==='signals'?'signalCards':kind==='helps'?'helpCards':'thenPicker',attr=kind==='helps'?'data-help':kind==='transitions'?'data-step':'data-id';if(kind==='transitions')base='thenPicker';var box=el(base);if(!box)return false;var buttons=box.getElementsByTagName('button'),i;for(i=0;i<buttons.length;i++)if(buttons[i].getAttribute(attr)===id){if(buttons[i].click)buttons[i].click();else if(buttons[i].onclick)buttons[i].onclick();return true}return false}
+function choose(kind,id){if(kind==='feelings'||kind==='signals'){chosen={kind:kind,id:id};chosenHelp=null;step=1;sourceClick(kind,id)}else if(kind==='helps'){chosenHelp=id;sourceClick(kind,id)}else if(kind==='transitions'){thenId=id;sourceClick(kind,id)}render();if(root&&root.scrollIntoView)setTimeout(function(){try{root.scrollIntoView(true)}catch(e){}},110)}
+function suggestions(){var first=chosen&&chosen.id||'',main=['comfort-touch','quiet-place','water','move-together'],matches=[],a=items('helps'),i,it;for(i=0;i<a.length;i++){it=a[i];if(it&&it.suggest_for&&it.suggest_for.indexOf(first)>=0&&matches.indexOf(it.id)<0)matches.push(it.id)}for(i=0;i<main.length;i++)if(matches.indexOf(main[i])<0)matches.push(main[i]);return matches.slice(0,4)}
+function nowItem(){if(chosenHelp)return get('helps',chosenHelp);return chosen&&get(chosen.kind,chosen.id)}
+function panel(kind,it){
+ return '<div class="calm-sequence-picture">'+(picture(it)?'<img src="'+esc(picture(it))+'"'+photoImgAttrs(it,kind)+' alt="'+esc(name(kind,it))+'">':'')+
+ '</div><b>'+esc(name(kind,it)||'—')+'</b>';
 }
-function refreshSelected(){
- var lists=[['simpleFeelingCards','feelingCards','data-id'],['simpleSignalCards','signalCards','data-id'],['simpleHelpCards','helpCards','data-help'],['simpleNowCards','nowPicker','data-step'],['simpleThenCards','thenPicker','data-step']];
- for(var i=0;i<lists.length;i++){var dst=E(lists[i][0]),src=E(lists[i][1]);if(!dst||!src)continue;var bs=dst.getElementsByTagName('button'),old=src.getElementsByTagName('button');
- for(var j=0;j<bs.length;j++){var selected=false,key=bs[j].getAttribute(lists[i][2]);for(var k=0;k<old.length;k++)if(old[k].getAttribute(lists[i][2])===key&&(' '+old[k].className+' ').indexOf(' selected ')>=0){selected=true;break}bs[j].className='simple-choice'+(selected?' selected':'');bs[j].setAttribute('aria-pressed',selected?'true':'false')}}var preview=E('simpleNowThenPreview'),original=E('planPreview');if(preview&&original)preview.innerHTML=original.innerHTML;}
-function trainerAudio(){
- var lang=w.APP360CalmVoice&&w.APP360CalmVoice.getLanguage&&w.APP360CalmVoice.getLanguage()==='en'?'en':'ar';
- var text=lang==='en'?'This is the coach area':'هذا مكان المدرب',status=E('calmCoachStatus');if(status)status.textContent=text;var sw=E('speechToggle');if(sw&&!sw.checked)return;
- if(w.APP360CalmIntro&&w.APP360CalmIntro.stop)w.APP360CalmIntro.stop();
- if(w.APP360CalmNarration&&w.APP360CalmNarration.stop)w.APP360CalmNarration.stop();
- try{if(w.APP360CalmCoachSound)w.APP360CalmCoachSound.pause();var audio=new w.Audio('audio/intro/coach-'+lang+'.mp3');w.APP360CalmCoachSound=audio;audio.play()}catch(e){}
+function steps(){var h='',i;for(i=1;i<=3;i++)h+='<span class="'+(step===i?'current':i<step?'passed':'')+'">'+i+'</span>';return h}
+function render(){
+ if(!root)return;root.setAttribute('dir',language()==='en'?'ltr':'rtl');var h='<div class="calm-kid-progress" aria-label="progress">'+steps()+'</div>';
+ if(step===1){
+  var ids=GROUPS[group];
+  h+='<h2>'+tr(group==='feelings'?'feeling':'need')+'</h2><p class="calm-kid-instruction">'+tr('tap')+'</p><div class="calm-kid-tabs"><button type="button" data-calm-tab="feelings" class="'+(group==='feelings'?'active':'')+'">'+tr('feeling')+'</button><button type="button" data-calm-tab="signals" class="'+(group==='signals'?'active':'')+'">'+tr('need')+'</button></div>';
+  h+='<div class="calm-kid-grid">'+ids.map(function(id){return renderCard(group,id,chosen&&chosen.kind===group?chosen.id:'')}).join('')+'</div>';
+  h+='<p class="calm-kid-feedback" role="status">'+(chosen?tr('ready'):tr('preparing'))+'</p><div class="calm-kid-buttons"><button type="button" data-calm-action="skip" class="calm-secondary">'+tr('unk')+'</button><button type="button" data-calm-action="next" class="calm-primary" '+(!chosen?'disabled':'')+'>'+tr('next')+'</button></div>';
+ }else if(step===2){
+  h+='<h2>'+tr('help')+'</h2><p class="calm-kid-instruction">'+tr('try')+'</p><div class="calm-kid-grid">'+suggestions().map(function(id){return renderCard('helps',id,chosenHelp)}).join('')+'</div>';
+  h+='<p class="calm-kid-feedback" role="status">'+(chosenHelp?tr('ready'):tr('preparing'))+'</p><div class="calm-kid-buttons"><button data-calm-action="back" class="calm-secondary">'+tr('back')+'</button><button data-calm-action="next" class="calm-primary" '+(!chosenHelp?'disabled':'')+'>'+tr('next')+'</button></div>';
+ }else if(step===3){
+  var now=nowItem(),later=get('transitions',thenId);
+  h+='<h2>'+tr('now')+' · '+tr('then')+'</h2><div class="calm-sequence"><div class="calm-sequence-cell"><span class="calm-sequence-title">'+tr('now')+'</span>'+panel(chosenHelp?'helps':chosen.kind,now)+'</div><div class="calm-sequence-arrow" aria-hidden="true">➜</div><div class="calm-sequence-cell"><span class="calm-sequence-title">'+tr('then')+'</span>'+panel('transitions',later)+'</div></div>';
+  h+='<p class="calm-kid-instruction">'+tr('chooseAfter')+'</p><div class="calm-kid-grid calm-next-grid">'+['book','ball','water','wait'].map(function(id){return renderCard('transitions',id,thenId)}).join('')+'</div>';
+  h+='<div class="calm-kid-buttons"><button data-calm-action="back" class="calm-secondary">'+tr('back')+'</button><button data-calm-action="next" class="calm-primary">'+tr('done')+'</button></div>';
+ }else{
+  h+='<h2 class="calm-kid-finish">'+tr('done')+'</h2><div class="calm-sequence">'+panel(chosenHelp?'helps':chosen.kind,nowItem())+panel('transitions',get('transitions',thenId))+'</div><div class="calm-kid-buttons"><button data-calm-action="restart" class="calm-primary">'+tr('again')+'</button></div>';
+ }
+ root.innerHTML=h;root.setAttribute('data-child-step',String(step));var cc=el('calmCoachBtn'),cb=el('calmChildBtn');if(cc)cc.textContent=tr('coach');if(cb)cb.textContent=tr('child');var heading=d.querySelector&&d.querySelector('.head-copy h1');if(heading)heading.textContent=language()==='en'?'Calm with Me: I Need Help':'مشاعري معك: أحتاج مساعدة';
 }
-function bind(){
- var n=E('simpleUnknown');if(n)n.onclick=function(){clickNode(E('skipSignalBtn'));showStep(2)};
- n=E('simpleBackToFeeling');if(n)n.onclick=function(){showStep(1)};
- n=E('simpleBackToHelp');if(n)n.onclick=function(){showStep(2)};
- n=E('simpleGood');if(n)n.onclick=function(){var r=E('simpleResult');if(r)r.className='simple-result show'};
- n=E('simpleAgain');if(n)n.onclick=function(){showStep(2)};
- n=E('calmCoachBtn');if(n)n.onclick=function(){advanced(true);trainerAudio();w.scrollTo(0,0)};
- n=E('calmChildBtn');if(n)n.onclick=function(){if(w.APP360CalmCoachSound)try{w.APP360CalmCoachSound.pause()}catch(e){}advanced(false);showStep(1)}
-}
-
-function observe(){var a=[E('signalCards'),E('feelingCards'),E('helpCards'),E('nowPicker'),E('thenPicker'),E('currentSignalText'),E('currentHelpText')],i;if(w.MutationObserver){for(i=0;i<a.length;i++)if(a[i])new MutationObserver(function(){copyChoices()}).observe(a[i],{childList:true,subtree:true,characterData:true})}else setInterval(copyChoices,1200)}
-function inject(){extendTransitions();var child=E('childView');if(!child||E('simpleCalmHome'))return;var wrap=d.createElement('div');wrap.innerHTML=html();child.insertBefore(wrap.firstChild,child.firstChild);var back=d.createElement('button');back.id='simpleReturnBtn';back.type='button';back.innerHTML='← العودة للطفل';var main=E('mainContent');if(main)main.insertBefore(back,main.firstChild);bind();copyChoices();observe();advanced(false);showStep(1);syncHeader()}
-function boot(){inject();setTimeout(copyChoices,250);setTimeout(copyChoices,900)}
+function switchStep(n){stopAll();step=n;render();if(root&&root.scrollIntoView)try{root.scrollIntoView(true)}catch(e){}}
+function chooseCoach(on){stopAll();if(on){if((' '+d.body.className+' ').indexOf(' calm-advanced ')<0)d.body.className+=' calm-advanced';var t=el('calmCoachStatus');if(t)t.textContent=language()==='en'?'This is the coach area. More tools and details are here.':'هذا مكان المدرب. هنا تجد أدوات وتفاصيل أكثر.';var navCoach=el('nav-caregiver');if(navCoach&&navCoach.click)navCoach.click();if(enabled())try{coachAudio=new w.Audio('audio/intro/coach-'+language()+'.mp3');coachAudio.play()}catch(e){}}else{d.body.className=(' '+d.body.className+' ').replace(' calm-advanced ',' ').replace(/^\s+|\s+$/g,'');step=1;group='feelings';render();var nav=el('nav-child');if(nav&&nav.click)nav.click()}if(el('calmCoachBtn'))el('calmCoachBtn').style.display=on?'none':'';if(el('calmChildBtn'))el('calmChildBtn').style.display=on?'':'none';w.scrollTo(0,0)}
+function click(e){var t=e.target;while(t&&t!==root&&t!==d){var type=t.getAttribute&&t.getAttribute('data-calm-kind'),action=t.getAttribute&&t.getAttribute('data-calm-action'),tab=t.getAttribute&&t.getAttribute('data-calm-tab');if(type){choose(type,t.getAttribute('data-calm-id'));return}if(tab){group=tab;render();return}if(action){if(action==='skip'){if(el('skipSignalBtn')&&el('skipSignalBtn').click)el('skipSignalBtn').click();chosen={kind:'signals',id:'need-help'};switchStep(2)}else if(action==='next'){if(step<4)switchStep(step+1)}else if(action==='back')switchStep(Math.max(1,step-1));else if(action==='restart'){chosen=null;chosenHelp=null;thenId='book';group='feelings';switchStep(1)}return}t=t.parentNode}}
+function boot(){if(alive)return;alive=true;var host=el('childView');if(!host)return;root=d.createElement('section');root.id='simpleCalmHome';root.className='calm-kid-journey';root.setAttribute('aria-label','Child-friendly three-step activity');host.insertBefore(root,host.firstChild);root.onclick=click;var coach=el('calmCoachBtn'),child=el('calmChildBtn');if(coach)coach.onclick=function(){chooseCoach(true)};if(child)child.onclick=function(){chooseCoach(false)};chooseCoach(false);render();if(d.addEventListener)d.addEventListener('click',function(e){if(e.target&&e.target.id==='calmBilingualAudioButton'){stopAll();setTimeout(render,75)}},true)}
+w.APP360CalmChildFlow={render:render};
 if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMContentLoaded',boot,false);else w.attachEvent&&w.attachEvent('onload',boot)}else boot();
 })(window,document);

@@ -57,11 +57,12 @@ function change(){
  if(w.APP360CalmNarration&&w.APP360CalmNarration.stop)w.APP360CalmNarration.stop();
  stop();
  render();
+ if(w.APP360CalmChildFlow&&w.APP360CalmChildFlow.render)w.APP360CalmChildFlow.render();
  if(w.APP360CalmIntro&&w.APP360CalmIntro.onLanguageChange)w.APP360CalmIntro.onLanguageChange();
 }
 function render(){
  if(button){
-  button.textContent=lang==='ar'?'🔊 الصوت: العربية | English':'🔊 Audio: English | العربية';
+  button.textContent=lang==='ar'?'🔊 الصوت المسجل: العربية | English':'🔊 Recorded audio: English | العربية';
   button.setAttribute('aria-label',lang==='ar'?'التبديل إلى التسجيلات الإنجليزية':'Switch to Arabic recordings');
   button.setAttribute('aria-pressed',String(lang==='en'));
  }

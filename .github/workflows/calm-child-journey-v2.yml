@@ -1,0 +1,41 @@
+name: Calm Child Journey V2 Smoke
+on:
+  push:
+    branches:
+      - fix/calm-child-meaningful-visuals-20261010
+    paths:
+      - 'apps/1-4/calm-with-me/**'
+      - '.github/workflows/calm-child-journey-v2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          node --check apps/1-4/calm-with-me/simple-mode-v12-original.js
+          node --check apps/1-4/calm-with-me/calm-photo-helps-v1.js
+          node --check apps/1-4/calm-with-me/simple-mode-v12.js
+          node --check apps/1-4/calm-with-me/calm-silma-controller-serial-v1.js
+      - name: Audio, child controls and image audit
+        run: python3 apps/1-4/calm-with-me/tooling/verify-child-journey-v2.py
+      - name: Install headless browser
+        run: |
+          npm install --prefix /tmp/calm-e2e --no-audit --no-fund playwright@1.56.1
+          /tmp/calm-e2e/node_modules/.bin/playwright install chromium
+      - name: Start site and test real touch journey
+        env:
+          NODE_PATH: /tmp/calm-e2e/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory . >/tmp/calm-site.log 2>&1 &
+          node apps/1-4/calm-with-me/tooling/e2e-child-v2.cjs
+      - name: Upload mobile/tablet screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: calm-touch-qa-screenshots
+          path: /tmp/calm-child-*.png
+          if-no-files-found: ignore
