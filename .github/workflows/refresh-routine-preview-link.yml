@@ -1,0 +1,23 @@
+name: Refresh Routine Voice Preview Link
+on:
+  push:
+    branches: [feature/routine-silma-voice-preview-20261010]
+    paths:
+      - apps/1-4/my-little-routine/audio/narration-timings.js
+      - apps/1-4/my-little-routine/audio/silma/routines/**
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh-test-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+          fetch-depth: 0
+      - name: Fast-forward stable public test branch
+        run: |
+          git fetch origin routine-silma-audio-preview
+          git merge-base --is-ancestor origin/routine-silma-audio-preview HEAD
+          git push origin HEAD:refs/heads/routine-silma-audio-preview
