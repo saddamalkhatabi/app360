@@ -1,0 +1,131 @@
+name: Complete Missing SILMA Routine Narrations Safely
+on:
+  push:
+    branches: [feature/routine-silma-voice-preview-20261010]
+    paths: [.github/workflows/complete-missing-routine-voice.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: silma-routine-missing10-restore
+  cancel-in-progress: false
+
+jobs:
+  record-missing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 130
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original SILMA voice engine on isolated build runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Cache publisher SILMA model for offline recording
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          PY
+      - name: Generate two missing routines on each runner
+        run: |
+          python - <<'PY'
+          import json,subprocess,sys
+          root='apps/1-4/my-little-routine'
+          items=json.load(open(root+'/audio/narration-scripts.json'))['items']
+          cmd=[sys.executable,'tooling/build-silma-audio.py','--root',root,'--manifest','audio/narration-scripts.json',
+               '--cache','/tmp/routine-tts-cache','--model-cache','/tmp/silma-hf/hub','--precision','bf16',
+               '--generate-only','--part','${{ matrix.part }}','--parts','5']
+          for i,item in enumerate(items):
+              if i%5!=4:cmd.extend(['--exclude',item['path']])
+          subprocess.run(cmd,check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routine-silma-missing-${{ matrix.part }}
+          path: apps/1-4/my-little-routine/audio/silma/routines/
+          if-no-files-found: error
+          retention-days: 7
+
+  restore-validate-and-publish:
+    needs: record-missing
+    runs-on: ubuntu-latest
+    timeout-minutes: 175
+    env:
+      HF_HOME: /tmp/silma-hf
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+          fetch-depth: 0
+      - name: Download original 40 recorded MP3 from successful shards
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 38075635452
+          pattern: routine-silma-mp3-[0-3]
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: apps/1-4/my-little-routine/audio/silma/routines/
+      - name: Download 10 newly recorded files from this workflow
+        uses: actions/download-artifact@v4
+        with:
+          pattern: routine-silma-missing-*
+          merge-multiple: true
+          path: apps/1-4/my-little-routine/audio/silma/routines/
+      - name: Validate 50 decodable actual MP3 before publication
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python - <<'PY'
+          import json,pathlib,subprocess
+          root=pathlib.Path('apps/1-4/my-little-routine')
+          items=json.loads((root/'audio/narration-scripts.json').read_text(encoding='utf-8'))['items']
+          assert len(items)==50
+          for item in items:
+            file=root/item['path']
+            assert file.exists() and file.stat().st_size>5000,str(file)
+            info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','stream=codec_name:format=duration','-of','json',str(file)]))
+            assert info['streams'][0]['codec_name']=='mp3' and 4<float(info['format']['duration'])<40,str(file)
+          print('All 50 real recorded MP3 validated')
+          PY
+      - name: Install local forced acoustic aligner
+        run: |
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Align all recorded words and generate full picture timeline
+        run: |
+          python tooling/build-silma-audio.py \
+            --root apps/1-4/my-little-routine \
+            --manifest audio/narration-scripts.json \
+            --cues audio/silma-alignment.json \
+            --report audio/silma-build-report.json \
+            --cache /tmp/routine-align-cache --model-cache /tmp/silma-hf/hub --align-only
+          python apps/1-4/my-little-routine/tools/build_narration_timeline.py
+      - name: Commit full verified MP3 story set to preview branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/my-little-routine/audio/
+          if git diff --cached --quiet; then echo 'All recorded voices already published'; exit 0; fi
+          git commit -m "Complete all 50 SILMA routine stories with acoustic scene synchronization"
+          git pull --rebase origin feature/routine-silma-voice-preview-20261010
+          git push origin HEAD:feature/routine-silma-voice-preview-20261010
