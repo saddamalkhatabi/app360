@@ -3,13 +3,14 @@
 /* Deliberately semantic assignments: no photo stands for a different action. */
 var C=w.APP360_CALM_CONTENT;if(!C)return;
 var map={
- signals:{'stay-close':'gentle_closeness_mom_daughter','pick-me-up':'happy_hug_mom_daughter','what-next':'sequence_learning_with_mom'},
+ signals:{'need-help':'need-help','water-now':'water-now','quiet':'quiet',
+ 'stay-close':'gentle_closeness_mom_daughter','pick-me-up':'happy_hug_mom_daughter','what-next':'sequence_learning_with_mom'},
  helps:{'close':'gentle_closeness_mom_daughter','hold-if-wanted':'happy_hug_mom_daughter',
  'comfort-touch':'warm_hug_mom_daughter','quiet-place':'reading_corner_child',
  'familiar-object':'teddy_comfort_child','quiet-book':'read_story_with_mom',
  'water':'drink_water_child','show-next':'sequence_learning_with_mom',
  'move-together':'walk_with_mom'},
- transitions:{'book':'read_story_with_mom','water':'drink_water_child'}
+ transitions:{'book':'read_story_with_mom','water':'drink_water_child','ball':'ball','wait':'wait'}
 };
 var path='assets/images/what-to-try/',count=0,assigned=[];
 for(var kind in map)if(map.hasOwnProperty(kind)){
