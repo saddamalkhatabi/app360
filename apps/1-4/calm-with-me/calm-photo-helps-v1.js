@@ -25,5 +25,5 @@ for(var kind in map)if(map.hasOwnProperty(kind)){
   count++;
  }
 }
-w.APP360_CALM_TRY_PHOTOS={version:1,assigned:assigned,count:count};
+w.APP360CalmPhotoFallback=function(img){\n var kind=img&&img.getAttribute('data-calm-image-group')||'feelings';\n var id=img&&img.getAttribute('data-calm-photo'),list=C[kind]||[],it=null;\n for(var k=0;k<list.length;k++){if(list[k].id===id){it=list[k];break}}\n if(!img)return;img.onerror=null;img.removeAttribute('srcset');\n if(it&&it.photoFallback)img.src=it.photoFallback;else img.style.display='none';\n};\nw.APP360_CALM_TRY_PHOTOS={version:1,assigned:assigned,count:count};
 })(window);
