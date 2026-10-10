@@ -1,0 +1,78 @@
+name: Arabic Supertonic Voice Experiment
+on:
+  push:
+    branches:
+      - experiment/arabic-voicestudio-tts-20261010
+    paths:
+      - .github/workflows/arabic-supertonic-test.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  generate_arabic_samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official Supertonic SDK and runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install supertonic numpy soundfile
+      - name: Generate real Arabic TTS files with preset voices
+        env:
+          OMP_NUM_THREADS: '4'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv, json, os, traceback, zipfile
+          from supertonic import TTS
+          cases = [
+             ('01_greeting','أهلًا يا أصدقائي! أنا سعيدٌ جدًا بلقائكم. هيا نبدأ لعبتنا الجميلة معًا.'),
+             ('02_omar','اسمي عُمَرُ، وقد عَمَرَ جَدّي هذا البيتَ منذ زمنٍ طويل.'),
+             ('03_king_angel','قال المَلِكُ: إنَّ العَدْلَ أساسُ المُلك. ثم قرأ الطفلُ قصةً عن مَلَكٍ لطيف.'),
+             ('04_numbers','لديَّ اثنا عشر كتابًا ومئةٌ وثمانيةُ أقلامٍ، وثمنُ الحقيبة ألفان وثلاثمئة وخمسةٌ وأربعون ريالًا.'),
+             ('05_pronunciation','خَرَجَ خليلٌ خلفَ خالته خديجة، فوجد خمسَ خرافٍ خائفةً خلفَ الخيمة.'),
+             ('06_yemeni','يا ولدي، قدك شاطر! اغسل يديك أول، وبعدين تعال نتعشّى سوا.'),
+             ('07_emotions','أنا سعيدٌ لأنك شاركتني اللعب، وإذا كنت حزينًا نتنفّس بهدوءٍ معًا.'),
+          ]
+          voices=['M1','M3','F3','F4']
+          out=Path('arabic_audio'); out.mkdir(exist_ok=True)
+          (out/'cases.json').write_text(json.dumps([{'id':i,'text':s} for i,s in cases],ensure_ascii=False,indent=2),encoding='utf-8')
+          print('Initializing official Supertonic 3 SDK (downloads model weights)...',flush=True)
+          tts=TTS(auto_download=True)
+          result=[]
+          for voice in voices:
+              try:
+                  style=tts.get_voice_style(voice_name=voice)
+              except Exception as e:
+                  print('Cannot load voice',voice,repr(e),flush=True)
+                  continue
+              for id_,s in cases:
+                  try:
+                      wav,dur=tts.synthesize(s,voice_style=style,lang='ar',total_steps=6,speed=1.0,verbose=False)
+                      path=out/f'{id_}_{voice}.wav'
+                      tts.save_audio(wav,str(path))
+                      if path.stat().st_size < 1000: raise RuntimeError('File unexpectedly small')
+                      result.append((path.name,id_,voice,s,round(float(dur),2),path.stat().st_size))
+                      print('SUCCESS',path.name, 'duration',round(float(dur),2),'size',path.stat().st_size,flush=True)
+                  except Exception as e:
+                      print('FAILED',id_,voice,repr(e),flush=True)
+                      traceback.print_exc()
+          with (out/'manifest.csv').open('w',encoding='utf-8-sig',newline='') as f:
+              w=csv.writer(f);w.writerow(['filename','case','voice','arabic_text','duration_s','bytes']);w.writerows(result)
+          if not result: raise RuntimeError('No synthesized audio; cannot create a fake or empty artifact')
+          with zipfile.ZipFile('Supertonic3_Arabic_Real_Audio.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in out.iterdir(): z.write(p,arcname=p.name)
+          print('FINAL_AUDIO_FILES',len(result),flush=True)
+          PY
+      - name: Upload audio zip
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Supertonic3-Arabic-Real-Audio
+          path: Supertonic3_Arabic_Real_Audio.zip
+          if-no-files-found: error
+          retention-days: 7
