@@ -20,15 +20,17 @@ function name(kind,it){if(!it)return '';var key=kind+':'+it.id;var audio=w.APP36
 function enabled(){var s=el('speechToggle');return !s||s.checked}
 function stopAll(){if(coachAudio){try{coachAudio.pause()}catch(e){}coachAudio=null}if(w.APP360CalmNarration)w.APP360CalmNarration.stop();if(w.APP360CalmVoice)w.APP360CalmVoice.stop();if(w.APP360CalmIntro)w.APP360CalmIntro.stop()}
 function picture(it){return it&&it.image||''}
-function photoImgAttrs(it){
- if(!it||!it.imageSrcSet)return ' onerror="this.style.display=\'none\'"';
- return ' srcset="'+esc(it.imageSrcSet)+'" sizes="'+esc(it.imageSizes||'205px')+'" data-calm-photo="'+esc(it.id)+'" onerror="window.APP360CalmPhotoFallback(this)"';
+function photoImgAttrs(it,group){
+ if(!it||!it.imageSrcSet)return ' onerror="this.style.display=\\'none\\'"';
+ return ' srcset="'+esc(it.imageSrcSet)+'" sizes="'+esc(it.imageSizes||'205px')+
+ '" data-calm-photo="'+esc(it.id)+'" data-calm-image-group="'+esc(group)+
+ '" onerror="window.APP360CalmPhotoFallback(this)"';
 }
 function renderCard(kind,id,selection){
  var it=get(kind,id);if(!it)return '';
  var is=selection===id,im=picture(it);
  return '<button type="button" class="calm-kid-card'+(is?' chosen':'')+'" data-calm-kind="'+kind+'" data-calm-id="'+esc(id)+'" aria-pressed="'+is+'">'+
- (im?'<img src="'+esc(im)+'"'+photoImgAttrs(it)+' loading="lazy" alt="'+esc(name(kind,it))+'">':'<span class="calm-card-fallback">'+esc(it.symbol||'♡')+'</span>')+
+ (im?'<img src="'+esc(im)+'"'+photoImgAttrs(it,kind)+' loading="lazy" alt="'+esc(name(kind,it))+'">':'<span class="calm-card-fallback">'+esc(it.symbol||'♡')+'</span>')+
  '<b>'+esc(name(kind,it))+'</b></button>';
 }
 function sourceClick(kind,id){var base=kind==='feelings'?'feelingCards':kind==='signals'?'signalCards':kind==='helps'?'helpCards':'thenPicker',attr=kind==='helps'?'data-help':kind==='transitions'?'data-step':'data-id';if(kind==='transitions')base='thenPicker';var box=el(base);if(!box)return false;var buttons=box.getElementsByTagName('button'),i;for(i=0;i<buttons.length;i++)if(buttons[i].getAttribute(attr)===id){if(buttons[i].click)buttons[i].click();else if(buttons[i].onclick)buttons[i].onclick();return true}return false}
@@ -36,7 +38,7 @@ function choose(kind,id){if(kind==='feelings'||kind==='signals'){chosen={kind:ki
 function suggestions(){var first=chosen&&chosen.id||'',main=['comfort-touch','quiet-place','water','move-together'],matches=[],a=items('helps'),i,it;for(i=0;i<a.length;i++){it=a[i];if(it&&it.suggest_for&&it.suggest_for.indexOf(first)>=0&&matches.indexOf(it.id)<0)matches.push(it.id)}for(i=0;i<main.length;i++)if(matches.indexOf(main[i])<0)matches.push(main[i]);return matches.slice(0,4)}
 function nowItem(){if(chosenHelp)return get('helps',chosenHelp);return chosen&&get(chosen.kind,chosen.id)}
 function panel(kind,it){
- return '<div class="calm-sequence-picture">'+(picture(it)?'<img src="'+esc(picture(it))+'"'+photoImgAttrs(it)+' alt="'+esc(name(kind,it))+'">':'')+
+ return '<div class="calm-sequence-picture">'+(picture(it)?'<img src="'+esc(picture(it))+'"'+photoImgAttrs(it,kind)+' alt="'+esc(name(kind,it))+'">':'')+
  '</div><b>'+esc(name(kind,it)||'—')+'</b>';
 }
 function steps(){var h='',i;for(i=1;i<=3;i++)h+='<span class="'+(step===i?'current':i<step?'passed':'')+'">'+i+'</span>';return h}
