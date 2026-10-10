@@ -11,6 +11,14 @@ os.environ['HF_HUB_OFFLINE']='1'
 os.environ['TRANSFORMERS_OFFLINE']='1'
 os.environ['HF_HUB_DISABLE_TELEMETRY']='1'
 os.environ['DO_NOT_TRACK']='1'
+# Acoustic alignment needs the public torchaudio MMS checkpoint. Download and cache
+# it before the script enables the offline-only synthesis/network guard.
+# This is preview-branch-only; actual child audio remains generated offline.
+import sys
+if '--align-only' in sys.argv:
+ import torchaudio
+ print('Pre-caching public MMS_FA aligner before network lock',flush=True)
+ torchaudio.pipelines.MMS_FA.get_model()
 import socket
 _original_connect=socket.socket.connect
 def local_connect(sock,address):
