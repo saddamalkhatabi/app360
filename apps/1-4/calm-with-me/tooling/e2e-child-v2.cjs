@@ -48,10 +48,21 @@ const fs=require('fs');
  }
  await page.screenshot({path:'/tmp/calm-child-needs-new-photos-mobile.png',fullPage:true});
  await page.locator('#simpleCalmHome [data-calm-tab="feelings"]').click();
+
+ // Wording-only change: retain the recorded happy-voice file and avoid engine branding.
+ await must((await page.locator('#simpleCalmHome [data-calm-kind="feelings"][data-calm-id="happy"] b').textContent()).trim()==='سعيد',
+   'Child happy card must display سعيد');
+ await must((await page.locator('#calmBilingualAudioButton').textContent()).includes('الصوت المسجل'),
+   'Recorded-audio toggle must use neutral user-facing wording');
+ await must(!(await page.locator('body').innerText()).includes('SILMA'),
+   'Audio engine name must not appear anywhere in the visible interface');
  const first=page.locator('[data-calm-kind="feelings"][data-calm-id="happy"]');
  await first.click(); await page.waitForTimeout(350);
  if(await page.locator('#simpleCalmHome .chosen').count()!==1){console.log('Rechecking early boot selection',await page.locator('#simpleCalmHome').getAttribute('data-child-step'));await first.click();await page.waitForTimeout(300)}
  await must(await page.locator('#simpleCalmHome .chosen').count()===1,'feeling selection');
+ await must(clips.some(x=>/\/audio\/silma\/feelings\/happy\.mp3(?:\?|$)/.test(x)),
+   'The previously recorded Arabic happy MP3 must remain unchanged and be requested');
+
  await page.locator('[data-calm-action="next"]').click();
  await must(await root.getAttribute('data-child-step')==='2','step 2 does not open');
  await must((await page.locator('#simpleCalmHome [data-calm-kind="helps"]').count())<=4,'too many help cards');
