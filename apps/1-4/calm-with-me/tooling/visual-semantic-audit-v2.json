@@ -38,7 +38,7 @@
   },
   "visual_passed": false,
   "notes": [
-    "Five newly uploaded child-critical scene photos (need-help, water-now, quiet, ball, wait) extracted and bound. Verify images in real browser before merging.",
+    "All five new child-critical images successfully decoded and displayed during mobile Playwright checks; semantic approval by children/caregivers remains pending.",
     "Across the 74 cards, 23 cards have photographic visuals; 51 still require scene-accurate images or human-led visual acceptance.",
     "Do not equate requesting water to drinking water, or playing ball to merely depicting a ball.",
     "Keep the mother wearing hijab when visible and prefer one clear action per child card."
@@ -49,7 +49,7 @@
       "id": "need-help",
       "label_ar": "ساعدني",
       "old_scene": "help",
-      "image_status": "semantic_webp_bound_browser_qa_pending",
+      "image_status": "semantic_webp_bound_browser_loaded",
       "priority": "child_critical",
       "photo_asset": "assets/images/what-to-try/need-help-512.webp",
       "small_photo_asset": "assets/images/what-to-try/need-help-320.webp"
@@ -111,7 +111,7 @@
       "id": "water-now",
       "label_ar": "أريد ماء",
       "old_scene": "water",
-      "image_status": "semantic_webp_bound_browser_qa_pending",
+      "image_status": "semantic_webp_bound_browser_loaded",
       "priority": "child_critical",
       "photo_asset": "assets/images/what-to-try/water-now-512.webp",
       "small_photo_asset": "assets/images/what-to-try/water-now-320.webp"
@@ -139,7 +139,7 @@
       "id": "quiet",
       "label_ar": "أريد هدوءًا",
       "old_scene": "quiet",
-      "image_status": "semantic_webp_bound_browser_qa_pending",
+      "image_status": "semantic_webp_bound_browser_loaded",
       "priority": "child_critical",
       "photo_asset": "assets/images/what-to-try/quiet-512.webp",
       "small_photo_asset": "assets/images/what-to-try/quiet-320.webp"
@@ -585,7 +585,7 @@
       "id": "ball",
       "label_ar": "نلعب بالكرة",
       "old_scene": "ball",
-      "image_status": "semantic_webp_bound_browser_qa_pending",
+      "image_status": "semantic_webp_bound_browser_loaded",
       "priority": "child_critical",
       "photo_asset": "assets/images/what-to-try/ball-512.webp",
       "small_photo_asset": "assets/images/what-to-try/ball-320.webp"
@@ -637,7 +637,7 @@
       "id": "wait",
       "label_ar": "ننتظر قليلًا معًا",
       "old_scene": "wait",
-      "image_status": "semantic_webp_bound_browser_qa_pending",
+      "image_status": "semantic_webp_bound_browser_loaded",
       "priority": "child_critical",
       "photo_asset": "assets/images/what-to-try/wait-512.webp",
       "small_photo_asset": "assets/images/what-to-try/wait-320.webp"
@@ -687,5 +687,6 @@
   "cards_still_needing_semantic_review": 51,
   "photos_new_bound": 19,
   "photos_existing_emotions": 4,
-  "photos_total_bound": 23
+  "photos_total_bound": 23,
+  "last_browser_test": "https://github.com/saddamalkhatabi/app360/actions/runs/38014209133"
 }
