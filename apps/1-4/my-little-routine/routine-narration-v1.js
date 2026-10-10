@@ -66,6 +66,11 @@ function useAudio(a,kind,segment){
   }catch(err){stop(true);feedback('تعذر تشغيل الملف الصوتي')}
   setButtons();
  }
+ // Start directly in the child's tap gesture for older mobile audio policies.
+ try{
+  var initial=audio.play();
+  if(initial&&typeof initial.then==='function')initial.then(null,function(){if(myToken===token){stop(true);feedback('اضغط زر التشغيل لتفعيل الصوت على جهازك')}});
+ }catch(ex){stop(true);feedback('تعذر بدء التسجيل على هذا الجهاز');return}
  if(audio.readyState>=1)go();else audio.onloadedmetadata=go;
 }
 function listenFull(){if(mode==='full'){stop(true);return}var a=current();if(a)useAudio(a,'full',null)}
