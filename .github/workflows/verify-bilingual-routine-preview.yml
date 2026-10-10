@@ -1,0 +1,25 @@
+name: Verify Bilingual Routine Voice Preview
+on:
+  push:
+    branches: [feature/routine-bilingual-voice-preview-20261011]
+    paths:
+      - .github/workflows/verify-bilingual-routine-preview.yml
+      - apps/1-4/my-little-routine/tools/test-bilingual-narration.cjs
+      - apps/1-4/my-little-routine/audio/narration-timings-en.js
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bilingual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-bilingual-voice-preview-20261011
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '22'
+      - name: Check fifty translations, all scene text and right recorded voice per locale
+        run: node apps/1-4/my-little-routine/tools/test-bilingual-narration.cjs
+      - name: Check Arabic recording integrity already published
+        run: node apps/1-4/my-little-routine/tools/test-narration-index.cjs

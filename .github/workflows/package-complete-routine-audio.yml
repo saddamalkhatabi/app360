@@ -1,0 +1,65 @@
+name: Package Complete SILMA 50 Routine Audio
+on:
+  push:
+    branches:
+      - feature/routine-silma-voice-preview-20261010
+    paths:
+      - apps/1-4/my-little-routine/audio/narration-timings.js
+      - apps/1-4/my-little-routine/audio/silma/routines/**
+      - .github/workflows/package-complete-routine-audio.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check audio release is complete, not partial
+        id: check
+        run: |
+          python - <<'PY'
+          import json,pathlib,os
+          p=pathlib.Path('apps/1-4/my-little-routine/audio/narration-timings.js')
+          raw=p.read_text(encoding='utf-8')
+          prefix='window.APP360_ROUTINE_NARRATIONS = '
+          assert raw.startswith(prefix)
+          data=json.loads(raw[len(prefix):].strip().rstrip(';'))
+          ready=data.get('clip_count')==50 and data.get('status')=='recorded' and len(data['habits'])==50
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('ready='+str(ready).lower()+'\n')
+          print('Ready to bundle all 50:',ready)
+          PY
+      - name: Check all MP3 hashes, script contents, seven segments and frame timing
+        if: steps.check.outputs.ready == 'true'
+        run: node apps/1-4/my-little-routine/tools/test-narration-index.cjs
+      - name: Assemble 50 real MP3 with hashes in downloadable ZIP
+        if: steps.check.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json,pathlib,zipfile,hashlib
+          root=pathlib.Path('apps/1-4/my-little-routine')
+          source=(root/'audio/narration-timings.js').read_text(encoding='utf-8')
+          data=json.loads(source[len('window.APP360_ROUTINE_NARRATIONS = '):].strip().rstrip(';'))
+          assert len(data['habits'])==50
+          out=pathlib.Path('routine-silma-50-verified.zip')
+          with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_STORED) as z:
+            for ident,row in sorted(data['habits'].items()):
+              file=root/row['path']
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==row['sha256']
+              z.write(file,'audio/'+file.name)
+            z.writestr('narration-timings.js',source)
+            z.writestr('README_AR.txt','تسجيلات SILMA لجميع الروتينات الـ50 لتطبيق أستطيع خطوة.\nهذا الأرشيف جاهز للاختبار البشري، ولكنه لا يعني اعتماده على الأجهزة قبل المراجعة.\n')
+          print('Verified archive',out.stat().st_size,'bytes')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: steps.check.outputs.ready == 'true'
+        with:
+          name: routine-silma-50-verified-mp3-and-timings
+          path: routine-silma-50-verified.zip
+          if-no-files-found: error
+          retention-days: 30

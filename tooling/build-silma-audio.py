@@ -11,6 +11,14 @@ os.environ['HF_HUB_OFFLINE']='1'
 os.environ['TRANSFORMERS_OFFLINE']='1'
 os.environ['HF_HUB_DISABLE_TELEMETRY']='1'
 os.environ['DO_NOT_TRACK']='1'
+# Acoustic alignment needs the public torchaudio MMS checkpoint. Download and cache
+# it before the script enables the offline-only synthesis/network guard.
+# This is preview-branch-only; actual child audio remains generated offline.
+import sys
+if '--align-only' in sys.argv:
+ import torchaudio
+ print('Pre-caching public MMS_FA aligner before network lock',flush=True)
+ torchaudio.pipelines.MMS_FA.get_model()
 import socket
 _original_connect=socket.socket.connect
 def local_connect(sock,address):
@@ -126,5 +134,5 @@ for n,(item,target) in enumerate(outputs):
  records[item['path']]={'text':item['text'],'language':'ar','duration':duration,'cues':cues,'timing_source':'MMS_FA acoustic forced alignment of actual MP3','audio_sha256':hashlib.sha256(target.read_bytes()).hexdigest()}
  print('Aligned',n+1,len(outputs),item['path'],round(confidence,3),flush=True)
 (ROOT/args.cues).write_text(json.dumps({'schema_version':1,'items':records},ensure_ascii=False,separators=(',',':'))+'\n')
-(ROOT/args.report).write_text(json.dumps({'engine':'silma-tts','package_version':'1.0.5','model':'silma-ai/silma-tts','model_revision':(pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').read_text().strip(),'network':'Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports','diacritization':'Authored tashkeel; unused CATT/ONNX backend excluded from process','reference':'publisher bundled ar.ref.24k.wav','seed':360,'steps':16,'precision':'CPU '+args.precision.upper()+', Float32 waveform','speed':.95,'alignment':'torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy','clips':metrics},ensure_ascii=False,indent=2)+'\n')
+(ROOT/args.report).write_text(json.dumps({'engine':'silma-tts','package_version':'1.0.5','model':'silma-ai/silma-tts','model_revision':((pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').read_text().strip() if (pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').exists() else 'alignment-only-no-synthesis-checkpoint'),'network':'Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports','diacritization':'Authored tashkeel; unused CATT/ONNX backend excluded from process','reference':'publisher bundled ar.ref.24k.wav','seed':360,'steps':16,'precision':'CPU '+args.precision.upper()+', Float32 waveform','speed':.95,'alignment':'torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy','clips':metrics},ensure_ascii=False,indent=2)+'\n')
 print('Completed',len(outputs),'SILMA Arabic clips',flush=True)

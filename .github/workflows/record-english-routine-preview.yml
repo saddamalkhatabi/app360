@@ -1,0 +1,85 @@
+name: Record English Routine Narrations (50 MP3 Preview)
+on:
+  push:
+    branches: [feature/routine-bilingual-voice-preview-20261011]
+    paths: [.github/workflows/record-english-routine-preview.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: routine-en-50-voice-release
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    env:
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-bilingual-voice-preview-20261011
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible CPU English narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install --no-cache-dir kokoro-onnx==0.6.1 soundfile numpy
+      - name: Download open-source English acoustic model and voice
+        run: |
+          mkdir -p /tmp/routine-en-model
+          curl --fail --location --retry 4 --silent --show-error \
+            'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx' \
+            -o /tmp/routine-en-model/kokoro-v1.0.onnx
+          curl --fail --location --retry 4 --silent --show-error \
+            'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin' \
+            -o /tmp/routine-en-model/voices-v1.0.bin
+          test "$(stat -c %s /tmp/routine-en-model/kokoro-v1.0.onnx)" -gt 50000000
+          test "$(stat -c %s /tmp/routine-en-model/voices-v1.0.bin)" -gt 1000000
+      - name: Record five complete English stories with true scene timing
+        run: |
+          python apps/1-4/my-little-routine/tools/build_english_narration.py \
+            --part ${{ matrix.part }} --parts 10 \
+            --model /tmp/routine-en-model/kokoro-v1.0.onnx \
+            --voices /tmp/routine-en-model/voices-v1.0.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routine-en-audio-${{ matrix.part }}
+          path: apps/1-4/my-little-routine/audio/en/
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-bilingual-voice-preview-20261011
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: routine-en-audio-*
+          merge-multiple: true
+          path: apps/1-4/my-little-routine/audio/en/
+      - name: Validate all fifty real English MP3 and measured scene timestamps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/my-little-routine/tools/compile_english_narration.py
+      - name: Save English recordings only to isolated preview branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/my-little-routine/audio/en apps/1-4/my-little-routine/audio/narration-timings-en.js
+          git commit -m "Publish 50 real English routine voices with sample-measured scene synchronization"
+          git pull --rebase origin feature/routine-bilingual-voice-preview-20261011
+          git push origin HEAD:feature/routine-bilingual-voice-preview-20261011

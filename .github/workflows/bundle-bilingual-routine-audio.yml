@@ -1,0 +1,88 @@
+name: Bundle 100 Bilingual Routine Recordings
+on:
+  push:
+    branches: [feature/routine-bilingual-voice-preview-20261011]
+    paths:
+      - .github/workflows/bundle-bilingual-routine-audio.yml
+      - apps/1-4/my-little-routine/audio/narration-timings-en.js
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-bilingual-voice-preview-20261011
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Detect presence of 50 verified English and 50 Arabic voices
+        id: ready
+        run: |
+          python - <<'PY'
+          import json,pathlib,os
+          root=pathlib.Path('apps/1-4/my-little-routine')
+          data={}
+          for lang,name,prefix in [('ar','narration-timings.js','APP360_ROUTINE_NARRATIONS'),
+                                    ('en','narration-timings-en.js','APP360_ROUTINE_NARRATIONS_EN')]:
+            raw=(root/'audio'/name).read_text(encoding='utf-8')
+            data[lang]=json.loads(raw.split(' = ',1)[1].strip().rstrip(';'))
+          ok=all(data[l].get('clip_count')==50 and data[l].get('status')=='recorded'
+                 and len(data[l]['habits'])==50 for l in ('ar','en'))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:out.write('complete='+str(ok).lower()+'\n')
+          print('Bilingual voice audio release complete:',ok)
+          PY
+      - name: Verify Arabic and English language choice and phoneme timing structure
+        if: steps.ready.outputs.complete == 'true'
+        run: |
+          node apps/1-4/my-little-routine/tools/test-bilingual-narration.cjs
+          node apps/1-4/my-little-routine/tools/test-narration-index.cjs
+      - name: Create signed-hash manifest and 100-MP3 ZIP
+        if: steps.ready.outputs.complete == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess,zipfile
+          root=pathlib.Path('apps/1-4/my-little-routine')
+          metas={}
+          for code,name in [('ar','narration-timings.js'),('en','narration-timings-en.js')]:
+            src=(root/'audio'/name).read_text(encoding='utf-8')
+            index=json.loads(src.split(' = ',1)[1].strip().rstrip(';'))
+            metas[code]=(name,src,index)
+          z=pathlib.Path('routine-recordings-100-ar-en-verified.zip')
+          manifest={'description':'Prerecorded bilingual picture routines, no runtime TTS',
+                    'languages':{},'clips':[]}
+          with zipfile.ZipFile(z,'w',compression=zipfile.ZIP_STORED) as archive:
+            for code in ('ar','en'):
+              name,src,idx=metas[code]
+              archive.writestr('timings/'+name,src)
+              manifest['languages'][code]={'count':len(idx['habits'])}
+              for ident,clip in sorted(idx['habits'].items()):
+                p=root/clip['path']
+                assert p.exists() and p.stat().st_size>4000, str(p)
+                sha=hashlib.sha256(p.read_bytes()).hexdigest()
+                assert sha==clip['sha256']
+                meta=json.loads(subprocess.check_output(
+                  ['ffprobe','-v','error','-show_entries','stream=codec_name:format=duration',
+                   '-of','json',str(p)],text=True))
+                assert meta['streams'][0]['codec_name']=='mp3'
+                assert 4<float(meta['format']['duration'])<70
+                target='audio/'+code+'/'+p.name
+                archive.write(p,target)
+                manifest['clips'].append({'id':ident,'language':code,'path':target,'sha256':sha,
+                   'duration_ms':clip['duration_ms'],'scene_count':5})
+            assert len(manifest['clips'])==100
+            archive.writestr('manifest.json',json.dumps(manifest,ensure_ascii=False,indent=2))
+            archive.writestr('README_AR.txt','تسجيلات جاهزة للاختبار: 50 عادة بالعربية و50 عادة بالإنجليزية.\n350 مقطع شرح لكل لغة، منها 250 خطوة لكل لغة.\nلا تحتاج إلى الإنترنت بعد تنزيلها وتشغيل التطبيق المخزّن.\nاختبر النطق مع طفل أو مدرب قبل الاعتماد النهائي.\n')
+          print('Verified bilingual ZIP bytes',z.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: steps.ready.outputs.complete == 'true'
+        with:
+          name: routine-recordings-100-ar-en-verified
+          path: routine-recordings-100-ar-en-verified.zip
+          if-no-files-found: error
+          retention-days: 30
