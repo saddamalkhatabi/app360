@@ -18,7 +18,8 @@ photos += [f'assets/images/what-to-try/{name}-{size}.webp' for name in new_stems
 important = [
  'index.html','simple-mode-v12.js','simple-mode-v12-original.js',
  'calm-bilingual-voice-v1.js','calm-child-experience-v2.css',
- 'calm-photo-emotions-v1.js','calm-photo-helps-v1.js','age-content-v8.js'
+ 'calm-photo-emotions-v1.js','calm-photo-helps-v1.js','age-content-v8.js',
+ 'data/content.js','app.js','calm-silma-controller-serial-v1.js'
 ] + photos
 
 def digest(path):
