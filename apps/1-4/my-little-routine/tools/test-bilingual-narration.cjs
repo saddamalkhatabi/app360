@@ -55,5 +55,28 @@ function voiceChoice(lang,available){
  else{assert.equal(nodes.listenFullRoutine.disabled,true);assert.equal(opened,'')}
  return opened;
 }
+
+function localeChoice(lang){
+ const sample={id:'wash-hands',title:'أغسل يدي',steps:ar[0].steps.slice()};
+ const data={habits:[sample],categories:[{id:'hygiene',title:'النظافة'}]};
+ const parent={children:[],appendChild(x){this.children.push(x)}};
+ const d={documentElement:{},body:{className:''},querySelector:s=>s==='.topTools'?parent:null,
+ createElement:()=>({type:'',textContent:'',title:'',className:''})};
+ const calls=[];
+ const w={ROUTINE_DATA:data,APP360_ROUTINE_ENGLISH_LABELS:dict.APP360_ROUTINE_ENGLISH_LABELS,
+ localStorage:{getItem(){return lang},setItem(k,v){calls.push([k,v])}},
+ location:{search:'',reload(){calls.push(['reload'])}}};
+ new Function('window','document',load('routine-language-v1.js'))(w,d);
+ assert.equal(w.APP360_ROUTINE_LANG,lang);
+ assert.equal(data.habits[0].title,lang==='en'?'I wash my hands':'أغسل يدي');
+ assert.equal(data.habits[0].steps[0],lang==='en'?'I turn on the water':'أفتح الماء');
+ assert.equal(parent.children.length,1);
+ assert.equal(parent.children[0].textContent,lang==='en'?'العربية':'English');
+ parent.children[0].onclick();
+ assert(calls.some(([k,v])=>k==='app360-routine-language-v1'&&v===(lang==='en'?'ar':'en')));
+ return true;
+}
+assert(localeChoice('ar'));assert(localeChoice('en'));
+
 const a=voiceChoice('ar',true),e=voiceChoice('en',true),disabled=voiceChoice('en',false);
 console.log('PASS: 50 bilingual texts, 350 English lines, script order, Arabic/English recording path isolation, fail-closed when English unavailable:',a,e,disabled);
