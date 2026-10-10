@@ -38,8 +38,8 @@
   },
   "visual_passed": false,
   "notes": [
+    "Four primary feelings have real-child WebPs confirmed present and browser-loaded. Remaining 70 cards still use prior illustrations and require semantic reviews.",
     "These are inventory and QA records, not user-approved images.",
-    "Previous 9 WebP files are not present in this repository; source ZIP must be provided again if they are to be reused.",
     "Avoid confusing drinking and requesting water, hugging and requesting a hug, or shoe and wearing a shoe.",
     "Do not merge to main until every child-critical image is verified by viewing the actual card."
   ],
@@ -201,24 +201,30 @@
       "id": "happy",
       "label_ar": "فرح",
       "old_scene": "happy",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/happy-512.webp",
+      "small_photo_asset": "assets/images/emotions/happy-320.webp"
     },
     {
       "kind": "feelings",
       "id": "sad",
       "label_ar": "حزن",
       "old_scene": "sad",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/sad-512.webp",
+      "small_photo_asset": "assets/images/emotions/sad-320.webp"
     },
     {
       "kind": "feelings",
       "id": "afraid",
       "label_ar": "خوف",
       "old_scene": "afraid",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/afraid-512.webp",
+      "small_photo_asset": "assets/images/emotions/afraid-320.webp"
     },
     {
       "kind": "feelings",
@@ -233,8 +239,10 @@
       "id": "angry",
       "label_ar": "غضب",
       "old_scene": "angry",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/angry-512.webp",
+      "small_photo_asset": "assets/images/emotions/angry-320.webp"
     },
     {
       "kind": "feelings",
@@ -636,5 +644,7 @@
       "image_status": "requires_semantic_visual_review",
       "priority": "coach_advanced"
     }
-  ]
+  ],
+  "photo_cards_installed": 4,
+  "cards_still_needing_semantic_review": 70
 }
