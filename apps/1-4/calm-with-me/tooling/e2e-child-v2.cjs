@@ -77,12 +77,18 @@ const fs=require('fs');
  const nextWater=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="water"] img');
  await must((await nextWater.getAttribute('src')).includes('drink_water_child-512.webp'),'Water transition photo missing');
  
+ const transitionCards=await page.locator('#simpleCalmHome [data-calm-kind="transitions"] img')
+   .evaluateAll(images=>images.map(img=>({id:img.getAttribute('data-calm-photo'),src:img.getAttribute('src'),srcset:img.getAttribute('srcset')})));
  for (const id of ['ball','wait']) {
-   const img=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="'+id+'"] img');
-   await img.scrollIntoViewIfNeeded();
-   const info=await img.evaluate(el=>({src:el.getAttribute('src'),srcset:el.getAttribute('srcset'),current:el.currentSrc,width:el.naturalWidth}));
-   await must(info.src.endsWith('/'+id+'-512.webp') && info.srcset && info.current.includes('/what-to-try/') && info.width>=100,
-     'Critical now-then image absent: '+id+' '+JSON.stringify(info));
+   const card=transitionCards.find(x=>x.id===id);
+   await must(card&&card.src.endsWith('/'+id+'-512.webp')&&card.srcset&&card.srcset.includes('-320.webp'),
+     'Missing true-action now-then picture '+id+': '+JSON.stringify(transitionCards));
+   const info=await page.evaluate(async item=>{
+     const image=new Image();image.src=item.src;
+     try{await image.decode();return {width:image.naturalWidth,src:image.src}}
+     catch(e){return {width:0,error:String(e)}}
+   },card);
+   await must(info.width>=320,'Now-then photo did not decode '+id+': '+JSON.stringify(info));
  }
  await page.screenshot({path:'/tmp/calm-child-now-then-mobile.png',fullPage:true});
  await page.locator('#calmCoachBtn').click();
