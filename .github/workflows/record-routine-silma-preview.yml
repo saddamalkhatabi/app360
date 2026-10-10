@@ -1,0 +1,108 @@
+name: Record SILMA Voice for 50 Child Routines (Preview)
+on:
+  push:
+    branches:
+      - feature/routine-silma-voice-preview-20261010
+    paths:
+      - .github/workflows/record-routine-silma-preview.yml
+      - apps/1-4/my-little-routine/audio/narration-scripts.json
+      - apps/1-4/my-little-routine/tools/build_narration_timeline.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: routine-silma-recordings-preview
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4]
+    env:
+      HF_HOME: ${{ runner.temp }}/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA recording environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Preload SILMA model before offline-only synthesis
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          PY
+      - name: Produce 10 actual child narration MP3 per shard
+        run: |
+          python tooling/build-silma-audio.py \
+            --root apps/1-4/my-little-routine \
+            --manifest audio/narration-scripts.json \
+            --cache "${{ runner.temp }}/silma-cache" \
+            --model-cache "$HF_HOME/hub" \
+            --precision bf16 --generate-only \
+            --part ${{ matrix.part }} --parts 5
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routine-silma-mp3-${{ matrix.part }}
+          path: apps/1-4/my-little-routine/audio/silma/routines/
+          if-no-files-found: error
+          retention-days: 7
+
+  verify-and-publish-preview:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      HF_HOME: ${{ runner.temp }}/silma-hf
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-silma-voice-preview-20261010
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: routine-silma-mp3-*
+          path: apps/1-4/my-little-routine/audio/silma/routines/
+          merge-multiple: true
+      - name: Install Arabic acoustic-alignment dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Measure scene timings from the real waveforms
+        run: |
+          python tooling/build-silma-audio.py \
+            --root apps/1-4/my-little-routine \
+            --manifest audio/narration-scripts.json \
+            --cues audio/silma-alignment.json \
+            --report audio/silma-build-report.json \
+            --cache "${{ runner.temp }}/silma-align-cache" \
+            --model-cache "$HF_HOME/hub" --align-only
+          python apps/1-4/my-little-routine/tools/build_narration_timeline.py
+      - name: Publish MP3 and validated timing map to preview branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/my-little-routine/audio/
+          if git diff --cached --quiet; then echo 'Already published'; exit 0; fi
+          git commit -m "Record 50 SILMA routine narratives with acoustic scene timings"
+          git pull --rebase origin feature/routine-silma-voice-preview-20261010
+          git push origin HEAD:feature/routine-silma-voice-preview-20261010
