@@ -1,0 +1,52 @@
+name: Unpack Calm What To Try Photos
+on:
+  push:
+    branches:
+      - fix/calm-child-meaningful-visuals-20261010
+    paths:
+      - .github/workflows/calm-install-try-images.yml
+      - apps/1-4/calm-with-me/assets/images/calm_what_to_try_webp.zip
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate original uploaded WebP files and safely extract
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          root=Path('apps/1-4/calm-with-me/assets/images')
+          archive=root/'calm_what_to_try_webp.zip'
+          stems=['gentle_closeness_mom_daughter','happy_hug_mom_daughter','warm_hug_mom_daughter',
+           'reading_corner_child','read_story_with_mom','drink_water_child','teddy_comfort_child',
+           'walk_with_mom','sequence_learning_with_mom','sit_together_mom_child']
+          expected={'what-to-try/'+stem+'-'+str(size)+'.webp' for stem in stems for size in (320,512)}
+          expected.add('what-to-try/README-Arabic.txt')
+          assert archive.is_file(),str(archive)
+          with ZipFile(archive) as z:
+              names=set(z.namelist())
+              assert names==expected, f'Unexpected content: {names ^ expected}'
+              assert z.testzip() is None,'Damaged archive'
+              for name in sorted(expected):
+                  data=z.read(name)
+                  if name.endswith('.webp'):
+                      assert 6000<len(data)<200000,name
+                      assert data[:4]==b'RIFF' and data[8:12]==b'WEBP',name
+                  target=root/name
+                  target.parent.mkdir(exist_ok=True,parents=True)
+                  target.write_bytes(data)
+                  print(name,len(data))
+          PY
+      - name: Commit the extracted original images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/calm-with-me/assets/images/what-to-try/
+          if ! git diff --cached --quiet; then
+            git commit -m "Extract 20 child-help WebP assets from uploaded ZIP"
+            git pull --rebase origin fix/calm-child-meaningful-visuals-20261010
+            git push origin HEAD:fix/calm-child-meaningful-visuals-20261010
+          fi
