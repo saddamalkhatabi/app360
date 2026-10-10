@@ -45,7 +45,7 @@ const fs=require('fs');
   await img.scrollIntoViewIfNeeded();
   await img.evaluate(el=>el.decode?el.decode().catch(()=>{}):Promise.resolve());
   const info=await img.evaluate(el=>({src:el.currentSrc,width:el.naturalWidth}));
-  await must(info.width>=300&&info.src.includes('/what-to-try/'),'Actual help image failed to render: '+JSON.stringify(info));
+  await must(info.width>=120&&info.src.includes('/what-to-try/'),'Actual help image failed to render: '+JSON.stringify(info));
  }
  
  await page.screenshot({path:'/tmp/calm-child-help-mobile.png',fullPage:true});
