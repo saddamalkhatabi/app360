@@ -38,10 +38,10 @@
   },
   "visual_passed": false,
   "notes": [
-    "Four primary feelings have real-child WebPs confirmed present and browser-loaded. Remaining 70 cards still use prior illustrations and require semantic reviews.",
-    "These are inventory and QA records, not user-approved images.",
-    "Avoid confusing drinking and requesting water, hugging and requesting a hug, or shoe and wearing a shoe.",
-    "Do not merge to main until every child-critical image is verified by viewing the actual card."
+    "20 uploaded WebPs unpacked and 14 card meanings mapped to them; 4 original feeling photos were already mapped.",
+    "Pictures with no unambiguous semantic match remain marked for new design, even if the uploaded folder includes an unused photograph.",
+    "Browser QA and family/child visual acceptance must be performed before merging into main.",
+    "Do not confuse asking for water with drinking water, holding a ball with playing ball, or waiting with merely sitting."
   ],
   "cards": [
     {
@@ -57,16 +57,20 @@
       "id": "stay-close",
       "label_ar": "ابقَ قريبًا",
       "old_scene": "hug",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-320.webp"
     },
     {
       "kind": "signals",
       "id": "pick-me-up",
       "label_ar": "احملني",
       "old_scene": "hug",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "coach_advanced"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-320.webp"
     },
     {
       "kind": "signals",
@@ -113,8 +117,10 @@
       "id": "what-next",
       "label_ar": "أرني ماذا بعد",
       "old_scene": "next",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "coach_advanced"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-320.webp"
     },
     {
       "kind": "signals",
@@ -321,24 +327,30 @@
       "id": "close",
       "label_ar": "ابقَ قريبًا",
       "old_scene": "hug",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-320.webp"
     },
     {
       "kind": "helps",
       "id": "hold-if-wanted",
       "label_ar": "احملني إذا أردت",
       "old_scene": "hug",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "coach_advanced"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-320.webp"
     },
     {
       "kind": "helps",
       "id": "comfort-touch",
       "label_ar": "حضن أو لمسة إذا طلبت",
       "old_scene": "hug",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/warm_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/warm_hug_mom_daughter-320.webp"
     },
     {
       "kind": "helps",
@@ -353,8 +365,10 @@
       "id": "quiet-place",
       "label_ar": "مكان أهدأ",
       "old_scene": "quiet",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/reading_corner_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/reading_corner_child-320.webp"
     },
     {
       "kind": "helps",
@@ -369,24 +383,30 @@
       "id": "familiar-object",
       "label_ar": "غرض أو لعبة مألوفة",
       "old_scene": "toy",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/teddy_comfort_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/teddy_comfort_child-320.webp"
     },
     {
       "kind": "helps",
       "id": "quiet-book",
       "label_ar": "كتاب أو نشاط هادئ",
       "old_scene": "book",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "coach_advanced"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/read_story_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/read_story_with_mom-320.webp"
     },
     {
       "kind": "helps",
       "id": "water",
       "label_ar": "ماء إذا أراد",
       "old_scene": "water",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/drink_water_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/drink_water_child-320.webp"
     },
     {
       "kind": "helps",
@@ -401,8 +421,10 @@
       "id": "show-next",
       "label_ar": "أريك ماذا بعد",
       "old_scene": "next",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "coach_advanced"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-320.webp"
     },
     {
       "kind": "helps",
@@ -417,8 +439,10 @@
       "id": "move-together",
       "label_ar": "ننتقل معًا",
       "old_scene": "walk",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/walk_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/walk_with_mom-320.webp"
     },
     {
       "kind": "helps",
@@ -545,8 +569,10 @@
       "id": "book",
       "label_ar": "نقرأ كتابًا",
       "old_scene": "book",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/read_story_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/read_story_with_mom-320.webp"
     },
     {
       "kind": "transitions",
@@ -561,8 +587,10 @@
       "id": "water",
       "label_ar": "ماء إذا أراد",
       "old_scene": "water",
-      "image_status": "requires_semantic_visual_review",
-      "priority": "child_critical"
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/drink_water_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/drink_water_child-320.webp"
     },
     {
       "kind": "transitions",
@@ -646,5 +674,8 @@
     }
   ],
   "photo_cards_installed": 4,
-  "cards_still_needing_semantic_review": 70
+  "cards_still_needing_semantic_review": 56,
+  "photos_new_bound": 14,
+  "photos_existing_emotions": 4,
+  "photos_total_bound": 18
 }
