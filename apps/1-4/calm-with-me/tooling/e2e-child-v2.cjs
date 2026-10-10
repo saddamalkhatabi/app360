@@ -12,6 +12,16 @@ const fs=require('fs');
  await page.waitForSelector('#simpleCalmHome [data-calm-kind="feelings"]',{timeout:35000});
  await page.waitForTimeout(1100); // wait for late async family/profile initialization before touching UI
  const root=page.locator('#simpleCalmHome');
+ const expectedPhotoIds=['happy','sad','afraid','angry'];
+ await page.waitForFunction(()=>Array.from(document.querySelectorAll('#simpleCalmHome [data-calm-kind="feelings"] img')).length===4 && Array.from(document.querySelectorAll('#simpleCalmHome [data-calm-kind="feelings"] img')).every(x=>x.complete&&x.naturalWidth>0),{timeout:12000});
+ for(const id of expectedPhotoIds){
+   const img=page.locator('#simpleCalmHome [data-calm-kind="feelings"][data-calm-id="'+id+'"] img');
+   const attrs=await img.evaluate(n=>({source:n.getAttribute('src'),actual:n.currentSrc,srcset:n.getAttribute('srcset'),width:n.naturalWidth}));
+   if(!attrs.source.endsWith('/'+id+'-512.webp')||!attrs.srcset||attrs.actual.indexOf('.webp')<0||attrs.width<100)
+     throw Error('photo not connected for '+id+': '+JSON.stringify(attrs));
+ }
+ await page.screenshot({path:'/tmp/calm-child-real-emotions-mobile.png',fullPage:true});
+
  const must=async(cond,msg)=>{if(!cond)throw Error(msg)};
  await must(!(await page.locator('body').evaluate(el=>el.classList.contains('calm-advanced'))),'must start in child mode');
  await must((await page.locator('#simpleCalmHome .calm-kid-card').count())===4,'default feelings must be four');
