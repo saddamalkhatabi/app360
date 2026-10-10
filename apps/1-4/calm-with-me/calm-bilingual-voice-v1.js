@@ -62,7 +62,7 @@ function change(){
 }
 function render(){
  if(button){
-  button.textContent=lang==='ar'?'🔊 الصوت: العربية | English':'🔊 Audio: English | العربية';
+  button.textContent=lang==='ar'?'🔊 الصوت المسجل: العربية | English':'🔊 Recorded audio: English | العربية';
   button.setAttribute('aria-label',lang==='ar'?'التبديل إلى التسجيلات الإنجليزية':'Switch to Arabic recordings');
   button.setAttribute('aria-pressed',String(lang==='en'));
  }
