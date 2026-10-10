@@ -57,3 +57,27 @@ body:not(.calm-advanced) .app-head h1{font-size:1.18rem}
 /* Android 4.4 has no aspect-ratio and unreliable Grid; flex fallback deliberately remains. */
 
 body.calm-advanced #calmChildWelcome{display:none!important}
+
+/* Safety library and global management floaters are trainer-only. */
+body:not(.calm-advanced) #app360SafetyShortcuts,
+body:not(.calm-advanced) #app360FamilyBtn,
+body:not(.calm-advanced) #app360ProfileBtn,
+body:not(.calm-advanced) .a360-family-float,
+body:not(.calm-advanced) #calmCoachLinks {display:none!important}
+/* Keep the welcome replay control prominent without burying the child's first picture. */
+body:not(.calm-advanced) #calmChildWelcome{position:relative;box-sizing:border-box;padding:8px 14px!important;margin:8px auto 12px!important}
+body:not(.calm-advanced) #calmWelcomeImage,
+body:not(.calm-advanced) #calmWelcomeDescription{display:none!important}
+body:not(.calm-advanced) #calmWelcomeTitle{font-size:1.06rem!important;margin:4px 0 8px!important}
+body:not(.calm-advanced) #calmPlayWelcomeBtn{min-height:46px!important;max-width:360px;padding:6px!important;font-size:1rem!important}
+body:not(.calm-advanced) #calmWelcomeStatus{display:none!important}
+@media(max-width:620px){
+ body:not(.calm-advanced) .app-head{padding-top:5px;padding-bottom:7px}
+ body:not(.calm-advanced) .app-head .head-main{display:flex;align-items:center;gap:8px}
+ body:not(.calm-advanced) .app-head .app-icon{width:44px;height:44px;flex:none}
+ body:not(.calm-advanced) .app-head .head-copy .eyebrow{display:none!important}
+ body:not(.calm-advanced) .app-head .head-copy h1{font-size:1.06rem!important;margin:0}
+ body:not(.calm-advanced) .app-head .head-actions{display:flex;flex-direction:row;gap:5px;width:100%;justify-content:center}
+ body:not(.calm-advanced) .app-head .head-actions button{font-size:.86rem!important;min-height:44px;padding:5px 9px}
+ #simpleCalmHome{margin-top:6px!important}
+}
