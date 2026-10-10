@@ -55,3 +55,5 @@ body:not(.calm-advanced) .app-head h1{font-size:1.18rem}
 @media(min-width:720px){#simpleCalmHome .calm-kid-card{width:calc(25% - 12px)}#simpleCalmHome .calm-next-grid .calm-kid-card{width:calc(25% - 12px)}}
 @media(max-width:470px){#simpleCalmHome{padding:12px 9px}#simpleCalmHome .calm-kid-grid{gap:8px}#simpleCalmHome .calm-kid-card{min-height:183px;padding:6px;border-radius:16px}#simpleCalmHome .calm-kid-card img{height:116px}#simpleCalmHome .calm-kid-card b{font-size:.94rem}#simpleCalmHome .calm-sequence{gap:5px}#simpleCalmHome .calm-sequence-arrow{font-size:1rem}#simpleCalmHome .calm-sequence-picture img{height:145px}#simpleCalmHome .calm-kid-buttons button{min-height:60px;font-size:1rem;padding:6px}#simpleCalmHome .calm-next-grid .calm-kid-card{min-height:137px}}
 /* Android 4.4 has no aspect-ratio and unreliable Grid; flex fallback deliberately remains. */
+
+body.calm-advanced #calmChildWelcome{display:none!important}
