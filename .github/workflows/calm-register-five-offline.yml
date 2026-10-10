@@ -1,0 +1,24 @@
+name: Register Five Calm Photos for Offline
+on:
+  push:
+    branches: [fix/calm-child-meaningful-visuals-20261010]
+    paths: [.github/workflows/calm-register-five-offline.yml]
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register all five new photographs in Calm app offline manifest
+        run: python3 apps/1-4/calm-with-me/tooling/sync-photo-offline-v1.py
+      - name: Commit only calm app offline records
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/offline/a1-calm.json data/offline-catalog.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Include five new Calm scene photos in offline manifest"
+            git pull --rebase origin fix/calm-child-meaningful-visuals-20261010
+            git push origin HEAD:fix/calm-child-meaningful-visuals-20261010
+          fi
