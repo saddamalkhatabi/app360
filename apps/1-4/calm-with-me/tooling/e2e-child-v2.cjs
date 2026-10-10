@@ -10,6 +10,7 @@ const fs=require('fs');
  const base='http://127.0.0.1:8765/apps/1-4/calm-with-me/index.html';
  await page.goto(base,{waitUntil:'domcontentloaded',timeout:90000});
  await page.waitForSelector('#simpleCalmHome [data-calm-kind="feelings"]',{timeout:35000});
+ await page.waitForTimeout(1100); // wait for late async family/profile initialization before touching UI
  const root=page.locator('#simpleCalmHome');
  const must=async(cond,msg)=>{if(!cond)throw Error(msg)};
  await must(!(await page.locator('body').evaluate(el=>el.classList.contains('calm-advanced'))),'must start in child mode');
@@ -18,7 +19,8 @@ const fs=require('fs');
  await must(!(await page.locator('#app360SafetyShortcuts').isVisible()),'adult fear content leaked into child mode');
  console.log('visible fixed controls',await page.evaluate(()=>Array.from(document.querySelectorAll('button')).filter(b=>{const css=getComputedStyle(b),box=b.getBoundingClientRect();return box.width>0&&box.height>0&&css.position==='fixed'}).map(b=>({id:b.id,cl:b.className,text:b.textContent.slice(0,50)}))));
  const first=page.locator('[data-calm-kind="feelings"][data-calm-id="happy"]');
- await first.click(); await page.waitForTimeout(250);
+ await first.click(); await page.waitForTimeout(350);
+ if(await page.locator('#simpleCalmHome .chosen').count()!==1){console.log('Rechecking early boot selection',await page.locator('#simpleCalmHome').getAttribute('data-child-step'));await first.click();await page.waitForTimeout(300)}
  await must(await page.locator('#simpleCalmHome .chosen').count()===1,'feeling selection');
  await page.locator('[data-calm-action="next"]').click();
  await must(await root.getAttribute('data-child-step')==='2','step 2 does not open');
