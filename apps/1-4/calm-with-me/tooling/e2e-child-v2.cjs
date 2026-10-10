@@ -36,11 +36,27 @@ const fs=require('fs');
  await page.locator('[data-calm-action="next"]').click();
  await must(await root.getAttribute('data-child-step')==='2','step 2 does not open');
  await must((await page.locator('#simpleCalmHome [data-calm-kind="helps"]').count())<=4,'too many help cards');
+ const helpCards=await page.locator('#simpleCalmHome [data-calm-kind="helps"] img').evaluateAll(nodes=>nodes.map(n=>({id:n.getAttribute('data-calm-photo'),src:n.getAttribute('src'),srcset:n.getAttribute('srcset')})));
+ await must(helpCards.length===4,'expected four core help options');
+ await must(helpCards.every(x=>x.src.indexOf('/what-to-try/')>0&&x.srcset&&x.srcset.indexOf('-320.webp')>0),'Help cards not connected to uploaded WebP images: '+JSON.stringify(helpCards));
+ for(let i=0;i<4;i++){
+  let img=page.locator('#simpleCalmHome [data-calm-kind="helps"] img').nth(i);
+  await img.scrollIntoViewIfNeeded();
+  await img.evaluate(el=>el.decode?el.decode().catch(()=>{}):Promise.resolve());
+  const info=await img.evaluate(el=>({src:el.currentSrc,width:el.naturalWidth}));
+  await must(info.width>=300&&info.src.includes('/what-to-try/'),'Actual help image failed to render: '+JSON.stringify(info));
+ }
+ 
  await page.screenshot({path:'/tmp/calm-child-help-mobile.png',fullPage:true});
  await page.locator('#simpleCalmHome [data-calm-kind="helps"]').first().click();
  await page.locator('#simpleCalmHome [data-calm-action="next"]').click();
  await must(await root.getAttribute('data-child-step')==='3','step 3 does not open');
  await must((await page.locator('.calm-sequence-cell img').count())===2,'now-then pictures must both be present');
+ const nextBook=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="book"] img');
+ await must((await nextBook.getAttribute('src')).includes('read_story_with_mom-512.webp'),'Reading transition photo missing');
+ const nextWater=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="water"] img');
+ await must((await nextWater.getAttribute('src')).includes('drink_water_child-512.webp'),'Water transition photo missing');
+ 
  await page.screenshot({path:'/tmp/calm-child-now-then-mobile.png',fullPage:true});
  await page.locator('#calmCoachBtn').click();
  await must(await page.locator('body').evaluate(el=>el.classList.contains('calm-advanced')),'coach mode did not activate');
