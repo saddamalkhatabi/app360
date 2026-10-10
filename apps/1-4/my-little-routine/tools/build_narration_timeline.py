@@ -6,17 +6,25 @@ import hashlib
 import json
 import pathlib
 import subprocess
+import argparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "audio/narration-scripts.json"
 CUES = ROOT / "audio/silma-alignment.json"
 OUT = ROOT / "audio/narration-timings.js"
+parser = argparse.ArgumentParser()
+parser.add_argument("--allow-partial", action="store_true")
+args = parser.parse_args()
 data = json.loads(SCRIPT.read_text(encoding="utf-8"))
 aligned = json.loads(CUES.read_text(encoding="utf-8"))["items"]
 result = {"schema_version": 1, "status": "recorded", "engine": "silma", "habits": {}}
 
 assert len(data["items"]) == 50, "Expected 50 routine scripts"
 for entry in data["items"]:
+    if entry["path"] not in aligned:
+        if args.allow_partial:
+            continue
+        raise AssertionError("Missing acoustic alignment: " + entry["path"])
     p = ROOT / entry["path"]
     assert p.exists() and p.stat().st_size > 2000, str(p)
     cues = aligned[entry["path"]]
@@ -51,8 +59,13 @@ for entry in data["items"]:
         "duration_ms": duration_ms, "sha256": audiohash,
         "verified": True,
     }
-assert len(result["habits"]) == 50
+if args.allow_partial:
+    assert len(result["habits"]) >= 1
+    result["status"] = "partial_recorded"
+else:
+    assert len(result["habits"]) == 50
+result["clip_count"] = len(result["habits"])
 OUT.write_text("window.APP360_ROUTINE_NARRATIONS = " +
                json.dumps(result, ensure_ascii=False, separators=(",", ":")) +
                ";\n", encoding="utf-8")
-print("Generated and verified 50 SILMA routine MP3 timings:", OUT)
+print("Generated verified SILMA routine MP3 timings:", len(result["habits"]), OUT)
