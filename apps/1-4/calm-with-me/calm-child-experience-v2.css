@@ -83,3 +83,6 @@ body:not(.calm-advanced) #calmWelcomeStatus{display:none!important}
 }
 
 body:not(.calm-advanced) #app360AiBtn,body:not(.calm-advanced) #app360HomeBtn{display:none!important}
+
+/* Hide late-injected adult role tools and transient legacy toasts; child feedback is inside the journey. */
+body:not(.calm-advanced) .head-actions>button:not(#calmCoachBtn):not(#calmChildBtn):not(#calmBilingualAudioButton),body:not(.calm-advanced) #toast{display:none!important}
