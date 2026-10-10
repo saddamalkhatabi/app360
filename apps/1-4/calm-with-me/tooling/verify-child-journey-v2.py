@@ -5,7 +5,7 @@ html=(P/'index.html').read_text()
 code=(P/'simple-mode-v12-original.js').read_text()
 css=(P/'calm-child-experience-v2.css').read_text()
 visual=(P/'child-illustrations-v1.js').read_text()
-for expected in ('calm-child-experience-v2.css','simple-mode-v12.js?v=112','calmCoachBtn','calmChildBtn','calmPlayWelcomeBtn'):
+for expected in ('calm-child-experience-v2.css','simple-mode-v12.js?v=113','calmCoachBtn','calmChildBtn','calmPlayWelcomeBtn'):
     assert expected in html, expected
 for expected in ("sourceClick(kind,id)","chooseCoach(on)","step=1","calm-kid-grid","calm-kid-buttons","APP360CalmNarration"):
     assert expected in code, expected
