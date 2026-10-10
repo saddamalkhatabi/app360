@@ -29,6 +29,17 @@ const fs=require('fs');
  await must(!(await page.locator('#app360SafetyShortcuts').isVisible()),'adult fear content leaked into child mode');
  console.log('header children',await page.locator('.head-main').evaluate(n=>Array.from(n.querySelectorAll('button,span')).map(b=>({id:b.id,cl:b.className,txt:b.textContent.slice(0,38)})).filter(x=>x.txt.indexOf('مدرب')>=0||x.txt.indexOf('المدرب')>=0)));
  console.log('visible fixed controls',await page.evaluate(()=>Array.from(document.querySelectorAll('button')).filter(b=>{const css=getComputedStyle(b),box=b.getBoundingClientRect();return box.width>0&&box.height>0&&css.position==='fixed'}).map(b=>({id:b.id,cl:b.className,text:b.textContent.slice(0,50)}))));
+ // All three critical need pictures must be images of the actual requested action.
+ await page.locator('#simpleCalmHome [data-calm-tab="signals"]').click();
+ for (const id of ['need-help','water-now','quiet']) {
+   const img=page.locator('#simpleCalmHome [data-calm-kind="signals"][data-calm-id="'+id+'"] img');
+   await img.scrollIntoViewIfNeeded();
+   const info=await img.evaluate(el=>({src:el.getAttribute('src'),srcset:el.getAttribute('srcset'),current:el.currentSrc,width:el.naturalWidth}));
+   await must(info.src.endsWith('/'+id+'-512.webp') && info.srcset && info.current.includes('/what-to-try/') && info.width>=100,
+     'Critical need image absent: '+id+' '+JSON.stringify(info));
+ }
+ await page.screenshot({path:'/tmp/calm-child-needs-new-photos-mobile.png',fullPage:true});
+ await page.locator('#simpleCalmHome [data-calm-tab="feelings"]').click();
  const first=page.locator('[data-calm-kind="feelings"][data-calm-id="happy"]');
  await first.click(); await page.waitForTimeout(350);
  if(await page.locator('#simpleCalmHome .chosen').count()!==1){console.log('Rechecking early boot selection',await page.locator('#simpleCalmHome').getAttribute('data-child-step'));await first.click();await page.waitForTimeout(300)}
@@ -58,6 +69,13 @@ const fs=require('fs');
  const nextWater=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="water"] img');
  await must((await nextWater.getAttribute('src')).includes('drink_water_child-512.webp'),'Water transition photo missing');
  
+ for (const id of ['ball','wait']) {
+   const img=page.locator('#simpleCalmHome [data-calm-kind="transitions"][data-calm-id="'+id+'"] img');
+   await img.scrollIntoViewIfNeeded();
+   const info=await img.evaluate(el=>({src:el.getAttribute('src'),srcset:el.getAttribute('srcset'),current:el.currentSrc,width:el.naturalWidth}));
+   await must(info.src.endsWith('/'+id+'-512.webp') && info.srcset && info.current.includes('/what-to-try/') && info.width>=100,
+     'Critical now-then image absent: '+id+' '+JSON.stringify(info));
+ }
  await page.screenshot({path:'/tmp/calm-child-now-then-mobile.png',fullPage:true});
  await page.locator('#calmCoachBtn').click();
  await must(await page.locator('body').evaluate(el=>el.classList.contains('calm-advanced')),'coach mode did not activate');
