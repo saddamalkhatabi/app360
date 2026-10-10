@@ -23,5 +23,16 @@ for group in groups:
     assert m,group
     keys=re.findall("([a-z-]+|'[^']+'):",m.group(1))
     assert len(keys)==counts[group],(group,len(keys))
+# Verify the user's eight files were unpacked into the runtime app, not only uploaded as ZIP.
+images=P/'assets'/'images'/'emotions'
+assert "calm-photo-emotions-v1.js?v=2" in html
+photos=(P/'calm-photo-emotions-v1.js').read_text()
+for kind in ('happy','sad','afraid','angry'):
+    assert kind+':1' in photos, kind
+    for width in (320,512):
+        path=images/f'{kind}-{width}.webp'
+        assert path.is_file(),str(path)
+        data=path.read_bytes()
+        assert len(data)>5000 and data[:4]==b'RIFF' and data[8:12]==b'WEBP',path
 # No false pass: these checks cannot certify semantic picture clarity.
 print('PASS: source syntax, MP3 presence, controls, mappings; VISUAL REVIEW STILL REQUIRED')
