@@ -71,9 +71,10 @@ function english(){
  if(b){var button=d.createElement('button');button.id='routineLanguageToggle';button.type='button';button.className='routineLanguageToggle';button.title='Switch to Arabic';button.textContent='العربية';button.onclick=function(){w.APP360_ROUTINE_SET_LANG('ar')};b.appendChild(button)}
  var catTitles={'hygiene':'Hygiene','dress':'Getting dressed','order':'Tidying up','food':'Food and drinks','daily':'Everyday skills','social':'Friends and feelings','safety':'Staying safe'};
  if(D&&D.categories){for(i=0;i<D.categories.length;i++){a=D.categories[i];if(catTitles[a.id])a.title=catTitles[a.id]}}
-}else{
+}
+function arabic(){
  var b=d.querySelector('.topTools');
  if(b){var button=d.createElement('button');button.id='routineLanguageToggle';button.type='button';button.className='routineLanguageToggle';button.title='Switch to English';button.textContent='English';button.onclick=function(){w.APP360_ROUTINE_SET_LANG('en')};b.appendChild(button)}
 }
-if(lang==='en')english();
+if(lang==='en')english();else arabic();
 })(window,document);
