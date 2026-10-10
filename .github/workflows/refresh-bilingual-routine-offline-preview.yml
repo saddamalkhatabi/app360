@@ -1,0 +1,41 @@
+name: Refresh Offline Bilingual Routine Preview
+on:
+  push:
+    branches: [feature/routine-bilingual-voice-preview-20261011]
+    paths: [.github/workflows/refresh-bilingual-routine-offline-preview.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-bilingual-voice-preview-20261011
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '22'
+      - name: Recompute all recorded voices for offline download
+        run: node tooling/refresh-routine-offline-preview.cjs
+      - name: Check translated content and 100 audio paths before release
+        run: |
+          node apps/1-4/my-little-routine/tools/test-bilingual-narration.cjs
+          node apps/1-4/my-little-routine/tools/test-narration-index.cjs
+      - name: Commit isolated offline manifest, not main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline/a1-routine.json data/offline-catalog.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Include 50 Arabic and 50 English narration MP3 in offline routine install"
+            git pull --rebase origin feature/routine-bilingual-voice-preview-20261011
+            git push origin HEAD:feature/routine-bilingual-voice-preview-20261011
+          fi
+      - name: Refresh stable test link without modifying main
+        run: |
+          git fetch origin routine-bilingual-audio-preview
+          git merge-base --is-ancestor origin/routine-bilingual-audio-preview HEAD
+          git push origin HEAD:refs/heads/routine-bilingual-audio-preview
