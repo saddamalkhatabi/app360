@@ -16,5 +16,14 @@ for(var i=0;i<C.feelings.length;i++){
  item.imageSizes='(max-width: 470px) 44vw, 205px';
  updated++;
 }
+w.APP360CalmPhotoFallback=function(img){
+ if(!img)return;
+ var id=img.getAttribute('data-calm-photo'),i,item=null;
+ for(i=0;i<C.feelings.length;i++)if(C.feelings[i].id===id){item=C.feelings[i];break}
+ img.onerror=null;
+ img.removeAttribute('srcset');
+ if(item&&item.photoFallback)img.src=item.photoFallback;
+ else img.style.display='none';
+};
 w.APP360_CALM_PHOTO_EMOTIONS={version:1,updated:updated,ids:['happy','sad','afraid','angry']};
 })(window);
