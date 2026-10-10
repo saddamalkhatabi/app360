@@ -31,12 +31,20 @@ const fs=require('fs');
  console.log('visible fixed controls',await page.evaluate(()=>Array.from(document.querySelectorAll('button')).filter(b=>{const css=getComputedStyle(b),box=b.getBoundingClientRect();return box.width>0&&box.height>0&&css.position==='fixed'}).map(b=>({id:b.id,cl:b.className,text:b.textContent.slice(0,50)}))));
  // All three critical need pictures must be images of the actual requested action.
  await page.locator('#simpleCalmHome [data-calm-tab="signals"]').click();
+ const needCards=await page.locator('#simpleCalmHome [data-calm-kind="signals"] img').evaluateAll(images=>images.map(img=>({id:img.getAttribute('data-calm-photo'),src:img.getAttribute('src'),srcset:img.getAttribute('srcset')})));
+ console.log('need card IDs',needCards.map(x=>x.id));
  for (const id of ['need-help','water-now','quiet']) {
-   const img=page.locator('#simpleCalmHome [data-calm-kind="signals"][data-calm-id="'+id+'"] img');
-   await img.scrollIntoViewIfNeeded();
-   const info=await img.evaluate(el=>({src:el.getAttribute('src'),srcset:el.getAttribute('srcset'),current:el.currentSrc,width:el.naturalWidth}));
-   await must(info.src.endsWith('/'+id+'-512.webp') && info.srcset && info.current.includes('/what-to-try/') && info.width>=100,
-     'Critical need image absent: '+id+' '+JSON.stringify(info));
+   const card=needCards.find(x=>x.id===id);
+   await must(card&&card.src.endsWith('/'+id+'-512.webp')&&card.srcset&&card.srcset.includes('-320.webp'),
+     'Critical need card is missing/photo unmapped '+id+': '+JSON.stringify(needCards));
+   const result=await page.evaluate(async data=>{
+     const image=new Image();
+     image.src=data.src;
+     try{await image.decode();return {width:image.naturalWidth,src:image.src}}
+     catch(e){return {width:0,error:String(e),src:image.src}}
+   },card);
+   await must(result.width>=320 && result.src.includes('/what-to-try/'),
+     'Critical need WebP failed to decode: '+id+': '+JSON.stringify(result));
  }
  await page.screenshot({path:'/tmp/calm-child-needs-new-photos-mobile.png',fullPage:true});
  await page.locator('#simpleCalmHome [data-calm-tab="feelings"]').click();
