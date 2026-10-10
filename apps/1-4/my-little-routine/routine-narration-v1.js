@@ -103,6 +103,11 @@ function playChildStep(){
  e=entry(a);if(!e){feedback(txt('لا يوجد ملف صوتي مسجّل لهذا الروتين','There is no recorded audio for this routine'));return}
  i=Math.min(x.run.current,x.routine.steps.length-1);
  for(k=0;k<a.steps.length;k++)if(a.steps[k]===x.routine.steps[i].label){seg=k;break}
+ // An Arabic custom routine may be opened again in English after changing language.
+ if(seg===null&&w.APP360_ROUTINE_NARRATIONS&&w.APP360_ROUTINE_NARRATIONS.habits[a.id]){
+  var original=w.APP360_ROUTINE_NARRATIONS.habits[a.id].steps;
+  for(k=0;k<original.length;k++)if(original[k]===x.routine.steps[i].label){seg=k;break}
+ }
  if(seg===null){feedback(txt('هذه الخطوة المخصصة ليس لها تسجيل بعد','This custom step has no recording yet'));return}
  for(j=0;j<e.segments.length;j++)if(e.segments[j].kind==='step'&&e.segments[j].step===seg){useAudio(a,'segment',e.segments[j]);return}
 }
