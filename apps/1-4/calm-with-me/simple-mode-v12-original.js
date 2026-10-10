@@ -21,7 +21,7 @@ function enabled(){var s=el('speechToggle');return !s||s.checked}
 function stopAll(){if(coachAudio){try{coachAudio.pause()}catch(e){}coachAudio=null}if(w.APP360CalmNarration)w.APP360CalmNarration.stop();if(w.APP360CalmVoice)w.APP360CalmVoice.stop();if(w.APP360CalmIntro)w.APP360CalmIntro.stop()}
 function picture(it){return it&&it.image||''}
 function photoImgAttrs(it,group){
- if(!it||!it.imageSrcSet)return ' onerror="this.style.display=\\'none\\'"';
+ if(!it||!it.imageSrcSet)return " onerror=\"this.style.display='none'\"";
  return ' srcset="'+esc(it.imageSrcSet)+'" sizes="'+esc(it.imageSizes||'205px')+
  '" data-calm-photo="'+esc(it.id)+'" data-calm-image-group="'+esc(group)+
  '" onerror="window.APP360CalmPhotoFallback(this)"';
