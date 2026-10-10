@@ -61,8 +61,8 @@ jobs:
                       path=out/f'{id_}_{voice}.wav'
                       tts.save_audio(wav,str(path))
                       if path.stat().st_size < 1000: raise RuntimeError('File unexpectedly small')
-                      result.append((path.name,id_,voice,s,round(float(dur),2),path.stat().st_size))
-                      print('SUCCESS',path.name, 'duration',round(float(dur),2),'size',path.stat().st_size,flush=True)
+                      result.append((path.name,id_,voice,s,round(float(__import__('numpy').asarray(dur).reshape(-1)[0]),2),path.stat().st_size))
+                      print('SUCCESS',path.name, 'duration',round(float(__import__('numpy').asarray(dur).reshape(-1)[0]),2),'size',path.stat().st_size,flush=True)
                   except Exception as e:
                       print('FAILED',id_,voice,repr(e),flush=True)
                       traceback.print_exc()
