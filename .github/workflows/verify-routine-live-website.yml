@@ -1,0 +1,44 @@
+name: Verify Production Routine Bilingual Release
+on:
+  push:
+    branches: [routine-bilingual-audio-preview]
+    paths: [.github/workflows/verify-routine-live-website.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Wait for live website to serve release HTML and bilingual recordings
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://school.yem1.com/apps/1-4/my-little-routine'
+          echo 'Verify actual live deployment, do not accept cached preview'
+          for i in $(seq 1 42); do
+            if curl --fail --silent --show-error --location --max-time 18 \
+              -H 'Cache-Control: no-cache' "$base/index.html?release=f786ae5" -o /tmp/index.html \
+              && grep -q 'routine-language-v1.js' /tmp/index.html \
+              && grep -q 'narration-timings-en.js' /tmp/index.html \
+              && curl --fail --silent --show-error --location --max-time 18 \
+                "$base/audio/narration-timings-en.js?release=f786ae5" -o /tmp/en.js \
+              && grep -q '"clip_count":50' /tmp/en.js \
+              && curl --fail --silent --show-error --location --max-time 18 \
+                "$base/audio/narration-timings.js?release=f786ae5" -o /tmp/ar.js \
+              && grep -q '"clip_count":50' /tmp/ar.js \
+              && curl --fail --silent --show-error --location --max-time 18 \
+                "$base/audio/en/routines/001_wash-hands.mp3" -o /tmp/en.mp3 \
+              && curl --fail --silent --show-error --location --max-time 18 \
+                "$base/audio/silma/routines/001_wash-hands.mp3" -o /tmp/ar.mp3 \
+              && test "$(stat -c %s /tmp/en.mp3)" -gt 3000 \
+              && test "$(stat -c %s /tmp/ar.mp3)" -gt 3000; then
+              echo "SUCCESS: production site serves bilingual UI, 50/50 timings, both real MP3 files"
+              exit 0
+            fi
+            echo "Live rollout not confirmed at check $i"
+            sleep 10
+          done
+          echo "ERROR: Could not confirm release on live domain"
+          exit 1
