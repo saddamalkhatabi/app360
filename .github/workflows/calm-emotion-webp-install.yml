@@ -1,0 +1,45 @@
+name: Install Calm Emotion WebP Photos
+on:
+  push:
+    branches: [fix/calm-child-meaningful-visuals-20261010]
+    paths:
+      - .github/workflows/calm-emotion-webp-install.yml
+      - apps/1-4/calm-with-me/assets/images/emotions/calm_site_assets_webp.zip
+permissions:
+  contents: write
+jobs:
+  extract-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate and extract original uploaded WebP ZIP
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          root = Path('apps/1-4/calm-with-me/assets/images/emotions')
+          package = root/'calm_site_assets_webp.zip'
+          names = {f'{emotion}-{px}.webp' for emotion in ('happy','sad','afraid','angry') for px in (320,512)}
+          assert package.is_file(), 'Uploaded WebP ZIP missing'
+          with ZipFile(package) as z:
+              actual = set(z.namelist())
+              assert actual == names, f'Unexpected archive entries: {actual ^ names}'
+              assert z.testzip() is None, 'Archive checksum mismatch'
+              for name in sorted(names):
+                  data = z.read(name)
+                  assert len(data)>5000 and len(data)<300000, name
+                  assert data[:4] == b'RIFF' and data[8:12]==b'WEBP', name
+                  (root/name).write_bytes(data)
+                  print(name,len(data))
+          PY
+      - name: Commit extracted files into preview branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/1-4/calm-with-me/assets/images/emotions/*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Extract eight optimized toddler emotion WebP images from user ZIP"
+            git push origin HEAD:fix/calm-child-meaningful-visuals-20261010
+          fi
