@@ -111,5 +111,5 @@ jobs:
           git add apps/1-4/screen-to-move/audio/ apps/1-4/screen-to-move/voice-map.js data/offline/a1-screen-move.json data/offline-catalog.json
           git diff --cached --quiet && exit 0
           git commit -m "Record and verify reusable SILMA voice for creative games"
-          git pull --rebase origin preview/creative-silma-local-games-20261011
+          git pull --rebase --autostash origin preview/creative-silma-local-games-20261011
           git push origin HEAD:preview/creative-silma-local-games-20261011
