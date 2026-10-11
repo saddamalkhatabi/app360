@@ -61,7 +61,7 @@ function play(item,report){
   var audio=new w.Audio(path);current=audio;
   audio.onended=finish;audio.onerror=fallback;
   if(w.APP360CalmVoice&&w.APP360CalmVoice.showChoiceCaption&&!item.audio)w.APP360CalmVoice.showChoiceCaption(kind,item.id);
-  status(report,item.audio?'تشغيل تسجيل الأسرة المحلي.':locale==='en'?'تشغيل ملف MP3 الإنجليزي المحفوظ.':'تشغيل ملف SILMA العربي المحفوظ.');
+  status(report,item.audio?'تشغيل تسجيل الأسرة المحلي.':locale==='en'?'تشغيل ملف MP3 الإنجليزي المحفوظ.':'تشغيل الصوت المسجل.');
   var p=audio.play();
   if(p&&typeof p.then==='function')p.then(null,fallback);
   return true;

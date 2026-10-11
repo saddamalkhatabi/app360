@@ -116,7 +116,7 @@ function bind(){
   $('exportAllBtn').onclick=exportAll;$('copyTransferBtn').onclick=copyTransfer;$('importTextBtn').onclick=importText;$('importFile').onchange=function(){readImportFile(this.files&&this.files[0])};
   $('addHelpBtn').onclick=addCustomHelp;$('addTransitionBtn').onclick=addCustomTransition;$('resetLibraryBtn').onclick=resetLibrary;$('saveReviewBtn').onclick=saveReview;
   $('customHelpImage').onchange=function(){readFileData(this.files&&this.files[0],MAX_IMAGE_BYTES,'الصورة',function(v){pendingHelpImage=v;toast(v?'تم تجهيز الصورة محليًا.':'سيستخدم الخيار رمزًا بصريًا بدل الصورة.')})};
-  $('customHelpAudio').onchange=function(){readFileData(this.files&&this.files[0],MAX_AUDIO_BYTES,'الصوت',function(v){pendingHelpAudio=v;toast(v?'تم تجهيز الصوت المحلي.':'سيستخدم TTS أو النص بدل الصوت المسجل.')})};
+  $('customHelpAudio').onchange=function(){readFileData(this.files&&this.files[0],MAX_AUDIO_BYTES,'الصوت',function(v){pendingHelpAudio=v;toast(v?'تم تجهيز الصوت المحلي.':'سيظهر النص عند عدم توفر صوت مسجل.')})};
   $('customTransitionImage').onchange=function(){readFileData(this.files&&this.files[0],MAX_IMAGE_BYTES,'الصورة',function(v){pendingTransitionImage=v;toast(v?'تم تجهيز صورة الخطوة محليًا.':'ستبقى الخطوة نصية/رمزية.')})};
   $('libraryList').onchange=function(e){e=e||w.event;var t=e.target||e.srcElement,id;if(!t)return;id=t.getAttribute('data-lib-enabled');if(id)updateLibraryField(id,'enabled',!!t.checked);id=t.getAttribute('data-lib-label');if(id)updateLibraryField(id,'label_ar',trim(t.value)||'مساعدة')};
   $('speechToggle').onchange=function(){state.settings.speech=!!this.checked;persist();status(this.checked?'الصوت الاختياري مفعّل عند توفره.':'الصوت متوقف؛ التجربة البصرية كاملة.')};

@@ -1,0 +1,88 @@
+/* Calm child-first v2. Semantic photos/illustrations are supplied by per-card image paths. */
+body:not(.calm-advanced) #mainNav,body:not(.calm-advanced) #journeyProgress,
+body:not(.calm-advanced) #calmQuickFeelings,body:not(.calm-advanced) #childView>.age-chooser,
+body:not(.calm-advanced) #childView>.section-head,body:not(.calm-advanced) #childView>.practice-block,
+body:not(.calm-advanced) #childView>.current-strip,body:not(.calm-advanced) #childView>.emotion-school-cta,
+body:not(.calm-advanced) #childView>.primary-actions,body:not(.calm-advanced) .simple-game-panel,
+body:not(.calm-advanced) #installAppBtn,body:not(.calm-advanced) #updateAppBtn,
+body:not(.calm-advanced) #calmReplayVoiceBtn,
+body:not(.calm-advanced) #calmCoachLinks,
+body:not(.calm-advanced) .app-head .head-copy p,
+body:not(.calm-advanced) .app-head .safety-line{display:none!important}
+body.calm-advanced #simpleCalmHome{display:none!important}
+body:not(.calm-advanced) #simpleCalmHome{display:block!important}
+body:not(.calm-advanced) #calmChildWelcome{max-width:960px;margin:12px auto;padding:10px 16px}
+body:not(.calm-advanced) #calmWelcomeImage{width:72px;height:72px;flex:none}
+body:not(.calm-advanced) #calmWelcomeImage img{width:72px;height:72px;object-fit:contain}
+body:not(.calm-advanced) #calmWelcomeTitle{font-size:1.15rem;line-height:1.35}
+body:not(.calm-advanced) #calmWelcomeDescription{font-size:.93rem}
+body:not(.calm-advanced) #calmPlayWelcomeBtn{min-height:55px;font-size:1.07rem}
+body:not(.calm-advanced) .app-head h1{font-size:1.18rem}
+#simpleCalmHome{margin:12px auto 42px;max-width:1000px;padding:20px 14px 28px;background:#fcfffe;border-radius:24px;border:2px solid #d6e7e4;box-shadow:0 10px 35px rgba(25,61,65,.07);box-sizing:border-box}
+#simpleCalmHome h2{font-size:clamp(1.5rem,5vw,2.15rem);color:#164e52;text-align:center;margin:12px auto 6px}
+#simpleCalmHome .calm-kid-instruction{font-size:1.08rem;color:#567176;text-align:center;font-weight:bold;margin:8px auto 15px}
+#simpleCalmHome .calm-kid-progress{display:flex;gap:9px;justify-content:center;max-width:440px;margin:8px auto 16px;direction:ltr}
+#simpleCalmHome .calm-kid-progress span{width:43px;height:43px;line-height:41px;border-radius:50%;background:#e6f1f0;color:#3d6d6a;border:2px solid #bcd7d3;text-align:center;font-size:1.15rem;font-weight:900;box-sizing:border-box}
+#simpleCalmHome .calm-kid-progress span.current{background:#147f7a;color:white;border-color:#147f7a;box-shadow:0 0 0 5px #daf1eb}
+#simpleCalmHome .calm-kid-progress span.passed{background:#c3e9df;border-color:#4ea79c;color:#125f5b}
+#simpleCalmHome .calm-kid-tabs{display:flex;max-width:650px;gap:9px;margin:0 auto 17px}
+#simpleCalmHome .calm-kid-tabs button{flex:1;min-height:56px;border:2px solid #c3d8d5;border-radius:14px;background:#fff;color:#256d6a;font-size:1.04rem;font-weight:800;padding:8px;cursor:pointer}
+#simpleCalmHome .calm-kid-tabs button.active{background:#e3f6ee;border-color:#129887;color:#115d57}
+#simpleCalmHome .calm-kid-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:790px;margin:auto}
+#simpleCalmHome .calm-kid-card{width:calc(50% - 9px);max-width:235px;min-height:226px;border:3px solid #d7e5e3;background:white;border-radius:23px;padding:10px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer;-webkit-tap-highlight-color:rgba(8,149,135,.13);touch-action:manipulation;overflow:hidden}
+#simpleCalmHome .calm-kid-card img{display:block;width:100%;max-width:205px;max-height:164px;height:164px;object-fit:contain;background:#fffdf9;border-radius:15px}
+#simpleCalmHome .calm-kid-card b{font-size:1.09rem;line-height:1.35;color:#234349;text-align:center;max-height:3.4em;overflow:hidden}
+#simpleCalmHome .calm-kid-card.chosen{border-color:#149c82;background:#e5f8ee;box-shadow:0 0 0 4px #c8efdc}
+#simpleCalmHome .calm-kid-card:focus,#simpleCalmHome button:focus-visible{outline:4px solid #ffb842;outline-offset:2px}
+#simpleCalmHome .calm-card-fallback{font-size:5rem}
+#simpleCalmHome .calm-kid-buttons{display:flex;gap:12px;justify-content:center;max-width:690px;margin:18px auto 5px}
+#simpleCalmHome .calm-kid-buttons button{min-height:67px;flex:1;padding:12px 14px;font-size:1.16rem;font-weight:900;border-radius:17px;cursor:pointer;border:3px solid #147f7a}
+#simpleCalmHome .calm-kid-buttons .calm-primary{background:#0d8f79;color:#fff}
+#simpleCalmHome .calm-kid-buttons .calm-secondary{background:#fff;color:#125e5d;border-color:#9bc7be}
+#simpleCalmHome .calm-kid-buttons button:disabled{opacity:.38;cursor:not-allowed}
+#simpleCalmHome .calm-kid-feedback{text-align:center;color:#176953;font-size:1rem;font-weight:bold;margin:14px auto 0}
+#simpleCalmHome .calm-sequence{display:flex;gap:16px;justify-content:center;align-items:stretch;margin:20px auto;max-width:760px;direction:ltr}
+#simpleCalmHome .calm-sequence-cell{flex:1;min-width:0;border:3px solid #a4d5c4;border-radius:22px;padding:13px;background:white;text-align:center;box-sizing:border-box;display:flex;align-items:center;flex-direction:column;gap:8px}
+#simpleCalmHome .calm-sequence-cell b{font-size:1.12rem;color:#1b4f51}
+#simpleCalmHome .calm-sequence-title{background:#147f7a;color:white;font-size:1.12rem;font-weight:900;padding:7px 15px;border-radius:99px}
+#simpleCalmHome .calm-sequence-picture{width:100%;display:flex;align-items:center;justify-content:center}
+#simpleCalmHome .calm-sequence-picture img{width:100%;height:214px;object-fit:contain;border-radius:18px}
+#simpleCalmHome .calm-sequence-arrow{display:flex;align-items:center;font-size:2rem;color:#0a9581;font-weight:bold}
+#simpleCalmHome .calm-next-grid .calm-kid-card{min-height:150px;max-width:170px}
+#simpleCalmHome .calm-next-grid .calm-kid-card img{height:90px}
+#simpleCalmHome .calm-kid-finish{padding:55px 0;text-align:center}
+#calmCoachBtn,#calmChildBtn{min-height:52px;padding:9px 14px;background:#fff;border:2px solid #147f7a;color:#14645e;border-radius:13px;font-weight:900;font-size:1.02rem}
+@media(min-width:720px){#simpleCalmHome .calm-kid-card{width:calc(25% - 12px)}#simpleCalmHome .calm-next-grid .calm-kid-card{width:calc(25% - 12px)}}
+@media(max-width:470px){#simpleCalmHome{padding:12px 9px}#simpleCalmHome .calm-kid-grid{gap:8px}#simpleCalmHome .calm-kid-card{min-height:183px;padding:6px;border-radius:16px}#simpleCalmHome .calm-kid-card img{height:116px}#simpleCalmHome .calm-kid-card b{font-size:.94rem}#simpleCalmHome .calm-sequence{gap:5px}#simpleCalmHome .calm-sequence-arrow{font-size:1rem}#simpleCalmHome .calm-sequence-picture img{height:145px}#simpleCalmHome .calm-kid-buttons button{min-height:60px;font-size:1rem;padding:6px}#simpleCalmHome .calm-next-grid .calm-kid-card{min-height:137px}}
+/* Android 4.4 has no aspect-ratio and unreliable Grid; flex fallback deliberately remains. */
+
+body.calm-advanced #calmChildWelcome{display:none!important}
+
+/* Safety library and global management floaters are trainer-only. */
+body:not(.calm-advanced) #app360SafetyShortcuts,
+body:not(.calm-advanced) #app360FamilyBtn,
+body:not(.calm-advanced) #app360ProfileBtn,
+body:not(.calm-advanced) .a360-family-float,
+body:not(.calm-advanced) #calmCoachLinks {display:none!important}
+/* Keep the welcome replay control prominent without burying the child's first picture. */
+body:not(.calm-advanced) #calmChildWelcome{position:relative;box-sizing:border-box;padding:8px 14px!important;margin:8px auto 12px!important}
+body:not(.calm-advanced) #calmWelcomeImage,
+body:not(.calm-advanced) #calmWelcomeDescription{display:none!important}
+body:not(.calm-advanced) #calmWelcomeTitle{font-size:1.06rem!important;margin:4px 0 8px!important}
+body:not(.calm-advanced) #calmPlayWelcomeBtn{min-height:46px!important;max-width:360px;padding:6px!important;font-size:1rem!important}
+body:not(.calm-advanced) #calmWelcomeStatus{display:none!important}
+@media(max-width:620px){
+ body:not(.calm-advanced) .app-head{padding-top:5px;padding-bottom:7px}
+ body:not(.calm-advanced) .app-head .head-main{display:flex;align-items:center;gap:8px}
+ body:not(.calm-advanced) .app-head .app-icon{width:44px;height:44px;flex:none}
+ body:not(.calm-advanced) .app-head .head-copy .eyebrow{display:none!important}
+ body:not(.calm-advanced) .app-head .head-copy h1{font-size:1.06rem!important;margin:0}
+ body:not(.calm-advanced) .app-head .head-actions{display:flex;flex-direction:row;gap:5px;width:100%;justify-content:center}
+ body:not(.calm-advanced) .app-head .head-actions button{font-size:.86rem!important;min-height:44px;padding:5px 9px}
+ #simpleCalmHome{margin-top:6px!important}
+}
+
+body:not(.calm-advanced) #app360AiBtn,body:not(.calm-advanced) #app360HomeBtn{display:none!important}
+
+/* Hide late-injected adult role tools and transient legacy toasts; child feedback is inside the journey. */
+body:not(.calm-advanced) .head-actions>button:not(#calmCoachBtn):not(#calmChildBtn):not(#calmBilingualAudioButton),body:not(.calm-advanced) #toast{display:none!important}

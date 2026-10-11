@@ -33,7 +33,7 @@ w.APP360_CALM_CONTENT={
     {id:'no-label',label_ar:'لا أريد تسمية',symbol:'○',speech_ar:'لا أريد تسمية الشعور',age_bands:['1-2','2-3','3-4','4-5']}
   ],
   feelings:[
-    {id:'happy',label_ar:'فرح',symbol:'🙂',speech_ar:'فرح',age_bands:['1-2','2-3','3-4','4-5']},
+    {id:'happy',label_ar:'سعيد',symbol:'🙂',speech_ar:'أنا سعيد',age_bands:['1-2','2-3','3-4','4-5']},
     {id:'sad',label_ar:'حزن',symbol:'☹',speech_ar:'حزن',age_bands:['1-2','2-3','3-4','4-5']},
     {id:'afraid',label_ar:'خوف',symbol:'😟',speech_ar:'خوف',age_bands:['1-2','2-3','3-4','4-5']},
     {id:'upset',label_ar:'انزعاج',symbol:'◉',speech_ar:'انزعاج',age_bands:['1-2','2-3','3-4','4-5']},

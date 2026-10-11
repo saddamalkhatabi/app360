@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-10",
+  "app": "a1-calm",
+  "required_images": 74,
+  "counts": {
+    "signals": 19,
+    "feelings": 14,
+    "helps": 28,
+    "transitions": 13
+  },
+  "distinct_old_svg_scenes": 24,
+  "shared_scenes": {
+    "help": 1,
+    "hug": 5,
+    "space": 1,
+    "stop": 2,
+    "happy": 3,
+    "water": 5,
+    "next": 3,
+    "heart": 2,
+    "quiet": 8,
+    "walk": 5,
+    "wait": 3,
+    "toy": 3,
+    "book": 6,
+    "block": 1,
+    "choice": 8,
+    "sad": 5,
+    "afraid": 2,
+    "angry": 2,
+    "tired": 2,
+    "draw": 2,
+    "push": 1,
+    "dough": 1,
+    "jump": 1,
+    "ball": 2
+  },
+  "visual_passed": false,
+  "notes": [
+    "All five new child-critical images successfully decoded and displayed during mobile Playwright checks; semantic approval by children/caregivers remains pending.",
+    "Across the 74 cards, 23 cards have photographic visuals; 51 still require scene-accurate images or human-led visual acceptance.",
+    "Do not equate requesting water to drinking water, or playing ball to merely depicting a ball.",
+    "Keep the mother wearing hijab when visible and prefer one clear action per child card."
+  ],
+  "cards": [
+    {
+      "kind": "signals",
+      "id": "need-help",
+      "label_ar": "ساعدني",
+      "old_scene": "help",
+      "image_status": "semantic_webp_bound_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/need-help-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/need-help-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "stay-close",
+      "label_ar": "ابقَ قريبًا",
+      "old_scene": "hug",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "pick-me-up",
+      "label_ar": "احملني",
+      "old_scene": "hug",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "need-space",
+      "label_ar": "أريد مساحة",
+      "old_scene": "space",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "pause-now",
+      "label_ar": "توقف قليلًا",
+      "old_scene": "stop",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "all-done",
+      "label_ar": "خلص",
+      "old_scene": "happy",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "no",
+      "label_ar": "لا أريد",
+      "old_scene": "stop",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "water-now",
+      "label_ar": "أريد ماء",
+      "old_scene": "water",
+      "image_status": "semantic_webp_bound_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/water-now-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/water-now-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "what-next",
+      "label_ar": "أرني ماذا بعد",
+      "old_scene": "next",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "want-mom-dad",
+      "label_ar": "أريد أمي أو أبي",
+      "old_scene": "heart",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "quiet",
+      "label_ar": "أريد هدوءًا",
+      "old_scene": "quiet",
+      "image_status": "semantic_webp_bound_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/quiet-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/quiet-320.webp"
+    },
+    {
+      "kind": "signals",
+      "id": "move",
+      "label_ar": "أريد حركة",
+      "old_scene": "walk",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "my-turn",
+      "label_ar": "أريد دوري",
+      "old_scene": "wait",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "my-toy",
+      "label_ar": "أريد لعبتي",
+      "old_scene": "toy",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "explain",
+      "label_ar": "اشرح لي",
+      "old_scene": "book",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "try-myself",
+      "label_ar": "أريد أجرب بنفسي",
+      "old_scene": "block",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "talk-later",
+      "label_ar": "سأتكلم بعد قليل",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "two-solutions",
+      "label_ar": "أعطني حلين",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "signals",
+      "id": "no-label",
+      "label_ar": "لا أريد تسمية",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "happy",
+      "label_ar": "سعيد",
+      "old_scene": "happy",
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/happy-512.webp",
+      "small_photo_asset": "assets/images/emotions/happy-320.webp"
+    },
+    {
+      "kind": "feelings",
+      "id": "sad",
+      "label_ar": "حزن",
+      "old_scene": "sad",
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/sad-512.webp",
+      "small_photo_asset": "assets/images/emotions/sad-320.webp"
+    },
+    {
+      "kind": "feelings",
+      "id": "afraid",
+      "label_ar": "خوف",
+      "old_scene": "afraid",
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/afraid-512.webp",
+      "small_photo_asset": "assets/images/emotions/afraid-320.webp"
+    },
+    {
+      "kind": "feelings",
+      "id": "upset",
+      "label_ar": "انزعاج",
+      "old_scene": "sad",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "angry",
+      "label_ar": "غضب",
+      "old_scene": "angry",
+      "image_status": "photorealistic_webp_installed_and_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/emotions/angry-512.webp",
+      "small_photo_asset": "assets/images/emotions/angry-320.webp"
+    },
+    {
+      "kind": "feelings",
+      "id": "tired",
+      "label_ar": "تعب",
+      "old_scene": "tired",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "worried",
+      "label_ar": "قلق",
+      "old_scene": "afraid",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "frustrated",
+      "label_ar": "إحباط",
+      "old_scene": "angry",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "jealous",
+      "label_ar": "غيرة",
+      "old_scene": "sad",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "shy",
+      "label_ar": "خجل",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "embarrassed",
+      "label_ar": "إحراج",
+      "old_scene": "sad",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "lonely",
+      "label_ar": "وحدة أو اشتياق",
+      "old_scene": "heart",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "disappointed",
+      "label_ar": "خيبة",
+      "old_scene": "sad",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "feelings",
+      "id": "unsure",
+      "label_ar": "لا أعرف",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "close",
+      "label_ar": "ابقَ قريبًا",
+      "old_scene": "hug",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/gentle_closeness_mom_daughter-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "hold-if-wanted",
+      "label_ar": "احملني إذا أردت",
+      "old_scene": "hug",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/happy_hug_mom_daughter-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "comfort-touch",
+      "label_ar": "حضن أو لمسة إذا طلبت",
+      "old_scene": "hug",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/warm_hug_mom_daughter-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/warm_hug_mom_daughter-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "space",
+      "label_ar": "مساحة أكبر",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "quiet-place",
+      "label_ar": "مكان أهدأ",
+      "old_scene": "quiet",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/reading_corner_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/reading_corner_child-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "reduce-noise",
+      "label_ar": "نخفف الصوت والضوء",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "familiar-object",
+      "label_ar": "غرض أو لعبة مألوفة",
+      "old_scene": "toy",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/teddy_comfort_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/teddy_comfort_child-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "quiet-book",
+      "label_ar": "كتاب أو نشاط هادئ",
+      "old_scene": "book",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/read_story_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/read_story_with_mom-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "water",
+      "label_ar": "ماء إذا أراد",
+      "old_scene": "water",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/drink_water_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/drink_water_child-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "body-check",
+      "label_ar": "نتحقق من الجوع والتعب والألم",
+      "old_scene": "tired",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "show-next",
+      "label_ar": "أريك ماذا بعد",
+      "old_scene": "next",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "coach_advanced",
+      "photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/sequence_learning_with_mom-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "more-time",
+      "label_ar": "وقت إضافي قصير",
+      "old_scene": "wait",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "move-together",
+      "label_ar": "ننتقل معًا",
+      "old_scene": "walk",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/walk_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/walk_with_mom-320.webp"
+    },
+    {
+      "kind": "helps",
+      "id": "two-choices",
+      "label_ar": "خياران واضحان",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "one-choice",
+      "label_ar": "خيار واحد بسيط",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "model-words",
+      "label_ar": "أعطيك الكلمات بدل السؤال",
+      "old_scene": "book",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "name-one-feeling",
+      "label_ar": "نقترح كلمة شعور واحدة",
+      "old_scene": "happy",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "draw-feeling",
+      "label_ar": "نرسم ما حدث أو الشعور",
+      "old_scene": "draw",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "role-play",
+      "label_ar": "نمثل الموقف بالدمى",
+      "old_scene": "toy",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "short-story",
+      "label_ar": "قصة قصيرة: ماذا حدث؟",
+      "old_scene": "book",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "wall-push",
+      "label_ar": "ندفع الجدار بأيدينا",
+      "old_scene": "push",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "pillow-push",
+      "label_ar": "ندفع وسادة كبيرة",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "heavy-walk",
+      "label_ar": "نمشي خطوات ثقيلة معًا",
+      "old_scene": "walk",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "playdough",
+      "label_ar": "نعصر عجينة لعب",
+      "old_scene": "dough",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "safe-jumps",
+      "label_ar": "قفزات قليلة إذا أراد",
+      "old_scene": "jump",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "check-reality",
+      "label_ar": "نفرق بين الفكرة وما يحدث الآن",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "two-solutions-help",
+      "label_ar": "نقترح حلين واقعيين",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "helps",
+      "id": "wait-nearby",
+      "label_ar": "أنتظر بقربك دون كلام",
+      "old_scene": "quiet",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "book",
+      "label_ar": "نقرأ كتابًا",
+      "old_scene": "book",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/read_story_with_mom-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/read_story_with_mom-320.webp"
+    },
+    {
+      "kind": "transitions",
+      "id": "ball",
+      "label_ar": "نلعب بالكرة",
+      "old_scene": "ball",
+      "image_status": "semantic_webp_bound_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/ball-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/ball-320.webp"
+    },
+    {
+      "kind": "transitions",
+      "id": "water",
+      "label_ar": "ماء إذا أراد",
+      "old_scene": "water",
+      "image_status": "semantic_webp_bound_browser_qa_required",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/drink_water_child-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/drink_water_child-320.webp"
+    },
+    {
+      "kind": "transitions",
+      "id": "shoe",
+      "label_ar": "نرتدي الحذاء",
+      "old_scene": "walk",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "toothbrush",
+      "label_ar": "ننظف الأسنان",
+      "old_scene": "water",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "cup",
+      "label_ar": "نستخدم الكوب",
+      "old_scene": "water",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "leave",
+      "label_ar": "ننتقل إلى المكان التالي",
+      "old_scene": "next",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "wait",
+      "label_ar": "ننتظر قليلًا معًا",
+      "old_scene": "wait",
+      "image_status": "semantic_webp_bound_browser_loaded",
+      "priority": "child_critical",
+      "photo_asset": "assets/images/what-to-try/wait-512.webp",
+      "small_photo_asset": "assets/images/what-to-try/wait-320.webp"
+    },
+    {
+      "kind": "transitions",
+      "id": "app-first-words",
+      "label_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
+      "old_scene": "book",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "app-imitate",
+      "label_ar": "دوري ودورك: قلّد حركة واحدة",
+      "old_scene": "walk",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "app-screen-move",
+      "label_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
+      "old_scene": "ball",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "app-drawing-writing",
+      "label_ar": "لوحة الطفل للرسم والكتابة المبكرة",
+      "old_scene": "draw",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    },
+    {
+      "kind": "transitions",
+      "id": "app-plan-runner",
+      "label_ar": "مخطط جلسات 1–4: ابنِ ونفّذ خطة",
+      "old_scene": "choice",
+      "image_status": "requires_semantic_visual_review",
+      "priority": "coach_advanced"
+    }
+  ],
+  "photo_cards_installed": 4,
+  "cards_still_needing_semantic_review": 51,
+  "photos_new_bound": 19,
+  "photos_existing_emotions": 4,
+  "photos_total_bound": 23,
+  "last_browser_test": "https://github.com/saddamalkhatabi/app360/actions/runs/38014209133"
+}
