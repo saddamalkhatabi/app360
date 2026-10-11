@@ -3,4 +3,4 @@ const test=require('node:test');const assert=require('node:assert/strict');const
 const js=fs.readFileSync('app-v16.js','utf8');const html=fs.readFileSync('index.html','utf8');const manifest=JSON.parse(fs.readFileSync('storyboards/manifest.json','utf8'));
 test('previous and next experience navigation are both wired',()=>{assert.ok(js.includes('function previousExperienceId'));assert.ok(js.includes('goPreviousExperience'));assert.ok(js.includes('previousExperienceBottom'));assert.ok(js.includes('goNextExperience'))});
 test('cards use mapped storyboard first-frame thumbnails when available',()=>{const asset=manifest.assets['001'];assert.ok(js.includes('function cardVisual(x)'));assert.ok(js.includes('card-thumb-frame'));assert.match(asset,/^storyboards\/\d{3}\.webp$/);assert.ok(fs.existsSync(asset))});
-test('index points to v16 runtime and style',()=>{assert.ok(html.includes('app-v16.js?v=7'));assert.ok(html.includes('styles-v16.css?v=4'))});
+test('index points to v16 runtime and style',()=>{assert.ok(html.includes('app-v16.js?v=8'));assert.ok(html.includes('styles-v16.css?v=4'))});

@@ -30,3 +30,9 @@ The library's **كيف نلعب؟** button plays the app introduction, watch-fir
 Coverage is shared play guidance across the 200 experiences. Individual experience titles and scene instructions are not recorded in this release. The interface remains Arabic; the selector changes the recorded prompts and their captions/buttons. All recordings live under this app's own `audio/ar` and `audio/en` directories and are included in its offline download catalog.
 
 Validation: `npm run validate` includes recording integrity, queue cancellation, language/mute persistence, and hidden-document/error tests. The recordings also pass FFmpeg decode verification. Live deployment and browser listening require separate verification.
+
+## الصوت المسجل في نسخة المعاينة
+
+تضم النسخة 516 ملف MP3 مولدًا باستخدام SILMA: عناوين 200 تجربة بالعربية والإنجليزية، و47 تعليمة مشهد مشتركة لكل لغة، و11 إشارة للعب لكل لغة. لكل تجربة خمس قوائم صوتية مرتبطة بمشاهدها. يبدأ الانتقال التلقائي بعد انتهاء الصوت، ويمكن إيقاف العرض أو إعادة الصوت أو تبديل اللغة. تُحفظ اللغة والكتم محليًا.
+
+التسجيلات السابقة مستعادة من نقطة الحفظ الأصلية دون إعادة توليدها، ويُسجل مصدرها وبصمتها في audio/manifest.json. مصادر الاستكمال وتقارير التوليد في tools/voice-sources؛ لا تُحمّل هذه الأدوات ضمن التطبيق. لا يعتمد تشغيل الأصوات على خدمة نطق خارجية.

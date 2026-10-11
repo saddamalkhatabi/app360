@@ -45,31 +45,21 @@ return'<div class="reel" id="storyReel" data-frames="5"><div class="reel-stage-l
 }
 function setupReel(){
 clearReel();var strip=el('reelStrip'),viewport=el('reelViewport'),reel=el('storyReel');if(!strip||!viewport||!reel)return;
-var frame=0,playing=true,overview=false,total=5,play=el('reelPlay'),dots=el('reelDots'),counter=el('reelCounter'),label=el('reelStageLabel');
+var frame=0,playing=false,overview=false,total=5,play=el('reelPlay'),dots=el('reelDots'),counter=el('reelCounter'),label=el('reelStageLabel'),voice=window.A1RecordedVoice,id=state.experience.id;
 function setDots(current,all){Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',all||i===current)})}
-function showFrame(n){
-overview=false;reel.className='reel frame-active';frame=Math.max(0,Math.min(total-1,n));viewport.className='reel-viewport frame-mode';strip.style.transform='translate3d('+(-20*frame)+'%,0,0)';setDots(frame,false);counter.textContent=(frame+1)+' / '+total;label.textContent='اللقطة '+(frame+1)+' من '+total
+function showFrame(n){overview=false;reel.className='reel frame-active';frame=Math.max(0,Math.min(total-1,n));viewport.className='reel-viewport frame-mode';strip.style.transform='translate3d('+(-20*frame)+'%,0,0)';setDots(frame,false);counter.textContent=(frame+1)+' / '+total;label.textContent='اللقطة '+(frame+1)+' من '+total}
+function showOverview(){overview=true;playing=false;clearTimeout(reelTimer);reelTimer=null;if(voice)voice.stop();reel.className='reel overview-active';viewport.className='reel-viewport overview-mode';strip.style.transform='translate3d(0,0,0)';setDots(frame,true);counter.textContent='الصورة كاملة';label.textContent='كل لقطات التجربة';play.textContent='▶ تشغيل من البداية'}
+function stop(){playing=false;clearTimeout(reelTimer);reelTimer=null;if(voice)voice.stop();play.textContent=overview?'▶ تشغيل من البداية':'▶ متابعة'}
+function schedule(){clearTimeout(reelTimer);if(!playing)return;reelTimer=setTimeout(function(){if(frame<total-1){showFrame(frame+1);narrate(false,true);return}showOverview()},2200)}
+function narrate(first,advance){if(voice)voice.playFrame(id,frame,function(){if(advance&&playing&&!overview)schedule()},first);else if(advance)schedule()}
+function start(reset){clearTimeout(reelTimer);if(reset||overview)showFrame(0);playing=true;play.textContent='⏸ إيقاف';narrate(reset||frame===0,true)}
+play.onclick=function(){if(playing)stop();else start(overview)};el('reelReplay').onclick=function(){start(true)};
+Array.prototype.forEach.call(dots.children,function(d,i){d.onclick=function(){stop();showFrame(i);narrate(false,false)}});
+if(voice){voice.onManual=stop;voice.onChange=function(){if(playing)start(false);else if(!overview)narrate(false,false)}}
+showFrame(0);start(true)
 }
-function showOverview(){
-overview=true;playing=false;clearTimeout(reelTimer);reelTimer=null;reel.className='reel overview-active';viewport.className='reel-viewport overview-mode';strip.style.transform='translate3d(0,0,0)';setDots(frame,true);counter.textContent='الصورة كاملة';label.textContent='كل لقطات التجربة';play.textContent='▶ تشغيل من البداية'
-}
-function stop(){playing=false;clearTimeout(reelTimer);reelTimer=null;play.textContent=overview?'▶ تشغيل من البداية':'▶ متابعة'}
-function schedule(){
-clearTimeout(reelTimer);if(!playing)return;
-reelTimer=setTimeout(function(){
-  if(frame<total-1){showFrame(frame+1);schedule();return}
-  showOverview()
-},2200)
-}
-function start(reset){
-if(reset||overview)showFrame(0);playing=true;play.textContent='⏸ إيقاف';schedule()
-}
-play.onclick=function(){if(playing)stop();else start(overview)};
-el('reelReplay').onclick=function(){start(true)};
-Array.prototype.forEach.call(dots.children,function(d,i){d.onclick=function(){stop();showFrame(i)}});
-showFrame(0);schedule()
-}
-function clearReel(){if(reelTimer){clearTimeout(reelTimer);reelTimer=null}}
+function clearReel(){if(reelTimer){clearTimeout(reelTimer);reelTimer=null}if(window.A1RecordedVoice){window.A1RecordedVoice.stop();window.A1RecordedVoice.onChange=null;window.A1RecordedVoice.onManual=null}}
+
 function ideaText(x){return'جرّبوا «'+x.title+'» كتجربة مشتركة قصيرة. يعرض المرافق الفكرة مرة، ثم يجرب الطفل بطريقته، وبعدها يتبادل الطرفان القيادة ويضيفان تعديلًا صغيرًا إذا رغبا.'}
 function previousExperienceId(id){var n=parseInt(id,10)||1;n--;if(n<1)n=200;return String(n).padStart(3,'0')}
 function goPreviousExperience(){if(!state.experience)return;openExperience(previousExperienceId(state.experience.id))}
@@ -102,12 +92,12 @@ renderReel(x)+
 '<details id="feedbackPanel" class="feedback-fold"><summary><span>💬 التعليقات والتحسينات</span><small>ملاحظاتي: '+stat.notes.length+' · اضغط للفتح</small></summary><div class="feedback-body"><section class="personal-feedback"><label class="improve-label">ملاحظة أو تحسين خاص بك<textarea id="improveNote" maxlength="500" placeholder="مثال: نجحت أكثر عندما جعلنا الطفل يختار الكوب التالي…"></textarea></label><button id="saveNoteOnly" class="btn secondary">حفظ الملاحظة على جهازي</button><div id="myNotes">'+notesHtml(stat)+'</div></section><section class="community-inline"><div class="community-head"><div><span>تعليقات المجتمع</span><h3>تحسينات وتجارب من مستخدمين آخرين</h3></div><button id="refreshCommunity" class="icon-round" title="تحديث">↻</button></div><div id="communityComments" class="community-comments"><div class="community-empty">افتح هذا القسم لتحميل التعليقات العامة.</div></div><label class="community-compose">شارك تحسينًا عامًا<textarea id="publicComment" maxlength="800" placeholder="اكتب ملاحظة مفيدة دون أسماء أو بيانات شخصية."></textarea></label><button id="publishCommunity" class="btn community-btn">نسخ التعليق وفتح صفحة النشر العام</button><small class="community-help">النشر العام يتم عبر GitHub ويحتاج تسجيل الدخول هناك.</small></section></div></details>'+
 globalMethod();
 el('backLibrary').onclick=renderLibrary;el('previousExperience').onclick=goPreviousExperience;el('nextExperience').onclick=goNextExperience;el('previousExperienceBottom').onclick=goPreviousExperience;el('nextExperienceBottom').onclick=goNextExperience;el('openDrawLab').onclick=openDrawingLab;
-el('markDone').onclick=function(){var r=activity.markDone(x.id,'');refreshLocal(r);toast('تم تسجيل تنفيذ التجربة.');if(window.A1RecordedVoice)window.A1RecordedVoice.play('done')};
+el('markDone').onclick=function(){if(window.A1RecordedVoice&&window.A1RecordedVoice.onManual)window.A1RecordedVoice.onManual();var r=activity.markDone(x.id,'');refreshLocal(r);toast('تم تسجيل تنفيذ التجربة.');if(window.A1RecordedVoice)window.A1RecordedVoice.play('done')};
 el('saveNoteOnly').onclick=function(){var t=el('improveNote').value.trim();if(!t)return toast('اكتب الملاحظة أولًا.');var r=activity.addNote(x.id,t);el('improveNote').value='';refreshLocal(r);toast('تم حفظ الملاحظة على جهازك.')};
 if(el('openHelperForExp'))el('openHelperForExp').onclick=function(){openHelpers(x.helper)};
 el('refreshCommunity').onclick=function(){loadCommunity(x.id,true)};el('publishCommunity').onclick=function(){preparePublicComment(x.id)};
 var feedback=el('feedbackPanel');feedback.ontoggle=function(){if(feedback.open)loadCommunity(x.id,false)};
-setupReel();if(window.A1RecordedVoice){window.A1RecordedVoice.mount(true);window.A1RecordedVoice.play('watch')}window.scrollTo(0,0)
+if(window.A1RecordedVoice)window.A1RecordedVoice.mount(true,x.id);setupReel();window.scrollTo(0,0)
 }
 function refreshLocal(r){el('doneCount').textContent=r.count;el('myNotes').innerHTML=notesHtml(r)}
 function loadCommunity(id,force){var box=el('communityComments');if(!box)return;if(!community.enabled){box.innerHTML='<div class="community-empty">التعليقات العامة غير مفعلة.</div>';return}var fresh=communityCache.comments&&Date.now()-communityCache.loadedAt<120000;if(fresh&&!force)return renderCommunity(id,communityCache.comments);box.innerHTML='<div class="community-loading">جارٍ تحميل التعليقات العامة…</div>';fetch(community.api_comments_url+'?per_page=100',{headers:{Accept:'application/vnd.github+json'}}).then(function(r){if(!r.ok)throw new Error(String(r.status));return r.json()}).then(function(rows){communityCache={comments:rows,loadedAt:Date.now()};renderCommunity(id,rows)}).catch(function(){box.innerHTML='<div class="community-empty">تعذر تحميل التعليقات الآن. يمكنك فتح صفحة المجتمع مباشرة.</div>'})}
@@ -123,7 +113,7 @@ function renderHelperTab(tab){var b=el('helperBody');if(timerInt){clearInterval(
 function updateTimer(){var m=Math.floor(timerLeft/60),s=timerLeft%60;if(el('timerDisplay'))el('timerDisplay').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function setupBoard(){var c=el('board'),ctx=c.getContext('2d'),down=false,last=null;ctx.lineWidth=10;ctx.lineCap='round';ctx.strokeStyle='#17343a';function pos(e){var r=c.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:(p.clientX-r.left)*c.width/r.width,y:(p.clientY-r.top)*c.height/r.height}}function start(e){down=true;last=pos(e);if(e.cancelable)e.preventDefault()}function move(e){if(!down)return;var p=pos(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;if(e.cancelable)e.preventDefault()}function end(){down=false;last=null}c.addEventListener('mousedown',start);c.addEventListener('mousemove',move);window.addEventListener('mouseup',end);c.addEventListener('touchstart',start,{passive:false});c.addEventListener('touchmove',move,{passive:false});c.addEventListener('touchend',end);el('clearBoard').onclick=function(){ctx.clearRect(0,0,c.width,c.height)}}
 function openSheet(title,body){
-if(window.A1RecordedVoice)window.A1RecordedVoice.stop();
+if(window.A1RecordedVoice){if(window.A1RecordedVoice.onManual)window.A1RecordedVoice.onManual();else window.A1RecordedVoice.stop();}
 var sh=el('sheet'),buttons,i,card=sh?sh.querySelector('.sheet-card'):null,bodyEl=el('sheetBody'),legacy=isLegacyDrawingDevice(),shell=appShell();if(!sh)return;
 el('sheetTitle').textContent=title;bodyEl.innerHTML=body;setClassFlag(sh,'legacy-sheet-page',legacy);setClassFlag(document.body,'legacy-sheet-active',legacy);
 try{sh.hidden=false}catch(e){}sh.removeAttribute('hidden');sh.style.display='block';sh.setAttribute('aria-hidden','false');

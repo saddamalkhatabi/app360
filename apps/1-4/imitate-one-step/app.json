@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 19,
+  "version": 20,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -22,7 +22,8 @@
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
     "storage.local",
-    "pwa.offline"
+    "pwa.offline",
+    "audio.recorded"
   ],
   "bundles": [
     "static-core"
@@ -194,8 +195,12 @@
       "en"
     ],
     "manifest": "audio/manifest.json",
-    "files": 22,
-    "coverage": "shared play instructions, child requests, experience selection and completion; individual experiment narratives not recorded",
-    "offline": true
+    "files": 516,
+    "coverage": "200 experience titles, 47 shared scene instructions and 11 child play prompts in each of Arabic and English",
+    "offline": true,
+    "engine": "SILMA",
+    "experience_titles": 200,
+    "shared_scene_instructions": 47,
+    "narration_controls_scene_advance": true
   }
 }

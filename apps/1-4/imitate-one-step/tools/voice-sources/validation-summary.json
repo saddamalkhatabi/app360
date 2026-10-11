@@ -1,0 +1,34 @@
+{
+  "recordings": 516,
+  "preserved_checkpoint_recordings": 440,
+  "new_recordings": 76,
+  "experiences": 200,
+  "scene_queues": 1000,
+  "languages": [
+    "ar",
+    "en"
+  ],
+  "engine": "SILMA",
+  "node_tests_passed": 66,
+  "mp3_decode_passed": 516,
+  "browser_phone_passed": true,
+  "browser_tablet_passed": true,
+  "real_audio_and_complete_offline_download_passed": true,
+  "offline_bundle_files": 896,
+  "main_updated": false,
+  "railway_deployed": false,
+  "pre_existing_platform_validation_failures_outside_this_app": [
+    "incomplete build blueprint: a1-plan-runner",
+    "missing/noncanonical blueprint_path: a1-plan-runner",
+    "missing/noncanonical prompt_path: a1-plan-runner",
+    "app.json a1-calm references unknown capability ui.simple-first",
+    "app.json a1-calm references unknown capability ui.progressive-disclosure",
+    "app.json a1-calm references unknown capability cross-app.play-shortcuts",
+    "app.json a1-calm references unknown capability emotion.next-activity-games",
+    "workspace live app missing package.json: a1-routine",
+    "effective live catalog/app.json status mismatch for a1-routine",
+    "live app missing/invalid depth: a1-plan-runner",
+    "app.json a1-plan-runner references unknown capability cross-app.registry",
+    "app.json a1-plan-runner references unknown capability cross-app.latest-apps"
+  ]
+}

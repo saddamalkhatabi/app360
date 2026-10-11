@@ -1,5 +1,5 @@
 {
-  "state": "incomplete-execution-disconnected",
+  "state": "recovered-completed",
   "engine": "SILMA",
   "model": "silma-ai/silma-tts",
   "revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
@@ -2210,5 +2210,7 @@
       "blob_sha": "ec364cd32a73acb3db4679d597d9df0ae24fd6ed"
     }
   ],
-  "remaining": "Verify local generation completion, restore corrected 002, compile manifest/runtime map, validate app/offline bundle, publish and test isolated preview. Main and Railway must remain unchanged."
+  "remaining": "Verify local generation completion, restore corrected 002, compile manifest/runtime map, validate app/offline bundle, publish and test isolated preview. Main and Railway must remain unchanged.",
+  "completed_audio_files": 516,
+  "recovery_sources": "tools/voice-sources"
 }
