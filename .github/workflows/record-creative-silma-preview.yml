@@ -1,9 +1,6 @@
 name: Record Creative Games SILMA Audio (Preview)
 on:
-  push:
-    branches: [preview/creative-silma-local-games-20261011]
-    paths:
-      - apps/1-4/screen-to-move/audio/scripts.json
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:

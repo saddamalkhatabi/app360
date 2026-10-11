@@ -9,6 +9,8 @@ function add(text,key){const normalized=norm(text);if(!normalized)return null;co
 const shared={};for(const [key,text] of Object.entries(generic))shared[key]=add(text,key);
 for(const word of words)add(word);
 for(const g of games)gameMap[g.id]={title:add(g.title),prompt:add(g.prompt||g.frames[0]),frames:g.frames.map(t=>add(t))};
+const labels=require('../voice-labels-v19');
+const values=new Set(Object.values(labels.symbols));for(const g of games){for(const f of ['options','cards','order','symbols','sequence','bins'])for(const v of g[f]||[])values.add(v);for(const pair of g.pairs||[])pair.forEach(v=>values.add(v));for(const item of [...g.items||[],...g.markOptions||[]])values.add(item[0]);}for(const value of values)add(labels.label(value));
 const manifest={schema:1,engine:'SILMA',model:'silma-ai/silma-tts',revision:'226dd7a65cadf51f9a6dbe3953fc89003b3844d5',items};
 const map={schema:1,clips,lookup,shared,games:gameMap};
 fs.mkdirSync(path.join(root,'audio'),{recursive:true});fs.writeFileSync(path.join(root,'audio/scripts.json'),JSON.stringify(manifest,null,2)+'\n');fs.writeFileSync(path.join(root,'audio/voice-plan.json'),JSON.stringify(map,null,2)+'\n');

@@ -4,7 +4,7 @@ import numpy as np
 from faster_whisper import WhisperModel
 root=pathlib.Path(__file__).resolve().parents[1]
 manifest=json.loads((root/'audio/manifest.json').read_text())
-keys=list(dict.fromkeys([manifest['shared'][k] for k in ['welcome','choice','path','dots','draw','correct','wrong']]+[g['prompt'] for g in list(manifest['games'].values())[:4]]+[k for k,v in manifest['clips'].items() if re.search(r'[0-9]',v['ar']['text'])]))
+keys=list(dict.fromkeys([manifest['shared'][k] for k in ['welcome','choice','path','dots','draw','correct','wrong']]+[g['prompt'] for g in list(manifest['games'].values())[:4]]+[manifest['lookup'][k] for k in ['مثلث صغير','دائرة حمراء صغيرة','قرد','أسفل اليمين','متوازي أضلاع','كرسي متحرك']]+[k for k,v in manifest['clips'].items() if re.search(r'[0-9]',v['ar']['text'])]))
 model=WhisperModel('small',device='cpu',compute_type='int8',cpu_threads=2,download_root=sys.argv[1] if len(sys.argv)>1 else None)
 results=[]
 for k in keys:
