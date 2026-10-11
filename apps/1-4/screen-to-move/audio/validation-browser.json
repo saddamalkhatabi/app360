@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "engine": "SILMA",
+  "recorded_clips": 974,
+  "built_in_games": 170,
+  "unit_tests": 80,
+  "local_types": 12,
+  "storage_modes": [
+    "IndexedDB",
+    "localStorage fallback"
+  ],
+  "checks": [
+    "Every local game type saved, reloaded and completed",
+    "Trace geometry and stable edit identity",
+    "Visual designer images and invalid save rejection",
+    "Attached question recording survives reload",
+    "Native browser MP3 decoding",
+    "Five scene recordings complete before advancement",
+    "Manual question stops automatic scenes",
+    "Full offline manager download and integrity verification",
+    "Built-in audio and saved trace game after offline reload"
+  ],
+  "offline_files": 3350,
+  "offline_bytes": 120107853,
+  "speech_check": "Independent Arabic transcription sample; manual review, not a guarantee for every pronunciation"
+}
