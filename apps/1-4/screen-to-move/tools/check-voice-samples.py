@@ -1,5 +1,6 @@
 """Independent recognition spot-check; transcripts are evidence, not a pronunciation guarantee."""
-import pathlib,json,re,sys
+import pathlib,json,re,sys,subprocess
+import numpy as np
 from faster_whisper import WhisperModel
 root=pathlib.Path(__file__).resolve().parents[1]
 manifest=json.loads((root/'audio/manifest.json').read_text())
@@ -8,7 +9,8 @@ model=WhisperModel('small',device='cpu',compute_type='int8',cpu_threads=2,downlo
 results=[]
 for k in keys:
     clip=manifest['clips'][k]['ar']
-    segments,info=model.transcribe(str(root/clip['path']),language='ar',beam_size=5,vad_filter=False)
+    samples=np.frombuffer(subprocess.check_output(['ffmpeg','-v','error','-i',str(root/clip['path']),'-ar','16000','-ac','1','-f','f32le','-']),dtype=np.float32)
+    segments,info=model.transcribe(samples,language='ar',beam_size=5,vad_filter=False)
     text=' '.join(s.text.strip() for s in segments)
     row={'key':k,'text':clip['text'],'transcript':text,'language_probability':round(info.language_probability,4)}
     results.append(row);print(json.dumps(row,ensure_ascii=False),flush=True)

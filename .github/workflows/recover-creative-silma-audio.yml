@@ -1,0 +1,115 @@
+name: Recover Creative SILMA Audio (CPU FP32)
+on:
+  push:
+    branches: [preview/creative-silma-local-games-20261011]
+    paths:
+      - apps/1-4/screen-to-move/audio/recovery-scripts.json
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: creative-games-silma-recovery
+  cancel-in-progress: false
+jobs:
+  preserve-completed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check retained recordings and stop slow unfinished jobs
+        env:
+          GH_TOKEN: ${{github.token}}
+        run: |
+          gh api repos/saddamalkhatabi/app360/actions/runs/38165530248/artifacts > /tmp/artifacts.json
+          python - <<'PY2'
+          import json
+          names={a['name'] for a in json.load(open('/tmp/artifacts.json'))['artifacts'] if not a['expired']}
+          assert {'creative-silma-ar-0','creative-silma-ar-3'}.issubset(names)
+          PY2
+          gh api --method POST repos/saddamalkhatabi/app360/actions/runs/38165530248/cancel || true
+  arabic-silma:
+    needs: preserve-completed
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/creative-silma-local-games-20261011
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local SILMA Arabic voice environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Prepare publisher's SILMA model in cached offline mode
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id="silma-ai/silma-tts",revision="226dd7a65cadf51f9a6dbe3953fc89003b3844d5",allow_patterns=["*.pt","*.safetensors","*.json","*.txt","*.yaml","*.wav","*.model"])
+          snapshot_download(repo_id="charactr/vocos-mel-24khz")
+          import os,pathlib
+          ref=pathlib.Path(os.environ["HF_HOME"])/"hub/models--silma-ai--silma-tts/refs/main"
+          ref.parent.mkdir(parents=True,exist_ok=True)
+          ref.write_text("226dd7a65cadf51f9a6dbe3953fc89003b3844d5")
+          PY
+      - name: Record reusable SILMA game prompts
+        run: |
+          python tooling/build-silma-audio.py --root apps/1-4/screen-to-move --manifest audio/recovery-scripts.json --cache "${{runner.temp}}/silma-cache" --model-cache "$HF_HOME/hub" --precision fp32 --generate-only --part ${{matrix.part}} --parts 20
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creative-silma-recovery-${{matrix.part}}
+          path: apps/1-4/screen-to-move/audio/ar/
+          if-no-files-found: error
+          retention-days: 7
+  verify-publish:
+    needs: arabic-silma
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/creative-silma-local-games-20261011
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: creative-silma-recovery-*
+          merge-multiple: true
+          path: apps/1-4/screen-to-move/audio/ar/
+      - uses: actions/download-artifact@v4
+        with:
+          name: creative-silma-ar-0
+          run-id: 38165530248
+          github-token: ${{github.token}}
+          path: apps/1-4/screen-to-move/audio/ar/
+      - uses: actions/download-artifact@v4
+        with:
+          name: creative-silma-ar-3
+          run-id: 38165530248
+          github-token: ${{github.token}}
+          path: apps/1-4/screen-to-move/audio/ar/
+      - name: Apply explicit Arabic number recordings
+        run: |
+          git fetch origin preview/creative-silma-numbers-20261011
+          git checkout FETCH_HEAD -- apps/1-4/screen-to-move/audio/ar/
+      - name: Verify every recorded clip and publish preview
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/screen-to-move/tools/finalize-voice.py
+          node tooling/build-offline-catalog.js
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/screen-to-move/audio/ apps/1-4/screen-to-move/voice-map.js data/offline/a1-screen-move.json data/offline-catalog.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record and verify reusable SILMA voice for creative games"
+          git pull --rebase origin preview/creative-silma-local-games-20261011
+          git push origin HEAD:preview/creative-silma-local-games-20261011
