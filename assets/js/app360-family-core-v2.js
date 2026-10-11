@@ -1,5 +1,6 @@
 (function(w,d){
 'use strict';
+if(w.APP360_FAMILY_SYNC&&w.APP360_FAMILY_SYNC.__ready)return;
 var VERSION='2.0.0-children-v107',pendingTopRedirect=false;
 var volatileStorage={};
 var PROFILE_AGE='app360:profile:age',PROFILE_AGE_OWNER='app360:profile:age-owner',PROFILE_AGES='app360:profiles:ages:v1',familyAgeFilter='',userAgeFilter='',personAgeFilters={};
