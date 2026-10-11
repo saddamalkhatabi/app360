@@ -1,10 +1,10 @@
 (function(w,d){'use strict';
-var map=w.CreativeVoiceMap||{clips:{},lookup:{},shared:{},games:{}},audio=null,run=0,muted=false,last=[],key='app360:creative-voice-v19';
+var map=w.CreativeVoiceMap||{clips:{},lookup:{},shared:{},games:{}},audio=null,player=null,run=0,muted=false,last=[],key='app360:creative-voice-v19';
 try{muted=!!JSON.parse(localStorage.getItem(key)||'{}').muted}catch(e){}
 function norm(t){return String(t||'').replace(/[\u064b-\u065f\u0670]/g,'').replace(/ـ/g,'').replace(/\s+/g,' ').replace(/[.!؟،,:;]+$/g,'').replace(/^\s+|\s+$/g,'')}
 function status(t){var n=d.getElementById('creativeVoiceCaption');if(n)n.textContent=t||''}
 function stop(){run++;if(audio){audio.onended=null;audio.onerror=null;try{audio.pause();audio.currentTime=0}catch(e){}audio=null}}
-function play(ids,done){stop();ids=typeof ids==='string'||!Array.isArray(ids)?[ids]:ids.slice();last=ids.slice();var token=run,i=0,ended=false;if(muted){if(done)done();return}function finish(){if(ended||run!==token)return;ended=true;audio=null;if(done)done()}function next(){if(run!==token)return;if(i>=ids.length){finish();return}var id=ids[i++],clip=typeof id==='object'?id:(map.clips[id]&&map.clips[id].ar);if(!clip){next();return}status(clip.text);try{audio=new w.Audio(clip.path);audio.preload='auto';audio.onended=next;audio.onerror=failed;var p=audio.play();if(p&&p.catch)p.catch(failed)}catch(e){failed()}}function failed(){if(run!==token||ended)return;ended=true;status('اضغط «اسمع السؤال» لإعادة تشغيل التسجيل.');if(api.onBlocked)api.onBlocked()}
+function play(ids,done){stop();ids=typeof ids==='string'||!Array.isArray(ids)?[ids]:ids.slice();last=ids.slice();var token=run,i=0,ended=false;if(muted){if(done)done();return}function finish(){if(ended||run!==token)return;ended=true;audio=null;if(done)done()}function next(){if(run!==token)return;if(i>=ids.length){finish();return}var id=ids[i++],clip=typeof id==='object'?id:(map.clips[id]&&map.clips[id].ar);if(!clip){next();return}status(clip.text);try{if(!player)player=new w.Audio(clip.path);else player.src=clip.path;audio=player;audio.preload='auto';audio.onended=next;audio.onerror=failed;var p=audio.play();if(p&&p.catch)p.catch(failed)}catch(e){failed()}}function failed(){if(run!==token||ended)return;ended=true;status('اضغط «اسمع السؤال» لإعادة تشغيل التسجيل.');if(api.onBlocked)api.onBlocked()}
 next()}
 function manual(){if(api.onManual)api.onManual()}
 function cue(id){manual();var c=map.shared[id];if(c)play(c)}

@@ -12,6 +12,6 @@ for k in keys:
     samples=np.frombuffer(subprocess.check_output(['ffmpeg','-v','error','-i',str(root/clip['path']),'-ar','16000','-ac','1','-f','f32le','-']),dtype=np.float32)
     segments,info=model.transcribe(samples,language='ar',beam_size=5,vad_filter=False)
     text=' '.join(s.text.strip() for s in segments)
-    row={'key':k,'text':clip['text'],'transcript':text,'language_probability':round(info.language_probability,4)}
+    row={'key':k,'text':clip['text'],'spoken_text':clip.get('spoken_text',clip['text']),'transcript':text,'language_probability':round(info.language_probability,4)}
     results.append(row);print(json.dumps(row,ensure_ascii=False),flush=True)
 (root/'audio/sample-check.json').write_text(json.dumps({'method':'faster-whisper small CPU int8, independent Arabic transcription spot-check; manual review required','clips':results},ensure_ascii=False,indent=2)+'\n')
