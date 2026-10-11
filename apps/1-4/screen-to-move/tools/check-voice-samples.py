@@ -14,4 +14,4 @@ for k in keys:
     text=' '.join(s.text.strip() for s in segments)
     row={'key':k,'text':clip['text'],'spoken_text':clip.get('spoken_text',clip['text']),'transcript':text,'language_probability':round(info.language_probability,4)}
     results.append(row);print(json.dumps(row,ensure_ascii=False),flush=True)
-(root/'audio/sample-check.json').write_text(json.dumps({'method':'faster-whisper small CPU int8, independent Arabic transcription spot-check; manual review required','clips':results},ensure_ascii=False,indent=2)+'\n')
+(root/'audio/validation-samples.json').write_text(json.dumps({'method':'faster-whisper small CPU int8, independent Arabic transcription spot-check; manual review required','clips':results},ensure_ascii=False,indent=2)+'\n')

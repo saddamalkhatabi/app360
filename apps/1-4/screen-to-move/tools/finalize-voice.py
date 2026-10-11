@@ -1,5 +1,5 @@
 """Decode every real MP3, measure duration, record hashes, and publish browser map."""
-import pathlib,json,subprocess,hashlib
+import pathlib,json,subprocess,hashlib,os,sys
 root=pathlib.Path(__file__).resolve().parents[1]
 plan=json.loads((root/'audio/voice-plan.json').read_text())
 scripts=json.loads((root/'audio/scripts.json').read_text())
@@ -21,3 +21,6 @@ for item in scripts['items']:
 (root/'voice-map.js').write_text('window.CreativeVoiceMap='+json.dumps(plan,ensure_ascii=False,separators=(',',':'))+';\n')
 (root/'audio/build-report.json').write_text(json.dumps({'engine':'SILMA','revision':scripts['revision'],'clips':len(records),'games':len(plan['games']),'verification':'ffmpeg full MP3 decode; ffprobe duration; SHA256','records':records},indent=2)+'\n')
 print('Verified',len(records),'SILMA recordings')
+
+if os.environ.get("GITHUB_ACTIONS")=="true":
+    subprocess.run([sys.executable,str(root/"tools/run-final-qa.py")],check=True)
