@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 18,
+  "version": 19,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -187,5 +187,15 @@
   "blueprint_path": "apps/1-4/imitate-one-step/BUILD_SPEC.md",
   "prompt_path": "apps/1-4/imitate-one-step/PROMPT_AR.md",
   "audience": "shared",
-  "audience_note_ar": "الطفل والمدرب يتبادلان الأدوار والنمذجة داخل اللعبة نفسها."
+  "audience_note_ar": "الطفل والمدرب يتبادلان الأدوار والنمذجة داخل اللعبة نفسها.",
+  "recorded_voice": {
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "manifest": "audio/manifest.json",
+    "files": 22,
+    "coverage": "shared play instructions, child requests, experience selection and completion; individual experiment narratives not recorded",
+    "offline": true
+  }
 }
