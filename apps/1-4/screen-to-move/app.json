@@ -4,7 +4,7 @@
   "slug": "screen-to-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "age_group": "1-4",
-  "version": 18,
+  "version": 19,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "hybrid",
@@ -46,8 +46,8 @@
     ]
   },
   "implementation": {
-    "state": "live-v18-real-game-preview-audio-randomization-mobile-settings-safety",
-    "built_on": "2026-09-27",
+    "state": "preview-v19-recorded-voice-all-game-types-local-library",
+    "built_on": "2026-10-11",
     "experiments": 170,
     "levels": 4,
     "readiness_path_ar": [
@@ -77,7 +77,11 @@
       "v18 play testing includes sound effects, Arabic spoken feedback when available, sound toggle, progress, close, replay and completion actions",
       "v18 replay reshuffles a fresh round without mutating the underlying designed game",
       "v18 print uses the designed layout synchronously and never exposes correct answers or pair numbers",
-      "v18 mobile quick selection bar is hidden whenever the game settings drawer is open and returns after settings close, preventing the bar from covering the last settings controls"
+      "v18 mobile quick selection bar is hidden whenever the game settings drawer is open and returns after settings close, preventing the bar from covering the last settings controls",
+      "Reusable SILMA recorded questions, scene instructions, item names and feedback",
+      "Local playable library for visual designer games and all twelve native activity types",
+      "Custom path editor shares one geometry with play, five teaching frames and paper print",
+      "Persistent game identity, safe storage error reporting, import/export and local question audio"
     ],
     "result_boundary_ar": "النتيجة تصف الجولة داخل الشاشة فقط؛ ليست قياس ذكاء أو نمو ولا دليلًا على الأداء خارج الشاشة.",
     "physical_device_certification": "pending-expanded-device-matrix-after-owner-activation",
