@@ -1,0 +1,549 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "layout": "five equal square panels left to right; optional outer white letterboxing",
+  "constraints": "photographic family learning scene; father blue shirt, child pink shirt; two anatomically connected arms and two hands per person; precise requested action; preserve heads, hands and action props; no ghost limbs",
+  "optimization": "source separators detected; exactly five panels required; each contained without stretching or cropping into 900x900; final4500x900 WebP quality82",
+  "prompts": [
+    {
+      "id": "002",
+      "action": "Father opens then closes both palms; child opens then closes both palms."
+    },
+    {
+      "id": "003",
+      "action": "Raise both hands then lower both hands; one father and one child per panel."
+    },
+    {
+      "id": "004",
+      "action": "Father touches top of head then belly; child touches top of head then belly; two hands per person."
+    },
+    {
+      "id": "006",
+      "action": "One fingertip then TWO clearly separate index/middle fingertips tap table, adult then child."
+    },
+    {
+      "id": "007",
+      "action": "Crumple one sheet of white PAPER then unfold it. Father crumples then unfolds, daughter crumples then unfolds, smile with flattened crumpled sheets. No throwing into basket."
+    },
+    {
+      "id": "008",
+      "action": "Pass one purple cloth from your left hand to your right hand. Father demonstrates left hand holding cloth then right hand holding same cloth; child imitates left then right."
+    },
+    {
+      "id": "010",
+      "action": "Put a white tissue INSIDE one transparent plastic cup then take it OUT. Father inserts tissue then removes; child inserts then removes, fifth both smile with empty cup."
+    },
+    {
+      "id": "011",
+      "action": "Roll ONE soft ball made from rolled socks between father and child on floor. Father shows rolled sock ball, rolls towards child, child receives, rolls back, father receives smiling. No plastic colorful ball."
+    },
+    {
+      "id": "013",
+      "action": "Alternate putting sheets of paper into a cardboard box. One paper per turn father then daughter then father then daughter; final box contains four paper sheets."
+    },
+    {
+      "id": "014",
+      "action": "Pass a wooden spoon to each other and return it. Father holds one spoon, passes to child, child holds spoon, returns to father, both smile."
+    },
+    {
+      "id": "015",
+      "action": "Build a tower of EXACTLY TWO inverted plastic cups in turns. Two separate cups red and blue, father puts blue down, child stacks red on blue, both look at two-cup tower, both smile."
+    },
+    {
+      "id": "017",
+      "action": "Stop walking when father raises an open palm. Daughter stands then walks toward father then father holds up stop palm and child stands still, switches roles child stop palm father still, both smile. No traffic paddles."
+    },
+    {
+      "id": "018",
+      "action": "Hands visible, hidden behind own back, revealed; parent demonstrates then child imitates."
+    },
+    {
+      "id": "019",
+      "action": "Hide a sheet of paper under one plastic cup and find it. Show paper then father covers it with cup then daughter points to cup then lifts cup revealing paper then both smile."
+    },
+    {
+      "id": "022",
+      "action": "Walk AROUND one yellow pillow on floor. Father demonstrates walking around pillow child watches, child walks around pillow father watches, moves to other side, circles back, smile. No walking on pillow."
+    },
+    {
+      "id": "023",
+      "action": "Push one yellow pillow across floor towards large blue floor tape square. Father crouches pushes then child pushes then pillow closer then inside square then smile. No jumping or standing on pillows."
+    },
+    {
+      "id": "025",
+      "action": "Throw soft rolled SOCK BALL into large basket. Father shows sock ball, throws into basket, child holds sock ball, throws into basket, both smile."
+    },
+    {
+      "id": "026",
+      "action": "Take turns making voice sounds, father says ah child listens then girl says ah father listens then father oo then girl oo, both smile. Hands resting no clapping."
+    },
+    {
+      "id": "027",
+      "action": "Name object father POINTS at: cup and large teddy on low table. Father points cup child speaks looking cup, father points teddy child speaks, switch child points father names, smile."
+    },
+    {
+      "id": "028",
+      "action": "Give the object the father names. Two large objects red cup and teddy. Father points to red cup child watches, girl takes cup, girl gives cup to father, switch child points teddy father gives teddy, smile."
+    },
+    {
+      "id": "029",
+      "action": "Choose between TWO real objects red cup and blue ball. Father offers both, girl points ball, receives ball, switches offers cup and ball father chooses cup, smile. No cards."
+    },
+    {
+      "id": "030",
+      "action": "Imitate animal sound. Father pretends meowing CAT, daughter copies meowing CAT. Simple plush CAT present no other animals, facial expression making meow, alternating gestures not feeding toy."
+    },
+    {
+      "id": "031",
+      "action": "INSIDE and OUTSIDE: father places large red block inside basket then takes it outside, child puts large blue block inside then outside, smile showing empty basket with blocks beside."
+    },
+    {
+      "id": "032",
+      "action": "Place a large soft ball ABOVE and BELOW a small low table. Show table ball then father ball ON TOP then child ball UNDER table then alternate child places atop then smile."
+    },
+    {
+      "id": "033",
+      "action": "Compare BIG and SMALL. Two differently sized cushions in same color, father points big then small, girl points big then small, both smile sitting on floor."
+    },
+    {
+      "id": "035",
+      "action": "Count ONE then TWO large blocks. Father shows one blue block then two blue blocks, girl holds one then two, final two blocks side by side."
+    },
+    {
+      "id": "036",
+      "action": "Shared FREE SCRIBBLING on large paper. Father draws loose random blue scribbles then child red scribbles, father green scribbles, child purple scribbles, smile showing scribbled drawing. No drawing precise circles."
+    },
+    {
+      "id": "037",
+      "action": "Draw DOTS in turns with chunky crayons. Father one blue dot then girl red dot then father blue dot then girl red dot, final paper four dots. No stickers."
+    },
+    {
+      "id": "038",
+      "action": "Draw ONE LONG and ONE SHORT line with crayons. Father draws long straight blue line then short straight blue line; child draws long red and short red line, fifth show drawing with two pairs."
+    },
+    {
+      "id": "039",
+      "action": "Draw in AIR with index finger. Father traces a circle in empty air then girl traces circle, father traces long line then girl line, both smile. No mirror, no paper, no pencil, subtle dotted diagram path allowed."
+    },
+    {
+      "id": "040",
+      "action": "Take turns drawing lines on a TABLET touchscreen with stylus. Father draws blue line, child red line, father blue line, child red line, show four lines on tablet. Tablet always visible."
+    },
+    {
+      "id": "050",
+      "action": "Happy expression then CALM expression: father smiles child watches, child smiles father watches, father calm neutral face breathing, child calm face breathing, both smile gently. All four hands resting on table throughout, no hand gestures."
+    },
+    {
+      "id": "053",
+      "action": "CLAP then touch your KNEE. Father claps both palms together, then TWO palms on own knees. Girl claps then TWO palms on own knees. Fifth both smile hands knees. No ghost hands."
+    },
+    {
+      "id": "054",
+      "action": "Walk like a BEAR on all fours father demonstrates then child imitates, father watches with hands on knees then child bear walks forward then both smile standing. Full body visible."
+    },
+    {
+      "id": "055",
+      "action": "Mirror hand movements: father right palm open left hand resting daughter imitates same gesture, father both palms open daughter both palms open, child leads one raised hand father imitates, child two closed fists father imitates, both palms resting. Two hands per person."
+    },
+    {
+      "id": "061",
+      "action": "Build a tower with plastic CUPS until it falls. Father adds cup girl watches, girl adds second cup, father third, girl fourth tower gently tips, both smile cups safely fallen."
+    },
+    {
+      "id": "072",
+      "action": "Walk along straight TOWEL laid on floor. Show long blue towel, father walks along towel, child walks along towel, child reaches other end, smile. No blue tape."
+    },
+    {
+      "id": "073",
+      "action": "Throw soft sock balls toward TWO targets red and blue large baskets. Show two baskets then father throw to red then child throw to blue then both baskets with sock balls then smile. No bowling pins."
+    },
+    {
+      "id": "074",
+      "action": "Walk around two stable chairs WITHOUT touching. Father demonstrating walking around chairs then child walks around them then around second chair then finish then smile."
+    },
+    {
+      "id": "075",
+      "action": "CARRY yellow pillow to marked floor station blue square. Father shows holding pillow walking to station, child carries pillow, places in station, father watches, smile. No jumping."
+    },
+    {
+      "id": "077",
+      "action": "Describe a BIG and SMALL object. Father holds large blue cup and small red cup points to big, girl points small, switch hold objects and describe, both smile. No color sorting."
+    },
+    {
+      "id": "078",
+      "action": "Guess WHAT AM I DOING: father pretends stirring pot with spoon child guesses, father pretends brushing hair with comb child guesses, girl pretends sweeping father guesses, father nods, smile."
+    },
+    {
+      "id": "079",
+      "action": "Complete a SHORT SENTENCE about toy: father holds toy car and speaks, girl answers speaks, father holds teddy speaks, girl answers, both smile. Hands natural, no clapping."
+    },
+    {
+      "id": "080",
+      "action": "Alternate ASKING questions: father shows toy cup and questioning expression child answers, child shows toy ball questioning father answers, father teddy asks, child toy car asks father answers, smile. No finger counting."
+    },
+    {
+      "id": "081",
+      "action": "Sort TWO COLORS ONLY red and blue large soft balls into matching red blue bowls. First both colors mixed, father puts red into red, girl blue into blue, alternate, two sorted bowls. No yellow."
+    },
+    {
+      "id": "082",
+      "action": "Arrange THREE sizes of same object: small medium large plastic cups. Mixed cups then father places large left, girl places medium center, father places small right, final three side by side largest to smallest. No stacked rings."
+    },
+    {
+      "id": "083",
+      "action": "Make alternating red BLUE pattern using large blocks. Start red blue, father adds red, girl adds blue, father adds red, final red blue red blue red blue."
+    },
+    {
+      "id": "084",
+      "action": "Choose container that FITS: large blue ball, small red cup too narrow and large clear bowl. Father shows ball against small cup cannot fit, child points large bowl, puts ball inside bowl fitting, father nods, smile."
+    },
+    {
+      "id": "085",
+      "action": "Count THREE footsteps on floor. Three broad floor squares numbered simple1 2 3, father steps first then girl first then girl second then girl third then smile."
+    },
+    {
+      "id": "088",
+      "action": "Color TWO regions of a drawing in turns. Paper large outline circle and square, father colors half circle blue, child completes circle blue, father half square yellow, child completes square yellow, show exactly two colored regions."
+    },
+    {
+      "id": "090",
+      "action": "Copy parent's drawn PATH on a TABLET screen. Father stylus draws thick blue curved path, child watches, child stylus draws parallel red matching curve, father watches, show tablet two matching curves."
+    },
+    {
+      "id": "094",
+      "action": "Compare which object ROLLS: sphere and cube. Father sets large blue ball and red cube down, rolls ball, girl tries cube which stays, girl rolls ball, both look ball farther cube stays."
+    },
+    {
+      "id": "095",
+      "action": "WASH plastic toy car in shallow water bowl. Show car sponge water, father wipes car, daughter wipes car, rinses car, smile clean car. No teddy or pretend feeding."
+    },
+    {
+      "id": "097",
+      "action": "Prepare cup AND tissue. Show cup tissue, father sets cup on table, girl folds tissue next to cup, both tidy setting, smile. No bridge."
+    },
+    {
+      "id": "099",
+      "action": "SOOTHE teddy doll: father gently cradles teddy, child imitates cradling, lays teddy on pillow, covers with light blanket, both quiet calm. No feeding."
+    },
+    {
+      "id": "100",
+      "action": "Choose an EMOTION CARD. Father shows two picture cards smiling face and calm face, girl chooses happy face, father holds calm face, switch choice, both smile. Cards large clear simple face icons."
+    },
+    {
+      "id": "101",
+      "action": "Sequence THREE distinct body motions: clap, touch top of head, touch knees. Father clap then father palm on top head then child clap then child palm on top head then child hands knees. Exactly2hands per person."
+    },
+    {
+      "id": "103",
+      "action": "Body rhythm THREE beats: clap, pat thigh, stamp foot. Father clap, father pat own thigh, father stamp foot, child imitates pat thigh, child stamp foot. Full body."
+    },
+    {
+      "id": "106",
+      "action": "FOLD then UNFOLD then FOLD paper: father folds in half, opens paper flat, child folds own paper half, unfolds own paper flat, both fold half again."
+    },
+    {
+      "id": "107",
+      "action": "Create a ROAD from large paper balls, no throwing. Father crumples big paper ball, sets on floor, girl crumples ball, places next alongside existing four balls, final toy car drives along road edged by paper balls."
+    },
+    {
+      "id": "108",
+      "action": "Make clay BALL then CYLINDER: father rolls red clay into ball, rolls ball into cylinder, girl makes blue ball, rolls blue cylinder, show ball and cylinder. No extra hands."
+    },
+    {
+      "id": "109",
+      "action": "Trace WIDE MAZE with thick PEN on paper. Father shows simple wide maze with clear start and finish, demonstrates pen in corridor, daughter draws with pen along wide corridor, continues to exit, both show solved maze. No wooden tray or finger tracing."
+    },
+    {
+      "id": "112",
+      "action": "Carry a pillow TOGETHER using one cloth as a sling. Father holds two left corners girl two right corners pillow centered on cloth lifted, take careful steps, lower pillow onto marked station, cloth lowered, smile. No jumping."
+    },
+    {
+      "id": "113",
+      "action": "Rescue doll to safe area. Teddy on yellow mat and blue safe floor square nearby, father picks teddy, gives teddy to girl, girl carries to blue safe square, both smile teddy safe. No feeding."
+    },
+    {
+      "id": "114",
+      "action": "Draw a HOUSE part by part on paper. Father rectangle walls blue crayon, girl triangle roof red, father square door blue, girl two square windows red, final house drawing. No paper tearing."
+    },
+    {
+      "id": "117",
+      "action": "Listen for target sound with TWO instruments drum and bell. Father shows bell to child, father taps drum child waits still, father rings bell child raises ONE hand, switches girl bell father raises hand, smile."
+    },
+    {
+      "id": "118",
+      "action": "Remember where TWO objects are. Red ball under red opaque cup, blue block under blue opaque cup, father demonstrates hides objects, girl points red then lifts revealing ball, girl lifts blue revealing block, smile. No wall cards."
+    },
+    {
+      "id": "120",
+      "action": "Two steps in order: place large ball inside basket THEN sit on cushion. Father ball basket, father sits cushion, girl ball basket, girl sits cushion, smile."
+    },
+    {
+      "id": "122",
+      "action": "Balance with light CLOTH BAG on head. Father demonstrates walking with small soft bag atop head two arms out, girl bag on head standing, walking slowly, stopping balanced, smile no balloons."
+    },
+    {
+      "id": "123",
+      "action": "Jump INSIDE and OUTSIDE large rectangle made of four large paper sheets on floor. Father demonstrates inside jump, child jumps inside, child jumps outside, father and child inside, smile. Full bodies clearly airborne only during jumps no phantom limbs."
+    },
+    {
+      "id": "125",
+      "action": "Walk BACKWARDS along broad straight floor taped path. Father demonstrates looking behind shoulders body facing opposite walking direction, child imitates, child steps backward further, father guides from side, both reach start smiling. Full bodies."
+    },
+    {
+      "id": "126",
+      "action": "Tell STORY from TWO picture cards: child plants seed then flower grows. Father shows card plant seed, girl looks flower card, girl points seed card tells then flower card, both show two cards smiling. No fruit sorting."
+    },
+    {
+      "id": "129",
+      "action": "Pretend PHONE CALL. Father holds toy phone to own ear, girl receives same phone to own ear, father listens to girl speaking phone, switch father phone girl listens, smile. No finger tapping."
+    },
+    {
+      "id": "130",
+      "action": "Match two similar SOUNDING words with picture cards CAT and HAT. Father shows cat card girl listens, shows hat card girl listens, girl places cat hat together, father nods, smile. No fruit sorting."
+    },
+    {
+      "id": "131",
+      "action": "Sort by COLOR AND SIZE large red small red large blue small blue blocks into four groups on mat. Father large red, girl small red, father large blue, girl small blue, final4groups."
+    },
+    {
+      "id": "132",
+      "action": "Repeat THREE element pattern red BLUE YELLOW large blocks. Start red blue yellow, father adds red, child adds blue, father adds yellow, final two groups red blue yellow red blue yellow."
+    },
+    {
+      "id": "133",
+      "action": "Count FIVE large blocks while playing. Father one block, girl adds second, father third, girl fourth, final both point five blocks laid in row. No beads or egg carton."
+    },
+    {
+      "id": "134",
+      "action": "Map ABOVE BELOW BESIDE: teddy cup box. Father teddy above box on top, girl teddy below low table, father teddy beside box, girl repeats beside, smile. No colored wall switches."
+    },
+    {
+      "id": "135",
+      "action": "Compare TWO paths long curved and short straight floor tape between same start and finish. Father points both paths, child walks short straight, father walks long curved, child waits at finish, smile."
+    },
+    {
+      "id": "137",
+      "action": "Complete HALF a drawing. Paper left half red butterfly with vertical center line, father shows half drawing, girl draws right blue half matching outline, father watches, girl finishes, final whole butterfly two halves."
+    },
+    {
+      "id": "138",
+      "action": "Draw simple ROOM MAP on paper. Father draws large rectangle room, girl adds door gap, father adds sofa rectangle, girl adds circular rug, show topdown simple map with those objects. No wall cards."
+    },
+    {
+      "id": "139",
+      "action": "Make SMALL CLAY SCENE: father makes blue clay pond, daughter red clay fish, father green clay tree, daughter places fish by pond, both admire little scene. No abstract blobs."
+    },
+    {
+      "id": "140",
+      "action": "Make a MAZE together on TABLET. Father stylus adds thick wall line, girl adds second wall, father third wall, girl traces path, show simple maze on tablet. No paper."
+    },
+    {
+      "id": "142",
+      "action": "Test TWO different ramps side by side same toy car. Two wooden ramps shallow and steep, father rolls car shallow, girl rolls same car steep, compare finish distances, both smile. No single ramp."
+    },
+    {
+      "id": "143",
+      "action": "Pour WATER without crossing a red LINE on cup. Two clear plastic cups one contains water one empty with red line midpoint, father pours to below line, girl pours slowly second similar cup below line, both check levels, smile. No sponges."
+    },
+    {
+      "id": "144",
+      "action": "Flip closed partly filled plastic water bottle INTO blue floor target square. Father shows bottle square, flips bottle and lands in square, child holds bottle, flips and lands inside square, smile. No airborne ghost arms."
+    },
+    {
+      "id": "145",
+      "action": "Blow PAPER BOAT across shallow water tray. Show paper boat water, father gently blows boat, girl blows boat, boat near other end, smile. No sponges."
+    },
+    {
+      "id": "146",
+      "action": "Prepare simple TABLE setting: father sets one plate, daughter places one cup, father spoon beside plate, daughter folded napkin beside spoon, both admire finished plate cup spoon napkin."
+    },
+    {
+      "id": "147",
+      "action": "Pretend HOME SHOP: father shopkeeper child customer, large wooden toy apple and blue cup with big paper tokens, girl gives father token father gives apple, reverse father gives girl token girl gives cup, both smile two purchases."
+    },
+    {
+      "id": "148",
+      "action": "Pretend RESTAURANT with toy plates cups wooden spoon. Father customer child serves plate, father pretends tasting, father server gives child plate, child pretends tasting, smile. No feeding teddy."
+    },
+    {
+      "id": "149",
+      "action": "Resolve disagreement between TWO DOLLS. Two soft dolls one boy one girl and one toy cup, father holds dolls as disagreeing over cup, daughter offers second cup, dolls each have cup, girl hugs dolls, smile."
+    },
+    {
+      "id": "151",
+      "action": "CHILD leads movement adult mirrors: girl extends two arms to sides father copies, girl raises one hand father copies, girl puts both hands on head father copies, girl folds arms father copies, both smile. No physical mirror, one father one child each panel."
+    },
+    {
+      "id": "152",
+      "action": "Child invents FOUR motions and teaches father: child clap father watches, child hands on top head father imitates, child arms out father imitates, child hands knees father imitates, both smile. Exactly two hands each."
+    },
+    {
+      "id": "153",
+      "action": "Reverse motion challenge: father raises hands girl lowers hands, father lowers hands girl raises hands, girl raises one hand father lowers one, girl lowers one father raises one, both smile. Only two arms per person."
+    },
+    {
+      "id": "154",
+      "action": "Body RHYTHM grows each turn: father clap, girl clap then pat knees, father clap pat knees stamp foot, girl clap pat knees stamp foot then open palms, both smile. No extra limbs or motion trails, show representative final gesture each panel."
+    },
+    {
+      "id": "155",
+      "action": "Tell complete STORY through motions: pretend planting seed with hands, pretend watering with imaginary jug, child crouches like growing seed father watches, child rises arms as flower father copies, smile. No cloth dancing."
+    },
+    {
+      "id": "156",
+      "action": "Build simple PAPER MODEL: father folds paper in half, child folds edge, father folds triangular roof, child stands paper house model, both show finished folded paper house. No ripping."
+    },
+    {
+      "id": "157",
+      "action": "Use CLAY to make a TOOL to solve problem: toy cup needs handle, father points cup, child rolls clay into thick curved handle, attaches large clay handle to clay cup model, shows model cup handle, smile."
+    },
+    {
+      "id": "158",
+      "action": "Draw and follow NARROW pathway then exchange roles: father draws two parallel lines narrow path on paper, child traces between using crayon, child draws own narrow path, father traces child's path, smile. Paper not tablet."
+    },
+    {
+      "id": "159",
+      "action": "Draw with NON-DOMINANT LEFT hand: father draws with LEFT hand blue crayon other hand flat, child LEFT hand red crayon other hand flat, father watches child left hand line, child continues left hand circle, show paper. Clear mirrored-safe natural left anatomy."
+    },
+    {
+      "id": "160",
+      "action": "Shared control of ONE POINT on TABLET: visible tablet on table with large black dot and blue path. Father touches dot, child touches dot next, father moves dot along path, child moves same dot further, smile tablet visible."
+    },
+    {
+      "id": "161",
+      "action": "Build CITY from cardboard BOXES and plastic CUPS together: father places box building, child cup tower, father adds cardboard road, child toy car in street, show city. No plain three-block tower."
+    },
+    {
+      "id": "163",
+      "action": "Invent new TURN TAKING game with ball and two bowls. Father shows ball bowls, girl invents roll ball into blue bowl, father copies then rolls red bowl, child takes next turn, smile. No scene of unsupported levitation."
+    },
+    {
+      "id": "164",
+      "action": "TEAM against TIMER: large visible sand timer beside basket and blocks. Father starts timer, both each place block into basket, child adds final block before timer empty, both highfive, smile timer basket. Exactly two hands."
+    },
+    {
+      "id": "165",
+      "action": "Joint THREE TASK plan picture cards: arrange toys into box THEN wipe table THEN place cup. Show 3 pictograms, father toy into box, girl wipes table, father and girl place cup, show completed clean setup."
+    },
+    {
+      "id": "167",
+      "action": "Remember FOUR stations: four distinct floor mats red blue yellow green with large teddy cup ball pillow. Father shows stations, child visits red teddy, visits blue cup, yellow ball, green pillow. Full body."
+    },
+    {
+      "id": "169",
+      "action": "Do OPPOSITE motion: father arms UP girl arms DOWN, father standing girl sitting, father arms DOWN girl arms UP, father sitting girl standing, both smile. Exactly two arms each."
+    },
+    {
+      "id": "170",
+      "action": "Create SECRET signal: father and child agree ONE raised thumb signal, child shows thumb father responds placing toy in basket, father shows thumb child responds, repeat child signal father responds, smile. No finger counting."
+    },
+    {
+      "id": "171",
+      "action": "CHILD DESIGNS floor route with paper sheets and cushions. Girl lays paper step markers, chooses pillow location father watches, father follows child-designed route, girl follows, smile full bodies."
+    },
+    {
+      "id": "173",
+      "action": "Balance while CHANGING direction on floor taped L shaped broad path. Father arms out walks path then turns corner, child arms out walks first leg, child turns corner, child follows second leg, smile. Full bodies no standing on cushions."
+    },
+    {
+      "id": "174",
+      "action": "DELIVERY via stations: child carries soft cloth bag with teddy, father points three floor stations, child at first station, second station, third gives teddy to father, smile. No cones marching emptyhanded."
+    },
+    {
+      "id": "175",
+      "action": "COOPERATIVE race no competition: father and child carry SAME large light cardboard box together with two hands each through two floor markers, move together first then second then finish, both smile. Full bodies, no running against each other."
+    },
+    {
+      "id": "176",
+      "action": "Story THREE events illustrated cards: plant seed, water plant, flower blooms. Father shows three cards, child points seed card, father water card, child flower card, show3cards together. No teddy feeding."
+    },
+    {
+      "id": "177",
+      "action": "Change ending of story with toys: teddy approaches tower, father teddy knocks tower gently down, girl resets tower, girl teddy carefully goes AROUND tower, smile tower stands. Clear alternate endings."
+    },
+    {
+      "id": "178",
+      "action": "Describe PATH to another person: father points broad floor path turning left around chair then right around pillow, girl listens, girl follows left turn, follows right turn, father applauds at end. Full bodies clear path."
+    },
+    {
+      "id": "179",
+      "action": "Voice CHARACTER theater: father holds boy handpuppet, girl holds cat handpuppet, boypuppet speaks girl listens, catpuppet speaks father listens, both stage puppets together, smile. No feeding teddy."
+    },
+    {
+      "id": "180",
+      "action": "Invent RHYME game: picture cards cat hat bat. Father speaks cat card, child answers hat card, father speaks bat card, child shows all3matching sounding cards, smile. No tapping fingers."
+    },
+    {
+      "id": "181",
+      "action": "FOUR steps ordered: four picture cards show take cup, put tissue in cup, take tissue out, put cup on shelf. Father shows four cards, child takes cup, child puts tissue in cup, removes tissue, child cup on shelf."
+    },
+    {
+      "id": "182",
+      "action": "CHILD DESIGNS color pattern father COMPLETES: girl places red blue red blue blocks, points empty next space, father adds red, father adds blue, both show red blue red blue red blue."
+    },
+    {
+      "id": "183",
+      "action": "Count and distribute TEN large blue blocks into TWO bowls FIVE each. Ten blocks on table, father moves blocks red bowl, child blue bowl, both count five each, show two bowls each clearly5blocks. No tiny objects."
+    },
+    {
+      "id": "184",
+      "action": "Build TWO solutions to same bridging problem: two block supports gap, father places cardboard flat bridge, child builds second bridge using large wooden blocks, test same toy car on both, smile two bridges visible."
+    },
+    {
+      "id": "186",
+      "action": "Draw shared STORY in THREE pictures on paper: seed, small sprout, flower. Father draws seed scene, child sprout scene, father flower scene, child adds sunshine, show3picture story. No handprints."
+    },
+    {
+      "id": "187",
+      "action": "Complete parent's DRAWING and explain: father draws partial house rectangle no roof, child adds triangular roof, child adds door, points finished house speaking father listens, smile."
+    },
+    {
+      "id": "188",
+      "action": "Agree on COLOR PLAN then color drawing: father and girl choose blue for sky green for grass yellow for sun by pointing big crayon colors, father blue sky, girl green grass, father yellow sun, show simple completed landscape matching plan. No stamps."
+    },
+    {
+      "id": "189",
+      "action": "Build ONE CLAY WORLD together: father makes green grass clay base, child tree, father blue pond, child red house, show coherent miniature clay world. No abstract strings."
+    },
+    {
+      "id": "190",
+      "action": "Design rules for TABLET PATH game: father stylus draws winding path with start circle and goal star, child adds two large obstacles, father finger moves single dot along path, child finger next move reaches star, smile visible tablet."
+    },
+    {
+      "id": "191",
+      "action": "Build PAPER BRIDGE supporting light toy: two inverted cups supports and folded paper bridge span, father places folded paper across cups, child sets light toy car on paper span, father watches stable, both smile. No book."
+    },
+    {
+      "id": "194",
+      "action": "Test FLOATING objects: shallow clear water bowl, large cork and large smooth stone, father drops cork floats, child places stone sinks, compare cork surface stone bottom, smile. No squeezing sponge."
+    },
+    {
+      "id": "196",
+      "action": "TEAM ROOM TIDY plan: toys on floor and toy basket, father and girl point plan cards, father puts toys in basket, girl stacks pillows on sofa, both put books on low shelf, show neat room. Full bodies not tiny objects."
+    },
+    {
+      "id": "197",
+      "action": "Pretend getting READY TO GO OUT. Shoes light jacket small backpack, father puts jacket on, daughter puts shoes on, child puts backpack on, both ready by door, smile. No sock matching."
+    },
+    {
+      "id": "198",
+      "action": "Pretend HOST and GUEST: girl welcomes father with wave at small table, girl offers cup, father politely receives cup, reverse father offers cup girl receives, smile. No teddy feeding."
+    },
+    {
+      "id": "199",
+      "action": "Social situation THREE solutions two dolls want one toy: father shows dolls toy, girl dolls take turns using toy, girl offers second toy so each gets one, girl dolls play with SAME toy together, smile. Exactly2human hands per person."
+    },
+    {
+      "id": "200",
+      "action": "Kindness project: wipe table together and GIVE a handmade heart drawing. Father wipes table, girl helps wiping, child draws heart on paper, child gives heart paper to father, warm smile."
+    }
+  ],
+  "targeted_revisions": [
+    "006: fourth panel must visibly tap TWO fingertips.",
+    "008: second/fourth panels transfer cloth to the opposite hand.",
+    "031: stay in same room; block moves inside/outside basket.",
+    "132: remove first of six panels; keep remaining five.",
+    "155: mime gardening with empty hands; no real tools or flowers.",
+    "159: anatomical left-hand drawing; other hand open and empty.",
+    "130-ar/180-ar: Arabic rhyming picture cards cat and duck (قطة/بطة); English keeps cat/hat."
+  ]
+}

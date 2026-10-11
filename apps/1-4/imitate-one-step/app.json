@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 20,
+  "version": 21,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-200-experiences",
@@ -47,7 +47,7 @@
       "signal",
       "whiteboard"
     ],
-    "storyboard_asset_pattern": "storyboards/<ID>.webp",
+    "storyboard_asset_pattern": "storyboards/manifest.json",
     "storyboard_fallback": "five-fixed-symbolic-frames",
     "sample_storyboards": 12,
     "storyboard_layout": "5 equal horizontal panels",
@@ -136,7 +136,8 @@
       "settings",
       "collaborative drawing"
     ],
-    "storyboard_batch_001_010": "storyboards/001.webp ... storyboards/010.webp"
+    "storyboard_batch_001_010": "storyboards/001.webp ... storyboards/010.webp",
+    "reviewed_storyboards": 135
   },
   "branding": {
     "icon": "icon.svg",

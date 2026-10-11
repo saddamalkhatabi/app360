@@ -19,5 +19,5 @@ test('all mapped storyboard files 001-200 exist and are non-empty',()=>{
 });
 test('runtime requests cache-busted storyboard manifest',()=>{
   const js=fs.readFileSync(path.join(__dirname,'app-v16.js'),'utf8');
-  assert.ok(js.includes('storyboards/manifest.json?v=6'));
+  assert.ok(js.includes('storyboards/manifest.json?v=7'));
 });
