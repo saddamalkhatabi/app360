@@ -16,6 +16,7 @@ if(g.type==='puzzle'&&(!g.symbols||g.symbols.length<2||g.symbols.length>4||uniqu
 if(g.type==='create'&&(!g.symbols||unique(g.symbols)<3))return'أضف ثلاث صور مختلفة على الأقل للغز.';
 if(g.visuals){for(a in g.visuals)if(!safeImage(g.visuals[a].src))return'إحدى الصور غير صالحة.'}
 if(g.audio&&g.audio.prompt&&!/^data:audio\/[a-z0-9.+-]+;base64,/i.test(g.audio.prompt))return'ملف صوت السؤال غير صالح.';
+if(g.audio&&g.audio.promptEn&&!/^data:audio\/[a-z0-9.+-]+;base64,/i.test(g.audio.promptEn))return'ملف صوت السؤال الإنجليزي غير صالح.';
 return''}
 function normalize(g){g=clone(g);g.schema='app360-native-game-v1';g.id=g.id||id();g.level=Number(g.level)||1;g.topic=g.topic||names[g.type];g.icon=g.icon||'🎲';g.symbols=g.symbols||['●','▲','■'];g.materials=g.materials||['ورقة','قلم','أدوات كبيرة وآمنة مع المرافق'];g.frames=g.frames||['شاهد فكرة اللعبة','اسمع التعليمات','جرب مع المرافق','بدّل الدور','جرب الفكرة بدون الشاشة'];g.updated_at=new Date().toISOString();return g}
 function template(type,level,builtins){var source=null;for(var i=0;i<builtins.length;i++)if(builtins[i].type===type){source=builtins[i];break}var g=normalize(source||{type:type,title:names[type],level:level});g.id=id();g.type=type;g.level=level||1;g.title='لعبتي: '+names[type];if(type==='draw'){g.shape='free';g.frames=['اختر فكرة للرسم','ارسم بإصبعك','أضف خطوطًا أو أشكالًا','جرّب الرسم على الورق','أنجزت المحاولة'];g.prompt='ارسم بطريقتك'}return g}
