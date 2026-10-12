@@ -27,4 +27,6 @@ plan['languages']=['ar','en']
 (root/'audio/english-build-report.json').write_text(json.dumps({'engine':'SILMA','language':'en','clips':len(records),'games':len(plan['games']),'verification':'full FFmpeg decode, duration and SHA256 for every MP3','records':records},indent=2)+'\n')
 page=root/'index.html'
 page.write_text(page.read_text().replace('voice-map.js?v=1','voice-map.js?v=20').replace('recorded-voice-v19.js?v=1','recorded-voice-v19.js?v=20'))
+if os.environ.get('GITHUB_ACTIONS')=='true':
+    subprocess.run(['git','add',str(page)],cwd=root,check=True)
 print('Verified and enabled',len(records),'English SILMA clips',flush=True)
