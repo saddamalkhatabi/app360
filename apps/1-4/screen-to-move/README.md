@@ -69,3 +69,12 @@ node tooling/validate-platform.js
 - الأنواع الحالية: اختيار إجابة، تحديد عدة عناصر، وصل أزواج، فرز مجموعتين، وترتيب/تسلسل.
 - يمكن تجربة اللعبة مباشرة، حفظها محليًا، تصديرها واستيرادها JSON، وطباعة نسخة ورقية من التصميم دون إظهار الحل.
 - صُممت v10 دون الاعتماد الإجباري على Pointer Events أو CSS Grid أو aspect-ratio لدعم الأجهزة القديمة قدر الإمكان.
+
+
+## Version 21: independent interface and audio languages
+
+The two selectors in the header save separate preferences. English interface text covers the built-in game library, all 170 games and their five-step explanations, hints, materials, solutions, results, worksheet exports, both visual designers, and all 12 native builder types. Recorded audio independently selects Arabic or English for questions, item names, instructions, and encouragement.
+
+`i18n-data-v21.js` is an offline dictionary assembled from the reviewed bilingual recordings, shared object vocabulary, and `tools/i18n-authored.tsv`. Rendering changes text and accessible labels only; game identifiers, answer values, user names and saved data retain their identities. Arabic uses RTL and English uses LTR. Custom text entered by a user remains user-authored content.
+
+Validation: `npm install`, `npm run build:languages`, `npm run validate`, and `npm run test:languages`. The language test loads the actual application scripts in jsdom with network and media mocked. It checks all four interface/audio combinations, every built-in game, all native builder types, both visual designers, printing, preserved answer attributes, and independent preferences after reload. It does not replace visual or real-media browser testing.
