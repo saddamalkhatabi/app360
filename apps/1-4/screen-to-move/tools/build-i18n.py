@@ -16,7 +16,7 @@ for section in ['categories','base_words','context_words']:
   if isinstance(value,str):dictionary.setdefault(norm(key.split('\u0001')[-1]),value)
 for line in (root/'tools/i18n-authored.tsv').read_text().splitlines():
  if '\t' in line:
-  source,target=line.split('\t',1);dictionary[norm(source)]=target
+  source,target=line.split('\t',1);dictionary[norm(source.replace(r'\n',' '))]=target
 keys=sorted(dictionary,key=len,reverse=True)
 pattern=re.compile(r'(?<![\u0600-\u06ff])(?:'+'|'.join(re.escape(k) for k in keys)+r')(?![\u0600-\u06ff])')
 def translate(text):
@@ -24,7 +24,7 @@ def translate(text):
  if normalized in dictionary:return dictionary[normalized]
  return pattern.sub(lambda m:dictionary[m.group()],normalized).replace('؟','?').replace('،',',').replace('؛',';')
 sources=set()
-files=list(root.glob('*.js'))+[root/'index.html']+[repo/'assets/js'/x for x in ['app360-family-sync-v1.js','app360-ai-shell.js','offline-client-v1.js','app360-access-v1.js','app360-family-core-v2.js','app360-session-v1.js','app360-account-access-v1.js','app360-login-entry-v2.js','app360-app-audience-v1.js','app360-family-ui-v2.js']]
+files=list(root.glob('*.js'))+[root/'index.html']+[repo/'assets/js'/x for x in ['app360-family-sync-v1.js','app360-ai-shell.js','offline-client-v1.js','app360-access-v1.js','app360-family-core-v2.js','app360-session-v1.js','app360-account-access-v1.js','app360-login-entry-v2.js','app360-app-audience-v1.js','app360-family-ui-v2.js','ai-content-studio.js','ai-account-bridge-v1.js']]
 jsfiles=[file for file in files if file.suffix=='.js' and file.name not in ['voice-map.js','i18n-data-v21.js','i18n-v21.js'] and not file.name.endswith('.test.js')]
 strings=json.loads(subprocess.check_output(['node',str(root/'tools/extract-i18n.cjs'),*[str(f) for f in jsfiles]]))
 strings.append((root/'index.html').read_text())
