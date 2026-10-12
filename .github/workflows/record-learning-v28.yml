@@ -1,0 +1,82 @@
+name: Record bilingual letters and numbers with SILMA
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/record-learning-v28.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: creative-learning-v28
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - name: Generate English recordings
+        run: python apps/1-4/screen-to-move/tools/build-learning-audio.py --root apps/1-4/screen-to-move --manifest audio/learning-scripts.json --cache /tmp/silma-cache --model-cache "$HF_HOME/hub" --precision fp32 --generate-only --part ${{ matrix.part }} --parts 16
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creative-learning-${{ matrix.part }}
+          path: apps/1-4/screen-to-move/audio/learning/
+          if-no-files-found: error
+          retention-days: 14
+  verify-publish:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: creative-learning-*
+          merge-multiple: true
+          path: apps/1-4/screen-to-move/audio/learning/
+      - name: Decode every clip and validate bilingual playback
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/screen-to-move/tools/finalize-learning-audio.py
+          node tooling/build-offline-catalog.js
+      - name: Publish complete verified audio
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/screen-to-move/audio/ apps/1-4/screen-to-move/learning-voice-map-v28.js data/offline/a1-screen-move.json data/offline-catalog.json
+          git commit -m 'Add verified bilingual SILMA recordings for letters and numbers'
+          git pull --rebase origin main
+          git push origin HEAD:main
