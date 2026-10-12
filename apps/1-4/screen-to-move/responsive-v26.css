@@ -53,3 +53,8 @@ html.legacy-android .memory-card.hidden-card .stable-visual{visibility:hidden}
 @media(max-width:359px){html.legacy-android .memory-card{width:47%}}
 
 .stable-visual.legacy-real-visual>.compat-icon{display:none}
+
+.learning-reference{display:flex;justify-content:center;margin:12px auto;background:#fff4cf;border:2px solid #e9bf54;border-radius:20px;padding:12px;max-width:320px}
+.learning-reference svg{width:128px;height:128px}.learning-visual svg{display:block;max-width:100%;margin:auto}.learning-visual small{font-size:16px!important;font-weight:bold}
+.sort-bin .stable-visual{margin:0 auto 6px}.sort-bin .stable-visual small{display:none}.sort-bin>span:last-child{display:block;line-height:1.4}.level-tabs{flex-wrap:wrap}
+@media(max-width:600px){.learning-reference svg{width:104px;height:104px}.learning-visual small{font-size:13px!important}}
