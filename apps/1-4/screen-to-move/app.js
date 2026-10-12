@@ -1,5 +1,5 @@
 (function(){'use strict';
-var GAMES=window.A1ScreenMoveGames||[];
+var GAMES=(window.A1ScreenMoveGames||[]).concat(window.A1ScreenMoveGamesV12||[]);
 var root=document.getElementById('appRoot');
 var storage=null;
 var STORE_KEY='app360:a1-screen-move:schema3';

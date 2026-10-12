@@ -24,7 +24,7 @@ def translate(text):
  if normalized in dictionary:return dictionary[normalized]
  return pattern.sub(lambda m:dictionary[m.group()],normalized).replace('؟','?').replace('،',',').replace('؛',';')
 sources=set()
-files=list(root.glob('*.js'))+[root/'index.html']+[repo/'assets/js'/x for x in ['app360-family-sync-v1.js','app360-ai-shell.js','offline-client-v1.js','app360-access-v1.js']]
+files=list(root.glob('*.js'))+[root/'index.html']+[repo/'assets/js'/x for x in ['app360-family-sync-v1.js','app360-ai-shell.js','offline-client-v1.js','app360-access-v1.js','app360-family-core-v2.js','app360-session-v1.js','app360-account-access-v1.js','app360-login-entry-v2.js','app360-app-audience-v1.js','app360-family-ui-v2.js']]
 jsfiles=[file for file in files if file.suffix=='.js' and file.name not in ['voice-map.js','i18n-data-v21.js','i18n-v21.js'] and not file.name.endswith('.test.js')]
 strings=json.loads(subprocess.check_output(['node',str(root/'tools/extract-i18n.cjs'),*[str(f) for f in jsfiles]]))
 strings.append((root/'index.html').read_text())
@@ -42,6 +42,7 @@ for source in sorted(sources):
  target=translate(source)
  if re.search('[\u0600-\u06ff]',target):missing.append(source)
  else:dictionary[norm(source)]=target
+pathlib.Path('/tmp/creative-untranslated.json').write_text(json.dumps(missing,ensure_ascii=False,indent=2))
 assert not missing,'Untranslated authored content: '+json.dumps(missing,ensure_ascii=False)
 (root/'i18n-data-v21.js').write_text('window.CreativeEnglish='+json.dumps(dictionary,ensure_ascii=False,separators=(',',':'))+';\n')
 print('Built',len(dictionary),'offline translations; checked',len(sources),'source phrases.')

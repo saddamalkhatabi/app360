@@ -78,3 +78,5 @@ The two selectors in the header save separate preferences. English interface tex
 `i18n-data-v21.js` is an offline dictionary assembled from the reviewed bilingual recordings, shared object vocabulary, and `tools/i18n-authored.tsv`. Rendering changes text and accessible labels only; game identifiers, answer values, user names and saved data retain their identities. Arabic uses RTL and English uses LTR. Custom text entered by a user remains user-authored content.
 
 Validation: `npm install`, `npm run build:languages`, `npm run validate`, and `npm run test:languages`. The language test loads the actual application scripts in jsdom with network and media mocked. It checks all four interface/audio combinations, every built-in game, all native builder types, both visual designers, printing, preserved answer attributes, and independent preferences after reload. It does not replace visual or real-media browser testing.
+
+Version 22 also selects English SVG covers in the library, designers, and printouts. The 170 English covers preserve the original illustrations and use wrapped English titles. Rebuild them with `python tools/build-english-covers.py`.
