@@ -34,3 +34,22 @@
 }
 @media(max-width:359px){.memory-card{flex-basis:calc(50% - 8px);width:calc(50% - 8px)}.challenge .sort-bin{flex-basis:100%}}
 @media(max-height:500px) and (orientation:landscape){.challenge .play-canvas{height:240px}.memory-card{min-height:90px}}
+
+/* Prefixes and explicit widths support the Android 4.4 WebView. */
+.challenge{display:-webkit-flex;-webkit-flex-direction:column;-webkit-align-items:center}
+.challenge>*{-webkit-flex:0 0 auto}
+.challenge .memory-grid,.challenge .match-board,.challenge .sort-board,.challenge .challenge-card,.challenge .mark-board{width:100%;max-width:760px}
+.compat-icon{display:block;width:64px;height:64px;background-image:url(assets/compat-icons-atlas.png);background-repeat:no-repeat;flex-shrink:0}
+.compat-geometry svg{display:block;width:72px;height:72px;min-width:72px}
+html.legacy-android .challenge{display:block!important;text-align:center}
+html.legacy-android .challenge>*{margin:12px auto}
+html.legacy-android .memory-card{display:inline-block;vertical-align:top;width:23%;margin:1%;min-width:0}
+html.legacy-android .sort-bin{display:inline-block;vertical-align:top;width:47%;margin:1%}
+html.legacy-android .memory-grid,html.legacy-android .sort-bins{display:block}
+html.legacy-android .stable-visual{display:block;text-align:center}
+html.legacy-android .stable-visual>i,html.legacy-android .stable-visual>svg{margin:0 auto}
+html.legacy-android .memory-card.hidden-card .stable-visual{visibility:hidden}
+@media(max-width:600px){html.legacy-android .memory-card{width:30%}html.legacy-android .sort-item{width:47%;display:inline-block;vertical-align:top;margin:1%}}
+@media(max-width:359px){html.legacy-android .memory-card{width:47%}}
+
+.stable-visual.legacy-real-visual>.compat-icon{display:none}
