@@ -1,0 +1,36 @@
+/* Each activity owns a full row; help must never squeeze the playing board. */
+.challenge{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;min-width:0}
+.challenge>*{flex:0 0 auto;max-width:100%;min-width:0}
+.challenge>.memory-head,.challenge>.memory-grid,.challenge>.match-board,.challenge>.challenge-card,.challenge>.sort-board,.challenge>.order-zone,.challenge>.puzzle-wrap,.challenge>.trace-wrap,.challenge>.creator,.challenge>.mark-board{width:100%;max-width:760px}
+.challenge #showSolution{align-self:center;min-height:44px;margin:0}
+#solutionPanel{width:100%;text-align:center;border:2px solid #a9cec5;border-radius:14px;padding:12px;background:#fff;overflow-wrap:break-word}
+.memory-head{flex-wrap:wrap;justify-content:center;text-align:center}
+.memory-head h3{flex:1 1 180px;margin:4px 0}
+.memory-grid{align-items:stretch}
+.memory-card{position:relative;flex:0 0 calc(25% - 8px);width:calc(25% - 8px);min-width:0;min-height:110px;padding:8px;color:#17302f}
+.memory-card.hidden-card>.stable-visual{visibility:hidden}
+.memory-card.hidden-card:after{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;color:white;font-size:40px}
+.challenge .sort-bins{align-items:stretch}
+.challenge .sort-bin{min-width:0;flex:1 1 140px}
+.challenge button{max-width:100%;overflow-wrap:break-word}
+.challenge .match-col{min-width:0}
+.challenge .stable-visual{min-width:0;max-width:100%}
+.challenge .sort-bin svg,.challenge .sort-item svg{display:block;max-width:100%;height:auto;margin:auto}
+.challenge .stable-visual small{color:#17302f;line-height:1.4}
+.challenge .order-grid,.challenge .order-answer,.challenge .puzzle-pieces,.challenge .puzzle-slots,.challenge .creator-source,.challenge .creator-line{margin:10px 0}
+@media(max-width:600px){
+ .primary-game-panel{padding:10px!important}
+ .challenge{padding:10px!important;gap:12px}
+ .challenge h3{font-size:20px!important;line-height:1.4}
+ .memory-card{flex-basis:calc(33.333% - 8px);width:calc(33.333% - 8px);min-height:100px;padding:6px}
+ .challenge .choice-grid,.challenge .sort-items,.challenge .mark-grid{gap:8px}
+ .challenge .choice-grid button{min-width:0;flex:0 1 calc(50% - 8px);padding:10px}
+ .challenge .sort-bin{flex-basis:calc(50% - 8px);padding:8px}
+ .challenge .sort-item{flex:0 1 calc(50% - 8px);min-width:0;padding:8px}
+ .challenge .action-row{justify-content:center;flex-wrap:wrap}
+ .challenge .action-row button{flex:1 1 120px}
+ .challenge .puzzle-piece,.challenge .puzzle-slot,.challenge .creator-source button{min-width:0;width:calc(33.333% - 10px);min-height:88px}
+ .challenge .play-canvas{height:300px}
+}
+@media(max-width:359px){.memory-card{flex-basis:calc(50% - 8px);width:calc(50% - 8px)}.challenge .sort-bin{flex-basis:100%}}
+@media(max-height:500px) and (orientation:landscape){.challenge .play-canvas{height:240px}.memory-card{min-height:90px}}
