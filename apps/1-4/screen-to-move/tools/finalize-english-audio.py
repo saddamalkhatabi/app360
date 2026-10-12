@@ -1,9 +1,13 @@
 """Validate every English MP3 before activating bilingual playback."""
-import json,pathlib,subprocess,hashlib,re
+import json,pathlib,subprocess,hashlib,re,os
 root=pathlib.Path(__file__).resolve().parents[1]
 plan=json.loads((root/'audio/manifest.json').read_text())
 items=json.loads((root/'audio/english-scripts.json').read_text())['items']
 assert len(items)==len(plan['clips'])==974
+if os.environ.get('GITHUB_ACTIONS')=='true':
+    subprocess.run(['git','fetch','origin','audio/creative-en-clarity-20261012'],cwd=root,check=True)
+    for key in [items[14]['path'],items[46]['path']]:
+        subprocess.run(['git','checkout','FETCH_HEAD','--',str(root/key)],cwd=root,check=True)
 records=[]
 for item in items:
     p=root/item['path']
@@ -21,4 +25,6 @@ plan['languages']=['ar','en']
 (root/'voice-map.js').write_text('window.CreativeVoiceMap='+json.dumps(plan,ensure_ascii=False,separators=(',',':'))+';\n')
 (root/'recorded-voice-v19.js').write_text((root/'tools/recorded-voice-bilingual.js').read_text())
 (root/'audio/english-build-report.json').write_text(json.dumps({'engine':'SILMA','language':'en','clips':len(records),'games':len(plan['games']),'verification':'full FFmpeg decode, duration and SHA256 for every MP3','records':records},indent=2)+'\n')
+page=root/'index.html'
+page.write_text(page.read_text().replace('voice-map.js?v=1','voice-map.js?v=20').replace('recorded-voice-v19.js?v=1','recorded-voice-v19.js?v=20'))
 print('Verified and enabled',len(records),'English SILMA clips',flush=True)
