@@ -24,6 +24,7 @@ code='window.APP360_SILMA='+json.dumps(dict(version=27,words=words,senses=senses
 p=ROOT/'index.html';text=p.read_text().replace('runtime-v19.js?v=26','runtime-v27.js?v=27')
 if 'data/silma-map.js?v=27' not in text:text=text.replace('<script src="runtime-v27.js','<script src="data/silma-map.js?v=27"></script>\n<script src="runtime-v27.js')
 if 'id="childAudioHelpBtn"' not in text:text=text.replace('<button id="helpBtn"','<button id="childAudioHelpBtn" class="help-btn" type="button">🔊 <span data-i18n="audioHelp">اسمع طريقة اللعب</span></button>\n          <button id="helpBtn"')
+if 'id="categoryAudioHelpBtn"' not in text:text=text.replace('<h3 data-i18n="categories">التصنيفات</h3>', '<h3 data-i18n="categories">التصنيفات</h3><button id="categoryAudioHelpBtn" class="quiet-btn" type="button" aria-label="اسمع طريقة اختيار المجموعة">🔊</button>')
 text=text.replace('v=26','v=27');p.write_text(text)
 p=ROOT/'styles-v19.css';p.write_text(p.read_text()+'\n/* Recorded vocabulary listening cue */\n.stage.is-speaking .picture-button{outline:5px solid #22b893;outline-offset:-5px}.stage.is-speaking .word-copy{background:#e2fbef;border-radius:18px}.sound-button[aria-pressed="true"]{background:#087e68;color:#fff}\n')
 print('Validated and activated',len(clips),'actual SILMA recordings')

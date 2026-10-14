@@ -1,5 +1,4 @@
-name: Validate Say and Name v26
-
+name: Validate Say and Name recorded player
 on:
   push:
     branches: [main]
@@ -7,59 +6,37 @@ on:
       - 'apps/1-4/say-and-name/**'
       - '.github/workflows/validate-say-name-v17.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate JavaScript syntax
-        run: node --check apps/1-4/say-and-name/runtime-v19.js
-      - name: Validate bilingual controls, context images and cache references
+      - name: Validate vocabulary data, authored coverage and player behavior
         run: |
-          grep -q 'data-lang="both"' apps/1-4/say-and-name/index.html
-          grep -q 'data-voice="both"' apps/1-4/say-and-name/runtime-v19.js
-          grep -q 'runtime-v19.js?v=26' apps/1-4/say-and-name/index.html
-          grep -q 'word-images-context-map.js?v=26' apps/1-4/say-and-name/index.html
-          grep -q "app360-app-say-and-name-v26" apps/1-4/say-and-name/sw.js
-          grep -q 'word-images-context-map.js?v=26' apps/1-4/say-and-name/sw.js
-          grep -q '"قرد":"w0283.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"نسر":"w0107.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"جمل":"w0284.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"بطريق":"w0256.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"أسد":"corrected-lion-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"فيل":"corrected-elephant-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"سلحفاة":"corrected-turtle-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"قرش":"corrected-shark-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-          grep -q '"فظ":"corrected-walrus-v24.jpg"' apps/1-4/say-and-name/data/word-images-map.js
-      - name: Validate random/category state regression fix
+          npm run validate --prefix apps/1-4/say-and-name
+          node --check apps/1-4/say-and-name/runtime-v19.js
+          node --check apps/1-4/say-and-name/runtime-v27.js
+          node apps/1-4/say-and-name/tools/test-recorded-player.cjs
+          node tooling/test-first-words-ai-adapter.js
+          python apps/1-4/say-and-name/tools/prepare_silma.py
+      - name: Validate active entry and meaning-specific recordings
         run: |
-          grep -Fq "function activateRandom(){state.view='random';makeRandomPool" apps/1-4/say-and-name/runtime-v19.js
-          ! grep -Fq "function activateRandom(){state.view='random';state.scope='all'" apps/1-4/say-and-name/runtime-v19.js
-          grep -Fq "state.category=this.getAttribute('data-cat');state.view='category';state.scope='current'" apps/1-4/say-and-name/runtime-v19.js
-          grep -Fq "state.view='category';state.scope='current';state.randomPool=[]" apps/1-4/say-and-name/runtime-v19.js
-          grep -Fq "$('bottomShuffleBtn').onclick=shuffleCurrent;" apps/1-4/say-and-name/runtime-v19.js
-          grep -Fq "if(state.view==='category'&&state.scope==='all')state.scope='current'" apps/1-4/say-and-name/runtime-v19.js
-      - name: Validate final all-word semantic audit summary
-        run: |
-          grep -Fq 'الصور المفحوصة دلاليًا: **985 / 985**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
-          grep -Fq 'حالات الاشتباه القوية بعد الإصلاح النهائي: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
-          grep -Fq 'ملفات الصور المفقودة: **0**' apps/1-4/say-and-name/IMAGE_ALL_WORDS_AUDIT_AR.md
-      - name: Confirm RawGitHack preview refreshed
-        shell: bash
-        run: |
-          URL='https://raw.githack.com/saddamalkhatabi/app360/main/apps/1-4/say-and-name/index.html?v=26'
-          ok=0
-          for i in {1..18}; do
-            if curl -fsSL -H 'Cache-Control: no-cache' "$URL" -o /tmp/live.html && grep -q 'runtime-v19.js?v=26' /tmp/live.html && grep -q 'word-images-context-map.js?v=26' /tmp/live.html && grep -q 'data-lang="both"' /tmp/live.html; then
-              echo 'RawGitHack preview is on v26.'
-              ok=1
-              break
-            fi
-            echo "Preview still stale; retry $i/18"
-            sleep 10
-          done
-          test "$ok" = 1
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          root=Path('apps/1-4/say-and-name')
+          html=(root/'index.html').read_text()
+          assert 'data-lang="both"' in html
+          assert "importScripts('../../../assets/js/offline-worker-v1.js?v=1')" in (root/'sw.js').read_text()
+          for path in re.findall(r'<script src="([^"?]+)',html):assert (root/path).is_file(),path
+          if 'runtime-v27.js' in html:
+              data=json.loads((root/'data/silma-map.js').read_text().split('=',1)[1].strip().rstrip(';'))
+              assert len(data['words'])==985
+              assert data['senses']['الجسم\u0001ظهر']!=data['senses']['الوقت\u0001ظهر']
+              for table in ('words','senses','guides'):
+                  for key,path in data[table].items():assert (root/path).is_file(),(key,path)
+              assert 'id="childAudioHelpBtn"' in html
+          print('Active entry and vocabulary verified')
+          PY
