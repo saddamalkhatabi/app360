@@ -21,6 +21,7 @@ jobs:
           node apps/1-4/say-and-name/tools/test-recorded-player.cjs
           node apps/1-4/say-and-name/tools/test-meaning.cjs
           node apps/1-4/say-and-name/tools/test-meaning-player.cjs
+          node apps/1-4/say-and-name/tools/test-meaning-refresh.cjs
           node tooling/test-first-words-ai-adapter.js
           python apps/1-4/say-and-name/tools/prepare_silma.py
       - name: Validate active entry and meaning-specific recordings
