@@ -30,6 +30,12 @@ for row in manifest['items']:
  if old:
   destination=ROOT/old;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/row['path'],destination)
   assert hashlib.sha256(destination.read_bytes()).hexdigest()==records[row['path']]['sha256'],('Original path replacement failed',old)
+  table=words if row['kind']=='word' else senses
+  table[row['key']]=old
+  for clip in clips:
+   if clip['key']==row['key']:
+    clip['generated_path']=clip['path'];clip['path']=old;break
+  if (ROOT/row['path']).resolve()!=destination.resolve():(ROOT/row['path']).unlink()
 code='window.APP360_SILMA='+json.dumps(dict(version=27,words=words,senses=senses,guides=guides,spoken=spoken),ensure_ascii=False,separators=(',',':'))+';\n'
 (ROOT/'data/silma-map.js').write_text(code)
 (ROOT/'audio/silma-validation.json').write_text(json.dumps(dict(engine='silma-tts',package_version='1.0.5',words=len(words),senses=len(senses),guides=len(guides),actual_audio_review='pending',verification='Complete authored coverage; MP3 decoding, duration, exact SHA256',clips=clips),ensure_ascii=False,indent=2)+'\n')
