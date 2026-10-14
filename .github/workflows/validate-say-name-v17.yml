@@ -40,3 +40,8 @@ jobs:
               assert 'id="childAudioHelpBtn"' in html
           print('Active entry and vocabulary verified')
           PY
+      - name: Check child UI on a narrow phone viewport
+        run: |
+          npm install --prefix /tmp/say-name-qa playwright@1.62.1
+          /tmp/say-name-qa/node_modules/.bin/playwright install --with-deps chromium
+          NODE_PATH=/tmp/say-name-qa/node_modules node apps/1-4/say-and-name/tools/test-child-browser.cjs
