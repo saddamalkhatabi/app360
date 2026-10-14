@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 521,
+  "ready": 550,
   "expected": 2095,
   "auditory_review": "pending",
   "clips": {
@@ -35480,6 +35480,2108 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "precision": "fp32",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_563a38470020678b89a8": {
+      "id": "ar_563a38470020678b89a8",
+      "language": "ar",
+      "text": "الشَّعْرُ يَنْبُتُ عَلَى الرَّأْسِ وَأُرَتِّبُهُ بِالْمِشْطِ.",
+      "words": [
+        "الشَّعْرُ",
+        "يَنْبُتُ",
+        "عَلَى",
+        "الرَّأْسِ",
+        "وَأُرَتِّبُهُ",
+        "بِالْمِشْطِ."
+      ],
+      "path": "audio/meaning/ar/ar_563a38470020678b89a8.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          20,
+          462
+        ],
+        [
+          1,
+          623,
+          1004
+        ],
+        [
+          2,
+          1306,
+          1346
+        ],
+        [
+          3,
+          1406,
+          1748
+        ],
+        [
+          4,
+          2189,
+          2953
+        ],
+        [
+          5,
+          3154,
+          3716
+        ]
+      ],
+      "duration_ms": 4580,
+      "sha256": "6f9d3f13c42275300dadd9d53d9233efcae6e0be8466e1b63a71be8853ff2333",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9604,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_3b225739c65fb65219a6": {
+      "id": "ar_3b225739c65fb65219a6",
+      "language": "ar",
+      "text": "الْجِدَارُ يَفْصِلُ الْغُرَفَ وَيُحِيطُ بِالْبَيْتِ.",
+      "words": [
+        "الْجِدَارُ",
+        "يَفْصِلُ",
+        "الْغُرَفَ",
+        "وَيُحِيطُ",
+        "بِالْبَيْتِ."
+      ],
+      "path": "audio/meaning/ar/ar_3b225739c65fb65219a6.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          40,
+          543
+        ],
+        [
+          1,
+          704,
+          1087
+        ],
+        [
+          2,
+          1187,
+          1590
+        ],
+        [
+          3,
+          1912,
+          2455
+        ],
+        [
+          4,
+          2596,
+          3140
+        ]
+      ],
+      "duration_ms": 3925,
+      "sha256": "df8768f73e0b634502cbd26d67e49e47ced789c755a364143b7a7cfe2f5ba8e0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9954,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_783ce65e839a89c2c89c": {
+      "id": "ar_783ce65e839a89c2c89c",
+      "language": "ar",
+      "text": "مَوْقِد. يَسْتَخْدِمُ الْكِبَارُ هَذَا الْجِهَازَ لِتَسْخِينِ الطَّعَامِ أَوِ الْمَاءِ.",
+      "words": [
+        "مَوْقِد.",
+        "يَسْتَخْدِمُ",
+        "الْكِبَارُ",
+        "هَذَا",
+        "الْجِهَازَ",
+        "لِتَسْخِينِ",
+        "الطَّعَامِ",
+        "أَوِ",
+        "الْمَاءِ."
+      ],
+      "path": "audio/meaning/ar/ar_783ce65e839a89c2c89c.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          120,
+          601
+        ],
+        [
+          1,
+          1703,
+          2304
+        ],
+        [
+          2,
+          2404,
+          2905
+        ],
+        [
+          3,
+          3145,
+          3426
+        ],
+        [
+          4,
+          3466,
+          3987
+        ],
+        [
+          5,
+          4187,
+          4988
+        ],
+        [
+          6,
+          5068,
+          5569
+        ],
+        [
+          7,
+          5769,
+          5870
+        ],
+        [
+          8,
+          5950,
+          6150
+        ]
+      ],
+      "duration_ms": 7452,
+      "sha256": "ba7d5ac24ea24a3bf717c10bc1740e2ffcc09c97353b0ad496848f3d38bd53ea",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9784,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_cf60193deaa285cebac1": {
+      "id": "ar_cf60193deaa285cebac1",
+      "language": "ar",
+      "text": "«مِلْح» طَعَامٌ نَتَنَاوَلُهُ ضِمْنَ وَجَبَاتٍ مُتَنَوِّعَةٍ.",
+      "words": [
+        "«مِلْح»",
+        "طَعَامٌ",
+        "نَتَنَاوَلُهُ",
+        "ضِمْنَ",
+        "وَجَبَاتٍ",
+        "مُتَنَوِّعَةٍ."
+      ],
+      "path": "audio/meaning/ar/ar_cf60193deaa285cebac1.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          40,
+          261
+        ],
+        [
+          1,
+          561,
+          922
+        ],
+        [
+          2,
+          1062,
+          1844
+        ],
+        [
+          3,
+          2024,
+          2225
+        ],
+        [
+          4,
+          2385,
+          2866
+        ],
+        [
+          5,
+          3047,
+          3768
+        ]
+      ],
+      "duration_ms": 4610,
+      "sha256": "ae4c95d08f0e32633903e165f336cf18f17cfd6d916be089a45ac3bbb21c122d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9362,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_484376c6d4b95c74c1b6": {
+      "id": "ar_484376c6d4b95c74c1b6",
+      "language": "ar",
+      "text": "نَغْسِلُ «جَزَر» قَبْلَ تَجْهِيزِهِ لِلطَّعَامِ.",
+      "words": [
+        "نَغْسِلُ",
+        "«جَزَر»",
+        "قَبْلَ",
+        "تَجْهِيزِهِ",
+        "لِلطَّعَامِ."
+      ],
+      "path": "audio/meaning/ar/ar_484376c6d4b95c74c1b6.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          60,
+          501
+        ],
+        [
+          1,
+          1163,
+          1504
+        ],
+        [
+          2,
+          1865,
+          2106
+        ],
+        [
+          3,
+          2226,
+          2808
+        ],
+        [
+          4,
+          2988,
+          3530
+        ]
+      ],
+      "duration_ms": 3971,
+      "sha256": "317ac6039e2af04375aab377c2d4ec04a680c47cc16d2cec3ebf81fbece02f66",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9557,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_4e7eb0043fd341ce5b10": {
+      "id": "ar_4e7eb0043fd341ce5b10",
+      "language": "ar",
+      "text": "أُرَاقِبُ الْحَيَوَانَ الْمُسَمَّى «كُوَالَا» مِنْ مَسَافَةٍ آمِنَةٍ.",
+      "words": [
+        "أُرَاقِبُ",
+        "الْحَيَوَانَ",
+        "الْمُسَمَّى",
+        "«كُوَالَا»",
+        "مِنْ",
+        "مَسَافَةٍ",
+        "آمِنَةٍ."
+      ],
+      "path": "audio/meaning/ar/ar_4e7eb0043fd341ce5b10.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          60,
+          582
+        ],
+        [
+          1,
+          903,
+          1566
+        ],
+        [
+          2,
+          1646,
+          2268
+        ],
+        [
+          3,
+          2368,
+          2710
+        ],
+        [
+          4,
+          2710,
+          2770
+        ],
+        [
+          5,
+          2810,
+          3231
+        ],
+        [
+          6,
+          3653,
+          4074
+        ]
+      ],
+      "duration_ms": 5178,
+      "sha256": "a4fde88309ba9c9ccbf3822b1cdd1075d2c82940f5aa287e5e5e90bbf56186a2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8271,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_6052e1bcbccb1e7c7da7": {
+      "id": "ar_6052e1bcbccb1e7c7da7",
+      "language": "ar",
+      "text": "أُرَاقِبُ «بِرْكَة» فِي الطَّبِيعَةِ وَأَتَعَلَّمُ عَنْهُ.",
+      "words": [
+        "أُرَاقِبُ",
+        "«بِرْكَة»",
+        "فِي",
+        "الطَّبِيعَةِ",
+        "وَأَتَعَلَّمُ",
+        "عَنْهُ."
+      ],
+      "path": "audio/meaning/ar/ar_6052e1bcbccb1e7c7da7.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          40,
+          501
+        ],
+        [
+          1,
+          1504,
+          1825
+        ],
+        [
+          2,
+          2046,
+          2126
+        ],
+        [
+          3,
+          2146,
+          2728
+        ],
+        [
+          4,
+          3049,
+          3831
+        ],
+        [
+          5,
+          4132,
+          4232
+        ]
+      ],
+      "duration_ms": 4533,
+      "sha256": "05fd0770da9315ed47af75139d2e7f8881b7fd95e3247bf2f6fef02f81c4bc1c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9484,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_6b7e4fd27fae45b17fb9": {
+      "id": "ar_6b7e4fd27fae45b17fb9",
+      "language": "ar",
+      "text": "أَتَعَلَّمُ مَتَى أَحْتَاجُ إِلَى «صُورَة» فِي يَوْمِي.",
+      "words": [
+        "أَتَعَلَّمُ",
+        "مَتَى",
+        "أَحْتَاجُ",
+        "إِلَى",
+        "«صُورَة»",
+        "فِي",
+        "يَوْمِي."
+      ],
+      "path": "audio/meaning/ar/ar_6b7e4fd27fae45b17fb9.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          20,
+          542
+        ],
+        [
+          1,
+          663,
+          904
+        ],
+        [
+          2,
+          1124,
+          1526
+        ],
+        [
+          3,
+          1626,
+          1847
+        ],
+        [
+          4,
+          1948,
+          2229
+        ],
+        [
+          5,
+          2429,
+          2530
+        ],
+        [
+          6,
+          2590,
+          2931
+        ]
+      ],
+      "duration_ms": 3875,
+      "sha256": "38682baad560399ef83ca6db0000212e5d9cb4e5791d0554a8bf3de76d6b17bd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9049,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_22a9ac79ebc875cae4d5": {
+      "id": "en_22a9ac79ebc875cae4d5",
+      "language": "en",
+      "text": "I observe the animal called chick from a safe distance.",
+      "words": [
+        "I",
+        "observe",
+        "the",
+        "animal",
+        "called",
+        "chick",
+        "from",
+        "a",
+        "safe",
+        "distance."
+      ],
+      "path": "audio/meaning/en/en_22a9ac79ebc875cae4d5.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          100,
+          121
+        ],
+        [
+          1,
+          161,
+          603
+        ],
+        [
+          2,
+          643,
+          743
+        ],
+        [
+          3,
+          904,
+          1265
+        ],
+        [
+          4,
+          1346,
+          1627
+        ],
+        [
+          5,
+          1707,
+          1888
+        ],
+        [
+          6,
+          1968,
+          2129
+        ],
+        [
+          7,
+          2169,
+          2189
+        ],
+        [
+          8,
+          2310,
+          2571
+        ],
+        [
+          9,
+          2631,
+          3294
+        ]
+      ],
+      "duration_ms": 3696,
+      "sha256": "d56d0796bf22a62314523f422ff65987facd93ec4787853abb41e64b556f844f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9675,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_22d51dd487f579fc1fe5": {
+      "id": "en_22d51dd487f579fc1fe5",
+      "language": "en",
+      "text": "I observe the animal called jellyfish from a safe distance.",
+      "words": [
+        "I",
+        "observe",
+        "the",
+        "animal",
+        "called",
+        "jellyfish",
+        "from",
+        "a",
+        "safe",
+        "distance."
+      ],
+      "path": "audio/meaning/en/en_22d51dd487f579fc1fe5.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          60,
+          100
+        ],
+        [
+          1,
+          140,
+          582
+        ],
+        [
+          2,
+          622,
+          702
+        ],
+        [
+          3,
+          863,
+          1224
+        ],
+        [
+          4,
+          1325,
+          1666
+        ],
+        [
+          5,
+          1806,
+          2408
+        ],
+        [
+          6,
+          2448,
+          2589
+        ],
+        [
+          7,
+          2629,
+          2649
+        ],
+        [
+          8,
+          2750,
+          3031
+        ],
+        [
+          9,
+          3171,
+          3733
+        ]
+      ],
+      "duration_ms": 4034,
+      "sha256": "3039d38d8a0d0bbcd61555b029c769f2f072fe05b6f0ff9e696e92be468f90e1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9803,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_d15a43ffcdc23989581b": {
+      "id": "en_d15a43ffcdc23989581b",
+      "language": "en",
+      "text": "I observe the small creature called flea without touching it.",
+      "words": [
+        "I",
+        "observe",
+        "the",
+        "small",
+        "creature",
+        "called",
+        "flea",
+        "without",
+        "touching",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_d15a43ffcdc23989581b.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          160,
+          581
+        ],
+        [
+          2,
+          621,
+          702
+        ],
+        [
+          3,
+          782,
+          1063
+        ],
+        [
+          4,
+          1163,
+          1624
+        ],
+        [
+          5,
+          1905,
+          2205
+        ],
+        [
+          6,
+          2285,
+          2606
+        ],
+        [
+          7,
+          2726,
+          3087
+        ],
+        [
+          8,
+          3268,
+          3649
+        ],
+        [
+          9,
+          3689,
+          4030
+        ]
+      ],
+      "duration_ms": 4310,
+      "sha256": "7cf6bbd2c860ec500411edebb4cdeb02195a5d8842f70d58848b927789482110",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9744,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_12889801c2e9a608a31e": {
+      "id": "ar_12889801c2e9a608a31e",
+      "language": "ar",
+      "text": "فَصْل. يُسَاعِدُنِي الْمُعَلِّمُ عَلَى الْقِرَاءَةِ وَالتَّعَلُّمِ.",
+      "words": [
+        "فَصْل.",
+        "يُسَاعِدُنِي",
+        "الْمُعَلِّمُ",
+        "عَلَى",
+        "الْقِرَاءَةِ",
+        "وَالتَّعَلُّمِ."
+      ],
+      "path": "audio/meaning/ar/ar_12889801c2e9a608a31e.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          20,
+          1726
+        ],
+        [
+          1,
+          1766,
+          2528
+        ],
+        [
+          2,
+          2588,
+          3271
+        ],
+        [
+          3,
+          3672,
+          3752
+        ],
+        [
+          4,
+          3913,
+          4374
+        ],
+        [
+          5,
+          4374,
+          5678
+        ]
+      ],
+      "duration_ms": 5718,
+      "sha256": "71a0edd85998b6736694af67f2e4316cf912d0b51c9a1cd3e734e5d1d9c601db",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.6749,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_334245a77156f289baca": {
+      "id": "en_334245a77156f289baca",
+      "language": "en",
+      "text": "I learn about bell and listen to its sound.",
+      "words": [
+        "I",
+        "learn",
+        "about",
+        "bell",
+        "and",
+        "listen",
+        "to",
+        "its",
+        "sound."
+      ],
+      "path": "audio/meaning/en/en_334245a77156f289baca.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          181,
+          362
+        ],
+        [
+          2,
+          402,
+          684
+        ],
+        [
+          3,
+          765,
+          1026
+        ],
+        [
+          4,
+          1288,
+          1388
+        ],
+        [
+          5,
+          1449,
+          1771
+        ],
+        [
+          6,
+          1911,
+          1972
+        ],
+        [
+          7,
+          2052,
+          2193
+        ],
+        [
+          8,
+          2294,
+          2777
+        ]
+      ],
+      "duration_ms": 3119,
+      "sha256": "636ae7591e65c73129a33461e3233c1fbe028cf43c672742290b1d0ef37a675f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9474,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_c74c62a5e03ec2960f55": {
+      "id": "en_c74c62a5e03ec2960f55",
+      "language": "en",
+      "text": "I learn about the work of a person called fisherman.",
+      "words": [
+        "I",
+        "learn",
+        "about",
+        "the",
+        "work",
+        "of",
+        "a",
+        "person",
+        "called",
+        "fisherman."
+      ],
+      "path": "audio/meaning/en/en_c74c62a5e03ec2960f55.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          181,
+          362
+        ],
+        [
+          2,
+          402,
+          684
+        ],
+        [
+          3,
+          764,
+          845
+        ],
+        [
+          4,
+          945,
+          1207
+        ],
+        [
+          5,
+          1488,
+          1569
+        ],
+        [
+          6,
+          1609,
+          1629
+        ],
+        [
+          7,
+          1689,
+          2051
+        ],
+        [
+          8,
+          2132,
+          2313
+        ],
+        [
+          9,
+          2373,
+          2856
+        ]
+      ],
+      "duration_ms": 3962,
+      "sha256": "52385d9fce17a69d49b853a49f5ea949305f91c0f1408422453cd206f94cf9ec",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.958,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_7dc47c2961f4bb0ef0b8": {
+      "id": "en_7dc47c2961f4bb0ef0b8",
+      "language": "en",
+      "text": "I find the item called chest of drawers at home and look after it.",
+      "words": [
+        "I",
+        "find",
+        "the",
+        "item",
+        "called",
+        "chest",
+        "of",
+        "drawers",
+        "at",
+        "home",
+        "and",
+        "look",
+        "after",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_7dc47c2961f4bb0ef0b8.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          100,
+          120
+        ],
+        [
+          1,
+          180,
+          481
+        ],
+        [
+          2,
+          521,
+          601
+        ],
+        [
+          3,
+          822,
+          1083
+        ],
+        [
+          4,
+          1283,
+          1564
+        ],
+        [
+          5,
+          1644,
+          1905
+        ],
+        [
+          6,
+          1965,
+          2045
+        ],
+        [
+          7,
+          2125,
+          2546
+        ],
+        [
+          8,
+          2626,
+          2727
+        ],
+        [
+          9,
+          2787,
+          3088
+        ],
+        [
+          10,
+          3208,
+          3328
+        ],
+        [
+          11,
+          3408,
+          3589
+        ],
+        [
+          12,
+          3709,
+          4010
+        ],
+        [
+          13,
+          4150,
+          4291
+        ]
+      ],
+      "duration_ms": 5052,
+      "sha256": "53796c3e509d3d5685e8e29692765c9a574d78d5ec6dbb71cf6dd7666bb08c7d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9619,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_3f59d20de3f6524f525a": {
+      "id": "en_3f59d20de3f6524f525a",
+      "language": "en",
+      "text": "I learn about peanut among nuts and seeds.",
+      "words": [
+        "I",
+        "learn",
+        "about",
+        "peanut",
+        "among",
+        "nuts",
+        "and",
+        "seeds."
+      ],
+      "path": "audio/meaning/en/en_3f59d20de3f6524f525a.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          202,
+          383
+        ],
+        [
+          2,
+          423,
+          705
+        ],
+        [
+          3,
+          806,
+          1230
+        ],
+        [
+          4,
+          1330,
+          1633
+        ],
+        [
+          5,
+          1713,
+          2036
+        ],
+        [
+          6,
+          2137,
+          2258
+        ],
+        [
+          7,
+          2358,
+          2822
+        ]
+      ],
+      "duration_ms": 3044,
+      "sha256": "897cf4fd3bcd6766f884bfdb935c1f4acba88f3bb706ebbc2c7fce408b9009ea",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.889,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_8b79af1e457d9fea543d": {
+      "id": "ar_8b79af1e457d9fea543d",
+      "language": "ar",
+      "text": "أَتَعَلَّمُ لِمَاذَا نَذْهَبُ إِلَى الْمَكَانِ الْمُسَمَّى «مَتْجَر».",
+      "words": [
+        "أَتَعَلَّمُ",
+        "لِمَاذَا",
+        "نَذْهَبُ",
+        "إِلَى",
+        "الْمَكَانِ",
+        "الْمُسَمَّى",
+        "«مَتْجَر»."
+      ],
+      "path": "audio/meaning/ar/ar_8b79af1e457d9fea543d.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          20,
+          662
+        ],
+        [
+          1,
+          823,
+          1264
+        ],
+        [
+          2,
+          1485,
+          1866
+        ],
+        [
+          3,
+          1986,
+          2267
+        ],
+        [
+          4,
+          2328,
+          2769
+        ],
+        [
+          5,
+          2869,
+          3371
+        ],
+        [
+          6,
+          3371,
+          3632
+        ]
+      ],
+      "duration_ms": 5337,
+      "sha256": "ec3d80c50777ec4360d93a709ee126c305d02990227ec2c44cd3e1fc54435426",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.7752,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_76e9e1a034ab13d6fe6d": {
+      "id": "ar_76e9e1a034ab13d6fe6d",
+      "language": "ar",
+      "text": "يَسْتَخْدِمُ الْكِبَارُ «سُلَّم» فِي الْعَمَلِ وَالْإِصْلَاحِ.",
+      "words": [
+        "يَسْتَخْدِمُ",
+        "الْكِبَارُ",
+        "«سُلَّم»",
+        "فِي",
+        "الْعَمَلِ",
+        "وَالْإِصْلَاحِ."
+      ],
+      "path": "audio/meaning/ar/ar_76e9e1a034ab13d6fe6d.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          1586,
+          2087
+        ],
+        [
+          1,
+          2188,
+          2549
+        ],
+        [
+          2,
+          2709,
+          3031
+        ],
+        [
+          3,
+          3171,
+          3251
+        ],
+        [
+          4,
+          3271,
+          3693
+        ],
+        [
+          5,
+          3853,
+          4476
+        ]
+      ],
+      "duration_ms": 5278,
+      "sha256": "c25c3af329480de137d3895d6b593b10310acf4c5be265d1c8dd1c4df3347a74",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9395,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_72fdf48dc8ed218f0cd6": {
+      "id": "en_72fdf48dc8ed218f0cd6",
+      "language": "en",
+      "text": "I use the word second to describe time.",
+      "words": [
+        "I",
+        "use",
+        "the",
+        "word",
+        "second",
+        "to",
+        "describe",
+        "time."
+      ],
+      "path": "audio/meaning/en/en_72fdf48dc8ed218f0cd6.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          81,
+          101
+        ],
+        [
+          1,
+          202,
+          343
+        ],
+        [
+          2,
+          383,
+          464
+        ],
+        [
+          3,
+          504,
+          746
+        ],
+        [
+          4,
+          847,
+          1190
+        ],
+        [
+          5,
+          1251,
+          1331
+        ],
+        [
+          6,
+          1412,
+          1957
+        ],
+        [
+          7,
+          2017,
+          2340
+        ]
+      ],
+      "duration_ms": 2784,
+      "sha256": "b904d3794d08974f203d2622f030c74a8f8cc7a0c3b291401b3a52f1ecd5ea47",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9833,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_b33c43f5af68aa0897a9": {
+      "id": "en_b33c43f5af68aa0897a9",
+      "language": "en",
+      "text": "I learn the meaning of sad to express my feelings.",
+      "words": [
+        "I",
+        "learn",
+        "the",
+        "meaning",
+        "of",
+        "sad",
+        "to",
+        "express",
+        "my",
+        "feelings."
+      ],
+      "path": "audio/meaning/en/en_b33c43f5af68aa0897a9.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          141,
+          161
+        ],
+        [
+          1,
+          242,
+          463
+        ],
+        [
+          2,
+          524,
+          604
+        ],
+        [
+          3,
+          644,
+          1007
+        ],
+        [
+          4,
+          1067,
+          1168
+        ],
+        [
+          5,
+          1309,
+          1571
+        ],
+        [
+          6,
+          1651,
+          1711
+        ],
+        [
+          7,
+          1792,
+          2316
+        ],
+        [
+          8,
+          2436,
+          2597
+        ],
+        [
+          9,
+          2698,
+          3302
+        ]
+      ],
+      "duration_ms": 3725,
+      "sha256": "8bafdf84f55383f3835775d54d6aad6833e3cd1b9faec9d033f021375014b004",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.96,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_7c6d746e437b76d47f10": {
+      "id": "ar_7c6d746e437b76d47f10",
+      "language": "ar",
+      "text": "أَتَعَلَّمُ عَنْ عَمَلِ الشَّخْصِ الْمُسَمَّى «قَائِد طَائِرَة».",
+      "words": [
+        "أَتَعَلَّمُ",
+        "عَنْ",
+        "عَمَلِ",
+        "الشَّخْصِ",
+        "الْمُسَمَّى",
+        "«قَائِد",
+        "طَائِرَة»."
+      ],
+      "path": "audio/meaning/ar/ar_7c6d746e437b76d47f10.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          40,
+          643
+        ],
+        [
+          1,
+          924,
+          944
+        ],
+        [
+          2,
+          1145,
+          1346
+        ],
+        [
+          3,
+          1427,
+          1849
+        ],
+        [
+          4,
+          1949,
+          2532
+        ],
+        [
+          5,
+          3315,
+          3657
+        ],
+        [
+          6,
+          3717,
+          4159
+        ]
+      ],
+      "duration_ms": 5043,
+      "sha256": "353c1470e0bf2df56ae31b22883e09a38966a41a56b2f426c7733b199c9bd87b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.941,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_1dca66e4afa44af17ed6": {
+      "id": "en_1dca66e4afa44af17ed6",
+      "language": "en",
+      "text": "I learn to use the device called dryer with a grown-up’s help.",
+      "words": [
+        "I",
+        "learn",
+        "to",
+        "use",
+        "the",
+        "device",
+        "called",
+        "dryer",
+        "with",
+        "a",
+        "grown-up’s",
+        "help."
+      ],
+      "path": "audio/meaning/en/en_1dca66e4afa44af17ed6.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          140,
+          321
+        ],
+        [
+          2,
+          401,
+          461
+        ],
+        [
+          3,
+          622,
+          842
+        ],
+        [
+          4,
+          882,
+          962
+        ],
+        [
+          5,
+          1003,
+          1484
+        ],
+        [
+          6,
+          1584,
+          1905
+        ],
+        [
+          7,
+          1945,
+          2306
+        ],
+        [
+          8,
+          2366,
+          2506
+        ],
+        [
+          9,
+          2526,
+          2546
+        ],
+        [
+          10,
+          2607,
+          3168
+        ],
+        [
+          11,
+          3168,
+          3248
+        ]
+      ],
+      "duration_ms": 4090,
+      "sha256": "073fd27ab9355dc34ce0c8c5d64d7685b09a32ddbfce82fd72971096e916c7e7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8314,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_ec7176441508715c86f2": {
+      "id": "en_ec7176441508715c86f2",
+      "language": "en",
+      "text": "We wash the vegetable called turnip before preparing it for a meal.",
+      "words": [
+        "We",
+        "wash",
+        "the",
+        "vegetable",
+        "called",
+        "turnip",
+        "before",
+        "preparing",
+        "it",
+        "for",
+        "a",
+        "meal."
+      ],
+      "path": "audio/meaning/en/en_ec7176441508715c86f2.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          0,
+          60
+        ],
+        [
+          1,
+          140,
+          401
+        ],
+        [
+          2,
+          421,
+          501
+        ],
+        [
+          3,
+          561,
+          1101
+        ],
+        [
+          4,
+          1362,
+          1642
+        ],
+        [
+          5,
+          1702,
+          2083
+        ],
+        [
+          6,
+          2143,
+          2443
+        ],
+        [
+          7,
+          2584,
+          3124
+        ],
+        [
+          8,
+          3184,
+          3264
+        ],
+        [
+          9,
+          3304,
+          3445
+        ],
+        [
+          10,
+          3505,
+          3525
+        ],
+        [
+          11,
+          3605,
+          3885
+        ]
+      ],
+      "duration_ms": 5327,
+      "sha256": "3688e018d4b7d44befac40ef471fc3b48b6e9f92c21ed1205051e741feed4f34",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8916,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_48ddc91912c7a3bb44e0": {
+      "id": "en_48ddc91912c7a3bb44e0",
+      "language": "en",
+      "text": "I learn about fertilizer and how it relates to plants.",
+      "words": [
+        "I",
+        "learn",
+        "about",
+        "fertilizer",
+        "and",
+        "how",
+        "it",
+        "relates",
+        "to",
+        "plants."
+      ],
+      "path": "audio/meaning/en/en_48ddc91912c7a3bb44e0.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          120,
+          141
+        ],
+        [
+          1,
+          181,
+          381
+        ],
+        [
+          2,
+          402,
+          642
+        ],
+        [
+          3,
+          723,
+          1445
+        ],
+        [
+          4,
+          1526,
+          1646
+        ],
+        [
+          5,
+          1686,
+          1847
+        ],
+        [
+          6,
+          1927,
+          2008
+        ],
+        [
+          7,
+          2068,
+          2570
+        ],
+        [
+          8,
+          2650,
+          2730
+        ],
+        [
+          9,
+          2871,
+          3553
+        ]
+      ],
+      "duration_ms": 3874,
+      "sha256": "f6bfc2388690704ae1093e6f225495262ab3ba76c06bd93703ea5cd4837fdc76",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8512,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_0585b5421d0b31e26bf0": {
+      "id": "ar_0585b5421d0b31e26bf0",
+      "language": "ar",
+      "text": "نَسْتَخْدِمُ وَسِيلَةَ النَّقْلِ الْمُسَمَّاةَ «سَيَّارَة كَهْرَبَائِيَّة» لِنَقْلِ النَّاسِ أَوِ الْأَشْيَاءِ.",
+      "words": [
+        "نَسْتَخْدِمُ",
+        "وَسِيلَةَ",
+        "النَّقْلِ",
+        "الْمُسَمَّاةَ",
+        "«سَيَّارَة",
+        "كَهْرَبَائِيَّة»",
+        "لِنَقْلِ",
+        "النَّاسِ",
+        "أَوِ",
+        "الْأَشْيَاءِ."
+      ],
+      "path": "audio/meaning/ar/ar_0585b5421d0b31e26bf0.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          1563,
+          2124
+        ],
+        [
+          1,
+          2244,
+          2665
+        ],
+        [
+          2,
+          2825,
+          3106
+        ],
+        [
+          3,
+          3206,
+          3947
+        ],
+        [
+          4,
+          4569,
+          5009
+        ],
+        [
+          5,
+          5049,
+          5811
+        ],
+        [
+          6,
+          6232,
+          6673
+        ],
+        [
+          7,
+          6813,
+          7234
+        ],
+        [
+          8,
+          7554,
+          7694
+        ],
+        [
+          9,
+          7815,
+          8336
+        ]
+      ],
+      "duration_ms": 9578,
+      "sha256": "b2ed2ff68df48a32735add0d440678a123b658fbf22499c943e049cc46008bad",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9182,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "ar_5121778416dd5f5ad882": {
+      "id": "ar_5121778416dd5f5ad882",
+      "language": "ar",
+      "text": "أَتَعَلَّمُ لِمَاذَا نَذْهَبُ إِلَى الْمَكَانِ الْمُسَمَّى «مَكْتَب بَرِيد».",
+      "words": [
+        "أَتَعَلَّمُ",
+        "لِمَاذَا",
+        "نَذْهَبُ",
+        "إِلَى",
+        "الْمَكَانِ",
+        "الْمُسَمَّى",
+        "«مَكْتَب",
+        "بَرِيد»."
+      ],
+      "path": "audio/meaning/ar/ar_5121778416dd5f5ad882.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          20,
+          621
+        ],
+        [
+          1,
+          1142,
+          1583
+        ],
+        [
+          2,
+          1683,
+          2063
+        ],
+        [
+          3,
+          2143,
+          2444
+        ],
+        [
+          4,
+          2504,
+          2945
+        ],
+        [
+          5,
+          3065,
+          3546
+        ],
+        [
+          6,
+          3846,
+          4207
+        ],
+        [
+          7,
+          4227,
+          4407
+        ]
+      ],
+      "duration_ms": 6170,
+      "sha256": "cf1aed15e7872efce7f629f7b5ff3e762b60242911f5a363dd5e1140d9324c05",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8679,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_04174359b538c44b9901": {
+      "id": "en_04174359b538c44b9901",
+      "language": "en",
+      "text": "I use the word seven for counting and comparing.",
+      "words": [
+        "I",
+        "use",
+        "the",
+        "word",
+        "seven",
+        "for",
+        "counting",
+        "and",
+        "comparing."
+      ],
+      "path": "audio/meaning/en/en_04174359b538c44b9901.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          80,
+          101
+        ],
+        [
+          1,
+          201,
+          342
+        ],
+        [
+          2,
+          382,
+          443
+        ],
+        [
+          3,
+          483,
+          664
+        ],
+        [
+          4,
+          724,
+          986
+        ],
+        [
+          5,
+          1046,
+          1167
+        ],
+        [
+          6,
+          1207,
+          1609
+        ],
+        [
+          7,
+          1670,
+          1770
+        ],
+        [
+          8,
+          1811,
+          2354
+        ]
+      ],
+      "duration_ms": 3098,
+      "sha256": "93ef094cfdda53b1a885ca5f5f31e9d6d0c80d4a64efade9fbca3c1f6be5eb35",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.992,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_535561da2ea8f5dde723": {
+      "id": "en_535561da2ea8f5dde723",
+      "language": "en",
+      "text": "I learn why people visit the place called ticket.",
+      "words": [
+        "I",
+        "learn",
+        "why",
+        "people",
+        "visit",
+        "the",
+        "place",
+        "called",
+        "ticket."
+      ],
+      "path": "audio/meaning/en/en_535561da2ea8f5dde723.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          181,
+          201
+        ],
+        [
+          1,
+          281,
+          542
+        ],
+        [
+          2,
+          642,
+          863
+        ],
+        [
+          3,
+          944,
+          1285
+        ],
+        [
+          4,
+          1345,
+          1626
+        ],
+        [
+          5,
+          1706,
+          1787
+        ],
+        [
+          6,
+          1847,
+          2188
+        ],
+        [
+          7,
+          2269,
+          2650
+        ],
+        [
+          8,
+          2730,
+          3051
+        ]
+      ],
+      "duration_ms": 3634,
+      "sha256": "7b0e8557e24285489a336655edda3e7cc10409d273bf6ce6c2aa1c281f197040",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9268,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
+      "reference": "publisher ar.ref.24k.wav",
+      "seed": 360,
+      "steps": 32,
+      "auditory_review": "pending"
+    },
+    "en_be2e1f76b8c98e08b499": {
+      "id": "en_be2e1f76b8c98e08b499",
+      "language": "en",
+      "text": "I use the word shallow to describe things.",
+      "words": [
+        "I",
+        "use",
+        "the",
+        "word",
+        "shallow",
+        "to",
+        "describe",
+        "things."
+      ],
+      "path": "audio/meaning/en/en_be2e1f76b8c98e08b499.mp3",
+      "engine": "silma",
+      "cues": [
+        [
+          0,
+          100,
+          120
+        ],
+        [
+          1,
+          261,
+          441
+        ],
+        [
+          2,
+          461,
+          561
+        ],
+        [
+          3,
+          621,
+          922
+        ],
+        [
+          4,
+          1102,
+          1463
+        ],
+        [
+          5,
+          1563,
+          1623
+        ],
+        [
+          6,
+          1683,
+          2244
+        ],
+        [
+          7,
+          2305,
+          2705
+        ]
+      ],
+      "duration_ms": 2986,
+      "sha256": "3a1232625350d092306045a28afdee063d25e9b6f16add427ac39ed563b49fe1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9657,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "precision": "bf16",
       "reference": "publisher ar.ref.24k.wav",
       "seed": 360,
       "steps": 32,
