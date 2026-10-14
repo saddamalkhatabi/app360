@@ -36,7 +36,7 @@ function render(){
  it.sentences.forEach(function(row,n){html+='<article class="meaning-sentence"><button type="button" data-sentence="'+n+'" class="meaning-play" aria-label="استمع إلى الجملة '+(n+1)+'">🔊 '+(n+1)+'</button><div>';
   langs.forEach(function(lang){html+='<p dir="'+(lang==='ar'?'rtl':'ltr')+'" lang="'+lang+'">';row[lang].words.forEach(function(word,w){html+='<span class="meaning-word" id="meaning-'+n+'-'+lang+'-'+w+'">'+esc(word)+'</span> '});html+='</p>'});html+='</div></article>';
  });$('meaningSentences').innerHTML=html;
- var ready=Object.keys(recordings.clips).length,total=recordings.expected||0;$('meaningCoverage').textContent=ready===total&&total?'تسجيلات الجمل جاهزة باللغتين · SILMA':'تسجيلات SILMA الجاهزة: '+ready+' / '+total+' · اضغط على الجملة للاستماع';
+ var ready=Object.keys(recordings.clips).length,total=recordings.expected||0;$('meaningCoverage').innerHTML=ready===total&&total?'تسجيلات الجمل جاهزة باللغتين · SILMA':'تسجيلات SILMA الجاهزة: <bdi dir="ltr">'+ready+' / '+total+'</bdi> · اضغط على الجملة للاستماع';
 }
 function move(n){stop();var rows=list();if(!rows.length)return;index=(index+n+rows.length)%rows.length;render()}
 function setActive(value){
