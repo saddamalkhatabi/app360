@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0f8f8a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="app360-build" content="say-and-name-v26-family-sync-20260929">
+<title>كلماتي مع أشيائي | مدرسة العائلة 360</title>
+<link rel="manifest" href="manifest.webmanifest?v=98">
+<link rel="icon" type="image/png" href="icon-192.png?v=26">
+<link rel="stylesheet" href="styles-v19.css?v=preview-single-1">
+<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=26">
+
+<meta name="apple-mobile-web-app-title" content="مدرسة العائلة 360">
+<meta property="og:site_name" content="مدرسة العائلة 360">
+<meta property="og:title" content="كلماتي مع أشيائي | مدرسة العائلة 360">
+<meta property="og:description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../../../assets/brand/family-school-360-share.jpg?v=98">
+<meta name="description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
+</head>
+<body data-build="v26-ai-native">
+<a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
+<main class="app" id="mainContent">
+<aside style="background:#fff3cf;border:1px solid #e4c76a;border-radius:16px;padding:14px;line-height:1.8;margin-bottom:12px" role="note"><strong>معاينة المرحلة الأولى · Stage 1 preview</strong><br>هذه تجربة التصميم والتنقل والتكرار الاختياري بالأصوات المسجلة الحالية. تسجيلات SILMA الجديدة بالنطق المفرد ما زالت قيد الإعداد.<br><span lang="en" dir="ltr">Try the layout, navigation and optional repetition with existing recordings. New single-pronunciation SILMA clips are still being prepared.</span></aside>
+  <header class="hero hero-v18">
+    <div class="hero-main">
+      <img class="app-icon" src="icon-192.png?v=26" alt="">
+      <div class="hero-copy">
+        <div class="eyebrow" data-i18n="eyebrow">مدرسة العائلة 360 · تعلم بالصورة والصوت</div>
+        <h1 data-i18n="title">كلماتي مع أشيائي</h1>
+        <p data-i18n="heroDesc">اختر المستوى والتصنيف، شاهد الصورة، ثم استمع وسمِّ. ويمكن عرض العربية والإنجليزية معًا.</p>
+        <div class="hero-badges">
+          <span>🖼️ <b data-i18n="clearImage">صورة واضحة</b></span>
+          <span>🔊 <b data-i18n="listenName">استمع وسمِّ</b></span>
+          <span>🌍 عربي + English</span>
+        </div>
+      </div>
+      <div class="head-actions">
+        <div class="switch-block display-block">
+          <span class="switch-label" data-i18n="displayLanguage">لغة العرض</span>
+          <div id="languageSwitch" class="language-switch" aria-label="لغة عرض الكلمات">
+            <button class="is-active" type="button" data-lang="ar">العربية</button>
+            <button type="button" data-lang="en">English</button>
+            <button type="button" data-lang="both">عربي + English</button>
+          </div>
+        </div>
+        <div class="hero-tools">
+          <button id="childAudioHelpBtn" type="button" hidden aria-hidden="true"></button><button id="helpBtn" class="help-btn" type="button">؟ <span data-i18n="help">تعليمات</span></button>
+          <button id="advancedSettingsBtn" class="settings-btn" type="button">⚙ <span data-i18n="settings">الإعدادات</span></button>
+          <button id="installAppBtn" class="install" type="button">↓ <span data-i18n="install">تثبيت</span></button>
+          <button id="updateAppBtn" class="quiet-btn" type="button">↻ <span data-i18n="update">تحديث</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="panel learn-panel">
+    <div class="level-zone">
+      <div class="level-zone-copy">
+        <span class="section-kicker" data-i18n="chooseLevel">اختر المستوى</span>
+        <h2 id="levelTitle">المستوى 1</h2>
+        <p id="levelSummary">جاري تحميل الكلمات…</p>
+      </div>
+      <div id="levelTabs" class="level-tabs" aria-label="المستويات"></div>
+    </div>
+
+    <div class="browse-bar">
+      <div class="browse-copy">
+        <h3 data-i18n="categories">التصنيفات</h3>
+        <p data-i18n="categoriesHint">تظهر تصنيفات المستوى المختار أولًا، ثم التصنيفات السابقة.</p>
+      </div>
+      <div class="view-switch" id="viewSwitch" aria-label="طريقة العرض">
+        <button type="button" class="is-active" data-view="category">▤ <span data-i18n="categoryView">حسب التصنيف</span></button>
+        <button type="button" data-view="random">↝ <span data-i18n="randomView">متنوع عشوائي 10</span></button>
+      </div>
+    </div>
+
+    <div id="categoryChips" class="category-groups" aria-label="التصنيفات"></div>
+
+    <div class="stage-shell">
+      <button id="prevBtn" class="arrow stage-prev" type="button" aria-label="السابق">‹</button>
+      <article id="stage" class="stage" tabindex="0" aria-live="polite">
+        <div class="stage-top">
+          <div class="stage-tags">
+            <span id="levelTag" class="tag soft"></span>
+            <span id="categoryTag" class="tag"></span>
+            <span id="modeTag" class="tag random-tag"></span>
+            <span id="voiceTag" class="tag soft"></span>
+          </div>
+          <div class="stage-actions">
+            <button id="stageSpeakBtn" class="sound-button" type="button">🔊 <span data-i18n="speakWord">انطق الكلمة</span></button>
+            <button id="stageFullscreenBtn" class="stage-fullscreen" type="button" aria-label="ملء الشاشة">ملء الشاشة</button>
+          </div>
+        </div>
+        <button id="pictureButton" class="picture-button" type="button" aria-label="نطق الكلمة الحالية">
+          <img id="itemImage" alt="">
+        </button>
+        <div class="word-copy">
+          <h2 id="itemName">—</h2>
+          <p id="itemHint"></p>
+        </div>
+      </article>
+      <button id="nextBtn" class="arrow stage-next" type="button" aria-label="التالي">›</button>
+    </div>
+
+    <div class="range-card">
+      <input id="itemRange" type="range" min="0" max="0" value="0" aria-label="شريط التنقل بين الكلمات">
+      <span id="rangeLabel">1 / 1</span>
+    </div>
+
+    <div class="grid-head">
+      <div>
+        <h3 id="cardsTitle" data-i18n="cardsTitle">بطاقات سريعة</h3>
+        <p id="gridMeta">اختر أي بطاقة للانتقال إليها مباشرة.</p>
+      </div>
+      <span id="visibleCount" class="count-badge">0 كلمة</span>
+    </div>
+    <div id="thumbGrid" class="thumb-grid"></div>
+
+    <div class="bottom-nav" aria-label="التنقل السفلي">
+      <button id="bottomPrevBtn" type="button">‹ <span data-i18n="previous">السابق</span></button>
+      <button id="bottomShuffleBtn" class="shuffle-btn" type="button">↝ <span data-i18n="shuffle">اختيار عشوائي</span></button>
+      <button id="bottomNextBtn" type="button"><span data-i18n="next">التالي</span> ›</button>
+    </div>
+  </section>
+
+  <section class="panel facilitator">
+    <details>
+      <summary data-i18n="guide">إرشاد مختصر للمرافق — اختياري</summary>
+      <div class="facilitator-grid">
+        <article><b>ابدأ بالأسهل</b><span>ابدأ بما هو مألوف جدًا للطفل ثم وسّع الكلمات تدريجيًا.</span></article>
+        <article><b>استخدم الواقع</b><span>إن وجد الشيء الحقيقي فأشِر إليه مع الصورة.</span></article>
+        <article><b>لا تجعلها اختبارًا</b><span>الهدف فهم الاسم والإشارة إليه وتكراره بلطف.</span></article>
+        <article><b>كرّر بهدوء</b><span>التكرار القصير المنتظم أفضل من الجلسة الطويلة.</span></article>
+      </div>
+    </details>
+  </section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
+<script src="data/levels-inline-v8.js?v=26"></script>
+<script src="data/visuals.js?v=26"></script>
+<script src="data/audio-map.js?v=26"></script>
+<script src="data/audio-sense-map.js?v=26"></script>
+<script src="data/translations-en.js?v=26"></script>
+<script src="data/audio-map-en.js?v=26"></script>
+<script src="data/word-images-map.js?v=26"></script>
+<script src="data/word-images-context-map.js?v=26"></script>
+<script src="../../../assets/js/legacy-compat.js?v=27"></script>
+<script src="../../../assets/js/swal-modern-loader.js?v=26"></script>
+<script src="ai-native-adapter.js?v=1"></script>
+<script src="preview-dialog.js?v=1"></script>
+<script src="runtime-v27.js?v=preview-single-1"></script>
+</body>
+</html>
