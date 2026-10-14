@@ -12,9 +12,9 @@
 <meta name="app360-build" content="say-and-name-v26-family-sync-20260929">
 <title>كلماتي مع أشيائي | مدرسة العائلة 360</title>
 <link rel="manifest" href="manifest.webmanifest?v=98">
-<link rel="icon" type="image/png" href="icon-192.png?v=26">
-<link rel="stylesheet" href="styles-v19.css?v=26">
-<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=26">
+<link rel="icon" type="image/png" href="icon-192.png?v=27">
+<link rel="stylesheet" href="styles-v19.css?v=27">
+<link rel="stylesheet" href="../../../assets/css/legacy-compat.css?v=27">
 
 <meta name="apple-mobile-web-app-title" content="مدرسة العائلة 360">
 <meta property="og:site_name" content="مدرسة العائلة 360">
@@ -29,7 +29,7 @@
 <main class="app" id="mainContent">
   <header class="hero hero-v18">
     <div class="hero-main">
-      <img class="app-icon" src="icon-192.png?v=26" alt="">
+      <img class="app-icon" src="icon-192.png?v=27" alt="">
       <div class="hero-copy">
         <div class="eyebrow" data-i18n="eyebrow">مدرسة العائلة 360 · تعلم بالصورة والصوت</div>
         <h1 data-i18n="title">كلماتي مع أشيائي</h1>
@@ -50,6 +50,7 @@
           </div>
         </div>
         <div class="hero-tools">
+          <button id="childAudioHelpBtn" class="help-btn" type="button">🔊 <span data-i18n="audioHelp">اسمع طريقة اللعب</span></button>
           <button id="helpBtn" class="help-btn" type="button">؟ <span data-i18n="help">تعليمات</span></button>
           <button id="advancedSettingsBtn" class="settings-btn" type="button">⚙ <span data-i18n="settings">الإعدادات</span></button>
           <button id="installAppBtn" class="install" type="button">↓ <span data-i18n="install">تثبيت</span></button>
@@ -71,7 +72,7 @@
 
     <div class="browse-bar">
       <div class="browse-copy">
-        <h3 data-i18n="categories">التصنيفات</h3>
+        <h3 data-i18n="categories">التصنيفات</h3><button id="categoryAudioHelpBtn" class="quiet-btn" type="button" aria-label="اسمع طريقة اختيار المجموعة">🔊</button>
         <p data-i18n="categoriesHint">تظهر تصنيفات المستوى المختار أولًا، ثم التصنيفات السابقة.</p>
       </div>
       <div class="view-switch" id="viewSwitch" aria-label="طريقة العرض">
@@ -143,21 +144,22 @@
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="appPwaNotice" class="pwa-note" role="status" aria-live="polite"></div>
-<script src="data/levels-inline-v8.js?v=26"></script>
-<script src="data/visuals.js?v=26"></script>
-<script src="data/audio-map.js?v=26"></script>
-<script src="data/audio-sense-map.js?v=26"></script>
-<script src="data/translations-en.js?v=26"></script>
-<script src="data/audio-map-en.js?v=26"></script>
-<script src="data/word-images-map.js?v=26"></script>
-<script src="data/word-images-context-map.js?v=26"></script>
+<script src="data/levels-inline-v8.js?v=27"></script>
+<script src="data/visuals.js?v=27"></script>
+<script src="data/audio-map.js?v=27"></script>
+<script src="data/audio-sense-map.js?v=27"></script>
+<script src="data/translations-en.js?v=27"></script>
+<script src="data/audio-map-en.js?v=27"></script>
+<script src="data/word-images-map.js?v=27"></script>
+<script src="data/word-images-context-map.js?v=27"></script>
 <script src="../../../assets/js/app360-family-sync-v1.js?v=107"></script>
 <script src="../../../assets/js/app360-family-catalog-v1.js?v=107&brand=98"></script>
 <script src="../../../assets/js/legacy-compat.js?v=27"></script>
-<script src="../../../assets/js/swal-modern-loader.js?v=26"></script>
+<script src="../../../assets/js/swal-modern-loader.js?v=27"></script>
 <script src="ai-native-adapter.js?v=1"></script>
-<script src="runtime-v19.js?v=26&brand=98"></script>
-<script src="../../../assets/js/app-pwa.js?v=26"></script>
+<script src="data/silma-map.js?v=27"></script>
+<script src="runtime-v27.js?v=27&brand=98"></script>
+<script src="../../../assets/js/app-pwa.js?v=27"></script>
 <script src="../../../assets/js/offline-client-v1.js?v=1"></script>
 <script src="../../../assets/js/app360-access-v1.js?v=1"></script>
 </body>
