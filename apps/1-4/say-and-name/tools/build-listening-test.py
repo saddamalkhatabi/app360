@@ -3,7 +3,9 @@ from pathlib import Path
 repo=Path(__file__).resolve().parents[4];root=repo/'apps/1-4/say-and-name'
 sys.path.insert(0,str(root/'tools'))
 from prepare_silma import load
-folder=Path(sys.argv[1]);report=json.loads((folder/'part-30.json').read_text());expected={r['path']:r for r in load()['items']}
+folder=Path(sys.argv[1]);reportfile=folder/'part-30.json'
+if not reportfile.exists():reportfile=folder/'part-0.json'
+report=json.loads(reportfile.read_text());expected={r['path']:r for r in load()['items']}
 levels=json.loads((root/'data/levels-inline-v8.js').read_text().split('=',1)[1].strip().rstrip(';'))
 contexts={}
 for rows in levels.values():
