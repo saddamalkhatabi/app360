@@ -23,6 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="../../../assets/brand/family-school-360-share.jpg?v=98">
 <meta name="description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
+<link rel="stylesheet" href="meaning-learning-v1.css?v=1">
 </head>
 <body data-build="v26-ai-native">
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
@@ -60,6 +61,16 @@
     </div>
   </header>
 
+<nav class="learning-tracks" aria-label="مستوى التعلم">
+<button type="button" data-learning-track="names" aria-pressed="true">١ · أسماء الأشياء · 1–4</button>
+<button type="button" data-learning-track="sentences" aria-pressed="false">٢ · جمل مفيدة · 4–8</button></nav>
+<section class="panel meaning-panel" id="meaningPanel" hidden>
+<div class="meaning-top"><h2>كيف نستخدم الأشياء؟ · Useful sentences</h2><label>الفئة · Category <select id="meaningCategory"></select></label></div>
+<img id="meaningImage" class="meaning-picture" alt=""><h3 id="meaningName" class="meaning-name"></h3>
+<p class="meaning-note">اضغط 🔊 واستمع، ثم ردد. تتبع الكلمات المظللة · Tap, listen, and repeat.</p>
+<div id="meaningSentences"></div><p id="meaningStatus" class="meaning-note" role="status"></p>
+<div class="meaning-nav"><button id="meaningPrevious" type="button">السابق · Previous</button><span id="meaningCount"></span><button id="meaningNext" type="button">التالي · Next</button></div>
+<p id="meaningCoverage" class="meaning-note"></p></section>
   <section class="panel learn-panel">
     <div class="level-zone">
       <div class="level-zone-copy">
@@ -158,7 +169,10 @@
 <script src="../../../assets/js/swal-modern-loader.js?v=27"></script>
 <script src="ai-native-adapter.js?v=1"></script>
 <script src="data/silma-map.js?v=27"></script>
-<script src="runtime-v27.js?v=27&brand=98"></script>
+<script src="data/meaning-sentences-v1.js?v=1"></script>
+<script src="data/meaning-audio-v1.js?v=1"></script>
+<script src="runtime-v27.js?v=28&brand=98"></script>
+<script src="meaning-learning-v1.js?v=1"></script>
 <script src="../../../assets/js/app-pwa.js?v=27"></script>
 <script src="../../../assets/js/offline-client-v1.js?v=1"></script>
 <script src="../../../assets/js/app360-access-v1.js?v=1"></script>

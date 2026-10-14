@@ -170,7 +170,7 @@
       "status": "live",
       "kind": "goal_aligned",
       "priority": 1,
-      "description_ar": "بيئة مفردات بصرية وصوتية ثنائية اللغة تربط الصورة الواضحة بالنطق والإشارة والتسمية والمراجعة، مع تنظيم المحتوى حسب المعنى والاستعداد، ووضع للمرافق يساعده على تحويل البطاقة إلى حديث ولعب واقعي بدل المشاهدة فقط.",
+      "description_ar": "أسماء الأشياء بالصور والنطق للصغار، وجمل مفيدة عن المعنى والاستخدام للفئة 4–8 بالعربية والإنجليزية مع تتبع الكلمات أثناء النطق.",
       "practice_model": "اختر لغة العرض والنطق ومسار المفردات ← انظر للصورة وحاول الإشارة أو التسمية ← استمع للنطق ← اربط الكلمة بشيء أو موقف حقيقي ← راجع بصورة عشوائية أو موجهة",
       "goal_keys": [
         "learner-1-4-first-words-expressive-language",
@@ -274,10 +274,18 @@
       "blueprint_path": "apps/1-4/say-and-name/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md",
       "manifest": "apps/1-4/say-and-name/app.json",
-      "href": "apps/1-4/say-and-name/index.html?v=26",
+      "href": "apps/1-4/say-and-name/index.html?v=28",
       "cover": "assets/covers/a1-first-words.jpg",
       "audience": "learner",
-      "audience_note_ar": "واجهة الممارسة للطفل؛ المدرب يختار المادة ويثري الحوار دون اختبار النطق آليًا."
+      "audience_note_ar": "واجهة الممارسة للطفل؛ المدرب يختار المادة ويثري الحوار دون اختبار النطق آليًا.",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 2
+      }
     },
     {
       "id": "a1-imitate",
