@@ -2,7 +2,7 @@ name: Record single-pronunciation Say and Name SILMA vocabulary
 on:
   push:
     branches: [preview/say-name-single-voice-20261014]
-    paths: [.github/workflows/record-say-name-silma.yml]
+    paths: [apps/1-4/say-and-name/data/silma-regenerate.request]
   workflow_dispatch:
 permissions:
   contents: write
@@ -44,6 +44,14 @@ jobs:
           p.parent.mkdir(parents=True,exist_ok=True)
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
+      - name: Start each recording shard with a clean output directory
+        run: |
+          python - <<'PYCODE'
+          import pathlib,shutil
+          output=pathlib.Path('apps/1-4/say-and-name/audio/silma')
+          if output.exists():shutil.rmtree(output)
+          output.mkdir(parents=True)
+          PYCODE
       - name: Record exact authored vocabulary and instructions
         run: python apps/1-4/say-and-name/tools/generate_silma.py --part ${{ matrix.part }} --parts 32
       - uses: actions/upload-artifact@v4
