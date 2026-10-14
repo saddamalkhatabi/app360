@@ -52,8 +52,8 @@ function init(){
  $('meaningCategory').onchange=function(){category=this.value;index=0;render()};$('meaningPrevious').onclick=function(){move(-1)};$('meaningNext').onclick=function(){move(1)};
  $('meaningSentences').onclick=function(e){var b=e.target.closest('[data-sentence]');if(b)play(Number(b.getAttribute('data-sentence')))};
  Array.prototype.forEach.call(document.querySelectorAll('[data-learning-track]'),function(el){el.onclick=function(){setActive(el.getAttribute('data-learning-track')==='sentences')}});
- var query=new URLSearchParams(location.search),saved='';try{saved=localStorage.getItem('app360:say-name:track')||''}catch(e){}
- var explicit=query.get('launch_age')||query.get('age'),level=query.get('launch_level');
+ var query={get:function(key){var match=String(location.search||'').match(new RegExp('[?&]'+key+'=([^&]*)'));try{return match?decodeURIComponent(match[1]):''}catch(e){return ''}}},saved='';try{saved=localStorage.getItem('app360:say-name:track')||''}catch(e){}
+ var explicit=query.get('launch_age')||query.get('age')||(window.App360AgeLaunch?window.App360AgeLaunch.age():''),level=query.get('launch_level');
  setActive(query.get('learn')==='sentences'||level==='2'||explicit==='4-8'||(!explicit&&!level&&saved==='sentences'));
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});window.addEventListener('pagehide',stop);
 }
