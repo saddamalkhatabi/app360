@@ -1,24 +1,22 @@
 (function(){'use strict';
-var content=window.APP360_MEANING_CONTENT||{items:[],categories:[]},recordings=window.APP360_MEANING_AUDIO||{clips:{}},active=false,index=0,category='',audio=null,token=0,timer=null,frame=null,panel;
+var content=window.APP360_MEANING_CONTENT||{items:[],categories:[]},recordings=window.APP360_MEANING_AUDIO||{clips:{}},active=false,audio=null,token=0,timer=null,frame=null,panel;
 function $(id){return document.getElementById(id)}
 function esc(v){return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 function prefs(){return window.App360WordPlayer?window.App360WordPlayer.preferences():{display:'ar',voice:'ar',repeat:true,speech:true}}
-function list(){return content.items.filter(function(it){return !category||it.category===category})}
-function current(){return list()[index]}
+function current(){var word=window.App360WordPlayer&&window.App360WordPlayer.current();return word?content.items.filter(function(it){return it.key===word.category_ar+'\u0001'+word.ar})[0]:null}
 function clearHighlight(){if(!panel)return;Array.prototype.forEach.call(panel.querySelectorAll('.meaning-word'),function(el){el.classList.remove('is-speaking')})}
 function stop(){token++;clearTimeout(timer);timer=null;if(frame)cancelAnimationFrame(frame);frame=null;if(audio){audio.onended=null;audio.onerror=null;audio.pause();audio=null}clearHighlight();if($('meaningStatus'))$('meaningStatus').textContent=''}
 function cueIndex(cues,time){for(var i=0;i<cues.length;i++)if(time>=cues[i][1]&&time<cues[i][2])return cues[i][0];return -1}
-function play(number){
- stop();var it=current(),p=prefs();if(!it||!p.speech)return;var seq=token,langs=p.voice==='both'?['ar','en']:[p.voice],queue=[];
+function play(number,done){
+ if(window.App360WordPlayer)window.App360WordPlayer.stop();stop();var it=current(),p=prefs();if(!it||!p.speech)return;var seq=token,langs=p.voice==='both'?['ar','en']:[p.voice],queue=[];
  langs.forEach(function(lang){if(it.sentences[number][lang])queue.push(lang)});
  var missing=queue.some(function(lang){return !recordings.clips[it.sentences[number][lang].clip]});
- if(missing){$('meaningStatus').textContent='تسجيل SILMA لهذه الجملة قيد التجهيز · Recording pending';return}
- if(window.App360WordPlayer)window.App360WordPlayer.stop();
+ if(missing){$('meaningStatus').textContent='التسجيل قيد التجهيز · Recording pending';return}
  function one(pos,repeatRound){
   if(seq!==token)return;
-  if(pos>=queue.length){if(p.repeat&&!repeatRound){timer=setTimeout(function(){one(0,true)},1400)}else{clearHighlight();$('meaningStatus').textContent=''}return}
+  if(pos>=queue.length){if(p.repeat&&!repeatRound){timer=setTimeout(function(){one(0,true)},1400)}else{clearHighlight();$('meaningStatus').textContent='';if(done)done()}return}
   var lang=queue[pos],row=it.sentences[number][lang],clip=recordings.clips[row.clip];audio=new Audio(clip.path);audio.playbackRate=repeatRound?1.05:1;audio.preservesPitch=!repeatRound;audio.mozPreservesPitch=!repeatRound;audio.webkitPreservesPitch=!repeatRound;
-  $('meaningStatus').textContent=(repeatRound?'ترديد · Repeat':'استمع · Listen')+' — SILMA';
+  $('meaningStatus').textContent=(repeatRound?'ترديد · Repeat':'استمع · Listen');
   function tick(){if(seq!==token||!audio)return;clearHighlight();var word=cueIndex(clip.cues,audio.currentTime*1000),el=$('meaning-'+number+'-'+lang+'-'+word);if(el)el.classList.add('is-speaking');frame=requestAnimationFrame(tick)}
   audio.onended=function(){if(seq!==token)return;if(frame)cancelAnimationFrame(frame);clearHighlight();one(pos+1,repeatRound)};
   audio.onerror=function(){if(seq!==token)return;stop();$('meaningStatus').textContent='تعذر تحميل التسجيل. حاول مرة أخرى · Please try again'};
@@ -27,29 +25,24 @@ function play(number){
  one(0,false);
 }
 function render(){
- if(!panel)return;stop();var it=current(),p=prefs(),rows=list();if(!it)return;
- var maps=window.APP360_WORD_IMAGE_CONTEXT_MAP||{},map=window.APP360_WORD_IMAGE_MAP||{},file=maps[it.key]||map[it.ar];
- $('meaningImage').src=file?'assets/word-images/'+file:'';$('meaningImage').alt=p.display==='en'?it.en:it.ar;
- $('meaningName').textContent=p.display==='both'?it.ar+' · '+it.en:p.display==='en'?it.en:it.ar;$('meaningCount').textContent=(index+1)+' / '+rows.length;
- $('meaningCategory').value=category;
+ if(!panel)return;stop();var button=$('stageSpeakBtn');if(button)button.querySelector('span').textContent=prefs().display==='en'?'Read word and sentences':'انطق الكلمة والجمل';var it=current(),p=prefs();if(!it){$('meaningSentences').innerHTML='';return;}
  var langs=p.display==='both'?['ar','en']:[p.display],html='';
  it.sentences.forEach(function(row,n){html+='<article class="meaning-sentence"><button type="button" data-sentence="'+n+'" class="meaning-play" aria-label="استمع إلى الجملة '+(n+1)+'">🔊 '+(n+1)+'</button><div>';
   langs.forEach(function(lang){html+='<p dir="'+(lang==='ar'?'rtl':'ltr')+'" lang="'+lang+'">';row[lang].words.forEach(function(word,w){html+='<span class="meaning-word" id="meaning-'+n+'-'+lang+'-'+w+'">'+esc(word)+'</span> '});html+='</p>'});html+='</div></article>';
  });$('meaningSentences').innerHTML=html;
- var ready=Object.keys(recordings.clips).length,total=recordings.expected||0;$('meaningCoverage').innerHTML=ready===total&&total?'تسجيلات الجمل جاهزة باللغتين · SILMA':'تسجيلات SILMA الجاهزة: <bdi dir="ltr">'+ready+' / '+total+'</bdi> · اضغط على الجملة للاستماع';
+ var ready=Object.keys(recordings.clips).length,total=recordings.expected||0;$('meaningCoverage').innerHTML=ready===total&&total?'تسجيلات الجمل جاهزة باللغتين':'تسجيلات الجمل الجاهزة: <bdi dir="ltr">'+ready+' / '+total+'</bdi> · اضغط على الجملة للاستماع';
 }
-function move(n){stop();var rows=list();if(!rows.length)return;index=(index+n+rows.length)%rows.length;render()}
 function setActive(value){
  stop();if(window.App360WordPlayer)window.App360WordPlayer.stop();active=!!value;
- Array.prototype.forEach.call(document.querySelectorAll('.learn-panel,.facilitator'),function(el){el.hidden=active});panel.hidden=!active;
- ['childAudioHelpBtn','helpBtn'].forEach(function(id){if($(id))$(id).hidden=active});
+ panel.hidden=!active;
  Array.prototype.forEach.call(document.querySelectorAll('[data-learning-track]'),function(el){var on=el.getAttribute('data-learning-track')===(active?'sentences':'names');el.classList.toggle('is-active',on);el.setAttribute('aria-pressed',String(on))});
- if(active)render();try{localStorage.setItem('app360:say-name:track',active?'sentences':'names')}catch(e){}
+ var button=$('stageSpeakBtn');if(button)button.querySelector('span').textContent=active?(prefs().display==='en'?'Read word and sentences':'انطق الكلمة والجمل'):(prefs().display==='en'?'Speak word':'انطق الكلمة');if(active)render();try{localStorage.setItem('app360:say-name:track',active?'sentences':'names')}catch(e){}
 }
 function init(){
  panel=$('meaningPanel');if(!panel)return;
- $('meaningCategory').innerHTML='<option value="">كل الأشياء · All things</option>'+content.categories.map(function(cat){return '<option value="'+esc(cat.ar)+'">'+esc(cat.ar)+' · '+esc(cat.en)+'</option>'}).join('');
- $('meaningCategory').onchange=function(){category=this.value;index=0;render()};$('meaningPrevious').onclick=function(){move(-1)};$('meaningNext').onclick=function(){move(1)};
+ var stage=$('stage');stage.appendChild(panel);
+ ['meaningImage','meaningName','meaningCategory','meaningPrevious','meaningNext','meaningCount'].forEach(function(id){var el=$(id);if(el)el.hidden=true});
+ var top=panel.querySelector('.meaning-top');if(top)top.innerHTML='<h3>جمل مفيدة · Useful sentences</h3><button id="meaningWordOnly" type="button" class="meaning-play">🔊 الاسم فقط · Word only</button>';$('meaningWordOnly').onclick=function(){window.App360WordPlayer.sayCurrent()};
  $('meaningSentences').onclick=function(e){var b=e.target.closest('[data-sentence]');if(b)play(Number(b.getAttribute('data-sentence')))};
  Array.prototype.forEach.call(document.querySelectorAll('[data-learning-track]'),function(el){el.onclick=function(){setActive(el.getAttribute('data-learning-track')==='sentences')}});
  var query={get:function(key){var match=String(location.search||'').match(new RegExp('[?&]'+key+'=([^&]*)'));try{return match?decodeURIComponent(match[1]):''}catch(e){return ''}}},saved='';try{saved=localStorage.getItem('app360:say-name:track')||''}catch(e){}
@@ -57,6 +50,6 @@ function init(){
  setActive(query.get('learn')==='sentences'||level==='2'||explicit==='4-8'||(!explicit&&!level&&saved==='sentences'));
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});window.addEventListener('pagehide',stop);
 }
-window.App360MeaningLearning={active:function(){return active},speak:function(){play(0)},move:move,refresh:function(){if(active)render()},stop:stop,cueIndex:cueIndex};
+window.App360MeaningLearning={active:function(){return active},speak:function(){stop();var word=window.App360WordPlayer.current();if(!word)return;window.App360WordPlayer.sayCurrent(function(){var it=current();if(!it)return;var n=0;function next(){if(n<it.sentences.length)play(n++,next)}next()})},refresh:function(){if(active)render()},stop:stop,cueIndex:cueIndex};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
