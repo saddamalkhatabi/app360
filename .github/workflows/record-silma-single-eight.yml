@@ -14,6 +14,7 @@ jobs:
   record-and-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    # Single-word CPU generation uses native FP32 rather than emulated BF16.
     env:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'

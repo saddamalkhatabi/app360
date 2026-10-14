@@ -13,7 +13,9 @@ hub=pathlib.Path(os.environ['HF_HOME'])/'hub'
 model=next((hub/'models--silma-ai--silma-tts/snapshots').rglob('model.pt'))
 vocab=next(model.parent.rglob('vocab.txt'))
 vocoder=next((hub/'models--charactr--vocos-mel-24khz/snapshots').glob('*'))
-engine=load_engine(model,vocab,vocoder,threads=2)
+# FP32 avoids extremely slow emulated BF16 on hosted CPUs without native support.
+engine=load_engine(model,vocab,vocoder,threads=2,precision='fp32')
+print('SILMA CPU precision: fp32',flush=True)
 ref=str(files('silma_tts').joinpath('infer/ref_audio_samples/ar.ref.24k.wav'))
 ref_text='ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام.'
 cache=pathlib.Path('/tmp/say-name-silma');cache.mkdir(exist_ok=True)
