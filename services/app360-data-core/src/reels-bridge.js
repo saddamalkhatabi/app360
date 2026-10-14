@@ -1,0 +1,31 @@
+'use strict';
+// The Reels authority is fixed in server configuration, never supplied by a browser.
+var crypto=require('crypto');
+function config(){var base=String(process.env.APP360_REELS_BASE_URL||'').replace(/\/$/,'');var secret=String(process.env.APP360_REELS_BRIDGE_SECRET||'');if(!base||secret.length<32)return null;var u=new URL(base);if(u.username||u.password||u.pathname!=='/'||u.search||u.hash||(u.protocol!=='https:'&&!(process.env.NODE_ENV==='test'&&u.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(u.hostname))))throw Error('Invalid APP360_REELS_BASE_URL');return {base:u.origin,secret:secret};}
+function configured(){return !!config();}
+function key(){var c=config();if(!c)throw Error('Reels bridge not configured');return crypto.createHash('sha256').update(c.secret).digest();}
+function encrypt(raw){var iv=crypto.randomBytes(12),cipher=crypto.createCipheriv('aes-256-gcm',key(),iv);var data=Buffer.concat([cipher.update(raw,'utf8'),cipher.final()]);return Buffer.concat([iv,cipher.getAuthTag(),data]).toString('base64');}
+function decrypt(raw){var b=Buffer.from(raw,'base64'),d=crypto.createDecipheriv('aes-256-gcm',key(),b.subarray(0,12));d.setAuthTag(b.subarray(12,28));return Buffer.concat([d.update(b.subarray(28)),d.final()]).toString('utf8');}
+async function call(action,body){var c=config();if(!c)throw Object.assign(Error('Reels bridge not configured'),{httpStatus:503});var ctrl=new AbortController(),timer=setTimeout(function(){ctrl.abort();},8000);try{var r=await fetch(c.base+'/api/addons/school/bridge/'+action,{method:'POST',headers:{'Content-Type':'application/json','X-School-Bridge-Secret':c.secret},body:JSON.stringify(body),redirect:'error',signal:ctrl.signal});var d=await r.json();if(!r.ok||!d.ok)throw Object.assign(Error(d.message||'Reels request failed'),{httpStatus:r.status});return d;}finally{clearTimeout(timer);}}
+async function attach(db,session,userId,result){await db('reels_bridge_sessions').insert({session_id:session.id,user_id:userId,grant_cipher:encrypt(result.grant_token),expires_at:result.expires_at});}
+async function exchange(db,raw,sessions){var result=await call('exchange',{code:raw}),linked=await sessions.ensureExternalUser(db,result.identity);var created=await sessions.createIdentitySession(db,{user_id:linked.user.id,account_id:linked.account_id,source:'safe-reels-360',ttl_hours:12});await attach(db,created.session,linked.user.id,result);return {token:created.token,expires_at:created.session.expires_at,profile:{user_id:linked.user.id,display_name:linked.user.display_name,role:linked.user.role,age_band:linked.user.age_band,account_id:linked.account_id,external:true}};}
+async function credential(db,me){var r=await db('reels_bridge_sessions').where({session_id:me.session.id,user_id:me.user.id}).first();if(!r||new Date(r.expires_at).getTime()<=Date.now())throw Object.assign(Error('Linked Reels session required'),{httpStatus:401});return decrypt(r.grant_cipher);}
+async function launch(db,me){return call('return',{grant_token:await credential(db,me)});}
+async function check(db,me){try{return await call('check',{grant_token:await credential(db,me)});}catch(e){if(e.httpStatus===401||e.httpStatus===403){await db('identity_sessions').where({id:me.session.id}).update({status:'revoked'});if(authorizationCache)authorizationCache.delete(me.session.id);}throw e;}}
+var authorizationCache=new Map();
+async function authorize(db,me,offlineUsage){
+ if(!configured())return;
+ var linked=await db('reels_bridge_sessions').where({session_id:me.session.id,user_id:me.user.id}).first();if(!linked)return;
+ var cached=authorizationCache.get(me.session.id);if(cached&&cached>Date.now())return;
+ try{await check(db,me);if(authorizationCache.size>1000)authorizationCache.clear();authorizationCache.set(me.session.id,Date.now()+30000);}
+ catch(e){authorizationCache.delete(me.session.id);if(e.httpStatus===401||e.httpStatus===403){await db('identity_sessions').where({id:me.session.id}).update({status:'revoked'});throw e;}if(!offlineUsage)throw Object.assign(Error('Identity authority unavailable'),{httpStatus:503});}
+}
+async function logout(db,me){if(!configured()||!me)return;var row=await db('reels_bridge_sessions').where({session_id:me.session.id}).first();if(row){try{await call('logout',{grant_token:decrypt(row.grant_cipher)});}catch(_){}await db('reels_bridge_sessions').where({session_id:me.session.id}).del();}}
+async function queue(db,me,batch){if(!configured())return;var link=await db('reels_bridge_sessions').where({session_id:me.session.id,user_id:me.user.id}).first();if(!link)return;
+ // Only forward receipts accepted by this server for the authenticated user, never client-supplied child IDs.
+ var rows=await db('usage_receipts').where({user_id:me.user.id,batch_id:String(batch.batch_id||'')}).select('app_id','occurred_day','active_seconds','opens');if(!rows.length)return;
+ var payload={batch_id:String(batch.batch_id),entries:rows};var id=crypto.createHash('sha256').update(me.user.id+'|'+payload.batch_id).digest('hex');await db('reels_bridge_outbox').insert({id:id,user_id:me.user.id,batch_json:JSON.stringify(payload)}).onConflict('id').ignore();
+}
+var draining=false;
+async function drain(db){if(!configured()||draining)return;draining=true;try{var rows=await db('reels_bridge_outbox').orderBy('created_at').limit(50);for(var row of rows){var link=await db('reels_bridge_sessions as b').join('identity_sessions as s','s.id','b.session_id').where('b.user_id',row.user_id).where('s.status','active').where('b.expires_at','>',new Date().toISOString()).orderBy('b.created_at','desc').select('b.grant_cipher').first();if(!link)continue;try{await call('usage',{grant_token:decrypt(link.grant_cipher),batch:JSON.parse(row.batch_json)});await db('reels_bridge_outbox').where({id:row.id}).del();}catch(_){await db('reels_bridge_outbox').where({id:row.id}).increment('attempts',1);break;}}}finally{draining=false;}}
+module.exports={configured:configured,config:config,call:call,attach:attach,exchange:exchange,launch:launch,check:check,logout:logout,queue:queue,drain:drain,authorize:authorize};

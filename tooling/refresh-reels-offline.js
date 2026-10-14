@@ -1,0 +1,9 @@
+'use strict';
+// Update only changed shared runtime records; preserve all existing media and app records.
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),root=path.resolve(__dirname,'..');
+const changed=['index.html','assets/js/app360-access-v1.js','assets/js/app360-ai-shell.js','assets/js/app360-session-v1.js','assets/js/family-reels-launcher-v1.js','assets/js/reels-bridge-v1.js','assets/js/reels-login-v1.js','assets/js/reels-return-v1.js','assets/js/offline-worker-v1.js'];
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const catalogPath=path.join(root,'data/offline-catalog.json'),catalog=JSON.parse(fs.readFileSync(catalogPath));
+const check=process.argv.includes('--check');
+for(const app of catalog.apps){const file=path.join(root,app.manifest),before=fs.readFileSync(file,'utf8'),bundle=JSON.parse(before);const rows=new Map(bundle.files.map(x=>[x.path,x]));for(const name of changed){const b=fs.readFileSync(path.join(root,name));rows.set(name,{path:name,bytes:b.length,sha256:hash(b)});}bundle.files=[...rows.values()].sort((a,b)=>a.path.localeCompare(b.path,'en'));bundle.version=hash(JSON.stringify(bundle.files)).slice(0,16);app.version=bundle.version;app.bytes=bundle.files.reduce((n,r)=>n+r.bytes,0);app.count=bundle.files.length;const after=JSON.stringify(bundle)+'\n';if(check&&after!==before)throw Error('Stale offline bridge records: '+app.id);if(!check)fs.writeFileSync(file,after);}
+const updated=JSON.stringify(catalog,null,2)+'\n';if(check&&updated!==fs.readFileSync(catalogPath,'utf8'))throw Error('Stale offline catalog totals');if(!check)fs.writeFileSync(catalogPath,updated);console.log((check?'Verified':'Updated')+' shared bridge digests in '+catalog.apps.length+' offline app manifests');

@@ -1,5 +1,6 @@
 'use strict';
-function configured(){return !!process.env.APP360_SAFE_REELS_AUTH_URL}
+var bridge=require('./reels-bridge');
+function configured(){return bridge.configured()||!!process.env.APP360_SAFE_REELS_AUTH_URL}
 function first(obj,keys){for(var i=0;i<keys.length;i++)if(obj&&obj[keys[i]]!=null&&obj[keys[i]]!=='')return obj[keys[i]];return null}
 function normalize(body){
   var root=body&&body.data&&typeof body.data==='object'?body.data:body||{};
@@ -24,6 +25,7 @@ function normalize(body){
 }
 async function loginChild(input){
   input=input||{};
+  if(bridge.configured()){var result;try{result=await bridge.call('login',{query:input.query,pin:input.pin,client_ip:input.client_ip||''})}catch(e){e.code=e.httpStatus===401||e.httpStatus===429?'AUTH_REJECTED':'SAFE_REELS_UPSTREAM_ERROR';throw e}finally{input.pin=''}return Object.assign({},result.identity,{_reels_bridge:result})}
   if(!configured()){var e=new Error('Safe Reels auth integration is not configured');e.code='SAFE_REELS_NOT_CONFIGURED';throw e}
   var query=String(input.query||'').trim(),pin=String(input.pin||'').trim();
   if(!query||!pin){var bad=new Error('query and PIN are required');bad.code='INVALID_CREDENTIAL_INPUT';throw bad}
