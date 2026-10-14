@@ -1,5 +1,5 @@
 """Only activate the new player after every exact SILMA recording decodes."""
-import hashlib,json,subprocess
+import hashlib,json,subprocess,os
 from prepare_silma import ROOT,load
 manifest=load();records={}
 (ROOT/'audio/silma-scripts.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
@@ -26,8 +26,10 @@ for row in manifest['items']:
  mapfile=ROOT/('data/audio-map.js' if row['kind']=='word' else 'data/audio-sense-map.js')
  legacy=json.loads(re.search(r'=(\{.*\});',mapfile.read_text()).group(1))
  old=legacy.get(row['key'])
+ assert old or row['kind']=='sense',('Missing original word path',row['key'])
  if old:
   destination=ROOT/old;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/row['path'],destination)
+  assert hashlib.sha256(destination.read_bytes()).hexdigest()==records[row['path']]['sha256'],('Original path replacement failed',old)
 code='window.APP360_SILMA='+json.dumps(dict(version=27,words=words,senses=senses,guides=guides,spoken=spoken),ensure_ascii=False,separators=(',',':'))+';\n'
 (ROOT/'data/silma-map.js').write_text(code)
 (ROOT/'audio/silma-validation.json').write_text(json.dumps(dict(engine='silma-tts',package_version='1.0.5',words=len(words),senses=len(senses),guides=len(guides),actual_audio_review='pending',verification='Complete authored coverage; MP3 decoding, duration, exact SHA256',clips=clips),ensure_ascii=False,indent=2)+'\n')
@@ -37,4 +39,16 @@ if 'id="childAudioHelpBtn"' not in text:text=text.replace('<button id="helpBtn"'
 if 'id="categoryAudioHelpBtn"' not in text:text=text.replace('<h3 data-i18n="categories">التصنيفات</h3>', '<h3 data-i18n="categories">التصنيفات</h3><button id="categoryAudioHelpBtn" class="quiet-btn" type="button" aria-label="اسمع طريقة اختيار المجموعة">🔊</button>')
 text=text.replace('v=26','v=27');p.write_text(text)
 p=ROOT/'styles-v19.css';p.write_text(p.read_text()+'\n/* Recorded vocabulary listening cue */\n.stage.is-speaking .picture-button{outline:5px solid #22b893;outline-offset:-5px}.stage.is-speaking .word-copy{background:#e2fbef;border-radius:18px}.sound-button[aria-pressed="true"]{background:#087e68;color:#fff}\n')
+# Stage deterministic offline manifests for every app reusing these shared files.
+# The running release workflow also invokes the builder; its second run is identical.
+if os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_WORKFLOW')=='Record single-pronunciation Say and Name SILMA vocabulary':
+ repo=ROOT.parents[2]
+ subprocess.run(['node',str(repo/'tooling/build-offline-catalog.js')],cwd=repo,check=True)
+ subprocess.run(['git','add','data/offline/','data/offline-catalog.json'],cwd=repo,check=True)
+ changed=subprocess.check_output(['git','diff','--name-only'],cwd=repo,text=True).splitlines()
+ for file in changed:
+  if file.startswith('apps/') and file.endswith('/sw.js'):
+   expected="self.APP360_OFFLINE_ROOT='../../../';\nimportScripts('../../../assets/js/offline-worker-v1.js?v=1');\n"
+   assert (repo/file).read_text()==expected,('Unexpected service worker modification',file)
+   subprocess.run(['git','add',file],cwd=repo,check=True)
 print('Validated and activated',len(clips),'actual SILMA recordings')
