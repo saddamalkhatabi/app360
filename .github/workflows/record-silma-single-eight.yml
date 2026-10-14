@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: silma-single-eight
   cancel-in-progress: true
@@ -61,3 +62,15 @@ jobs:
           git commit -m 'Publish eight verified SILMA single-pronunciation recordings for listening approval'
           git pull --rebase origin preview/say-name-single-voice-20261014
           git push origin HEAD:preview/say-name-single-voice-20261014
+      - name: Resume the complete single-pronunciation vocabulary after publishing the sample
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYCODE'
+          import json,os,urllib.request
+          url='https://api.github.com/repos/saddamalkhatabi/app360/actions/workflows/record-say-name-silma.yml/dispatches'
+          data=json.dumps({'ref':'preview/say-name-single-voice-20261014'}).encode()
+          req=urllib.request.Request(url,data=data,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'},method='POST')
+          with urllib.request.urlopen(req) as response:assert response.status==204
+          print('Complete single-pronunciation recording resumed after the sample was published')
+          PYCODE
