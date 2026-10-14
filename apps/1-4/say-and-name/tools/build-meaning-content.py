@@ -206,10 +206,62 @@ context('الرياضة','كأس',('يُقَدَّمُ الْكَأْسُ لِل
 for material in ['خشب','حديد','زجاج','طوب','إسمنت']:
  context('البناء',material,('يَسْتَخْدِمُ الْكِبَارُ هَذِهِ الْمَادَّةَ فِي الْبِنَاءِ أَوْ صُنْعِ الْأَشْيَاءِ.','Grown-ups use this material to build or make things.'))
 
+CUSTOM=json.loads((ROOT/'data/meaning-authored-v2.json').read_text())
+# Every remaining lesson identifies its subject explicitly, rather than sharing
+# an anonymous sentence with all the other objects in a category.
+NAMED={
+ 'family':('أَتَحَدَّثُ مَعَ «{ar}» وَأَسْتَمِعُ بِاهْتِمَامٍ.','I talk with the person called {en} and listen carefully.'),
+ 'body':('«{ar}» جُزْءٌ مِنَ الْجِسْمِ أَتَعَرَّفُ عَلَيْهِ.','{en} is a part of the body that I learn to identify.'),
+ 'clothes':('أَتَعَلَّمُ مَتَى أَرْتَدِي «{ar}» وَكَيْفَ أُرَتِّبُهُ.','I learn when to wear {en} and how to put it away.'),
+ 'home':('أَتَعَرَّفُ عَلَى «{ar}» فِي الْبَيْتِ وَأُحَافِظُ عَلَيْهِ.','I find the item called {en} at home and look after it.'),
+ 'kitchen':('أَتَعَلَّمُ اسْتِخْدَامَ «{ar}» فِي الْمَطْبَخِ مَعَ شَخْصٍ كَبِيرٍ.','I learn to use the kitchen item called {en} with a grown-up.'),
+ 'wash':('أَتَعَلَّمُ كَيْفَ نَسْتَخْدِمُ «{ar}» لِلنَّظَافَةِ.','I learn how to use the item called {en} for cleaning.'),
+ 'food':('«{ar}» طَعَامٌ نَتَنَاوَلُهُ ضِمْنَ وَجَبَاتٍ مُتَنَوِّعَةٍ.','{en} is food we eat as part of varied meals.'),
+ 'fruit':('نَغْسِلُ الْفَاكِهَةَ الْمُسَمَّاةَ «{ar}» قَبْلَ تَجْهِيزِهَا لِلْأَكْلِ.','We wash the fruit called {en} before preparing it to eat.'),
+ 'veg':('نَغْسِلُ «{ar}» قَبْلَ تَجْهِيزِهِ لِلطَّعَامِ.','We wash the vegetable called {en} before preparing it for a meal.'),
+ 'nuts':('أَتَعَرَّفُ عَلَى «{ar}» ضِمْنَ الْمُكَسَّرَاتِ وَالْبُذُورِ.','I learn about {en} among nuts and seeds.'),
+ 'sweet':('نَتَنَاوَلُ قَلِيلًا مِنَ الْحَلْوَى الْمُسَمَّاةِ «{ar}».','We eat a small amount of the sweet called {en}.'),
+ 'spice':('نُضِيفُ قَلِيلًا مِنْ «{ar}» لِنُغَيِّرَ نَكْهَةَ الطَّعَامِ.','We add a little of the spice called {en} to change food flavor.'),
+ 'animal':('أُرَاقِبُ الْحَيَوَانَ الْمُسَمَّى «{ar}» مِنْ مَسَافَةٍ آمِنَةٍ.','I observe the animal called {en} from a safe distance.'),
+ 'small-animal':('أُرَاقِبُ الْكَائِنَ الصَّغِيرَ الْمُسَمَّى «{ar}» دُونَ لَمْسِهِ.','I observe the small creature called {en} without touching it.'),
+ 'animal-part':('أَتَعَرَّفُ عَلَى «{ar}» فِي جِسْمِ الْحَيَوَانِ.','I learn to identify {en} on an animal’s body.'),
+ 'animal-life':('أَتَعَرَّفُ عَلَى كَلِمَةِ «{ar}» فِي دَوْرَةِ حَيَاةِ الْحَيَوَانِ.','I learn about {en} in the life cycle of an animal.'),
+ 'transport':('نَسْتَخْدِمُ وَسِيلَةَ النَّقْلِ الْمُسَمَّاةَ «{ar}» لِنَقْلِ النَّاسِ أَوِ الْأَشْيَاءِ.','The vehicle called {en} carries people or things.'),
+ 'vehicle-part':('«{ar}» جُزْءٌ مِنْ وَسِيلَةِ النَّقْلِ أَتَعَرَّفُ عَلَى عَمَلِهِ.','{en} is a vehicle part whose job I learn about.'),
+ 'nature':('أُرَاقِبُ «{ar}» فِي الطَّبِيعَةِ وَأَتَعَلَّمُ عَنْهُ.','I observe {en} in nature and learn about it.'),
+ 'plants':('أَتَعَلَّمُ عَنْ «{ar}» وَعَلَاقَتِهِ بِالنَّبَاتَاتِ.','I learn about {en} and how it relates to plants.'),
+ 'space':('أَتَعَلَّمُ عَنْ «{ar}» فِي دَرْسِ السَّمَاءِ وَالْفَضَاءِ.','I learn about {en} in a lesson about the sky and space.'),
+ 'colors':('أَبْحَثُ عَنْ لَوْنٍ «{ar}» فِي الْأَشْيَاءِ حَوْلِي.','I look for the color {en} in things around me.'),
+ 'shapes':('أَرْسُمُ شَكْلَ «{ar}» وَأَبْحَثُ عَنْهُ حَوْلِي.','I draw the shape called {en} and look for it around me.'),
+ 'toys':('أَلْعَبُ بِـ«{ar}» وَأَنْتَظِرُ دَوْرِي.','I play with the toy called {en} and wait for my turn.'),
+ 'daily':('أَتَعَلَّمُ مَتَى أَحْتَاجُ إِلَى «{ar}» فِي يَوْمِي.','I learn when I need the item called {en} during my day.'),
+ 'weather':('أَتَعَلَّمُ مَعْنَى «{ar}» لِوَصْفِ الطَّقْسِ وَالْفُصُولِ.','I learn what {en} means when describing weather and seasons.'),
+ 'school':('أَتَعَلَّمُ عَنْ «{ar}» فِي الْمَدْرَسَةِ.','I learn about {en} at school.'),
+ 'art':('أَتَعَرَّفُ عَلَى «{ar}» وَعَلَاقَتِهِ بِالرَّسْمِ وَالصُّوَرِ.','I learn about {en} and how it relates to art and pictures.'),
+ 'music':('أَتَعَرَّفُ عَلَى «{ar}» وَأَسْتَمِعُ إِلَى صَوْتِهِ.','I learn about {en} and listen to its sound.'),
+ 'descriptions':('أَسْتَخْدِمُ كَلِمَةَ «{ar}» لِوَصْفِ الْأَشْيَاءِ.','I use the word {en} to describe things.'),
+ 'jobs':('أَتَعَلَّمُ عَنْ عَمَلِ الشَّخْصِ الْمُسَمَّى «{ar}».','I learn about the work of a person called {en}.'),
+ 'senses':('أَتَعَلَّمُ كَيْفَ تُسَاعِدُنِي حَاسَّةُ «{ar}» عَلَى فَهْمِ مَا حَوْلِي.','I learn how the sense called {en} helps me understand my surroundings.'),
+ 'places':('أَتَعَلَّمُ لِمَاذَا نَذْهَبُ إِلَى الْمَكَانِ الْمُسَمَّى «{ar}».','I learn why people visit the place called {en}.'),
+ 'technology':('أَتَعَلَّمُ اسْتِخْدَامَ «{ar}» بِمُسَاعَدَةِ شَخْصٍ كَبِيرٍ.','I learn to use the device called {en} with a grown-up’s help.'),
+ 'tools':('يَسْتَخْدِمُ الْكِبَارُ «{ar}» فِي الْعَمَلِ وَالْإِصْلَاحِ.','Grown-ups use the tool called {en} for work and repairs.'),
+ 'sports':('أَتَعَلَّمُ عَنْ «{ar}» فِي الرِّيَاضَةِ وَاللَّعِبِ.','I learn about {en} in sports and play.'),
+ 'events':('نَسْتَخْدِمُ «{ar}» فِي بَعْضِ الْمُنَاسَبَاتِ.','We use the item called {en} on some special occasions.'),
+ 'time':('أَسْتَخْدِمُ كَلِمَةَ «{ar}» لِوَصْفِ الْوَقْتِ.','I use the word {en} to describe time.'),
+ 'directions':('أَسْتَخْدِمُ كَلِمَةَ «{ar}» لِوَصْفِ مَكَانِ الْأَشْيَاءِ.','I use the word {en} to describe where things are.'),
+ 'emotions':('أَتَعَلَّمُ مَعْنَى «{ar}» لِأُعَبِّرَ عَنْ شُعُورِي.','I learn the meaning of {en} to express my feelings.'),
+ 'health':('أَتَعَلَّمُ عَنْ «{ar}» مَعَ شَخْصٍ كَبِيرٍ وَلَا أَسْتَخْدِمُهُ وَحْدِي.','I learn about {en} with a grown-up and do not use it alone.'),
+ 'road':('أَتَعَلَّمُ مَعْنَى «{ar}» لِأَتَنَقَّلَ بِأَمَانٍ.','I learn the meaning of {en} to travel safely.'),
+ 'science':('أَتَعَلَّمُ عَنْ «{ar}» فِي تَجْرِبَةٍ مَعَ شَخْصٍ كَبِيرٍ.','I learn about {en} in an experiment with a grown-up.'),
+ 'count':('أَسْتَخْدِمُ كَلِمَةَ «{ar}» لِلْعَدِّ وَالْمُقَارَنَةِ.','I use the word {en} for counting and comparing.'),
+ 'camp':('نَسْتَعِدُّ لِلرِّحْلَةِ وَنَتَعَلَّمُ اسْتِخْدَامَ «{ar}».','We prepare for a trip and learn to use the item called {en}.'),
+ 'sounds':('أَسْتَمِعُ إِلَى صَوْتِ «{ar}» وَأَتَعَرَّفُ عَلَيْهِ.','I listen to the sound called {en} and learn to recognize it.')
+}
+
 def build():
  levels=json.loads((ROOT/'data/levels-inline-v8.js').read_text().split('=',1)[1].strip().rstrip(';'))
  en=json.loads((ROOT/'data/translations-en.js').read_text().split('=',1)[1].strip().rstrip(';'))
- items=[];seen=set();clips={};cats=[];cat_seen=set()
+ items=[];seen=set();clips={};cats=[];cat_seen=set();spoken=json.loads((ROOT/'data/silma-map.js').read_text().split('=',1)[1].strip().rstrip(';'))['spoken']
  priority=['ملعقة','كوب','كتاب','صابون','مظلة','قلم','فرشاة أسنان','منشفة','ماء','باب']
  for rows in levels.values():
   for cat,emoji,words in rows:
@@ -218,11 +270,23 @@ def build():
    for word in words.split('|'):
     key=cat+'\u0001'+word
     if key in seen:continue
-    seen.add(key);lessons=CONTEXT.get(key,SPECIAL.get(word,FAMILIES[CATEGORY[cat]]))
+    seen.add(key)
+    if key in CONTEXT:lessons=CONTEXT[key]
+    elif word in CUSTOM:lessons=[CUSTOM[word]]
+    elif word in SPECIAL:
+     lessons=[dict(row) for row in SPECIAL[word]]
+     # Shared authored uses remain accurate, but identify the actual subject.
+     shared=any(other!=word and rows==SPECIAL[word] for other,rows in SPECIAL.items())
+     if shared:
+      lessons[0]=dict(ar=spoken.get(key,spoken.get(word,word))+'. '+lessons[0]['ar'],en=en['words'].get(key,word)+'. '+lessons[0]['en'],lead_name=True)
+    else:
+     template=NAMED[CATEGORY[cat]]
+     lessons=[dict(ar=template[0].format(ar=spoken.get(key,spoken.get(word,word))),en=template[1].format(en=en['words'].get(key,word).lower()))]
+
     assert 1<=len(lessons)<=3
     rows_out=[]
     for lesson in lessons:
-     row={}
+     row={'lead_name':True} if lesson.get('lead_name') else {}
      for lang in ['ar','en']:
       text=lesson[lang];tokens=text.split();assert text.endswith('.') and 3<=len(tokens)<=22,(word,text)
       cid=lang+'_'+hashlib.sha256((lang+'|'+text).encode()).hexdigest()[:20]
@@ -239,7 +303,7 @@ def build():
     if cid not in added:ordered.append(clips[cid]);added.add(cid)
  data=dict(schema=1,age='4-8',categories=cats,items=items)
  (ROOT/'data/meaning-sentences-v1.js').write_text('window.APP360_MEANING_CONTENT='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
- manifest=dict(schema=1,engine='silma-tts',package_version='1.0.5',model_revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',priority_count=6,items=ordered)
+ manifest=dict(schema=1,engine='silma-tts',package_version='1.0.5',model_revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',priority_count=20,items=ordered)
  (ROOT/'data/meaning-scripts-v1.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  if not (ROOT/'data/meaning-audio-v1.js').exists():(ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(dict(schema=1,expected=len(ordered),clips={}))+';\n')
  print(dict(objects=len(items),unique_words=len({x['ar'] for x in items}),categories=len(cats),unique_bilingual_recordings=len(ordered)))

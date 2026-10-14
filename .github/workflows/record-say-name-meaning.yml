@@ -12,7 +12,7 @@ concurrency:
 jobs:
   priority:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 360
     env:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'
@@ -82,9 +82,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 360
     env:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'
@@ -114,12 +114,28 @@ jobs:
           PY
           python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
       - name: Record and acoustically align Arabic and English sentences
-        run: python apps/1-4/say-and-name/tools/generate_meaning.py --part ${{ matrix.part }} --parts 32 --output /tmp/meaning-output
+        run: python apps/1-4/say-and-name/tools/generate_meaning.py --part ${{ matrix.part }} --parts 64 --output /tmp/meaning-output
       - uses: actions/upload-artifact@v4
         with:
           name: meaning-part-${{ matrix.part }}
           path: /tmp/meaning-output
           retention-days: 14
+      - name: Publish this finished recording batch without overwriting other batches
+        continue-on-error: true
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${{ github.ref_name }}"
+            git reset --hard "origin/${{ github.ref_name }}"
+            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/meaning-output --merge
+            node apps/1-4/say-and-name/tools/test-meaning.cjs
+            node tooling/build-offline-catalog.js
+            git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js data/offline-catalog.json data/offline/a1-first-words.json
+            git diff --cached --quiet && break
+            git commit -m 'Publish another completed bilingual sentence recording batch'
+            if git push origin "HEAD:${{ github.ref_name }}"; then break; fi
+          done
   publish-complete:
     needs: [record, publish-sample]
     runs-on: ubuntu-latest
