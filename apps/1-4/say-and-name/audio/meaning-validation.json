@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1668,
+  "ready": 1669,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -156471,6 +156471,85 @@
       "sha256": "59c29a70be032c59798059c14372c5b18b2ed88dce0aaa5016f720fda98fb0f5",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9742,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c9e586020631aabbf254": {
+      "id": "ar_c9e586020631aabbf254",
+      "language": "ar",
+      "text": "يستخدم الشمبانزي أحيانا عصا لإخراج الحشرات من مخابئها.",
+      "words": [
+        "يستخدم",
+        "الشمبانزي",
+        "أحيانا",
+        "عصا",
+        "لإخراج",
+        "الحشرات",
+        "من",
+        "مخابئها."
+      ],
+      "path": "audio/meaning/ar/ar_c9e586020631aabbf254.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يستخدم الشمبانزي أحياناً عصاً لإخراج الحشرات من مخابئها",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          541
+        ],
+        [
+          1,
+          621,
+          1282
+        ],
+        [
+          2,
+          1462,
+          1883
+        ],
+        [
+          3,
+          2184,
+          2304
+        ],
+        [
+          4,
+          2364,
+          2825
+        ],
+        [
+          5,
+          2885,
+          3446
+        ],
+        [
+          6,
+          3586,
+          3706
+        ],
+        [
+          7,
+          3746,
+          4387
+        ]
+      ],
+      "duration_ms": 4608,
+      "sha256": "d58252852d7d4b1d5956cc01c721661a26e18e0083020682ecd85c7456b88d71",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9317,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
