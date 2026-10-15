@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1665,
+  "ready": 1668,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -156134,6 +156134,343 @@
       "sha256": "acd69fc6cb94c9fe15ed573875d43a95e1106cdb61a30ed48e8eadf5baaf8552",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9728,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a265798fb3d5464576b9": {
+      "id": "en_a265798fb3d5464576b9",
+      "language": "en",
+      "text": "Pasta is usually made from wheat and cooked in water before eating.",
+      "words": [
+        "Pasta",
+        "is",
+        "usually",
+        "made",
+        "from",
+        "wheat",
+        "and",
+        "cooked",
+        "in",
+        "water",
+        "before",
+        "eating."
+      ],
+      "path": "audio/meaning/en/en_a265798fb3d5464576b9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Pasta is usually made from wheat and cooked in water before eating.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          481
+        ],
+        [
+          1,
+          822,
+          902
+        ],
+        [
+          2,
+          1043,
+          1404
+        ],
+        [
+          3,
+          1484,
+          1725
+        ],
+        [
+          4,
+          1765,
+          1925
+        ],
+        [
+          5,
+          2026,
+          2306
+        ],
+        [
+          6,
+          2567,
+          2667
+        ],
+        [
+          7,
+          2707,
+          2968
+        ],
+        [
+          8,
+          3008,
+          3088
+        ],
+        [
+          9,
+          3149,
+          3469
+        ],
+        [
+          10,
+          3510,
+          3790
+        ],
+        [
+          11,
+          3871,
+          4191
+        ]
+      ],
+      "duration_ms": 5114,
+      "sha256": "eb568aaa38efba85feeca43cc239dc4953586d7d4187659f686de293957b497f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9879,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_2ed378fdf5013eeaf99f": {
+      "id": "en_2ed378fdf5013eeaf99f",
+      "language": "en",
+      "text": "A headteacher organizes the school and helps teachers and students work together.",
+      "words": [
+        "A",
+        "headteacher",
+        "organizes",
+        "the",
+        "school",
+        "and",
+        "helps",
+        "teachers",
+        "and",
+        "students",
+        "work",
+        "together."
+      ],
+      "path": "audio/meaning/en/en_2ed378fdf5013eeaf99f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A headteacher organizes the school and helps teachers and students work together.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0375,
+          "heard": "A hat teacher organizes the school and helps teachers and students work together.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          301,
+          321
+        ],
+        [
+          1,
+          402,
+          984
+        ],
+        [
+          2,
+          1225,
+          1867
+        ],
+        [
+          3,
+          2028,
+          2108
+        ],
+        [
+          4,
+          2188,
+          2570
+        ],
+        [
+          5,
+          3112,
+          3212
+        ],
+        [
+          6,
+          3272,
+          3634
+        ],
+        [
+          7,
+          3734,
+          4196
+        ],
+        [
+          8,
+          4356,
+          4477
+        ],
+        [
+          9,
+          4537,
+          4979
+        ],
+        [
+          10,
+          5059,
+          5240
+        ],
+        [
+          11,
+          5420,
+          5762
+        ]
+      ],
+      "duration_ms": 6264,
+      "sha256": "d6575ef0c8c06059a71cb1a63b819c8d3c6d088004d240dc7e8faf8eefae0949",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9104,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d4bba37ce56393647993": {
+      "id": "en_d4bba37ce56393647993",
+      "language": "en",
+      "text": "A stone is hard and does not change shape easily when pressed by hand.",
+      "words": [
+        "A",
+        "stone",
+        "is",
+        "hard",
+        "and",
+        "does",
+        "not",
+        "change",
+        "shape",
+        "easily",
+        "when",
+        "pressed",
+        "by",
+        "hand."
+      ],
+      "path": "audio/meaning/en/en_d4bba37ce56393647993.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A stone is hard and does not change shape easily when pressed by hand.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0714,
+          "cer": 0.0435,
+          "heard": "His stone is hard and does not change shape easily when pressed by hand.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          160,
+          481
+        ],
+        [
+          2,
+          521,
+          601
+        ],
+        [
+          3,
+          661,
+          982
+        ],
+        [
+          4,
+          1243,
+          1363
+        ],
+        [
+          5,
+          1403,
+          1563
+        ],
+        [
+          6,
+          1623,
+          1804
+        ],
+        [
+          7,
+          2004,
+          2405
+        ],
+        [
+          8,
+          2485,
+          2725
+        ],
+        [
+          9,
+          2826,
+          3146
+        ],
+        [
+          10,
+          3227,
+          3347
+        ],
+        [
+          11,
+          3427,
+          3687
+        ],
+        [
+          12,
+          3728,
+          3848
+        ],
+        [
+          13,
+          3928,
+          4269
+        ]
+      ],
+      "duration_ms": 5271,
+      "sha256": "59c29a70be032c59798059c14372c5b18b2ed88dce0aaa5016f720fda98fb0f5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9742,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
