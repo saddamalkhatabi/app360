@@ -11,7 +11,7 @@ function profileKey(){var a=api(),p,id,n;try{if(a&&a.getProfileKey)return a.getP
 function languageKey(){return'app360:family-reels:language:v1:'+profileKey()}
 function preferredLanguage(){var key=languageKey(),lang=memory[key];try{lang=w.localStorage.getItem(key)||lang}catch(e){}return validLanguage(lang)?lang:'ar'}
 function setLanguage(lang){if(!validLanguage(lang))return false;var key=languageKey();memory[key]=lang;try{w.localStorage.setItem(key,lang)}catch(e){}return true}
-function buildUrl(age,role,lang,filters){if(!validAge(age)||!validRole(role)||!validLanguage(lang))return'';return'https://yem1.com/watch?age='+age+'&role='+role+'&lang='+lang+filterQuery(filters)}
+function buildUrl(age,role,lang,filters){if(!validAge(age)||(!validRole(role)&&role!=='mixed')||!validLanguage(lang))return'';return'https://yem1.com/watch?age='+age+'&role='+role+'&lang='+lang+filterQuery(filters)}
 function filterQuery(f){var s='',keys=['goals','sources','gender','format','order'],i,k,v;f=f||{};for(i=0;i<keys.length;i++){k=keys[i];v=f[k];if(Object.prototype.toString.call(v)==='[object Array]')v=v.length?v.join(','):'all';if(v!==undefined&&String(v).length<2000)s+='&'+k+'='+encodeURIComponent(v);}return s;}
 function register(entries){rows=[];var i,a;for(i=0;i<(entries||[]).length;i++){a=entries[i];if(a&&a.integration==='family-reels'&&validAge(a.age_group)&&validRole(a.reels_role))rows.push(a)}return rows}
 function mergeCatalog(c){c=c||{apps:[]};if(c._reelsMerged)return c;register(c.external_apps||[]);c.apps=(c.apps||[]).concat(rows);c._reelsMerged=true;return c}
