@@ -181,3 +181,78 @@ jobs:
           git commit -m 'Publish complete bilingual useful sentences with measured word cues'
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
+
+  validate-and-publish-live:
+    needs: publish-complete
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: Preserve any newer main work before release
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git merge --no-edit origin/main
+      - name: Require complete independently checked replacement speech
+        run: |
+          python - <<'PY'
+          import json,pathlib,sys,hashlib
+          root=pathlib.Path('apps/1-4/say-and-name')
+          sys.path.insert(0,str(root/'tools'))
+          from meaning_speech_qa import compare
+          manifest=json.loads((root/'data/meaning-scripts-v1.json').read_text())
+          data=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))
+          expected={r['id']:r for r in manifest['items']}
+          assert data['complete'] and set(data['clips'])==set(expected)
+          for cid,clip in data['clips'].items():
+              assert clip['text']==expected[cid]['text'] and clip['words']==expected[cid]['words']
+              assert clip['engine']=='silma' and clip['quality_revision']=='facts-v2-asr'
+              assert compare(clip['text'],clip['speech_qa']['heard'])['passed']
+              assert hashlib.sha256((root/clip['path']).read_bytes()).hexdigest()==clip['sha256']
+          print('Complete verified speech:',len(expected))
+          PY
+          python apps/1-4/say-and-name/tools/test-meaning-facts.py
+          npm run validate --prefix apps/1-4/say-and-name
+          node apps/1-4/say-and-name/tools/test-recorded-player.cjs
+          node apps/1-4/say-and-name/tools/test-meaning.cjs
+          node apps/1-4/say-and-name/tools/test-meaning-player.cjs
+          node apps/1-4/say-and-name/tools/test-meaning-refresh.cjs
+          node tooling/build-offline-catalog.js
+          npm run test:offline
+          npm run family:test
+      - name: Verify real MP3 playback, synchronized highlights and tablet layout
+        run: |
+          npm install --prefix /tmp/meaning-release playwright@1.62.1
+          /tmp/meaning-release/node_modules/.bin/playwright install --with-deps chromium
+          NODE_PATH=/tmp/meaning-release/node_modules node apps/1-4/say-and-name/tools/test-child-browser.cjs
+          NODE_PATH=/tmp/meaning-release/node_modules node apps/1-4/say-and-name/tools/test-meaning-media.cjs
+      - name: Release verified content to main without forcing history
+        run: |
+          git add -u
+          if ! git diff --cached --quiet; then git commit -m 'Refresh verified sentence release offline assets'; fi
+          git push origin HEAD:main
+      - name: Verify the updated application is actually live
+        run: |
+          python - <<'PY'
+          import subprocess,pathlib,time,json
+          relative='apps/1-4/say-and-name/data/meaning-audio-v1.js'
+          wanted=pathlib.Path(relative).read_bytes()
+          for attempt in range(30):
+              result=subprocess.run(['curl','-fsS','--max-time','20','https://school.yem1.com/'+relative+'?facts-v2='+str(attempt)],capture_output=True)
+              if result.returncode==0 and result.stdout==wanted:
+                  health=subprocess.check_output(['curl','-fsS','--max-time','20','https://school.yem1.com/health'])
+                  assert json.loads(health)['ok']
+                  print('Live content and service verified')
+                  break
+              time.sleep(20)
+          else: raise SystemExit('Main is updated, but live deployment was not confirmed; inspect Railway')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-verified-facts-layout
+          path: /tmp/say-name-ui/

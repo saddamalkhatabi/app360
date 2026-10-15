@@ -16,7 +16,7 @@ import numpy as np,soundfile as sf,torch,torchaudio
 from uroman import Uroman
 hub=pathlib.Path(os.environ['HF_HOME'])/'hub'
 model=next((hub/'models--silma-ai--silma-tts/snapshots').rglob('model.pt'));vocab=next(model.parent.rglob('vocab.txt'));vocoder=next((hub/'models--charactr--vocos-mel-24khz/snapshots').glob('*'))
-flags=pathlib.Path('/proc/cpuinfo').read_text();precision='fp32'
+flags=pathlib.Path('/proc/cpuinfo').read_text();precision='bf16' if 'avx512_bf16' in flags or 'amx_bf16' in flags else 'fp32'
 engine=load_engine(model,vocab,vocoder,threads=4,precision=precision)
 ref=str(files('silma_tts').joinpath('infer/ref_audio_samples/ar.ref.24k.wav'));ref_text='ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام.'
 recognizer=WhisperModel(os.environ['MEANING_ASR_MODEL'],device='cpu',compute_type='int8',cpu_threads=2,num_workers=1)
