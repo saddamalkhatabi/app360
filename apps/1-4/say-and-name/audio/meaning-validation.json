@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1610,
+  "ready": 1612,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -151299,6 +151299,226 @@
       "sha256": "3c457e0ef31c1d848c798eb482a15d1652e20be2cb35cf2e33f3e0acb8e9dbf3",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9761,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_42e625e5f6d8280f9a57": {
+      "id": "en_42e625e5f6d8280f9a57",
+      "language": "en",
+      "text": "The beginning of a story contains its first events and is where we start reading.",
+      "words": [
+        "The",
+        "beginning",
+        "of",
+        "a",
+        "story",
+        "contains",
+        "its",
+        "first",
+        "events",
+        "and",
+        "is",
+        "where",
+        "we",
+        "start",
+        "reading."
+      ],
+      "path": "audio/meaning/en/en_42e625e5f6d8280f9a57.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "The beginning of a story contains its first events and is where we start reading.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          160,
+          241
+        ],
+        [
+          1,
+          281,
+          702
+        ],
+        [
+          2,
+          782,
+          842
+        ],
+        [
+          3,
+          882,
+          902
+        ],
+        [
+          4,
+          1022,
+          1383
+        ],
+        [
+          5,
+          1483,
+          2084
+        ],
+        [
+          6,
+          2145,
+          2325
+        ],
+        [
+          7,
+          2505,
+          2866
+        ],
+        [
+          8,
+          3006,
+          3487
+        ],
+        [
+          9,
+          3788,
+          3908
+        ],
+        [
+          10,
+          3969,
+          4069
+        ],
+        [
+          11,
+          4129,
+          4349
+        ],
+        [
+          12,
+          4389,
+          4470
+        ],
+        [
+          13,
+          4630,
+          4971
+        ],
+        [
+          14,
+          5091,
+          5472
+        ]
+      ],
+      "duration_ms": 6153,
+      "sha256": "f3d32a8689aa5f034c8ac800d56f88361cc2f1ef3df09112f540c71a6b6fab2b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.994,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a8ca2d6c97e64c8a9c11": {
+      "id": "en_a8ca2d6c97e64c8a9c11",
+      "language": "en",
+      "text": "Cotton feels soft, and a hand moves over it easily.",
+      "words": [
+        "Cotton",
+        "feels",
+        "soft,",
+        "and",
+        "a",
+        "hand",
+        "moves",
+        "over",
+        "it",
+        "easily."
+      ],
+      "path": "audio/meaning/en/en_a8ca2d6c97e64c8a9c11.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "cotton feels soft, and a hand moves over it easily.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.1429,
+          "heard": "The cotton feels soft and the hand moves over it easily.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          302
+        ],
+        [
+          1,
+          362,
+          644
+        ],
+        [
+          2,
+          724,
+          1086
+        ],
+        [
+          3,
+          1528,
+          1629
+        ],
+        [
+          4,
+          1689,
+          1709
+        ],
+        [
+          5,
+          1790,
+          2031
+        ],
+        [
+          6,
+          2112,
+          2413
+        ],
+        [
+          7,
+          2514,
+          2695
+        ],
+        [
+          8,
+          2715,
+          2775
+        ],
+        [
+          9,
+          2896,
+          3218
+        ]
+      ],
+      "duration_ms": 3902,
+      "sha256": "0c4dd36afce1b82b2e06c5cca1beea8281065ceadd1220f1dbc95fbdf272586d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9439,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
