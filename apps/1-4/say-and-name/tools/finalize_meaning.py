@@ -24,7 +24,7 @@ for report in source.glob('*.json'):
 if a.merge:pass
 elif a.partial:assert {r['id'] for r in manifest['items'][:manifest['priority_count']]}<=set(clips)
 else:assert set(clips)==set(expected),(len(clips),len(expected))
-data=dict(schema=1,revision=manifest.get('revision'),expected=len(expected),complete=len(clips)==len(expected),clips=clips)
+data=dict(schema=1,revision=manifest.get('revision'),expected=len(expected),complete=len(clips)==len(expected),clips=clips,word_paths={r['text']:r['path'] for r in clips.values() if r.get('kind')=='word'})
 (ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
 (ROOT/'audio/meaning-validation.json').write_text(json.dumps(dict(engine='silma-tts',model_revision=manifest['model_revision'],ready=len(clips),expected=len(expected),auditory_review='pending',clips=clips),ensure_ascii=False,indent=2)+'\n')
 print('Verified actual SILMA recordings',len(clips),'/',len(expected))

@@ -43,7 +43,7 @@ jobs:
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
           python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
-      - name: Record and independently verify the first ten bilingual facts
+      - name: Record and independently verify the goat and watermelon bilingual facts
         run: python apps/1-4/say-and-name/tools/generate_meaning.py --priority --output /tmp/meaning-output
       - uses: actions/upload-artifact@v4
         if: always()
@@ -88,7 +88,7 @@ jobs:
     needs: priority
     strategy:
       fail-fast: false
-      max-parallel: 12
+      max-parallel: 20
       matrix:
         part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
     runs-on: ubuntu-latest

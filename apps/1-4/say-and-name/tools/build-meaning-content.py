@@ -237,6 +237,16 @@ CONTEXT.update({
  'أدوات المطبخ\u0001ميزان':pairs(('نزن المكونات بالميزان لنستخدم المقدار المناسب للوصفة.','We weigh ingredients on a scale to use the right amount for a recipe.'))
 })
 
+CONTEXT.update({
+ 'المدرسة\u0001لوحة':pairs(('نعرض على لوحة الصف صورا وأعمالا ليراها الطلاب.','We display pictures and work on a classroom board for students to see.')),
+ 'أجزاء السيارة\u0001مقعد':pairs(('أجلس في مقعد السيارة المناسب وأثبت حزام الأمان قبل الانطلاق.','I sit in a suitable car seat and fasten the seat belt before we move.')),
+ 'أجزاء الطائرة\u0001مقعد':pairs(('أجلس في مقعد الطائرة وأربط الحزام عندما تطلب تعليمات الرحلة ذلك.','I sit in an airplane seat and fasten the belt when instructed.')),
+ 'أجزاء الدراجة\u0001مقعد':pairs(('أجلس على مقعد الدراجة وأضبط ارتفاعه بمساعدة كبير لتصل قدماي بأمان.','I sit on a bicycle saddle and adjust its height with a grown-up for safe footing.')),
+ 'الرياضة\u0001مضرب':pairs(('نضرب الكرة بالمضرب، وتساعدنا قبضته على التحكم في اتجاهها.','We hit a ball with a racket, using its handle to control the shot.')),
+ 'البحر والشاطئ\u0001مظلة':pairs(('توفر مظلة الشاطئ ظلا نرتاح فيه بعيدا عن أشعة الشمس المباشرة.','A beach umbrella provides shade to rest away from direct sunlight.')),
+ 'التسلسل\u0001وسط':pairs(('يقع وسط القصة بين بدايتها ونهايتها، وفيه تتطور الأحداث.','The middle of a story is between its beginning and end, where events develop.'))
+})
+
 def build():
  levels=json.loads((ROOT/'data/levels-inline-v8.js').read_text().split('=',1)[1].strip().rstrip(';'))
  en=json.loads((ROOT/'data/translations-en.js').read_text().split('=',1)[1].strip().rstrip(';'))
@@ -278,7 +288,10 @@ def build():
     if cid not in added:ordered.append(clips[cid]);added.add(cid)
  data=dict(schema=1,revision='facts-v2',age='4-8',categories=cats,items=items)
  (ROOT/'data/meaning-sentences-v1.js').write_text('window.APP360_MEANING_CONTENT='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
- manifest=dict(schema=1,revision='facts-v2',engine='silma-tts',package_version='1.0.5',model_revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',priority_count=20,items=ordered)
+ word_text='Racket'
+ wid='en_'+hashlib.sha256(('meaning-v2-word|en|'+word_text).encode()).hexdigest()[:20]
+ ordered.append(dict(id=wid,language='en',text=word_text,words=[word_text],path='audio/meaning/en/'+wid+'.mp3',engine='silma',kind='word'))
+ manifest=dict(schema=1,revision='facts-v2',engine='silma-tts',package_version='1.0.5',model_revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',priority_count=4,items=ordered)
  (ROOT/'data/meaning-scripts-v1.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  if not (ROOT/'data/meaning-audio-v1.js').exists():(ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(dict(schema=1,expected=len(ordered),clips={}))+';\n')
  print(dict(objects=len(items),unique_words=len({x['ar'] for x in items}),categories=len(cats),unique_bilingual_recordings=len(ordered)))
