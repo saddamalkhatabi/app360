@@ -30,3 +30,14 @@ def compare(expected,heard):
  repeated=any(bw[i]==bw[i+1]==bw[i+2] for i in range(len(bw)-2))
  # ASR is an independent automated screen, not a human pronunciation verdict.
  return dict(passed=bool(a and b and wer==0 and cer==0 and not repeated and not missing_negation),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')
+
+
+def verified_recording(wanted, clip, root):
+ """A prior transcript is reusable only for its exact current text and bytes."""
+ import hashlib
+ if not clip or clip.get('quality_revision') != 'facts-v2-asr': return False
+ for key in ('text', 'words', 'path', 'language', 'engine'):
+  if clip.get(key) != wanted.get(key): return False
+ if not compare(wanted['text'], clip.get('speech_qa', {}).get('heard', ''))['passed']: return False
+ try: return hashlib.sha256((root / wanted['path']).read_bytes()).hexdigest() == clip.get('sha256')
+ except OSError: return False

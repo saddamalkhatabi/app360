@@ -1,17 +1,21 @@
 """Pinned SILMA speech and acoustic word alignment for bilingual meanings."""
 import argparse,hashlib,json,os,sys,pathlib,subprocess,gc,re,unicodedata
 from importlib.resources import files
-from meaning_speech_qa import compare
+from meaning_speech_qa import compare,verified_recording
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--part',type=int,default=0);p.add_argument('--parts',type=int,default=32);p.add_argument('--priority',action='store_true');p.add_argument('--output',required=True);a=p.parse_args()
 manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());n=manifest['priority_count']
 items=manifest['items'][:n] if a.priority else [r for i,r in enumerate(manifest['items'][n:]) if i%a.parts==a.part]
 existing=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
-items=[r for r in items if r['id'] not in existing or not compare(r['text'],existing[r['id']].get('speech_qa',{}).get('heard',''))['passed']]
+items=[r for r in items if not verified_recording(r,existing.get(r['id']),ROOT)]
 out=pathlib.Path(a.output);out.mkdir(parents=True,exist_ok=True)
+if not items:
+ print('All recordings in this batch already verified; no model loading needed',flush=True)
+ raise SystemExit(0)
+seed_offset=int(os.environ.get('MEANING_SEED_OFFSET','0'))
 os.environ.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_TELEMETRY='1',ORT_DISABLE_TELEMETRY='1')
 from silma_sentence_engine import load_engine
-from meaning_speech_qa import compare
+from meaning_speech_qa import compare,verified_recording
 from faster_whisper import WhisperModel
 import numpy as np,soundfile as sf,torch,torchaudio
 from uroman import Uroman
@@ -27,7 +31,7 @@ for i,row in enumerate(items):
  print('SILMA',i+1,len(items),precision,row['language'],row['text'],flush=True)
  target=out/row['path'];target.parent.mkdir(parents=True,exist_ok=True);wavfile=out/(row['id']+'.wav')
  for attempt in range(3):
-  seed=360 if attempt==2 else 360+attempt
+  seed=seed_offset+(360 if attempt==2 else 360+attempt)
   engine._app360_precision='fp32' if attempt==2 else precision
   wav,sr,_=engine.infer(ref_file=ref,ref_text=ref_text,gen_text=row['text'],file_wave=str(wavfile),seed=seed,speed=.93 if row['language']=='ar' else 1,nfe_step=48,force_tashkeel=False,normalize_numbers=False)
   assert sr==24000 and np.isfinite(wav).all() and .5<len(wav)/sr<45 and np.max(np.abs(wav))>.005,row['id']

@@ -29,3 +29,18 @@ assert not compare('لا نلمس السكين أو نلعب بها.','نلمس 
 assert not compare('نغسل الفاكهة قبل تجهيزها ونحافظ على نظافة المائدة.','لا نغسل الفاكهة قبل تجهيزها ونحافظ على نظافة المائدة.')['passed']
 
 assert not compare('يأكل الماعز الأعشاب وأوراق الشجر ونستفيد من حليبه ولحمه','يأكلوا الماعز الأعشاب وأوراق الشجر ونستفيد من حليبه ولحمه')['passed']
+
+# Retry only exact current recordings; corruption and a stale transcript must not skip work.
+import tempfile,hashlib,copy
+from meaning_speech_qa import verified_recording
+with tempfile.TemporaryDirectory() as folder:
+ root=pathlib.Path(folder); (root/'clip.mp3').write_bytes(b'verified media fixture')
+ wanted=dict(text='I use a spoon to eat food.', words=['I','use','a','spoon','to','eat','food.'],path='clip.mp3',language='en',engine='silma')
+ clip=dict(wanted,quality_revision='facts-v2-asr',sha256=hashlib.sha256((root/'clip.mp3').read_bytes()).hexdigest(),speech_qa=dict(heard=wanted['text']))
+ assert verified_recording(wanted,clip,root)
+ for key,value in [('text','Old sentence.'),('words',['Old']),('quality_revision','old'),('sha256','incorrect'),('engine','other')]:
+  changed=copy.deepcopy(clip);changed[key]=value
+  assert not verified_recording(wanted,changed,root),key
+ (root/'clip.mp3').unlink()
+ assert not verified_recording(wanted,clip,root)
+print('Resume checks reject stale text, metadata, corrupt bytes and missing files')

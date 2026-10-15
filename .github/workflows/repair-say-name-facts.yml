@@ -1,0 +1,214 @@
+name: Repair rejected facts and release complete verified speech
+on:
+  push:
+    branches: [release/say-name-facts-20261015]
+    paths: [apps/1-4/say-and-name/data/meaning-facts-repair.request]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: say-name-facts-repair-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  wait-for-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Preserve running generation and wait for all its batches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYWAIT'
+          import json,os,time,urllib.request
+          url='https://api.github.com/repos/saddamalkhatabi/app360/actions/runs/38721379759'
+          for attempt in range(350):
+              request=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(request,timeout=30) as response: data=json.load(response)
+              print(data['status'],data.get('conclusion'),flush=True)
+              if data['status']=='completed': break
+              time.sleep(60)
+          else: raise SystemExit('Original generation still active; no concurrent replacement started')
+          PYWAIT
+  record:
+    needs: wait-for-original
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+      MEANING_ASR_MODEL: /tmp/meaning-asr
+      MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub faster-whisper==1.2.1
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          snapshot_download(repo_id='Systran/faster-whisper-small',local_dir='/tmp/meaning-asr')
+          snapshot_download(repo_id='Systran/faster-whisper-medium',local_dir='/tmp/meaning-asr-verify')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+          python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
+      - name: Record and acoustically align Arabic and English sentences
+        run: |
+          for round in 1 2 3; do
+            result=0
+            MEANING_SEED_OFFSET=$((round * 1000)) python apps/1-4/say-and-name/tools/generate_meaning.py --part ${{ matrix.part }} --parts 64 --output /tmp/meaning-output || result=$?
+            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/meaning-output --merge
+            if [ "$result" = 0 ]; then exit 0; fi
+          done
+          exit "$result"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: meaning-part-${{ matrix.part }}
+          path: /tmp/meaning-output
+          retention-days: 14
+      - name: Publish this finished recording batch without overwriting other batches
+        if: always()
+        continue-on-error: true
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${{ github.ref_name }}"
+            git reset --hard "origin/${{ github.ref_name }}"
+            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/meaning-output --merge
+            node apps/1-4/say-and-name/tools/test-meaning.cjs
+            node tooling/build-offline-catalog.js
+            git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js data/offline-catalog.json data/offline/a1-first-words.json
+            git diff --cached --quiet && break
+            git commit -m 'Publish another completed bilingual sentence recording batch'
+            if git push origin "HEAD:${{ github.ref_name }}"; then break; fi
+          done
+  publish-complete:
+    needs: record
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: meaning-*
+          merge-multiple: true
+          path: /tmp/meaning-output
+      - name: Validate every MP3 and its measured word cues
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/meaning-output 
+          node apps/1-4/say-and-name/tools/test-meaning.cjs
+          node tooling/build-offline-catalog.js
+      - name: Publish verified sentence recordings to the preview
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
+          git add -u
+          if git diff --cached --quiet; then
+            echo 'Recordings are already fully published'
+            exit 0
+          fi
+          git commit -m 'Publish complete bilingual useful sentences with measured word cues'
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
+
+  validate-and-publish-live:
+    needs: publish-complete
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: Preserve any newer main work before release
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git merge --no-edit origin/main
+      - name: Require complete independently checked replacement speech
+        run: |
+          python - <<'PY'
+          import json,pathlib,sys,hashlib
+          root=pathlib.Path('apps/1-4/say-and-name')
+          sys.path.insert(0,str(root/'tools'))
+          from meaning_speech_qa import compare
+          manifest=json.loads((root/'data/meaning-scripts-v1.json').read_text())
+          data=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))
+          expected={r['id']:r for r in manifest['items']}
+          assert data['complete'] and set(data['clips'])==set(expected)
+          for cid,clip in data['clips'].items():
+              assert clip['text']==expected[cid]['text'] and clip['words']==expected[cid]['words']
+              assert clip['engine']=='silma' and clip['quality_revision']=='facts-v2-asr'
+              assert compare(clip['text'],clip['speech_qa']['heard'])['passed']
+              assert hashlib.sha256((root/clip['path']).read_bytes()).hexdigest()==clip['sha256']
+          print('Complete verified speech:',len(expected))
+          PY
+          python apps/1-4/say-and-name/tools/test-meaning-facts.py
+          npm run validate --prefix apps/1-4/say-and-name
+          node apps/1-4/say-and-name/tools/test-recorded-player.cjs
+          node apps/1-4/say-and-name/tools/test-meaning.cjs
+          node apps/1-4/say-and-name/tools/test-meaning-player.cjs
+          node apps/1-4/say-and-name/tools/test-meaning-refresh.cjs
+          node tooling/build-offline-catalog.js
+          npm run test:offline
+          npm run family:test
+      - name: Verify real MP3 playback, synchronized highlights and tablet layout
+        run: |
+          npm install --prefix /tmp/meaning-release playwright@1.62.1
+          /tmp/meaning-release/node_modules/.bin/playwright install --with-deps chromium
+          NODE_PATH=/tmp/meaning-release/node_modules node apps/1-4/say-and-name/tools/test-child-browser.cjs
+          NODE_PATH=/tmp/meaning-release/node_modules node apps/1-4/say-and-name/tools/test-meaning-media.cjs
+      - name: Release verified content to main without forcing history
+        run: |
+          git add -u
+          if ! git diff --cached --quiet; then git commit -m 'Refresh verified sentence release offline assets'; fi
+          git push origin HEAD:main
+      - name: Verify the updated application is actually live
+        run: |
+          python - <<'PY'
+          import subprocess,pathlib,time,json
+          relative='apps/1-4/say-and-name/data/meaning-audio-v1.js'
+          wanted=pathlib.Path(relative).read_bytes()
+          for attempt in range(30):
+              result=subprocess.run(['curl','-fsS','--max-time','20','https://school.yem1.com/'+relative+'?facts-v2='+str(attempt)],capture_output=True)
+              if result.returncode==0 and result.stdout==wanted:
+                  health=subprocess.check_output(['curl','-fsS','--max-time','20','https://school.yem1.com/health'])
+                  assert json.loads(health)['ok']
+                  print('Live content and service verified')
+                  break
+              time.sleep(20)
+          else: raise SystemExit('Main is updated, but live deployment was not confirmed; inspect Railway')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-verified-facts-layout
+          path: /tmp/say-name-ui/
