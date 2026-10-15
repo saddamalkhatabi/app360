@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1726,
+  "ready": 1729,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -161993,6 +161993,265 @@
       "sha256": "bb0fe4a60883bbc429b9cb72ccd88edb361ba5a629cc591957cc5e8a32798187",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9039,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b6edfd57c01840ee8051": {
+      "id": "ar_b6edfd57c01840ee8051",
+      "language": "ar",
+      "text": "للأسطوانة قاعدتان دائريتان، مثل علبة مستقيمة الجوانب.",
+      "words": [
+        "للأسطوانة",
+        "قاعدتان",
+        "دائريتان،",
+        "مثل",
+        "علبة",
+        "مستقيمة",
+        "الجوانب."
+      ],
+      "path": "audio/meaning/ar/ar_b6edfd57c01840ee8051.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للأسطوانة قاعدتان دائريتان مثل علبة مستقيمة الجوانب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          662
+        ],
+        [
+          1,
+          843,
+          1325
+        ],
+        [
+          2,
+          1425,
+          2047
+        ],
+        [
+          3,
+          2489,
+          2710
+        ],
+        [
+          4,
+          2971,
+          3111
+        ],
+        [
+          5,
+          3272,
+          3814
+        ],
+        [
+          6,
+          3934,
+          4496
+        ]
+      ],
+      "duration_ms": 4576,
+      "sha256": "bc36277e434659ed354298f3c8bfe4e76c2b0021fa78596eddcd0f83025a354a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9374,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8e79e022a91604591856": {
+      "id": "ar_8e79e022a91604591856",
+      "language": "ar",
+      "text": "يصنع النحل العسل من رحيق الأزهار، ويخزنه في الخلية.",
+      "words": [
+        "يصنع",
+        "النحل",
+        "العسل",
+        "من",
+        "رحيق",
+        "الأزهار،",
+        "ويخزنه",
+        "في",
+        "الخلية."
+      ],
+      "path": "audio/meaning/ar/ar_8e79e022a91604591856.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يصنع النحل العسل من رحيق الأزهار ويخزنه في الخلية",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0204,
+          "heard": "يصنع النحل العسل من رحيق الأزهار ويخزينه في الخلية",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          261
+        ],
+        [
+          1,
+          441,
+          762
+        ],
+        [
+          2,
+          822,
+          1203
+        ],
+        [
+          3,
+          1243,
+          1344
+        ],
+        [
+          4,
+          1424,
+          1785
+        ],
+        [
+          5,
+          1865,
+          2386
+        ],
+        [
+          6,
+          2847,
+          3449
+        ],
+        [
+          7,
+          3569,
+          3650
+        ],
+        [
+          8,
+          3670,
+          4131
+        ]
+      ],
+      "duration_ms": 4251,
+      "sha256": "c9ac676a3671af24562a3e1871e7479cde08e2f5a700fa480a9f0da9151ac949",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9353,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4f321b56d7e14940e28a": {
+      "id": "ar_4f321b56d7e14940e28a",
+      "language": "ar",
+      "text": "الأريكة مقعد مبطن، يتسع عادة لجلوس أكثر من شخص.",
+      "words": [
+        "الأريكة",
+        "مقعد",
+        "مبطن،",
+        "يتسع",
+        "عادة",
+        "لجلوس",
+        "أكثر",
+        "من",
+        "شخص."
+      ],
+      "path": "audio/meaning/ar/ar_4f321b56d7e14940e28a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الأريكة مقعد مبطن يتسع عادة لجلوس أكثر من شخص",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0222,
+          "heard": "الأريك مقعد مبطن يتسع عادة لجلوس أكثر من شخص",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          441
+        ],
+        [
+          1,
+          501,
+          842
+        ],
+        [
+          2,
+          942,
+          1444
+        ],
+        [
+          3,
+          1765,
+          2065
+        ],
+        [
+          4,
+          2406,
+          2587
+        ],
+        [
+          5,
+          2747,
+          3148
+        ],
+        [
+          6,
+          3248,
+          3549
+        ],
+        [
+          7,
+          3629,
+          3730
+        ],
+        [
+          8,
+          3810,
+          4151
+        ]
+      ],
+      "duration_ms": 4271,
+      "sha256": "97d2f825350486df8fe92a7dfb30ea746e26a69edff6f9ecfbfa3a381cecbce7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.918,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
