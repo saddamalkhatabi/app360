@@ -1,0 +1,3 @@
+'use strict';
+// Import the current development catalog without deleting existing app history.
+exports.seed=async function(k){var catalog=require('../../../data/public-links.json');for(var a of catalog.apps){if(!/^[\w.-]{1,64}$/.test(a.id)||!/^apps\/[\d-]+\/[^/]+\/index\.html$/.test(a.path))throw Error('Invalid public app catalog');var slug=a.path.split('/')[2];await k('applications').insert({id:a.id,slug:a.age_group+'-'+slug,title_ar:a.title_ar,age_group:a.age_group,status:a.release_channel||'live',entry_path:a.path,capabilities_json:'["practice.core","reels.identity","reels.usage"]'}).onConflict('id').merge({title_ar:a.title_ar,age_group:a.age_group,status:a.release_channel||'live',entry_path:a.path});}};

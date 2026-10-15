@@ -15,7 +15,7 @@ function loadResponsivePolicy(){if(d.getElementById('app360ResponsivePolicy'))re
 function loadEarlyChildSafety(){var p=(w.location&&w.location.pathname)||'',h,s;if(p.indexOf('/apps/1-4/calm-with-me/')<0||d.getElementById('app360EarlyChildSafety'))return;h=d.head||d.getElementsByTagName('head')[0]||d.body;if(!h)return;s=d.createElement('script');s.id='app360EarlyChildSafety';s.src='../../../assets/js/early-child-safety-v1.js?v=1';s.async=true;h.appendChild(s)}
 function loadScript(id,src,ready){var h,s;if((ready&&ready())||d.getElementById(id))return;h=d.head||d.getElementsByTagName('head')[0]||d.body;if(!h)return;s=d.createElement('script');s.id=id;s.src=src;s.async=true;h.appendChild(s)}
 function appPath(){var p=(w.location&&w.location.pathname)||'';return p.indexOf('/apps/')>=0&&!/\/apps\/_template\//.test(p)}
-function loadSession(){if(!appPath())return;loadScript('app360SessionRuntime','../../../assets/js/app360-session-v1.js?v=98&brand=98',function(){return!!w.APP360_SESSION})}
+function loadSession(){if(!appPath())return;loadScript('app360SessionRuntime','../../../assets/js/app360-session-v1.js?v=98&brand=98&reels=1',function(){return!!w.APP360_SESSION})}
 function loadAccountAccess(){if(!appPath())return;loadScript('app360AccountAccess','../../../assets/js/app360-account-access-v1.js?v=2&brand=98',function(){return!!w.APP360_ACCOUNT_ACCESS})}
 function loadLoginEntry(){if(!appPath())return;loadScript('app360LoginEntry','../../../assets/js/app360-login-entry-v2.js?v=2',function(){return!!w.APP360_LOGIN_ENTRY})}
 function loadDailyUsage(){if(!appPath())return;loadScript('app360DailyUsage','../../../assets/js/app360-usage-daily-v1.js?v=1',function(){return!!w.APP360_DAILY_USAGE})}

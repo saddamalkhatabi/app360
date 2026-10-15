@@ -1,0 +1,10 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),http=require('node:http');
+test('public Reels goals proxy validates scope, strips upstream fields, deduplicates and recovers',async()=>{
+ const originalFetch=global.fetch,originalOrigin=process.env.APP360_REELS_BASE_URL,originalEnv=process.env.NODE_ENV;let requests=0,fail=false;process.env.NODE_ENV='test';process.env.APP360_REELS_BASE_URL='http://127.0.0.1:12345';
+ global.fetch=async(url,options)=>{requests++;assert.equal(url.origin,'http://127.0.0.1:12345');assert.equal(url.pathname,'/api/goals');assert.equal(options.redirect,'error');assert(!options.headers.Authorization);if(fail)throw Error('offline');return {ok:true,text:async()=>JSON.stringify({goals:[{id:42,title:'هدف خاص بالنطاق العام',owner_user_id:999,secret:'never returned'}]})};};
+ const handler=require('../services/family-relay/src/reels-public'),server=http.createServer(handler);await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
+ async function get(query){const r=await originalFetch(base+'/api/reels/catalog'+query);return {status:r.status,body:await r.json()};}
+ try{assert.equal((await get('?age=invalid&role=coach&lang=en')).status,400);assert.equal(requests,0);const results=await Promise.all(Array.from({length:8},()=>get('?age=8-12&role=coach&lang=en')));assert(results.every(r=>r.status===200));assert.equal(requests,1);assert.deepEqual(results[0].body,{goals:[{id:'42',title:'هدف خاص بالنطاق العام'}]});fail=true;assert.equal((await get('?age=4-8&role=learner&lang=ar')).status,502);fail=false;assert.equal((await get('?age=4-8&role=learner&lang=ar')).status,200);process.env.APP360_REELS_BASE_URL='not a URL';assert.equal((await get('?age=4-8&role=learner&lang=ar')).status,503);}
+ finally{global.fetch=originalFetch;if(originalOrigin===undefined)delete process.env.APP360_REELS_BASE_URL;else process.env.APP360_REELS_BASE_URL=originalOrigin;if(originalEnv===undefined)delete process.env.NODE_ENV;else process.env.NODE_ENV=originalEnv;await new Promise(r=>server.close(r));}
+});
