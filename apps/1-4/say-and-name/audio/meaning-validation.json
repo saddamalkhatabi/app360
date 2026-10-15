@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1619,
+  "ready": 1621,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -152116,6 +152116,220 @@
       "sha256": "df6104d6dccd58af1cc3c1c809557b2448af593a10d289deae5d2885a59f87ea",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8546,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_f0ff2fc8ef114c79bc84": {
+      "id": "en_f0ff2fc8ef114c79bc84",
+      "language": "en",
+      "text": "Fur covers many animals and helps keep them warm.",
+      "words": [
+        "Fur",
+        "covers",
+        "many",
+        "animals",
+        "and",
+        "helps",
+        "keep",
+        "them",
+        "warm."
+      ],
+      "path": "audio/meaning/en/en_f0ff2fc8ef114c79bc84.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "fur covers many animals and helps keep them warm.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0208,
+          "heard": "for covers many animals and helps keep them warm.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          160
+        ],
+        [
+          1,
+          260,
+          641
+        ],
+        [
+          2,
+          721,
+          921
+        ],
+        [
+          3,
+          1082,
+          1622
+        ],
+        [
+          4,
+          1783,
+          1883
+        ],
+        [
+          5,
+          1923,
+          2203
+        ],
+        [
+          6,
+          2284,
+          2484
+        ],
+        [
+          7,
+          2584,
+          2724
+        ],
+        [
+          8,
+          2804,
+          3105
+        ]
+      ],
+      "duration_ms": 3666,
+      "sha256": "70debc28f18ded7e13e592e6df48e0e02d5b65e266d82d547a992711e9cff443",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9727,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_93e99cb0041a41d850fe": {
+      "id": "en_93e99cb0041a41d850fe",
+      "language": "en",
+      "text": "A turnip is a root eaten cooked and may be white with a purple top.",
+      "words": [
+        "A",
+        "turnip",
+        "is",
+        "a",
+        "root",
+        "eaten",
+        "cooked",
+        "and",
+        "may",
+        "be",
+        "white",
+        "with",
+        "a",
+        "purple",
+        "top."
+      ],
+      "path": "audio/meaning/en/en_93e99cb0041a41d850fe.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A turnip is a root eaten cooked and may be white with a purple top.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          521
+        ],
+        [
+          2,
+          561,
+          681
+        ],
+        [
+          3,
+          721,
+          741
+        ],
+        [
+          4,
+          862,
+          1102
+        ],
+        [
+          5,
+          1282,
+          1563
+        ],
+        [
+          6,
+          1663,
+          2044
+        ],
+        [
+          7,
+          2224,
+          2324
+        ],
+        [
+          8,
+          2385,
+          2525
+        ],
+        [
+          9,
+          2585,
+          2665
+        ],
+        [
+          10,
+          2885,
+          3226
+        ],
+        [
+          11,
+          3386,
+          3507
+        ],
+        [
+          12,
+          3527,
+          3547
+        ],
+        [
+          13,
+          3607,
+          4008
+        ],
+        [
+          14,
+          4048,
+          4288
+        ]
+      ],
+      "duration_ms": 4629,
+      "sha256": "8ac1fbcedfae51021f55c16b34af2aabbc199dabfb2710282c61f7430e76e8bd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9261,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
