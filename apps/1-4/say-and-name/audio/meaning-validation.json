@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1552,
+  "ready": 1554,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -145465,6 +145465,214 @@
       "sha256": "f149ab94d41437aa3b0da57741e2a7f0d18dce790ad0b90cd2cbc82914c89f3f",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9132,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_401038f0687c3aa9adf9": {
+      "id": "en_401038f0687c3aa9adf9",
+      "language": "en",
+      "text": "A pear has juicy flesh and is usually narrower at the top than at the bottom.",
+      "words": [
+        "A",
+        "pear",
+        "has",
+        "juicy",
+        "flesh",
+        "and",
+        "is",
+        "usually",
+        "narrower",
+        "at",
+        "the",
+        "top",
+        "than",
+        "at",
+        "the",
+        "bottom."
+      ],
+      "path": "audio/meaning/en/en_401038f0687c3aa9adf9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A pear has juicy flesh and is usually narrower at the top than at the bottom.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          141,
+          382
+        ],
+        [
+          2,
+          442,
+          583
+        ],
+        [
+          3,
+          643,
+          984
+        ],
+        [
+          4,
+          1105,
+          1507
+        ],
+        [
+          5,
+          2310,
+          2411
+        ],
+        [
+          6,
+          2451,
+          2531
+        ],
+        [
+          7,
+          2712,
+          3073
+        ],
+        [
+          8,
+          3154,
+          3576
+        ],
+        [
+          9,
+          3656,
+          3736
+        ],
+        [
+          10,
+          3756,
+          3837
+        ],
+        [
+          11,
+          3877,
+          4078
+        ],
+        [
+          12,
+          4178,
+          4379
+        ],
+        [
+          13,
+          4419,
+          4500
+        ],
+        [
+          14,
+          4540,
+          4600
+        ],
+        [
+          15,
+          4640,
+          4922
+        ]
+      ],
+      "duration_ms": 5584,
+      "sha256": "dc216058ac8f46bbd8dfb0130c666930501127d10687ff5ba2b05b82c44f91f1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8376,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_40d293d4c4e71ec00e54": {
+      "id": "en_40d293d4c4e71ec00e54",
+      "language": "en",
+      "text": "A train travels on a railway track.",
+      "words": [
+        "A",
+        "train",
+        "travels",
+        "on",
+        "a",
+        "railway",
+        "track."
+      ],
+      "path": "audio/meaning/en/en_40d293d4c4e71ec00e54.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A train travels on a railway track.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2857,
+          "cer": 0.0882,
+          "heard": "It trains travels on a railway track.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          141,
+          383
+        ],
+        [
+          2,
+          484,
+          927
+        ],
+        [
+          3,
+          1008,
+          1088
+        ],
+        [
+          4,
+          1128,
+          1149
+        ],
+        [
+          5,
+          1229,
+          1612
+        ],
+        [
+          6,
+          1693,
+          2015
+        ]
+      ],
+      "duration_ms": 2317,
+      "sha256": "b7e8678a9200422c1c55a9773f58a20254adebe8e6c974a237feec1a12eec3be",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9307,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
