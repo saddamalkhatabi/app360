@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 412,
+  "ready": 437,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -38744,6 +38744,2087 @@
       "sha256": "e338bcf07d92e2ca266c8e42a211f27b8bbfe30b5b12ae1698988211f5f6e034",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9898,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_477d43fb38cfb7306ecb": {
+      "id": "ar_477d43fb38cfb7306ecb",
+      "language": "ar",
+      "text": "يستخدم الكبير رأس المطرقة لطرق المسامير وتثبيتها في الخشب.",
+      "words": [
+        "يستخدم",
+        "الكبير",
+        "رأس",
+        "المطرقة",
+        "لطرق",
+        "المسامير",
+        "وتثبيتها",
+        "في",
+        "الخشب."
+      ],
+      "path": "audio/meaning/ar/ar_477d43fb38cfb7306ecb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يستخدم الكبير رأس المطرقة لطرق المسامير وتثبيتها في الخشب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          522
+        ],
+        [
+          1,
+          602,
+          1023
+        ],
+        [
+          2,
+          1124,
+          1324
+        ],
+        [
+          3,
+          1425,
+          1946
+        ],
+        [
+          4,
+          2227,
+          2629
+        ],
+        [
+          5,
+          2709,
+          3351
+        ],
+        [
+          6,
+          3492,
+          4174
+        ],
+        [
+          7,
+          4254,
+          4314
+        ],
+        [
+          8,
+          4354,
+          4796
+        ]
+      ],
+      "duration_ms": 5117,
+      "sha256": "62a92e02a68323d9cf92e51dd532d91c1491c02d5c5f6bfb7962b038036340f4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9648,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_92c587327d8461c1e414": {
+      "id": "ar_92c587327d8461c1e414",
+      "language": "ar",
+      "text": "تساعدني ذراعي على حمل الأشياء واحتضان من أحب.",
+      "words": [
+        "تساعدني",
+        "ذراعي",
+        "على",
+        "حمل",
+        "الأشياء",
+        "واحتضان",
+        "من",
+        "أحب."
+      ],
+      "path": "audio/meaning/ar/ar_92c587327d8461c1e414.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تساعدني ذراعي على حمل الأشياء واحتضان من أحب",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0227,
+          "heard": "تساعدني ذراعي على حمل الأشياء وحتضان من أحب",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          622
+        ],
+        [
+          1,
+          722,
+          1163
+        ],
+        [
+          2,
+          1364,
+          1424
+        ],
+        [
+          3,
+          1504,
+          1745
+        ],
+        [
+          4,
+          1785,
+          2206
+        ],
+        [
+          5,
+          2467,
+          3009
+        ],
+        [
+          6,
+          3089,
+          3209
+        ],
+        [
+          7,
+          3290,
+          3570
+        ]
+      ],
+      "duration_ms": 3831,
+      "sha256": "c2f48c7a2485915a84bfa4747897a2dfb741c6dcd9bb6543fbf557d33d6f9869",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9447,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0a8fb97d9f1efadf6752": {
+      "id": "ar_0a8fb97d9f1efadf6752",
+      "language": "ar",
+      "text": "أَلْعَبُ بِالْكُرَةِ وَأَنْتَظِرُ دَوْرِي.",
+      "words": [
+        "أَلْعَبُ",
+        "بِالْكُرَةِ",
+        "وَأَنْتَظِرُ",
+        "دَوْرِي."
+      ],
+      "path": "audio/meaning/ar/ar_0a8fb97d9f1efadf6752.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألعب بالكرة وأنتظر دوري",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.75,
+          "cer": 0.2174,
+          "heard": "ألعبوا بالكورة وأنتظروا دوري",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          323
+        ],
+        [
+          1,
+          464,
+          867
+        ],
+        [
+          2,
+          1331,
+          1916
+        ],
+        [
+          3,
+          2057,
+          2379
+        ]
+      ],
+      "duration_ms": 3004,
+      "sha256": "9913be323e42129980ac983c05fc309c871877963c2c798f70feae360521ca67",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9925,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7a2648233ab2e5059219": {
+      "id": "ar_7a2648233ab2e5059219",
+      "language": "ar",
+      "text": "نضع في المخزن أشياء لا نحتاج إلى استخدامها كل يوم.",
+      "words": [
+        "نضع",
+        "في",
+        "المخزن",
+        "أشياء",
+        "لا",
+        "نحتاج",
+        "إلى",
+        "استخدامها",
+        "كل",
+        "يوم."
+      ],
+      "path": "audio/meaning/ar/ar_7a2648233ab2e5059219.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نضع في المخزن أشياء لا نحتاج إلى استخدامها كل يوم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0204,
+          "heard": "نضع في المخزين أشياء لا نحتاج إلى استخدامها كل يوم",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          181
+        ],
+        [
+          1,
+          402,
+          482
+        ],
+        [
+          2,
+          502,
+          944
+        ],
+        [
+          3,
+          1105,
+          1406
+        ],
+        [
+          4,
+          1687,
+          1767
+        ],
+        [
+          5,
+          1868,
+          2310
+        ],
+        [
+          6,
+          2390,
+          2571
+        ],
+        [
+          7,
+          2631,
+          3254
+        ],
+        [
+          8,
+          3354,
+          3495
+        ],
+        [
+          9,
+          3575,
+          3856
+        ]
+      ],
+      "duration_ms": 4298,
+      "sha256": "a04220fbaf2aa7ee49a8e6b789ba7ca40566595fda7185c6759178f48ddc269d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9671,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_aca9fbb69a0bc21d01b1": {
+      "id": "ar_aca9fbb69a0bc21d01b1",
+      "language": "ar",
+      "text": "نغسل أيدينا أو الأواني في الحوض، ويخرج الماء من مصرفه.",
+      "words": [
+        "نغسل",
+        "أيدينا",
+        "أو",
+        "الأواني",
+        "في",
+        "الحوض،",
+        "ويخرج",
+        "الماء",
+        "من",
+        "مصرفه."
+      ],
+      "path": "audio/meaning/ar/ar_aca9fbb69a0bc21d01b1.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نغسل أيدينا أو الأواني في الحوض ويخرج الماء من مصرفه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0385,
+          "heard": "نغسل أي دين أو الأواني في الحوض ويخرج الماء من مصرفه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          441
+        ],
+        [
+          1,
+          582,
+          1023
+        ],
+        [
+          2,
+          1144,
+          1224
+        ],
+        [
+          3,
+          1284,
+          1746
+        ],
+        [
+          4,
+          1806,
+          1886
+        ],
+        [
+          5,
+          1906,
+          2368
+        ],
+        [
+          6,
+          2950,
+          3371
+        ],
+        [
+          7,
+          3471,
+          3652
+        ],
+        [
+          8,
+          3873,
+          3993
+        ],
+        [
+          9,
+          4033,
+          4555
+        ]
+      ],
+      "duration_ms": 4635,
+      "sha256": "98c14db989e34157e3575a6d389a6e4582217113ec30b220b8667bb1835a35cf",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9478,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_88c34c6d5bd983dc3659": {
+      "id": "ar_88c34c6d5bd983dc3659",
+      "language": "ar",
+      "text": "نَصْنَعُ الْعَصِيرَ بِعَصْرِ الْفَوَاكِهِ.",
+      "words": [
+        "نَصْنَعُ",
+        "الْعَصِيرَ",
+        "بِعَصْرِ",
+        "الْفَوَاكِهِ."
+      ],
+      "path": "audio/meaning/ar/ar_88c34c6d5bd983dc3659.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نصنع العصير بعصر الفواكه",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          341
+        ],
+        [
+          1,
+          562,
+          1024
+        ],
+        [
+          2,
+          1124,
+          1525
+        ],
+        [
+          3,
+          1606,
+          2288
+        ]
+      ],
+      "duration_ms": 2930,
+      "sha256": "155c955cb786099df11b1604a57869f2560ce22c15e7d0bb446c491a35f6eb78",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9895,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_bba00c4140f94c2fcfbb": {
+      "id": "ar_bba00c4140f94c2fcfbb",
+      "language": "ar",
+      "text": "يتكون رأس الثوم من فصوص، ونستخدمه لإضافة نكهة للطعام.",
+      "words": [
+        "يتكون",
+        "رأس",
+        "الثوم",
+        "من",
+        "فصوص،",
+        "ونستخدمه",
+        "لإضافة",
+        "نكهة",
+        "للطعام."
+      ],
+      "path": "audio/meaning/ar/ar_bba00c4140f94c2fcfbb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يتكون رأس الثوم من فصوص ونستخدمه لإضافة نكهة للطعام",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          461
+        ],
+        [
+          1,
+          561,
+          761
+        ],
+        [
+          2,
+          841,
+          1162
+        ],
+        [
+          3,
+          1242,
+          1362
+        ],
+        [
+          4,
+          1402,
+          1823
+        ],
+        [
+          5,
+          2244,
+          2925
+        ],
+        [
+          6,
+          3025,
+          3486
+        ],
+        [
+          7,
+          3646,
+          3906
+        ],
+        [
+          8,
+          4127,
+          4668
+        ]
+      ],
+      "duration_ms": 4768,
+      "sha256": "90011dd4f5670e9e1ac67e1f099b219a1b4ea1d138fb58eddfb342d49f917e7f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9549,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3ea41397da60d32e59b7": {
+      "id": "ar_3ea41397da60d32e59b7",
+      "language": "ar",
+      "text": "أُحَرِّكُ الدَّرَّاجَةَ بِالدَّوَّاسَتَيْنِ وَأَلْبَسُ الْخُوذَةَ.",
+      "words": [
+        "أُحَرِّكُ",
+        "الدَّرَّاجَةَ",
+        "بِالدَّوَّاسَتَيْنِ",
+        "وَأَلْبَسُ",
+        "الْخُوذَةَ."
+      ],
+      "path": "audio/meaning/ar/ar_3ea41397da60d32e59b7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أحرك الدراجة بالدواستين وألبس الخوذة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.4,
+          "cer": 0.0556,
+          "heard": "أحرك الدراجة بالدواسةين وألبس الخوضة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          481
+        ],
+        [
+          1,
+          602,
+          1183
+        ],
+        [
+          2,
+          1625,
+          2688
+        ],
+        [
+          3,
+          2888,
+          3389
+        ],
+        [
+          4,
+          3490,
+          3931
+        ]
+      ],
+      "duration_ms": 4914,
+      "sha256": "623061b939fe47bb68e5b9388a958ad3cfe76ed01fe415c3769a8bd12b0f82d3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9498,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4321d8d615d66ee9b7fb": {
+      "id": "ar_4321d8d615d66ee9b7fb",
+      "language": "ar",
+      "text": "للمربع أربعة أضلاع متساوية وأربع زوايا قائمة.",
+      "words": [
+        "للمربع",
+        "أربعة",
+        "أضلاع",
+        "متساوية",
+        "وأربع",
+        "زوايا",
+        "قائمة."
+      ],
+      "path": "audio/meaning/ar/ar_4321d8d615d66ee9b7fb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للمربع أربعة أضلاع متساوية وأربع زوايا قائمة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          441
+        ],
+        [
+          1,
+          701,
+          1041
+        ],
+        [
+          2,
+          1242,
+          1442
+        ],
+        [
+          3,
+          1602,
+          2263
+        ],
+        [
+          4,
+          2423,
+          2763
+        ],
+        [
+          5,
+          2964,
+          3344
+        ],
+        [
+          6,
+          3464,
+          3865
+        ]
+      ],
+      "duration_ms": 4065,
+      "sha256": "1859e1662c114d673729fe6efbe3b1a6b612535a6572c08fccfaa2ef20515c4d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9759,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7428e8201acdbedb6e84": {
+      "id": "ar_7428e8201acdbedb6e84",
+      "language": "ar",
+      "text": "أرتب ملابسي داخل الخزانة لأجدها بسهولة.",
+      "words": [
+        "أرتب",
+        "ملابسي",
+        "داخل",
+        "الخزانة",
+        "لأجدها",
+        "بسهولة."
+      ],
+      "path": "audio/meaning/ar/ar_7428e8201acdbedb6e84.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أرتب ملابسي داخل الخزانة لأجدها بسهولة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0789,
+          "heard": "أرتبم لابس داخل الخزانة لأجدها بسهولة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          342
+        ],
+        [
+          1,
+          443,
+          986
+        ],
+        [
+          2,
+          1087,
+          1409
+        ],
+        [
+          3,
+          1489,
+          1972
+        ],
+        [
+          4,
+          2133,
+          2697
+        ],
+        [
+          5,
+          2757,
+          3281
+        ]
+      ],
+      "duration_ms": 3442,
+      "sha256": "f0b7b4490786e5848c4f35e617b2b67b13215ac4fe38a71113d6170c8b21fa17",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9639,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_ae274fdfead70017b4c0": {
+      "id": "ar_ae274fdfead70017b4c0",
+      "language": "ar",
+      "text": "الغراب طائر ذكي، يستطيع تذكر أماكن الطعام.",
+      "words": [
+        "الغراب",
+        "طائر",
+        "ذكي،",
+        "يستطيع",
+        "تذكر",
+        "أماكن",
+        "الطعام."
+      ],
+      "path": "audio/meaning/ar/ar_ae274fdfead70017b4c0.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الغراب طائر ذكي يستطيع تذكر أماكن الطعام",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          442
+        ],
+        [
+          1,
+          583,
+          864
+        ],
+        [
+          2,
+          985,
+          1266
+        ],
+        [
+          3,
+          1748,
+          2130
+        ],
+        [
+          4,
+          2371,
+          2733
+        ],
+        [
+          5,
+          2874,
+          3276
+        ],
+        [
+          6,
+          3336,
+          3758
+        ]
+      ],
+      "duration_ms": 3778,
+      "sha256": "172c633f153ce588f8fc440165e0a402e9635bbf152be85c9edc62d362888b9e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9642,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5c651fffe68f7c81d557": {
+      "id": "ar_5c651fffe68f7c81d557",
+      "language": "ar",
+      "text": "يكون الطقس مشمسا عندما تصل أشعة الشمس بوضوح إلى المكان.",
+      "words": [
+        "يكون",
+        "الطقس",
+        "مشمسا",
+        "عندما",
+        "تصل",
+        "أشعة",
+        "الشمس",
+        "بوضوح",
+        "إلى",
+        "المكان."
+      ],
+      "path": "audio/meaning/ar/ar_5c651fffe68f7c81d557.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يكون الطقس مشمساً عندما تصل أشعة الشمس بوضوح إلى المكان.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0556,
+          "heard": "يكون التقسم شمسًا عندما تصل أشعة الشمس بوضوح إلى المكان",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          320
+        ],
+        [
+          1,
+          400,
+          701
+        ],
+        [
+          2,
+          821,
+          1362
+        ],
+        [
+          3,
+          1562,
+          1782
+        ],
+        [
+          4,
+          1882,
+          2163
+        ],
+        [
+          5,
+          2303,
+          2543
+        ],
+        [
+          6,
+          2743,
+          3224
+        ],
+        [
+          7,
+          3304,
+          3745
+        ],
+        [
+          8,
+          3905,
+          4005
+        ],
+        [
+          9,
+          4045,
+          4466
+        ]
+      ],
+      "duration_ms": 4826,
+      "sha256": "c555a4157f1a0459de8f916f2e776116378e9871740dc43c96a2beab3d0c0201",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9444,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_773e26a457939927d0a2": {
+      "id": "ar_773e26a457939927d0a2",
+      "language": "ar",
+      "text": "نعرض على لوحة الصف صورا وأعمالا ليراها الطلاب.",
+      "words": [
+        "نعرض",
+        "على",
+        "لوحة",
+        "الصف",
+        "صورا",
+        "وأعمالا",
+        "ليراها",
+        "الطلاب."
+      ],
+      "path": "audio/meaning/ar/ar_773e26a457939927d0a2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نعرض على لوحة الصف صورا وأعمالا ليراها الطلاب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          362
+        ],
+        [
+          1,
+          583,
+          643
+        ],
+        [
+          2,
+          723,
+          985
+        ],
+        [
+          3,
+          1145,
+          1427
+        ],
+        [
+          4,
+          1588,
+          1929
+        ],
+        [
+          5,
+          2030,
+          2653
+        ],
+        [
+          6,
+          2733,
+          3175
+        ],
+        [
+          7,
+          3215,
+          3678
+        ]
+      ],
+      "duration_ms": 4039,
+      "sha256": "e4023e4646e810989ff5d1087dfc507d991ab3e02b29e136b89c5a0f9bcb0e71",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9495,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_23b044959f42cb8ad31c": {
+      "id": "ar_23b044959f42cb8ad31c",
+      "language": "ar",
+      "text": "عندما تكون الكرة تحت الطاولة، تكون أسفل سطحها.",
+      "words": [
+        "عندما",
+        "تكون",
+        "الكرة",
+        "تحت",
+        "الطاولة،",
+        "تكون",
+        "أسفل",
+        "سطحها."
+      ],
+      "path": "audio/meaning/ar/ar_23b044959f42cb8ad31c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "عندما تكون الكرة تحت الطاولة تكون أسفل سطحها",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          121,
+          362
+        ],
+        [
+          1,
+          462,
+          783
+        ],
+        [
+          2,
+          864,
+          1185
+        ],
+        [
+          3,
+          1366,
+          1607
+        ],
+        [
+          4,
+          1687,
+          2169
+        ],
+        [
+          5,
+          2511,
+          2832
+        ],
+        [
+          6,
+          2993,
+          3294
+        ],
+        [
+          7,
+          3395,
+          3816
+        ]
+      ],
+      "duration_ms": 4098,
+      "sha256": "a097cd62ae7aa841b66f1b43a9d1541dfa27eeb9a4334a427137d6b13d1aeddd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9505,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b55cc8c326e834e0a983": {
+      "id": "ar_b55cc8c326e834e0a983",
+      "language": "ar",
+      "text": "نحرك المضرب في الخليط لخلط مكوناته وإدخال الهواء إليه.",
+      "words": [
+        "نحرك",
+        "المضرب",
+        "في",
+        "الخليط",
+        "لخلط",
+        "مكوناته",
+        "وإدخال",
+        "الهواء",
+        "إليه."
+      ],
+      "path": "audio/meaning/ar/ar_b55cc8c326e834e0a983.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نحرك المضرب في الخليط لخلط مكوناته وإدخال الهواء إليه",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          402
+        ],
+        [
+          1,
+          482,
+          904
+        ],
+        [
+          2,
+          1025,
+          1105
+        ],
+        [
+          3,
+          1125,
+          1567
+        ],
+        [
+          4,
+          1688,
+          2050
+        ],
+        [
+          5,
+          2190,
+          2874
+        ],
+        [
+          6,
+          3014,
+          3497
+        ],
+        [
+          7,
+          3577,
+          3899
+        ],
+        [
+          8,
+          4160,
+          4441
+        ]
+      ],
+      "duration_ms": 4682,
+      "sha256": "50b279ccf5b4d1a62808f0763a0c6e36c2aea408f89f26092425f2e851d8c4e3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9383,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0d6fa04965ee62e23b38": {
+      "id": "ar_0d6fa04965ee62e23b38",
+      "language": "ar",
+      "text": "يَمْتَصُّ الْجَذْرُ الْمَاءَ مِنَ التُّرْبَةِ.",
+      "words": [
+        "يَمْتَصُّ",
+        "الْجَذْرُ",
+        "الْمَاءَ",
+        "مِنَ",
+        "التُّرْبَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_0d6fa04965ee62e23b38.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يمتص الجذر الماء من التربة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          463
+        ],
+        [
+          1,
+          584,
+          906
+        ],
+        [
+          2,
+          1006,
+          1187
+        ],
+        [
+          3,
+          1429,
+          1570
+        ],
+        [
+          4,
+          1630,
+          2053
+        ]
+      ],
+      "duration_ms": 2314,
+      "sha256": "023340442a800b33222a212ba9218892c3a6c1586e3e9ae5ccc999e32c013945",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8714,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0f11d119e6e0f065038a": {
+      "id": "ar_0f11d119e6e0f065038a",
+      "language": "ar",
+      "text": "يزود الشاحن بطارية الجهاز بالطاقة، ونستخدمه مع شخص كبير وبأيد جافة.",
+      "words": [
+        "يزود",
+        "الشاحن",
+        "بطارية",
+        "الجهاز",
+        "بالطاقة،",
+        "ونستخدمه",
+        "مع",
+        "شخص",
+        "كبير",
+        "وبأيد",
+        "جافة."
+      ],
+      "path": "audio/meaning/ar/ar_0f11d119e6e0f065038a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يزود الشاحن بطارية الجهاز بالطاقة ونستخدمه مع شخص كبير وبأيد جافة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          321
+        ],
+        [
+          1,
+          401,
+          803
+        ],
+        [
+          2,
+          843,
+          1305
+        ],
+        [
+          3,
+          1445,
+          1827
+        ],
+        [
+          4,
+          1927,
+          2409
+        ],
+        [
+          5,
+          2910,
+          3633
+        ],
+        [
+          6,
+          3713,
+          3733
+        ],
+        [
+          7,
+          3934,
+          4175
+        ],
+        [
+          8,
+          4376,
+          4737
+        ],
+        [
+          9,
+          4878,
+          5299
+        ],
+        [
+          10,
+          5460,
+          5821
+        ]
+      ],
+      "duration_ms": 6122,
+      "sha256": "8eb9182b750ab280fe55dcde73407ecb9c5189f90927943014bb83f07db10184",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.964,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_fa18a2a4e71b7d5785fb": {
+      "id": "ar_fa18a2a4e71b7d5785fb",
+      "language": "ar",
+      "text": "قد نحتاج إلى مساعدة لحمل شيء ثقيل، مثل حقيبة ممتلئة.",
+      "words": [
+        "قد",
+        "نحتاج",
+        "إلى",
+        "مساعدة",
+        "لحمل",
+        "شيء",
+        "ثقيل،",
+        "مثل",
+        "حقيبة",
+        "ممتلئة."
+      ],
+      "path": "audio/meaning/ar/ar_fa18a2a4e71b7d5785fb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "قد نحتاج إلى مساعدة لحمل شيء ثقيل مثل حقيبة ممتلئة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          100
+        ],
+        [
+          1,
+          140,
+          501
+        ],
+        [
+          2,
+          581,
+          761
+        ],
+        [
+          3,
+          841,
+          1322
+        ],
+        [
+          4,
+          1483,
+          1803
+        ],
+        [
+          5,
+          1883,
+          2024
+        ],
+        [
+          6,
+          2184,
+          2565
+        ],
+        [
+          7,
+          3045,
+          3246
+        ],
+        [
+          8,
+          3346,
+          3727
+        ],
+        [
+          9,
+          3907,
+          4428
+        ]
+      ],
+      "duration_ms": 4668,
+      "sha256": "4476b61c2b50ce538583bf112ded42be7dbd602ed07c511138b0a15501cbbe29",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9639,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_34733d2a870848290cb2": {
+      "id": "ar_34733d2a870848290cb2",
+      "language": "ar",
+      "text": "الجار يسكن قرب بيتنا، ونحترم راحته ونساعده عندما نستطيع.",
+      "words": [
+        "الجار",
+        "يسكن",
+        "قرب",
+        "بيتنا،",
+        "ونحترم",
+        "راحته",
+        "ونساعده",
+        "عندما",
+        "نستطيع."
+      ],
+      "path": "audio/meaning/ar/ar_34733d2a870848290cb2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الجار يسكن قرب بيتنا ونحترم راحته ونساعده عندما نستطيع",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          341
+        ],
+        [
+          1,
+          421,
+          741
+        ],
+        [
+          2,
+          901,
+          1122
+        ],
+        [
+          3,
+          1222,
+          1623
+        ],
+        [
+          4,
+          2023,
+          2564
+        ],
+        [
+          5,
+          2664,
+          3065
+        ],
+        [
+          6,
+          3185,
+          3886
+        ],
+        [
+          7,
+          4106,
+          4327
+        ],
+        [
+          8,
+          4427,
+          4868
+        ]
+      ],
+      "duration_ms": 5088,
+      "sha256": "261166cc70bda3148c476844b53f16cdb8e9e595b2a7ef03fc79b16e77da7028",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9664,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_2d129e3ef626fff30e4f": {
+      "id": "ar_2d129e3ef626fff30e4f",
+      "language": "ar",
+      "text": "يساعد بلسم الشعر على تليينه وتسهيل تمشيطه بعد غسله.",
+      "words": [
+        "يساعد",
+        "بلسم",
+        "الشعر",
+        "على",
+        "تليينه",
+        "وتسهيل",
+        "تمشيطه",
+        "بعد",
+        "غسله."
+      ],
+      "path": "audio/meaning/ar/ar_2d129e3ef626fff30e4f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يساعد بلسم الشعر على تليينه وتسهيل تمشيطه بعد غسله.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.02,
+          "heard": "يساعد بلسم الشعري على تليينه وتسهيل تمشيطه بعد غسلة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          482
+        ],
+        [
+          1,
+          583,
+          924
+        ],
+        [
+          2,
+          1004,
+          1326
+        ],
+        [
+          3,
+          1527,
+          1587
+        ],
+        [
+          4,
+          1647,
+          2190
+        ],
+        [
+          5,
+          2310,
+          2813
+        ],
+        [
+          6,
+          2913,
+          3455
+        ],
+        [
+          7,
+          3596,
+          3817
+        ],
+        [
+          8,
+          3897,
+          4239
+        ]
+      ],
+      "duration_ms": 4580,
+      "sha256": "a62aee95e1a69804458734650c698e178c7f28fa3322b5282c283f42a5c96c6e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9681,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f4ed18486a84332fb585": {
+      "id": "ar_f4ed18486a84332fb585",
+      "language": "ar",
+      "text": "نأكل الأجزاء الطرية من زهرة الخرشوف قبل أن تتفتح.",
+      "words": [
+        "نأكل",
+        "الأجزاء",
+        "الطرية",
+        "من",
+        "زهرة",
+        "الخرشوف",
+        "قبل",
+        "أن",
+        "تتفتح."
+      ],
+      "path": "audio/meaning/ar/ar_f4ed18486a84332fb585.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نأكل الأجزاء الطرية من زهرة الخرشوف قبل أن تتفتح",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          402
+        ],
+        [
+          1,
+          482,
+          864
+        ],
+        [
+          2,
+          1025,
+          1467
+        ],
+        [
+          3,
+          1588,
+          1708
+        ],
+        [
+          4,
+          1769,
+          2030
+        ],
+        [
+          5,
+          2151,
+          2673
+        ],
+        [
+          6,
+          2894,
+          3075
+        ],
+        [
+          7,
+          3176,
+          3256
+        ],
+        [
+          8,
+          3296,
+          3899
+        ]
+      ],
+      "duration_ms": 4180,
+      "sha256": "9b97d70952e2918aa55f7374461304e365d7ff0366aa3334a380a922ed26d6ca",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.982,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_9773f38b068dff5597d3": {
+      "id": "ar_9773f38b068dff5597d3",
+      "language": "ar",
+      "text": "المستنقع أرض مشبعة بالماء، وتنمو فيه نباتات تحب الرطوبة.",
+      "words": [
+        "المستنقع",
+        "أرض",
+        "مشبعة",
+        "بالماء،",
+        "وتنمو",
+        "فيه",
+        "نباتات",
+        "تحب",
+        "الرطوبة."
+      ],
+      "path": "audio/meaning/ar/ar_9773f38b068dff5597d3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "المستنقع أرض مشبعة بالماء وتنمو فيه نباتات تحب الرطوبة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.037,
+          "heard": "المستنقع أرض مشبعة بالماء وتنمو فيه نباتات تحب رطوبة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          561
+        ],
+        [
+          1,
+          842,
+          1023
+        ],
+        [
+          2,
+          1143,
+          1564
+        ],
+        [
+          3,
+          1764,
+          2045
+        ],
+        [
+          4,
+          2566,
+          2947
+        ],
+        [
+          5,
+          3048,
+          3228
+        ],
+        [
+          6,
+          3348,
+          3830
+        ],
+        [
+          7,
+          3950,
+          4271
+        ],
+        [
+          8,
+          4351,
+          4812
+        ]
+      ],
+      "duration_ms": 5033,
+      "sha256": "f5c7d7623f5b3c50ff576b2af26f162c8b155241670609feaa42aad114c4ece6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9704,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e5527e9b953ec99f7444": {
+      "id": "ar_e5527e9b953ec99f7444",
+      "language": "ar",
+      "text": "الممر الضيق فيه مساحة قليلة، فنمر فيه بحذر.",
+      "words": [
+        "الممر",
+        "الضيق",
+        "فيه",
+        "مساحة",
+        "قليلة،",
+        "فنمر",
+        "فيه",
+        "بحذر."
+      ],
+      "path": "audio/meaning/ar/ar_e5527e9b953ec99f7444.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الممر الضيق فيه مساحة قليلة فنمر فيه بحذر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          342
+        ],
+        [
+          1,
+          402,
+          684
+        ],
+        [
+          2,
+          804,
+          986
+        ],
+        [
+          3,
+          1086,
+          1488
+        ],
+        [
+          4,
+          1710,
+          2092
+        ],
+        [
+          5,
+          2333,
+          2675
+        ],
+        [
+          6,
+          2776,
+          2936
+        ],
+        [
+          7,
+          3037,
+          3520
+        ]
+      ],
+      "duration_ms": 3821,
+      "sha256": "4fd180cdc738b0557b1473444e0fc26619c3998a296e77743b29bd82756f3f56",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9909,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_9e79f968eef16773775d": {
+      "id": "ar_9e79f968eef16773775d",
+      "language": "ar",
+      "text": "يثبت حزام الأمان الراكب في مقعده عند التوقف المفاجئ أو الاصطدام.",
+      "words": [
+        "يثبت",
+        "حزام",
+        "الأمان",
+        "الراكب",
+        "في",
+        "مقعده",
+        "عند",
+        "التوقف",
+        "المفاجئ",
+        "أو",
+        "الاصطدام."
+      ],
+      "path": "audio/meaning/ar/ar_9e79f968eef16773775d.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يثبت حزام الأمان الراكب في مقعده عند التوقف المفاجئ أو الأصطدام.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0317,
+          "heard": "يثبت حزام الأمان الراكب في مقعده عند التوقف المفاجئ أو الاستدام",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          361
+        ],
+        [
+          1,
+          501,
+          902
+        ],
+        [
+          2,
+          1002,
+          1383
+        ],
+        [
+          3,
+          1463,
+          1904
+        ],
+        [
+          4,
+          2024,
+          2124
+        ],
+        [
+          5,
+          2225,
+          2686
+        ],
+        [
+          6,
+          2926,
+          3006
+        ],
+        [
+          7,
+          3086,
+          3547
+        ],
+        [
+          8,
+          3608,
+          4109
+        ],
+        [
+          9,
+          4229,
+          4309
+        ],
+        [
+          10,
+          4369,
+          4930
+        ]
+      ],
+      "duration_ms": 5612,
+      "sha256": "86198104b1d5da0561406adeac06bb3ee989212a1509c1e77283c4d7e884ad99",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9501,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e9b944531eadc357f7ae": {
+      "id": "ar_e9b944531eadc357f7ae",
+      "language": "ar",
+      "text": "أغسل يدي قبل الأكل، فيحدث غسل اليدين أولا.",
+      "words": [
+        "أغسل",
+        "يدي",
+        "قبل",
+        "الأكل،",
+        "فيحدث",
+        "غسل",
+        "اليدين",
+        "أولا."
+      ],
+      "path": "audio/meaning/ar/ar_e9b944531eadc357f7ae.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أغسل يدي قبل الأكل فيحدث غسل اليدين أولا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.025,
+          "heard": "أغسل يدي قبل الأكل فيحدث غسل اليديني أولا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          362
+        ],
+        [
+          1,
+          483,
+          684
+        ],
+        [
+          2,
+          825,
+          1026
+        ],
+        [
+          3,
+          1107,
+          1529
+        ],
+        [
+          4,
+          1811,
+          2293
+        ],
+        [
+          5,
+          2394,
+          2676
+        ],
+        [
+          6,
+          2756,
+          3159
+        ],
+        [
+          7,
+          3320,
+          3601
+        ]
+      ],
+      "duration_ms": 3762,
+      "sha256": "058481025d3fe09b1295951ef1451ee14e55468d9700ff86cad6fe50f269562d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9884,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
