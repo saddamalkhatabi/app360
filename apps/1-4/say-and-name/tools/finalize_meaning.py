@@ -7,12 +7,12 @@ previous=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1
 for cid,row in previous.items():
  if cid in expected:clips[cid]=row
 for report in source.glob('*.json'):
- for row in json.loads(report.read_text())['items']:
+ for row in json.loads(report.read_text()).get('items',[]):
   cid=row['id'];assert cid in expected,cid
   wanted=expected[cid]
   for k in ['text','words','path','language','engine']:assert row[k]==wanted[k],(cid,k)
   target=source/row['path'];assert hashlib.sha256(target.read_bytes()).hexdigest()==row['sha256']
-  assert row['model_revision']==manifest['model_revision'] and row['steps']==32
+  assert row['model_revision']==manifest['model_revision'] and row['steps']==48 and row.get('quality_revision')=='facts-v2-asr' and row.get('speech_qa',{}).get('passed') is True
   assert len(row['cues'])==len(row['words'])
   for i,(index,start,end) in enumerate(row['cues']):
    assert index==i and 0<=start<end<=row['duration_ms']
@@ -26,3 +26,9 @@ data=dict(schema=1,expected=len(expected),complete=len(clips)==len(expected),cli
 (ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
 (ROOT/'audio/meaning-validation.json').write_text(json.dumps(dict(engine='silma-tts',model_revision=manifest['model_revision'],ready=len(clips),expected=len(expected),auditory_review='pending',clips=clips),ensure_ascii=False,indent=2)+'\n')
 print('Verified actual SILMA recordings',len(clips),'/',len(expected))
+
+# Only remove superseded sentence assets after the entire replacement is ready.
+if not a.merge and not a.partial and data['complete']:
+ wanted={r['path'] for r in clips.values()}
+ for old in (ROOT/'audio/meaning').rglob('*.mp3'):
+  if old.relative_to(ROOT).as_posix() not in wanted:old.unlink()

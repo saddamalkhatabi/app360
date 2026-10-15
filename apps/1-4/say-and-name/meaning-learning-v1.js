@@ -52,7 +52,7 @@ function refreshRecordings(done){
 
 function setActive(value){
  stop();if(window.App360WordPlayer)window.App360WordPlayer.stop();active=!!value;
- panel.hidden=!active;document.body.setAttribute('data-learning-track',active?'sentences':'names');var badge=$('learningTrackBadge');if(badge)badge.textContent=active?(prefs().display==='en'?'4–8 · Words and useful sentences':'4–8 · الكلمات والجمل المفيدة'):(prefs().display==='en'?'1–4 · Listen and name':'1–4 · اسمع وسمِّ');
+ panel.hidden=!active;var stage=$('stage'),copy=stage.querySelector('.word-copy');if(copy)stage.insertBefore(copy,active?$('pictureButton'):panel);document.body.setAttribute('data-learning-track',active?'sentences':'names');var badge=$('learningTrackBadge');if(badge)badge.textContent=active?(prefs().display==='en'?'4–8 · Words and useful sentences':'4–8 · الكلمات والجمل المفيدة'):(prefs().display==='en'?'1–4 · Listen and name':'1–4 · اسمع وسمِّ');
  Array.prototype.forEach.call(document.querySelectorAll('button[data-learning-track]'),function(el){var on=el.getAttribute('data-learning-track')===(active?'sentences':'names');el.classList.toggle('is-active',on);el.setAttribute('aria-pressed',String(on))});
  var button=$('stageSpeakBtn');if(button)button.querySelector('span').textContent=active?(prefs().display==='en'?'Read word and sentences':'انطق الكلمة والجمل'):(prefs().display==='en'?'Speak word':'انطق الكلمة');if(active)render();try{localStorage.setItem('app360:say-name:track',active?'sentences':'names')}catch(e){}
 }

@@ -7,3 +7,25 @@
 .learning-track-badge{display:inline-block;padding:8px 14px;border-radius:14px;margin:10px 0 0;background:#d9f4e9;color:#155f4b;font-weight:700}body[data-learning-track="names"]{background:#edf8f3}body[data-learning-track="sentences"]{background:#f0ecfa}body[data-learning-track="sentences"] .hero{background:linear-gradient(125deg,#eee5ff,#f8f4ff);border-color:#d3c0ef}body[data-learning-track="sentences"] .learning-track-badge{background:#e3d5fb;color:#56377d}body[data-learning-track="sentences"] .learning-tracks .is-active{background:#e9dcfc;border-color:#8a66b7}body[data-learning-track="sentences"] #stage{border-color:#bda2df;background:#fffaff}body[data-learning-track="sentences"] #stage .meaning-panel{background:#f1e9fc}body[data-learning-track="sentences"] .meaning-play{background:#e8dcf7;color:#54367b}.meaning-word.is-speaking{outline:2px solid #bd8a00}.meaning-audio-only[hidden]{display:none!important}
 
 .meaning-reader{position:fixed;bottom:8px;inset-inline:10px;z-index:30;max-width:950px;margin-inline:auto;padding:12px 16px;background:#fff8df;border:2px solid #dbb647;border-radius:18px;box-shadow:0 5px 22px #0003;pointer-events:none}.meaning-reader p{margin:0;font-size:clamp(21px,3vw,30px);line-height:1.7;text-align:center}.meaning-reader-word{padding:2px 4px;border-radius:6px}.meaning-reader-word.is-speaking{background:#ffd84b;color:#182737;outline:2px solid #ad7900}.meaning-word{scroll-margin-top:80px;scroll-margin-bottom:180px}body:has(.meaning-reader:not([hidden])) .bottom-nav{bottom:120px}@media(max-width:600px){.meaning-reader{bottom:4px;inset-inline:5px;padding:8px 10px}.meaning-reader p{font-size:21px}}
+
+/* Sentence lessons reserve the wide screen for meaning, including old WebViews. */
+body[data-learning-track="sentences"] #stage{display:block;min-height:0;overflow:hidden}
+body[data-learning-track="sentences"] #stage:after{content:"";display:block;clear:both}
+body[data-learning-track="sentences"] #stage .stage-top{margin-bottom:8px}
+body[data-learning-track="sentences"] #stage .word-copy{padding:8px 10px 12px;text-align:center;clear:both}
+body[data-learning-track="sentences"] #stage .word-copy h2{font-size:28px;line-height:1.4;margin:0}
+body[data-learning-track="sentences"] #stage .word-copy .word-ar,body[data-learning-track="sentences"] #stage .word-copy .word-en{display:inline-block;margin:0 7px;font-size:1em}
+body[data-learning-track="sentences"] #stage .word-copy p{font-size:12px;margin:3px 0 0}
+body[data-learning-track="sentences"] #stage .picture-button{float:right;width:41%;max-width:none;margin:0;box-sizing:border-box;padding:8px}
+body[data-learning-track="sentences"] #stage .picture-button img{max-height:380px}
+body[data-learning-track="sentences"] #stage .meaning-panel{float:left;width:57%;margin:0;padding:12px!important;box-sizing:border-box}
+body[data-learning-track="sentences"] #stage .meaning-sentence{display:block;margin:12px 0;padding:14px}
+body[data-learning-track="sentences"] #stage .meaning-sentence p{font-size:25px;line-height:1.85}
+body[data-learning-track="sentences"] #stage .meaning-play{font-size:16px;padding:10px}
+@media(max-width:759px){
+body[data-learning-track="sentences"] #stage .picture-button,body[data-learning-track="sentences"] #stage .meaning-panel{float:none;width:100%}
+body[data-learning-track="sentences"] #stage .picture-button{max-width:360px;margin:0 auto 10px}
+body[data-learning-track="sentences"] #stage .picture-button img{max-height:230px}
+body[data-learning-track="sentences"] #stage .word-copy h2{font-size:25px}
+body[data-learning-track="sentences"] #stage .meaning-sentence p{font-size:22px}
+}
