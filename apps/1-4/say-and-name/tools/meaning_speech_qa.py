@@ -1,13 +1,17 @@
 """Independent decoded-speech checks; alignment alone cannot verify spoken words."""
 import re,unicodedata
-from difflib import SequenceMatcher
 
 def normalize(text):
  text=unicodedata.normalize('NFKC',text).lower()
+ for short,full in [("don't",'do not'),("doesn't",'does not'),("can't",'can not'),('cannot','can not')]:text=text.replace(short,full)
  text=''.join(c for c in text if not unicodedata.combining(c))
  text=text.translate(str.maketrans('أإآٱىة','اااايه'))
  text=re.sub(r'[^\w\s]',' ',text).replace('_',' ')
- return ' '.join(text.split())
+ text=' '.join(text.split())
+ aliases={'اثنا عشر':'12','اثني عشر':'12','twelve':'12','ستون':'60','ستين':'60','sixty':'60','واحد':'1','واحدة':'1','one':'1','اثنان':'2','اثنين':'2','اثنتان':'2','اثنتين':'2','two':'2','ثلاث':'3','ثلاثه':'3','three':'3','اربع':'4','اربعه':'4','four':'4','خمس':'5','خمسه':'5','five':'5','ست':'6','سته':'6','six':'6','سبع':'7','سبعه':'7','seven':'7','ثمان':'8','ثماني':'8','ثمانيه':'8','eight':'8','تسع':'9','تسعه':'9','nine':'9','عشر':'10','عشره':'10','ten':'10','صفر':'0','zero':'0','بدون':'دون'}
+ for word,value in aliases.items():text=re.sub(r'(?<!\w)'+re.escape(word)+r'(?!\w)',value,text)
+ text=''.join(str(unicodedata.digit(c)) if c.isdigit() else c for c in text)
+ return text
 
 def distance(a,b):
  row=list(range(len(b)+1))
@@ -21,6 +25,8 @@ def compare(expected,heard):
  a,b=normalize(expected),normalize(heard)
  aw,bw=a.split(),b.split()
  wer=distance(aw,bw)/max(1,len(aw));cer=distance(a,b)/max(1,len(a))
+ negations={'لا','دون','not','never'}
+ missing_negation=bool((set(aw)&negations)-(set(bw)&negations))
  repeated=any(bw[i]==bw[i+1]==bw[i+2] for i in range(len(bw)-2))
  # ASR is an independent automated screen, not a human pronunciation verdict.
- return dict(passed=bool(a and b and wer<=.25 and cer<=.18 and not repeated),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')
+ return dict(passed=bool(a and b and wer<=.25 and cer<=.18 and not repeated and not missing_negation),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')
