@@ -11,30 +11,10 @@ concurrency:
   group: say-name-facts-repair-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  wait-for-original:
-    runs-on: ubuntu-latest
-    timeout-minutes: 360
-    steps:
-      - name: Preserve running generation and wait for all its batches
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python - <<'PYWAIT'
-          import json,os,time,urllib.request
-          url='https://api.github.com/repos/saddamalkhatabi/app360/actions/runs/38721379759'
-          for attempt in range(350):
-              request=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
-              with urllib.request.urlopen(request,timeout=30) as response: data=json.load(response)
-              print(data['status'],data.get('conclusion'),flush=True)
-              if data['status']=='completed': break
-              time.sleep(60)
-          else: raise SystemExit('Original generation still active; no concurrent replacement started')
-          PYWAIT
   record:
-    needs: wait-for-original
     strategy:
       fail-fast: false
-      max-parallel: 20
+      max-parallel: 16
       matrix:
         part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
     runs-on: ubuntu-latest
@@ -48,6 +28,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
+      - name: Wait only for the matching original batch and refresh its saved recordings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python apps/1-4/say-and-name/tools/wait-meaning-batch.py --part ${{ matrix.part }}
+          git fetch origin "${{ github.ref_name }}"
+          git reset --hard "origin/${{ github.ref_name }}"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
