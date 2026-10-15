@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1683,
+  "ready": 1688,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -157844,6 +157844,579 @@
       "sha256": "fb1cc0372684c5b09bfb9ca9f8dce2350bee2e159e051b82657551ce9431ac5b",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9614,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_df2c4bbd631d9df61b2f": {
+      "id": "en_df2c4bbd631d9df61b2f",
+      "language": "en",
+      "text": "A hoopoe has a crest on its head and a long beak for finding insects.",
+      "words": [
+        "A",
+        "hoopoe",
+        "has",
+        "a",
+        "crest",
+        "on",
+        "its",
+        "head",
+        "and",
+        "a",
+        "long",
+        "beak",
+        "for",
+        "finding",
+        "insects."
+      ],
+      "path": "audio/meaning/en/en_df2c4bbd631d9df61b2f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a hoopoe has a crest on its head and a long beak for finding insects.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          301,
+          321
+        ],
+        [
+          1,
+          401,
+          822
+        ],
+        [
+          2,
+          862,
+          1023
+        ],
+        [
+          3,
+          1063,
+          1083
+        ],
+        [
+          4,
+          1163,
+          1524
+        ],
+        [
+          5,
+          1605,
+          1685
+        ],
+        [
+          6,
+          1745,
+          1865
+        ],
+        [
+          7,
+          1905,
+          2146
+        ],
+        [
+          8,
+          2607,
+          2728
+        ],
+        [
+          9,
+          2768,
+          2788
+        ],
+        [
+          10,
+          2868,
+          3149
+        ],
+        [
+          11,
+          3249,
+          3470
+        ],
+        [
+          12,
+          3550,
+          3670
+        ],
+        [
+          13,
+          3730,
+          4212
+        ],
+        [
+          14,
+          4332,
+          4954
+        ]
+      ],
+      "duration_ms": 5175,
+      "sha256": "d305f445bad7756fb6a3ea7c9f1db64d26afd88b0a404dd4dc0d69636bdfe12d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.917,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_319d130fe074ecd6ed06": {
+      "id": "en_319d130fe074ecd6ed06",
+      "language": "en",
+      "text": "An open door lets us pass through without blocking the way.",
+      "words": [
+        "An",
+        "open",
+        "door",
+        "lets",
+        "us",
+        "pass",
+        "through",
+        "without",
+        "blocking",
+        "the",
+        "way."
+      ],
+      "path": "audio/meaning/en/en_319d130fe074ecd6ed06.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "an open door lets us pass through without blocking the way.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.069,
+          "heard": "and an open door lets us pass through without blocking the way.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          121
+        ],
+        [
+          1,
+          241,
+          503
+        ],
+        [
+          2,
+          603,
+          824
+        ],
+        [
+          3,
+          925,
+          1247
+        ],
+        [
+          4,
+          1387,
+          1508
+        ],
+        [
+          5,
+          1629,
+          1970
+        ],
+        [
+          6,
+          2111,
+          2413
+        ],
+        [
+          7,
+          2594,
+          2895
+        ],
+        [
+          8,
+          2956,
+          3358
+        ],
+        [
+          9,
+          3398,
+          3458
+        ],
+        [
+          10,
+          3518,
+          3699
+        ]
+      ],
+      "duration_ms": 4403,
+      "sha256": "8b2cb98ee755c1db7b458828975c8599fb3062dbb7e9e2512b5d06a92963842f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.984,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_42a66458dba2bda379de": {
+      "id": "en_42a66458dba2bda379de",
+      "language": "en",
+      "text": "A tree trunk supports branches and carries water between roots and leaves.",
+      "words": [
+        "A",
+        "tree",
+        "trunk",
+        "supports",
+        "branches",
+        "and",
+        "carries",
+        "water",
+        "between",
+        "roots",
+        "and",
+        "leaves."
+      ],
+      "path": "audio/meaning/en/en_42a66458dba2bda379de.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a tree trunk supports branches and carries water between roots and leaves.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          201,
+          401
+        ],
+        [
+          2,
+          441,
+          682
+        ],
+        [
+          3,
+          742,
+          1163
+        ],
+        [
+          4,
+          1243,
+          1865
+        ],
+        [
+          5,
+          2326,
+          2446
+        ],
+        [
+          6,
+          2526,
+          2907
+        ],
+        [
+          7,
+          2988,
+          3308
+        ],
+        [
+          8,
+          3409,
+          3810
+        ],
+        [
+          9,
+          3910,
+          4331
+        ],
+        [
+          10,
+          4612,
+          4732
+        ],
+        [
+          11,
+          4792,
+          5233
+        ]
+      ],
+      "duration_ms": 5314,
+      "sha256": "138ca24568cbed5eeea9278b10f42bd3eaf993b4ce1bf09f80226811a4f30038",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9663,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d68d01a7574ce43123a0": {
+      "id": "en_d68d01a7574ce43123a0",
+      "language": "en",
+      "text": "A drill makes holes by rotating and is used by a grown-up with protective equipment.",
+      "words": [
+        "A",
+        "drill",
+        "makes",
+        "holes",
+        "by",
+        "rotating",
+        "and",
+        "is",
+        "used",
+        "by",
+        "a",
+        "grown-up",
+        "with",
+        "protective",
+        "equipment."
+      ],
+      "path": "audio/meaning/en/en_d68d01a7574ce43123a0.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A drill makes holes by rotating and is used by a grown-up with protective equipment.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0625,
+          "cer": 0.0241,
+          "heard": "drill makes holes by rotating and is used by a grown-up with protective equipment.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          80
+        ],
+        [
+          1,
+          180,
+          420
+        ],
+        [
+          2,
+          481,
+          761
+        ],
+        [
+          3,
+          841,
+          1181
+        ],
+        [
+          4,
+          1281,
+          1422
+        ],
+        [
+          5,
+          1522,
+          2182
+        ],
+        [
+          6,
+          2703,
+          2823
+        ],
+        [
+          7,
+          2863,
+          2963
+        ],
+        [
+          8,
+          3163,
+          3384
+        ],
+        [
+          9,
+          3424,
+          3564
+        ],
+        [
+          10,
+          3624,
+          3644
+        ],
+        [
+          11,
+          3744,
+          4184
+        ],
+        [
+          12,
+          4365,
+          4505
+        ],
+        [
+          13,
+          4605,
+          5266
+        ],
+        [
+          14,
+          5346,
+          5906
+        ]
+      ],
+      "duration_ms": 6227,
+      "sha256": "469f5af44c762bbc58dcbf54e7b1381c8c413386817327fb6e299995a0754c3a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9663,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_939ee743b1df5adcdd85": {
+      "id": "en_939ee743b1df5adcdd85",
+      "language": "en",
+      "text": "An emergency exit helps people leave quickly in danger, and we keep it clear.",
+      "words": [
+        "An",
+        "emergency",
+        "exit",
+        "helps",
+        "people",
+        "leave",
+        "quickly",
+        "in",
+        "danger,",
+        "and",
+        "we",
+        "keep",
+        "it",
+        "clear."
+      ],
+      "path": "audio/meaning/en/en_939ee743b1df5adcdd85.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "an emergency exit helps people leave quickly in danger, and we keep it clear.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          100
+        ],
+        [
+          1,
+          160,
+          782
+        ],
+        [
+          2,
+          1023,
+          1364
+        ],
+        [
+          3,
+          1424,
+          1785
+        ],
+        [
+          4,
+          1866,
+          2287
+        ],
+        [
+          5,
+          2528,
+          2788
+        ],
+        [
+          6,
+          2869,
+          3230
+        ],
+        [
+          7,
+          3330,
+          3410
+        ],
+        [
+          8,
+          3490,
+          3892
+        ],
+        [
+          9,
+          4393,
+          4513
+        ],
+        [
+          10,
+          4533,
+          4614
+        ],
+        [
+          11,
+          4694,
+          4915
+        ],
+        [
+          12,
+          4955,
+          5035
+        ],
+        [
+          13,
+          5115,
+          5476
+        ]
+      ],
+      "duration_ms": 6098,
+      "sha256": "df9e3edd853bd3f872278ba3349d50cb5311c2653651101ebadbe9c4e9e2f4b0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9731,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
