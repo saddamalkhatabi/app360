@@ -1,95 +1,10 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 4,
+  "ready": 3,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
-    "ar_c7e37ee78896b30bce7f": {
-      "id": "ar_c7e37ee78896b30bce7f",
-      "language": "ar",
-      "text": "يأكل الماعز الأعشاب وأوراق الشجر، ونستفيد من حليبه ولحمه.",
-      "words": [
-        "يأكل",
-        "الماعز",
-        "الأعشاب",
-        "وأوراق",
-        "الشجر،",
-        "ونستفيد",
-        "من",
-        "حليبه",
-        "ولحمه."
-      ],
-      "path": "audio/meaning/ar/ar_c7e37ee78896b30bce7f.mp3",
-      "engine": "silma",
-      "speech_qa": {
-        "passed": true,
-        "wer": 0.1111,
-        "cer": 0.0364,
-        "heard": "يأكلوا الماعز الأعشاب وأوراق الشجر ونستفيد من حليبه ولحمه",
-        "recognizer": "faster-whisper-small",
-        "human_review": "pending"
-      },
-      "seed": 360,
-      "cues": [
-        [
-          0,
-          20,
-          341
-        ],
-        [
-          1,
-          422,
-          803
-        ],
-        [
-          2,
-          883,
-          1385
-        ],
-        [
-          3,
-          1486,
-          1928
-        ],
-        [
-          4,
-          1988,
-          2389
-        ],
-        [
-          5,
-          2972,
-          3594
-        ],
-        [
-          6,
-          3694,
-          3815
-        ],
-        [
-          7,
-          3875,
-          4297
-        ],
-        [
-          8,
-          4478,
-          4979
-        ]
-      ],
-      "duration_ms": 5020,
-      "sha256": "9889439757635c4501d6bb2f94a32d31653d088ee903b6a74dc352c72669ae46",
-      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
-      "alignment_score": 0.9848,
-      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-      "package_version": "1.0.5",
-      "precision": "bf16",
-      "reference": "publisher ar.ref.24k.wav",
-      "steps": 48,
-      "quality_revision": "facts-v2-asr",
-      "auditory_review": "pending"
-    },
     "en_038409bfab183e1095a6": {
       "id": "en_038409bfab183e1095a6",
       "language": "en",
