@@ -74,6 +74,10 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
           git add -u
+          if git diff --cached --quiet; then
+            echo 'Recordings are already fully published'
+            exit 0
+          fi
           git commit -m 'Publish first bilingual sample with measured word cues'
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
@@ -162,6 +166,10 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
           git add -u
+          if git diff --cached --quiet; then
+            echo 'Recordings are already fully published'
+            exit 0
+          fi
           git commit -m 'Publish complete bilingual useful sentences with measured word cues'
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
