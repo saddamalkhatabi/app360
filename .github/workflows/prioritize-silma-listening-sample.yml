@@ -1,0 +1,15 @@
+name: Prioritize the single-pronunciation listening sample
+on:
+  push:
+    branches: [preview/say-name-single-voice-20261014]
+    paths: [.github/workflows/prioritize-silma-listening-sample.yml]
+permissions:
+  contents: read
+concurrency:
+  group: say-name-single-silma-refs/heads/preview/say-name-single-voice-20261014
+  cancel-in-progress: true
+jobs:
+  prioritized:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'The incomplete bulk run is paused; the small verified sample will resume it after publication.'

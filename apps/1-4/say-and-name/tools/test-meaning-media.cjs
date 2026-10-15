@@ -1,0 +1,21 @@
+'use strict';
+const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),http=require('http'),assert=require('assert');
+const root=path.resolve(__dirname,'..'),repo=path.resolve(root,'../../..');
+(async()=>{const server=http.createServer((req,res)=>{const file=path.resolve(repo,'.'+req.url.split('?')[0]);if(!file.startsWith(repo+'/')||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404).end();return}res.setHeader('Content-Type',({'.js':'text/javascript','.html':'text/html','.css':'text/css','.mp3':'audio/mpeg','.json':'application/json'})[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file))});await new Promise(r=>server.listen(0,'127.0.0.1',r));let browser;try{
+ browser=await chromium.launch({headless:true,args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ let html=fs.readFileSync(path.join(root,'index.html'),'utf8').split('\n').filter(line=>!['app360-family-sync-v1.js','app360-family-catalog-v1.js','app360-access-v1.js','legacy-compat.js','swal-modern-loader.js','app-pwa.js','offline-client-v1.js','ai-native-adapter.js'].some(name=>line.includes(name))).join('\n');
+ await page.route('**/say-and-name/index.html*',r=>r.fulfill({contentType:'text/html',body:html}));
+ await page.addInitScript(()=>{const NativeAudio=window.Audio;window.__actualAudio=[];window.__wordStarts=[];window.Audio=function(src){const audio=new NativeAudio(src);window.__actualAudio.push(audio);audio.addEventListener('playing',()=>window.__wordStarts.push(audio.src));return audio};});
+ await page.goto('http://127.0.0.1:'+server.address().port+'/apps/1-4/say-and-name/index.html?learn=sentences');
+ await page.locator('[data-lang=both]').click();await page.locator('[data-cat="المطبخ"]').click();await page.locator('.thumb-card').filter({hasText:'ملعقة'}).first().click();
+ await page.evaluate(()=>{window.App360WordPlayer.stop();window.__wordStarts=[]});await page.locator('#stageSpeakBtn').click();
+ await page.waitForFunction(()=>window.__actualAudio.some(a=>a.src.includes('/meaning/ar/')&&a.currentTime>.1));
+ await page.waitForFunction(()=>document.querySelector('.meaning-word.is-speaking')&&document.querySelector('.meaning-reader-word.is-speaking'));
+ assert(await page.locator('#meaningReader').isVisible(),'spoken sentence must remain visible on a phone');
+ await page.waitForFunction(()=>window.__actualAudio.some(a=>a.src.includes('/meaning/en/')&&a.currentTime>.1));
+ await page.waitForFunction(()=>document.querySelector('[lang=en] .meaning-word.is-speaking'));
+ await page.waitForFunction(()=>document.getElementById('meaningReader').hidden&&window.__wordStarts.filter(s=>s.includes('/meaning/')).length===4,{},{timeout:30000});
+ const played=await page.evaluate(()=>window.__wordStarts);assert.equal(played.filter(s=>!s.includes('/meaning/')).length,2,'Arabic and English name are each spoken once');assert.deepEqual(played.filter(s=>s.includes('/meaning/')).map(s=>s.includes('/ar/')?'ar':'en'),['ar','en','ar','en']);
+ const first=await page.locator('#meaningSentences').innerText();await page.locator('#bottomNextBtn').click();assert.notEqual(await page.locator('#meaningSentences').innerText(),first,'the next object must show its own sentences');
+ assert.deepEqual(errors,[]);console.log('Real MP3 browser playback: both languages, metadata, advancing audio time, four complete sentences, one name per language, synchronized highlights and navigation passed');
+ }finally{if(browser)await browser.close();await new Promise(r=>server.close(r))}})().catch(e=>{console.error(e);process.exitCode=1});

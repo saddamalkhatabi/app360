@@ -16,7 +16,8 @@ util.normalize_last_word=lambda text:text
 # Avoid the package's implicit 30% speed increase for heavily vowelled text.
 util.text_has_tashkeel=lambda text:False
 
-def load_engine(model,vocab,vocoder,threads=8):
+def load_engine(model,vocab,vocoder,threads=8,precision="bf16"):
+ assert precision in ("bf16","fp32"),precision
  torch.set_num_threads(threads)
  def read_audio(path,*args,**kw):
   x,sr=sf.read(path,dtype='float32',always_2d=True);return torch.from_numpy(x.T.copy()),sr
@@ -31,6 +32,6 @@ def load_engine(model,vocab,vocoder,threads=8):
  finally:torch.load=original_load
  original_sample=engine.ema_model.sample
  def bounded(*args,**kw):
-  with torch.autocast('cpu',dtype=torch.bfloat16):return original_sample(*args,**kw)
+  with torch.autocast('cpu',dtype=torch.bfloat16,enabled=precision=='bf16'):return original_sample(*args,**kw)
  engine.ema_model.sample=bounded
  return engine

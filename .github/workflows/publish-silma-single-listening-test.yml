@@ -1,0 +1,64 @@
+name: Publish first verified single-pronunciation SILMA listening sample
+on:
+  push:
+    branches: [preview/say-name-single-voice-20261014]
+    paths: [.github/workflows/publish-silma-single-listening-test.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/say-name-single-voice-20261014
+          fetch-depth: 0
+      - name: Wait for the genuine single-pronunciation sample
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYCODE'
+          import json,os,time,urllib.request,zipfile,io,pathlib
+          base='https://api.github.com/repos/saddamalkhatabi/app360'
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'}
+          for attempt in range(120):
+              req=urllib.request.Request(base+'/actions/runs/38507642424/artifacts?name=say-name-silma-30',headers=headers)
+              artifacts=json.load(urllib.request.urlopen(req))['artifacts']
+              if artifacts:
+                  request=urllib.request.Request(artifacts[0]['archive_download_url'],headers=headers)
+                  archive=zipfile.ZipFile(io.BytesIO(urllib.request.urlopen(request).read()))
+                  dest=pathlib.Path('/tmp/silma-single-30');dest.mkdir(exist_ok=True)
+                  for entry in archive.infolist():
+                      path=(dest/entry.filename).resolve()
+                      assert path.is_relative_to(dest.resolve()),'Unsafe archive path'
+                  archive.extractall(dest)
+                  print('Downloaded actual SILMA single-pronunciation artifact')
+                  break
+              if attempt==119:raise RuntimeError('SILMA artifact still unavailable; no old audio was substituted')
+              time.sleep(30)
+          PYCODE
+      - name: Verify audio and build the genuine SILMA test page
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/say-and-name/tools/build-listening-test.py /tmp/silma-single-30
+          python - <<'PYCODE'
+          import json,pathlib,shutil
+          root=pathlib.Path('apps/1-4/say-and-name')
+          for row in json.loads(pathlib.Path('/tmp/silma-single-30/verified-items.json').read_text()):
+              target=root/row['audio'];target.parent.mkdir(parents=True,exist_ok=True)
+              source=pathlib.Path('/tmp/silma-single-30')/pathlib.Path(row['audio']).relative_to('audio/silma')
+              shutil.copyfile(source,target)
+          PYCODE
+      - name: Publish listening sample on the test branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/say-and-name/silma-listening-test.html apps/1-4/say-and-name/audio/silma/words/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish verified genuine SILMA single-pronunciation listening sample'
+          git pull --rebase origin preview/say-name-single-voice-20261014
+          git push origin HEAD:preview/say-name-single-voice-20261014

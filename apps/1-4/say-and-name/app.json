@@ -5,7 +5,7 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "title_en": "My Words & Things: Listen, Point & Name",
   "age_group": "1-4",
-  "version": 26,
+  "version": 28,
   "status": "live",
   "scaffold_state": "live",
   "kind": "goal_aligned",
@@ -45,14 +45,15 @@
     "exports": []
   },
   "audio": {
-    "preferred_engine": "edge-tts generated MP3 bundles",
-    "arabic_voice": "ar-SA-ZariyahNeural",
-    "english_voice": "en-US-JennyNeural",
+    "preferred_engine": "SILMA 1.0.5 for Arabic words and bilingual useful sentences",
+    "arabic_voice": "SILMA publisher demonstration reference",
+    "english_voice": "Legacy word clips: en-US-JennyNeural; new sentence clips: SILMA",
     "rate": "-8%",
     "dedupe_rule": "one MP3 per exact display term per language; true Arabic homographs may have context-specific audio",
     "word_strategy": "Bundled MP3 first in the active language; browser TTS only when that file is unavailable",
     "legacy_strategy": "ASCII-safe Arabic audio maps plus a direct HTML5 audio fallback on browsers without CSS Grid",
-    "microphone": false
+    "microphone": false,
+    "sentence_strategy": "One SILMA MP3 per unique sentence per language, MMS_FA measured word cues, same clip reused at playbackRate 1.05 with pitch preservation disabled for repeat"
   },
   "compatibility": {
     "legacy_android": true,
@@ -74,5 +75,13 @@
   "prompt_path": "apps/1-4/say-and-name/PROMPT_AR.md",
   "extended_use_ar": "يمكن للفئات الأكبر استخدام وضع English للعرض والنطق أو العرض الثنائي لمراجعة المفردات الأساسية بصريًا وسمعيًا؛ هذا استخدام توسعي وليس منهج لغة كاملًا.",
   "audience": "learner",
-  "audience_note_ar": "واجهة الممارسة للطفل؛ المدرب يختار المادة ويثري الحوار دون اختبار النطق آليًا."
+  "audience_note_ar": "واجهة الممارسة للطفل؛ المدرب يختار المادة ويثري الحوار دون اختبار النطق آليًا.",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 2
+  }
 }

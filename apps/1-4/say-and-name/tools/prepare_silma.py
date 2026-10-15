@@ -12,12 +12,12 @@ def load():
  items=[]
  for w in words:
   spoken=lex[bare(w)];digest=hashlib.sha256(w.encode()).hexdigest()[:20]
-  items.append(dict(key=w,kind='word',spoken=spoken,text=spoken+'، '+spoken+'.',language='ar',engine='silma',path='audio/silma/words/w_'+digest+'.mp3'))
+  items.append(dict(key=w,kind='word',spoken=spoken,text=spoken+'.',language='ar',engine='silma',path='audio/silma/words/w_'+digest+'.mp3'))
  senses={('الجسم','ظهر'):'ظَهْر',('الوقت','ظهر'):'ظُهْر',('غرفة النوم','درج'):'دُرْج'}
  for (cat,w),spoken in senses.items():
   assert (cat,w) in rows
   key=cat+'\u0001'+w;digest=hashlib.sha256(key.encode()).hexdigest()[:20]
-  items.append(dict(key=key,kind='sense',spoken=spoken,text=spoken+'، '+spoken+'.',language='ar',engine='silma',path='audio/silma/senses/s_'+digest+'.mp3'))
+  items.append(dict(key=key,kind='sense',spoken=spoken,text=spoken+'.',language='ar',engine='silma',path='audio/silma/senses/s_'+digest+'.mp3'))
  guides={
  'welcome':'مَرْحَبًا! هَيَّا نَتَعَلَّمُ الْكَلِمَات. اِلْمِسِ الصُّورَةَ لِتَسْمَعَ اسْمَهَا، ثُمَّ قُلْهُ بِصَوْتِك. اِضْغَطْ عَلَى التَّالِي لِتَرَى صُورَةً جَدِيدَة.',
  'help':'اُنْظُرْ إِلَى الصُّورَة. اِلْمِسْهَا وَاسْتَمِعْ. ثُمَّ كَرِّرِ الْكَلِمَةَ بِهُدُوء. زِرُّ التَّالِي يُرِيكَ صُورَةً جَدِيدَة، وَزِرُّ السَّابِقِ يُعِيدُ الصُّورَةَ السَّابِقَة.',

@@ -1,14 +1,14 @@
-name: Record complete Say and Name SILMA vocabulary
+name: Record single-pronunciation Say and Name SILMA vocabulary
 on:
   push:
-    branches: [main]
-    paths: [.github/workflows/record-say-name-silma.yml]
+    branches: [preview/say-name-single-voice-20261014]
+    paths: [apps/1-4/say-and-name/data/silma-regenerate.request]
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: say-name-silma
-  cancel-in-progress: false
+  group: say-name-single-silma-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   record:
     runs-on: ubuntu-latest
@@ -44,6 +44,14 @@ jobs:
           p.parent.mkdir(parents=True,exist_ok=True)
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
+      - name: Start each recording shard with a clean output directory
+        run: |
+          python - <<'PYCODE'
+          import pathlib,shutil
+          output=pathlib.Path('apps/1-4/say-and-name/audio/silma')
+          if output.exists():shutil.rmtree(output)
+          output.mkdir(parents=True)
+          PYCODE
       - name: Record exact authored vocabulary and instructions
         run: python apps/1-4/say-and-name/tools/generate_silma.py --part ${{ matrix.part }} --parts 32
       - uses: actions/upload-artifact@v4
@@ -59,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
       - uses: actions/download-artifact@v4
         with:
@@ -80,8 +88,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add apps/1-4/say-and-name/audio/silma-scripts.json apps/1-4/say-and-name/audio/silma/ apps/1-4/say-and-name/audio/silma-validation.json apps/1-4/say-and-name/data/silma-map.js apps/1-4/say-and-name/index.html apps/1-4/say-and-name/styles-v19.css data/offline/a1-first-words.json data/offline-catalog.json
+          git add apps/1-4/say-and-name/audio/silma-scripts.json apps/1-4/say-and-name/audio/silma/ apps/1-4/say-and-name/audio/edge/ apps/1-4/say-and-name/audio/edge-sense/ apps/1-4/say-and-name/audio/silma-validation.json apps/1-4/say-and-name/data/silma-map.js apps/1-4/say-and-name/index.html apps/1-4/say-and-name/styles-v19.css data/offline/a1-first-words.json data/offline-catalog.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Activate complete SILMA vocabulary and child audio guidance'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"

@@ -11,13 +11,13 @@ function runtime(blockStorage = false) {
     const attrs = {};
     const n = {tagName: tag.toUpperCase(), className: '', hidden: false, style: {cssText: ''},
       appendChild(c) { if (c.id) nodes[c.id] = c; }, getAttribute(k) { return attrs[k] == null ? null : attrs[k]; },
-      setAttribute(k, v) { attrs[k] = String(v); }, querySelector() { return null; }, querySelectorAll() { return []; }};
+      setAttribute(k, v) { attrs[k] = String(v); }, removeAttribute(k) {delete attrs[k];}, querySelector() { return null; }, querySelectorAll() { return []; }};
     if (tag === 'a') Object.defineProperty(n, 'href', {set(v) { Object.assign(n, new URL(v, 'https://school.example/index.html')); for (const k of ['protocol', 'host', 'pathname']) n[k] = new URL(v, 'https://school.example/index.html')[k]; }});
-    if (tag === 'iframe') Object.defineProperty(n, 'src', {set(v) { attrs.src = v; }, get() { return attrs.src || ''; }});
+    if (tag === 'iframe') Object.defineProperty(n, 'src', {set(v) {if(n.throwOnBlank&&v==='about:blank')throw Error('legacy iframe unload');attrs.src = v; }, get() { return attrs.src || ''; }});
     if (tag === 'section') Object.defineProperty(n, 'innerHTML', {set() {
       const frame = node('iframe'); frame.id = 'app360FamilyShellFrame'; nodes[frame.id] = frame;
-      const title = node('div'), wait = node('div');
-      n.querySelector = s => s === '.a360-shell-title' ? title : s === '.a360-shell-wait' ? wait : null;
+      const title = node('div'), wait = node('div'),home=node('button');nodes.shellHome=home;
+      n.querySelector = s => s === '.a360-shell-title' ? title : s === '.a360-shell-wait' ? wait : s === '[data-shell-home]' ? home : null;
     }});
     return n;
   }
@@ -34,7 +34,7 @@ function runtime(blockStorage = false) {
   window.parent = window;
   class Request {open(method,url) {this.url=url;} send() {requests.push(this.url);this.status=200;this.readyState=4;this.responseText='{}';this.onreadystatechange();}}
   const context = vm.createContext({window, document, navigator:window.navigator, URL, XMLHttpRequest:Request, setTimeout(fn) {timers.push(fn);return timers.length;}, setInterval(fn,ms) {intervals.push({fn,ms});return intervals.length;}, clearTimeout() {}, clearInterval() {}});
-  const load = f => vm.runInContext(fs.readFileSync(path.join(root,'assets/js',f),'utf8'),context);
+  const load = (f,transform) => {let code=fs.readFileSync(path.join(root,'assets/js',f),'utf8');return vm.runInContext(transform?transform(code):code,context)};
   return {window, document, nodes, events, timers, intervals, requests, load};
 }
 test('return home restores existing styles and ignores late iframe blank loads', () => {
@@ -121,4 +121,17 @@ test('children remain usable with blocked storage and reject invalid profile mut
  const r=runtime(true);r.load('app360-family-core-v2.js');const a=r.window.APP360_FAMILY_SYNC;
  assert.equal(a.saveChild({name:'',age_group:'4-8'}),false);assert.equal(a.saveChild({name:'نور',age_group:'bad'}),false);assert.equal(a.saveChild({id:'unknown',name:'نور',age_group:'4-8'}),false);
  const id=a.saveChild({name:'نور',age_group:'4-8'});assert.equal(a.selectChild(id),true);assert.equal(a.getAgeGroup(),'4-8');assert.equal(a.getChildren().length,1);
+});
+
+test('legacy touch home hides the frame even without reflected hidden properties and tolerates unload errors',()=>{
+ const r=runtime();r.window.navigator.userAgent='Mozilla/5.0 (Linux; Android 4.4.2; DMTAB-NV20A) Version/4.0 Chrome/30';
+ r.window.APP360_FAMILY_SYNC={__ready:true,apps:[{id:'words',href:'apps/1-4/words/index.html'}],getSession:()=>({role:'none'}),forceHeartbeat(){throw Error('connection lost')}};
+ r.load('app360-family-shell-v1.js');const sh=r.window.APP360_FAMILY_SHELL;sh.openApp('words');const frame=sh.getFrame(),overlay=r.nodes.app360FamilyShell;assert.equal(overlay.getAttribute('hidden'),null);assert.equal(overlay.style.display,'block');frame.throwOnBlank=true;let prevented=false;assert.equal(r.nodes.shellHome.ontouchend({preventDefault(){prevented=true},stopPropagation(){}}),true);assert(prevented);assert.equal(sh.getActiveApp(),null);assert.equal(overlay.style.display,'none');assert.notEqual(overlay.getAttribute('hidden'),null);assert.equal(frame.style.display,'none');assert.equal(r.document.body.style.cssText,'');frame.onload();assert.equal(overlay.style.display,'none');
+ frame.throwOnBlank=false;sh.openApp('words');assert.equal(frame.style.display,'block');assert.equal(overlay.style.display,'block');sh.closeApp();
+});
+test('home follows the same active-session and disconnect grace rules as app navigation',()=>{
+ const r=runtime();r.load('app360-family-core-v2.js',code=>code.replace('w.APP360_FAMILY_SYNC={__ready:true,version:VERSION,openApp:',
+ 'w.navFixture=function(online,seen){role="guest";connected=online;lastHostSeen=seen;policy={mode:"locked",selected:"a1-first-words"};};w.APP360_FAMILY_SYNC={__ready:true,version:VERSION,openApp:'));
+ const api=r.window.APP360_FAMILY_SYNC;r.load('app360-family-shell-v1.js');const sh=r.window.APP360_FAMILY_SHELL;sh.openApp('a1-first-words');r.window.navFixture(true,Date.now());assert.equal(api.canNavigate('app360-home'),false);assert.equal(sh.closeApp(),false);
+ r.window.navFixture(false,Date.now());assert.equal(sh.closeApp(),false,'a brief disconnect must preserve the trainer lock');r.window.navFixture(false,Date.now()-20000);assert.equal(api.canNavigate('app360-home'),true);assert.equal(sh.closeApp(),true,'an expired disconnected session must not trap the user');assert.equal(api.canNavigate('unknown-app'),false);
 });

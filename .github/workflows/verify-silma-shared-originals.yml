@@ -1,0 +1,45 @@
+name: Verify shared SILMA originals and refresh offline bundles
+on:
+  push:
+    branches: [preview/say-name-single-voice-20261014]
+    paths: [.github/workflows/verify-silma-shared-originals.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/say-name-single-voice-20261014
+          fetch-depth: 0
+      - name: Verify all original recordings and the single-file player mapping
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          root=pathlib.Path('apps/1-4/say-and-name')
+          validation=json.loads((root/'audio/silma-validation.json').read_text())
+          assert validation['words']==985 and len(validation['clips'])==1000
+          for row in validation['clips']:
+              path=root/row['path']
+              assert path.is_file(),row['path']
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==row['sha256'],row['path']
+          mapping=json.loads((root/'data/silma-map.js').read_text().split('=',1)[1].strip().rstrip(';'))
+          original=json.loads((root/'data/audio-map.js').read_text().split('=',1)[1].strip().rstrip(';'))
+          assert mapping['words']==original
+          assert len(set(mapping['words'].values()))==985
+          assert not list((root/'audio/silma/words').glob('*.mp3'))
+          print('985 single word files in their original paths; all 1000 recordings verified')
+          PY
+          node apps/1-4/say-and-name/tools/test-recorded-player.cjs
+          node tooling/build-offline-catalog.js
+      - name: Publish refreshed offline bundles
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline/ data/offline-catalog.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh offline bundles after routing SILMA audio to its shared original paths'
+          git pull --rebase origin preview/say-name-single-voice-20261014
+          git push origin HEAD:preview/say-name-single-voice-20261014

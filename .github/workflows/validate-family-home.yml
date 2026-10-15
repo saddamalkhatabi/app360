@@ -1,0 +1,23 @@
+name: Validate legacy tablet home navigation
+on:
+  push:
+    branches: [main, release/say-name-home-20261015]
+    paths:
+      - 'assets/js/app360-family-shell-v1.js'
+      - 'assets/js/app360-family-core-v2.js'
+      - 'tooling/test-family-home-browser.cjs'
+      - 'tooling/test-family-navigation.js'
+      - '.github/workflows/validate-family-home.yml'
+permissions:
+  contents: read
+jobs:
+  home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node --test tooling/test-family-navigation.js
+      - name: Test home navigation with actual touch events and old hidden-property behavior
+        run: |
+          npm install --prefix /tmp/family-home-qa playwright@1.62.1
+          /tmp/family-home-qa/node_modules/.bin/playwright install --with-deps chromium
+          NODE_PATH=/tmp/family-home-qa/node_modules node tooling/test-family-home-browser.cjs
