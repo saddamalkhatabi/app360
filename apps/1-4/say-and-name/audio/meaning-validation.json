@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1741,
+  "ready": 1744,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -163192,6 +163192,369 @@
       "sha256": "0d3451579eacef29fcbe939a444c9e8c8af973698d7213df94918ff1c1ad1767",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9703,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_4c9ac91aeadbd89a5ab5": {
+      "id": "en_4c9ac91aeadbd89a5ab5",
+      "language": "en",
+      "text": "Lightning is an electrical flash in the sky that we may see before hearing thunder.",
+      "words": [
+        "Lightning",
+        "is",
+        "an",
+        "electrical",
+        "flash",
+        "in",
+        "the",
+        "sky",
+        "that",
+        "we",
+        "may",
+        "see",
+        "before",
+        "hearing",
+        "thunder."
+      ],
+      "path": "audio/meaning/en/en_4c9ac91aeadbd89a5ab5.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Lightning is an electrical flash in the sky that we may see before hearing thunder.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          561
+        ],
+        [
+          1,
+          741,
+          841
+        ],
+        [
+          2,
+          961,
+          1041
+        ],
+        [
+          3,
+          1081,
+          1682
+        ],
+        [
+          4,
+          1742,
+          2182
+        ],
+        [
+          5,
+          2342,
+          2422
+        ],
+        [
+          6,
+          2462,
+          2542
+        ],
+        [
+          7,
+          2623,
+          3043
+        ],
+        [
+          8,
+          3223,
+          3363
+        ],
+        [
+          9,
+          3423,
+          3503
+        ],
+        [
+          10,
+          3563,
+          3704
+        ],
+        [
+          11,
+          3844,
+          4044
+        ],
+        [
+          12,
+          4164,
+          4524
+        ],
+        [
+          13,
+          4584,
+          4945
+        ],
+        [
+          14,
+          5025,
+          5425
+        ]
+      ],
+      "duration_ms": 6146,
+      "sha256": "937243cd1b9fae7ea99f15f8e2bb70603c7006efe6bf3b477b7b29cd89fd8ec1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9914,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_4254c28528cd8008a3c7": {
+      "id": "en_4254c28528cd8008a3c7",
+      "language": "en",
+      "text": "We turn a screw with a suitable tool to join parts and reverse it to undo them.",
+      "words": [
+        "We",
+        "turn",
+        "a",
+        "screw",
+        "with",
+        "a",
+        "suitable",
+        "tool",
+        "to",
+        "join",
+        "parts",
+        "and",
+        "reverse",
+        "it",
+        "to",
+        "undo",
+        "them."
+      ],
+      "path": "audio/meaning/en/en_4254c28528cd8008a3c7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "We turn a screw with a suitable tool to join parts and reverse it to undo them.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          220,
+          300
+        ],
+        [
+          1,
+          461,
+          761
+        ],
+        [
+          2,
+          841,
+          861
+        ],
+        [
+          3,
+          981,
+          1342
+        ],
+        [
+          4,
+          1462,
+          1582
+        ],
+        [
+          5,
+          1622,
+          1642
+        ],
+        [
+          6,
+          1763,
+          2243
+        ],
+        [
+          7,
+          2323,
+          2644
+        ],
+        [
+          8,
+          2944,
+          3024
+        ],
+        [
+          9,
+          3084,
+          3385
+        ],
+        [
+          10,
+          3465,
+          3886
+        ],
+        [
+          11,
+          4006,
+          4106
+        ],
+        [
+          12,
+          4166,
+          4587
+        ],
+        [
+          13,
+          4647,
+          4727
+        ],
+        [
+          14,
+          4807,
+          4927
+        ],
+        [
+          15,
+          5127,
+          5408
+        ],
+        [
+          16,
+          5528,
+          5688
+        ]
+      ],
+      "duration_ms": 6009,
+      "sha256": "f5025e207ab488a7450dd91ffa452295b78bcfbc17ae5c5ff0c06911ccb493c8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9452,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_315d8b5c1acf98ee9a4e": {
+      "id": "en_315d8b5c1acf98ee9a4e",
+      "language": "en",
+      "text": "A guava has a strong scent and many small seeds inside its flesh.",
+      "words": [
+        "A",
+        "guava",
+        "has",
+        "a",
+        "strong",
+        "scent",
+        "and",
+        "many",
+        "small",
+        "seeds",
+        "inside",
+        "its",
+        "flesh."
+      ],
+      "path": "audio/meaning/en/en_315d8b5c1acf98ee9a4e.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A guava has a strong scent and many small seeds inside its flesh.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          140,
+          440
+        ],
+        [
+          2,
+          541,
+          681
+        ],
+        [
+          3,
+          741,
+          761
+        ],
+        [
+          4,
+          841,
+          1221
+        ],
+        [
+          5,
+          1321,
+          1662
+        ],
+        [
+          6,
+          1862,
+          1982
+        ],
+        [
+          7,
+          2062,
+          2262
+        ],
+        [
+          8,
+          2402,
+          2743
+        ],
+        [
+          9,
+          2863,
+          3203
+        ],
+        [
+          10,
+          3303,
+          3764
+        ],
+        [
+          11,
+          3804,
+          3924
+        ],
+        [
+          12,
+          4004,
+          4405
+        ]
+      ],
+      "duration_ms": 4845,
+      "sha256": "1cd2a7937d4e435d88d56773ec99a5df1deb761cfb68977789f485d22f53fe9f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8999,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
