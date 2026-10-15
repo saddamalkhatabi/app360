@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1676,
+  "ready": 1683,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -157087,6 +157087,763 @@
       "sha256": "48ffdce4c4b59d7bda380aa568650a576df8f62ad864ec3e276f8012cbcedd76",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8809,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a24eb7a23a83fd38a16b": {
+      "id": "en_a24eb7a23a83fd38a16b",
+      "language": "en",
+      "text": "A square has four equal sides and four right angles.",
+      "words": [
+        "A",
+        "square",
+        "has",
+        "four",
+        "equal",
+        "sides",
+        "and",
+        "four",
+        "right",
+        "angles."
+      ],
+      "path": "audio/meaning/en/en_a24eb7a23a83fd38a16b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A square has four equal sides and four right angles.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          161,
+          602
+        ],
+        [
+          2,
+          662,
+          823
+        ],
+        [
+          3,
+          963,
+          1224
+        ],
+        [
+          4,
+          1425,
+          1726
+        ],
+        [
+          5,
+          1806,
+          2247
+        ],
+        [
+          6,
+          2308,
+          2428
+        ],
+        [
+          7,
+          2488,
+          2769
+        ],
+        [
+          8,
+          2890,
+          3130
+        ],
+        [
+          9,
+          3211,
+          3652
+        ]
+      ],
+      "duration_ms": 3893,
+      "sha256": "27af3781ba42b970a7daa3905eee85ce55f3f38be3ec7d39b047833b3f557bc6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9363,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_06891113d36adb53f8ef": {
+      "id": "en_06891113d36adb53f8ef",
+      "language": "en",
+      "text": "Gorillas live in groups and eat leaves, stems, and fruit.",
+      "words": [
+        "Gorillas",
+        "live",
+        "in",
+        "groups",
+        "and",
+        "eat",
+        "leaves,",
+        "stems,",
+        "and",
+        "fruit."
+      ],
+      "path": "audio/meaning/en/en_06891113d36adb53f8ef.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Gorillas live in groups and eat leaves, stems and fruit.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          401
+        ],
+        [
+          1,
+          462,
+          642
+        ],
+        [
+          2,
+          702,
+          783
+        ],
+        [
+          3,
+          843,
+          1204
+        ],
+        [
+          4,
+          1445,
+          1565
+        ],
+        [
+          5,
+          1666,
+          1786
+        ],
+        [
+          6,
+          1866,
+          2288
+        ],
+        [
+          7,
+          2749,
+          3291
+        ],
+        [
+          8,
+          3311,
+          3411
+        ],
+        [
+          9,
+          3451,
+          3773
+        ]
+      ],
+      "duration_ms": 4074,
+      "sha256": "df2d1d843625a103a9a2c986df1ab667c0e3913fbd52689bc21fc58b1b24669d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9049,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_945196aebd6a20cc2dfe": {
+      "id": "en_945196aebd6a20cc2dfe",
+      "language": "en",
+      "text": "A neighbor lives near our home, and we respect their peace and help when we can.",
+      "words": [
+        "A",
+        "neighbor",
+        "lives",
+        "near",
+        "our",
+        "home,",
+        "and",
+        "we",
+        "respect",
+        "their",
+        "peace",
+        "and",
+        "help",
+        "when",
+        "we",
+        "can."
+      ],
+      "path": "audio/meaning/en/en_945196aebd6a20cc2dfe.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a neighbor lives near our home, and we respect their peace and help when we can.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          80,
+          402
+        ],
+        [
+          2,
+          462,
+          823
+        ],
+        [
+          3,
+          1024,
+          1225
+        ],
+        [
+          4,
+          1325,
+          1446
+        ],
+        [
+          5,
+          1506,
+          1827
+        ],
+        [
+          6,
+          2811,
+          2911
+        ],
+        [
+          7,
+          2971,
+          3072
+        ],
+        [
+          8,
+          3172,
+          3654
+        ],
+        [
+          9,
+          3714,
+          3855
+        ],
+        [
+          10,
+          3935,
+          4277
+        ],
+        [
+          11,
+          4357,
+          4477
+        ],
+        [
+          12,
+          4538,
+          4758
+        ],
+        [
+          13,
+          4899,
+          5039
+        ],
+        [
+          14,
+          5100,
+          5160
+        ],
+        [
+          15,
+          5260,
+          5501
+        ]
+      ],
+      "duration_ms": 5883,
+      "sha256": "57de2c0f3bd265f3a8815729f5ae282d35b390b10cfafdbba8d2979f81d717bd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9572,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c6d1f02f8b75b9431183": {
+      "id": "en_c6d1f02f8b75b9431183",
+      "language": "en",
+      "text": "A swamp is waterlogged land where plants that like wet conditions grow.",
+      "words": [
+        "A",
+        "swamp",
+        "is",
+        "waterlogged",
+        "land",
+        "where",
+        "plants",
+        "that",
+        "like",
+        "wet",
+        "conditions",
+        "grow."
+      ],
+      "path": "audio/meaning/en/en_c6d1f02f8b75b9431183.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A swamp is waterlogged land where plants that like wet conditions grow.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          181,
+          602
+        ],
+        [
+          2,
+          662,
+          742
+        ],
+        [
+          3,
+          843,
+          1485
+        ],
+        [
+          4,
+          1545,
+          1906
+        ],
+        [
+          5,
+          2207,
+          2388
+        ],
+        [
+          6,
+          2428,
+          2889
+        ],
+        [
+          7,
+          2989,
+          3130
+        ],
+        [
+          8,
+          3170,
+          3371
+        ],
+        [
+          9,
+          3411,
+          3571
+        ],
+        [
+          10,
+          3652,
+          4233
+        ],
+        [
+          11,
+          4294,
+          4554
+        ]
+      ],
+      "duration_ms": 4815,
+      "sha256": "f91600460801b1de15b37e95d0e7dd89009ecdff74768c4727b0c06849dec1b4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9104,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_6258e7d453cfc78fa64c": {
+      "id": "en_6258e7d453cfc78fa64c",
+      "language": "en",
+      "text": "A hot-air balloon rises because the air inside is warmer and lighter than the air around it.",
+      "words": [
+        "A",
+        "hot-air",
+        "balloon",
+        "rises",
+        "because",
+        "the",
+        "air",
+        "inside",
+        "is",
+        "warmer",
+        "and",
+        "lighter",
+        "than",
+        "the",
+        "air",
+        "around",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_6258e7d453cfc78fa64c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A hot air balloon rises because the air inside is warmer and lighter than the air around it.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          160,
+          601
+        ],
+        [
+          2,
+          682,
+          1043
+        ],
+        [
+          3,
+          1123,
+          1584
+        ],
+        [
+          4,
+          2185,
+          2526
+        ],
+        [
+          5,
+          2546,
+          2646
+        ],
+        [
+          6,
+          2787,
+          2987
+        ],
+        [
+          7,
+          3108,
+          3589
+        ],
+        [
+          8,
+          3629,
+          3689
+        ],
+        [
+          9,
+          3789,
+          4150
+        ],
+        [
+          10,
+          4631,
+          4731
+        ],
+        [
+          11,
+          4792,
+          5132
+        ],
+        [
+          12,
+          5173,
+          5293
+        ],
+        [
+          13,
+          5333,
+          5413
+        ],
+        [
+          14,
+          5533,
+          5714
+        ],
+        [
+          15,
+          5834,
+          6215
+        ],
+        [
+          16,
+          6255,
+          6396
+        ]
+      ],
+      "duration_ms": 6957,
+      "sha256": "96a5901ca5c5281b67e5b0a0411b6a9ccf12b4ad4bd04ad32ec7d5ca73062c39",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9385,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_f272150b9ba1cd357918": {
+      "id": "en_f272150b9ba1cd357918",
+      "language": "en",
+      "text": "A seat belt holds a passenger in place during sudden stops or collisions.",
+      "words": [
+        "A",
+        "seat",
+        "belt",
+        "holds",
+        "a",
+        "passenger",
+        "in",
+        "place",
+        "during",
+        "sudden",
+        "stops",
+        "or",
+        "collisions."
+      ],
+      "path": "audio/meaning/en/en_f272150b9ba1cd357918.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A seat belt holds a passenger in place during sudden stops or collisions.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          281,
+          301
+        ],
+        [
+          1,
+          402,
+          582
+        ],
+        [
+          2,
+          703,
+          964
+        ],
+        [
+          3,
+          1084,
+          1425
+        ],
+        [
+          4,
+          1466,
+          1486
+        ],
+        [
+          5,
+          1566,
+          2168
+        ],
+        [
+          6,
+          2269,
+          2349
+        ],
+        [
+          7,
+          2449,
+          2871
+        ],
+        [
+          8,
+          3132,
+          3413
+        ],
+        [
+          9,
+          3513,
+          3795
+        ],
+        [
+          10,
+          3895,
+          4296
+        ],
+        [
+          11,
+          4397,
+          4477
+        ],
+        [
+          12,
+          4497,
+          5160
+        ]
+      ],
+      "duration_ms": 5541,
+      "sha256": "34907d45a54fe38939a2fac7db76974dbc9fb9b7ca869f1a659dcf66e911ae0a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9535,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b0a759bdf82bbb0a5372": {
+      "id": "en_b0a759bdf82bbb0a5372",
+      "language": "en",
+      "text": "Seawater is salty, and many fish and other creatures live in it.",
+      "words": [
+        "Seawater",
+        "is",
+        "salty,",
+        "and",
+        "many",
+        "fish",
+        "and",
+        "other",
+        "creatures",
+        "live",
+        "in",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_b0a759bdf82bbb0a5372.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "seawater is salty, and many fish and other creatures live in it.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          582
+        ],
+        [
+          1,
+          722,
+          823
+        ],
+        [
+          2,
+          903,
+          1304
+        ],
+        [
+          3,
+          1986,
+          2087
+        ],
+        [
+          4,
+          2127,
+          2327
+        ],
+        [
+          5,
+          2448,
+          2709
+        ],
+        [
+          6,
+          2809,
+          2909
+        ],
+        [
+          7,
+          2990,
+          3170
+        ],
+        [
+          8,
+          3230,
+          3792
+        ],
+        [
+          9,
+          3892,
+          4073
+        ],
+        [
+          10,
+          4093,
+          4193
+        ],
+        [
+          11,
+          4233,
+          4354
+        ]
+      ],
+      "duration_ms": 4956,
+      "sha256": "fb1cc0372684c5b09bfb9ca9f8dce2350bee2e159e051b82657551ce9431ac5b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9614,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
