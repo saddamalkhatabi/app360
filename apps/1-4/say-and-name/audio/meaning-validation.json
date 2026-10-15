@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1693,
+  "ready": 1699,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -158956,6 +158956,480 @@
       "sha256": "a08a937a54d7b22af2140e07a54abb33bebfc091d913fbc1a398816d0c315e16",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9195,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d8c448a133b04fcc8b8c": {
+      "id": "ar_d8c448a133b04fcc8b8c",
+      "language": "ar",
+      "text": "نَشْرَبُ الْحَلِيبَ وَنَسْتَخْدِمُهُ فِي بَعْضِ الْأَطْعِمَةِ.",
+      "words": [
+        "نَشْرَبُ",
+        "الْحَلِيبَ",
+        "وَنَسْتَخْدِمُهُ",
+        "فِي",
+        "بَعْضِ",
+        "الْأَطْعِمَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_d8c448a133b04fcc8b8c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نشرب الحليب ونستخدمه في بعض الأطعمة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.6667,
+          "cer": 0.2571,
+          "heard": "نشرب الحلحم الحليبة و نستخدمه في بعض الأطعمة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          100,
+          541
+        ],
+        [
+          1,
+          2184,
+          2665
+        ],
+        [
+          2,
+          2805,
+          3626
+        ],
+        [
+          3,
+          3907,
+          4007
+        ],
+        [
+          4,
+          4147,
+          4367
+        ],
+        [
+          5,
+          4468,
+          4948
+        ]
+      ],
+      "duration_ms": 5529,
+      "sha256": "e21a0d0e40f685abb512257c17f89ab433ef16902ee7bd2f71596d6572bb0ab4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9324,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_cfa6d9a01d24829d9e74": {
+      "id": "ar_cfa6d9a01d24829d9e74",
+      "language": "ar",
+      "text": "أَسْتَخْدِمُ عَيْنَيَّ لِرُؤْيَةِ الْأَشْيَاءِ.",
+      "words": [
+        "أَسْتَخْدِمُ",
+        "عَيْنَيَّ",
+        "لِرُؤْيَةِ",
+        "الْأَشْيَاءِ."
+      ],
+      "path": "audio/meaning/ar/ar_cfa6d9a01d24829d9e74.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أستخدم عيني لرؤية الأشياء",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          521
+        ],
+        [
+          1,
+          762,
+          1083
+        ],
+        [
+          2,
+          1243,
+          1644
+        ],
+        [
+          3,
+          1805,
+          2226
+        ]
+      ],
+      "duration_ms": 3489,
+      "sha256": "8b1962ed17d52bc2004cb8d5ddd2a57de7639c9344fc9cf027541455c7984eb7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9653,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7d0fada04715b31b221f": {
+      "id": "ar_7d0fada04715b31b221f",
+      "language": "ar",
+      "text": "تحمي القوقعة جسم الحلزون اللين من بعض الأخطار والجفاف.",
+      "words": [
+        "تحمي",
+        "القوقعة",
+        "جسم",
+        "الحلزون",
+        "اللين",
+        "من",
+        "بعض",
+        "الأخطار",
+        "والجفاف."
+      ],
+      "path": "audio/meaning/ar/ar_7d0fada04715b31b221f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحمي القوقعة جسم الحلزون اللين من بعض الأخطار والجفاف",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          341
+        ],
+        [
+          1,
+          401,
+          942
+        ],
+        [
+          2,
+          1282,
+          1543
+        ],
+        [
+          3,
+          1623,
+          2184
+        ],
+        [
+          4,
+          2264,
+          2604
+        ],
+        [
+          5,
+          2684,
+          2805
+        ],
+        [
+          6,
+          2865,
+          3065
+        ],
+        [
+          7,
+          3145,
+          3666
+        ],
+        [
+          8,
+          3766,
+          4347
+        ]
+      ],
+      "duration_ms": 4728,
+      "sha256": "422e3ebdc61d07e664af7fa34d48ab8a23ea17c9027cf22fbaba8564a1e97903",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9673,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_81f4adf23ce50464cf24": {
+      "id": "ar_81f4adf23ce50464cf24",
+      "language": "ar",
+      "text": "يَقُودُ السَّائِقُ وَسِيلَةَ النَّقْلِ بِانْتِبَاهٍ.",
+      "words": [
+        "يَقُودُ",
+        "السَّائِقُ",
+        "وَسِيلَةَ",
+        "النَّقْلِ",
+        "بِانْتِبَاهٍ."
+      ],
+      "path": "audio/meaning/ar/ar_81f4adf23ce50464cf24.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يقود السائق وسيلة النقل بانتباه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0968,
+          "heard": "يقود السائق وسيلة نقلي بانتباه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          362
+        ],
+        [
+          1,
+          443,
+          926
+        ],
+        [
+          2,
+          1127,
+          1630
+        ],
+        [
+          3,
+          1812,
+          2194
+        ],
+        [
+          4,
+          2476,
+          3100
+        ]
+      ],
+      "duration_ms": 3724,
+      "sha256": "58472747a0d804fff318bcac25bd6ea38440140e0a89f67a2e5b037b98d89f07",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9515,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_6d0bd89b513e6cae818a": {
+      "id": "ar_6d0bd89b513e6cae818a",
+      "language": "ar",
+      "text": "للكراث أوراق طويلة، ونستخدم جزأه الأبيض والأخضر الطري في الطهو.",
+      "words": [
+        "للكراث",
+        "أوراق",
+        "طويلة،",
+        "ونستخدم",
+        "جزأه",
+        "الأبيض",
+        "والأخضر",
+        "الطري",
+        "في",
+        "الطهو."
+      ],
+      "path": "audio/meaning/ar/ar_6d0bd89b513e6cae818a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للكراث أوراق طويلة، ونستخدم جزأه الأبيض والأخضر الطري في الطهو",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.4,
+          "cer": 0.0656,
+          "heard": "للكراث أوراق طويلة ونستخدم جزءه الأبيض والأخضر الطريف الطه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          561
+        ],
+        [
+          1,
+          701,
+          1062
+        ],
+        [
+          2,
+          1222,
+          1623
+        ],
+        [
+          3,
+          2104,
+          2725
+        ],
+        [
+          4,
+          2845,
+          3206
+        ],
+        [
+          5,
+          3306,
+          3727
+        ],
+        [
+          6,
+          3807,
+          4268
+        ],
+        [
+          7,
+          4368,
+          4688
+        ],
+        [
+          8,
+          4809,
+          4889
+        ],
+        [
+          9,
+          4909,
+          5270
+        ]
+      ],
+      "duration_ms": 5390,
+      "sha256": "411c9bb5b0b2d0333478dc2dcdae5a8acf2fef15b8acbe62c2594527c7dad27a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9707,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e70d13cc78f0b11414a4": {
+      "id": "ar_e70d13cc78f0b11414a4",
+      "language": "ar",
+      "text": "الطريق العريض له مساحة أكبر بين جانبيه من الطريق الضيق.",
+      "words": [
+        "الطريق",
+        "العريض",
+        "له",
+        "مساحة",
+        "أكبر",
+        "بين",
+        "جانبيه",
+        "من",
+        "الطريق",
+        "الضيق."
+      ],
+      "path": "audio/meaning/ar/ar_e70d13cc78f0b11414a4.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الطريق العريض له مساحة أكبر بين جانبيه من الطريق الضيق",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          441
+        ],
+        [
+          1,
+          521,
+          942
+        ],
+        [
+          2,
+          1063,
+          1203
+        ],
+        [
+          3,
+          1364,
+          1785
+        ],
+        [
+          4,
+          2045,
+          2306
+        ],
+        [
+          5,
+          2426,
+          2627
+        ],
+        [
+          6,
+          2707,
+          3188
+        ],
+        [
+          7,
+          3309,
+          3429
+        ],
+        [
+          8,
+          3469,
+          3870
+        ],
+        [
+          9,
+          3950,
+          4392
+        ]
+      ],
+      "duration_ms": 4472,
+      "sha256": "8c93e750c2edace1fe116beb8dfe2a44209c52ec1a3fa4040d1aa6ffb2a6dcab",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9871,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
