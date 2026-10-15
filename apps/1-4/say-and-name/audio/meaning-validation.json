@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1713,
+  "ready": 1716,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -160724,6 +160724,329 @@
       "sha256": "33e64f49595d28116b68a251d80544934c49a4167f742f122d6af9ba293eb8a2",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9655,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_9950e8b7529b1d4bb708": {
+      "id": "en_9950e8b7529b1d4bb708",
+      "language": "en",
+      "text": "A squirrel uses its tail for balance and stores some nuts to eat later.",
+      "words": [
+        "A",
+        "squirrel",
+        "uses",
+        "its",
+        "tail",
+        "for",
+        "balance",
+        "and",
+        "stores",
+        "some",
+        "nuts",
+        "to",
+        "eat",
+        "later."
+      ],
+      "path": "audio/meaning/en/en_9950e8b7529b1d4bb708.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A squirrel uses its tail for balance and stores some nuts to eat later.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          541
+        ],
+        [
+          2,
+          681,
+          962
+        ],
+        [
+          3,
+          1022,
+          1162
+        ],
+        [
+          4,
+          1263,
+          1503
+        ],
+        [
+          5,
+          1583,
+          1724
+        ],
+        [
+          6,
+          1784,
+          2325
+        ],
+        [
+          7,
+          2706,
+          2806
+        ],
+        [
+          8,
+          2886,
+          3407
+        ],
+        [
+          9,
+          3688,
+          3868
+        ],
+        [
+          10,
+          3908,
+          4229
+        ],
+        [
+          11,
+          4329,
+          4429
+        ],
+        [
+          12,
+          4710,
+          4850
+        ],
+        [
+          13,
+          4970,
+          5331
+        ]
+      ],
+      "duration_ms": 5471,
+      "sha256": "9db4e8190eb4706aa6e3b61d2dbac06080865c27fda415d5859882b938f01da1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.893,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_ecdcf15b398f7d11c843": {
+      "id": "en_ecdcf15b398f7d11c843",
+      "language": "en",
+      "text": "A reindeer's broad hooves help it walk on snow and search for food.",
+      "words": [
+        "A",
+        "reindeer's",
+        "broad",
+        "hooves",
+        "help",
+        "it",
+        "walk",
+        "on",
+        "snow",
+        "and",
+        "search",
+        "for",
+        "food."
+      ],
+      "path": "audio/meaning/en/en_ecdcf15b398f7d11c843.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A reindeer's broad hooves help it walk on snow and search for food.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          682
+        ],
+        [
+          2,
+          762,
+          1003
+        ],
+        [
+          3,
+          1063,
+          1465
+        ],
+        [
+          4,
+          1545,
+          1786
+        ],
+        [
+          5,
+          1846,
+          1926
+        ],
+        [
+          6,
+          2006,
+          2227
+        ],
+        [
+          7,
+          2347,
+          2448
+        ],
+        [
+          8,
+          2548,
+          2869
+        ],
+        [
+          9,
+          3029,
+          3130
+        ],
+        [
+          10,
+          3250,
+          3591
+        ],
+        [
+          11,
+          3712,
+          3852
+        ],
+        [
+          12,
+          3952,
+          4333
+        ]
+      ],
+      "duration_ms": 4955,
+      "sha256": "6076934e321ddbf53172de56ac472c76585709337c22d7f2ac236e5505112bdd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9154,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b8691e8b827522a98a1c": {
+      "id": "en_b8691e8b827522a98a1c",
+      "language": "en",
+      "text": "A flamingo uses its beak to filter food from water.",
+      "words": [
+        "A",
+        "flamingo",
+        "uses",
+        "its",
+        "beak",
+        "to",
+        "filter",
+        "food",
+        "from",
+        "water."
+      ],
+      "path": "audio/meaning/en/en_b8691e8b827522a98a1c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A flamingo uses its beak to filter food from water.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.06,
+          "heard": "A flamingo uses its beak to filter food from what?",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          160,
+          621
+        ],
+        [
+          2,
+          822,
+          1082
+        ],
+        [
+          3,
+          1142,
+          1262
+        ],
+        [
+          4,
+          1322,
+          1543
+        ],
+        [
+          5,
+          1823,
+          1883
+        ],
+        [
+          6,
+          1944,
+          2264
+        ],
+        [
+          7,
+          2344,
+          2585
+        ],
+        [
+          8,
+          2645,
+          2805
+        ],
+        [
+          9,
+          2885,
+          3146
+        ]
+      ],
+      "duration_ms": 3707,
+      "sha256": "54cfa76011baa2cf06ab81de60fff4b70dd5627f31b9066a03e04487e3332230",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9074,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
