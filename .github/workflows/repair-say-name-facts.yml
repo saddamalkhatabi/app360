@@ -78,6 +78,9 @@ jobs:
             result=0
             MEANING_SEED_OFFSET=$((round * 1000)) python apps/1-4/say-and-name/tools/generate_meaning.py --part ${{ matrix.part }} --parts 64 --output /tmp/meaning-output || result=$?
             python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/meaning-output --merge
+            if [ -f /tmp/meaning-output/part-${{ matrix.part }}.json ]; then
+              mv /tmp/meaning-output/part-${{ matrix.part }}.json /tmp/meaning-output/round-$round-part-${{ matrix.part }}.json
+            fi
             if [ "$result" = 0 ]; then exit 0; fi
           done
           exit "$result"
