@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1214,
+  "ready": 1242,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -113605,6 +113605,2864 @@
       "sha256": "13b95621cd23134664862ef4cd9d9964aa7acc39002c032590213312d22355a8",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8971,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_cbc858bf605af59aef66": {
+      "id": "en_cbc858bf605af59aef66",
+      "language": "en",
+      "text": "I see with my eye and keep it safe.",
+      "words": [
+        "I",
+        "see",
+        "with",
+        "my",
+        "eye",
+        "and",
+        "keep",
+        "it",
+        "safe."
+      ],
+      "path": "audio/meaning/en/en_cbc858bf605af59aef66.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I see with my eye and keep it safe.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          81,
+          101
+        ],
+        [
+          1,
+          182,
+          323
+        ],
+        [
+          2,
+          383,
+          545
+        ],
+        [
+          3,
+          605,
+          747
+        ],
+        [
+          4,
+          908,
+          1171
+        ],
+        [
+          5,
+          1453,
+          1554
+        ],
+        [
+          6,
+          1615,
+          1796
+        ],
+        [
+          7,
+          1857,
+          1937
+        ],
+        [
+          8,
+          2018,
+          2361
+        ]
+      ],
+      "duration_ms": 2624,
+      "sha256": "191927a1d5c803f7a1965576e99a5f63d330daeda23d76466ec52466a6583780",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9886,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_44ccfc1945d67e68dc52": {
+      "id": "en_44ccfc1945d67e68dc52",
+      "language": "en",
+      "text": "Trousers cover the legs, and we choose a size that allows easy movement.",
+      "words": [
+        "Trousers",
+        "cover",
+        "the",
+        "legs,",
+        "and",
+        "we",
+        "choose",
+        "a",
+        "size",
+        "that",
+        "allows",
+        "easy",
+        "movement."
+      ],
+      "path": "audio/meaning/en/en_44ccfc1945d67e68dc52.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Trousers cover the legs, and we choose a size that allows easy movement.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0769,
+          "cer": 0.0429,
+          "heard": "trousers cover the legs, and we choose a SARS that allows easy movement.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          501
+        ],
+        [
+          1,
+          601,
+          821
+        ],
+        [
+          2,
+          1002,
+          1062
+        ],
+        [
+          3,
+          1122,
+          1522
+        ],
+        [
+          4,
+          2003,
+          2123
+        ],
+        [
+          5,
+          2143,
+          2223
+        ],
+        [
+          6,
+          2344,
+          2644
+        ],
+        [
+          7,
+          2664,
+          2684
+        ],
+        [
+          8,
+          2884,
+          3325
+        ],
+        [
+          9,
+          3385,
+          3545
+        ],
+        [
+          10,
+          3806,
+          4206
+        ],
+        [
+          11,
+          4387,
+          4587
+        ],
+        [
+          12,
+          4707,
+          5128
+        ]
+      ],
+      "duration_ms": 5508,
+      "sha256": "f29109bb3e02cb0a038406c7c37fe5d802b59127692096c264aa9b50a5a119ea",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9255,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_2a95e1f552a0b484f822": {
+      "id": "en_2a95e1f552a0b484f822",
+      "language": "en",
+      "text": "I go up the stairs carefully and use the handrail.",
+      "words": [
+        "I",
+        "go",
+        "up",
+        "the",
+        "stairs",
+        "carefully",
+        "and",
+        "use",
+        "the",
+        "handrail."
+      ],
+      "path": "audio/meaning/en/en_2a95e1f552a0b484f822.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I go up the stairs carefully and use the handrail.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0408,
+          "heard": "I go up this stairs carefully and use the handrail.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          161,
+          181
+        ],
+        [
+          1,
+          242,
+          302
+        ],
+        [
+          2,
+          463,
+          544
+        ],
+        [
+          3,
+          624,
+          685
+        ],
+        [
+          4,
+          745,
+          1108
+        ],
+        [
+          5,
+          1209,
+          1712
+        ],
+        [
+          6,
+          1833,
+          1954
+        ],
+        [
+          7,
+          2055,
+          2236
+        ],
+        [
+          8,
+          2256,
+          2337
+        ],
+        [
+          9,
+          2397,
+          2901
+        ]
+      ],
+      "duration_ms": 3424,
+      "sha256": "7a13d3c09c52ad902903f2c3dc103b154af528d65d617c4e28977db528cf4689",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8841,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_cd9b7cfa15584bc54d78": {
+      "id": "en_cd9b7cfa15584bc54d78",
+      "language": "en",
+      "text": "I pour water from a pitcher into a cup.",
+      "words": [
+        "I",
+        "pour",
+        "water",
+        "from",
+        "a",
+        "pitcher",
+        "into",
+        "a",
+        "cup."
+      ],
+      "path": "audio/meaning/en/en_cd9b7cfa15584bc54d78.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I pour water from a pitcher into a cup.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          202,
+          404
+        ],
+        [
+          2,
+          504,
+          868
+        ],
+        [
+          3,
+          928,
+          1069
+        ],
+        [
+          4,
+          1110,
+          1130
+        ],
+        [
+          5,
+          1190,
+          1534
+        ],
+        [
+          6,
+          1614,
+          1776
+        ],
+        [
+          7,
+          1836,
+          1877
+        ],
+        [
+          8,
+          1937,
+          2159
+        ]
+      ],
+      "duration_ms": 2583,
+      "sha256": "db9236f8e01d801ee07e9f5581219a141c20145ee2f353d4a7b4aa33ee7399ec",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9124,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_ae1286d785fa70eed3e2": {
+      "id": "en_ae1286d785fa70eed3e2",
+      "language": "en",
+      "text": "I use a suitable brush for cleaning.",
+      "words": [
+        "I",
+        "use",
+        "a",
+        "suitable",
+        "brush",
+        "for",
+        "cleaning."
+      ],
+      "path": "audio/meaning/en/en_ae1286d785fa70eed3e2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I use a suitable brush for cleaning.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          222,
+          242
+        ],
+        [
+          1,
+          444,
+          626
+        ],
+        [
+          2,
+          666,
+          686
+        ],
+        [
+          3,
+          767,
+          1231
+        ],
+        [
+          4,
+          1272,
+          1574
+        ],
+        [
+          5,
+          1635,
+          1756
+        ],
+        [
+          6,
+          1817,
+          2261
+        ]
+      ],
+      "duration_ms": 2644,
+      "sha256": "fce6fcd19c49dfe930e27acf92899b3e45cb7adaf1330f8af825c72a1e3cc7c6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9068,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_89824c60e5bdca03cfcd": {
+      "id": "en_89824c60e5bdca03cfcd",
+      "language": "en",
+      "text": "We put a filling such as cheese between slices of bread to make a sandwich.",
+      "words": [
+        "We",
+        "put",
+        "a",
+        "filling",
+        "such",
+        "as",
+        "cheese",
+        "between",
+        "slices",
+        "of",
+        "bread",
+        "to",
+        "make",
+        "a",
+        "sandwich."
+      ],
+      "path": "audio/meaning/en/en_89824c60e5bdca03cfcd.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "We put a filling such as cheese between slices of bread to make a sandwich.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          80
+        ],
+        [
+          1,
+          161,
+          321
+        ],
+        [
+          2,
+          361,
+          382
+        ],
+        [
+          3,
+          482,
+          823
+        ],
+        [
+          4,
+          904,
+          1125
+        ],
+        [
+          5,
+          1165,
+          1265
+        ],
+        [
+          6,
+          1366,
+          1747
+        ],
+        [
+          7,
+          2028,
+          2350
+        ],
+        [
+          8,
+          2450,
+          2972
+        ],
+        [
+          9,
+          3073,
+          3133
+        ],
+        [
+          10,
+          3193,
+          3354
+        ],
+        [
+          11,
+          3394,
+          3454
+        ],
+        [
+          12,
+          3474,
+          3615
+        ],
+        [
+          13,
+          3635,
+          3655
+        ],
+        [
+          14,
+          3715,
+          4257
+        ]
+      ],
+      "duration_ms": 5442,
+      "sha256": "8bb2e14417d570a163113c05f2c47babf63c4ef9399a598d89fca80bd4c39326",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9045,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3635875bed1f89c8cc73": {
+      "id": "en_3635875bed1f89c8cc73",
+      "language": "en",
+      "text": "A ripe papaya has orange flesh and black seeds in the middle.",
+      "words": [
+        "A",
+        "ripe",
+        "papaya",
+        "has",
+        "orange",
+        "flesh",
+        "and",
+        "black",
+        "seeds",
+        "in",
+        "the",
+        "middle."
+      ],
+      "path": "audio/meaning/en/en_3635875bed1f89c8cc73.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a ripe papaya has orange flesh and black seeds in the middle.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          121,
+          402
+        ],
+        [
+          2,
+          442,
+          945
+        ],
+        [
+          3,
+          1347,
+          1488
+        ],
+        [
+          4,
+          1548,
+          1850
+        ],
+        [
+          5,
+          1890,
+          2212
+        ],
+        [
+          6,
+          2312,
+          2413
+        ],
+        [
+          7,
+          2433,
+          2694
+        ],
+        [
+          8,
+          2815,
+          3237
+        ],
+        [
+          9,
+          3719,
+          3800
+        ],
+        [
+          10,
+          3820,
+          3900
+        ],
+        [
+          11,
+          3941,
+          4202
+        ]
+      ],
+      "duration_ms": 4443,
+      "sha256": "207b218edd085cbd4e391209cc6f0bc85c76293fb8f33ce14f5664875a5cecc3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9279,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_48f0c391f8b22624e31f": {
+      "id": "en_48f0c391f8b22624e31f",
+      "language": "en",
+      "text": "A crane lifts and moves heavy loads, and we never stand beneath them.",
+      "words": [
+        "A",
+        "crane",
+        "lifts",
+        "and",
+        "moves",
+        "heavy",
+        "loads,",
+        "and",
+        "we",
+        "never",
+        "stand",
+        "beneath",
+        "them."
+      ],
+      "path": "audio/meaning/en/en_48f0c391f8b22624e31f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A crane lifts and moves heavy loads, and we never stand beneath them.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          121,
+          422
+        ],
+        [
+          2,
+          462,
+          844
+        ],
+        [
+          3,
+          1004,
+          1105
+        ],
+        [
+          4,
+          1165,
+          1466
+        ],
+        [
+          5,
+          1547,
+          1767
+        ],
+        [
+          6,
+          1868,
+          2290
+        ],
+        [
+          7,
+          2852,
+          2952
+        ],
+        [
+          8,
+          2993,
+          3053
+        ],
+        [
+          9,
+          3133,
+          3334
+        ],
+        [
+          10,
+          3394,
+          3696
+        ],
+        [
+          11,
+          3756,
+          4138
+        ],
+        [
+          12,
+          4238,
+          4419
+        ]
+      ],
+      "duration_ms": 5182,
+      "sha256": "ccd1bdaec0ec2ec8166627310ed6af59f0d3f086da6efd4c3c9b3882d885c04a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9472,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_86acd060d6cef22a8cfb": {
+      "id": "en_86acd060d6cef22a8cfb",
+      "language": "en",
+      "text": "A coast is where land meets the sea.",
+      "words": [
+        "A",
+        "coast",
+        "is",
+        "where",
+        "land",
+        "meets",
+        "the",
+        "sea."
+      ],
+      "path": "audio/meaning/en/en_86acd060d6cef22a8cfb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A coast is where land meets the sea.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          141,
+          543
+        ],
+        [
+          2,
+          684,
+          784
+        ],
+        [
+          3,
+          865,
+          1046
+        ],
+        [
+          4,
+          1066,
+          1307
+        ],
+        [
+          5,
+          1367,
+          1689
+        ],
+        [
+          6,
+          1770,
+          1850
+        ],
+        [
+          7,
+          1971,
+          2192
+        ]
+      ],
+      "duration_ms": 2735,
+      "sha256": "fcaf7da0bad61629ea36205457e21a89f53887fc433bdb3ef6881f0413b5cc55",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9015,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_e454baa6674a6168559a": {
+      "id": "en_e454baa6674a6168559a",
+      "language": "en",
+      "text": "A photograph records a person, place, or moment we want to remember.",
+      "words": [
+        "A",
+        "photograph",
+        "records",
+        "a",
+        "person,",
+        "place,",
+        "or",
+        "moment",
+        "we",
+        "want",
+        "to",
+        "remember."
+      ],
+      "path": "audio/meaning/en/en_e454baa6674a6168559a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A photograph records a person, place or moment we want to remember.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          181,
+          723
+        ],
+        [
+          2,
+          804,
+          1225
+        ],
+        [
+          3,
+          1286,
+          1306
+        ],
+        [
+          4,
+          1386,
+          1848
+        ],
+        [
+          5,
+          2170,
+          2592
+        ],
+        [
+          6,
+          2792,
+          2873
+        ],
+        [
+          7,
+          2953,
+          3335
+        ],
+        [
+          8,
+          3516,
+          3596
+        ],
+        [
+          9,
+          3697,
+          3897
+        ],
+        [
+          10,
+          3938,
+          4018
+        ],
+        [
+          11,
+          4098,
+          4580
+        ]
+      ],
+      "duration_ms": 4922,
+      "sha256": "c6fe841a452332f5d0fb1c41fa29d3d722623c19b1fd5d4b7f2eb6fd139bff83",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9552,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_93b1fe3c51c31a70438b": {
+      "id": "en_93b1fe3c51c31a70438b",
+      "language": "en",
+      "text": "A rooster is a male chicken and makes a crowing sound.",
+      "words": [
+        "A",
+        "rooster",
+        "is",
+        "a",
+        "male",
+        "chicken",
+        "and",
+        "makes",
+        "a",
+        "crowing",
+        "sound."
+      ],
+      "path": "audio/meaning/en/en_93b1fe3c51c31a70438b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A rooster is a male chicken and makes a crowing sound.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          141,
+          583
+        ],
+        [
+          2,
+          724,
+          825
+        ],
+        [
+          3,
+          865,
+          885
+        ],
+        [
+          4,
+          986,
+          1287
+        ],
+        [
+          5,
+          1348,
+          1690
+        ],
+        [
+          6,
+          1770,
+          1871
+        ],
+        [
+          7,
+          1911,
+          2152
+        ],
+        [
+          8,
+          2193,
+          2213
+        ],
+        [
+          9,
+          2273,
+          2675
+        ],
+        [
+          10,
+          2756,
+          3199
+        ]
+      ],
+      "duration_ms": 3862,
+      "sha256": "47ffc407608cff657fde07f4e2062f632e9beb8b914db23a7a8576409e45c826",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9392,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3795ef7154cd7500cd34": {
+      "id": "en_3795ef7154cd7500cd34",
+      "language": "en",
+      "text": "A jellyfish has a soft body, and its tentacles may sting, so I do not touch it.",
+      "words": [
+        "A",
+        "jellyfish",
+        "has",
+        "a",
+        "soft",
+        "body,",
+        "and",
+        "its",
+        "tentacles",
+        "may",
+        "sting,",
+        "so",
+        "I",
+        "do",
+        "not",
+        "touch",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_3795ef7154cd7500cd34.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A jellyfish has a soft body and its tentacles may sting, so I do not touch it.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          120,
+          662
+        ],
+        [
+          2,
+          723,
+          843
+        ],
+        [
+          3,
+          903,
+          923
+        ],
+        [
+          4,
+          1024,
+          1305
+        ],
+        [
+          5,
+          1465,
+          1746
+        ],
+        [
+          6,
+          2328,
+          2428
+        ],
+        [
+          7,
+          2469,
+          2609
+        ],
+        [
+          8,
+          2669,
+          3231
+        ],
+        [
+          9,
+          3312,
+          3432
+        ],
+        [
+          10,
+          3512,
+          3853
+        ],
+        [
+          11,
+          4335,
+          4415
+        ],
+        [
+          12,
+          4656,
+          4676
+        ],
+        [
+          13,
+          4716,
+          4777
+        ],
+        [
+          14,
+          4877,
+          5037
+        ],
+        [
+          15,
+          5118,
+          5399
+        ],
+        [
+          16,
+          5459,
+          5579
+        ]
+      ],
+      "duration_ms": 5921,
+      "sha256": "b319eb9b403a32ee6c3817dc93abd24a5ece8dd410b15567227c987daca72f2c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9458,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_429616e3fdd36a916626": {
+      "id": "en_429616e3fdd36a916626",
+      "language": "en",
+      "text": "A flea is a tiny jumping insect that feeds on the blood of some animals.",
+      "words": [
+        "A",
+        "flea",
+        "is",
+        "a",
+        "tiny",
+        "jumping",
+        "insect",
+        "that",
+        "feeds",
+        "on",
+        "the",
+        "blood",
+        "of",
+        "some",
+        "animals."
+      ],
+      "path": "audio/meaning/en/en_429616e3fdd36a916626.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A flea is a tiny jumping insect that feeds on the blood of some animals.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          181,
+          201
+        ],
+        [
+          1,
+          301,
+          582
+        ],
+        [
+          2,
+          723,
+          823
+        ],
+        [
+          3,
+          864,
+          884
+        ],
+        [
+          4,
+          964,
+          1326
+        ],
+        [
+          5,
+          1486,
+          1928
+        ],
+        [
+          6,
+          2028,
+          2531
+        ],
+        [
+          7,
+          2611,
+          2751
+        ],
+        [
+          8,
+          2872,
+          3294
+        ],
+        [
+          9,
+          3434,
+          3515
+        ],
+        [
+          10,
+          3555,
+          3655
+        ],
+        [
+          11,
+          3716,
+          4017
+        ],
+        [
+          12,
+          4057,
+          4137
+        ],
+        [
+          13,
+          4218,
+          4418
+        ],
+        [
+          14,
+          4519,
+          5021
+        ]
+      ],
+      "duration_ms": 5483,
+      "sha256": "21571c8e192cc134e557df62f4bf218d23c78c2e2e0a10481c890afd903922a3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9766,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_22b8e56732f0ee47931f": {
+      "id": "en_22b8e56732f0ee47931f",
+      "language": "en",
+      "text": "Frost is a thin layer of ice that forms on a cold surface.",
+      "words": [
+        "Frost",
+        "is",
+        "a",
+        "thin",
+        "layer",
+        "of",
+        "ice",
+        "that",
+        "forms",
+        "on",
+        "a",
+        "cold",
+        "surface."
+      ],
+      "path": "audio/meaning/en/en_22b8e56732f0ee47931f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Frost is a thin layer of ice that forms on a cold surface.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          482
+        ],
+        [
+          1,
+          603,
+          683
+        ],
+        [
+          2,
+          744,
+          764
+        ],
+        [
+          3,
+          864,
+          1065
+        ],
+        [
+          4,
+          1146,
+          1467
+        ],
+        [
+          5,
+          1568,
+          1648
+        ],
+        [
+          6,
+          1910,
+          2111
+        ],
+        [
+          7,
+          2131,
+          2272
+        ],
+        [
+          8,
+          2412,
+          2855
+        ],
+        [
+          9,
+          2995,
+          3076
+        ],
+        [
+          10,
+          3116,
+          3136
+        ],
+        [
+          11,
+          3216,
+          3478
+        ],
+        [
+          12,
+          3578,
+          4141
+        ]
+      ],
+      "duration_ms": 4322,
+      "sha256": "a24e74903f5361e44be995a0125c586e18694cd5039c084394ddfcf47fc11a58",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9768,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_37ac2210afd3860e3252": {
+      "id": "en_37ac2210afd3860e3252",
+      "language": "en",
+      "text": "I paint with a brush and colors.",
+      "words": [
+        "I",
+        "paint",
+        "with",
+        "a",
+        "brush",
+        "and",
+        "colors."
+      ],
+      "path": "audio/meaning/en/en_37ac2210afd3860e3252.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I paint with a brush and colors.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          160,
+          421
+        ],
+        [
+          2,
+          481,
+          602
+        ],
+        [
+          3,
+          622,
+          642
+        ],
+        [
+          4,
+          722,
+          1063
+        ],
+        [
+          5,
+          1204,
+          1324
+        ],
+        [
+          6,
+          1384,
+          1786
+        ]
+      ],
+      "duration_ms": 1946,
+      "sha256": "9891b0fcf7c82bf4fa909e1c04d163bf40a33017a05c0dde045a5c71eba71e7f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8688,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b5cfa953acbaf346e409": {
+      "id": "en_b5cfa953acbaf346e409",
+      "language": "en",
+      "text": "A worker carries out tasks using suitable tools and equipment.",
+      "words": [
+        "A",
+        "worker",
+        "carries",
+        "out",
+        "tasks",
+        "using",
+        "suitable",
+        "tools",
+        "and",
+        "equipment."
+      ],
+      "path": "audio/meaning/en/en_b5cfa953acbaf346e409.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A worker carries out tasks using suitable tools and equipment.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          120,
+          140
+        ],
+        [
+          1,
+          201,
+          502
+        ],
+        [
+          2,
+          562,
+          943
+        ],
+        [
+          3,
+          1043,
+          1184
+        ],
+        [
+          4,
+          1264,
+          1685
+        ],
+        [
+          5,
+          2006,
+          2267
+        ],
+        [
+          6,
+          2388,
+          2869
+        ],
+        [
+          7,
+          2949,
+          3391
+        ],
+        [
+          8,
+          3511,
+          3612
+        ],
+        [
+          9,
+          3692,
+          4214
+        ]
+      ],
+      "duration_ms": 4695,
+      "sha256": "212f87a2c553cb6654c06098e2a43ca64cc1aaf551fef583d9214ebd38529075",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9655,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_75a5b18a60836f23e842": {
+      "id": "en_75a5b18a60836f23e842",
+      "language": "en",
+      "text": "I organize things in a chest of drawers and gently open one drawer at a time.",
+      "words": [
+        "I",
+        "organize",
+        "things",
+        "in",
+        "a",
+        "chest",
+        "of",
+        "drawers",
+        "and",
+        "gently",
+        "open",
+        "one",
+        "drawer",
+        "at",
+        "a",
+        "time."
+      ],
+      "path": "audio/meaning/en/en_75a5b18a60836f23e842.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I organize things in a chest of drawers and gently open one drawer at a time.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          220,
+          761
+        ],
+        [
+          2,
+          801,
+          1081
+        ],
+        [
+          3,
+          1161,
+          1241
+        ],
+        [
+          4,
+          1261,
+          1301
+        ],
+        [
+          5,
+          1381,
+          1662
+        ],
+        [
+          6,
+          1702,
+          1782
+        ],
+        [
+          7,
+          1862,
+          2302
+        ],
+        [
+          8,
+          2863,
+          2963
+        ],
+        [
+          9,
+          3023,
+          3383
+        ],
+        [
+          10,
+          3544,
+          3824
+        ],
+        [
+          11,
+          3924,
+          4044
+        ],
+        [
+          12,
+          4084,
+          4445
+        ],
+        [
+          13,
+          4545,
+          4605
+        ],
+        [
+          14,
+          4685,
+          4705
+        ],
+        [
+          15,
+          4785,
+          5165
+        ]
+      ],
+      "duration_ms": 5906,
+      "sha256": "883b2f5c1990612887236ea96d9342a7cc53dc39082ce186232ce9ad4a3cb4b2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9207,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3509989d2c850e1d4d2d": {
+      "id": "en_3509989d2c850e1d4d2d",
+      "language": "en",
+      "text": "A pistachio has a pale shell protecting a green kernel, and we remove the shell before eating.",
+      "words": [
+        "A",
+        "pistachio",
+        "has",
+        "a",
+        "pale",
+        "shell",
+        "protecting",
+        "a",
+        "green",
+        "kernel,",
+        "and",
+        "we",
+        "remove",
+        "the",
+        "shell",
+        "before",
+        "eating."
+      ],
+      "path": "audio/meaning/en/en_3509989d2c850e1d4d2d.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a pistachio, has a pale shell protecting a green kernel, and we remove the shell before eating.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          140,
+          882
+        ],
+        [
+          2,
+          1383,
+          1523
+        ],
+        [
+          3,
+          1563,
+          1583
+        ],
+        [
+          4,
+          1684,
+          2064
+        ],
+        [
+          5,
+          2245,
+          2465
+        ],
+        [
+          6,
+          2566,
+          3107
+        ],
+        [
+          7,
+          3167,
+          3187
+        ],
+        [
+          8,
+          3247,
+          3548
+        ],
+        [
+          9,
+          3668,
+          4089
+        ],
+        [
+          10,
+          4630,
+          4730
+        ],
+        [
+          11,
+          4750,
+          4830
+        ],
+        [
+          12,
+          4911,
+          5332
+        ],
+        [
+          13,
+          5372,
+          5452
+        ],
+        [
+          14,
+          5532,
+          5752
+        ],
+        [
+          15,
+          5813,
+          6173
+        ],
+        [
+          16,
+          6274,
+          6594
+        ]
+      ],
+      "duration_ms": 7396,
+      "sha256": "677b5533b5e7bef82baf5265ee1b9e2a31d682cfcff45d6628ca99950739fa36",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9411,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_76329fa61aa0fbe977e1": {
+      "id": "en_76329fa61aa0fbe977e1",
+      "language": "en",
+      "text": "We buy needed items at a shop and check their price before paying.",
+      "words": [
+        "We",
+        "buy",
+        "needed",
+        "items",
+        "at",
+        "a",
+        "shop",
+        "and",
+        "check",
+        "their",
+        "price",
+        "before",
+        "paying."
+      ],
+      "path": "audio/meaning/en/en_76329fa61aa0fbe977e1.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "We buy needed items at a shop and check their price before paying.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          60
+        ],
+        [
+          1,
+          141,
+          341
+        ],
+        [
+          2,
+          442,
+          743
+        ],
+        [
+          3,
+          863,
+          1185
+        ],
+        [
+          4,
+          1265,
+          1365
+        ],
+        [
+          5,
+          1425,
+          1446
+        ],
+        [
+          6,
+          1586,
+          1867
+        ],
+        [
+          7,
+          2289,
+          2389
+        ],
+        [
+          8,
+          2470,
+          2710
+        ],
+        [
+          9,
+          2791,
+          2931
+        ],
+        [
+          10,
+          2992,
+          3313
+        ],
+        [
+          11,
+          3333,
+          3654
+        ],
+        [
+          12,
+          3714,
+          4096
+        ]
+      ],
+      "duration_ms": 4919,
+      "sha256": "3a39a702bcaf561b1d2a5c3413807739dca0ccb43586865114c3dcc402bb81d9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9791,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_682341c288cc546c40be": {
+      "id": "en_682341c288cc546c40be",
+      "language": "en",
+      "text": "A sports net catches a ball or separates the two sides of a court, depending on the game.",
+      "words": [
+        "A",
+        "sports",
+        "net",
+        "catches",
+        "a",
+        "ball",
+        "or",
+        "separates",
+        "the",
+        "two",
+        "sides",
+        "of",
+        "a",
+        "court,",
+        "depending",
+        "on",
+        "the",
+        "game."
+      ],
+      "path": "audio/meaning/en/en_682341c288cc546c40be.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A sports net catches a ball or separates the two sides of a court, depending on the game.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          100,
+          120
+        ],
+        [
+          1,
+          160,
+          842
+        ],
+        [
+          2,
+          983,
+          1143
+        ],
+        [
+          3,
+          1204,
+          1585
+        ],
+        [
+          4,
+          1645,
+          1665
+        ],
+        [
+          5,
+          1745,
+          2066
+        ],
+        [
+          6,
+          2227,
+          2327
+        ],
+        [
+          7,
+          2427,
+          2929
+        ],
+        [
+          8,
+          2989,
+          3069
+        ],
+        [
+          9,
+          3149,
+          3310
+        ],
+        [
+          10,
+          3410,
+          3831
+        ],
+        [
+          11,
+          3871,
+          3952
+        ],
+        [
+          12,
+          3992,
+          4012
+        ],
+        [
+          13,
+          4112,
+          4533
+        ],
+        [
+          14,
+          5055,
+          5597
+        ],
+        [
+          15,
+          5717,
+          5797
+        ],
+        [
+          16,
+          5857,
+          5938
+        ],
+        [
+          17,
+          5978,
+          6319
+        ]
+      ],
+      "duration_ms": 6880,
+      "sha256": "f2313b27b18eb9453cf0d82f7eac711f7a79e1f126f33590845421331bbb9e97",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9515,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c6becb0a0f002fe8d5c5": {
+      "id": "en_c6becb0a0f002fe8d5c5",
+      "language": "en",
+      "text": "Afternoon is the time after midday and before sunset.",
+      "words": [
+        "Afternoon",
+        "is",
+        "the",
+        "time",
+        "after",
+        "midday",
+        "and",
+        "before",
+        "sunset."
+      ],
+      "path": "audio/meaning/en/en_c6becb0a0f002fe8d5c5.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "afternoon is the time after midday and before sunset.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          542
+        ],
+        [
+          1,
+          583,
+          683
+        ],
+        [
+          2,
+          723,
+          804
+        ],
+        [
+          3,
+          864,
+          1306
+        ],
+        [
+          4,
+          1487,
+          1728
+        ],
+        [
+          5,
+          1788,
+          2150
+        ],
+        [
+          6,
+          2270,
+          2371
+        ],
+        [
+          7,
+          2391,
+          2712
+        ],
+        [
+          8,
+          2772,
+          3275
+        ]
+      ],
+      "duration_ms": 4058,
+      "sha256": "e996b7135b49d7aff0856b4c0a657c185906c102debc8a4fc8b2277ab62d92f0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.993,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_e26f5fb3b473c829348c": {
+      "id": "en_e26f5fb3b473c829348c",
+      "language": "en",
+      "text": "Hunger is a signal that my body needs food.",
+      "words": [
+        "Hunger",
+        "is",
+        "a",
+        "signal",
+        "that",
+        "my",
+        "body",
+        "needs",
+        "food."
+      ],
+      "path": "audio/meaning/en/en_e26f5fb3b473c829348c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Hunger is a signal that my body needs food.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          421
+        ],
+        [
+          1,
+          561,
+          641
+        ],
+        [
+          2,
+          681,
+          701
+        ],
+        [
+          3,
+          821,
+          1202
+        ],
+        [
+          4,
+          1402,
+          1543
+        ],
+        [
+          5,
+          1603,
+          1743
+        ],
+        [
+          6,
+          1803,
+          2063
+        ],
+        [
+          7,
+          2164,
+          2444
+        ],
+        [
+          8,
+          2524,
+          2825
+        ]
+      ],
+      "duration_ms": 3406,
+      "sha256": "153e233f75724615917794d356d1b6eed0815a8d19ac7bff016d45bf31c1d998",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9938,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d660588ef45c29b43d70": {
+      "id": "en_d660588ef45c29b43d70",
+      "language": "en",
+      "text": "Bones help support and protect the body.",
+      "words": [
+        "Bones",
+        "help",
+        "support",
+        "and",
+        "protect",
+        "the",
+        "body."
+      ],
+      "path": "audio/meaning/en/en_d660588ef45c29b43d70.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Bones help support and protect the body.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          362
+        ],
+        [
+          1,
+          423,
+          624
+        ],
+        [
+          2,
+          704,
+          1127
+        ],
+        [
+          3,
+          1228,
+          1328
+        ],
+        [
+          4,
+          1389,
+          1791
+        ],
+        [
+          5,
+          1852,
+          1952
+        ],
+        [
+          6,
+          1993,
+          2274
+        ]
+      ],
+      "duration_ms": 3120,
+      "sha256": "6812dce7b1e00e9f697da82f1dcf5d2edb61f6eeaa7457a1e45c055bbee919cf",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9777,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a7e490b2311f589d2be1": {
+      "id": "en_a7e490b2311f589d2be1",
+      "language": "en",
+      "text": "A sea sponge is an animal that filters water through its body to get food.",
+      "words": [
+        "A",
+        "sea",
+        "sponge",
+        "is",
+        "an",
+        "animal",
+        "that",
+        "filters",
+        "water",
+        "through",
+        "its",
+        "body",
+        "to",
+        "get",
+        "food."
+      ],
+      "path": "audio/meaning/en/en_a7e490b2311f589d2be1.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A sea sponge is an animal that filters water through its body to get food.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          200,
+          361
+        ],
+        [
+          2,
+          461,
+          1002
+        ],
+        [
+          3,
+          1263,
+          1343
+        ],
+        [
+          4,
+          1383,
+          1463
+        ],
+        [
+          5,
+          1583,
+          1964
+        ],
+        [
+          6,
+          2085,
+          2225
+        ],
+        [
+          7,
+          2285,
+          2786
+        ],
+        [
+          8,
+          2886,
+          3247
+        ],
+        [
+          9,
+          3528,
+          3688
+        ],
+        [
+          10,
+          3708,
+          3828
+        ],
+        [
+          11,
+          3889,
+          4149
+        ],
+        [
+          12,
+          4269,
+          4370
+        ],
+        [
+          13,
+          4430,
+          4590
+        ],
+        [
+          14,
+          4811,
+          5091
+        ]
+      ],
+      "duration_ms": 5452,
+      "sha256": "d8f2822ed20d0ddc264bf9afbcf56dec588e01b135ca79835db02e0bbca2b35e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9673,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_00ecdb9605b0d0cf30ab": {
+      "id": "en_00ecdb9605b0d0cf30ab",
+      "language": "en",
+      "text": "Neptune is the farthest planet from the Sun and has strong winds.",
+      "words": [
+        "Neptune",
+        "is",
+        "the",
+        "farthest",
+        "planet",
+        "from",
+        "the",
+        "Sun",
+        "and",
+        "has",
+        "strong",
+        "winds."
+      ],
+      "path": "audio/meaning/en/en_00ecdb9605b0d0cf30ab.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Neptune is the farthest planet from the sun and has strong winds.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          521
+        ],
+        [
+          1,
+          561,
+          641
+        ],
+        [
+          2,
+          681,
+          762
+        ],
+        [
+          3,
+          802,
+          1243
+        ],
+        [
+          4,
+          1343,
+          1744
+        ],
+        [
+          5,
+          1824,
+          1964
+        ],
+        [
+          6,
+          2024,
+          2104
+        ],
+        [
+          7,
+          2205,
+          2445
+        ],
+        [
+          8,
+          2826,
+          2926
+        ],
+        [
+          9,
+          2986,
+          3127
+        ],
+        [
+          10,
+          3187,
+          3568
+        ],
+        [
+          11,
+          3628,
+          4049
+        ]
+      ],
+      "duration_ms": 4730,
+      "sha256": "01c0c2a0ee0af62d017fefcdd110e496983b138ddb7199f8c241342a8567c8a8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9467,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_acaa17b686dd911fa789": {
+      "id": "en_acaa17b686dd911fa789",
+      "language": "en",
+      "text": "An arrow shows the direction to follow to reach a place.",
+      "words": [
+        "An",
+        "arrow",
+        "shows",
+        "the",
+        "direction",
+        "to",
+        "follow",
+        "to",
+        "reach",
+        "a",
+        "place."
+      ],
+      "path": "audio/meaning/en/en_acaa17b686dd911fa789.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "an arrow shows the direction to follow to reach a place.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          120
+        ],
+        [
+          1,
+          261,
+          562
+        ],
+        [
+          2,
+          683,
+          984
+        ],
+        [
+          3,
+          1064,
+          1144
+        ],
+        [
+          4,
+          1164,
+          1626
+        ],
+        [
+          5,
+          1686,
+          1747
+        ],
+        [
+          6,
+          1807,
+          2168
+        ],
+        [
+          7,
+          2269,
+          2329
+        ],
+        [
+          8,
+          2409,
+          2590
+        ],
+        [
+          9,
+          2630,
+          2650
+        ],
+        [
+          10,
+          2710,
+          3172
+        ]
+      ],
+      "duration_ms": 3855,
+      "sha256": "4a7f73ccadf10d00c929b71e96a8837b93fbaddf45b15fb1c80ed8b0cda74fa3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9514,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_15019a487d3db24fd4ff": {
+      "id": "en_15019a487d3db24fd4ff",
+      "language": "en",
+      "text": "A hexagon has six sides and six corners.",
+      "words": [
+        "A",
+        "hexagon",
+        "has",
+        "six",
+        "sides",
+        "and",
+        "six",
+        "corners."
+      ],
+      "path": "audio/meaning/en/en_15019a487d3db24fd4ff.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A hexagon has six sides and six corners.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          141,
+          643
+        ],
+        [
+          2,
+          703,
+          824
+        ],
+        [
+          3,
+          925,
+          1105
+        ],
+        [
+          4,
+          1226,
+          1628
+        ],
+        [
+          5,
+          1688,
+          1789
+        ],
+        [
+          6,
+          1849,
+          2010
+        ],
+        [
+          7,
+          2151,
+          2653
+        ]
+      ],
+      "duration_ms": 3075,
+      "sha256": "b24051eb7cfbc63497546e4db05e03345b439fd6acf100e2b77f3bac734b1ff6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9415,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3a32a1c80b4f4051549c": {
+      "id": "en_3a32a1c80b4f4051549c",
+      "language": "en",
+      "text": "A video is a sequence of pictures showing movement and may include sound.",
+      "words": [
+        "A",
+        "video",
+        "is",
+        "a",
+        "sequence",
+        "of",
+        "pictures",
+        "showing",
+        "movement",
+        "and",
+        "may",
+        "include",
+        "sound."
+      ],
+      "path": "audio/meaning/en/en_3a32a1c80b4f4051549c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A video is a sequence of pictures showing movement and may include sound.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          100,
+          421
+        ],
+        [
+          2,
+          923,
+          1003
+        ],
+        [
+          3,
+          1043,
+          1063
+        ],
+        [
+          4,
+          1144,
+          1565
+        ],
+        [
+          5,
+          1585,
+          1645
+        ],
+        [
+          6,
+          1725,
+          2207
+        ],
+        [
+          7,
+          2407,
+          2769
+        ],
+        [
+          8,
+          2869,
+          3310
+        ],
+        [
+          9,
+          3752,
+          3852
+        ],
+        [
+          10,
+          3892,
+          4012
+        ],
+        [
+          11,
+          4073,
+          4474
+        ],
+        [
+          12,
+          4514,
+          4875
+        ]
+      ],
+      "duration_ms": 5557,
+      "sha256": "9f18ae3d64f039f97e5f585d1b82735c685fc5d1d865749d69ebe7e064d9b690",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9954,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
