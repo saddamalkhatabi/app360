@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1729,
+  "ready": 1733,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -162252,6 +162252,342 @@
       "sha256": "97d2f825350486df8fe92a7dfb30ea746e26a69edff6f9ecfbfa3a381cecbce7",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.918,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_986fa9bd5e3bca5276cd": {
+      "id": "ar_986fa9bd5e3bca5276cd",
+      "language": "ar",
+      "text": "يُسَاعِدُ الْمَطَرُ عَلَى سَقْيِ النَّبَاتَاتِ.",
+      "words": [
+        "يُسَاعِدُ",
+        "الْمَطَرُ",
+        "عَلَى",
+        "سَقْيِ",
+        "النَّبَاتَاتِ."
+      ],
+      "path": "audio/meaning/ar/ar_986fa9bd5e3bca5276cd.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يساعد المطر على سقي النباتات",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          641
+        ],
+        [
+          1,
+          742,
+          1143
+        ],
+        [
+          2,
+          1403,
+          1483
+        ],
+        [
+          3,
+          1644,
+          1924
+        ],
+        [
+          4,
+          2005,
+          2686
+        ]
+      ],
+      "duration_ms": 2947,
+      "sha256": "0db2b3e60845f8b1c89e2985ab7c773be4a275ec6df50bf2d0f1cacde59a1647",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9858,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_6336ea1db4aa6a76eda3": {
+      "id": "ar_6336ea1db4aa6a76eda3",
+      "language": "ar",
+      "text": "لفاكهة التنين قشرة ذات زوائد، ولب يحتوي بذورا سوداء صغيرة.",
+      "words": [
+        "لفاكهة",
+        "التنين",
+        "قشرة",
+        "ذات",
+        "زوائد،",
+        "ولب",
+        "يحتوي",
+        "بذورا",
+        "سوداء",
+        "صغيرة."
+      ],
+      "path": "audio/meaning/ar/ar_6336ea1db4aa6a76eda3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "لفاكهة التنين قشرة ذات زوائد ولب يحتوي بذورا سوداء صغيرة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          502
+        ],
+        [
+          1,
+          623,
+          984
+        ],
+        [
+          2,
+          1125,
+          1447
+        ],
+        [
+          3,
+          1647,
+          1828
+        ],
+        [
+          4,
+          1929,
+          2411
+        ],
+        [
+          5,
+          2813,
+          3034
+        ],
+        [
+          6,
+          3074,
+          3516
+        ],
+        [
+          7,
+          3596,
+          3998
+        ],
+        [
+          8,
+          4159,
+          4440
+        ],
+        [
+          9,
+          4681,
+          5103
+        ]
+      ],
+      "duration_ms": 5224,
+      "sha256": "f90a2c0acf47ad14ae09e647fdea14df1696e834bae3e2423f6ceeb72b59de61",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9522,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d025ced06e227942db7b": {
+      "id": "ar_d025ced06e227942db7b",
+      "language": "ar",
+      "text": "يعرض المتحف أشياء وصورا نتعلم منها عن التاريخ أو الفن أو العلوم.",
+      "words": [
+        "يعرض",
+        "المتحف",
+        "أشياء",
+        "وصورا",
+        "نتعلم",
+        "منها",
+        "عن",
+        "التاريخ",
+        "أو",
+        "الفن",
+        "أو",
+        "العلوم."
+      ],
+      "path": "audio/meaning/ar/ar_d025ced06e227942db7b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يعرض المتحف أشياء وصوراً نتعلم منها عن التاريخ أو الفن أو العلوم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0317,
+          "heard": "يعرض المتحف وأشياء وسورا نتعلم منها عن التاريخ أو الفن أو العلوم",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          381
+        ],
+        [
+          1,
+          482,
+          983
+        ],
+        [
+          2,
+          1164,
+          1485
+        ],
+        [
+          3,
+          1705,
+          2167
+        ],
+        [
+          4,
+          2267,
+          2789
+        ],
+        [
+          5,
+          2909,
+          3150
+        ],
+        [
+          6,
+          3351,
+          3371
+        ],
+        [
+          7,
+          3431,
+          3993
+        ],
+        [
+          8,
+          4133,
+          4233
+        ],
+        [
+          9,
+          4274,
+          4575
+        ],
+        [
+          10,
+          4615,
+          4795
+        ],
+        [
+          11,
+          4855,
+          5277
+        ]
+      ],
+      "duration_ms": 5417,
+      "sha256": "875040993360a92da557d7756f109e1fdb22b7edf2bc6d9e47df6f34b70504d7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.979,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b56889376023b029c91c": {
+      "id": "ar_b56889376023b029c91c",
+      "language": "ar",
+      "text": "يمكن مزج الأحمر والأزرق لصنع لون بنفسجي.",
+      "words": [
+        "يمكن",
+        "مزج",
+        "الأحمر",
+        "والأزرق",
+        "لصنع",
+        "لون",
+        "بنفسجي."
+      ],
+      "path": "audio/meaning/ar/ar_b56889376023b029c91c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يمكن مزج الأحمر والأزرق لصنع لون بنفسجي",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          381
+        ],
+        [
+          1,
+          482,
+          742
+        ],
+        [
+          2,
+          823,
+          1224
+        ],
+        [
+          3,
+          1304,
+          1866
+        ],
+        [
+          4,
+          1966,
+          2227
+        ],
+        [
+          5,
+          2428,
+          2628
+        ],
+        [
+          6,
+          2709,
+          3290
+        ]
+      ],
+      "duration_ms": 3611,
+      "sha256": "3b5e4d1e7337809ea47d7466566bb05aff8a7b9643c171775c9f2ac216d65e37",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9662,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
