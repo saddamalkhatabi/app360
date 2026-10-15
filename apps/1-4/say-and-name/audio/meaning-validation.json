@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1643,
+  "ready": 1645,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -154214,6 +154214,236 @@
       "sha256": "85c35a63245fca77b72a8b21a9a7ed770eef6b33c7dbbdb0eb4a4ed802773207",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9795,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_274202aa81bdd67f88d7": {
+      "id": "en_274202aa81bdd67f88d7",
+      "language": "en",
+      "text": "A cloud is made of tiny water droplets or ice crystals in the air.",
+      "words": [
+        "A",
+        "cloud",
+        "is",
+        "made",
+        "of",
+        "tiny",
+        "water",
+        "droplets",
+        "or",
+        "ice",
+        "crystals",
+        "in",
+        "the",
+        "air."
+      ],
+      "path": "audio/meaning/en/en_274202aa81bdd67f88d7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A cloud is made of tiny water droplets or ice crystals in the air.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          180,
+          601
+        ],
+        [
+          2,
+          661,
+          741
+        ],
+        [
+          3,
+          802,
+          1022
+        ],
+        [
+          4,
+          1042,
+          1122
+        ],
+        [
+          5,
+          1202,
+          1523
+        ],
+        [
+          6,
+          1643,
+          1924
+        ],
+        [
+          7,
+          1964,
+          2545
+        ],
+        [
+          8,
+          2765,
+          2846
+        ],
+        [
+          9,
+          2986,
+          3106
+        ],
+        [
+          10,
+          3146,
+          3747
+        ],
+        [
+          11,
+          3848,
+          3928
+        ],
+        [
+          12,
+          3968,
+          4048
+        ],
+        [
+          13,
+          4168,
+          4369
+        ]
+      ],
+      "duration_ms": 5030,
+      "sha256": "9bc2d636ec5da44fa7fab66d0c73fe745ba3b6ade8e776a61915b41bb296453d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.93,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_66d53036a248259ab6cd": {
+      "id": "en_66d53036a248259ab6cd",
+      "language": "en",
+      "text": "A penguin is a bird that cannot fly and uses its wings to swim.",
+      "words": [
+        "A",
+        "penguin",
+        "is",
+        "a",
+        "bird",
+        "that",
+        "cannot",
+        "fly",
+        "and",
+        "uses",
+        "its",
+        "wings",
+        "to",
+        "swim."
+      ],
+      "path": "audio/meaning/en/en_66d53036a248259ab6cd.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a penguin is a bird that cannot fly and uses its wings to swim.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          120,
+          522
+        ],
+        [
+          2,
+          622,
+          702
+        ],
+        [
+          3,
+          742,
+          762
+        ],
+        [
+          4,
+          842,
+          1183
+        ],
+        [
+          5,
+          1324,
+          1444
+        ],
+        [
+          6,
+          1524,
+          1886
+        ],
+        [
+          7,
+          1966,
+          2267
+        ],
+        [
+          8,
+          2347,
+          2467
+        ],
+        [
+          9,
+          2608,
+          2909
+        ],
+        [
+          10,
+          2969,
+          3129
+        ],
+        [
+          11,
+          3230,
+          3510
+        ],
+        [
+          12,
+          3550,
+          3611
+        ],
+        [
+          13,
+          3731,
+          4012
+        ]
+      ],
+      "duration_ms": 4754,
+      "sha256": "1ccba6ddfec013afbe9b9be8306733757b54802e94b534d1399d17e7d2b9ba83",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9578,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
