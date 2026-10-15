@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1688,
+  "ready": 1693,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -158417,6 +158417,545 @@
       "sha256": "df9e3edd853bd3f872278ba3349d50cb5311c2653651101ebadbe9c4e9e2f4b0",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9731,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_09d179fe37e854d2d487": {
+      "id": "en_09d179fe37e854d2d487",
+      "language": "en",
+      "text": "A chimney carries smoke from a fireplace out of a building.",
+      "words": [
+        "A",
+        "chimney",
+        "carries",
+        "smoke",
+        "from",
+        "a",
+        "fireplace",
+        "out",
+        "of",
+        "a",
+        "building."
+      ],
+      "path": "audio/meaning/en/en_09d179fe37e854d2d487.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A chimney carries smoke from a fireplace out of a building.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          140,
+          462
+        ],
+        [
+          2,
+          562,
+          1044
+        ],
+        [
+          3,
+          1184,
+          1545
+        ],
+        [
+          4,
+          1625,
+          1786
+        ],
+        [
+          5,
+          1806,
+          1826
+        ],
+        [
+          6,
+          1906,
+          2729
+        ],
+        [
+          7,
+          2870,
+          3050
+        ],
+        [
+          8,
+          3131,
+          3211
+        ],
+        [
+          9,
+          3251,
+          3271
+        ],
+        [
+          10,
+          3311,
+          3753
+        ]
+      ],
+      "duration_ms": 4355,
+      "sha256": "53c641446f308e11f6f98637b112fd3e1d5b16301a2be6656caa4b5be097c144",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8623,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_0747a43f7e8699ef3b54": {
+      "id": "en_0747a43f7e8699ef3b54",
+      "language": "en",
+      "text": "Fish provides protein, and we carefully remove its bones before eating.",
+      "words": [
+        "Fish",
+        "provides",
+        "protein,",
+        "and",
+        "we",
+        "carefully",
+        "remove",
+        "its",
+        "bones",
+        "before",
+        "eating."
+      ],
+      "path": "audio/meaning/en/en_0747a43f7e8699ef3b54.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Fish provides protein, and we carefully remove its bones before eating.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          261
+        ],
+        [
+          1,
+          341,
+          863
+        ],
+        [
+          2,
+          923,
+          1445
+        ],
+        [
+          3,
+          2168,
+          2288
+        ],
+        [
+          4,
+          2308,
+          2388
+        ],
+        [
+          5,
+          2509,
+          3011
+        ],
+        [
+          6,
+          3091,
+          3533
+        ],
+        [
+          7,
+          3573,
+          3713
+        ],
+        [
+          8,
+          3814,
+          4135
+        ],
+        [
+          9,
+          4195,
+          4657
+        ],
+        [
+          10,
+          4777,
+          5178
+        ]
+      ],
+      "duration_ms": 5479,
+      "sha256": "c0563fba19e57ef95a70f5eeb52af52f222f615d38456b796ea595fef5285c0b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.972,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c6a9c870cc2b56eb9804": {
+      "id": "en_c6a9c870cc2b56eb9804",
+      "language": "en",
+      "text": "Firefighters help put out fires and rescue people.",
+      "words": [
+        "Firefighters",
+        "help",
+        "put",
+        "out",
+        "fires",
+        "and",
+        "rescue",
+        "people."
+      ],
+      "path": "audio/meaning/en/en_c6a9c870cc2b56eb9804.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Firefighters help put out fires and rescue people.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0612,
+          "heard": "Firefighters help without fires and rescue people.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          761
+        ],
+        [
+          1,
+          821,
+          1042
+        ],
+        [
+          2,
+          1142,
+          1262
+        ],
+        [
+          3,
+          1342,
+          1482
+        ],
+        [
+          4,
+          1562,
+          1963
+        ],
+        [
+          5,
+          2143,
+          2243
+        ],
+        [
+          6,
+          2303,
+          2724
+        ],
+        [
+          7,
+          3165,
+          3425
+        ]
+      ],
+      "duration_ms": 3605,
+      "sha256": "268a7ee639c2a07cad0a1abbfd0d3aaba8d9a4d4cd2fbd8624ae37add5b7f428",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.7821,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b91dd38f8f863ad89c62": {
+      "id": "en_b91dd38f8f863ad89c62",
+      "language": "en",
+      "text": "A magpie has a long tail and eats insects, seeds, and many other foods.",
+      "words": [
+        "A",
+        "magpie",
+        "has",
+        "a",
+        "long",
+        "tail",
+        "and",
+        "eats",
+        "insects,",
+        "seeds,",
+        "and",
+        "many",
+        "other",
+        "foods."
+      ],
+      "path": "audio/meaning/en/en_b91dd38f8f863ad89c62.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A magpie has a long tail and eats insects, seeds, and many other foods.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0714,
+          "cer": 0.0441,
+          "heard": "A McPee has a long tail and eats insects, seeds and many other foods.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          120,
+          522
+        ],
+        [
+          2,
+          582,
+          723
+        ],
+        [
+          3,
+          763,
+          783
+        ],
+        [
+          4,
+          883,
+          1104
+        ],
+        [
+          5,
+          1185,
+          1526
+        ],
+        [
+          6,
+          1747,
+          1847
+        ],
+        [
+          7,
+          1947,
+          2188
+        ],
+        [
+          8,
+          2309,
+          2911
+        ],
+        [
+          9,
+          3152,
+          3674
+        ],
+        [
+          10,
+          3995,
+          4156
+        ],
+        [
+          11,
+          4236,
+          4457
+        ],
+        [
+          12,
+          4638,
+          4819
+        ],
+        [
+          13,
+          4919,
+          5320
+        ]
+      ],
+      "duration_ms": 5461,
+      "sha256": "b21b4ada95fa831a3eae390326388c5f2e386ab487bcfc98e22ce23db37be6e7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9352,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_46347f04c967999b3fda": {
+      "id": "en_46347f04c967999b3fda",
+      "language": "en",
+      "text": "A walrus has two long tusks and uses its whiskers to find food on the seabed.",
+      "words": [
+        "A",
+        "walrus",
+        "has",
+        "two",
+        "long",
+        "tusks",
+        "and",
+        "uses",
+        "its",
+        "whiskers",
+        "to",
+        "find",
+        "food",
+        "on",
+        "the",
+        "seabed."
+      ],
+      "path": "audio/meaning/en/en_46347f04c967999b3fda.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A walrus has two long tusks and uses its whiskers to find food on the seabed.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0541,
+          "heard": "Aworos has two long tusks and uses its whiskers to find food on the seabed.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          261,
+          281
+        ],
+        [
+          1,
+          361,
+          762
+        ],
+        [
+          2,
+          802,
+          943
+        ],
+        [
+          3,
+          1023,
+          1184
+        ],
+        [
+          4,
+          1244,
+          1464
+        ],
+        [
+          5,
+          1545,
+          1946
+        ],
+        [
+          6,
+          2427,
+          2548
+        ],
+        [
+          7,
+          2688,
+          3009
+        ],
+        [
+          8,
+          3069,
+          3230
+        ],
+        [
+          9,
+          3330,
+          3812
+        ],
+        [
+          10,
+          3932,
+          3992
+        ],
+        [
+          11,
+          4092,
+          4433
+        ],
+        [
+          12,
+          4534,
+          4815
+        ],
+        [
+          13,
+          4895,
+          4975
+        ],
+        [
+          14,
+          5035,
+          5096
+        ],
+        [
+          15,
+          5216,
+          5597
+        ]
+      ],
+      "duration_ms": 5998,
+      "sha256": "a08a937a54d7b22af2140e07a54abb33bebfc091d913fbc1a398816d0c315e16",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9195,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
