@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1612,
+  "ready": 1617,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -151519,6 +151519,379 @@
       "sha256": "0c4dd36afce1b82b2e06c5cca1beea8281065ceadd1220f1dbc95fbdf272586d",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9439,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e8f93d6e8670f8901c16": {
+      "id": "ar_e8f93d6e8670f8901c16",
+      "language": "ar",
+      "text": "الذقن أسفل الوجه، وتقع تحت الفم.",
+      "words": [
+        "الذقن",
+        "أسفل",
+        "الوجه،",
+        "وتقع",
+        "تحت",
+        "الفم."
+      ],
+      "path": "audio/meaning/ar/ar_e8f93d6e8670f8901c16.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألذقن أسفل الوجه وتقع تحت الفم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5,
+          "cer": 0.1667,
+          "heard": "الذقنوا أسفل الوجه وتقعوا تحت الفام",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          362
+        ],
+        [
+          1,
+          523,
+          825
+        ],
+        [
+          2,
+          905,
+          1247
+        ],
+        [
+          3,
+          1428,
+          1729
+        ],
+        [
+          4,
+          1931,
+          2152
+        ],
+        [
+          5,
+          2232,
+          2554
+        ]
+      ],
+      "duration_ms": 2695,
+      "sha256": "c1dc926b8424a47416eeb9645433d6ba995f4f4874b648382a3b2c4caa7c5cc7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9169,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_647aa91f023cb02ac58b": {
+      "id": "ar_647aa91f023cb02ac58b",
+      "language": "ar",
+      "text": "نقشر الموز قبل أكله، ولبه طري وسهل المضغ.",
+      "words": [
+        "نقشر",
+        "الموز",
+        "قبل",
+        "أكله،",
+        "ولبه",
+        "طري",
+        "وسهل",
+        "المضغ."
+      ],
+      "path": "audio/meaning/ar/ar_647aa91f023cb02ac58b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نقشر الموز قبل أكله ولبه طري وسهل المضغ",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0769,
+          "heard": "نقشر الموز قبل أكله ولبه طري وسهل الموضوع",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          402
+        ],
+        [
+          1,
+          462,
+          804
+        ],
+        [
+          2,
+          884,
+          1045
+        ],
+        [
+          3,
+          1165,
+          1406
+        ],
+        [
+          4,
+          1708,
+          2070
+        ],
+        [
+          5,
+          2210,
+          2411
+        ],
+        [
+          6,
+          2512,
+          2873
+        ],
+        [
+          7,
+          2954,
+          3376
+        ]
+      ],
+      "duration_ms": 3476,
+      "sha256": "e7d2682cfb923936a240b0188de37e69594655abf83d85b7599fe525bf74042f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.898,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f9021151d1ba18e69f6a": {
+      "id": "ar_f9021151d1ba18e69f6a",
+      "language": "ar",
+      "text": "يُسَاعِدُ الْمُعَلِّمُ الطُّلَّابَ عَلَى التَّعَلُّمِ.",
+      "words": [
+        "يُسَاعِدُ",
+        "الْمُعَلِّمُ",
+        "الطُّلَّابَ",
+        "عَلَى",
+        "التَّعَلُّمِ."
+      ],
+      "path": "audio/meaning/ar/ar_f9021151d1ba18e69f6a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يساعد المعلم الطلاب على التعلم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0333,
+          "heard": "يساعد المعلم الطلابة على التعلم",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          260,
+          781
+        ],
+        [
+          1,
+          901,
+          1562
+        ],
+        [
+          2,
+          1722,
+          2383
+        ],
+        [
+          3,
+          2824,
+          2884
+        ],
+        [
+          4,
+          2944,
+          3525
+        ]
+      ],
+      "duration_ms": 4226,
+      "sha256": "87add1c81c838fe894760cf0c979a6dc37dbdcab95692e2e1fef3ecc91061f25",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9855,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b79bddd6705ebc8c4ea2": {
+      "id": "ar_b79bddd6705ebc8c4ea2",
+      "language": "ar",
+      "text": "أَسْتَخْدِمُ الْغِرَاءَ لِإِلْصَاقِ قِطَعِ الْوَرَقِ.",
+      "words": [
+        "أَسْتَخْدِمُ",
+        "الْغِرَاءَ",
+        "لِإِلْصَاقِ",
+        "قِطَعِ",
+        "الْوَرَقِ."
+      ],
+      "path": "audio/meaning/ar/ar_b79bddd6705ebc8c4ea2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أستخدم الغراء لإلصاق قطع الورق",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.4,
+          "cer": 0.1,
+          "heard": "استخدم الغراء لإلساقي قطاع الورق",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          563
+        ],
+        [
+          1,
+          663,
+          1005
+        ],
+        [
+          2,
+          1347,
+          1970
+        ],
+        [
+          3,
+          2171,
+          2332
+        ],
+        [
+          4,
+          2573,
+          3076
+        ]
+      ],
+      "duration_ms": 3458,
+      "sha256": "201ab538816357c9c129f7a6fb3ac948d931aa79936ba8d1e06a2ed87c215e95",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9441,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e14dfbd47bdb03569b08": {
+      "id": "ar_e14dfbd47bdb03569b08",
+      "language": "ar",
+      "text": "تنقل طائرة الركاب الناس جوا بين المطارات.",
+      "words": [
+        "تنقل",
+        "طائرة",
+        "الركاب",
+        "الناس",
+        "جوا",
+        "بين",
+        "المطارات."
+      ],
+      "path": "audio/meaning/ar/ar_e14dfbd47bdb03569b08.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تنقل طائرة الركاب الناس جوا بين المطارات",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          160,
+          561
+        ],
+        [
+          1,
+          661,
+          1022
+        ],
+        [
+          2,
+          1162,
+          1563
+        ],
+        [
+          3,
+          1643,
+          1944
+        ],
+        [
+          4,
+          2084,
+          2285
+        ],
+        [
+          5,
+          2345,
+          2525
+        ],
+        [
+          6,
+          2585,
+          3226
+        ]
+      ],
+      "duration_ms": 3387,
+      "sha256": "f517cdcf05b6af24835396394a199f942822c3718ba517b430c4595e128a5260",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.954,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
