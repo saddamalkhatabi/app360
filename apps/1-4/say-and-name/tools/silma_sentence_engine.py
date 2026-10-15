@@ -29,8 +29,9 @@ def load_engine(model,vocab,vocoder,threads=8,precision="bf16"):
  torch.load=memory_load
  try:engine=api.SilmaTTS(device='cpu',enable_normalizer=False,force_tashkeel=False,vocoder_local_path=str(vocoder))
  finally:torch.load=original_load
+ engine._app360_precision=precision
  original_sample=engine.ema_model.sample
  def bounded(*args,**kw):
-  with torch.autocast('cpu',dtype=torch.bfloat16,enabled=precision=='bf16'):return original_sample(*args,**kw)
+  with torch.autocast('cpu',dtype=torch.bfloat16,enabled=engine._app360_precision=='bf16'):return original_sample(*args,**kw)
  engine.ema_model.sample=bounded
  return engine

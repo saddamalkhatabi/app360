@@ -29,4 +29,4 @@ def compare(expected,heard):
  missing_negation=bool((set(aw)&negations)!=(set(bw)&negations))
  repeated=any(bw[i]==bw[i+1]==bw[i+2] for i in range(len(bw)-2))
  # ASR is an independent automated screen, not a human pronunciation verdict.
- return dict(passed=bool(a and b and wer<=.25 and cer<=.18 and not repeated and not missing_negation),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')
+ return dict(passed=bool(a and b and wer==0 and cer==0 and not repeated and not missing_negation),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')

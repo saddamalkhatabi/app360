@@ -6,7 +6,7 @@ p=argparse.ArgumentParser();p.add_argument('--input',required=True);p.add_argume
 manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());expected={r['id']:r for r in manifest['items']};clips={}
 previous=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
 for cid,row in previous.items():
- if cid in expected:clips[cid]=row
+ if cid in expected and compare(row['text'],row.get('speech_qa',{}).get('heard',''))['passed']:clips[cid]=row
 for report in source.glob('*.json'):
  for row in json.loads(report.read_text()).get('items',[]):
   cid=row['id'];assert cid in expected,cid

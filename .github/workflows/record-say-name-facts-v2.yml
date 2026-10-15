@@ -17,8 +17,11 @@ jobs:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'
       MEANING_ASR_MODEL: /tmp/meaning-asr
+      MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -37,6 +40,7 @@ jobs:
           snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
           snapshot_download(repo_id='charactr/vocos-mel-24khz')
           snapshot_download(repo_id='Systran/faster-whisper-small',local_dir='/tmp/meaning-asr')
+          snapshot_download(repo_id='Systran/faster-whisper-medium',local_dir='/tmp/meaning-asr-verify')
           import os,pathlib
           p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
           p.parent.mkdir(parents=True,exist_ok=True)
@@ -97,8 +101,11 @@ jobs:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'
       MEANING_ASR_MODEL: /tmp/meaning-asr
+      MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -117,6 +124,7 @@ jobs:
           snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
           snapshot_download(repo_id='charactr/vocos-mel-24khz')
           snapshot_download(repo_id='Systran/faster-whisper-small',local_dir='/tmp/meaning-asr')
+          snapshot_download(repo_id='Systran/faster-whisper-medium',local_dir='/tmp/meaning-asr-verify')
           import os,pathlib
           p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
           p.parent.mkdir(parents=True,exist_ok=True)
