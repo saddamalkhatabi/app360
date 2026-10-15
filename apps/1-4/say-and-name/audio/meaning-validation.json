@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1716,
+  "ready": 1720,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -161047,6 +161047,336 @@
       "sha256": "54cfa76011baa2cf06ab81de60fff4b70dd5627f31b9066a03e04487e3332230",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9074,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_cb3fbc2766efa01c5ee9": {
+      "id": "ar_cb3fbc2766efa01c5ee9",
+      "language": "ar",
+      "text": "أَحْفَظُ الْأَشْيَاءَ الصَّغِيرَةَ فِي الدُّرْجِ.",
+      "words": [
+        "أَحْفَظُ",
+        "الْأَشْيَاءَ",
+        "الصَّغِيرَةَ",
+        "فِي",
+        "الدُّرْجِ."
+      ],
+      "path": "audio/meaning/ar/ar_cb3fbc2766efa01c5ee9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أحفظ الأشياء الصغيرة في الدرج",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0345,
+          "heard": "أحفظ الأشياء الصغيرة في الدوج",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          342
+        ],
+        [
+          1,
+          462,
+          865
+        ],
+        [
+          2,
+          1046,
+          1568
+        ],
+        [
+          3,
+          2654,
+          2735
+        ],
+        [
+          4,
+          2735,
+          3137
+        ]
+      ],
+      "duration_ms": 3338,
+      "sha256": "d6d79b8bade6a29e3a8d835516683fb23b9f376a5e09a3f1674676030a79e975",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9239,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4c7f81695564804d7027": {
+      "id": "ar_4c7f81695564804d7027",
+      "language": "ar",
+      "text": "السَّمَكَةُ تَعِيشُ فِي الْمَاءِ وَتَسْبَحُ بِزَعَانِفِهَا.",
+      "words": [
+        "السَّمَكَةُ",
+        "تَعِيشُ",
+        "فِي",
+        "الْمَاءِ",
+        "وَتَسْبَحُ",
+        "بِزَعَانِفِهَا."
+      ],
+      "path": "audio/meaning/ar/ar_4c7f81695564804d7027.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "السمكة تعيش في الماء وتسبح بزعانفها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0571,
+          "heard": "السمكة تعيش في الماء وتسبح بزعان فيها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          542
+        ],
+        [
+          1,
+          1083,
+          1464
+        ],
+        [
+          2,
+          1645,
+          1745
+        ],
+        [
+          3,
+          1765,
+          2006
+        ],
+        [
+          4,
+          2387,
+          2949
+        ],
+        [
+          5,
+          3230,
+          4032
+        ]
+      ],
+      "duration_ms": 4875,
+      "sha256": "0e120f93ac1b099c2bb34559451314ed6dad0ef3168c6ea57a92ccb31e2ac8e6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9402,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_278ede3097cb78a084c8": {
+      "id": "ar_278ede3097cb78a084c8",
+      "language": "ar",
+      "text": "الشكل البيضاوي مستدير وممتد، ويشبه شكل البيضة.",
+      "words": [
+        "الشكل",
+        "البيضاوي",
+        "مستدير",
+        "وممتد،",
+        "ويشبه",
+        "شكل",
+        "البيضة."
+      ],
+      "path": "audio/meaning/ar/ar_278ede3097cb78a084c8.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الشكل البيضاوي مستدير وممتد ويشبه شكل البيضة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2857,
+          "cer": 0.0455,
+          "heard": "الشكل البيضوي مستدير وممتد ويشبيه شكل البيضة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          382
+        ],
+        [
+          1,
+          463,
+          945
+        ],
+        [
+          2,
+          1026,
+          1509
+        ],
+        [
+          3,
+          1609,
+          2132
+        ],
+        [
+          4,
+          2615,
+          3098
+        ],
+        [
+          5,
+          3239,
+          3561
+        ],
+        [
+          6,
+          3641,
+          4043
+        ]
+      ],
+      "duration_ms": 4204,
+      "sha256": "52b067ac0acfcacb9b248c0d93692a83ca1e9dcb695437419440e04a9319e683",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9436,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_21536afc027ad12df4e0": {
+      "id": "ar_21536afc027ad12df4e0",
+      "language": "ar",
+      "text": "النعامة طائر لا يطير، لكن ساقيها الطويلتين تساعدانها على الجري بسرعة.",
+      "words": [
+        "النعامة",
+        "طائر",
+        "لا",
+        "يطير،",
+        "لكن",
+        "ساقيها",
+        "الطويلتين",
+        "تساعدانها",
+        "على",
+        "الجري",
+        "بسرعة."
+      ],
+      "path": "audio/meaning/ar/ar_21536afc027ad12df4e0.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "النعامة طائر لا يطير لكن ساقيها الطويلتين تساعدانها على الجري بسرعة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3636,
+          "cer": 0.0597,
+          "heard": "أن عامة طائر لا يطير لكن ساقيها الطويلتين تساعدانها على الجريب سرعة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          541
+        ],
+        [
+          1,
+          662,
+          962
+        ],
+        [
+          2,
+          1063,
+          1143
+        ],
+        [
+          3,
+          1223,
+          1684
+        ],
+        [
+          4,
+          2145,
+          2446
+        ],
+        [
+          5,
+          2566,
+          3007
+        ],
+        [
+          6,
+          3068,
+          3829
+        ],
+        [
+          7,
+          3910,
+          4692
+        ],
+        [
+          8,
+          4872,
+          4932
+        ],
+        [
+          9,
+          4992,
+          5273
+        ],
+        [
+          10,
+          5333,
+          5814
+        ]
+      ],
+      "duration_ms": 6115,
+      "sha256": "35ab7a3c4cbfe93516f2e1a1b6bbbd8915d2997fbc27a881ce7df51729368372",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9318,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
