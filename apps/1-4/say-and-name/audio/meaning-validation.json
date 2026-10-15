@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1551,
+  "ready": 1552,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -145354,6 +145354,117 @@
       "sha256": "58ea746803d1aaad203d099b7261383370c3d32fb860aa7dc79ad48544557ac4",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.966,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_ace72cc71f70370790af": {
+      "id": "en_ace72cc71f70370790af",
+      "language": "en",
+      "text": "A swan has a long neck and swims with its webbed feet.",
+      "words": [
+        "A",
+        "swan",
+        "has",
+        "a",
+        "long",
+        "neck",
+        "and",
+        "swims",
+        "with",
+        "its",
+        "webbed",
+        "feet."
+      ],
+      "path": "audio/meaning/en/en_ace72cc71f70370790af.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A swan has a long neck and swims with its webbed feet.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0377,
+          "heard": "Iswan has a long neck and swims with its webbed feet.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          80
+        ],
+        [
+          1,
+          201,
+          603
+        ],
+        [
+          2,
+          664,
+          825
+        ],
+        [
+          3,
+          865,
+          885
+        ],
+        [
+          4,
+          985,
+          1227
+        ],
+        [
+          5,
+          1307,
+          1609
+        ],
+        [
+          6,
+          1890,
+          2011
+        ],
+        [
+          7,
+          2091,
+          2453
+        ],
+        [
+          8,
+          2494,
+          2634
+        ],
+        [
+          9,
+          2675,
+          2836
+        ],
+        [
+          10,
+          2956,
+          3238
+        ],
+        [
+          11,
+          3318,
+          3660
+        ]
+      ],
+      "duration_ms": 4062,
+      "sha256": "f149ab94d41437aa3b0da57741e2a7f0d18dce790ad0b90cd2cbc82914c89f3f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9132,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
