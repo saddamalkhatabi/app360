@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1554,
+  "ready": 1558,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -145673,6 +145673,436 @@
       "sha256": "b7e8678a9200422c1c55a9773f58a20254adebe8e6c974a237feec1a12eec3be",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9307,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_fcb25114f6386ad8f3ed": {
+      "id": "en_fcb25114f6386ad8f3ed",
+      "language": "en",
+      "text": "A hedgehog has spines on its back and curls up to protect itself from danger.",
+      "words": [
+        "A",
+        "hedgehog",
+        "has",
+        "spines",
+        "on",
+        "its",
+        "back",
+        "and",
+        "curls",
+        "up",
+        "to",
+        "protect",
+        "itself",
+        "from",
+        "danger."
+      ],
+      "path": "audio/meaning/en/en_fcb25114f6386ad8f3ed.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A hedgehog has spines on its back and curls up to protect itself from danger.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          120,
+          803
+        ],
+        [
+          2,
+          903,
+          1044
+        ],
+        [
+          3,
+          1124,
+          1626
+        ],
+        [
+          4,
+          1686,
+          1766
+        ],
+        [
+          5,
+          1807,
+          1947
+        ],
+        [
+          6,
+          2068,
+          2409
+        ],
+        [
+          7,
+          2690,
+          2810
+        ],
+        [
+          8,
+          2891,
+          3252
+        ],
+        [
+          9,
+          3352,
+          3453
+        ],
+        [
+          10,
+          3794,
+          3854
+        ],
+        [
+          11,
+          3934,
+          4356
+        ],
+        [
+          12,
+          4476,
+          4878
+        ],
+        [
+          13,
+          4958,
+          5119
+        ],
+        [
+          14,
+          5199,
+          5621
+        ]
+      ],
+      "duration_ms": 5942,
+      "sha256": "83bc2bdf101d2fa18b48844f7d0a38a5a63c573adc37c5b04c2528b8d0a4b252",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9283,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_dc9455170d308c874d91": {
+      "id": "en_dc9455170d308c874d91",
+      "language": "en",
+      "text": "A cheek is the side of the face between the eye and jaw.",
+      "words": [
+        "A",
+        "cheek",
+        "is",
+        "the",
+        "side",
+        "of",
+        "the",
+        "face",
+        "between",
+        "the",
+        "eye",
+        "and",
+        "jaw."
+      ],
+      "path": "audio/meaning/en/en_dc9455170d308c874d91.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A cheek is the side of the face between the eye and jaw.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          161,
+          422
+        ],
+        [
+          2,
+          563,
+          644
+        ],
+        [
+          3,
+          704,
+          784
+        ],
+        [
+          4,
+          885,
+          1207
+        ],
+        [
+          5,
+          1227,
+          1287
+        ],
+        [
+          6,
+          1347,
+          1408
+        ],
+        [
+          7,
+          1488,
+          1850
+        ],
+        [
+          8,
+          1951,
+          2313
+        ],
+        [
+          9,
+          2333,
+          2433
+        ],
+        [
+          10,
+          2594,
+          2836
+        ],
+        [
+          11,
+          2956,
+          3097
+        ],
+        [
+          12,
+          3178,
+          3379
+        ]
+      ],
+      "duration_ms": 3700,
+      "sha256": "8dcd27989d931ff963f66ae798ababd7e7fd2322de0265ae25f30ec14e1e93f8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9381,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c9c7c355e3c190f25c8f": {
+      "id": "en_c9c7c355e3c190f25c8f",
+      "language": "en",
+      "text": "We put small objects in a container to store and keep them together.",
+      "words": [
+        "We",
+        "put",
+        "small",
+        "objects",
+        "in",
+        "a",
+        "container",
+        "to",
+        "store",
+        "and",
+        "keep",
+        "them",
+        "together."
+      ],
+      "path": "audio/meaning/en/en_c9c7c355e3c190f25c8f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "We put small objects in a container to store and keep them together.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          201,
+          281
+        ],
+        [
+          1,
+          361,
+          502
+        ],
+        [
+          2,
+          582,
+          863
+        ],
+        [
+          3,
+          983,
+          1445
+        ],
+        [
+          4,
+          1565,
+          1626
+        ],
+        [
+          5,
+          1666,
+          1686
+        ],
+        [
+          6,
+          1786,
+          2308
+        ],
+        [
+          7,
+          2348,
+          2428
+        ],
+        [
+          8,
+          2549,
+          2930
+        ],
+        [
+          9,
+          3050,
+          3171
+        ],
+        [
+          10,
+          3231,
+          3432
+        ],
+        [
+          11,
+          3492,
+          3632
+        ],
+        [
+          12,
+          3713,
+          4134
+        ]
+      ],
+      "duration_ms": 5057,
+      "sha256": "7979a890dccc5857cfd00cf48e720fbb5e26aa6c0ca7f0442ddf1690e2404813",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9746,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_be215477cdb1f85414ec": {
+      "id": "en_be215477cdb1f85414ec",
+      "language": "en",
+      "text": "A tree is a plant with a trunk and branches.",
+      "words": [
+        "A",
+        "tree",
+        "is",
+        "a",
+        "plant",
+        "with",
+        "a",
+        "trunk",
+        "and",
+        "branches."
+      ],
+      "path": "audio/meaning/en/en_be215477cdb1f85414ec.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A tree is a plant with a trunk and branches.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          361
+        ],
+        [
+          2,
+          441,
+          521
+        ],
+        [
+          3,
+          581,
+          601
+        ],
+        [
+          4,
+          682,
+          1063
+        ],
+        [
+          5,
+          1303,
+          1423
+        ],
+        [
+          6,
+          1444,
+          1464
+        ],
+        [
+          7,
+          1544,
+          1905
+        ],
+        [
+          8,
+          1925,
+          2045
+        ],
+        [
+          9,
+          2085,
+          2707
+        ]
+      ],
+      "duration_ms": 3027,
+      "sha256": "710fd90fdc2c4280ff77f26696798820ceac5ac42c0072a35048f5a652c07692",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9336,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
