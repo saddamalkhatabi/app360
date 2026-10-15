@@ -1,5 +1,6 @@
 """Validate artifacts before publishing them, preserving the original word clips."""
 import argparse,pathlib,json,hashlib,subprocess,shutil
+from meaning_speech_qa import compare
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--input',required=True);p.add_argument('--partial',action='store_true');p.add_argument('--merge',action='store_true');a=p.parse_args();source=pathlib.Path(a.input)
 manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());expected={r['id']:r for r in manifest['items']};clips={}
@@ -12,6 +13,7 @@ for report in source.glob('*.json'):
   wanted=expected[cid]
   for k in ['text','words','path','language','engine']:assert row[k]==wanted[k],(cid,k)
   target=source/row['path'];assert hashlib.sha256(target.read_bytes()).hexdigest()==row['sha256']
+  assert compare(wanted['text'],row.get('speech_qa',{}).get('heard',''))['passed'],(cid,'independent speech mismatch')
   assert row['model_revision']==manifest['model_revision'] and row['steps']==48 and row.get('quality_revision')=='facts-v2-asr' and row.get('speech_qa',{}).get('passed') is True
   assert len(row['cues'])==len(row['words'])
   for i,(index,start,end) in enumerate(row['cues']):
@@ -22,7 +24,7 @@ for report in source.glob('*.json'):
 if a.merge:pass
 elif a.partial:assert {r['id'] for r in manifest['items'][:manifest['priority_count']]}<=set(clips)
 else:assert set(clips)==set(expected),(len(clips),len(expected))
-data=dict(schema=1,expected=len(expected),complete=len(clips)==len(expected),clips=clips)
+data=dict(schema=1,revision=manifest.get('revision'),expected=len(expected),complete=len(clips)==len(expected),clips=clips)
 (ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
 (ROOT/'audio/meaning-validation.json').write_text(json.dumps(dict(engine='silma-tts',model_revision=manifest['model_revision'],ready=len(clips),expected=len(expected),auditory_review='pending',clips=clips),ensure_ascii=False,indent=2)+'\n')
 print('Verified actual SILMA recordings',len(clips),'/',len(expected))

@@ -25,3 +25,5 @@ print('All words have reviewed useful lessons, homonyms remain distinct, and inc
 
 assert compare('للمثلث ثلاثة أضلاع.','للمثلث ٣ أضلاع')['passed']
 assert not compare('لا نلمس السكين أو نلعب بها.','نلمس السكين أو نلعب بها.')['passed']
+
+assert not compare('نغسل الفاكهة قبل تجهيزها ونحافظ على نظافة المائدة.','لا نغسل الفاكهة قبل تجهيزها ونحافظ على نظافة المائدة.')['passed']

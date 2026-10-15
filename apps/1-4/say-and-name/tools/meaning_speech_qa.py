@@ -25,8 +25,8 @@ def compare(expected,heard):
  a,b=normalize(expected),normalize(heard)
  aw,bw=a.split(),b.split()
  wer=distance(aw,bw)/max(1,len(aw));cer=distance(a,b)/max(1,len(a))
- negations={'لا','دون','not','never'}
- missing_negation=bool((set(aw)&negations)-(set(bw)&negations))
+ negations={'لا','ولا','فلا','لم','لن','دون','not','never'}
+ missing_negation=bool((set(aw)&negations)!=(set(bw)&negations))
  repeated=any(bw[i]==bw[i+1]==bw[i+2] for i in range(len(bw)-2))
  # ASR is an independent automated screen, not a human pronunciation verdict.
  return dict(passed=bool(a and b and wer<=.25 and cer<=.18 and not repeated and not missing_negation),wer=round(wer,4),cer=round(cer,4),heard=heard,recognizer='faster-whisper-small',human_review='pending')
