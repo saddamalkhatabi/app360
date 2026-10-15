@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1720,
+  "ready": 1726,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -161377,6 +161377,622 @@
       "sha256": "35ab7a3c4cbfe93516f2e1a1b6bbbd8915d2997fbc27a881ce7df51729368372",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9318,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_42441136e8b749600aa6": {
+      "id": "en_42441136e8b749600aa6",
+      "language": "en",
+      "text": "The marks on a measuring cup show how much liquid a recipe needs.",
+      "words": [
+        "The",
+        "marks",
+        "on",
+        "a",
+        "measuring",
+        "cup",
+        "show",
+        "how",
+        "much",
+        "liquid",
+        "a",
+        "recipe",
+        "needs."
+      ],
+      "path": "audio/meaning/en/en_42441136e8b749600aa6.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "The marks on a measuring cup show how much liquid a recipe needs.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0769,
+          "cer": 0.0312,
+          "heard": "the marks on a measuring cup show how much liquid a receipt needs.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          80
+        ],
+        [
+          1,
+          120,
+          442
+        ],
+        [
+          2,
+          502,
+          582
+        ],
+        [
+          3,
+          602,
+          622
+        ],
+        [
+          4,
+          683,
+          1084
+        ],
+        [
+          5,
+          1165,
+          1345
+        ],
+        [
+          6,
+          1486,
+          1747
+        ],
+        [
+          7,
+          1888,
+          2028
+        ],
+        [
+          8,
+          2088,
+          2309
+        ],
+        [
+          9,
+          2430,
+          2791
+        ],
+        [
+          10,
+          2871,
+          2892
+        ],
+        [
+          11,
+          2972,
+          3414
+        ],
+        [
+          12,
+          3514,
+          3936
+        ]
+      ],
+      "duration_ms": 4498,
+      "sha256": "9c7574a6668645637548689ff674879cad22ae3e679db815ff6a7de97a1eb175",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9427,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3f7b6b08521070c11215": {
+      "id": "en_3f7b6b08521070c11215",
+      "language": "en",
+      "text": "An oval is round and stretched, like the shape of an egg.",
+      "words": [
+        "An",
+        "oval",
+        "is",
+        "round",
+        "and",
+        "stretched,",
+        "like",
+        "the",
+        "shape",
+        "of",
+        "an",
+        "egg."
+      ],
+      "path": "audio/meaning/en/en_3f7b6b08521070c11215.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An oval is round and stretched like the shape of an egg.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          141,
+          201
+        ],
+        [
+          1,
+          341,
+          582
+        ],
+        [
+          2,
+          682,
+          763
+        ],
+        [
+          3,
+          863,
+          1204
+        ],
+        [
+          4,
+          1265,
+          1365
+        ],
+        [
+          5,
+          1425,
+          1907
+        ],
+        [
+          6,
+          2308,
+          2529
+        ],
+        [
+          7,
+          2569,
+          2650
+        ],
+        [
+          8,
+          2730,
+          2991
+        ],
+        [
+          9,
+          3051,
+          3111
+        ],
+        [
+          10,
+          3171,
+          3252
+        ],
+        [
+          11,
+          3412,
+          3633
+        ]
+      ],
+      "duration_ms": 3954,
+      "sha256": "b2351f55829d62c663f55c9d12a81c8120eee670ef7c81db7dad0738689520b1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9336,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_8aef5c489f9419b2f93d": {
+      "id": "en_8aef5c489f9419b2f93d",
+      "language": "en",
+      "text": "A suit usually has a matching jacket and trousers.",
+      "words": [
+        "A",
+        "suit",
+        "usually",
+        "has",
+        "a",
+        "matching",
+        "jacket",
+        "and",
+        "trousers."
+      ],
+      "path": "audio/meaning/en/en_8aef5c489f9419b2f93d.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A suit usually has a matching jacket and trousers.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          80
+        ],
+        [
+          1,
+          180,
+          381
+        ],
+        [
+          2,
+          582,
+          963
+        ],
+        [
+          3,
+          1063,
+          1203
+        ],
+        [
+          4,
+          1243,
+          1263
+        ],
+        [
+          5,
+          1324,
+          1685
+        ],
+        [
+          6,
+          1725,
+          2086
+        ],
+        [
+          7,
+          2146,
+          2246
+        ],
+        [
+          8,
+          2266,
+          2768
+        ]
+      ],
+      "duration_ms": 3610,
+      "sha256": "a89c122818c94f1119d345971fc2e891b25e3c1380861fa1def76351ec315262",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8703,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_9216dbedeb6ad8c543a3": {
+      "id": "en_9216dbedeb6ad8c543a3",
+      "language": "en",
+      "text": "A flask helps keep a drink hot or cold for longer.",
+      "words": [
+        "A",
+        "flask",
+        "helps",
+        "keep",
+        "a",
+        "drink",
+        "hot",
+        "or",
+        "cold",
+        "for",
+        "longer."
+      ],
+      "path": "audio/meaning/en/en_9216dbedeb6ad8c543a3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A flask helps keep a drink hot or cold for longer.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          181,
+          602
+        ],
+        [
+          2,
+          642,
+          963
+        ],
+        [
+          3,
+          1083,
+          1304
+        ],
+        [
+          4,
+          1364,
+          1384
+        ],
+        [
+          5,
+          1464,
+          1705
+        ],
+        [
+          6,
+          1785,
+          1966
+        ],
+        [
+          7,
+          2026,
+          2106
+        ],
+        [
+          8,
+          2147,
+          2467
+        ],
+        [
+          9,
+          2528,
+          2648
+        ],
+        [
+          10,
+          2708,
+          3069
+        ]
+      ],
+      "duration_ms": 3611,
+      "sha256": "3107019778e63e4521e51807b1846e94195434d55afc6eddfa95b1d580551fca",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.913,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_351b5e0f0a5e456ec69b": {
+      "id": "en_351b5e0f0a5e456ec69b",
+      "language": "en",
+      "text": "An Arctic fox's thick fur helps keep it warm in the cold.",
+      "words": [
+        "An",
+        "Arctic",
+        "fox's",
+        "thick",
+        "fur",
+        "helps",
+        "keep",
+        "it",
+        "warm",
+        "in",
+        "the",
+        "cold."
+      ],
+      "path": "audio/meaning/en/en_351b5e0f0a5e456ec69b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An arctic fox's thick fur helps keep it warm in the cold.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2308,
+          "cer": 0.0893,
+          "heard": "Arctic fox is thick for helps keep it warm in the cold.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          80
+        ],
+        [
+          1,
+          180,
+          501
+        ],
+        [
+          2,
+          582,
+          1103
+        ],
+        [
+          3,
+          1344,
+          1544
+        ],
+        [
+          4,
+          1644,
+          1785
+        ],
+        [
+          5,
+          1845,
+          2106
+        ],
+        [
+          6,
+          2186,
+          2427
+        ],
+        [
+          7,
+          2547,
+          2627
+        ],
+        [
+          8,
+          2747,
+          3048
+        ],
+        [
+          9,
+          3409,
+          3489
+        ],
+        [
+          10,
+          3530,
+          3610
+        ],
+        [
+          11,
+          3670,
+          4031
+        ]
+      ],
+      "duration_ms": 4312,
+      "sha256": "a7c086455cb2e711add1f3ffd39f00772b19624ce4da413ee3f2ec3bebf6c797",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.956,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_426b526f53c35f76f7cf": {
+      "id": "en_426b526f53c35f76f7cf",
+      "language": "en",
+      "text": "A beaver gnaws wood with its teeth and builds dams in streams.",
+      "words": [
+        "A",
+        "beaver",
+        "gnaws",
+        "wood",
+        "with",
+        "its",
+        "teeth",
+        "and",
+        "builds",
+        "dams",
+        "in",
+        "streams."
+      ],
+      "path": "audio/meaning/en/en_426b526f53c35f76f7cf.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A beaver gnaws wood with its teeth and builds dams in streams.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          401
+        ],
+        [
+          2,
+          441,
+          823
+        ],
+        [
+          3,
+          923,
+          1144
+        ],
+        [
+          4,
+          1204,
+          1324
+        ],
+        [
+          5,
+          1365,
+          1525
+        ],
+        [
+          6,
+          1605,
+          1946
+        ],
+        [
+          7,
+          2167,
+          2288
+        ],
+        [
+          8,
+          2348,
+          2729
+        ],
+        [
+          9,
+          2930,
+          3371
+        ],
+        [
+          10,
+          3512,
+          3592
+        ],
+        [
+          11,
+          3712,
+          4395
+        ]
+      ],
+      "duration_ms": 4655,
+      "sha256": "bb0fe4a60883bbc429b9cb72ccd88edb361ba5a629cc591957cc5e8a32798187",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9039,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
