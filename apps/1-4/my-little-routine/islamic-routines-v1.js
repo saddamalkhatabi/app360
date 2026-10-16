@@ -58,13 +58,16 @@ function installAudio(){
 w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO=installAudio;
 // After narration indexes load, the small bridge invokes the installer before voice binding.
 var playing=null,active='',currentId='',repeated=false;
-function stop(){active='';if(playing){playing.pause();playing=null}if(E('duaRepeat'))E('duaRepeat').textContent=t('🔁 أسمع وأردد','🔁 Listen and repeat')}
+function clearWords(){var words=E('routineDuaText')&&E('routineDuaText').querySelectorAll('.duaWord'),i;if(words)for(i=0;i<words.length;i++)words[i].className='duaWord'}
+function followWords(clip,ms){var api=w.APP360_FAMILY_SYNC;if(api&&api.getReadingFocus&&!api.getReadingFocus()){clearWords();return}var words=E('routineDuaText').querySelectorAll('.duaWord'),cues=clip.cues||[],n=-1,i;for(i=0;i<cues.length;i++)if(ms>=cues[i][1]&&ms<=cues[i][2])n=cues[i][0];for(i=0;i<words.length;i++)words[i].className='duaWord'+(i===n?' active':'')}
+function stop(){clearWords();active='';if(playing){playing.pause();playing=null}if(E('duaRepeat'))E('duaRepeat').textContent=t('🔁 أسمع وأردد','🔁 Listen and repeat')}
 function play(id,repeat){
  stop();if(E('sound')&&E('sound').textContent.indexOf('🔇')>=0)return;
  var clip=A.clips&&A.clips[id];if(!clip||!clip.verified)return;
  if(w.APP360_RoutineVoice)w.APP360_RoutineVoice.stop();
  var audio=new w.Audio(clip.path+'?v=20261016');playing=audio;active=id;repeated=false;
- audio.onended=function(){if(playing!==audio)return;if(repeat&&!repeated){repeated=true;E('duaRepeat').textContent=t('دورك الآن… ثم نسمعها مجددًا','Your turn… then listen again');w.setTimeout(function(){if(playing!==audio)return;audio.currentTime=0;var p=audio.play();if(p&&p.catch)p.catch(stop)},Math.max(1800,Math.min(6000,clip.duration_ms)))}else stop()};
+ audio.ontimeupdate=function(){if(playing===audio&&id.indexOf('dua-')===0)followWords(clip,audio.currentTime*1000)};
+ audio.onended=function(){if(playing!==audio)return;clearWords();if(repeat&&!repeated){repeated=true;E('duaRepeat').textContent=t('دورك الآن… ثم نسمعها مجددًا','Your turn… then listen again');w.setTimeout(function(){if(playing!==audio)return;audio.currentTime=0;var p=audio.play();if(p&&p.catch)p.catch(stop)},Math.max(1800,Math.min(6000,clip.duration_ms)))}else stop()};
  audio.onerror=stop;var p=audio.play();if(p&&p.catch)p.catch(stop);
 }
 function current(){return w.APP360_RoutineReel&&w.APP360_RoutineReel.currentHabit?w.APP360_RoutineReel.currentHabit():null}
@@ -81,7 +84,7 @@ function renderDua(){
  for(i=0;i<list.length;i++)options+='<option value="'+esc(list[i])+'"'+(id===list[i]?' selected':'')+'>'+esc(C.duas[list[i]].text)+'</option>';
  box.style.display='block';E('routineDuaSelect').innerHTML=options;E('routineDuaSelect').style.display=list.length>1?'block':'none';
  var quick='';for(i=0;i<list.length;i++){var dk=list[i],label=dk==='bismillah'?t('قبل الطعام أو الشراب','Before eating or drinking'):dk==='hamd'?t(h.islamic.scene==='sneeze'?'بعد عطاسي':'بعد الطعام أو الشراب',h.islamic.scene==='sneeze'?'After my sneeze':'After eating or drinking'):t('أسمع هذا الذكر','Hear this remembrance');quick+='<button type="button" data-quick-dua="'+dk+'"'+(!(A.clips['dua-'+dk]&&A.clips['dua-'+dk].verified)?' disabled':'')+'><small>'+esc(label)+'</small><b dir="rtl" lang="ar">'+esc(C.duas[dk].text)+'</b></button>'}E('routineDuaQuick').innerHTML=list.length>1?quick:'';
- E('routineDuaText').textContent=v.text;E('routineDuaMeaning').textContent=t(v.meaning_ar,v.meaning_en);
+ E('routineDuaText').innerHTML=v.text.split(/\s+/).map(function(word){return '<span class="duaWord">'+esc(word)+'</span>'}).join(' ');E('routineDuaMeaning').textContent=t(v.meaning_ar,v.meaning_en);
  E('routineDuaSource').href=v.url;E('routineDuaSource').textContent=t('المصدر: ','Source: ')+v.source;
  E('duaListen').disabled=E('duaRepeat').disabled=!(A.clips['dua-'+id]&&A.clips['dua-'+id].verified);
  E('duaMeaningListen').disabled=!(A.clips['meaning-'+id+'-'+(en()?'en':'ar')]&&A.clips['meaning-'+id+'-'+(en()?'en':'ar')].verified);
