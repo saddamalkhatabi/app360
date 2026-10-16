@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1744,
+  "ready": 1749,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -163555,6 +163555,379 @@
       "sha256": "1cd2a7937d4e435d88d56773ec99a5df1deb761cfb68977789f485d22f53fe9f",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8999,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c214dbd78984e1082729": {
+      "id": "ar_c214dbd78984e1082729",
+      "language": "ar",
+      "text": "التوت ثمار صغيرة طرية، وتنمو أنواعه بألوان مختلفة.",
+      "words": [
+        "التوت",
+        "ثمار",
+        "صغيرة",
+        "طرية،",
+        "وتنمو",
+        "أنواعه",
+        "بألوان",
+        "مختلفة."
+      ],
+      "path": "audio/meaning/ar/ar_c214dbd78984e1082729.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "التوت ثمار صغيرة طرية وتنمو أنواعه بألوان مختلفة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0833,
+          "heard": "التوت سمار صغيرة الطريقة وتنمو أنواعه بألوان مختلفة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          421
+        ],
+        [
+          1,
+          481,
+          802
+        ],
+        [
+          2,
+          922,
+          1283
+        ],
+        [
+          3,
+          1483,
+          1824
+        ],
+        [
+          4,
+          2285,
+          2685
+        ],
+        [
+          5,
+          2806,
+          3247
+        ],
+        [
+          6,
+          3387,
+          3848
+        ],
+        [
+          7,
+          3928,
+          4429
+        ]
+      ],
+      "duration_ms": 4589,
+      "sha256": "ed653159972b75cef14edcd6ed74f873ec29d04000973f13b2c7e3cc89726484",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9403,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_bf37f507a2067f72674f": {
+      "id": "ar_bf37f507a2067f72674f",
+      "language": "ar",
+      "text": "أَلْتَقِطُ قِطَعَ الطَّعَامِ بِالشَّوْكَةِ.",
+      "words": [
+        "أَلْتَقِطُ",
+        "قِطَعَ",
+        "الطَّعَامِ",
+        "بِالشَّوْكَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_bf37f507a2067f72674f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "التقط قطع الطعام بالشوكة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5,
+          "cer": 0.0833,
+          "heard": "ألتقط وقطع الطعامي بالشوكة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          523
+        ],
+        [
+          1,
+          664,
+          825
+        ],
+        [
+          2,
+          1046,
+          1509
+        ],
+        [
+          3,
+          1650,
+          2273
+        ]
+      ],
+      "duration_ms": 2877,
+      "sha256": "c9f47800f1f5af71231c1d53bd5175d2584749b4376e543c9a628ba214aabf14",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9646,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7f79f4f6b529a4a3035f": {
+      "id": "ar_7f79f4f6b529a4a3035f",
+      "language": "ar",
+      "text": "أَسْتَخْدِمُ الْهَاتِفَ لِلتَّوَاصُلِ مَعَ الْآخَرِينَ.",
+      "words": [
+        "أَسْتَخْدِمُ",
+        "الْهَاتِفَ",
+        "لِلتَّوَاصُلِ",
+        "مَعَ",
+        "الْآخَرِينَ."
+      ],
+      "path": "audio/meaning/ar/ar_7f79f4f6b529a4a3035f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أستخدم الهاتف للتواصل مع الآخرين",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          563
+        ],
+        [
+          1,
+          664,
+          1247
+        ],
+        [
+          2,
+          1508,
+          2253
+        ],
+        [
+          3,
+          2413,
+          2434
+        ],
+        [
+          4,
+          2635,
+          3278
+        ]
+      ],
+      "duration_ms": 4022,
+      "sha256": "82449313b1d9c960a8984081eb0a9254c818fd233a9f71ad8718a635488a2cbb",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9739,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f177ff50ad91aee52c95": {
+      "id": "ar_f177ff50ad91aee52c95",
+      "language": "ar",
+      "text": "نَسْتَخْدِمُ الْمِجْرَفَةَ لِنَقْلِ الرَّمْلِ أَوِ التُّرْبَةِ.",
+      "words": [
+        "نَسْتَخْدِمُ",
+        "الْمِجْرَفَةَ",
+        "لِنَقْلِ",
+        "الرَّمْلِ",
+        "أَوِ",
+        "التُّرْبَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_f177ff50ad91aee52c95.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نستخدم المجرفة لنقل الرمل أو التربة.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0571,
+          "heard": "نستخدم المجرفة لنقلر الرملي أو التربة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          582
+        ],
+        [
+          1,
+          984,
+          1546
+        ],
+        [
+          2,
+          1807,
+          2229
+        ],
+        [
+          3,
+          2409,
+          2791
+        ],
+        [
+          4,
+          3052,
+          3132
+        ],
+        [
+          5,
+          3212,
+          3714
+        ]
+      ],
+      "duration_ms": 4818,
+      "sha256": "ea2b0d80dbe42b75d8900b7136f1b1e4497c25a0a0b1081805f6c3c132f11dd7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9591,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e5a5bcd26523f2641eaa": {
+      "id": "ar_e5a5bcd26523f2641eaa",
+      "language": "ar",
+      "text": "الخاتم زينة نلبسها في الإصبع، ونختار مقاسا مريحا.",
+      "words": [
+        "الخاتم",
+        "زينة",
+        "نلبسها",
+        "في",
+        "الإصبع،",
+        "ونختار",
+        "مقاسا",
+        "مريحا."
+      ],
+      "path": "audio/meaning/ar/ar_e5a5bcd26523f2641eaa.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الخاتم زينة نلبسها في الإصبع ونختار مقاساً مريحاً",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0213,
+          "heard": "الخاتم زينة نلبسها في الإصبع ونختار مقاس مريحا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          502
+        ],
+        [
+          1,
+          582,
+          843
+        ],
+        [
+          2,
+          1004,
+          1426
+        ],
+        [
+          3,
+          1486,
+          1566
+        ],
+        [
+          4,
+          1586,
+          1887
+        ],
+        [
+          5,
+          2450,
+          2952
+        ],
+        [
+          6,
+          3052,
+          3514
+        ],
+        [
+          7,
+          3634,
+          4076
+        ]
+      ],
+      "duration_ms": 4216,
+      "sha256": "7da13948c5684c9e1f367422200ad9e0fb11007ccff9154fa437d6ddc98b38c4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9497,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
