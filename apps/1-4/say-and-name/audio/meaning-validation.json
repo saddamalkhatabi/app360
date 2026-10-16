@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1989,
+  "ready": 1990,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -185793,6 +185793,71 @@
       "sha256": "5bcd2353f1ddef10ab085283b962b50e9f75835a3718ada065ea2b465c63d8cb",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9464,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_59152e091b865c150504": {
+      "id": "ar_59152e091b865c150504",
+      "language": "ar",
+      "text": "يُسَخِّنُ الْكَبِيرُ الطَّعَامَ بِهَذَا الْجِهَازِ.",
+      "words": [
+        "يُسَخِّنُ",
+        "الْكَبِيرُ",
+        "الطَّعَامَ",
+        "بِهَذَا",
+        "الْجِهَازِ."
+      ],
+      "path": "audio/meaning/ar/ar_59152e091b865c150504.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يُسَخِّنُ الْكَبِيرُ الطَّعَامَ بِهَذَا الْجِهَازِ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يسخن الكبير الطعام بهذا الجهاز",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          581
+        ],
+        [
+          1,
+          682,
+          1143
+        ],
+        [
+          2,
+          1243,
+          1824
+        ],
+        [
+          3,
+          2025,
+          2546
+        ],
+        [
+          4,
+          2626,
+          3288
+        ]
+      ],
+      "duration_ms": 3809,
+      "sha256": "c09a354be93f2300a6d56fed3cd4957e2729f5ba9da06f493265d2215acebfa8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9901,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
