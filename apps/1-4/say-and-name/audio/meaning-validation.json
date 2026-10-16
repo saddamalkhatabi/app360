@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1984,
+  "ready": 1985,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -185410,6 +185410,109 @@
       "sha256": "d976414ed960415a24ce3bb8e5a282d52b16f1fd4da59694f4fa614d115c9b80",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9716,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_2edbc74d1777acff0d65": {
+      "id": "ar_2edbc74d1777acff0d65",
+      "language": "ar",
+      "text": "يستخدم الكبير المقلاة لطهو الطعام، ونبتعد عنها عندما تكون ساخنة.",
+      "words": [
+        "يستخدم",
+        "الكبير",
+        "المقلاة",
+        "لطهو",
+        "الطعام،",
+        "ونبتعد",
+        "عنها",
+        "عندما",
+        "تكون",
+        "ساخنة."
+      ],
+      "path": "audio/meaning/ar/ar_2edbc74d1777acff0d65.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَسْتَخْدِمُ الْكَبِيرُ الْمِقْلَاةَ لِطَهْوِ الطَّعَامِ، وَنَبْتَعِدُ عَنْهَا عِنْدَمَا تَكُونُ سَاخِنَةً.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يستخدم الكبير المقلأة لطهو الطعام ونبتعد عنها عندما تكون ساخنة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3,
+          "cer": 0.0484,
+          "heard": "يستخدم الكبير المقلات لطه الطعام ونبتعد عنها عندما تكون ساخنا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 43360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          941
+        ],
+        [
+          1,
+          1102,
+          1622
+        ],
+        [
+          2,
+          1762,
+          2584
+        ],
+        [
+          3,
+          2704,
+          3144
+        ],
+        [
+          4,
+          3265,
+          3825
+        ],
+        [
+          5,
+          5688,
+          6269
+        ],
+        [
+          6,
+          6489,
+          6609
+        ],
+        [
+          7,
+          6790,
+          7070
+        ],
+        [
+          8,
+          7210,
+          7551
+        ],
+        [
+          9,
+          7711,
+          8192
+        ]
+      ],
+      "duration_ms": 9153,
+      "sha256": "9640e8fbe25c37d8bdff363b87fd61d6dfa1b6184d695b4585261b2c73e3680c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9625,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
