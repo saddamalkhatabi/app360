@@ -11,6 +11,8 @@ on:
       - 'apps/1-4/screen-to-move/app.js'
       - 'apps/4-8/command-path-lab/src/celebration.js'
       - 'tooling/test-shared-celebration*.cjs'
+      - 'tooling/test-picture-puzzles-browser.cjs'
+      - 'tooling/test-picture-puzzle-learning.cjs'
       - '.github/workflows/verify-shared-celebration.yml'
   workflow_dispatch:
 permissions:
