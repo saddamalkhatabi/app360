@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1993,
+  "ready": 1994,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186059,6 +186059,71 @@
       "sha256": "e3f2758feb34ae583fb37203587896914f0c50fa962907ac25ff8ba229da2f7a",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9955,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_bf0a89f9b1bfaf89ba6a": {
+      "id": "en_bf0a89f9b1bfaf89ba6a",
+      "language": "en",
+      "text": "Its strings make musical sounds.",
+      "words": [
+        "Its",
+        "strings",
+        "make",
+        "musical",
+        "sounds."
+      ],
+      "path": "audio/meaning/en/en_bf0a89f9b1bfaf89ba6a.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Its strings make musical sounds.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "its strings make musical sounds.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          141
+        ],
+        [
+          1,
+          201,
+          603
+        ],
+        [
+          2,
+          664,
+          885
+        ],
+        [
+          3,
+          925,
+          1348
+        ],
+        [
+          4,
+          1468,
+          2032
+        ]
+      ],
+      "duration_ms": 2172,
+      "sha256": "49d1d89e503522cd2b9341f1c84abea45fcec443849d836a095bf5be8c026dc3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.994,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
