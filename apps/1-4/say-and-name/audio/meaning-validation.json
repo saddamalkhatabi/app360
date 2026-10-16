@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2006,
+  "ready": 2009,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186946,6 +186946,213 @@
       "sha256": "7b68aff78464187c0d76c46aa01c3d27b3cea6e62b1de413093d8f3cdda62c38",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.976,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5355d0997c0e1439b1ae": {
+      "id": "ar_5355d0997c0e1439b1ae",
+      "language": "ar",
+      "text": "نَضْرِبُ الْقُضْبَانَ لِتُصْدِرَ أَصْوَاتًا مُخْتَلِفَةً.",
+      "words": [
+        "نَضْرِبُ",
+        "الْقُضْبَانَ",
+        "لِتُصْدِرَ",
+        "أَصْوَاتًا",
+        "مُخْتَلِفَةً."
+      ],
+      "path": "audio/meaning/ar/ar_5355d0997c0e1439b1ae.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَضْرِبُ الْقُضْبَانَ لِتُصْدِرَ أَصْوَاتًا مُخْتَلِفَةً.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نضرب القضبان لتُصدر أصواتًا مختلفة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.4,
+          "cer": 0.0625,
+          "heard": "نضرب القدبان لتصدر أصوات مختلفة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 93360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          401
+        ],
+        [
+          1,
+          501,
+          1183
+        ],
+        [
+          2,
+          1684,
+          2285
+        ],
+        [
+          3,
+          2485,
+          3067
+        ],
+        [
+          4,
+          3367,
+          3969
+        ]
+      ],
+      "duration_ms": 4911,
+      "sha256": "ffdcb073b50665a96b858a4fb34a6c221057c785a70444b7f13aab85187ad2a0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9384,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e5b9ac4b85ea5b586d14": {
+      "id": "ar_e5b9ac4b85ea5b586d14",
+      "language": "ar",
+      "text": "أُصَوِّرُ الْأَشْيَاءَ بِالْكَامِيرَا.",
+      "words": [
+        "أُصَوِّرُ",
+        "الْأَشْيَاءَ",
+        "بِالْكَامِيرَا."
+      ],
+      "path": "audio/meaning/ar/ar_e5b9ac4b85ea5b586d14.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أُصَوِّرُ الْأَشْيَاءَ بِالْكَامِيرَا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أصور الأشياء بالكاميرا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0909,
+          "heard": "وسور الأشياء بالكاميرا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          484
+        ],
+        [
+          1,
+          585,
+          1008
+        ],
+        [
+          2,
+          1250,
+          1955
+        ]
+      ],
+      "duration_ms": 2399,
+      "sha256": "10084259bc52eb9f2a4f2522d2d28b9497395ca224c2efe3b4b9a27df6b6025e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9314,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f9eced9299e84f7336de": {
+      "id": "ar_f9eced9299e84f7336de",
+      "language": "ar",
+      "text": "نَأْكُلُ لُبَّ الثَّمَرَةِ مَعَ بُذُورِهَا.",
+      "words": [
+        "نَأْكُلُ",
+        "لُبَّ",
+        "الثَّمَرَةِ",
+        "مَعَ",
+        "بُذُورِهَا."
+      ],
+      "path": "audio/meaning/ar/ar_f9eced9299e84f7336de.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَأْكُلُ لُبَّ الثَّمَرَةِ مَعَ بُذُورِهَا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نأكل لب الثمرة مع بذورها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.6,
+          "cer": 0.2083,
+          "heard": "نأكل اللب الثمرتي مع بدورها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          382
+        ],
+        [
+          1,
+          523,
+          703
+        ],
+        [
+          2,
+          784,
+          1226
+        ],
+        [
+          3,
+          1447,
+          1467
+        ],
+        [
+          4,
+          1728,
+          2271
+        ]
+      ],
+      "duration_ms": 2894,
+      "sha256": "3442e198a5f5f68586b87081e226a6fe9f59b98a81aa197b2978ddb182ad9f3f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9348,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
