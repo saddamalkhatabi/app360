@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1933,
+  "ready": 1934,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180867,6 +180867,97 @@
       "sha256": "3c8a9659ca15d978661b8e99a4a4e1a9562ea3e2a516458895b6a01d01b06fc4",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.952,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_96b9a7a6b7eed194f2fc": {
+      "id": "ar_96b9a7a6b7eed194f2fc",
+      "language": "ar",
+      "text": "تصنع الشوكولاتة من الكاكاو، ونأكل منها كمية قليلة.",
+      "words": [
+        "تصنع",
+        "الشوكولاتة",
+        "من",
+        "الكاكاو،",
+        "ونأكل",
+        "منها",
+        "كمية",
+        "قليلة."
+      ],
+      "path": "audio/meaning/ar/ar_96b9a7a6b7eed194f2fc.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تُصْنَعُ الشُّوكُولَاتَةُ مِنَ الْكَاكَاوِ، وَنَأْكُلُ مِنْهَا كَمِّيَّةً قَلِيلَةً.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تُصنع الشوكولاتة من الكاكاو ونأكل منها كميةً قليلة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5,
+          "cer": 0.1458,
+          "heard": "تصنع الشوك لا تتوا من الكاكاو ونأكلوا منها كمية قليلة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 42360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          240
+        ],
+        [
+          1,
+          461,
+          1503
+        ],
+        [
+          2,
+          1663,
+          1784
+        ],
+        [
+          3,
+          1844,
+          2405
+        ],
+        [
+          4,
+          3246,
+          3767
+        ],
+        [
+          5,
+          3968,
+          4268
+        ],
+        [
+          6,
+          4429,
+          4910
+        ],
+        [
+          7,
+          5210,
+          5611
+        ]
+      ],
+      "duration_ms": 7034,
+      "sha256": "9d48f082280bf2eb4542f9b557a91f60691cfb47664994b142813d2026335bb9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9449,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
