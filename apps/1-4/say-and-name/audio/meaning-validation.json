@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1998,
+  "ready": 1999,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186402,6 +186402,73 @@
       "sha256": "4f9ac75c54549e5dd23e609dc5574a9e552508061e353d9ee7630fd04acbd92b",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.4932,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_be23e04b01283eab6042": {
+      "id": "ar_be23e04b01283eab6042",
+      "language": "ar",
+      "text": "نَسْتَخْدِمُ الْقَوْسَ لِلْعَزْفِ عَلَيْهِ.",
+      "words": [
+        "نَسْتَخْدِمُ",
+        "الْقَوْسَ",
+        "لِلْعَزْفِ",
+        "عَلَيْهِ."
+      ],
+      "path": "audio/meaning/ar/ar_be23e04b01283eab6042.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَسْتَخْدِمُ الْقَوْسَ لِلْعَزْفِ عَلَيْهِ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نستخدم القوس للعزف عليه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.75,
+          "cer": 0.1304,
+          "heard": "نستخدم القوة للعز في عليه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          622
+        ],
+        [
+          1,
+          723,
+          1104
+        ],
+        [
+          2,
+          1265,
+          1726
+        ],
+        [
+          3,
+          2028,
+          2309
+        ]
+      ],
+      "duration_ms": 3332,
+      "sha256": "9cf1cb85d99a301e97750614bd8adc538f9d9d089e90bf8f519e199e937f2115",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9325,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
