@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1905,
+  "ready": 1910,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -178254,6 +178254,421 @@
       "sha256": "76db5c0dfe31b292d5f759a9824605730e49cb44674a08603591ba5cd2669115",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9627,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_14258abeb42675fc9322": {
+      "id": "ar_14258abeb42675fc9322",
+      "language": "ar",
+      "text": "للجرادة رجلان خلفيتان قويتان تساعدانها على القفز، وهي تأكل النباتات.",
+      "words": [
+        "للجرادة",
+        "رجلان",
+        "خلفيتان",
+        "قويتان",
+        "تساعدانها",
+        "على",
+        "القفز،",
+        "وهي",
+        "تأكل",
+        "النباتات."
+      ],
+      "path": "audio/meaning/ar/ar_14258abeb42675fc9322.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للجرادة رجلان خلفيتان قويتان تساعدانها على القفز وهي تأكل النباتات",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          561
+        ],
+        [
+          1,
+          721,
+          1121
+        ],
+        [
+          2,
+          1222,
+          1802
+        ],
+        [
+          3,
+          1942,
+          2443
+        ],
+        [
+          4,
+          2563,
+          3304
+        ],
+        [
+          5,
+          3464,
+          3504
+        ],
+        [
+          6,
+          3564,
+          3985
+        ],
+        [
+          7,
+          4365,
+          4526
+        ],
+        [
+          8,
+          4626,
+          5006
+        ],
+        [
+          9,
+          5086,
+          5787
+        ]
+      ],
+      "duration_ms": 5968,
+      "sha256": "9d3cafa4d45b90d31ba2ad83e75a3047b1d4a8e837408a29f71e0c041fed327f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9627,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b766bf85f1bbd8003df2": {
+      "id": "ar_b766bf85f1bbd8003df2",
+      "language": "ar",
+      "text": "يساعد سمع البومة الحاد على العثور على فرائسها في الظلام.",
+      "words": [
+        "يساعد",
+        "سمع",
+        "البومة",
+        "الحاد",
+        "على",
+        "العثور",
+        "على",
+        "فرائسها",
+        "في",
+        "الظلام."
+      ],
+      "path": "audio/meaning/ar/ar_b766bf85f1bbd8003df2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يساعد سمع البومة الحاد على العثور على فرائسها في الظلام",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0182,
+          "heard": "يساعد سمع البومة الحادي على العثور على فرائسها في الظلام",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          522
+        ],
+        [
+          1,
+          683,
+          844
+        ],
+        [
+          2,
+          1045,
+          1427
+        ],
+        [
+          3,
+          1567,
+          1929
+        ],
+        [
+          4,
+          2150,
+          2190
+        ],
+        [
+          5,
+          2250,
+          2652
+        ],
+        [
+          6,
+          2853,
+          2913
+        ],
+        [
+          7,
+          2974,
+          3577
+        ],
+        [
+          8,
+          3677,
+          3757
+        ],
+        [
+          9,
+          3777,
+          4220
+        ]
+      ],
+      "duration_ms": 4541,
+      "sha256": "01e0112ad7972bdde8bce234113bce4b58298b1e3f6425a213da0dde1a9e0070",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9771,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5e6ad111254cbea1860c": {
+      "id": "ar_5e6ad111254cbea1860c",
+      "language": "ar",
+      "text": "تحيط اللثة بالأسنان، ونحافظ عليها بتنظيف الفم بلطف.",
+      "words": [
+        "تحيط",
+        "اللثة",
+        "بالأسنان،",
+        "ونحافظ",
+        "عليها",
+        "بتنظيف",
+        "الفم",
+        "بلطف."
+      ],
+      "path": "audio/meaning/ar/ar_5e6ad111254cbea1860c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحيط اللثة بالأسنان ونحافظ عليها بتنظيف الفم بلطف",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0612,
+          "heard": "تحيط لثة بالأسنان ونحافظ عليها بتنظيف الفم بالطف",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          302
+        ],
+        [
+          1,
+          382,
+          664
+        ],
+        [
+          2,
+          824,
+          1387
+        ],
+        [
+          3,
+          1790,
+          2333
+        ],
+        [
+          4,
+          2594,
+          2855
+        ],
+        [
+          5,
+          2936,
+          3438
+        ],
+        [
+          6,
+          3519,
+          3780
+        ],
+        [
+          7,
+          3921,
+          4363
+        ]
+      ],
+      "duration_ms": 4404,
+      "sha256": "4c13d5d59dcbc88b8b2b60f82ef79aee991bd2637962e25e59e03aa18e28bd32",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9412,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4b5c5eaf1417f2ea2f04": {
+      "id": "ar_4b5c5eaf1417f2ea2f04",
+      "language": "ar",
+      "text": "تمنح الميدالية لتقدير إنجاز أو مشاركة مميزة.",
+      "words": [
+        "تمنح",
+        "الميدالية",
+        "لتقدير",
+        "إنجاز",
+        "أو",
+        "مشاركة",
+        "مميزة."
+      ],
+      "path": "audio/meaning/ar/ar_4b5c5eaf1417f2ea2f04.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تمنح الميدالية لتقدير إنجاز أو مشاركة مميزة.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1429,
+          "cer": 0.0233,
+          "heard": "سمنح الميدالية لتقدير إنجاز أو مشاركة مميزة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          282
+        ],
+        [
+          1,
+          382,
+          1007
+        ],
+        [
+          2,
+          1168,
+          1691
+        ],
+        [
+          3,
+          1812,
+          2174
+        ],
+        [
+          4,
+          2295,
+          2375
+        ],
+        [
+          5,
+          2416,
+          2899
+        ],
+        [
+          6,
+          3120,
+          3623
+        ]
+      ],
+      "duration_ms": 3724,
+      "sha256": "fd0ec20c4badeb7f2c234c9517873ac3f10faa92140a6516d111ef6932c6ac0a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.925,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_cbcaef9dc89951a2b1de": {
+      "id": "ar_cbcaef9dc89951a2b1de",
+      "language": "ar",
+      "text": "أُرَتِّبُ شَعْرِي بِالْمِشْطِ.",
+      "words": [
+        "أُرَتِّبُ",
+        "شَعْرِي",
+        "بِالْمِشْطِ."
+      ],
+      "path": "audio/meaning/ar/ar_cbcaef9dc89951a2b1de.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ارتب شعري بالمشط",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.6667,
+          "cer": 0.25,
+          "heard": "ورتبوا شعري بالمشت",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          421
+        ],
+        [
+          1,
+          581,
+          922
+        ],
+        [
+          2,
+          1083,
+          1564
+        ]
+      ],
+      "duration_ms": 2165,
+      "sha256": "10941627871673a28a1bf2411340357432f2d50cd6209201e4c75b21bcd72839",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9397,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
