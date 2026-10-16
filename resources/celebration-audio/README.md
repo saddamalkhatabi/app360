@@ -61,3 +61,9 @@ name awaiting review. Provider failure returns generic praise. Default daily quo
 is 10 per authenticated user; failed provider attempts count to limit retries.
 
 Official protocol: https://docs.cloud.google.com/text-to-speech/docs/reference/rest/v1/text/synthesize
+
+Listening review is recorded per exact audio digest with
+`node tooling/review-celebration-name.cjs --id name-3 --sha256 <current-sha256> --status approved --reviewer <reviewer> --note <listening-observation>`.
+Use `rejected` for a clip needing correction. This command is for a completed human
+listening review, not automatic validation. The server requires the approved review
+to match the current metadata digest. Regeneration resets that clip to pending.

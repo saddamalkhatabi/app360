@@ -9,6 +9,8 @@ on:
       - 'services/app360-data-core/migrations/010_personalized_praise.js'
       - 'services/app360-data-core/test/celebration.test.cjs'
       - 'tooling/test-personalized-celebration.cjs'
+      - 'tooling/review-celebration-name.cjs'
+      - 'tooling/test-name-listening-review.cjs'
       - 'tooling/test-name-review-browser.cjs'
       - '.github/workflows/verify-personalized-celebration.yml'
   workflow_dispatch:
@@ -23,7 +25,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --prefix /tmp/name-tests knex@3.3.0 better-sqlite3@11.10.0
-      - run: NODE_PATH=/tmp/name-tests/node_modules node --test services/app360-data-core/test/celebration.test.cjs tooling/test-personalized-celebration.cjs
+      - run: NODE_PATH=/tmp/name-tests/node_modules node --test services/app360-data-core/test/celebration.test.cjs tooling/test-personalized-celebration.cjs tooling/test-name-listening-review.cjs
       - run: node tooling/test-shared-celebration.cjs && node tooling/test-picture-puzzle-learning.cjs
       - name: Verify independent name metadata and recordings
         run: |
