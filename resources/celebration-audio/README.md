@@ -67,3 +67,9 @@ Listening review is recorded per exact audio digest with
 Use `rejected` for a clip needing correction. This command is for a completed human
 listening review, not automatic validation. The server requires the approved review
 to match the current metadata digest. Regeneration resets that clip to pending.
+
+The name recorder resumes valid existing clips and generates at most 50 new names
+per run (`APP360_NAME_BATCH_LIMIT`, 1–100). This keeps future 1000-name expansion
+in reviewable batches rather than one long job; `complete` remains false until all
+catalog records have independent audio. Retrying a batch preserves valid recordings
+and their reviews. Do not add invented spelling variants as new canonical people.

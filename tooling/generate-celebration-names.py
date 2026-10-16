@@ -1,4 +1,4 @@
-"""Small shared SILMA phrase bank: never includes a child's name."""
+"""Resumable standalone name batches, without a praise prefix."""
 import os,pathlib,sys,json,hashlib,subprocess,base64
 from importlib.resources import files
 ROOT=pathlib.Path(__file__).resolve().parents[1];OUT=ROOT/'resources/celebration-audio'
@@ -16,11 +16,15 @@ for lang in ['ar','en']:
  chosen=min(candidates,key=lambda c:c['duration_ms']);source=ROOT/'apps/1-4/say-and-name'/chosen['path'];assert hashlib.sha256(source.read_bytes()).hexdigest()==chosen['sha256'];references[lang]=(str(source),chosen['text'])
  print('Using verified same-voice reference',lang,chosen['duration_ms'],chosen['text'],flush=True)
 m=json.loads((OUT/'names.json').read_text())
+limit=int(os.environ.get('APP360_NAME_BATCH_LIMIT','50'));assert 1<=limit<=100
+generated=0
 for i,row in enumerate(m['records']):
  target=OUT/'audio/names'/(row['id']+'.mp3');target.parent.mkdir(parents=True,exist_ok=True)
  old=row.get('audio') or {}
  if target.exists() and old.get('sha256')==hashlib.sha256(target.read_bytes()).hexdigest() and old.get('text')==row['spoken_text']:
   print('Already recorded',row['id'],flush=True);continue
+ if generated>=limit:break
+ generated+=1
  wavfile=pathlib.Path('/tmp')/(row['id']+'.wav');print('Standalone name',i+1,len(m['records']),row['name'],flush=True)
  selected_ref,selected_text=references['ar']
  wav,sr,_=engine.infer(ref_file=selected_ref,ref_text=selected_text,gen_text=row['spoken_text']+'.',file_wave=str(wavfile),seed=4100+i,speed=.90,nfe_step=24,force_tashkeel=False,normalize_numbers=False)
@@ -30,4 +34,4 @@ for i,row in enumerate(m['records']):
  row['status']='recorded-awaiting-listening-review'
  (OUT/'names.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
 m['complete']=all(r.get('audio') for r in m['records']);(OUT/'names.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
-print('Standalone names ready:',len(m['records']),flush=True)
+print('Standalone names recorded:',sum(bool(r.get('audio')) for r in m['records']),'/',len(m['records']),'complete:',m['complete'],flush=True)
