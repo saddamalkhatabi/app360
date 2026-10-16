@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1777,
+  "ready": 1781,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -166374,6 +166374,442 @@
       "sha256": "3608644a89082c58f7fba72001500a7c6c73b91971493a71d6626ae92220f82c",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9818,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_28bcb80601429649a78f": {
+      "id": "en_28bcb80601429649a78f",
+      "language": "en",
+      "text": "A pie is made from pastry and may be filled with fruit or cheese.",
+      "words": [
+        "A",
+        "pie",
+        "is",
+        "made",
+        "from",
+        "pastry",
+        "and",
+        "may",
+        "be",
+        "filled",
+        "with",
+        "fruit",
+        "or",
+        "cheese."
+      ],
+      "path": "audio/meaning/en/en_28bcb80601429649a78f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A pie is made from pastry, and may be filled with fruit or cheese.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          140,
+          161
+        ],
+        [
+          1,
+          241,
+          482
+        ],
+        [
+          2,
+          522,
+          602
+        ],
+        [
+          3,
+          662,
+          843
+        ],
+        [
+          4,
+          863,
+          1003
+        ],
+        [
+          5,
+          1063,
+          1545
+        ],
+        [
+          6,
+          1906,
+          2007
+        ],
+        [
+          7,
+          2027,
+          2147
+        ],
+        [
+          8,
+          2207,
+          2287
+        ],
+        [
+          9,
+          2408,
+          2649
+        ],
+        [
+          10,
+          2689,
+          2829
+        ],
+        [
+          11,
+          2889,
+          3110
+        ],
+        [
+          12,
+          3210,
+          3311
+        ],
+        [
+          13,
+          3411,
+          3853
+        ]
+      ],
+      "duration_ms": 4675,
+      "sha256": "8d8334c849e9cb8d3ddb986ea842a7a69170ea05962a55cd471468d82dfe326f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9237,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_305e4c951c4da4f68cd8": {
+      "id": "en_305e4c951c4da4f68cd8",
+      "language": "en",
+      "text": "A duck's webbed feet help it swim, and feathers cover its body.",
+      "words": [
+        "A",
+        "duck's",
+        "webbed",
+        "feet",
+        "help",
+        "it",
+        "swim,",
+        "and",
+        "feathers",
+        "cover",
+        "its",
+        "body."
+      ],
+      "path": "audio/meaning/en/en_305e4c951c4da4f68cd8.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A duck's webbed feet help it swim and feathers cover its body.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          201,
+          221
+        ],
+        [
+          1,
+          301,
+          602
+        ],
+        [
+          2,
+          662,
+          903
+        ],
+        [
+          3,
+          983,
+          1203
+        ],
+        [
+          4,
+          1264,
+          1484
+        ],
+        [
+          5,
+          1524,
+          1605
+        ],
+        [
+          6,
+          1725,
+          2026
+        ],
+        [
+          7,
+          2527,
+          2648
+        ],
+        [
+          8,
+          2708,
+          3089
+        ],
+        [
+          9,
+          3149,
+          3370
+        ],
+        [
+          10,
+          3430,
+          3550
+        ],
+        [
+          11,
+          3630,
+          3911
+        ]
+      ],
+      "duration_ms": 4553,
+      "sha256": "b9552238e1a623b781924a36848a378770cedc364df7f2c8e7354e0587ff335c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9129,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_13647f8736ff4996564f": {
+      "id": "en_13647f8736ff4996564f",
+      "language": "en",
+      "text": "A seahorse swims upright, and the male carries the eggs in a special pouch.",
+      "words": [
+        "A",
+        "seahorse",
+        "swims",
+        "upright,",
+        "and",
+        "the",
+        "male",
+        "carries",
+        "the",
+        "eggs",
+        "in",
+        "a",
+        "special",
+        "pouch."
+      ],
+      "path": "audio/meaning/en/en_13647f8736ff4996564f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A seahorse swims upright, and the male carries the eggs in a special pouch.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          160,
+          661
+        ],
+        [
+          2,
+          741,
+          1102
+        ],
+        [
+          3,
+          1222,
+          1683
+        ],
+        [
+          4,
+          2565,
+          2665
+        ],
+        [
+          5,
+          2685,
+          2765
+        ],
+        [
+          6,
+          2805,
+          3086
+        ],
+        [
+          7,
+          3126,
+          3607
+        ],
+        [
+          8,
+          3667,
+          3747
+        ],
+        [
+          9,
+          3887,
+          4168
+        ],
+        [
+          10,
+          4388,
+          4448
+        ],
+        [
+          11,
+          4488,
+          4508
+        ],
+        [
+          12,
+          4588,
+          4969
+        ],
+        [
+          13,
+          5069,
+          5470
+        ]
+      ],
+      "duration_ms": 5690,
+      "sha256": "aaef4bcfa530a3fa3732b8fa81b212b09d7e308f8312a1ee92ee17a6af1758fa",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9064,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_0694ca35adf38e1792ab": {
+      "id": "en_0694ca35adf38e1792ab",
+      "language": "en",
+      "text": "A year has twelve months, during which we follow the changing seasons.",
+      "words": [
+        "A",
+        "year",
+        "has",
+        "twelve",
+        "months,",
+        "during",
+        "which",
+        "we",
+        "follow",
+        "the",
+        "changing",
+        "seasons."
+      ],
+      "path": "audio/meaning/en/en_0694ca35adf38e1792ab.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A year has 12 months, during which we follow the changing seasons.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          161,
+          382
+        ],
+        [
+          2,
+          442,
+          603
+        ],
+        [
+          3,
+          683,
+          1004
+        ],
+        [
+          4,
+          1065,
+          1426
+        ],
+        [
+          5,
+          2230,
+          2531
+        ],
+        [
+          6,
+          2551,
+          2752
+        ],
+        [
+          7,
+          2792,
+          2873
+        ],
+        [
+          8,
+          2973,
+          3355
+        ],
+        [
+          9,
+          3455,
+          3536
+        ],
+        [
+          10,
+          3616,
+          4118
+        ],
+        [
+          11,
+          4259,
+          4841
+        ]
+      ],
+      "duration_ms": 5002,
+      "sha256": "39fbd2036c1d9b6e6767152db7ed1699b4e01f43f7482abf0219e118dc1f012c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.985,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
