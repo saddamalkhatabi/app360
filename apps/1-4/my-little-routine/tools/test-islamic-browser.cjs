@@ -9,7 +9,17 @@ assert(await page.locator('#routineChallenge').isHidden());await page.screenshot
 await page.locator('#useHabit').click();await page.locator('#startRoutine').click();assert.equal(await page.locator('#child').getAttribute('class'),'view on');
 await page.goto(url+'?routine_age=1-4&lang=en');assert.match(await page.locator('#focusLabel').innerText(),/I sit at the table/);
 await page.goto(url+'?launch_age=4-8&launch_level=2&lang=ar');await page.waitForTimeout(150);assert.equal(await page.locator('.habitCard').count(),24);assert.equal(await page.locator('#library').getAttribute('class'),'view on');
-assert(await page.locator('#routineChallenge').isVisible());await page.locator('#routineShowAnswer').click();assert.match(await page.locator('#routineQuestionFeedback').innerText(),/بِسْمِ/);
+assert(await page.locator('#routineChallenge').isVisible());
+await page.waitForFunction(()=>document.querySelector('#sceneStrip').className.indexOf('assetMode')>=0);
+assert.match(await page.locator('#sceneStrip').getAttribute('data-asset'),/storyboards\/islamic\/meal-manners\.png$/);
+for(let scene=0;scene<5;scene++){
+ await page.evaluate(n=>window.APP360_RoutineReel.showFrame(n),scene);
+ await page.waitForFunction(n=>document.querySelector('#assetFrame').style.backgroundImage.indexOf('meal-manners-'+(n+1)+'.webp')>=0,scene);
+ assert.equal(await page.locator('#assetFrame').evaluate(e=>e.style.backgroundSize),'contain');
+}
+await page.screenshot({path:output+'/routine-photo-frame-mobile.png',fullPage:false});
+await page.evaluate(()=>window.APP360_RoutineReel.showOverview());
+await page.locator('#routineShowAnswer').click();assert.match(await page.locator('#routineQuestionFeedback').innerText(),/بِسْمِ/);
 if(await page.locator('#duaListen').isEnabled()){
  const received=page.waitForResponse(r=>r.url().includes('/audio/islamic/dua/bismillah.mp3'));
  await page.locator('#duaListen').click();assert((await received).ok());

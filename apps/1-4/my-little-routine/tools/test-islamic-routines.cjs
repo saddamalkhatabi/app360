@@ -5,7 +5,7 @@ function load(age,lang='ar'){
  const w={location:{search:'?routine_age='+age},localStorage:{getItem(){return null}}};w.parent=w;
  const d={readyState:'loading',addEventListener(){},querySelector(){return null},documentElement:{},body:{className:''}};
  const c=vm.createContext({window:w,document:d});
- for(const f of ['data.js','storyboard-data-v6.js','storyboard-data-v7-extra.js','storyboard-remap-v8.js','audio/routine-english-labels.js','islamic-routines-content-v1.js','audio/islamic-recordings-v1.js','islamic-routines-v1.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),c);
+ for(const f of ['data.js','storyboard-data-v6.js','storyboard-data-v7-extra.js','storyboard-remap-v8.js','audio/routine-english-labels.js','islamic-routines-content-v1.js','audio/islamic-recordings-v1.js','routine-photo-assets-v1.js','islamic-routines-v1.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),c);
  return {w,c};
 }
 for(const [age,count] of [['1-4',52],['4-8',24]]){
@@ -13,6 +13,8 @@ for(const [age,count] of [['1-4',52],['4-8',24]]){
  assert.equal(h.length,count);assert.equal(new Set(h.map(x=>x.id)).size,count);assert.equal(new Set(h.map(x=>x.num)).size,count);
  for(const habit of h){assert.equal(habit.steps.length,5);assert.equal(habit.arts.length,5);if(habit.islamic){
   assert.equal(habit.islamic.steps_en.length,5);
+  const photo=w.APP360_ROUTINE_PHOTO_ASSETS[habit.islamic.id];assert(photo,habit.id);assert.equal(habit.storyboard,photo.storyboard);assert.equal(habit.sceneImages.length,5);
+  for(const file of [photo.storyboard,...photo.frames])assert(fs.existsSync(path.join(root,file)),file);
   for(const scene of habit.islamic.scenes)assert(fs.existsSync(path.join(root,'assets/routine-scenes',scene+'.svg')));
   for(const id of Object.values(habit.islamic.duas))assert(w.APP360_ISLAMIC_ROUTINES.duas[id].url.startsWith('https://'));
  }}
