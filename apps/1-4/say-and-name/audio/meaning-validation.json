@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2016,
+  "ready": 2017,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187608,6 +187608,59 @@
       "sha256": "9c58867433eccc29cdd020f46913fa9811e179b72d24a27274c2db0a51468830",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9126,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0fe97f1a2c9f7d79faa7": {
+      "id": "ar_0fe97f1a2c9f7d79faa7",
+      "language": "ar",
+      "text": "نرسم بها بالألوان.",
+      "words": [
+        "نرسم",
+        "بها",
+        "بالألوان."
+      ],
+      "path": "audio/meaning/ar/ar_0fe97f1a2c9f7d79faa7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نرسم بها بالألوان.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نرسم بها بالألوان",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          80,
+          502
+        ],
+        [
+          1,
+          623,
+          864
+        ],
+        [
+          2,
+          984,
+          1647
+        ]
+      ],
+      "duration_ms": 3014,
+      "sha256": "db41d5ddca0d71bfedec8e9689c1c2d30ba4f84b77462c691600cc342cf62a33",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9921,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
