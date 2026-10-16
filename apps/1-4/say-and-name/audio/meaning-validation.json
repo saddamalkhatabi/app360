@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1940,
+  "ready": 1942,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -181586,6 +181586,248 @@
       "sha256": "a8271b95b070475ca070ea683b95e963f752fba31ec43a72977f070ee66324f6",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9537,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_fde8f317665fa4dc4294": {
+      "id": "en_fde8f317665fa4dc4294",
+      "language": "en",
+      "text": "A spanner grips a nut so it can be turned to tighten or loosen it.",
+      "words": [
+        "A",
+        "spanner",
+        "grips",
+        "a",
+        "nut",
+        "so",
+        "it",
+        "can",
+        "be",
+        "turned",
+        "to",
+        "tighten",
+        "or",
+        "loosen",
+        "it."
+      ],
+      "path": "audio/meaning/en/en_fde8f317665fa4dc4294.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "A spanner grips a nut so it can be turned to tighten or loosen it.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A spanner grips a nut so it can be turned to tighten or loosen it.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2667,
+          "cer": 0.0769,
+          "heard": "As spinner grips are not so, it can be turned to tighten or loosen it.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          80,
+          521
+        ],
+        [
+          2,
+          581,
+          922
+        ],
+        [
+          3,
+          982,
+          1002
+        ],
+        [
+          4,
+          1102,
+          1262
+        ],
+        [
+          5,
+          1443,
+          1563
+        ],
+        [
+          6,
+          2425,
+          2485
+        ],
+        [
+          7,
+          2545,
+          2685
+        ],
+        [
+          8,
+          2725,
+          2785
+        ],
+        [
+          9,
+          2905,
+          3226
+        ],
+        [
+          10,
+          3266,
+          3326
+        ],
+        [
+          11,
+          3406,
+          3787
+        ],
+        [
+          12,
+          3947,
+          4028
+        ],
+        [
+          13,
+          4108,
+          4408
+        ],
+        [
+          14,
+          4468,
+          4589
+        ]
+      ],
+      "duration_ms": 5691,
+      "sha256": "3943e9c89e5ceaad93895a6cbf733b3d60378c825afbce1f9444fe26ec63eec5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8535,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c2cdb70e31ffd0396e13": {
+      "id": "en_c2cdb70e31ffd0396e13",
+      "language": "en",
+      "text": "Vehicles move around a roundabout's central island to pass between roads.",
+      "words": [
+        "Vehicles",
+        "move",
+        "around",
+        "a",
+        "roundabout's",
+        "central",
+        "island",
+        "to",
+        "pass",
+        "between",
+        "roads."
+      ],
+      "path": "audio/meaning/en/en_c2cdb70e31ffd0396e13.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Vehicles move around a roundabout's central island to pass between roads.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Vehicles move around a roundabouts. Central island to pass between roads.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0423,
+          "heard": "Vehicles move around the roundabouts, central island to pass between roads.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          561
+        ],
+        [
+          1,
+          661,
+          881
+        ],
+        [
+          2,
+          901,
+          1262
+        ],
+        [
+          3,
+          1322,
+          1342
+        ],
+        [
+          4,
+          1422,
+          2123
+        ],
+        [
+          5,
+          3325,
+          3686
+        ],
+        [
+          6,
+          3866,
+          4087
+        ],
+        [
+          7,
+          4127,
+          4187
+        ],
+        [
+          8,
+          4267,
+          4567
+        ],
+        [
+          9,
+          4648,
+          4968
+        ],
+        [
+          10,
+          5048,
+          5469
+        ]
+      ],
+      "duration_ms": 6170,
+      "sha256": "dc035bdf992d2c6de8bd478c5b146d2f0c2f6ba30d9a5bc90ec27098e2d3b511",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9803,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
