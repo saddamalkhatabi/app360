@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1786,
+  "ready": 1792,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -167221,6 +167221,536 @@
       "sha256": "fb6effe63e8de94a10b3911e1f7974642008e7bd88031b3b67d0e5098ef704d0",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.943,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_2410d1856c51efb2fb43": {
+      "id": "ar_2410d1856c51efb2fb43",
+      "language": "ar",
+      "text": "أَلْبَسُ الْقُبَّعَةَ لِتُظَلِّلَ رَأْسِي فِي الشَّمْسِ.",
+      "words": [
+        "أَلْبَسُ",
+        "الْقُبَّعَةَ",
+        "لِتُظَلِّلَ",
+        "رَأْسِي",
+        "فِي",
+        "الشَّمْسِ."
+      ],
+      "path": "audio/meaning/ar/ar_2410d1856c51efb2fb43.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألبس القبعة لتُظلِّل رأسي في الشمس",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.1613,
+          "heard": "ألبس القبعة لتتضلي لرأس في الشمس",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          322
+        ],
+        [
+          1,
+          422,
+          985
+        ],
+        [
+          2,
+          1447,
+          2251
+        ],
+        [
+          3,
+          2391,
+          2713
+        ],
+        [
+          4,
+          2773,
+          2833
+        ],
+        [
+          5,
+          2853,
+          3356
+        ]
+      ],
+      "duration_ms": 4119,
+      "sha256": "6702c230915acaf3e88c994c5bf18b225a26ced14228411a9a292d03aa07af7e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9453,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_1511166299aa9352b5a7": {
+      "id": "ar_1511166299aa9352b5a7",
+      "language": "ar",
+      "text": "تنمو حبات الذرة في صفوف على كوز، ونأكلها بعد تجهيزها.",
+      "words": [
+        "تنمو",
+        "حبات",
+        "الذرة",
+        "في",
+        "صفوف",
+        "على",
+        "كوز،",
+        "ونأكلها",
+        "بعد",
+        "تجهيزها."
+      ],
+      "path": "audio/meaning/ar/ar_1511166299aa9352b5a7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تنمو حبات الذرة في صفوف على كوز ونأكلها بعد تجهيزها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3,
+          "cer": 0.1176,
+          "heard": "نتنم حبات الضرف صفوف على كوز ونأكلها بعد تجهيزها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          241
+        ],
+        [
+          1,
+          321,
+          682
+        ],
+        [
+          2,
+          742,
+          1003
+        ],
+        [
+          3,
+          1063,
+          1164
+        ],
+        [
+          4,
+          1244,
+          1585
+        ],
+        [
+          5,
+          1826,
+          1886
+        ],
+        [
+          6,
+          1986,
+          2307
+        ],
+        [
+          7,
+          2829,
+          3451
+        ],
+        [
+          8,
+          3531,
+          3712
+        ],
+        [
+          9,
+          3832,
+          4434
+        ]
+      ],
+      "duration_ms": 4554,
+      "sha256": "3632ccbd05cbe3bb91533944e70377d6436aa8721d980e5a672b0e404d74e75f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8938,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a82bee7168b99db49490": {
+      "id": "ar_a82bee7168b99db49490",
+      "language": "ar",
+      "text": "القلادة زينة تلبس حول الرقبة، ولا نشدها أو نلفها بقوة.",
+      "words": [
+        "القلادة",
+        "زينة",
+        "تلبس",
+        "حول",
+        "الرقبة،",
+        "ولا",
+        "نشدها",
+        "أو",
+        "نلفها",
+        "بقوة."
+      ],
+      "path": "audio/meaning/ar/ar_a82bee7168b99db49490.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "القلادة زينة تلبس حول الرقبة ولا نشدها أو نلفها بقوة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0192,
+          "heard": "القلادة زينت تلبس حول الرقبة ولا نشدها أو نلفها بقوة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          542
+        ],
+        [
+          1,
+          702,
+          1003
+        ],
+        [
+          2,
+          1063,
+          1385
+        ],
+        [
+          3,
+          1505,
+          1706
+        ],
+        [
+          4,
+          1766,
+          2147
+        ],
+        [
+          5,
+          2609,
+          2789
+        ],
+        [
+          6,
+          2869,
+          3311
+        ],
+        [
+          7,
+          3451,
+          3511
+        ],
+        [
+          8,
+          3572,
+          3953
+        ],
+        [
+          9,
+          4013,
+          4414
+        ]
+      ],
+      "duration_ms": 4635,
+      "sha256": "c3626455a8ad7106c2f504333b09d15a1de74cda8f7bcd9031ae3466f92c5818",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9605,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_835a583446d351825871": {
+      "id": "ar_835a583446d351825871",
+      "language": "ar",
+      "text": "تحيط بزحل حلقات تتكون من قطع جليد وصخر.",
+      "words": [
+        "تحيط",
+        "بزحل",
+        "حلقات",
+        "تتكون",
+        "من",
+        "قطع",
+        "جليد",
+        "وصخر."
+      ],
+      "path": "audio/meaning/ar/ar_835a583446d351825871.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحيط بزحل حلقات تتكون من قطع جليد وصخر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          321
+        ],
+        [
+          1,
+          441,
+          843
+        ],
+        [
+          2,
+          963,
+          1445
+        ],
+        [
+          3,
+          1565,
+          1966
+        ],
+        [
+          4,
+          2067,
+          2187
+        ],
+        [
+          5,
+          2247,
+          2388
+        ],
+        [
+          6,
+          2608,
+          2949
+        ],
+        [
+          7,
+          3050,
+          3511
+        ]
+      ],
+      "duration_ms": 3571,
+      "sha256": "39615bc18f9621c18feb0efe99d897fa364c7bebf188c0aaf052583dffb2efe3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9834,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_56364ee12ee85bf43b3e": {
+      "id": "ar_56364ee12ee85bf43b3e",
+      "language": "ar",
+      "text": "تجمع عدسة الكاميرا الضوء لتكوين صورة، ونحافظ على نظافتها.",
+      "words": [
+        "تجمع",
+        "عدسة",
+        "الكاميرا",
+        "الضوء",
+        "لتكوين",
+        "صورة،",
+        "ونحافظ",
+        "على",
+        "نظافتها."
+      ],
+      "path": "audio/meaning/ar/ar_56364ee12ee85bf43b3e.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تجمع عدسة الكاميرا الضوء لتكوين صورة ونحافظ على نظافتها.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0545,
+          "heard": "تجمع عدسة الكامير الدوء لتكوين صورة ونحافظ على نضافتها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          201
+        ],
+        [
+          1,
+          543,
+          744
+        ],
+        [
+          2,
+          864,
+          1326
+        ],
+        [
+          3,
+          1367,
+          1608
+        ],
+        [
+          4,
+          1748,
+          2251
+        ],
+        [
+          5,
+          2331,
+          2653
+        ],
+        [
+          6,
+          3135,
+          3738
+        ],
+        [
+          7,
+          3939,
+          4019
+        ],
+        [
+          8,
+          4080,
+          4723
+        ]
+      ],
+      "duration_ms": 4964,
+      "sha256": "ca0a1dfe05538f6de8517975615f37bd2cac2ad35322e8d08c2fa05f850aab09",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9238,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_9723e5ee3dc136f82a25": {
+      "id": "ar_9723e5ee3dc136f82a25",
+      "language": "ar",
+      "text": "للعقرب ملقطان وذيل قد يلسع به، لذلك لا ألمسه.",
+      "words": [
+        "للعقرب",
+        "ملقطان",
+        "وذيل",
+        "قد",
+        "يلسع",
+        "به،",
+        "لذلك",
+        "لا",
+        "ألمسه."
+      ],
+      "path": "audio/meaning/ar/ar_9723e5ee3dc136f82a25.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للعقرب ملقطان وذيل قد يلسع به لذلك لا المسه",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          483
+        ],
+        [
+          1,
+          583,
+          1147
+        ],
+        [
+          2,
+          1268,
+          1569
+        ],
+        [
+          3,
+          1710,
+          1831
+        ],
+        [
+          4,
+          1851,
+          2113
+        ],
+        [
+          5,
+          2334,
+          2475
+        ],
+        [
+          6,
+          2877,
+          3340
+        ],
+        [
+          7,
+          3441,
+          3541
+        ],
+        [
+          8,
+          3682,
+          4105
+        ]
+      ],
+      "duration_ms": 4145,
+      "sha256": "7d7d89eb20106aeaa3fd7845d09e658d9288381115865071a253473892ae895a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9629,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
