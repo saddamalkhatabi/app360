@@ -69,7 +69,7 @@ function english(){
  for(var q in translate)if(translate.hasOwnProperty(q))setText(q,translate[q]);
  var b=d.querySelector('.topTools');
  if(b){var button=d.createElement('button');button.id='routineLanguageToggle';button.type='button';button.className='routineLanguageToggle';button.title='Switch to Arabic';button.textContent='العربية';button.onclick=function(){w.APP360_ROUTINE_SET_LANG('ar')};b.appendChild(button)}
- var catTitles={'hygiene':'Hygiene','dress':'Getting dressed','order':'Tidying up','food':'Food and drinks','daily':'Everyday skills','social':'Friends and feelings','safety':'Staying safe'};
+ var catTitles={'hygiene':'Hygiene','dress':'Getting dressed','order':'Tidying up','food':'Food and drinks','daily':'Everyday skills','social':'Friends and feelings','safety':'Staying safe','faith':'Wudu, mosque and prayer','nature':'Water, places and living things','learning':'Learning and responsibility'};
  if(D&&D.categories){for(i=0;i<D.categories.length;i++){a=D.categories[i];if(catTitles[a.id])a.title=catTitles[a.id]}}
 }
 function arabic(){
@@ -78,3 +78,4 @@ function arabic(){
 }
 if(lang==='en')english();else arabic();
 })(window,document);
+

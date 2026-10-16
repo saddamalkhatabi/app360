@@ -11,7 +11,7 @@ function catalog(){
  var index=isEn()?w.APP360_ROUTINE_NARRATIONS_EN:w.APP360_ROUTINE_NARRATIONS;
  return index&&index.habits||{};
 }
-function entry(a){var x=a&&catalog()[a.id];return x&&x.verified===true&&x.segments&&x.segments.length===7?x:null}
+function entry(a){var x=a&&catalog()[a.id];return x&&x.verified===true&&x.segments&&x.segments.length===7&&x.steps&&a.steps&&x.steps.join('|')===a.steps.join('|')?x:null}
 function muted(){return E('sound')&&E('sound').innerHTML.indexOf('🔇')>=0}
 function feedback(t){var x=E('toast');if(!x)return;x.textContent=t;x.style.display='block';w.setTimeout(function(){x.style.display='none'},1900)}
 function text(el,t){if(el)el.textContent=t}
@@ -97,7 +97,7 @@ function playIntro(){
 }
 function playChildStep(){
  var x=null,a,i,seg=null,e,k,j;
- try{x=JSON.parse(w.localStorage.getItem('app360-a1-routine-v2')||'null')}catch(err){}
+ try{x=JSON.parse(w.localStorage.getItem(w.APP360_ROUTINE_STORAGE_KEY||'app360-a1-routine-v2')||'null')}catch(err){}
  if(!x||!x.routine||!x.run){feedback(txt('اختر روتينًا لتسمع الخطوة','Choose a routine to hear the step'));return}
  a=(w.ROUTINE_DATA&&w.ROUTINE_DATA.habits||[]).filter(function(h){return h.id===x.routine.sourceHabit})[0];
  e=entry(a);if(!e){feedback(txt('لا يوجد ملف صوتي مسجّل لهذا الروتين','There is no recorded audio for this routine'));return}
@@ -146,3 +146,4 @@ function bind(){
 w.APP360_RoutineVoice={disableBrowserSpeech:true,noBrowserSpeech:true,stop:function(){stop(true)},listen:listenFull};
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',bind,false);else bind();
 })(window,document);
+

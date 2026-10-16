@@ -6,9 +6,9 @@
   "audience": "shared",
   "audience_note_ar": "المدرب يعد الروتين المصور، والطفل ينفذ الخطوات بمساعدة تتناقص حسب استعداده.",
   "age_group": "1-4",
-  "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "version": 2,
+  "status": "live",
+  "scaffold_state": "implemented",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-routines-independence-first-attempts",
@@ -25,7 +25,6 @@
   "capabilities": [
     "practice.core",
     "storage.local",
-    "audio.tts",
     "audio.recorded",
     "pwa.offline",
     "compat.legacy-web"
@@ -35,5 +34,13 @@
   ],
   "practice_model_ar": "اختر روتينًا أو ابنِ واحدًا من صورك ← ابدأ بخطوة ظاهرة بوضوح أو الآن/بعد ذلك ← نفذها في الواقع ← سجّل مقدار المساعدة أو أعد المحاولة بلطف ← انتقل للخطوة التالية أو اختصر الروتين ← اطبع النسخة المناسبة للمكان",
   "blueprint_path": "apps/1-4/my-little-routine/BUILD_SPEC.md",
-  "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md"
+  "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 2
+  }
 }
