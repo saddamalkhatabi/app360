@@ -3,7 +3,7 @@ import argparse,hashlib,json,os,sys,pathlib,subprocess,gc,re,unicodedata
 from importlib.resources import files
 from meaning_speech_qa import compare,verified_recording
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--part',type=int,default=0);p.add_argument('--parts',type=int,default=32);p.add_argument('--priority',action='store_true');p.add_argument('--output',required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--part',type=int,default=0);p.add_argument('--parts',type=int,default=32);p.add_argument('--priority',action='store_true');p.add_argument('--recover',action='store_true');p.add_argument('--output',required=True);a=p.parse_args()
 manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());n=manifest['priority_count']
 items=manifest['items'][:n] if a.priority else [r for i,r in enumerate(manifest['items'][n:]) if i%a.parts==a.part]
 existing=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
@@ -13,6 +13,8 @@ if not items:
  print('All recordings in this batch already verified; no model loading needed',flush=True)
  raise SystemExit(0)
 seed_offset=int(os.environ.get('MEANING_SEED_OFFSET','0'))
+from meaning_recovery import spoken_text,speech_chunks
+authored=json.loads((ROOT/'data/meaning-pronunciation-v3.json').read_text())['spoken'] if a.recover else {}
 os.environ.update(HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',HF_HUB_DISABLE_TELEMETRY='1',ORT_DISABLE_TELEMETRY='1')
 from silma_sentence_engine import load_engine
 from meaning_speech_qa import compare,verified_recording
@@ -24,6 +26,12 @@ model=next((hub/'models--silma-ai--silma-tts/snapshots').rglob('model.pt'));voca
 flags=pathlib.Path('/proc/cpuinfo').read_text();precision='bf16' if 'avx512_bf16' in flags or 'amx_bf16' in flags else 'fp32'
 engine=load_engine(model,vocab,vocoder,threads=4,precision=precision)
 ref=str(files('silma_tts').joinpath('infer/ref_audio_samples/ar.ref.24k.wav'));ref_text='ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام.'
+references={}
+if a.recover:
+ for lang in ('ar','en'):
+  options=[r for r in existing.values() if r.get('language')==lang and 3500<=r.get('duration_ms',0)<=8000 and verified_recording(r,r,ROOT)]
+  if options:
+   chosen=min(options,key=lambda r:r['duration_ms']);references[lang]=(str(ROOT/chosen['path']),chosen['text'])
 recognizer=WhisperModel(os.environ['MEANING_ASR_MODEL'],device='cpu',compute_type='int8',cpu_threads=2,num_workers=1)
 verifier=None
 accepted=[];rejected=[]
@@ -33,7 +41,16 @@ for i,row in enumerate(items):
  for attempt in range(3):
   seed=seed_offset+(360 if attempt==2 else 360+attempt)
   engine._app360_precision='fp32' if attempt==2 else precision
-  wav,sr,_=engine.infer(ref_file=ref,ref_text=ref_text,gen_text=row['text'],file_wave=str(wavfile),seed=seed,speed=.93 if row['language']=='ar' else 1,nfe_step=48,force_tashkeel=False,normalize_numbers=False)
+  prompt=spoken_text(row,authored)
+  chunks=speech_chunks(prompt,segmented=a.recover and attempt==1)
+  selected_ref,selected_text=references.get(row['language'],(ref,ref_text)) if a.recover and attempt>0 else (ref,ref_text)
+  pieces=[]
+  for chunk_index,chunk in enumerate(chunks):
+   piece,sr,_=engine.infer(ref_file=selected_ref,ref_text=selected_text,gen_text=chunk,file_wave=str(wavfile),seed=seed+chunk_index*17,speed=(.93 if row['language']=='ar' else 1) if attempt==0 or not a.recover else .88,nfe_step=48,force_tashkeel=False,normalize_numbers=False)
+   if pieces:pieces.append(np.zeros(round(sr*.12),dtype=np.float32))
+   pieces.append(piece)
+  wav=np.concatenate(pieces);sf.write(wavfile,wav,sr)
+  if a.recover:row.update(pronunciation_revision='authored-recovery-v3',spoken_text=prompt,phrase_count=len(chunks),reference_strategy='verified same-voice clip' if selected_ref!=ref else 'publisher reference')
   assert sr==24000 and np.isfinite(wav).all() and .5<len(wav)/sr<45 and np.max(np.abs(wav))>.005,row['id']
   subprocess.run(['ffmpeg','-v','error','-y','-i',str(wavfile),'-ar','24000','-ac','1','-codec:a','libmp3lame','-b:a','64k','-id3v2_version','0',str(target)],check=True);wavfile.unlink()
   segments,_=recognizer.transcribe(str(target),language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)

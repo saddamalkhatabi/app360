@@ -2,7 +2,11 @@
 import re,unicodedata
 
 def normalize(text):
- text=unicodedata.normalize('NFKC',text).lower()
+ text=unicodedata.normalize('NFKC',text).lower().replace('’', "'")
+ # These spellings have the same pronunciation; substitutions still require exact words.
+ text=re.sub(r"(?<=\w)'s\b",'s',text)
+ for pattern,replacement in [(r'\btouch[ -]+screen\b','touchscreen'),(r'\begg[ -]+shell\b','eggshell'),(r'\bfibre\b','fiber'),(r'\bflavour\b','flavor'),(r'\bcolourful\b','colorful')]:
+  text=re.sub(pattern,replacement,text)
  for short,full in [("don't",'do not'),("doesn't",'does not'),("can't",'can not'),('cannot','can not')]:text=text.replace(short,full)
  text=''.join(c for c in text if not unicodedata.combining(c))
  text=text.translate(str.maketrans('أإآٱىة','اااايه'))

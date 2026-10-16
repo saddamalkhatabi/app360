@@ -44,3 +44,21 @@ with tempfile.TemporaryDirectory() as folder:
  (root/'clip.mp3').unlink()
  assert not verified_recording(wanted,clip,root)
 print('Resume checks reject stale text, metadata, corrupt bytes and missing files')
+
+# Orthographic equivalence must not forgive changed meaning or missing words.
+assert compare('A touchscreen has colorful icons.', 'A touch screen has colourful icons.')['passed']
+assert compare("A roundabout's island.", 'A roundabouts island.')['passed']
+assert compare('Food has fiber and flavor.', 'Food has fibre and flavour.')['passed']
+assert not compare('A touchscreen has colorful icons.', 'A touch screen has icons.')['passed']
+assert not compare('A stork walks in shallow water.', 'A stalk walks in shallow water.')['passed']
+from meaning_recovery import spoken_text,speech_chunks
+manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());wanted={r['id']:r for r in manifest['items']}
+authored=json.loads((ROOT/'data/meaning-pronunciation-v3.json').read_text())['spoken']
+for cid in authored:
+ text=spoken_text(wanted[cid],authored)
+ assert compare(wanted[cid]['text'],' '.join(speech_chunks(text,True)))['passed']
+assert speech_chunks('A dolphin is a mammal that lives in water and surfaces to breathe air.',True)
+try:spoken_text(dict(id='bad',text='لا ألمس السكين'),{'bad':'ألمس السكين'})
+except ValueError:pass
+else:raise AssertionError('Hints must never remove negation')
+print('Authored recovery, phrase boundaries, exact words and conservative English spelling checks passed')
