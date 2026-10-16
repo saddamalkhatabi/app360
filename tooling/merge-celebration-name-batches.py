@@ -12,6 +12,7 @@ def merge(root, incoming, expected):
     catalog = json.loads(manifest.read_text())
     by_id = {r['id']: r for r in catalog['records']}
     seen, seen_ids, updated = set(), set(), 0
+    stale = []
     # Validate every incoming entry before mutating the catalog or copying any media.
     accepted = []
     for report_path in sorted((incoming / 'reports').glob('shard-*.json')):
@@ -19,15 +20,17 @@ def merge(root, incoming, expected):
         index = report['shard_index']
         if report['shard_count'] != expected or index in seen:
             raise ValueError('Mismatched or duplicate shard report')
-        allowed = {r['id'] for r in shard_rows(catalog['records'], index, expected)}
+        shard_rows(catalog['records'], index, expected)  # validate shard bounds/catalog IDs
         seen.add(index)
         for row in report['records']:
-            if row['id'] not in allowed or row['id'] in seen_ids:
+            import re
+            if not re.fullmatch(r'name-[1-9][0-9]*', row['id']) or (int(row['id'][5:])-1) % expected != index or row['id'] in seen_ids:
                 raise ValueError('Duplicate or misplaced name')
             seen_ids.add(row['id'])
-            current = by_id[row['id']]
-            if current['spoken_text'] != row['spoken_text']:
-                raise ValueError('Name text changed while recording: ' + row['id'])
+            current = by_id.get(row['id'])
+            if current is None or current['spoken_text'] != row['spoken_text']:
+                stale.append(row['id'])
+                continue
             if not recorded(row, incoming):
                 raise ValueError('Missing or corrupt shard recording: ' + row['id'])
             if not .2 <= row['audio']['duration_ms'] / 1000 <= 8:
@@ -50,7 +53,7 @@ def merge(root, incoming, expected):
     valid = sum(recorded(r, root) for r in catalog['records'])
     catalog['complete'] = valid == len(catalog['records'])
     catalog['recording_progress'] = {'recorded': valid, 'total': len(catalog['records']),
-        'pending': len(catalog['records']) - valid, 'received_shards': len(seen), 'expected_shards': expected}
+        'pending': len(catalog['records']) - valid, 'received_shards': len(seen), 'expected_shards': expected, 'stale_recording_ids': stale}
     write_json(manifest, catalog)
     return {'updated': updated, **catalog['recording_progress']}
 

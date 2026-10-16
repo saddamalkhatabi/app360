@@ -57,7 +57,9 @@ class NameBatchTests(unittest.TestCase):
             self.assertNotIn('review', row['audio'])
             old['spoken_text'] = 'changed'
             write_json(incoming / 'reports/shard-0.json', report)
-            with self.assertRaises(ValueError): module.merge(root, incoming, 2)
+            result = module.merge(root, incoming, 2)
+            self.assertEqual(result['stale_recording_ids'], ['name-1'])
+            self.assertEqual(result['updated'], 0)
             old['spoken_text'] = 'نُور'
             (incoming / old['audio']['path']).write_bytes(b'corrupt')
             write_json(incoming / 'reports/shard-0.json', report)

@@ -4,8 +4,16 @@ on:
     branches: [main]
     paths: [resources/celebration-audio/names.request]
   workflow_dispatch:
+    inputs:
+      attempt:
+        description: Automatic resume attempt
+        required: false
+        default: '0'
+        type: choice
+        options: ['0', '1', '2']
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: standalone-name-recording
   cancel-in-progress: false
@@ -27,10 +35,27 @@ jobs:
       APP360_NAME_EXPORT_DIR: /tmp/name-recording-export
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Check for missing names before installing SILMA
+        id: pending
+        run: |
+          python - <<'PY'
+          import json,os,pathlib,sys
+          sys.path.insert(0,'tooling')
+          from celebration_name_batches import shard_rows,recorded
+          root=pathlib.Path('resources/celebration-audio')
+          m=json.loads((root/'names.json').read_text())
+          rows=shard_rows(m['records'],int(os.environ['APP360_NAME_SHARD_INDEX']),int(os.environ['APP360_NAME_SHARD_COUNT']))
+          missing=sum(not recorded(r,root) for r in rows)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('needed='+str(bool(missing)).lower()+'\n')
+          print('Names needing recording in this shard:',missing)
+          PY
       - name: Install SILMA CPU environment
+        if: steps.pending.outputs.needed == 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
@@ -39,6 +64,7 @@ jobs:
           printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
           python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
       - name: Download publisher models
+        if: steps.pending.outputs.needed == 'true'
         run: |
           python - <<'PY'
           from huggingface_hub import snapshot_download
@@ -83,6 +109,16 @@ jobs:
             git commit -m 'Record reusable standalone SILMA names in resumable shards'
             git pull --rebase origin main
             git push origin HEAD:main
+          fi
+      - name: Resume only missing or corrected names, at most twice
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESUME_ATTEMPT: ${{ inputs.attempt || '0' }}
+        run: |
+          pending=$(python -c "import json; m=json.load(open('resources/celebration-audio/names.json')); print(m['recording_progress']['pending'])")
+          if [ "$pending" -gt 0 ] && [ "$RESUME_ATTEMPT" -lt 2 ]; then
+            gh api --method POST "repos/${{ github.repository }}/actions/workflows/record-celebration-names.yml/dispatches" -f ref=main -f "inputs[attempt]=$((RESUME_ATTEMPT + 1))"
+            echo "Queued a bounded resume for $pending missing or corrected names."
           fi
       - name: Confirm every catalog name has a recording
         run: |
