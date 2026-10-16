@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1859,
+  "ready": 1864,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -174248,6 +174248,421 @@
       "sha256": "3bc7f04b4ed6fa36b553d8301633ac90815d285a0fefe100fa527e032b4f0efc",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9543,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_bceb4019c92722663e5e": {
+      "id": "ar_bceb4019c92722663e5e",
+      "language": "ar",
+      "text": "أَلْبَسُ الْقُفَّازَ لِحِمَايَةِ يَدِي مِنَ الْبَرْدِ.",
+      "words": [
+        "أَلْبَسُ",
+        "الْقُفَّازَ",
+        "لِحِمَايَةِ",
+        "يَدِي",
+        "مِنَ",
+        "الْبَرْدِ."
+      ],
+      "path": "audio/meaning/ar/ar_bceb4019c92722663e5e.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألبس القفاز لحماية يدي من البرد",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0323,
+          "heard": "ألبس القفازة لحماية يدي من البرد",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          341
+        ],
+        [
+          1,
+          442,
+          1105
+        ],
+        [
+          2,
+          1245,
+          1968
+        ],
+        [
+          3,
+          2270,
+          2531
+        ],
+        [
+          4,
+          2672,
+          2792
+        ],
+        [
+          5,
+          2852,
+          3254
+        ]
+      ],
+      "duration_ms": 3917,
+      "sha256": "41e374e62f79c89960497044d5a105e0d199fe5df3f0e1609d3d4c7748713f86",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9853,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_81df2540defec765bef9": {
+      "id": "ar_81df2540defec765bef9",
+      "language": "ar",
+      "text": "تُسَاعِدُ رَقَبَةُ الزَّرَافَةِ الطَّوِيلَةُ عَلَى الْوُصُولِ إِلَى الْأَوْرَاقِ.",
+      "words": [
+        "تُسَاعِدُ",
+        "رَقَبَةُ",
+        "الزَّرَافَةِ",
+        "الطَّوِيلَةُ",
+        "عَلَى",
+        "الْوُصُولِ",
+        "إِلَى",
+        "الْأَوْرَاقِ."
+      ],
+      "path": "audio/meaning/ar/ar_81df2540defec765bef9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تساعد رقبة الزرافة الطويلة على الوصول إلى الأوراق",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          1686,
+          2268
+        ],
+        [
+          1,
+          2429,
+          2770
+        ],
+        [
+          2,
+          2951,
+          3573
+        ],
+        [
+          3,
+          3733,
+          4235
+        ],
+        [
+          4,
+          5018,
+          5078
+        ],
+        [
+          5,
+          5139,
+          5660
+        ],
+        [
+          6,
+          5901,
+          6022
+        ],
+        [
+          7,
+          6082,
+          6664
+        ]
+      ],
+      "duration_ms": 6905,
+      "sha256": "6a168faf5de6dceec8b80cd0260304129f1a19fd38fcecc41702f1d523ad4596",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9528,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_80746bffa4e926bc70d2": {
+      "id": "ar_80746bffa4e926bc70d2",
+      "language": "ar",
+      "text": "يكتب المعلم على السبورة ليرى الطلاب الشرح بوضوح.",
+      "words": [
+        "يكتب",
+        "المعلم",
+        "على",
+        "السبورة",
+        "ليرى",
+        "الطلاب",
+        "الشرح",
+        "بوضوح."
+      ],
+      "path": "audio/meaning/ar/ar_80746bffa4e926bc70d2.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يكتب المعلم على السبورة ليرى الطلاب الشرح بوضوح.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0426,
+          "heard": "يكتب المعلمة على السبورة ليرى الطلاب والشرح بوضوح",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          361
+        ],
+        [
+          1,
+          441,
+          902
+        ],
+        [
+          2,
+          1083,
+          1123
+        ],
+        [
+          3,
+          1183,
+          1644
+        ],
+        [
+          4,
+          1825,
+          2046
+        ],
+        [
+          5,
+          2086,
+          2527
+        ],
+        [
+          6,
+          2627,
+          2988
+        ],
+        [
+          7,
+          3128,
+          3650
+        ]
+      ],
+      "duration_ms": 3790,
+      "sha256": "699bc5846d41dfda54d8ba2e3babcfae219d1148603e22effad556fdb77b2e98",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9559,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_ea4f82a9f94763707755": {
+      "id": "ar_ea4f82a9f94763707755",
+      "language": "ar",
+      "text": "أغلق جفني ليحمي عيني، ويساعد الرمش على ترطيبها.",
+      "words": [
+        "أغلق",
+        "جفني",
+        "ليحمي",
+        "عيني،",
+        "ويساعد",
+        "الرمش",
+        "على",
+        "ترطيبها."
+      ],
+      "path": "audio/meaning/ar/ar_ea4f82a9f94763707755.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أغلق جفني ليحمي عيني ويساعد الرمش على ترطيبها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.375,
+          "cer": 0.0667,
+          "heard": "أغلق جفني ليحميعني ويساعد الرمش على ترتيبها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          341
+        ],
+        [
+          1,
+          461,
+          782
+        ],
+        [
+          2,
+          863,
+          1224
+        ],
+        [
+          3,
+          1445,
+          1625
+        ],
+        [
+          4,
+          2067,
+          2588
+        ],
+        [
+          5,
+          2668,
+          2969
+        ],
+        [
+          6,
+          3170,
+          3230
+        ],
+        [
+          7,
+          3290,
+          3912
+        ]
+      ],
+      "duration_ms": 4013,
+      "sha256": "cd49030643700409a51facfbf67b75c63bad291aad947cf55e0a00b2e4ddfe64",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9593,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_438fbb55b1c46066e131": {
+      "id": "ar_438fbb55b1c46066e131",
+      "language": "ar",
+      "text": "السطح المسطح مستو، مثل سطح طاولة مناسب للكتابة.",
+      "words": [
+        "السطح",
+        "المسطح",
+        "مستو،",
+        "مثل",
+        "سطح",
+        "طاولة",
+        "مناسب",
+        "للكتابة."
+      ],
+      "path": "audio/meaning/ar/ar_438fbb55b1c46066e131.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "السطح المسطح مستو مثل سطح طاولة مناسب للكتابة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0444,
+          "heard": "السطح المسطح مستو، مثل سطح طويلة مناسب للكتابة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          321
+        ],
+        [
+          1,
+          401,
+          882
+        ],
+        [
+          2,
+          942,
+          1263
+        ],
+        [
+          3,
+          1704,
+          1904
+        ],
+        [
+          4,
+          2024,
+          2225
+        ],
+        [
+          5,
+          2345,
+          2706
+        ],
+        [
+          6,
+          2826,
+          3247
+        ],
+        [
+          7,
+          3347,
+          3948
+        ]
+      ],
+      "duration_ms": 4048,
+      "sha256": "4d63dd243004bbe13373c55ae630c04533aac4e91a9eb83357ff876730b07c1d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9272,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
