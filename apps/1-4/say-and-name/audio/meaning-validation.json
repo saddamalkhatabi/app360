@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1927,
+  "ready": 1928,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180307,6 +180307,95 @@
       "alignment_score": 0.8869,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_fde4978b28f2335dc187": {
+      "id": "ar_fde4978b28f2335dc187",
+      "language": "ar",
+      "text": "يجمع المعرض أعمالا أو أشياء ليراها الزوار ويتعرفوا عليها.",
+      "words": [
+        "يجمع",
+        "المعرض",
+        "أعمالا",
+        "أو",
+        "أشياء",
+        "ليراها",
+        "الزوار",
+        "ويتعرفوا",
+        "عليها."
+      ],
+      "path": "audio/meaning/ar/ar_fde4978b28f2335dc187.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَجْمَعُ الْمَعْرِضُ أَعْمَالًا أَوْ أَشْيَاءَ، لِيَرَاهَا الزُّوَّارُ وَيَتَعَرَّفُوا عَلَيْهَا.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يجمع المعرض أعمالاً أو أشياء ليراها الزوار ويتعرفوا عليها",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 42361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          320
+        ],
+        [
+          1,
+          541,
+          981
+        ],
+        [
+          2,
+          1201,
+          1702
+        ],
+        [
+          3,
+          2162,
+          2262
+        ],
+        [
+          4,
+          2382,
+          2723
+        ],
+        [
+          5,
+          4364,
+          4945
+        ],
+        [
+          6,
+          5005,
+          5646
+        ],
+        [
+          7,
+          6186,
+          7167
+        ],
+        [
+          8,
+          7287,
+          7608
+        ]
+      ],
+      "duration_ms": 8649,
+      "sha256": "658464450380036263ddfb40bda50b076bb193e8f878d8d6661788f3b048fc0b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9301,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
