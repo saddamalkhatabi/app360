@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1919,
+  "ready": 1920,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -179495,6 +179495,125 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_6c6ffb2f81b034209a20": {
+      "id": "en_6c6ffb2f81b034209a20",
+      "language": "en",
+      "text": "A radish has a crunchy root that may be red outside and white inside.",
+      "words": [
+        "A",
+        "radish",
+        "has",
+        "a",
+        "crunchy",
+        "root",
+        "that",
+        "may",
+        "be",
+        "red",
+        "outside",
+        "and",
+        "white",
+        "inside."
+      ],
+      "path": "audio/meaning/en/en_6c6ffb2f81b034209a20.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "A radish has a crunchy root that may be red outside and white inside.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A radish has a crunchy root that may be red outside and white inside.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          141,
+          582
+        ],
+        [
+          2,
+          663,
+          843
+        ],
+        [
+          3,
+          883,
+          904
+        ],
+        [
+          4,
+          1004,
+          1405
+        ],
+        [
+          5,
+          1546,
+          1807
+        ],
+        [
+          6,
+          2429,
+          2610
+        ],
+        [
+          7,
+          2690,
+          2831
+        ],
+        [
+          8,
+          2911,
+          2992
+        ],
+        [
+          9,
+          3092,
+          3293
+        ],
+        [
+          10,
+          3353,
+          3935
+        ],
+        [
+          11,
+          4236,
+          4357
+        ],
+        [
+          12,
+          4397,
+          4678
+        ],
+        [
+          13,
+          4738,
+          5321
+        ]
+      ],
+      "duration_ms": 6043,
+      "sha256": "4b8d89a2de1b3325bc6bbd37d1d4fddcb9d49467cfd764c03824d5eebd1fe35f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9397,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
