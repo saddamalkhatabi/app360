@@ -1,0 +1,87 @@
+name: Record age-adapted Islamic routines and Arabic duas
+on:
+  push:
+    branches: [feature/routine-islamic-20261016]
+    paths:
+      - apps/1-4/my-little-routine/audio/islamic-scripts-v1.json
+      - .github/workflows/record-routine-islamic.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: routine-islamic-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned recording dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/silma-hf/hub
+            ~/.cache/torch/hub/checkpoints
+          key: routine-islamic-silma-226dd7a-mms-v1
+      - name: Cache publisher models before synthesis
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import torchaudio
+          torchaudio.pipelines.MMS_FA.get_model()
+          PY
+      - name: Record and measure each actual MP3
+        run: python apps/1-4/my-little-routine/tools/record_islamic_routines.py --part ${{ matrix.part }} --parts 12 --output /tmp/routine-islamic-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routine-islamic-${{ matrix.part }}
+          path: /tmp/routine-islamic-output
+          if-no-files-found: error
+          retention-days: 14
+  publish:
+    needs: record
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: routine-islamic-*
+          path: /tmp/routine-islamic-output
+          merge-multiple: true
+      - name: Validate and publish measured recordings
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/my-little-routine/tools/finalize_islamic_audio.py --input /tmp/routine-islamic-output
+          node tooling/refresh-routine-offline-preview.cjs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/my-little-routine/audio/islamic apps/1-4/my-little-routine/audio/islamic-recordings-v1.js data/offline/a1-routine.json data/offline-catalog.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record Islamic routines and duas with measured scene timings'
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
