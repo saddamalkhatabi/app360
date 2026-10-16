@@ -10,6 +10,14 @@ await page.locator('#useHabit').click();await page.locator('#startRoutine').clic
 await page.goto(url+'?routine_age=1-4&lang=en');assert.match(await page.locator('#focusLabel').innerText(),/I sit at the table/);
 await page.goto(url+'?launch_age=4-8&launch_level=2&lang=ar');await page.waitForTimeout(150);assert.equal(await page.locator('.habitCard').count(),24);assert.equal(await page.locator('#library').getAttribute('class'),'view on');
 assert(await page.locator('#routineChallenge').isVisible());await page.locator('#routineShowAnswer').click();assert.match(await page.locator('#routineQuestionFeedback').innerText(),/بِسْمِ/);
+if(await page.locator('#duaListen').isEnabled()){
+ const received=page.waitForResponse(r=>r.url().includes('/audio/islamic/dua/bismillah.mp3'));
+ await page.locator('#duaListen').click();assert((await received).ok());
+ await page.waitForFunction(()=>document.querySelectorAll('#routineDuaText .duaWord.active').length>0,null,{timeout:6000});
+ await page.locator('#sound').click();assert.equal(await page.locator('#routineDuaText .duaWord.active').count(),0);await page.locator('#sound').click();
+ const narration=page.waitForResponse(r=>r.url().includes('/audio/islamic/ar/meal-manners.mp3'));
+ await page.locator('#listenFullRoutine').click();assert((await narration).ok());
+}
 await page.locator('[data-habit="toilet-before"]').click();await page.waitForTimeout(180);assert.match(await page.locator('#routineDuaText').innerText(),/الْخُبُثِ/);
 assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
 await page.screenshot({path:output+'/routine-advanced-mobile.png',fullPage:false});
