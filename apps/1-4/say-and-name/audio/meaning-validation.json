@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1950,
+  "ready": 1953,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -182510,6 +182510,285 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_436c1c60b2fd7383a2b6": {
+      "id": "ar_436c1c60b2fd7383a2b6",
+      "language": "ar",
+      "text": "للبرقوق قشرة ناعمة ونواة صلبة، ويمكن تجفيف بعض أنواعه.",
+      "words": [
+        "للبرقوق",
+        "قشرة",
+        "ناعمة",
+        "ونواة",
+        "صلبة،",
+        "ويمكن",
+        "تجفيف",
+        "بعض",
+        "أنواعه."
+      ],
+      "path": "audio/meaning/ar/ar_436c1c60b2fd7383a2b6.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْبَرْقُوقِ قِشْرَةٌ نَاعِمَةٌ وَنَوَاةٌ صُلْبَةٌ، وَيُمْكِنُ تَجْفِيفُ بَعْضِ أَنْوَاعِهِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للبرقوق قشرة ناعمة ونواة صلبة ويمكن تجفيف بعض أنواعه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0192,
+          "heard": "للبرقوق قشرة ناعمة ونوات صلبة ويمكن تجفيف بعض أنواعه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          681
+        ],
+        [
+          1,
+          882,
+          1222
+        ],
+        [
+          2,
+          1623,
+          2084
+        ],
+        [
+          3,
+          2605,
+          3086
+        ],
+        [
+          4,
+          3306,
+          3607
+        ],
+        [
+          5,
+          4969,
+          5470
+        ],
+        [
+          6,
+          5610,
+          6071
+        ],
+        [
+          7,
+          6211,
+          6452
+        ],
+        [
+          8,
+          6592,
+          7133
+        ]
+      ],
+      "duration_ms": 7875,
+      "sha256": "764fc9bf35c9550f700b924d9f6dd7223417a9467326f275da065c86ef86ad7c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9399,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3470378bc1cee641e756": {
+      "id": "ar_3470378bc1cee641e756",
+      "language": "ar",
+      "text": "عندما أغضب أتنفس بهدوء، وأعبر بالكلام دون ضرب أو إيذاء.",
+      "words": [
+        "عندما",
+        "أغضب",
+        "أتنفس",
+        "بهدوء،",
+        "وأعبر",
+        "بالكلام",
+        "دون",
+        "ضرب",
+        "أو",
+        "إيذاء."
+      ],
+      "path": "audio/meaning/ar/ar_3470378bc1cee641e756.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "عِنْدَمَا أَغْضَبُ أَتَنَفَّسُ بِهُدُوءٍ، وَأُعَبِّرُ بِالْكَلَامِ دُونَ ضَرْبٍ أَوْ إِيذَاءٍ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "عندما أغضب، أتنفس بهدوء، وأعبّر بالكلام دون ضرب أو إيذاء",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0377,
+          "heard": "عندما أغضب أتنفس بهدوء، وأعبر بالكلام دون ضرب أو إذا.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          160,
+          461
+        ],
+        [
+          1,
+          701,
+          1042
+        ],
+        [
+          2,
+          1402,
+          1983
+        ],
+        [
+          3,
+          2103,
+          2444
+        ],
+        [
+          4,
+          3545,
+          4166
+        ],
+        [
+          5,
+          4246,
+          4807
+        ],
+        [
+          6,
+          5208,
+          5468
+        ],
+        [
+          7,
+          5729,
+          5969
+        ],
+        [
+          8,
+          6250,
+          6350
+        ],
+        [
+          9,
+          6490,
+          6730
+        ]
+      ],
+      "duration_ms": 7952,
+      "sha256": "2799d3a91f8088172e200e7a83102d13aba666a80adff3b3fd65632b3f5454cd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9274,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e52ad1ec2cf38cda3ab0": {
+      "id": "ar_e52ad1ec2cf38cda3ab0",
+      "language": "ar",
+      "text": "يعتني البستاني بالنباتات، فيزرعها ويسقيها ويقلمها.",
+      "words": [
+        "يعتني",
+        "البستاني",
+        "بالنباتات،",
+        "فيزرعها",
+        "ويسقيها",
+        "ويقلمها."
+      ],
+      "path": "audio/meaning/ar/ar_e52ad1ec2cf38cda3ab0.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَعْتَنِي الْبُسْتَانِيُّ بِالنَّبَاتَاتِ، فَيَزْرَعُهَا وَيَسْقِيهَا وَيُقَلِّمُهَا.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يعتني البستاني بالنباتات فيزرعها ويسقيها ويقلمها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0417,
+          "heard": "يعتني البستاني وبالنباتات فيزراعها ويسقيها ويقلمها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          521
+        ],
+        [
+          1,
+          601,
+          1262
+        ],
+        [
+          2,
+          1462,
+          2303
+        ],
+        [
+          3,
+          4006,
+          4787
+        ],
+        [
+          4,
+          4967,
+          5709
+        ],
+        [
+          5,
+          5869,
+          6830
+        ]
+      ],
+      "duration_ms": 7652,
+      "sha256": "c8ea0c0ef0f4565c688a702f34b39934586160324c1860a14c74fc852716cbbd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.986,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
