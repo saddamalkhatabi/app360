@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2013,
+  "ready": 2014,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187435,6 +187435,59 @@
       "sha256": "5484ea1fe13e8d7470f79e64e0bad629eaa1c73115fecab75e9ccdbc2d6b638a",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9894,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4e641e1c0b8f2c8453b4": {
+      "id": "ar_4e641e1c0b8f2c8453b4",
+      "language": "ar",
+      "text": "نأكل منها القليل.",
+      "words": [
+        "نأكل",
+        "منها",
+        "القليل."
+      ],
+      "path": "audio/meaning/ar/ar_4e641e1c0b8f2c8453b4.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نأكل منها القليل.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نأكل منها القليل",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          100,
+          522
+        ],
+        [
+          1,
+          663,
+          944
+        ],
+        [
+          2,
+          1004,
+          1607
+        ]
+      ],
+      "duration_ms": 2872,
+      "sha256": "31e9f71639bef3db11c6cba0e92bcb9f9fc6163a2056e09c5cfcd01d3fd80296",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9545,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
