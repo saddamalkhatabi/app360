@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2002,
+  "ready": 2004,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186664,6 +186664,156 @@
       "sha256": "b8bc6b162992508bcadf3d0ad71657203c185b0498c7811a555a795bec81fa75",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9692,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_cf619278a9b71125d964": {
+      "id": "ar_cf619278a9b71125d964",
+      "language": "ar",
+      "text": "أُمَشِّطُ شَعْرِي لِيَبْقَى مُرَتَّبًا.",
+      "words": [
+        "أُمَشِّطُ",
+        "شَعْرِي",
+        "لِيَبْقَى",
+        "مُرَتَّبًا."
+      ],
+      "path": "audio/meaning/ar/ar_cf619278a9b71125d964.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أُمَشِّطُ شَعْرِي لِيَبْقَى مُرَتَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أمشّط شعري ليبقى مرتبا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0476,
+          "heard": "أمشت شعري ليبقى مرتباً",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          462
+        ],
+        [
+          1,
+          603,
+          944
+        ],
+        [
+          2,
+          1044,
+          1486
+        ],
+        [
+          3,
+          1587,
+          2149
+        ]
+      ],
+      "duration_ms": 3174,
+      "sha256": "59ef1d745e087236173de182a28fc78cfbb15d8e5b299c3544b2e218583364a9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9066,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3e905bfcd6dddd23a510": {
+      "id": "ar_3e905bfcd6dddd23a510",
+      "language": "ar",
+      "text": "نِصْفُ الدَّائِرَةِ شَكْلٌ لَهُ جَانِبٌ مُسْتَقِيمٌ وَجَانِبٌ مُنْحَنٍ.",
+      "words": [
+        "نِصْفُ",
+        "الدَّائِرَةِ",
+        "شَكْلٌ",
+        "لَهُ",
+        "جَانِبٌ",
+        "مُسْتَقِيمٌ",
+        "وَجَانِبٌ",
+        "مُنْحَنٍ."
+      ],
+      "path": "audio/meaning/ar/ar_3e905bfcd6dddd23a510.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نِصْفُ الدَّائِرَةِ شَكْلٌ لَهُ جَانِبٌ مُسْتَقِيمٌ وَجَانِبٌ مُنْحَنٍ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نصف الدائرة شكل له جانب مستقيم وجانب منحن",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          261
+        ],
+        [
+          1,
+          361,
+          882
+        ],
+        [
+          2,
+          1143,
+          1443
+        ],
+        [
+          3,
+          1744,
+          1904
+        ],
+        [
+          4,
+          2125,
+          2506
+        ],
+        [
+          5,
+          2887,
+          3508
+        ],
+        [
+          6,
+          3829,
+          4370
+        ],
+        [
+          7,
+          4610,
+          5092
+        ]
+      ],
+      "duration_ms": 5553,
+      "sha256": "b4fbd7c6ebde469d08dd3ba00d630feb704e3d053783e9066fd37ed7843f7ef1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9525,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
