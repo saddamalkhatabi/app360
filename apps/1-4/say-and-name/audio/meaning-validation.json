@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2012,
+  "ready": 2013,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187376,6 +187376,65 @@
       "sha256": "f865ac3a400136c660e308dfa03f333284ec9600f28711feae85600d8a0e595e",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9667,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_662111fec40bbbe9f445": {
+      "id": "ar_662111fec40bbbe9f445",
+      "language": "ar",
+      "text": "هذا الطعام فيه بروتين.",
+      "words": [
+        "هذا",
+        "الطعام",
+        "فيه",
+        "بروتين."
+      ],
+      "path": "audio/meaning/ar/ar_662111fec40bbbe9f445.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "هذا الطعام فيه بروتين.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "هذا الطعام فيه بروتين",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          262
+        ],
+        [
+          1,
+          322,
+          1006
+        ],
+        [
+          2,
+          1248,
+          1630
+        ],
+        [
+          3,
+          1932,
+          2696
+        ]
+      ],
+      "duration_ms": 4085,
+      "sha256": "5484ea1fe13e8d7470f79e64e0bad629eaa1c73115fecab75e9ccdbc2d6b638a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9894,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
