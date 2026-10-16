@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1948,
+  "ready": 1950,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -182336,6 +182336,180 @@
       "alignment_score": 0.9201,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_916896d92d6d9e404edc": {
+      "id": "ar_916896d92d6d9e404edc",
+      "language": "ar",
+      "text": "ينشر ذكر الطاووس ريشه الطويل الملون على شكل مروحة.",
+      "words": [
+        "ينشر",
+        "ذكر",
+        "الطاووس",
+        "ريشه",
+        "الطويل",
+        "الملون",
+        "على",
+        "شكل",
+        "مروحة."
+      ],
+      "path": "audio/meaning/ar/ar_916896d92d6d9e404edc.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَنْشُرُ ذَكَرُ الطَّاوُوسِ رِيشَهُ الطَّوِيلَ الْمُلَوَّنَ، عَلَى شَكْلِ مِرْوَحَةٍ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ينشر ذكر الطاووس ريشه الطويل الملوّن على شكل مروحة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 43361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          441
+        ],
+        [
+          1,
+          602,
+          922
+        ],
+        [
+          2,
+          1023,
+          1604
+        ],
+        [
+          3,
+          1785,
+          2166
+        ],
+        [
+          4,
+          2286,
+          2787
+        ],
+        [
+          5,
+          2888,
+          3569
+        ],
+        [
+          6,
+          5915,
+          5996
+        ],
+        [
+          7,
+          6116,
+          6397
+        ],
+        [
+          8,
+          6537,
+          7099
+        ]
+      ],
+      "duration_ms": 7760,
+      "sha256": "122296b61de4f5f3e1f3dfbb316f895e4332b809ecd3d1872d64cb2857469714",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.938,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c2bba7ac415c7cfcb9c7": {
+      "id": "ar_c2bba7ac415c7cfcb9c7",
+      "language": "ar",
+      "text": "نهز الدف أو نضربه برفق ليصدر إيقاعا.",
+      "words": [
+        "نهز",
+        "الدف",
+        "أو",
+        "نضربه",
+        "برفق",
+        "ليصدر",
+        "إيقاعا."
+      ],
+      "path": "audio/meaning/ar/ar_c2bba7ac415c7cfcb9c7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَهُزُّ الدُّفَّ أَوْ نَضْرِبُهُ بِرِفْقٍ، لِيُصْدِرَ إِيقَاعًا.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نهزُّ الدُّفَّ أو نضربُه برفق ليُصدِرَ إيقاعًا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2857,
+          "cer": 0.0857,
+          "heard": "نهزوا الدفة أو نضربه برفق ليصدر إيقاعا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 42361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          460
+        ],
+        [
+          1,
+          641,
+          1021
+        ],
+        [
+          2,
+          1241,
+          1321
+        ],
+        [
+          3,
+          1381,
+          1882
+        ],
+        [
+          4,
+          2042,
+          2443
+        ],
+        [
+          5,
+          3784,
+          4325
+        ],
+        [
+          6,
+          4485,
+          5005
+        ]
+      ],
+      "duration_ms": 5866,
+      "sha256": "b591441b2887c43f40911c944fbd336a0a5bdbdbd2dc605605df68a97e89764d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9097,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
