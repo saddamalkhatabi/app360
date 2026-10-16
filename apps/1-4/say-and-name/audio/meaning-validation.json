@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2015,
+  "ready": 2016,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187547,6 +187547,67 @@
       "sha256": "90d918f3603b84381ec46434c00d76c702884ccb0e99aba507890c3aab812c26",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9967,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_40c6b888259e46ac1efa": {
+      "id": "ar_40c6b888259e46ac1efa",
+      "language": "ar",
+      "text": "ننظف بها الأرض.",
+      "words": [
+        "ننظف",
+        "بها",
+        "الأرض."
+      ],
+      "path": "audio/meaning/ar/ar_40c6b888259e46ac1efa.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "ننظف بها الأرض.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ننظف بها الأرض",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.1429,
+          "heard": "ننضفو بها الأرض",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          463
+        ],
+        [
+          1,
+          684,
+          885
+        ],
+        [
+          2,
+          965,
+          1508
+        ]
+      ],
+      "duration_ms": 2494,
+      "sha256": "9c58867433eccc29cdd020f46913fa9811e179b72d24a27274c2db0a51468830",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9126,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
