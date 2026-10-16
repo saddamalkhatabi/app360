@@ -12,6 +12,9 @@ on:
       - 'tooling/review-celebration-name.cjs'
       - 'tooling/test-name-listening-review.cjs'
       - 'tooling/test-name-review-browser.cjs'
+      - 'tooling/*celebration-name*'
+      - 'tooling/celebration_name_batches.py'
+      - 'tooling/test_celebration_name_batches.py'
       - '.github/workflows/verify-personalized-celebration.yml'
   workflow_dispatch:
 permissions:
@@ -21,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: python -m unittest discover -s tooling -p test_celebration_name_batches.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

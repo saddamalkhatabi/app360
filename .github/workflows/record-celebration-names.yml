@@ -11,11 +11,20 @@ concurrency:
   cancel-in-progress: false
 jobs:
   record:
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 90
     env:
       HF_HOME: /tmp/silma-hf
       PYTHONUNBUFFERED: '1'
+      APP360_NAME_SHARD_INDEX: ${{ matrix.shard }}
+      APP360_NAME_SHARD_COUNT: '20'
+      APP360_NAME_BATCH_LIMIT: '100'
+      APP360_NAME_EXPORT_DIR: /tmp/name-recording-export
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -44,13 +53,43 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: standalone-names-silma
-          path: resources/celebration-audio/
-      - name: Publish only generated shared media
+          name: standalone-names-silma-${{ matrix.shard }}
+          path: /tmp/name-recording-export/
+          if-no-files-found: warn
+  publish:
+    needs: record
+    if: ${{ always() && !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: standalone-names-silma-*
+          merge-multiple: true
+          path: /tmp/name-results
+      - name: Verify and merge completed recordings into the current catalog
+        run: python tooling/merge-celebration-name-batches.py --incoming /tmp/name-results --expected-shards 20
+      - name: Publish completed media, including recoverable partial batches
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add resources/celebration-audio/names.json resources/celebration-audio/audio/names
-          git commit -m 'Record reusable standalone SILMA names'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record reusable standalone SILMA names in resumable shards'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Confirm every catalog name has a recording
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('resources/celebration-audio/names.json').read_text())
+          print(m['recording_progress'])
+          assert m['complete'], 'Partial recordings were saved. Retry to resume the missing names.'
+          PY

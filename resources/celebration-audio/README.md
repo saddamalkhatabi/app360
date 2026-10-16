@@ -76,3 +76,24 @@ and their reviews. Do not add invented spelling variants as new canonical people
 
 First batch completed: 41 standalone name recordings, with exact hashes and durations.
 All 41 are pending human listening review; none have been automatically approved.
+
+## Expanded catalog and resumable recording
+
+The v2 catalog now contains **1041 canonical names**: the existing 41 recordings
+plus 1000 new candidates with authored reading vowels. The added entries remain
+`pending-standalone-recording` until actual media is published. Name provenance and
+MIT notices for the consulted candidate lists are in `sources/`.
+
+The recorder partitions stable canonical IDs across 20 independent SILMA jobs.
+Each job checkpoints completed recordings after each name and uploads them even
+when later inference fails. A final job reads the latest `main` catalog, verifies
+incoming identity/text/path/digest/duration, preserves current valid reviewed
+recordings, and publishes all completed media. Missing/failed names are retried on
+the next run; unchanged valid clips are skipped before loading the model. A failed
+shard never marks the whole catalog complete. New audio always awaits listening
+review; no recording job can approve itself.
+
+`recording_progress` reports actual verified recordings, pending names and received
+shards. `complete` means all canonical names have media, not approved pronunciation.
+The public child applications continue to use generic praise. Billing entitlements,
+review approval and Google server configuration remain independent requirements.
