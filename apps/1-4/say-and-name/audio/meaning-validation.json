@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1795,
+  "ready": 1800,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -168044,6 +168044,597 @@
       "sha256": "a477bec254d7fc70bdedb2d8334fd7007949a05cc303ebfac45132797bfd4dc6",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9225,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_62beeb102b5ae92b3b87": {
+      "id": "en_62beeb102b5ae92b3b87",
+      "language": "en",
+      "text": "A roar is a loud sound animals such as lions use to communicate from far away.",
+      "words": [
+        "A",
+        "roar",
+        "is",
+        "a",
+        "loud",
+        "sound",
+        "animals",
+        "such",
+        "as",
+        "lions",
+        "use",
+        "to",
+        "communicate",
+        "from",
+        "far",
+        "away."
+      ],
+      "path": "audio/meaning/en/en_62beeb102b5ae92b3b87.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A roar is a loud sound animals, such as lions use to communicate from far away.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1875,
+          "cer": 0.0519,
+          "heard": "A roar is allowed sound animals, such as lions used to communicate from far away.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          201,
+          221
+        ],
+        [
+          1,
+          301,
+          522
+        ],
+        [
+          2,
+          662,
+          743
+        ],
+        [
+          3,
+          803,
+          823
+        ],
+        [
+          4,
+          923,
+          1224
+        ],
+        [
+          5,
+          1325,
+          1646
+        ],
+        [
+          6,
+          1766,
+          2228
+        ],
+        [
+          7,
+          2830,
+          3051
+        ],
+        [
+          8,
+          3091,
+          3191
+        ],
+        [
+          9,
+          3291,
+          3733
+        ],
+        [
+          10,
+          3853,
+          4014
+        ],
+        [
+          11,
+          4074,
+          4114
+        ],
+        [
+          12,
+          4174,
+          4877
+        ],
+        [
+          13,
+          4937,
+          5078
+        ],
+        [
+          14,
+          5178,
+          5379
+        ],
+        [
+          15,
+          5479,
+          5780
+        ]
+      ],
+      "duration_ms": 6382,
+      "sha256": "9205be1cafef0da95b01d4ae3475582d89fb33c5207201e9927186380684c91f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9705,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_4dcf75a111534bed7a7c": {
+      "id": "en_4dcf75a111534bed7a7c",
+      "language": "en",
+      "text": "An orca belongs to the dolphin family and lives and hunts in groups.",
+      "words": [
+        "An",
+        "orca",
+        "belongs",
+        "to",
+        "the",
+        "dolphin",
+        "family",
+        "and",
+        "lives",
+        "and",
+        "hunts",
+        "in",
+        "groups."
+      ],
+      "path": "audio/meaning/en/en_4dcf75a111534bed7a7c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An orca belongs to the dolphin family and lives and hunts in groups.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          80
+        ],
+        [
+          1,
+          221,
+          442
+        ],
+        [
+          2,
+          522,
+          944
+        ],
+        [
+          3,
+          984,
+          1044
+        ],
+        [
+          4,
+          1104,
+          1185
+        ],
+        [
+          5,
+          1245,
+          1627
+        ],
+        [
+          6,
+          1687,
+          2149
+        ],
+        [
+          7,
+          2751,
+          2872
+        ],
+        [
+          8,
+          2932,
+          3313
+        ],
+        [
+          9,
+          3434,
+          3554
+        ],
+        [
+          10,
+          3615,
+          3936
+        ],
+        [
+          11,
+          4016,
+          4097
+        ],
+        [
+          12,
+          4197,
+          4739
+        ]
+      ],
+      "duration_ms": 4960,
+      "sha256": "441520c290ef6d56e5244cf260617a01fe57dc54d341664514c9122246197b14",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8932,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b9a4e207b331b88e389b": {
+      "id": "en_b9a4e207b331b88e389b",
+      "language": "en",
+      "text": "A dress is clothing with a top and a skirt joined together.",
+      "words": [
+        "A",
+        "dress",
+        "is",
+        "clothing",
+        "with",
+        "a",
+        "top",
+        "and",
+        "a",
+        "skirt",
+        "joined",
+        "together."
+      ],
+      "path": "audio/meaning/en/en_b9a4e207b331b88e389b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A dress is clothing with a top and a skirt joined together.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0833,
+          "cer": 0.0345,
+          "heard": "a dress is clothing with a top and a skirt join together.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          261,
+          281
+        ],
+        [
+          1,
+          422,
+          743
+        ],
+        [
+          2,
+          844,
+          984
+        ],
+        [
+          3,
+          1105,
+          1607
+        ],
+        [
+          4,
+          1667,
+          1808
+        ],
+        [
+          5,
+          1848,
+          1868
+        ],
+        [
+          6,
+          1968,
+          2270
+        ],
+        [
+          7,
+          2430,
+          2551
+        ],
+        [
+          8,
+          2591,
+          2611
+        ],
+        [
+          9,
+          2691,
+          2993
+        ],
+        [
+          10,
+          3093,
+          3435
+        ],
+        [
+          11,
+          3495,
+          3937
+        ]
+      ],
+      "duration_ms": 4238,
+      "sha256": "36021228db7b08b130b9a26b52e64cc0acd5b6965a029704005af72e0030a697",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9049,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3ca07dc14f02c9a1e424": {
+      "id": "en_3ca07dc14f02c9a1e424",
+      "language": "en",
+      "text": "A television shows moving pictures and sound, and we watch for a suitable time with family.",
+      "words": [
+        "A",
+        "television",
+        "shows",
+        "moving",
+        "pictures",
+        "and",
+        "sound,",
+        "and",
+        "we",
+        "watch",
+        "for",
+        "a",
+        "suitable",
+        "time",
+        "with",
+        "family."
+      ],
+      "path": "audio/meaning/en/en_3ca07dc14f02c9a1e424.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A television shows moving pictures and sound, and we watch for a suitable time with family.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          100,
+          662
+        ],
+        [
+          2,
+          822,
+          1183
+        ],
+        [
+          3,
+          1283,
+          1624
+        ],
+        [
+          4,
+          1725,
+          2126
+        ],
+        [
+          5,
+          2186,
+          2266
+        ],
+        [
+          6,
+          2346,
+          2807
+        ],
+        [
+          7,
+          3469,
+          3569
+        ],
+        [
+          8,
+          3590,
+          3670
+        ],
+        [
+          9,
+          3750,
+          4031
+        ],
+        [
+          10,
+          4091,
+          4211
+        ],
+        [
+          11,
+          4251,
+          4271
+        ],
+        [
+          12,
+          4392,
+          4913
+        ],
+        [
+          13,
+          4953,
+          5314
+        ],
+        [
+          14,
+          5354,
+          5495
+        ],
+        [
+          15,
+          5555,
+          5976
+        ]
+      ],
+      "duration_ms": 6858,
+      "sha256": "c4c17a4feeff0c9b308986637cfb6d1c8ff50439a214f08f5d243c0f87df5bbc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9761,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_007fa19eeb87f1d46672": {
+      "id": "en_007fa19eeb87f1d46672",
+      "language": "en",
+      "text": "Earth is our planet, with air and water that help living things survive.",
+      "words": [
+        "Earth",
+        "is",
+        "our",
+        "planet,",
+        "with",
+        "air",
+        "and",
+        "water",
+        "that",
+        "help",
+        "living",
+        "things",
+        "survive."
+      ],
+      "path": "audio/meaning/en/en_007fa19eeb87f1d46672.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Earth is our planet, with air and water that help living things survive.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          261
+        ],
+        [
+          1,
+          321,
+          422
+        ],
+        [
+          2,
+          482,
+          603
+        ],
+        [
+          3,
+          643,
+          1024
+        ],
+        [
+          4,
+          1567,
+          1728
+        ],
+        [
+          5,
+          1848,
+          2049
+        ],
+        [
+          6,
+          2290,
+          2390
+        ],
+        [
+          7,
+          2451,
+          2792
+        ],
+        [
+          8,
+          3073,
+          3214
+        ],
+        [
+          9,
+          3274,
+          3495
+        ],
+        [
+          10,
+          3656,
+          3917
+        ],
+        [
+          11,
+          3977,
+          4279
+        ],
+        [
+          12,
+          4359,
+          4942
+        ]
+      ],
+      "duration_ms": 4962,
+      "sha256": "0e7a63287d43b53094513502fbba29d130cb793155284540a78e5cf065ba3e04",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9837,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
