@@ -50,7 +50,7 @@ for i,row in enumerate(items):
    if pieces:pieces.append(np.zeros(round(sr*.12),dtype=np.float32))
    pieces.append(piece)
   wav=np.concatenate(pieces);sf.write(wavfile,wav,sr)
-  if a.recover:row.update(pronunciation_revision='authored-recovery-v3',spoken_text=prompt,phrase_count=len(chunks),reference_strategy='verified same-voice clip' if selected_ref!=ref else 'publisher reference')
+  if a.recover:row.update(pronunciation_revision='authored-recovery-v3',spoken_text=prompt,phrase_count=len(chunks),reference_strategy='verified same-voice clip' if selected_ref!=ref else 'publisher reference',reference=('verified clip '+pathlib.Path(selected_ref).relative_to(ROOT).as_posix()) if selected_ref!=ref else 'publisher ar.ref.24k.wav')
   assert sr==24000 and np.isfinite(wav).all() and .5<len(wav)/sr<45 and np.max(np.abs(wav))>.005,row['id']
   subprocess.run(['ffmpeg','-v','error','-y','-i',str(wavfile),'-ar','24000','-ac','1','-codec:a','libmp3lame','-b:a','64k','-id3v2_version','0',str(target)],check=True);wavfile.unlink()
   segments,_=recognizer.transcribe(str(target),language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)
@@ -85,7 +85,7 @@ for row in items:
  duration=round(len(samples)/sr*1000)
  assert len(cues)==len(row['words']) and all(0<=start<end<=duration for _,start,end in cues)
  assert all(cues[i][2]<=cues[i+1][1] for i in range(len(cues)-1))
- row.update(cues=cues,duration_ms=duration,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),timing_source='MMS_FA acoustic alignment of decoded MP3',alignment_score=round(float(np.mean(scores)),4),model_revision=manifest['model_revision'],package_version=manifest['package_version'],precision=row.get('precision',precision),reference='publisher ar.ref.24k.wav',steps=48,quality_revision='facts-v2-asr',auditory_review='pending')
+ row.update(cues=cues,duration_ms=duration,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),timing_source='MMS_FA acoustic alignment of decoded MP3',alignment_score=round(float(np.mean(scores)),4),model_revision=manifest['model_revision'],package_version=manifest['package_version'],precision=row.get('precision',precision),reference=row.get('reference','publisher ar.ref.24k.wav'),steps=48,quality_revision='facts-v2-asr',auditory_review='pending')
  print('Aligned',row['id'],len(cues),'words',flush=True)
 (out/('priority.json' if a.priority else 'part-'+str(a.part)+'.json')).write_text(json.dumps(dict(items=items),ensure_ascii=False,indent=2)+'\n')
 

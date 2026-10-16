@@ -20,6 +20,7 @@ for report in source.glob('*.json'):
    assert index==i and 0<=start<end<=row['duration_ms']
    if i:assert row['cues'][i-1][2]<=start
   subprocess.run(['ffmpeg','-v','error','-i',str(target),'-f','null','-'],check=True)
+  if row.get('reference_strategy')=='verified same-voice clip' and row.get('reference')=='publisher ar.ref.24k.wav':row['reference']='verified same-voice SILMA clip'
   dest=ROOT/row['path'];dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(target,dest);clips[cid]=row
 if a.merge:pass
 elif a.partial:assert {r['id'] for r in manifest['items'][:manifest['priority_count']]}<=set(clips)
