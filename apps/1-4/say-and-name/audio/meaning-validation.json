@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1958,
+  "ready": 1959,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -183234,6 +183234,109 @@
       "alignment_score": 0.9842,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d40103a55f4a09725be3": {
+      "id": "ar_d40103a55f4a09725be3",
+      "language": "ar",
+      "text": "للكمثرى لب عصيري، ويكون طرفها العلوي أضيق من قاعدتها غالبا.",
+      "words": [
+        "للكمثرى",
+        "لب",
+        "عصيري،",
+        "ويكون",
+        "طرفها",
+        "العلوي",
+        "أضيق",
+        "من",
+        "قاعدتها",
+        "غالبا."
+      ],
+      "path": "audio/meaning/ar/ar_d40103a55f4a09725be3.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْكُمَّثْرَى لُبٌّ عَصِيرِيٌّ، وَيَكُونُ طَرَفُهَا الْعُلْوِيُّ أَضْيَقَ مِنْ قَاعِدَتِهَا غَالِبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للكمثرى لب عصيري ويكون طرفها العلوي أضيق من قاعدتها غالبا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0175,
+          "heard": "للكمثرا لب عصيري ويكون طرفها العلوي أضيق من قاعدتها غالبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          722
+        ],
+        [
+          1,
+          802,
+          1023
+        ],
+        [
+          2,
+          1444,
+          1865
+        ],
+        [
+          3,
+          3489,
+          3950
+        ],
+        [
+          4,
+          4091,
+          4592
+        ],
+        [
+          5,
+          4672,
+          5194
+        ],
+        [
+          6,
+          5374,
+          5695
+        ],
+        [
+          7,
+          5855,
+          5976
+        ],
+        [
+          8,
+          6076,
+          6778
+        ],
+        [
+          9,
+          6918,
+          7319
+        ]
+      ],
+      "duration_ms": 8021,
+      "sha256": "dcb48b89ba4301ad40053d86bb859ae4ad33d7742271a67793f14e0fa6ffcbcc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9821,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
