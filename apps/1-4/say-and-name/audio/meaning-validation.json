@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1800,
+  "ready": 1806,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -168635,6 +168635,486 @@
       "sha256": "0e7a63287d43b53094513502fbba29d130cb793155284540a78e5cf065ba3e04",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9837,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e8ea3e38ebf861ef1746": {
+      "id": "ar_e8ea3e38ebf861ef1746",
+      "language": "ar",
+      "text": "الزي ملابس متشابهة يرتديها أفراد مدرسة أو مهنة أو فريق.",
+      "words": [
+        "الزي",
+        "ملابس",
+        "متشابهة",
+        "يرتديها",
+        "أفراد",
+        "مدرسة",
+        "أو",
+        "مهنة",
+        "أو",
+        "فريق."
+      ],
+      "path": "audio/meaning/ar/ar_e8ea3e38ebf861ef1746.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الزي ملابس متشابهة يرتديها أفراد مدرسة أو مهنة أو فريق",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          240
+        ],
+        [
+          1,
+          321,
+          741
+        ],
+        [
+          2,
+          841,
+          1462
+        ],
+        [
+          3,
+          1663,
+          2204
+        ],
+        [
+          4,
+          2324,
+          2685
+        ],
+        [
+          5,
+          2825,
+          3205
+        ],
+        [
+          6,
+          3446,
+          3546
+        ],
+        [
+          7,
+          3586,
+          3907
+        ],
+        [
+          8,
+          4207,
+          4287
+        ],
+        [
+          9,
+          4347,
+          4748
+        ]
+      ],
+      "duration_ms": 4928,
+      "sha256": "2ff4590fa5c5078a69ae9e7bad432bae0f84ae5af1b68db72b29be65ff358cdd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9814,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7dc313d9f0910a5c9e10": {
+      "id": "ar_7dc313d9f0910a5c9e10",
+      "language": "ar",
+      "text": "أنبه بجرس الدراجة من أمامي بلطف، وأبطئ لأمر بأمان.",
+      "words": [
+        "أنبه",
+        "بجرس",
+        "الدراجة",
+        "من",
+        "أمامي",
+        "بلطف،",
+        "وأبطئ",
+        "لأمر",
+        "بأمان."
+      ],
+      "path": "audio/meaning/ar/ar_7dc313d9f0910a5c9e10.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أنبه بجرس الدراجة من أمامي بلطف وأبطئ لأمر بأمان",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.125,
+          "heard": "أنابه بجرس الدراجة من أمامي بلطف وأبتألي أمر بأمان",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          341
+        ],
+        [
+          1,
+          441,
+          783
+        ],
+        [
+          2,
+          863,
+          1324
+        ],
+        [
+          3,
+          1485,
+          1585
+        ],
+        [
+          4,
+          1646,
+          1967
+        ],
+        [
+          5,
+          2047,
+          2468
+        ],
+        [
+          6,
+          2890,
+          3291
+        ],
+        [
+          7,
+          3412,
+          3753
+        ],
+        [
+          8,
+          3833,
+          4335
+        ]
+      ],
+      "duration_ms": 4395,
+      "sha256": "955c00425fe80e084261699dd49f67474c98d477421ee71dfd3db4a1a36e6a82",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9536,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f3acc4fb55aae8d0e9d1": {
+      "id": "ar_f3acc4fb55aae8d0e9d1",
+      "language": "ar",
+      "text": "أَلْبَسُ الْقَمِيصَ عَلَى الْجُزْءِ الْعُلْوِيِّ مِنْ جِسْمِي.",
+      "words": [
+        "أَلْبَسُ",
+        "الْقَمِيصَ",
+        "عَلَى",
+        "الْجُزْءِ",
+        "الْعُلْوِيِّ",
+        "مِنْ",
+        "جِسْمِي."
+      ],
+      "path": "audio/meaning/ar/ar_f3acc4fb55aae8d0e9d1.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألبس القميص على الجزء العلوي من جسمي",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1429,
+          "cer": 0.0556,
+          "heard": "ألبس القميسة على الجزء العلوي من جسمي",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          341
+        ],
+        [
+          1,
+          441,
+          1022
+        ],
+        [
+          2,
+          1342,
+          1403
+        ],
+        [
+          3,
+          1503,
+          1803
+        ],
+        [
+          4,
+          2024,
+          2585
+        ],
+        [
+          5,
+          3066,
+          3226
+        ],
+        [
+          6,
+          3346,
+          3747
+        ]
+      ],
+      "duration_ms": 4909,
+      "sha256": "4097a3b4ceb00fa2587cdd036d17b0f87b1c062a8c592161b2dc606321228ac0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9456,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0f3cabe5e5e373ff0b61": {
+      "id": "ar_0f3cabe5e5e373ff0b61",
+      "language": "ar",
+      "text": "أُشَاهِدُ مَا فِي الْخَارِجِ دُونَ أَنْ أَتَسَلَّقَ النَّافِذَةَ.",
+      "words": [
+        "أُشَاهِدُ",
+        "مَا",
+        "فِي",
+        "الْخَارِجِ",
+        "دُونَ",
+        "أَنْ",
+        "أَتَسَلَّقَ",
+        "النَّافِذَةَ."
+      ],
+      "path": "audio/meaning/ar/ar_0f3cabe5e5e373ff0b61.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أشاهد ما في الخارج دون أن أتسلق النافذة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0513,
+          "heard": "أشاهدوا ما في الخارج دون أن أتسلق النافذة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          561
+        ],
+        [
+          1,
+          741,
+          841
+        ],
+        [
+          2,
+          1041,
+          1141
+        ],
+        [
+          3,
+          1181,
+          1742
+        ],
+        [
+          4,
+          2082,
+          2303
+        ],
+        [
+          5,
+          2663,
+          2743
+        ],
+        [
+          6,
+          2803,
+          3344
+        ],
+        [
+          7,
+          3424,
+          4025
+        ]
+      ],
+      "duration_ms": 5326,
+      "sha256": "48070bcc9afc5e21988b26cce853daaeeacdea3d0d0cc47c6e5602d04f8e9cd8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9344,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_1f8a34d4f0584a8bd76d": {
+      "id": "ar_1f8a34d4f0584a8bd76d",
+      "language": "ar",
+      "text": "أُلَاعِبُ السَّيَّارَةَ الصَّغِيرَةَ وَأُرَتِّبُهَا بَعْدَ اللَّعِبِ.",
+      "words": [
+        "أُلَاعِبُ",
+        "السَّيَّارَةَ",
+        "الصَّغِيرَةَ",
+        "وَأُرَتِّبُهَا",
+        "بَعْدَ",
+        "اللَّعِبِ."
+      ],
+      "path": "audio/meaning/ar/ar_1f8a34d4f0584a8bd76d.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألاعب السيارة الصغيرة وأرتبها بعد اللعب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          502
+        ],
+        [
+          1,
+          603,
+          1225
+        ],
+        [
+          2,
+          1406,
+          2029
+        ],
+        [
+          3,
+          2792,
+          3696
+        ],
+        [
+          4,
+          3857,
+          4078
+        ],
+        [
+          5,
+          4138,
+          4540
+        ]
+      ],
+      "duration_ms": 5363,
+      "sha256": "4239abaaf8272f03aef3a3799a704d19d04c6b3260b59a5edfb7383f4b390349",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9434,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c363ca1946dad14df964": {
+      "id": "ar_c363ca1946dad14df964",
+      "language": "ar",
+      "text": "الْكُرَةُ شَكْلٌ مُجَسَّمٌ يُمْكِنُهُ التَّدَحْرُجُ.",
+      "words": [
+        "الْكُرَةُ",
+        "شَكْلٌ",
+        "مُجَسَّمٌ",
+        "يُمْكِنُهُ",
+        "التَّدَحْرُجُ."
+      ],
+      "path": "audio/meaning/ar/ar_c363ca1946dad14df964.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الكرة شكل مجسم يمكنه التدحرج",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          301,
+          602
+        ],
+        [
+          1,
+          803,
+          1084
+        ],
+        [
+          2,
+          1325,
+          1847
+        ],
+        [
+          3,
+          2148,
+          2710
+        ],
+        [
+          4,
+          2870,
+          3532
+        ]
+      ],
+      "duration_ms": 4034,
+      "sha256": "5e52f45b75aa3762a5b322947ccf5405917599ec28a9d840161190191d7b332c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9795,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
