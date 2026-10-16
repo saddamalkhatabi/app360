@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1997,
+  "ready": 1998,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186329,6 +186329,79 @@
       "sha256": "b63ba16ced80b2fcd7a86866b9291853f8767df182bb11ae56aba3c48bc10f93",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.886,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_72945f4c94c5f860e3a1": {
+      "id": "en_72945f4c94c5f860e3a1",
+      "language": "en",
+      "text": "We add ginger to food.",
+      "words": [
+        "We",
+        "add",
+        "ginger",
+        "to",
+        "food."
+      ],
+      "path": "audio/meaning/en/en_72945f4c94c5f860e3a1.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "We add ginger to food.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "we add ginger to food.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.1429,
+          "heard": "we add jingles to food.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          161
+        ],
+        [
+          1,
+          403,
+          544
+        ],
+        [
+          2,
+          544,
+          927
+        ],
+        [
+          3,
+          947,
+          1028
+        ],
+        [
+          4,
+          1108,
+          1370
+        ]
+      ],
+      "duration_ms": 1854,
+      "sha256": "4f9ac75c54549e5dd23e609dc5574a9e552508061e353d9ee7630fd04acbd92b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.4932,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
