@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1992,
+  "ready": 1993,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -185988,6 +185988,77 @@
       "sha256": "041274d470486716c3d5769a9319a8750945e44dc3ef6c03a3794c381a0e2ea4",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9673,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8e48fc0f682d4287353a": {
+      "id": "ar_8e48fc0f682d4287353a",
+      "language": "ar",
+      "text": "يَسِيرُ النَّاسُ عَلَى الرَّصِيفِ بِجَانِبِ الشَّارِعِ.",
+      "words": [
+        "يَسِيرُ",
+        "النَّاسُ",
+        "عَلَى",
+        "الرَّصِيفِ",
+        "بِجَانِبِ",
+        "الشَّارِعِ."
+      ],
+      "path": "audio/meaning/ar/ar_8e48fc0f682d4287353a.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَسِيرُ النَّاسُ عَلَى الرَّصِيفِ بِجَانِبِ الشَّارِعِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يسير الناس على الرصيف بجانب الشارع",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          121,
+          523
+        ],
+        [
+          1,
+          623,
+          925
+        ],
+        [
+          2,
+          1186,
+          1247
+        ],
+        [
+          3,
+          1307,
+          1769
+        ],
+        [
+          4,
+          1970,
+          2453
+        ],
+        [
+          5,
+          2533,
+          2915
+        ]
+      ],
+      "duration_ms": 3418,
+      "sha256": "e3f2758feb34ae583fb37203587896914f0c50fa962907ac25ff8ba229da2f7a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9955,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
