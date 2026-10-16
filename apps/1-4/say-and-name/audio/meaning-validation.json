@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1910,
+  "ready": 1915,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -178669,6 +178669,435 @@
       "sha256": "10941627871673a28a1bf2411340357432f2d50cd6209201e4c75b21bcd72839",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9397,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_dd29095863bb5606b843": {
+      "id": "ar_dd29095863bb5606b843",
+      "language": "ar",
+      "text": "تُسَاعِدُ النَّظَّارَةُ بَعْضَ النَّاسِ عَلَى الرُّؤْيَةِ بِوُضُوحٍ.",
+      "words": [
+        "تُسَاعِدُ",
+        "النَّظَّارَةُ",
+        "بَعْضَ",
+        "النَّاسِ",
+        "عَلَى",
+        "الرُّؤْيَةِ",
+        "بِوُضُوحٍ."
+      ],
+      "path": "audio/meaning/ar/ar_dd29095863bb5606b843.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تساعد النظارة بعض الناس على الرؤية بوضوح",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          702
+        ],
+        [
+          1,
+          802,
+          1484
+        ],
+        [
+          2,
+          1844,
+          2085
+        ],
+        [
+          3,
+          2165,
+          2666
+        ],
+        [
+          4,
+          3087,
+          3148
+        ],
+        [
+          5,
+          3248,
+          3669
+        ],
+        [
+          6,
+          4571,
+          5092
+        ]
+      ],
+      "duration_ms": 5273,
+      "sha256": "3d78c7aa40610f5ecf048e98a2a5ad91707b87944952fe3a3b151d42776076d2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9389,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5ab2fafbb7ae38d5c701": {
+      "id": "ar_5ab2fafbb7ae38d5c701",
+      "language": "ar",
+      "text": "نَسْتَخْدِمُ الشَّامْبُو لِغَسْلِ الشَّعْرِ.",
+      "words": [
+        "نَسْتَخْدِمُ",
+        "الشَّامْبُو",
+        "لِغَسْلِ",
+        "الشَّعْرِ."
+      ],
+      "path": "audio/meaning/ar/ar_5ab2fafbb7ae38d5c701.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نستخدم الشامبو لغسل الشعر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          543
+        ],
+        [
+          1,
+          623,
+          1227
+        ],
+        [
+          2,
+          1307,
+          1729
+        ],
+        [
+          3,
+          1810,
+          2212
+        ]
+      ],
+      "duration_ms": 2413,
+      "sha256": "eeb0291c3d44c718db098ac4077dbe3da3234ad42da3552cac87e26718ef985d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.7985,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_060f78c9527531e6ec19": {
+      "id": "ar_060f78c9527531e6ec19",
+      "language": "ar",
+      "text": "تحمي الصدفة جسم حيوان بحري لين، وقد نجد صدفة فارغة على الشاطئ.",
+      "words": [
+        "تحمي",
+        "الصدفة",
+        "جسم",
+        "حيوان",
+        "بحري",
+        "لين،",
+        "وقد",
+        "نجد",
+        "صدفة",
+        "فارغة",
+        "على",
+        "الشاطئ."
+      ],
+      "path": "audio/meaning/ar/ar_060f78c9527531e6ec19.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحمي الصدفة جسم حيوان بحري لين وقد نجد صدفة فارغة على الشاطئ",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0333,
+          "heard": "تحمي الصطفة جسم حيوان بحري لين وقد نجد صطفة فارغة على الشاطئ",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          301
+        ],
+        [
+          1,
+          361,
+          722
+        ],
+        [
+          2,
+          823,
+          1084
+        ],
+        [
+          3,
+          1204,
+          1605
+        ],
+        [
+          4,
+          1746,
+          2027
+        ],
+        [
+          5,
+          2107,
+          2368
+        ],
+        [
+          6,
+          2890,
+          3130
+        ],
+        [
+          7,
+          3191,
+          3492
+        ],
+        [
+          8,
+          3612,
+          3893
+        ],
+        [
+          9,
+          4094,
+          4455
+        ],
+        [
+          10,
+          4756,
+          4796
+        ],
+        [
+          11,
+          4856,
+          5257
+        ]
+      ],
+      "duration_ms": 5398,
+      "sha256": "d03594b53a02fb4c994088a57d27f7213ed4738b9e7b8107654ed28ebcaf7e46",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8676,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_406934e1fde6165cd3da": {
+      "id": "ar_406934e1fde6165cd3da",
+      "language": "ar",
+      "text": "النسر طائر له جناحان عريضان وبصر حاد، ويأكل اللحوم.",
+      "words": [
+        "النسر",
+        "طائر",
+        "له",
+        "جناحان",
+        "عريضان",
+        "وبصر",
+        "حاد،",
+        "ويأكل",
+        "اللحوم."
+      ],
+      "path": "audio/meaning/ar/ar_406934e1fde6165cd3da.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "النسر طائر له جناحان عريضان وبصر حاد ويأكل اللحوم",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          381
+        ],
+        [
+          1,
+          501,
+          802
+        ],
+        [
+          2,
+          903,
+          1023
+        ],
+        [
+          3,
+          1143,
+          1625
+        ],
+        [
+          4,
+          1845,
+          2186
+        ],
+        [
+          5,
+          2267,
+          2668
+        ],
+        [
+          6,
+          2828,
+          3109
+        ],
+        [
+          7,
+          3530,
+          4012
+        ],
+        [
+          8,
+          4092,
+          4594
+        ]
+      ],
+      "duration_ms": 4654,
+      "sha256": "a3319dd74d4ba32e0a39cfac39ad0c824c217e81e08b2fcdbdb3b90c6785969f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9617,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_817761366af335d65a4a": {
+      "id": "ar_817761366af335d65a4a",
+      "language": "ar",
+      "text": "تضم محطة الإطفاء رجال الإنقاذ ومركباتهم، لينطلقوا عند تلقي بلاغ خطر.",
+      "words": [
+        "تضم",
+        "محطة",
+        "الإطفاء",
+        "رجال",
+        "الإنقاذ",
+        "ومركباتهم،",
+        "لينطلقوا",
+        "عند",
+        "تلقي",
+        "بلاغ",
+        "خطر."
+      ],
+      "path": "audio/meaning/ar/ar_817761366af335d65a4a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تضم محطة الإطفاء رجال الإنقاذ ومركباتهم لينطلقوا عند تلقي بلاغ خطر",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2727,
+          "cer": 0.0606,
+          "heard": "تتضم حطة الإطفاء رجال الإنقاذ ومركباتهم لينطلق عند تلقي بلاغ خطر",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          241
+        ],
+        [
+          1,
+          261,
+          602
+        ],
+        [
+          2,
+          702,
+          1063
+        ],
+        [
+          3,
+          1304,
+          1625
+        ],
+        [
+          4,
+          1665,
+          2146
+        ],
+        [
+          5,
+          2226,
+          3089
+        ],
+        [
+          6,
+          3590,
+          4292
+        ],
+        [
+          7,
+          4453,
+          4533
+        ],
+        [
+          8,
+          4653,
+          4954
+        ],
+        [
+          9,
+          5034,
+          5335
+        ],
+        [
+          10,
+          5455,
+          5776
+        ]
+      ],
+      "duration_ms": 6017,
+      "sha256": "6410296eff190f98de92d8526f20d539d61afc65fd993d351036021d88e419f5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.884,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
