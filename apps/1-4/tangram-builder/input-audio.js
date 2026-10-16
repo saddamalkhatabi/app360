@@ -1,12 +1,5 @@
 'use strict';
-canvas.addEventListener('touchstart',function(e){if(!e.touches||!e.touches.length)return;touchId=e.touches[0].identifier;var t=e.touches[0];beginDrag(screenPos(t.clientX,t.clientY));if(drag)e.preventDefault()},false);
-canvas.addEventListener('touchmove',function(e){if(!drag)return;var t=touchById(e.touches,touchId)||e.touches[0];if(t)moveDrag(screenPos(t.clientX,t.clientY));e.preventDefault()},false);
-canvas.addEventListener('touchend',function(e){if(!drag)return;endDrag();touchId=null;e.preventDefault()},false);
-canvas.addEventListener('touchcancel',function(e){if(drag)endDrag();touchId=null;e.preventDefault()},false);
-canvas.addEventListener('mousedown',function(e){beginDrag(screenPos(e.clientX,e.clientY));if(drag)e.preventDefault()},false);
-w.addEventListener('mousemove',function(e){if(drag)moveDrag(screenPos(e.clientX,e.clientY))},false);
-w.addEventListener('mouseup',function(){if(drag)endDrag()},false);
-
+/* Pointer and touch events are owned by touch-v18.js. */
 function tone(freq,dur,vol){if(!soundEnabled)return;try{var AC=w.AudioContext||w.webkitAudioContext;if(!AC)return;audioCtx=audioCtx||new AC();if(audioCtx.state==='suspended'&&audioCtx.resume)audioCtx.resume();var o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;g.gain.value=vol||.025;o.connect(g);g.connect(audioCtx.destination);o.start(0);setTimeout(function(){try{o.stop(0)}catch(e){}},dur||90)}catch(e){}}
 function softSuccess(){tone(520,65,.018);setTimeout(function(){tone(680,65,.016)},70)}
 function softReturn(){tone(260,65,.011)}
