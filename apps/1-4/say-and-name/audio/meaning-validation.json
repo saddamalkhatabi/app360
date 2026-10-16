@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1879,
+  "ready": 1885,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -176152,6 +176152,522 @@
       "sha256": "5289e875a25104d1a7b611023e5e1bb529727dfa51997aa1d2383934db66be1d",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9706,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3c77cc9743510cba2690": {
+      "id": "ar_3c77cc9743510cba2690",
+      "language": "ar",
+      "text": "التل أرض مرتفعة، ويكون عادة أصغر من الجبل.",
+      "words": [
+        "التل",
+        "أرض",
+        "مرتفعة،",
+        "ويكون",
+        "عادة",
+        "أصغر",
+        "من",
+        "الجبل."
+      ],
+      "path": "audio/meaning/ar/ar_3c77cc9743510cba2690.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "التل أرض مرتفعة ويكون عادة أصغر من الجبل",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          361
+        ],
+        [
+          1,
+          461,
+          641
+        ],
+        [
+          2,
+          761,
+          1322
+        ],
+        [
+          3,
+          1723,
+          2143
+        ],
+        [
+          4,
+          2344,
+          2544
+        ],
+        [
+          5,
+          2764,
+          3045
+        ],
+        [
+          6,
+          3145,
+          3245
+        ],
+        [
+          7,
+          3285,
+          3706
+        ]
+      ],
+      "duration_ms": 3866,
+      "sha256": "97f0dcacc4a3ab71bc2a5b0f0a0b438de6292aef53f6257e3663cbd51fe34bc5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9569,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8661582c0b8857075f5c": {
+      "id": "ar_8661582c0b8857075f5c",
+      "language": "ar",
+      "text": "للسلطعون قشرة صلبة ومخلبان، وتمشي أنواع كثيرة منه جانبيا.",
+      "words": [
+        "للسلطعون",
+        "قشرة",
+        "صلبة",
+        "ومخلبان،",
+        "وتمشي",
+        "أنواع",
+        "كثيرة",
+        "منه",
+        "جانبيا."
+      ],
+      "path": "audio/meaning/ar/ar_8661582c0b8857075f5c.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للسلطعون قشرة صلبة ومخلبان وتمشي أنواع كثيرة منه جانبياً.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0182,
+          "heard": "للسلطعون قشرة صلبة ومخلبان وتمشي أنواع كثيرة منه جانبية",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          581
+        ],
+        [
+          1,
+          701,
+          1002
+        ],
+        [
+          2,
+          1262,
+          1522
+        ],
+        [
+          3,
+          1703,
+          2384
+        ],
+        [
+          4,
+          2784,
+          3205
+        ],
+        [
+          5,
+          3285,
+          3506
+        ],
+        [
+          6,
+          3706,
+          4086
+        ],
+        [
+          7,
+          4207,
+          4407
+        ],
+        [
+          8,
+          4507,
+          4988
+        ]
+      ],
+      "duration_ms": 5148,
+      "sha256": "ee5b7b1f6ac4816258373ed6053c264a5af0053056e15dc620559a82d6b63c32",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9635,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_54a99b07f09a3ae25fa3": {
+      "id": "ar_54a99b07f09a3ae25fa3",
+      "language": "ar",
+      "text": "يسير الترام على قضبان داخل المدينة، ويتوقف في محطات للركاب.",
+      "words": [
+        "يسير",
+        "الترام",
+        "على",
+        "قضبان",
+        "داخل",
+        "المدينة،",
+        "ويتوقف",
+        "في",
+        "محطات",
+        "للركاب."
+      ],
+      "path": "audio/meaning/ar/ar_54a99b07f09a3ae25fa3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يسير الترام على قضبان داخل المدينة ويتوقف في محطات للركاب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          342
+        ],
+        [
+          1,
+          422,
+          804
+        ],
+        [
+          2,
+          1005,
+          1065
+        ],
+        [
+          3,
+          1165,
+          1547
+        ],
+        [
+          4,
+          1668,
+          1989
+        ],
+        [
+          5,
+          2050,
+          2552
+        ],
+        [
+          6,
+          3114,
+          3737
+        ],
+        [
+          7,
+          3878,
+          3958
+        ],
+        [
+          8,
+          4039,
+          4441
+        ],
+        [
+          9,
+          4561,
+          5084
+        ]
+      ],
+      "duration_ms": 5104,
+      "sha256": "eefddbbff1e1b3c50ed93722df04e520e06f4f7767f61e92ed89430c1900ea13",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9695,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0aa9054f43f4207ee3f3": {
+      "id": "ar_0aa9054f43f4207ee3f3",
+      "language": "ar",
+      "text": "تعيش دودة الأرض في التربة، وتساعد أنفاقها على دخول الهواء إليها.",
+      "words": [
+        "تعيش",
+        "دودة",
+        "الأرض",
+        "في",
+        "التربة،",
+        "وتساعد",
+        "أنفاقها",
+        "على",
+        "دخول",
+        "الهواء",
+        "إليها."
+      ],
+      "path": "audio/meaning/ar/ar_0aa9054f43f4207ee3f3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تعيش دودة الأرض في التربة وتساعد أنفاقها على دخول الهواء إليها.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          301
+        ],
+        [
+          1,
+          422,
+          683
+        ],
+        [
+          2,
+          824,
+          1105
+        ],
+        [
+          3,
+          1205,
+          1265
+        ],
+        [
+          4,
+          1286,
+          1667
+        ],
+        [
+          5,
+          2190,
+          2732
+        ],
+        [
+          6,
+          2832,
+          3375
+        ],
+        [
+          7,
+          3535,
+          3596
+        ],
+        [
+          8,
+          3676,
+          4017
+        ],
+        [
+          9,
+          4098,
+          4399
+        ],
+        [
+          10,
+          4680,
+          5002
+        ]
+      ],
+      "duration_ms": 5323,
+      "sha256": "4a5b52ef53b34fc3d1ca2a47570bf38bff3f39c5f5e4d516a2271f4ac00643f4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9557,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_72c6e48ddbb41fd20214": {
+      "id": "ar_72c6e48ddbb41fd20214",
+      "language": "ar",
+      "text": "النسيم رياح خفيفة تحرك الهواء بلطف.",
+      "words": [
+        "النسيم",
+        "رياح",
+        "خفيفة",
+        "تحرك",
+        "الهواء",
+        "بلطف."
+      ],
+      "path": "audio/meaning/ar/ar_72c6e48ddbb41fd20214.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "النسيم رياح خفيفة تحرك الهواء بلطف",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0294,
+          "heard": "النسيم رياح خفيفة تحرك الهواء بالطف",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          461
+        ],
+        [
+          1,
+          542,
+          842
+        ],
+        [
+          2,
+          1023,
+          1444
+        ],
+        [
+          3,
+          1544,
+          1925
+        ],
+        [
+          4,
+          2006,
+          2306
+        ],
+        [
+          5,
+          2487,
+          2888
+        ]
+      ],
+      "duration_ms": 2968,
+      "sha256": "410e1845e146437b96fa000da3786701c51ef6a6444671da56e1c86348dc1fae",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.925,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a0d44ede2d2fe3db88c8": {
+      "id": "ar_a0d44ede2d2fe3db88c8",
+      "language": "ar",
+      "text": "للهرم قاعدة وأوجه مثلثة تلتقي في قمة.",
+      "words": [
+        "للهرم",
+        "قاعدة",
+        "وأوجه",
+        "مثلثة",
+        "تلتقي",
+        "في",
+        "قمة."
+      ],
+      "path": "audio/meaning/ar/ar_a0d44ede2d2fe3db88c8.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للهرم قاعدة وأوجه مثلثة تلتقي في قمة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2857,
+          "cer": 0.0556,
+          "heard": "للهرم قاعدة وأوجه مثل سة تلتقي في قمة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          422
+        ],
+        [
+          1,
+          562,
+          943
+        ],
+        [
+          2,
+          1124,
+          1586
+        ],
+        [
+          3,
+          1726,
+          2128
+        ],
+        [
+          4,
+          2288,
+          2670
+        ],
+        [
+          5,
+          2750,
+          2830
+        ],
+        [
+          6,
+          2911,
+          3192
+        ]
+      ],
+      "duration_ms": 3332,
+      "sha256": "1ce689d8633c073c6ebb775870c60c55e13f1ab768a366cdb2db8c979575988f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9429,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
