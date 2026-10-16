@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1887,
+  "ready": 1889,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -176866,6 +176866,168 @@
       "sha256": "6bf1b41990b57d5f21360c40368b228da7852b1ce6c5b68673f02625dd9c151f",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9691,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_531586224164a553d40a": {
+      "id": "ar_531586224164a553d40a",
+      "language": "ar",
+      "text": "أَسْتَخْدِمُ فَمِي لِلْأَكْلِ وَالتَّحَدُّثِ.",
+      "words": [
+        "أَسْتَخْدِمُ",
+        "فَمِي",
+        "لِلْأَكْلِ",
+        "وَالتَّحَدُّثِ."
+      ],
+      "path": "audio/meaning/ar/ar_531586224164a553d40a.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أستخدم فمي للأكل والتحدث",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5,
+          "cer": 0.0833,
+          "heard": "أستخدم فميل الأكل والتحدث",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          622
+        ],
+        [
+          1,
+          762,
+          1043
+        ],
+        [
+          2,
+          1183,
+          1645
+        ],
+        [
+          3,
+          2126,
+          2969
+        ]
+      ],
+      "duration_ms": 3330,
+      "sha256": "9a68b8e11c53aec82a04562511e7058f7de9c6b3ffe4d663c1d0cdf318d36f49",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9776,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0a559927e363125de5b8": {
+      "id": "ar_0a559927e363125de5b8",
+      "language": "ar",
+      "text": "تحمي صدفتان جسم المحار اللين، وهو يرشح غذاءه من الماء.",
+      "words": [
+        "تحمي",
+        "صدفتان",
+        "جسم",
+        "المحار",
+        "اللين،",
+        "وهو",
+        "يرشح",
+        "غذاءه",
+        "من",
+        "الماء."
+      ],
+      "path": "audio/meaning/ar/ar_0a559927e363125de5b8.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحمي صدفتان جسم المحار اللين، وهو يرشح غذاءه من الماء.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0192,
+          "heard": "تحمي صدفتان جسم المحار اللين وهو يرشح غذائه من الماء",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          140,
+          421
+        ],
+        [
+          1,
+          502,
+          1063
+        ],
+        [
+          2,
+          1204,
+          1424
+        ],
+        [
+          3,
+          1505,
+          1906
+        ],
+        [
+          4,
+          1986,
+          2327
+        ],
+        [
+          5,
+          2748,
+          2929
+        ],
+        [
+          6,
+          3009,
+          3370
+        ],
+        [
+          7,
+          3511,
+          3892
+        ],
+        [
+          8,
+          4012,
+          4112
+        ],
+        [
+          9,
+          4173,
+          4373
+        ]
+      ],
+      "duration_ms": 4614,
+      "sha256": "e6ccb2883acdaa112b163f2fb98054384b5a7e79f1e6e971ae0a7eab8ea45a16",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9549,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
