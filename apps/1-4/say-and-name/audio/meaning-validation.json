@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1936,
+  "ready": 1940,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -181202,6 +181202,390 @@
       "sha256": "105900bfa58e744a44e2d7d05a4255742ba3a292035db5e1859802d9d1f20446",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8291,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_4743553899244d3e2248": {
+      "id": "ar_4743553899244d3e2248",
+      "language": "ar",
+      "text": "للجوافة رائحة واضحة وبذور صغيرة كثيرة داخل لبها.",
+      "words": [
+        "للجوافة",
+        "رائحة",
+        "واضحة",
+        "وبذور",
+        "صغيرة",
+        "كثيرة",
+        "داخل",
+        "لبها."
+      ],
+      "path": "audio/meaning/ar/ar_4743553899244d3e2248.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْجَوَافَةِ رَائِحَةٌ وَاضِحَةٌ، وَبُذُورٌ صَغِيرَةٌ كَثِيرَةٌ دَاخِلَ لُبِّهَا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للجوافة رائحة واضحة وبذور صغيرة كثيرة داخل لبها",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          602
+        ],
+        [
+          1,
+          862,
+          1324
+        ],
+        [
+          2,
+          1685,
+          2126
+        ],
+        [
+          3,
+          2848,
+          3329
+        ],
+        [
+          4,
+          3550,
+          3971
+        ],
+        [
+          5,
+          4512,
+          4973
+        ],
+        [
+          6,
+          5274,
+          5655
+        ],
+        [
+          7,
+          5816,
+          6257
+        ]
+      ],
+      "duration_ms": 7039,
+      "sha256": "f9d91eab378c1afdb147ca44c01cfb15972c96308d1090b0dd6df045c4a5eef5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9675,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8581fb9c8502090ef8c4": {
+      "id": "ar_8581fb9c8502090ef8c4",
+      "language": "ar",
+      "text": "الشعير نبات ينتج حبوبا، تستخدم في الطعام وعلف الحيوانات.",
+      "words": [
+        "الشعير",
+        "نبات",
+        "ينتج",
+        "حبوبا،",
+        "تستخدم",
+        "في",
+        "الطعام",
+        "وعلف",
+        "الحيوانات."
+      ],
+      "path": "audio/meaning/ar/ar_8581fb9c8502090ef8c4.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الشَّعِيرُ نَبَاتٌ يُنْتِجُ حُبُوبًا، تُسْتَخْدَمُ فِي الطَّعَامِ وَعَلَفِ الْحَيَوَانَاتِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الشعير نبات، ينتج حبوبًا، تستخدم في الطعام وعلف الحيوانات",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2222,
+          "cer": 0.0556,
+          "heard": "الشعير نبات ينتج حبوبا تستخدم في الطعام وعلى في الحيوانات",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          521
+        ],
+        [
+          1,
+          642,
+          1043
+        ],
+        [
+          2,
+          1725,
+          2106
+        ],
+        [
+          3,
+          2286,
+          2808
+        ],
+        [
+          4,
+          4111,
+          4733
+        ],
+        [
+          5,
+          4914,
+          4994
+        ],
+        [
+          6,
+          5054,
+          5575
+        ],
+        [
+          7,
+          5776,
+          6217
+        ],
+        [
+          8,
+          6297,
+          7160
+        ]
+      ],
+      "duration_ms": 7781,
+      "sha256": "67816fbb1e94f20c3235465da03391c6ba5790a7c70fe39e2b33af958d114cca",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9907,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_aba6157b39636d35661a": {
+      "id": "ar_aba6157b39636d35661a",
+      "language": "ar",
+      "text": "ندير البرغي بأداة مناسبة لربط الأجزاء، ويمكن فكه بالدوران العكسي.",
+      "words": [
+        "ندير",
+        "البرغي",
+        "بأداة",
+        "مناسبة",
+        "لربط",
+        "الأجزاء،",
+        "ويمكن",
+        "فكه",
+        "بالدوران",
+        "العكسي."
+      ],
+      "path": "audio/meaning/ar/ar_aba6157b39636d35661a.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نُدِيرُ الْبُرْغِيَّ بِأَدَاةٍ مُنَاسِبَةٍ لِرَبْطِ الْأَجْزَاءِ، وَيُمْكِنُ فَكُّهُ بِالدَّوَرَانِ الْعَكْسِيِّ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ندير البرغي بأداة مناسبة لربط الأجزاء، ويمكن فكه بالدوران العكسي.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3,
+          "cer": 0.0635,
+          "heard": "ندير البرغية بأدات مناسبة لربط الأجزائي ويمكن فكه بالدوران العكسي",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 43360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          421
+        ],
+        [
+          1,
+          521,
+          1023
+        ],
+        [
+          2,
+          1203,
+          1825
+        ],
+        [
+          3,
+          2246,
+          2968
+        ],
+        [
+          4,
+          3449,
+          3830
+        ],
+        [
+          5,
+          3930,
+          4331
+        ],
+        [
+          6,
+          5695,
+          6256
+        ],
+        [
+          7,
+          6477,
+          6938
+        ],
+        [
+          8,
+          7158,
+          7880
+        ],
+        [
+          9,
+          7980,
+          8482
+        ]
+      ],
+      "duration_ms": 9725,
+      "sha256": "d18562bc5d26d59e94ed7e4d4fe8ed3f36a8d5c3e2cf09faf9c30797cd0c8786",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9662,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_df50eed29b7bd0552c36": {
+      "id": "ar_df50eed29b7bd0552c36",
+      "language": "ar",
+      "text": "الدلفين حيوان ثديي يعيش في الماء، ويصعد إلى السطح ليتنفس الهواء.",
+      "words": [
+        "الدلفين",
+        "حيوان",
+        "ثديي",
+        "يعيش",
+        "في",
+        "الماء،",
+        "ويصعد",
+        "إلى",
+        "السطح",
+        "ليتنفس",
+        "الهواء."
+      ],
+      "path": "audio/meaning/ar/ar_df50eed29b7bd0552c36.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الدُّلْفِينُ حَيَوَانٌ ثَدْيِيٌّ يَعِيشُ فِي الْمَاءِ، وَيَصْعَدُ إِلَى السَّطْحِ لِيَتَنَفَّسَ الْهَوَاءَ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الدلفين حيوان ثديي يعيش في الماء ويصعد إلى السطح ليتنفس الهواء",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 42360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          722
+        ],
+        [
+          1,
+          922,
+          1484
+        ],
+        [
+          2,
+          1664,
+          2265
+        ],
+        [
+          3,
+          2987,
+          3508
+        ],
+        [
+          4,
+          3669,
+          3749
+        ],
+        [
+          5,
+          3789,
+          4050
+        ],
+        [
+          6,
+          5313,
+          5954
+        ],
+        [
+          7,
+          6054,
+          6395
+        ],
+        [
+          8,
+          6475,
+          6936
+        ],
+        [
+          9,
+          7357,
+          8260
+        ],
+        [
+          10,
+          8380,
+          8761
+        ]
+      ],
+      "duration_ms": 10284,
+      "sha256": "a8271b95b070475ca070ea683b95e963f752fba31ec43a72977f070ee66324f6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9537,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
