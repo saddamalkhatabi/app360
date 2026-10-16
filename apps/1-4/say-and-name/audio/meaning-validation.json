@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1935,
+  "ready": 1936,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -181089,6 +181089,119 @@
       "sha256": "4ea5fab6d61b09d4e400c279cd10bc57ef9021c41bd60d3f80551b40756b130a",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9504,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_eae527b74eab99a35e2d": {
+      "id": "en_eae527b74eab99a35e2d",
+      "language": "en",
+      "text": "An eggshell protects what is inside, and some baby animals develop in eggs.",
+      "words": [
+        "An",
+        "eggshell",
+        "protects",
+        "what",
+        "is",
+        "inside,",
+        "and",
+        "some",
+        "baby",
+        "animals",
+        "develop",
+        "in",
+        "eggs."
+      ],
+      "path": "audio/meaning/en/en_eae527b74eab99a35e2d.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "An eggshell protects what is inside, and some baby animals develop in eggs.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An egg shell protects what is inside, and some baby animals develop in eggs.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          100
+        ],
+        [
+          1,
+          200,
+          521
+        ],
+        [
+          2,
+          601,
+          1123
+        ],
+        [
+          3,
+          1203,
+          1343
+        ],
+        [
+          4,
+          1444,
+          1524
+        ],
+        [
+          5,
+          1624,
+          2185
+        ],
+        [
+          6,
+          2767,
+          2887
+        ],
+        [
+          7,
+          2947,
+          3148
+        ],
+        [
+          8,
+          3168,
+          3449
+        ],
+        [
+          9,
+          3669,
+          4130
+        ],
+        [
+          10,
+          4291,
+          4712
+        ],
+        [
+          11,
+          4852,
+          4932
+        ],
+        [
+          12,
+          5113,
+          5413
+        ]
+      ],
+      "duration_ms": 5754,
+      "sha256": "105900bfa58e744a44e2d7d05a4255742ba3a292035db5e1859802d9d1f20446",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8291,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
