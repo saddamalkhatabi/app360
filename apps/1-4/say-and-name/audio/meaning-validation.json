@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1781,
+  "ready": 1786,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -166810,6 +166810,417 @@
       "sha256": "39fbd2036c1d9b6e6767152db7ed1699b4e01f43f7482abf0219e118dc1f012c",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.985,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_286a7746a95367362426": {
+      "id": "ar_286a7746a95367362426",
+      "language": "ar",
+      "text": "تنقل المدخنة الدخان من الموقد إلى خارج المبنى.",
+      "words": [
+        "تنقل",
+        "المدخنة",
+        "الدخان",
+        "من",
+        "الموقد",
+        "إلى",
+        "خارج",
+        "المبنى."
+      ],
+      "path": "audio/meaning/ar/ar_286a7746a95367362426.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تنقل المدخنة الدخان من الموقد إلى خارج المبنى",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          341
+        ],
+        [
+          1,
+          421,
+          923
+        ],
+        [
+          2,
+          1044,
+          1465
+        ],
+        [
+          3,
+          1565,
+          1686
+        ],
+        [
+          4,
+          1726,
+          2147
+        ],
+        [
+          5,
+          2328,
+          2448
+        ],
+        [
+          6,
+          2569,
+          2870
+        ],
+        [
+          7,
+          2950,
+          3311
+        ]
+      ],
+      "duration_ms": 3612,
+      "sha256": "b1d44038a7cdc72e20239e08b3471aa7948f26867ca018f8249dc79589e357ac",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9504,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5bd3c08d9b0695914251": {
+      "id": "ar_5bd3c08d9b0695914251",
+      "language": "ar",
+      "text": "يُسَاعِدُ رِجَالُ الْإِطْفَاءِ عَلَى إِخْمَادِ الْحَرَائِقِ وَإِنْقَاذِ النَّاسِ.",
+      "words": [
+        "يُسَاعِدُ",
+        "رِجَالُ",
+        "الْإِطْفَاءِ",
+        "عَلَى",
+        "إِخْمَادِ",
+        "الْحَرَائِقِ",
+        "وَإِنْقَاذِ",
+        "النَّاسِ."
+      ],
+      "path": "audio/meaning/ar/ar_5bd3c08d9b0695914251.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يساعد رجال الإطفاء على إخماد الحرائق وإنقاذ الناس",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          823
+        ],
+        [
+          1,
+          1124,
+          1505
+        ],
+        [
+          2,
+          1626,
+          2007
+        ],
+        [
+          3,
+          2469,
+          2549
+        ],
+        [
+          4,
+          2790,
+          3131
+        ],
+        [
+          5,
+          3191,
+          3793
+        ],
+        [
+          6,
+          4536,
+          5037
+        ],
+        [
+          7,
+          5098,
+          5539
+        ]
+      ],
+      "duration_ms": 6503,
+      "sha256": "8df48d32fdfe3acbc1cee807621225c16a1df3ad48dc687a351e1672cae707de",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8995,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_76b22a1e7cc1f02d5f6f": {
+      "id": "ar_76b22a1e7cc1f02d5f6f",
+      "language": "ar",
+      "text": "للمعين أربعة أضلاع متساوية، وقد تكون زواياه مائلة.",
+      "words": [
+        "للمعين",
+        "أربعة",
+        "أضلاع",
+        "متساوية،",
+        "وقد",
+        "تكون",
+        "زواياه",
+        "مائلة."
+      ],
+      "path": "audio/meaning/ar/ar_76b22a1e7cc1f02d5f6f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للمعين أربعة أضلاع متساوية وقد تكون زواياه مائلة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          442
+        ],
+        [
+          1,
+          563,
+          885
+        ],
+        [
+          2,
+          1046,
+          1227
+        ],
+        [
+          3,
+          1428,
+          2092
+        ],
+        [
+          4,
+          2494,
+          2755
+        ],
+        [
+          5,
+          2795,
+          3077
+        ],
+        [
+          6,
+          3178,
+          3640
+        ],
+        [
+          7,
+          3761,
+          4143
+        ]
+      ],
+      "duration_ms": 4304,
+      "sha256": "10127a8a5ea477c31dd79d3a67e8e643d7007bffebedff019878b1fc8039a279",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9596,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f6688819296b8472368f": {
+      "id": "ar_f6688819296b8472368f",
+      "language": "ar",
+      "text": "يَسَافِرُ رَائِدُ الْفَضَاءِ إِلَى الْفَضَاءِ لِلتَّعَلُّمِ وَالْعَمَلِ.",
+      "words": [
+        "يَسَافِرُ",
+        "رَائِدُ",
+        "الْفَضَاءِ",
+        "إِلَى",
+        "الْفَضَاءِ",
+        "لِلتَّعَلُّمِ",
+        "وَالْعَمَلِ."
+      ],
+      "path": "audio/meaning/ar/ar_f6688819296b8472368f.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يسافر رائد الفضاء إلى الفضاء للتعلم والعمل",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.4286,
+          "cer": 0.1429,
+          "heard": "يسافر رؤيد الفضائي إلى الفضائي للتعلم والعمل",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          562
+        ],
+        [
+          1,
+          743,
+          1065
+        ],
+        [
+          2,
+          1165,
+          1466
+        ],
+        [
+          3,
+          1587,
+          1908
+        ],
+        [
+          4,
+          1969,
+          2310
+        ],
+        [
+          5,
+          2672,
+          3375
+        ],
+        [
+          6,
+          3536,
+          4018
+        ]
+      ],
+      "duration_ms": 4460,
+      "sha256": "0a1ee73fbeb95c9b4f18faee9876ed829f91341119ae58ea097947a7b86a2fe3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9464,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0191aaa96dbcc030048b": {
+      "id": "ar_0191aaa96dbcc030048b",
+      "language": "ar",
+      "text": "السمك غذاء يمدنا بالبروتين، ونزيل عظامه بعناية قبل الأكل.",
+      "words": [
+        "السمك",
+        "غذاء",
+        "يمدنا",
+        "بالبروتين،",
+        "ونزيل",
+        "عظامه",
+        "بعناية",
+        "قبل",
+        "الأكل."
+      ],
+      "path": "audio/meaning/ar/ar_0191aaa96dbcc030048b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "السمك غذاء يمدنا بالبروتين ونزيل عظامه بعناية قبل الأكل",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0182,
+          "heard": "السمك غذاء يمدن بالبروتين ونزيل عظامه بعناية قبل الأكل",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          441
+        ],
+        [
+          1,
+          541,
+          762
+        ],
+        [
+          2,
+          962,
+          1403
+        ],
+        [
+          3,
+          1463,
+          2144
+        ],
+        [
+          4,
+          2585,
+          3006
+        ],
+        [
+          5,
+          3246,
+          3567
+        ],
+        [
+          6,
+          3707,
+          4148
+        ],
+        [
+          7,
+          4349,
+          4529
+        ],
+        [
+          8,
+          4589,
+          4970
+        ]
+      ],
+      "duration_ms": 5250,
+      "sha256": "fb6effe63e8de94a10b3911e1f7974642008e7bd88031b3b67d0e5098ef704d0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.943,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
