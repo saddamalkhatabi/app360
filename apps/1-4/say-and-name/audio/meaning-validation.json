@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1963,
+  "ready": 1967,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -183687,6 +183687,316 @@
       "sha256": "aa663165fc52987de194a1213954d8a468b5906a34dfff84025f52f409c1f3c2",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9581,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_dc2b2077da274bc0b565": {
+      "id": "ar_dc2b2077da274bc0b565",
+      "language": "ar",
+      "text": "الْجِدَارُ يَفْصِلُ الْغُرَفَ وَيُحِيطُ بِالْبَيْتِ.",
+      "words": [
+        "الْجِدَارُ",
+        "يَفْصِلُ",
+        "الْغُرَفَ",
+        "وَيُحِيطُ",
+        "بِالْبَيْتِ."
+      ],
+      "path": "audio/meaning/ar/ar_dc2b2077da274bc0b565.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الْجِدَارُ يَفْصِلُ الْغُرَفَ، وَيُحِيطُ بِالْبَيْتِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الجدار يفصل الغرف ويحيط بالبيت",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          581
+        ],
+        [
+          1,
+          882,
+          1243
+        ],
+        [
+          2,
+          1323,
+          1744
+        ],
+        [
+          3,
+          2406,
+          2947
+        ],
+        [
+          4,
+          3107,
+          3628
+        ]
+      ],
+      "duration_ms": 4150,
+      "sha256": "15169a1b775845031dad10c222c583f007416f904091791a877d8bd36307980d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9915,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_1ed6782a899ac0a56be4": {
+      "id": "ar_1ed6782a899ac0a56be4",
+      "language": "ar",
+      "text": "يَضُخُّ الْقَلْبُ الدَّمَ إِلَى أَجْزَاءِ الْجِسْمِ.",
+      "words": [
+        "يَضُخُّ",
+        "الْقَلْبُ",
+        "الدَّمَ",
+        "إِلَى",
+        "أَجْزَاءِ",
+        "الْجِسْمِ."
+      ],
+      "path": "audio/meaning/ar/ar_1ed6782a899ac0a56be4.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَضُخُّ الْقَلْبُ الدَّمَ، إِلَى أَجْزَاءِ الْجِسْمِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يضخ القلب الدم إلى أجزاء الجسم",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          442
+        ],
+        [
+          1,
+          542,
+          944
+        ],
+        [
+          2,
+          1044,
+          1366
+        ],
+        [
+          3,
+          2310,
+          2450
+        ],
+        [
+          4,
+          2571,
+          2852
+        ],
+        [
+          5,
+          3073,
+          3455
+        ]
+      ],
+      "duration_ms": 4158,
+      "sha256": "ef4901f49dc4525e56445e4640f0e3869dcad4d3ce732a80531199dc8abbc572",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8942,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_37a7d4e5ba1b9515145b": {
+      "id": "ar_37a7d4e5ba1b9515145b",
+      "language": "ar",
+      "text": "النيزك قطعة صخرية من الفضاء وصلت إلى سطح الأرض.",
+      "words": [
+        "النيزك",
+        "قطعة",
+        "صخرية",
+        "من",
+        "الفضاء",
+        "وصلت",
+        "إلى",
+        "سطح",
+        "الأرض."
+      ],
+      "path": "audio/meaning/ar/ar_37a7d4e5ba1b9515145b.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "النَّيْزَكُ قِطْعَةٌ صَخْرِيَّةٌ مِنَ الْفَضَاءِ، وَصَلَتْ إِلَى سَطْحِ الْأَرْضِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "النيزك قطعة صخرية من الفضاء وصلت إلى سطح الأرض",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          561
+        ],
+        [
+          1,
+          722,
+          1062
+        ],
+        [
+          2,
+          1563,
+          2064
+        ],
+        [
+          3,
+          2345,
+          2465
+        ],
+        [
+          4,
+          2546,
+          2906
+        ],
+        [
+          5,
+          4911,
+          5352
+        ],
+        [
+          6,
+          5492,
+          5652
+        ],
+        [
+          7,
+          5793,
+          6033
+        ],
+        [
+          8,
+          6113,
+          6474
+        ]
+      ],
+      "duration_ms": 6795,
+      "sha256": "cb72020d5e77aaf51004b9b81cf7393f0eaad59572434e5b61b5e9327f396ac3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9064,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_2b9079b514f2a91959a7": {
+      "id": "ar_2b9079b514f2a91959a7",
+      "language": "ar",
+      "text": "نستخدم المسطرة لرسم خط مستقيم لا ينحني.",
+      "words": [
+        "نستخدم",
+        "المسطرة",
+        "لرسم",
+        "خط",
+        "مستقيم",
+        "لا",
+        "ينحني."
+      ],
+      "path": "audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَسْتَخْدِمُ الْمِسْطَرَةَ، لِرَسْمِ خَطٍّ مُسْتَقِيمٍ لَا يَنْحَنِي.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نستخدم المسطرة لرسم خط مستقيم لا ينحني",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1429,
+          "cer": 0.0526,
+          "heard": "نستخدم المستارة لرسم خط مستقيم لا ينحني",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          602
+        ],
+        [
+          1,
+          683,
+          1325
+        ],
+        [
+          2,
+          2189,
+          2590
+        ],
+        [
+          3,
+          2731,
+          2952
+        ],
+        [
+          4,
+          3112,
+          3694
+        ],
+        [
+          5,
+          4016,
+          4116
+        ],
+        [
+          6,
+          4237,
+          4738
+        ]
+      ],
+      "duration_ms": 5642,
+      "sha256": "a3b518086c8df40c0c1549d15d7ab2ffbbd7d83511ec5eadc0b14f05e7c40a21",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9532,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
