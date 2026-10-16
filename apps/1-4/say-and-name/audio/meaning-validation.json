@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1921,
+  "ready": 1922,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -179753,6 +179753,101 @@
       "alignment_score": 0.9205,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a5132dc6ac40540cc93d": {
+      "id": "ar_a5132dc6ac40540cc93d",
+      "language": "ar",
+      "text": "اللفت جذر يؤكل مطبوخا، وقد يكون أبيض مع جزء بنفسجي.",
+      "words": [
+        "اللفت",
+        "جذر",
+        "يؤكل",
+        "مطبوخا،",
+        "وقد",
+        "يكون",
+        "أبيض",
+        "مع",
+        "جزء",
+        "بنفسجي."
+      ],
+      "path": "audio/meaning/ar/ar_a5132dc6ac40540cc93d.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "اللِّفْتُ جَذْرٌ يُؤْكَلُ مَطْبُوخًا، وَقَدْ يَكُونُ أَبْيَضَ مَعَ جُزْءٍ بَنَفْسَجِيٍّ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "اللفت جذر يؤكل مطبوخا وقد يكون أبيض مع جزء بنفسجي",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          401
+        ],
+        [
+          1,
+          541,
+          821
+        ],
+        [
+          2,
+          1062,
+          1463
+        ],
+        [
+          3,
+          1583,
+          2184
+        ],
+        [
+          4,
+          3566,
+          3867
+        ],
+        [
+          5,
+          3927,
+          4308
+        ],
+        [
+          6,
+          4488,
+          4869
+        ],
+        [
+          7,
+          5109,
+          5129
+        ],
+        [
+          8,
+          5450,
+          5650
+        ],
+        [
+          9,
+          6011,
+          6652
+        ]
+      ],
+      "duration_ms": 7694,
+      "sha256": "242889686a5449a15671494a6f0d5187347ea82fe182872944b77d78ee0ec6fb",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9558,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
