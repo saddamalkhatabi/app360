@@ -1,0 +1,25 @@
+name: Verify Reels native tap and collapsed tools
+on:
+  push:
+    branches: [fix/reels-native-tap-autoplay-20261017]
+    paths:
+      - 'assets/js/*reels*'
+      - 'assets/css/family-reels-v1.css'
+      - 'reels/index.html'
+      - 'tooling/test-reels-workspace.cjs'
+      - '.github/workflows/verify-reels-launch.yml'
+permissions:
+  contents: read
+jobs:
+  reels-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tooling/test-family-reels.js tooling/test-family-navigation.js tooling/test-reels-public.js
+      - run: npm install --prefix /tmp/reels-browser playwright@1.62.1
+      - run: /tmp/reels-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/reels-browser/node_modules node --test tooling/test-reels-workspace.cjs

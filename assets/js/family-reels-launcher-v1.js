@@ -1,36 +1,32 @@
+/* Same-tab Reels launcher: ES5, native iframe, explicit display for old Android. */
 (function(w,d){
 'use strict';
-var api=w.APP360_REELS,age=api.query(w.location.search,'age'),role=api.query(w.location.search,'role'),lang=api.query(w.location.search,'lang'),popup=null,poll=0,launching=false,embedded=false,valid=api.validAge(age)&&api.validRole(role);
-var internalDefault=w.location.protocol==='https:'&&/^((?:[a-z0-9-]+\.)*yem1\.com|family-relay-production\.up\.railway\.app)$/.test(w.location.hostname);
+var api=w.APP360_REELS,age=api.query(w.location.search,'age'),role=api.query(w.location.search,'role'),lang=api.query(w.location.search,'lang'),valid=api.validAge(age)&&api.validRole(role),preset={},goalSeq=0,active=false;
 function $(id){return d.getElementById(id)}
-function status(s){$('reelsStatus').textContent=s}
-function popupOpen(){try{return !!(popup&&!popup.closed)}catch(e){return false}}
-function closePopup(){try{if(popupOpen())popup.close()}catch(e){}popup=null;if(poll){clearInterval(poll);poll=0}$('reelsCloseTab').hidden=true}
-function filters(){return {goals:$('reelsGoal').value?[$('reelsGoal').value]:[],format:$('reelsFormat').value};}
-var goalSeq=0;function loadGoals(){var n=++goalSeq,x=new XMLHttpRequest();$('reelsGoal').innerHTML='<option value="">كل أهداف الفئة</option>';x.open('GET',api.rootPath()+'api/reels/catalog?age='+age+'&role='+$('reelsRole').value+'&lang='+lang,true);x.timeout=10000;x.onload=function(){if(n!==goalSeq)return;try{var body=JSON.parse(x.responseText);if(x.status!==200)throw Error();for(var i=0;i<body.goals.length;i++){var o=d.createElement('option');o.value=body.goals[i].id;o.textContent=body.goals[i].title;$('reelsGoal').appendChild(o);}}catch(_){status('تعذر تحميل الأهداف؛ يمكنك فتح كل الأهداف أو إعادة المحاولة.');}};x.onerror=x.ontimeout=function(){};x.send();}
-function update(){if(!valid)return;role=$('reelsRole').value;var url=api.buildUrl(age,role,lang,filters()),bs=d.querySelectorAll('[data-reels-lang]'),i;$('reelsOpen').href=url;$('reelsFallback').href=url;$('reelsTitle').textContent=role==='coach'?'ريلز مدرب الفئة':'ريلز محتوى الفئة';var artwork=$('reelsArtwork'),fallback='../assets/covers/family-reels-'+role+'-art-640.jpg';artwork.onerror=function(){this.onerror=null;this.src=fallback};artwork.src='../assets/covers/family-reels-'+role+'-art-640.webp';for(i=0;i<bs.length;i++){bs[i].className=bs[i].getAttribute('data-reels-lang')===lang?'on':'';bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-reels-lang')===lang?'true':'false')}if(embedded){try{var manager=(w.parent!==w&&w.parent.APP360_REELS_WORKSPACE)||w.APP360_REELS_WORKSPACE;if(manager)manager.apply({age:age,role:role,lang:lang,goals:filters().goals,format:filters().format});}catch(_){}}if(popupOpen())status('تغير اختيارك. اضغط «فتح الريلز» لتطبيقه في التبويب المستقل.');else if(w.navigator.onLine===false)status('أنت غير متصل الآن. سيحتاج الريلز اتصالًا بالإنترنت.');else status(internalDefault?'يفتح الريلز داخل المدرسة. يمكنك إغلاقه والعودة من الزر العلوي.':'يفتح في نافذة أو تبويب مستقل، وتبقى المدرسة محفوظة خلفه.')}
+function status(text){$('reelsStatus').textContent=text}
 function session(){try{return w.APP360_SESSION||(w.parent!==w&&w.parent.APP360_SESSION)||null}catch(e){return null}}
-function linked(){var s=session(),p=s&&s.getProfile?s.getProfile():null;return p&&p.external&&s.bridgeRequest?s:null}
-function openExternal(e){
- if(!valid)return;if(e&&e.preventDefault)e.preventDefault();launching=true;
- try{if(popupOpen())popup.focus();else{popup=w.open('about:blank','family_school_reels');}}catch(err){popup=null;}
- if(!popup){var account=linked();w.location.href=account?api.rootPath()+'reels-return.html?viewer=1&age='+age+'&role='+role+'&lang='+lang+api.filterQuery(filters()):api.buildUrl(age,role,lang,filters());return false;}
- function openUrl(url){if(!popupOpen())return;popup.location.replace(url);try{popup.opener=null;}catch(_){}popup.focus();launching=false;$('reelsCloseTab').hidden=false;status('الريلز مفتوح في تبويب مستقل؛ يبقى حساب الطفل نفسه عند الربط.');if(poll)clearInterval(poll);poll=setInterval(function(){if(!popupOpen()){closePopup();status('عدت من الريلز.');}},650);}
- var s=linked();if(s){openUrl(api.rootPath()+'reels-return.html?viewer=1&age='+age+'&role='+role+'&lang='+lang+api.filterQuery(filters()));return false;}openUrl(api.buildUrl(age,role,lang,filters()));return false;
-}
-
-function goHome(){closePopup();$('reelsFrame').src='about:blank';try{var sh=w.parent!==w&&w.parent.APP360_FAMILY_SHELL;if(sh&&sh.closeApp){sh.closeApp();return}}catch(e){}w.location.href='../index.html'}
-function showSettings(){embedded=false;$('reelsFrame').src='about:blank';$('reelsViewer').hidden=true;$('reelsIntro').hidden=false;update()}
-var workspaceTries=0;function showEmbedded(e){if(e&&e.preventDefault)e.preventDefault();if(!valid)return false;var manager=null;try{manager=(w.parent!==w&&w.parent.APP360_REELS_WORKSPACE)||w.APP360_REELS_WORKSPACE;}catch(_){}if(!manager){if(++workspaceTries>=20){embedded=true;$('reelsIntro').hidden=true;$('reelsViewer').hidden=false;$('reelsFrame').src=api.buildUrl(age,role,lang,filters());return false;}status('جارٍ تجهيز نافذة الريلز…');setTimeout(function(){showEmbedded(null);},300);return false;}embedded=true;var f=filters();f.age=age;f.role=role;f.lang=lang;f.autoplay=true;manager.open(f);status('الريلز في نافذة مستقلة داخل المدرسة. يمكنك تحريكها وتغيير حجمها أو تصغيرها.');return false;}
-if(!api.validLanguage(lang))lang=api.preferredLanguage();else api.setLanguage(lang);
-$('reelsPresetToggle').onclick=function(){var fields=$('reelsPresetFields'),show=fields.style.display==='none';fields.style.display=show?'block':'none';this.setAttribute('aria-expanded',show?'true':'false')};
-$('reelsHome').onclick=goHome;$('reelsCloseTab').onclick=function(){closePopup();status('أُغلق تبويب الريلز. يمكنك العودة إلى الرئيسية.')};$('reelsSettings').onclick=showSettings;
-if(!valid){$('reelsTitle').textContent='اختر الريلز من فئتك العمرية';status('هذا الرابط لا يحدد فئة ومحتوى صالحين. ارجع إلى المدرسة واختر بطاقة الريلز.');$('reelsOpen').removeAttribute('href');$('reelsOpen').removeAttribute('target');$('reelsOpen').setAttribute('aria-disabled','true');$('reelsEmbed').disabled=true;$('reelsRole').disabled=true;return}
-$('reelsAge').innerHTML='الفئة <b dir="ltr">'+age.replace('-','–')+'</b>';$('reelsRole').value=role;$('reelsRole').onchange=function(){var next=this.value;if(!api.roleAllowed(age,next)){this.value=role;status('المرافق اختار محتوى آخر لهذه الجلسة.');return}loadGoals();update()};
-$('reelsGoal').onchange=update;$('reelsFormat').onchange=update;
-var buttons=d.querySelectorAll('[data-reels-lang]'),i;for(i=0;i<buttons.length;i++)buttons[i].onclick=function(){lang=this.getAttribute('data-reels-lang');api.setLanguage(lang);loadGoals();update()};
-$('reelsOpen').onclick=internalDefault?showEmbedded:openExternal;$('reelsFallback').onclick=openExternal;$('reelsEmbed').onclick=internalDefault?openExternal:showEmbedded;
-if(internalDefault){$('reelsOpen').removeAttribute('target');$('reelsEmbed').textContent='فتح مستقل'}
-w.addEventListener('pagehide',function(){if(!launching)closePopup()});w.addEventListener('online',update);w.addEventListener('offline',update);w.addEventListener('keydown',function(e){if(e.key==='Escape'||e.keyCode===27)goHome()});
-loadGoals();update();
+function key(){return'app360:reels:preset:v1:'+api.profileKey()+':'+age+':'+role}
+try{preset=JSON.parse(w.localStorage.getItem(key())||'{}')||{}}catch(e){}
+if(!api.validLanguage(lang))lang=api.validLanguage(preset.lang)?preset.lang:api.preferredLanguage();
+function list(v){return Object.prototype.toString.call(v)==='[object Array]'?v:[]}
+var goals=api.query(w.location.search,'goals'),format=api.query(w.location.search,'format');
+if(goals)preset.goals=goals==='all'?[]:goals.split(',');if(format)preset.format=format;
+function filters(){return{goals:$('reelsGoal').value?[$('reelsGoal').value]:list(preset.goals),sources:list(preset.sources),gender:preset.gender||'any',format:$('reelsFormat').value||'auto',order:preset.order||'source_mix'}}
+function url(){var f=filters(),s=session(),p=s&&s.getProfile&&s.getProfile(),q='age='+age+'&role='+role+'&lang='+lang+'&viewer=1'+api.filterQuery(f)+'&ui_language='+encodeURIComponent(preset.ui_language||lang);return p&&p.external?api.rootPath()+'reels-return.html?'+q:'https://yem1.com/watch?'+q}
+function hideTools(){$('reelsTopTools').style.display='none';$('reelsToolsToggle').setAttribute('aria-expanded','false')}
+function update(){var href=url();$('reelsOpen').href=href;$('reelsFallback').href=href;$('reelsTitle').textContent=role==='coach'?'ريلز مدرب الفئة':'ريلز محتوى الفئة';var bs=d.querySelectorAll('[data-reels-lang]');for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute('data-reels-lang')===lang;bs[i].className=on?'on':'';bs[i].setAttribute('aria-pressed',on?'true':'false')}}
+function play(e){if(e&&e.preventDefault)e.preventDefault();if(!valid||!api.roleAllowed(age,role))return false;var f=filters();preset={lang:lang,ui_language:preset.ui_language||lang,goals:f.goals,sources:f.sources,gender:f.gender,format:f.format,order:f.order};try{w.localStorage.setItem(key(),JSON.stringify(preset))}catch(err){}hideTools();$('reelsIntro').hidden=true;$('reelsIntro').style.display='none';$('reelsViewer').hidden=false;$('reelsViewer').style.display='block';var next=url();if(!active||$('reelsFrame').getAttribute('src')!==next)$('reelsFrame').src=next;active=true;update();return false}
+function settings(){hideTools();$('reelsIntro').hidden=false;$('reelsIntro').style.display='block';$('reelsPresetFields').style.display='block';$('reelsPresetToggle').setAttribute('aria-expanded','true');$('reelsOpen').textContent='▶ تطبيق والعودة إلى الريلز';status('اختر الفلاتر ثم اضغط تطبيق والعودة إلى الريلز.')}
+function independent(){if(!valid||!api.roleAllowed(age,role))return;w.location.href=url()}
+function loadGoals(){var n=++goalSeq,x=new w.XMLHttpRequest();$('reelsGoal').innerHTML='<option value="">كل أهداف الفئة</option>';x.open('GET',api.rootPath()+'api/reels/catalog?age='+age+'&role='+role+'&lang='+lang,true);x.timeout=10000;x.onload=function(){if(n!==goalSeq)return;try{var body=JSON.parse(x.responseText);if(x.status!==200)throw Error();for(var i=0;i<(body.goals||[]).length;i++){var o=d.createElement('option');o.value=body.goals[i].id;o.textContent=body.goals[i].title;$('reelsGoal').appendChild(o)}$('reelsGoal').value=list(preset.goals)[0]||''}catch(err){status('تعذر تحميل قائمة الأهداف. يمكنك متابعة الريلز بالاختيارات الحالية.')}};x.onerror=x.ontimeout=function(){status('قائمة الأهداف غير متصلة الآن؛ يمكنك متابعة الريلز.')};x.send()}
+$('reelsToolsToggle').onclick=function(){var show=$('reelsTopTools').style.display==='none';$('reelsTopTools').style.display=show?'block':'none';this.setAttribute('aria-expanded',show?'true':'false')};
+$('reelsQuickSettings').onclick=settings;$('reelsQuickDirect').onclick=independent;$('reelsSettings').onclick=settings;
+$('reelsHome').onclick=function(){try{var sh=w.parent!==w&&w.parent.APP360_FAMILY_SHELL;if(sh&&sh.closeApp&&sh.closeApp()!==false)return}catch(e){}w.location.href=api.rootPath()+'index.html?age='+age};
+$('reelsOpen').onclick=play;$('reelsEmbed').onclick=independent;$('reelsFallback').onclick=function(e){if(e&&e.preventDefault)e.preventDefault();independent();return false};$('reelsPresetToggle').onclick=settings;
+if(!valid||!api.roleAllowed(age,role)){$('reelsIntro').style.display='block';status('هذا المحتوى غير متاح لهذا الرابط أو لهذه الجلسة. ارجع إلى المدرسة لاختيار التطبيق.');$('reelsOpen').removeAttribute('href');$('reelsOpen').onclick=function(){return false};$('reelsEmbed').disabled=true;return}
+$('reelsAge').textContent='الفئة '+age;$('reelsRole').value=role;$('reelsFormat').value=preset.format||'auto';$('reelsEmbed').textContent='فتح مستقل';
+$('reelsRole').onchange=function(){if(!api.roleAllowed(age,this.value)){this.value=role;return}role=this.value;preset.goals=[];preset.sources=[];loadGoals();update()};
+$('reelsGoal').onchange=function(){preset.goals=this.value?[this.value]:[];update()};$('reelsFormat').onchange=update;
+var buttons=d.querySelectorAll('[data-reels-lang]');for(var i=0;i<buttons.length;i++)buttons[i].onclick=function(){lang=this.getAttribute('data-reels-lang');api.setLanguage(lang);preset.goals=[];preset.sources=[];loadGoals();update()};
+update();play();loadGoals();
 })(window,document);
