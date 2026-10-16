@@ -18,7 +18,11 @@ for(const [age,count] of [['1-4',52],['4-8',24]]){
  }}
  // A changed routine must not retain the old voice index even when it had been verified.
  const changed=h.find(x=>x.islamic),id=changed.id;
+ // Isolate the missing/mismatched replacement cases from completed real recordings.
+ delete w.APP360_ISLAMIC_AUDIO.habits.ar[changed.islamic.id];
  w.APP360_ROUTINE_NARRATIONS={habits:{[id]:{verified:true,steps:['outdated']}}};w.APP360_ROUTINE_NARRATIONS_EN={habits:{}};
+ w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO();assert.equal(w.APP360_ROUTINE_NARRATIONS.habits[id],undefined);
+ w.APP360_ISLAMIC_AUDIO.habits.ar[changed.islamic.id]={verified:true,steps:['outdated']};
  w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO();assert.equal(w.APP360_ROUTINE_NARRATIONS.habits[id],undefined);
  const replacement={verified:true,steps:changed.islamic.steps.slice(),segments:new Array(7)};
  w.APP360_ISLAMIC_AUDIO.habits.ar[changed.islamic.id]=replacement;w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO();assert.equal(w.APP360_ROUTINE_NARRATIONS.habits[id],replacement);
