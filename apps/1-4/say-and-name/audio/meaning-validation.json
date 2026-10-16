@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1885,
+  "ready": 1887,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -176668,6 +176668,204 @@
       "sha256": "1ce689d8633c073c6ebb775870c60c55e13f1ab768a366cdb2db8c979575988f",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9429,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a85fa4992efa4fe8247e": {
+      "id": "ar_a85fa4992efa4fe8247e",
+      "language": "ar",
+      "text": "للدب مخالب قوية، وتختلف أطعمة الدببة بحسب نوعها وبيئتها.",
+      "words": [
+        "للدب",
+        "مخالب",
+        "قوية،",
+        "وتختلف",
+        "أطعمة",
+        "الدببة",
+        "بحسب",
+        "نوعها",
+        "وبيئتها."
+      ],
+      "path": "audio/meaning/ar/ar_a85fa4992efa4fe8247e.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للدب مخالب قوية وتختلف أطعمة الدببة بحسب نوعها وبيئتها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0185,
+          "heard": "للدب مخالب قوية وتختلف أطعمة الدببة بحسب نوعها وبئتها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          362
+        ],
+        [
+          1,
+          462,
+          884
+        ],
+        [
+          2,
+          1024,
+          1426
+        ],
+        [
+          3,
+          1767,
+          2290
+        ],
+        [
+          4,
+          2390,
+          2711
+        ],
+        [
+          5,
+          2852,
+          3254
+        ],
+        [
+          6,
+          3414,
+          3796
+        ],
+        [
+          7,
+          3916,
+          4298
+        ],
+        [
+          8,
+          4378,
+          5021
+        ]
+      ],
+      "duration_ms": 5101,
+      "sha256": "e82c00998df9d47f600a4ee4080b5e51c7b906944531aecc452e5fe764fc86a6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9494,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_12135a5fdebb1690ce09": {
+      "id": "ar_12135a5fdebb1690ce09",
+      "language": "ar",
+      "text": "البتلة جزء من الزهرة، وتساعد ألوان بتلات كثيرة على جذب الملقحات.",
+      "words": [
+        "البتلة",
+        "جزء",
+        "من",
+        "الزهرة،",
+        "وتساعد",
+        "ألوان",
+        "بتلات",
+        "كثيرة",
+        "على",
+        "جذب",
+        "الملقحات."
+      ],
+      "path": "audio/meaning/ar/ar_12135a5fdebb1690ce09.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "البتلة جزء من الزهرة وتساعد ألوان بتلات كثيرة على جذب الملقحات",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0161,
+          "heard": "البطلة جزء من الزهرة وتساعد ألوان بتلات كثيرة على جذب الملقحات",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          422
+        ],
+        [
+          1,
+          622,
+          783
+        ],
+        [
+          2,
+          964,
+          1064
+        ],
+        [
+          3,
+          1124,
+          1526
+        ],
+        [
+          4,
+          2008,
+          2570
+        ],
+        [
+          5,
+          2690,
+          3012
+        ],
+        [
+          6,
+          3052,
+          3474
+        ],
+        [
+          7,
+          3634,
+          4056
+        ],
+        [
+          8,
+          4317,
+          4377
+        ],
+        [
+          9,
+          4457,
+          4698
+        ],
+        [
+          10,
+          4759,
+          5501
+        ]
+      ],
+      "duration_ms": 5782,
+      "sha256": "6bf1b41990b57d5f21360c40368b228da7852b1ce6c5b68673f02625dd9c151f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9691,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
