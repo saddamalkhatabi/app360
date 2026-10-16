@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1874,
+  "ready": 1879,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -175747,6 +175747,411 @@
       "sha256": "a4e562980e64ee448380f60bddb38eff0664ffa6dfb7e3e82b5a9999d9a315d3",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8956,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_87e7b4016577d3dcca07": {
+      "id": "ar_87e7b4016577d3dcca07",
+      "language": "ar",
+      "text": "أَقْرَأُ وَأَسْتَعِيرُ الْكُتُبَ مِنَ الْمَكْتَبَةِ.",
+      "words": [
+        "أَقْرَأُ",
+        "وَأَسْتَعِيرُ",
+        "الْكُتُبَ",
+        "مِنَ",
+        "الْمَكْتَبَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_87e7b4016577d3dcca07.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أقرأ وأستعير الكتب من المكتبة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          402
+        ],
+        [
+          1,
+          946,
+          1630
+        ],
+        [
+          2,
+          1771,
+          2254
+        ],
+        [
+          3,
+          2415,
+          2535
+        ],
+        [
+          4,
+          2616,
+          3179
+        ]
+      ],
+      "duration_ms": 3723,
+      "sha256": "21e35e519529169f7da7bbac75a023bb4a275d621198356ff1732ab9717907e3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9655,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_27ea3fc5e728a1be21d9": {
+      "id": "ar_27ea3fc5e728a1be21d9",
+      "language": "ar",
+      "text": "أَعْبُرُ الشَّارِعَ مِنَ الْمَكَانِ الْمُنَاسِبِ مَعَ شَخْصٍ كَبِيرٍ.",
+      "words": [
+        "أَعْبُرُ",
+        "الشَّارِعَ",
+        "مِنَ",
+        "الْمَكَانِ",
+        "الْمُنَاسِبِ",
+        "مَعَ",
+        "شَخْصٍ",
+        "كَبِيرٍ."
+      ],
+      "path": "audio/meaning/ar/ar_27ea3fc5e728a1be21d9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعبر الشارع من المكان المناسب مع شخص كبير",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          322
+        ],
+        [
+          1,
+          422,
+          804
+        ],
+        [
+          2,
+          1105,
+          1226
+        ],
+        [
+          3,
+          1286,
+          1769
+        ],
+        [
+          4,
+          1869,
+          2472
+        ],
+        [
+          5,
+          2975,
+          2995
+        ],
+        [
+          6,
+          3276,
+          3578
+        ],
+        [
+          7,
+          3799,
+          4241
+        ]
+      ],
+      "duration_ms": 4482,
+      "sha256": "5fb50ae5b1297e542beb7e9ddfc5e2e0af07287fb91e7b40e3f2758fd39cd5bc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9761,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_cff24446aac8d6aabaa7": {
+      "id": "ar_cff24446aac8d6aabaa7",
+      "language": "ar",
+      "text": "للمكعب ستة أوجه مربعة، مثل حجر اللعب.",
+      "words": [
+        "للمكعب",
+        "ستة",
+        "أوجه",
+        "مربعة،",
+        "مثل",
+        "حجر",
+        "اللعب."
+      ],
+      "path": "audio/meaning/ar/ar_cff24446aac8d6aabaa7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للمكعب ستة أوجه مربعة مثل حجر اللعب",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          523
+        ],
+        [
+          1,
+          603,
+          885
+        ],
+        [
+          2,
+          966,
+          1247
+        ],
+        [
+          3,
+          1348,
+          1770
+        ],
+        [
+          4,
+          2193,
+          2394
+        ],
+        [
+          5,
+          2494,
+          2756
+        ],
+        [
+          6,
+          2836,
+          3178
+        ]
+      ],
+      "duration_ms": 3379,
+      "sha256": "3881bb9ff7dd3ce4b39953f7ce79188b689457f27478d166a4c873c8994f19a3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.93,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c75efd6bd1a31895fcdb": {
+      "id": "ar_c75efd6bd1a31895fcdb",
+      "language": "ar",
+      "text": "ينتج صوت الطرق عندما يصطدم شيء بسطح، مثل طرق الباب برفق.",
+      "words": [
+        "ينتج",
+        "صوت",
+        "الطرق",
+        "عندما",
+        "يصطدم",
+        "شيء",
+        "بسطح،",
+        "مثل",
+        "طرق",
+        "الباب",
+        "برفق."
+      ],
+      "path": "audio/meaning/ar/ar_c75efd6bd1a31895fcdb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ينتج صوت الطرق عندما يصطدم شيء بسطح، مثل طرق الباب برفق.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3636,
+          "cer": 0.0741,
+          "heard": "ينتج صوت الطرق عندما يصطد مشيء بصطح مثل طرق البابي برفق",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          362
+        ],
+        [
+          1,
+          502,
+          743
+        ],
+        [
+          2,
+          824,
+          1185
+        ],
+        [
+          3,
+          1326,
+          1547
+        ],
+        [
+          4,
+          1627,
+          2149
+        ],
+        [
+          5,
+          2270,
+          2430
+        ],
+        [
+          6,
+          2611,
+          3013
+        ],
+        [
+          7,
+          3415,
+          3615
+        ],
+        [
+          8,
+          3716,
+          3977
+        ],
+        [
+          9,
+          4057,
+          4318
+        ],
+        [
+          10,
+          4419,
+          4801
+        ]
+      ],
+      "duration_ms": 4861,
+      "sha256": "10fc09737582fd206fcb8e9655cc409a10c67570d0d62002476cf3efb3195fee",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9773,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f5f8a528f426a468b9ed": {
+      "id": "ar_f5f8a528f426a468b9ed",
+      "language": "ar",
+      "text": "تحمي الأظافر أطراف الأصابع، ونقصها ونحافظ على نظافتها.",
+      "words": [
+        "تحمي",
+        "الأظافر",
+        "أطراف",
+        "الأصابع،",
+        "ونقصها",
+        "ونحافظ",
+        "على",
+        "نظافتها."
+      ],
+      "path": "audio/meaning/ar/ar_f5f8a528f426a468b9ed.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحمي الأظافر أطراف الأصابع ونقصها ونحافظ على نظافتها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0385,
+          "heard": "تحمي الأضافر أطراف الأصابع ونقصها ونحافظ على نضافتها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          301
+        ],
+        [
+          1,
+          362,
+          864
+        ],
+        [
+          2,
+          924,
+          1246
+        ],
+        [
+          3,
+          1326,
+          1768
+        ],
+        [
+          4,
+          2310,
+          2913
+        ],
+        [
+          5,
+          3014,
+          3596
+        ],
+        [
+          6,
+          3797,
+          3877
+        ],
+        [
+          7,
+          3958,
+          4601
+        ]
+      ],
+      "duration_ms": 4782,
+      "sha256": "5289e875a25104d1a7b611023e5e1bb529727dfa51997aa1d2383934db66be1d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9706,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
