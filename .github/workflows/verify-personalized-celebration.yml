@@ -1,0 +1,51 @@
+name: Verify standalone names and subscriber praise foundation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'resources/celebration-audio/**'
+      - 'services/app360-data-core/src/celebration-service.js'
+      - 'services/app360-data-core/src/google-name-tts.js'
+      - 'services/app360-data-core/migrations/010_personalized_praise.js'
+      - 'services/app360-data-core/test/celebration.test.cjs'
+      - 'tooling/test-personalized-celebration.cjs'
+      - 'tooling/test-name-review-browser.cjs'
+      - '.github/workflows/verify-personalized-celebration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/name-tests knex@3.3.0 better-sqlite3@11.10.0
+      - run: NODE_PATH=/tmp/name-tests/node_modules node --test services/app360-data-core/test/celebration.test.cjs tooling/test-personalized-celebration.cjs
+      - run: node tooling/test-shared-celebration.cjs && node tooling/test-picture-puzzle-learning.cjs
+      - name: Verify independent name metadata and recordings
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          root=pathlib.Path('resources/celebration-audio')
+          m=json.loads((root/'names.json').read_text())
+          assert len({r['id'] for r in m['records']})==len(m['records'])
+          for r in m['records']:
+              if r.get('audio'):
+                  a=r['audio']
+                  assert a['text']==r['spoken_text']
+                  assert a['path'].startswith('audio/names/')
+                  assert hashlib.sha256((root/a['path']).read_bytes()).hexdigest()==a['sha256']
+                  assert a['auditory_review'] in ['pending','approved','rejected']
+          print('Standalone name hashes and honest listening-review status verified')
+          PY
+      - run: npm install --prefix /tmp/name-browser playwright@1.62.1
+      - run: /tmp/name-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/name-browser/node_modules node tooling/test-name-review-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: standalone-name-review
+          path: /tmp/name-review/

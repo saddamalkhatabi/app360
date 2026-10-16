@@ -1,6 +1,7 @@
 'use strict';
 var http=require('http');var url=require('url');var core=require('./index');var sessions=require('./session-repository');var demoAuth=require('./demo-auth');var safe=require('./safe-reels-adapter');var fileStore=require('./file-store').createFileStore();
 var bridge=require('./reels-bridge');
+var celebration=require('./celebration-service').createCelebrationService();
 var PORT=Number(process.env.APP360_PORT||3036),MAX_BODY=20*1024*1024;
 function send(res,status,obj,origin){var body=JSON.stringify(obj||{});res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.end(body)}
 function allowedOrigin(req){var origin=req.headers.origin||'';if(!origin)return'';try{var u=new URL(origin);if(u.host===req.headers.host)return origin}catch(e){}var list=String(process.env.APP360_ALLOWED_ORIGINS||'').split(',');for(var i=0;i<list.length;i++)if(list[i].trim()===origin)return origin;return null}
@@ -34,6 +35,7 @@ async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){
   try{await bridge.authorize(db,me,req.method==='POST'&&path==='/api/app360/usage/batch')}catch(e){send(res,e.httpStatus||503,{error:'linked_identity_unavailable',message:'تعذر التحقق من الحساب المرتبط. افتح المدرسة من الريلز مجدداً.'},origin);return;}
   if(req.method==='POST'&&path==='/api/app360/reels/launch'){try{send(res,200,await bridge.launch(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_launch_failed',message:'افتح المدرسة من الريلز لتجديد ربط الحساب.'},origin)}return}
   if(req.method==='GET'&&path==='/api/app360/reels/policy'){try{send(res,200,await bridge.check(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_policy_unavailable'},origin)}return}
+  if(req.method==='POST'&&path==='/api/app360/celebration/prepare'){send(res,200,await celebration.prepare(db,me,await body(req)),origin);return}
   if(req.method==='GET'&&path==='/api/app360/me/members'){var members=await sessions.listManagedMembers(db,me.user.id,me.account_id);send(res,200,{profile:profileOf(me.user,me.account_id),members:members,can_manage_audience:members.length>0},origin);return}
   if(req.method==='POST'&&path==='/api/app360/usage/batch'){var usage=await body(req),ur=await sessions.importUsageBatch(db,me.user.id,usage);await bridge.queue(db,me,usage);await bridge.drain(db);send(res,200,ur,origin);return}
   if(req.method==='GET'&&path==='/api/app360/me/dashboard'){var dash=await sessions.managedUsageDashboard(db,me.user.id,me.account_id);dash.profile=profileOf(me.user,me.account_id);send(res,200,dash,origin);return}

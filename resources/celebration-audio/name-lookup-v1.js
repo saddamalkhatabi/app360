@@ -1,0 +1,6 @@
+(function(root,factory){'use strict';var api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.App360NameLookup=api})(typeof window!=='undefined'?window:this,function(){'use strict';
+function normalize(value){return String(value||'').toLowerCase().replace(/[\u064b-\u065f\u0670\u0640\u200b-\u200f\u202a-\u202e]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/ة/g,'ه').replace(/[\s،,.!؟?\-_'’]/g,'')}
+function resolve(value,records){var key=normalize(value),hits=[],i,j,row,aliases;if(!key)return {status:'invalid',record:null};for(i=0;i<(records||[]).length;i++){row=records[i];aliases=[row.name].concat(row.aliases||[]);for(j=0;j<aliases.length;j++)if(normalize(aliases[j])===key){hits.push(row);break}}return {status:hits.length===1?'matched':hits.length?'ambiguous':'unknown',record:hits.length===1?hits[0]:null}}
+function validate(value){var s=String(value||'').trim().replace(/\s+/g,' ');if(s.length<2||s.length>60||!/[A-Za-z\u0621-\u063a\u0641-\u064a]/.test(s)||!/^[A-Za-z\u0621-\u063a\u0641-\u064a\u064b-\u065f\u0670\u0671\u0640 '\-]+$/.test(s))return null;return s}
+return {normalize:normalize,resolve:resolve,validate:validate};
+});
