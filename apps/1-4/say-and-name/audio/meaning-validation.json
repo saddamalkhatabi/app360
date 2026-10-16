@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1870,
+  "ready": 1874,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -175291,6 +175291,462 @@
       "sha256": "c10865c6df0a8220a14db26c7120d4ad27434dd6831bd6d031ca57adc9b3d987",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9509,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_fb114e30c0ef2d751737": {
+      "id": "en_fb114e30c0ef2d751737",
+      "language": "en",
+      "text": "We blow into a trumpet and vibrate our lips to make its sound.",
+      "words": [
+        "We",
+        "blow",
+        "into",
+        "a",
+        "trumpet",
+        "and",
+        "vibrate",
+        "our",
+        "lips",
+        "to",
+        "make",
+        "its",
+        "sound."
+      ],
+      "path": "audio/meaning/en/en_fb114e30c0ef2d751737.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "We blow into a trumpet and vibrate our lips to make its sound.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          80
+        ],
+        [
+          1,
+          160,
+          421
+        ],
+        [
+          2,
+          622,
+          862
+        ],
+        [
+          3,
+          943,
+          963
+        ],
+        [
+          4,
+          1063,
+          1524
+        ],
+        [
+          5,
+          1665,
+          1785
+        ],
+        [
+          6,
+          1865,
+          2387
+        ],
+        [
+          7,
+          2467,
+          2587
+        ],
+        [
+          8,
+          2667,
+          3028
+        ],
+        [
+          9,
+          3129,
+          3209
+        ],
+        [
+          10,
+          3269,
+          3490
+        ],
+        [
+          11,
+          3550,
+          3710
+        ],
+        [
+          12,
+          3790,
+          4232
+        ]
+      ],
+      "duration_ms": 4693,
+      "sha256": "09c21705c9f9c1789ec5d416eadb8bf035d5de1dcfc2791b00680834598b514b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9752,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_783d5a2075f4c07c16b3": {
+      "id": "en_783d5a2075f4c07c16b3",
+      "language": "en",
+      "text": "A roof is the top of a house, and I do not go onto it alone.",
+      "words": [
+        "A",
+        "roof",
+        "is",
+        "the",
+        "top",
+        "of",
+        "a",
+        "house,",
+        "and",
+        "I",
+        "do",
+        "not",
+        "go",
+        "onto",
+        "it",
+        "alone."
+      ],
+      "path": "audio/meaning/en/en_783d5a2075f4c07c16b3.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A roof is the top of a house, and I do not go onto it alone.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          161,
+          181
+        ],
+        [
+          1,
+          281,
+          502
+        ],
+        [
+          2,
+          622,
+          722
+        ],
+        [
+          3,
+          762,
+          843
+        ],
+        [
+          4,
+          903,
+          1103
+        ],
+        [
+          5,
+          1164,
+          1244
+        ],
+        [
+          6,
+          1284,
+          1304
+        ],
+        [
+          7,
+          1384,
+          1826
+        ],
+        [
+          8,
+          2307,
+          2428
+        ],
+        [
+          9,
+          2548,
+          2568
+        ],
+        [
+          10,
+          2608,
+          2688
+        ],
+        [
+          11,
+          2789,
+          2969
+        ],
+        [
+          12,
+          3070,
+          3150
+        ],
+        [
+          13,
+          3411,
+          3631
+        ],
+        [
+          14,
+          3692,
+          3772
+        ],
+        [
+          15,
+          3872,
+          4273
+        ]
+      ],
+      "duration_ms": 4494,
+      "sha256": "3bb03398e23aa199b2c0b88c7b91ca025da2a14814d8639539d15178633b43cb",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9685,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_52340fb6ae4ffb257392": {
+      "id": "en_52340fb6ae4ffb257392",
+      "language": "en",
+      "text": "Parents are a mother and father who care for and help their children.",
+      "words": [
+        "Parents",
+        "are",
+        "a",
+        "mother",
+        "and",
+        "father",
+        "who",
+        "care",
+        "for",
+        "and",
+        "help",
+        "their",
+        "children."
+      ],
+      "path": "audio/meaning/en/en_52340fb6ae4ffb257392.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Parents are a mother and father who care for and help their children.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          481
+        ],
+        [
+          1,
+          641,
+          762
+        ],
+        [
+          2,
+          782,
+          802
+        ],
+        [
+          3,
+          882,
+          1183
+        ],
+        [
+          4,
+          1363,
+          1483
+        ],
+        [
+          5,
+          1563,
+          1924
+        ],
+        [
+          6,
+          1964,
+          2044
+        ],
+        [
+          7,
+          2165,
+          2445
+        ],
+        [
+          8,
+          2505,
+          2786
+        ],
+        [
+          9,
+          2966,
+          3087
+        ],
+        [
+          10,
+          3147,
+          3367
+        ],
+        [
+          11,
+          3488,
+          3628
+        ],
+        [
+          12,
+          3728,
+          4189
+        ]
+      ],
+      "duration_ms": 5291,
+      "sha256": "6d81938f8d9832522081599f8275d51e0ba5017b8d4eeae2f90a8201251b2e41",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9688,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_718630a9eca3ef64f6db": {
+      "id": "en_718630a9eca3ef64f6db",
+      "language": "en",
+      "text": "A thin thread has little thickness and fits through a suitable hole.",
+      "words": [
+        "A",
+        "thin",
+        "thread",
+        "has",
+        "little",
+        "thickness",
+        "and",
+        "fits",
+        "through",
+        "a",
+        "suitable",
+        "hole."
+      ],
+      "path": "audio/meaning/en/en_718630a9eca3ef64f6db.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A thin thread has little thickness and fits through a suitable hole.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0896,
+          "heard": "The ethane thread has little thickness and fits through a suitable hole.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          141,
+          342
+        ],
+        [
+          2,
+          422,
+          784
+        ],
+        [
+          3,
+          904,
+          1125
+        ],
+        [
+          4,
+          1246,
+          1507
+        ],
+        [
+          5,
+          1547,
+          2030
+        ],
+        [
+          6,
+          2170,
+          2271
+        ],
+        [
+          7,
+          2331,
+          2593
+        ],
+        [
+          8,
+          2653,
+          2814
+        ],
+        [
+          9,
+          2814,
+          2834
+        ],
+        [
+          10,
+          2914,
+          3356
+        ],
+        [
+          11,
+          3396,
+          3718
+        ]
+      ],
+      "duration_ms": 4783,
+      "sha256": "a4e562980e64ee448380f60bddb38eff0664ffa6dfb7e3e82b5a9999d9a315d3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8956,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
