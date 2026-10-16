@@ -33,3 +33,9 @@ test('direct launch still checks family policy before any navigation',()=>{
  const {w,api}=setup();w.navigator={userAgent:'Android 4.4.2'};w.APP360_FAMILY_SYNC.getSession=()=>({role:'guest'});w.APP360_FAMILY_SYNC.getPolicy=()=>({mode:'locked',selected:'reels-learner-1-4'});
  assert.equal(api.launch({id:'reels-coach-4-8',age_group:'4-8',reels_role:'coach'}),false);assert.equal(w.location.href,undefined);
 });
+
+test('standalone return button on old Android uses same-tab navigation',()=>{
+ const w={APP360_SESSION:{},navigator:{userAgent:'Android 4.4.2'},location:{pathname:'/apps/1-4/example/index.html'},open(){throw Error('old tablet must not depend on popups')}};w.parent=w;
+ const d={readyState:'loading',addEventListener(){},documentElement:{lang:'ar'}};
+ vm.runInNewContext(read('assets/js/reels-bridge-v1.js'),{window:w,document:d,location:w.location});w.APP360_REELS_BRIDGE.returnToReels();assert.equal(w.location.href,'/reels-return.html?lang=ar');
+});
