@@ -21,7 +21,7 @@ one shared unsigned PCM pack; modern browsers use compact MP3 clips.
   login state, or a browser flag. `personalizationEnabled()` remains false.
 - Subscriber personalization now has a disabled server foundation, documented below.
   The 1000 added Arabic/Yemeni candidates are being recorded in resumable shards. Existing app flows
-  and learning cards remain generic; no paid-name or Google-name calls activate by default.
+  and learning cards remain generic; no personalized-name calls activate by default.
 - Existing combined recordings remain in the repository for continuity. Migrated
   offline bundles exclude their duplicate per-name media and use this shared bank.
 
@@ -31,7 +31,7 @@ validation does not claim a human listening review.
 ## Subscriber foundation (off by default)
 
 `play()` remains generic in every existing app, including puzzle learning cards.
-`playPersonalized({enabled:true,name,gender,language:'ar',kind,allowGoogle:false}, done)`
+`playPersonalized({enabled:true,name,gender,language:'ar',kind,allowDeviceSpeech:true}, done)`
 is a separate opt-in entry point. It requires a fresh authenticated server decision
 before playing any prefix. Network errors, expiry, unreviewed or ambiguous names,
 and invalid responses fall back to generic praise. Stop/navigation aborts requests
@@ -50,17 +50,23 @@ changing approval or paid-feature state. Do not mark a clip approved merely beca
 its hash or decoder passed. The 41 existing names are the first batch; the 1000 additional candidates have
 authored reading forms and still require recording and listening review.
 
-Unknown names use Google only with the caller's explicit `allowGoogle:true`, an
-active server entitlement, a daily server quota and
-`APP360_ENABLE_GOOGLE_NAME_TTS=1`. Put service-account credentials only in the
-server secret `APP360_GOOGLE_TTS_CREDENTIALS_JSON`. The fixed official Cloud TTS
-endpoint receives the name only (plain text, not SSML); OAuth credentials and
-provider errors never reach the browser. There is no public Google Translate URL
-fallback, no arbitrary remote audio URL, and no automatic Google call for a known
-name awaiting review. Provider failure returns generic praise. Default daily quota
-is 10 per authenticated user; failed provider attempts count to limit retries.
+Unknown names use the phone/browser's `speechSynthesis` only after server entitlement
+approval, with `allowDeviceSpeech:true` (the client default). The server returns the
+validated name as a `device-speech` segment; it makes no speech-provider request.
+There are no Google Cloud accounts, API keys, service credentials, provider quotas,
+or provider subscriptions in this fallback. Existing unreviewed names and ambiguous
+matches retain generic praise rather than bypassing the recording review.
 
-Official protocol: https://docs.cloud.google.com/text-to-speech/docs/reference/rest/v1/text/synthesize
+Before any name prefix is played, the browser waits briefly for an Arabic voice to
+become available. It prefers a voice marked `localService`, then another available
+Arabic system voice. Missing/unsupported Arabic speech, playback errors or timeout
+fall back to generic praise. Stop, page navigation and hiding the app cancel speech
+and pending voice selection. Android 4/legacy clients retain the generic PCM path.
+A voice provided by the operating system can itself require network access;
+availability and pronunciation depend on the installed device voices. This does
+not grant access to the application's subscriber-only personalized-praise feature.
+
+Web Speech API: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 
 Listening review is recorded per exact audio digest with
 `node tooling/review-celebration-name.cjs --id name-3 --sha256 <current-sha256> --status approved --reviewer <reviewer> --note <listening-observation>`.
@@ -96,8 +102,8 @@ review; no recording job can approve itself.
 
 `recording_progress` reports actual verified recordings, pending names and received
 shards. `complete` means all canonical names have media, not approved pronunciation.
-The public child applications continue to use generic praise. Billing entitlements,
-review approval and Google server configuration remain independent requirements.
+The public child applications continue to use generic praise. Billing entitlements and listening-review approval remain independent requirements.
+Device speech requires no provider configuration.
 
 If the catalog is corrected while a recording job is active, the merge skips only
 stale texts and retains other valid outputs. Bounded automatic resume attempts
