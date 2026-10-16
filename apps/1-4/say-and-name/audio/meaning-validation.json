@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1978,
+  "ready": 1983,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -184904,6 +184904,411 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c954676ac2b693db543f": {
+      "id": "ar_c954676ac2b693db543f",
+      "language": "ar",
+      "text": "سطح المنزل أعلاه، ولا أصعد إليه وحدي.",
+      "words": [
+        "سطح",
+        "المنزل",
+        "أعلاه،",
+        "ولا",
+        "أصعد",
+        "إليه",
+        "وحدي."
+      ],
+      "path": "audio/meaning/ar/ar_c954676ac2b693db543f.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "سَطْحُ الْمَنْزِلِ أَعْلَاهُ، وَلَا أَصْعَدُ إِلَيْهِ وَحْدِي.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "سطح المنزل أعلاه ولا أصعد إليه وحدي",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          341
+        ],
+        [
+          1,
+          461,
+          942
+        ],
+        [
+          2,
+          1122,
+          1563
+        ],
+        [
+          3,
+          3087,
+          3307
+        ],
+        [
+          4,
+          3467,
+          3808
+        ],
+        [
+          5,
+          4009,
+          4329
+        ],
+        [
+          6,
+          4510,
+          4870
+        ]
+      ],
+      "duration_ms": 5512,
+      "sha256": "e2658a240c22038982698c401726ea2ac179c662d83eaa2454851288a499837d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9112,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_984d1f912219c70305fb": {
+      "id": "ar_984d1f912219c70305fb",
+      "language": "ar",
+      "text": "لليعسوب أربعة أجنحة، ويصطاد حشرات صغيرة أثناء الطيران.",
+      "words": [
+        "لليعسوب",
+        "أربعة",
+        "أجنحة،",
+        "ويصطاد",
+        "حشرات",
+        "صغيرة",
+        "أثناء",
+        "الطيران."
+      ],
+      "path": "audio/meaning/ar/ar_984d1f912219c70305fb.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْيَعْسُوبِ أَرْبَعَةُ أَجْنِحَةٍ، وَيَصْطَادُ حَشَرَاتٍ صَغِيرَةً أَثْنَاءَ الطَّيَرَانِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "لليعسوب أربعة أجنحة ويصطاد حشرات صغيرة أثناء الطيران",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          741
+        ],
+        [
+          1,
+          962,
+          1362
+        ],
+        [
+          2,
+          1683,
+          2144
+        ],
+        [
+          3,
+          3466,
+          4047
+        ],
+        [
+          4,
+          4207,
+          4808
+        ],
+        [
+          5,
+          5069,
+          5570
+        ],
+        [
+          6,
+          5930,
+          6211
+        ],
+        [
+          7,
+          6471,
+          7212
+        ]
+      ],
+      "duration_ms": 8114,
+      "sha256": "4379b76197baf51988adc4a9408803a9a1fa09ac8e4e1e7e5bcb8352397a06fd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9479,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_197dc878119ee56a3877": {
+      "id": "ar_197dc878119ee56a3877",
+      "language": "ar",
+      "text": "للثعلب سمع حاد وذيل كثيف، ويأكل حيوانات صغيرة وثمارا.",
+      "words": [
+        "للثعلب",
+        "سمع",
+        "حاد",
+        "وذيل",
+        "كثيف،",
+        "ويأكل",
+        "حيوانات",
+        "صغيرة",
+        "وثمارا."
+      ],
+      "path": "audio/meaning/ar/ar_197dc878119ee56a3877.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلثَّعْلَبِ سَمْعٌ حَادٌّ وَذَيْلٌ كَثِيفٌ، وَيَأْكُلُ حَيَوَانَاتٍ صَغِيرَةً وَثِمَارًا.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للثعلب سمع حاد وذيل كثيف ويأكل حيوانات صغيرة وثمارا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          621
+        ],
+        [
+          1,
+          781,
+          942
+        ],
+        [
+          2,
+          1262,
+          1603
+        ],
+        [
+          3,
+          1983,
+          2384
+        ],
+        [
+          4,
+          2604,
+          3045
+        ],
+        [
+          5,
+          4327,
+          4828
+        ],
+        [
+          6,
+          4968,
+          5710
+        ],
+        [
+          7,
+          5890,
+          6351
+        ],
+        [
+          8,
+          6711,
+          7372
+        ]
+      ],
+      "duration_ms": 8354,
+      "sha256": "6914a5c76eabaf598bf692ec338f8a2dd3b85ef8957773a2c3fb84e19ea3ba0a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9791,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_931aabcbfbff05e149c7": {
+      "id": "ar_931aabcbfbff05e149c7",
+      "language": "ar",
+      "text": "تُغَطِّي الضِّمَادَةُ الْجُرْحَ لِتُسَاعِدَ عَلَى حِمَايَتِهِ.",
+      "words": [
+        "تُغَطِّي",
+        "الضِّمَادَةُ",
+        "الْجُرْحَ",
+        "لِتُسَاعِدَ",
+        "عَلَى",
+        "حِمَايَتِهِ."
+      ],
+      "path": "audio/meaning/ar/ar_931aabcbfbff05e149c7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تُغَطِّي الضِّمَادَةُ الْجُرْحَ، لِتُسَاعِدَ عَلَى حِمَايَتِهِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تغطي الضمادة الجرح لتساعد على حمايته",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          442
+        ],
+        [
+          1,
+          502,
+          1004
+        ],
+        [
+          2,
+          1185,
+          1606
+        ],
+        [
+          3,
+          2972,
+          3695
+        ],
+        [
+          4,
+          3976,
+          4056
+        ],
+        [
+          5,
+          4157,
+          4859
+        ]
+      ],
+      "duration_ms": 5442,
+      "sha256": "2b759aa965583ba099b96bdffe48ad9b94cfd3ac75580fb3746718dbb377120f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8251,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e4baa46c90d86302f3a8": {
+      "id": "ar_e4baa46c90d86302f3a8",
+      "language": "ar",
+      "text": "الوالدان هما الأب والأم، ويعتنيان بأطفالهما ويساعدانهم.",
+      "words": [
+        "الوالدان",
+        "هما",
+        "الأب",
+        "والأم،",
+        "ويعتنيان",
+        "بأطفالهما",
+        "ويساعدانهم."
+      ],
+      "path": "audio/meaning/ar/ar_e4baa46c90d86302f3a8.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الْوَالِدَانِ هُمَا الْأَبُ وَالْأُمُّ، وَيَعْتَنِيَانِ بِأَطْفَالِهِمَا وَيُسَاعِدَانِهِمْ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الوالدان هما الأب والأم ويعتنيان بأطفالهما ويساعدانهم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5714,
+          "cer": 0.0566,
+          "heard": "الوالدانهما الأبو والأمو ويعتنيان بأطفالهما ويساعدانهم.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 42360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          782
+        ],
+        [
+          1,
+          962,
+          1243
+        ],
+        [
+          2,
+          1503,
+          1804
+        ],
+        [
+          3,
+          2505,
+          2886
+        ],
+        [
+          4,
+          3447,
+          4389
+        ],
+        [
+          5,
+          4850,
+          5772
+        ],
+        [
+          6,
+          6233,
+          7315
+        ]
+      ],
+      "duration_ms": 7956,
+      "sha256": "6eff2a7da072b0917838051b05794f6843a8ad277bc8903e7161d4951748056c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9744,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
