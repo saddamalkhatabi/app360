@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1985,
+  "ready": 1986,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -185513,6 +185513,65 @@
       "sha256": "9640e8fbe25c37d8bdff363b87fd61d6dfa1b6184d695b4585261b2c73e3680c",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9625,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_8e24fe9ab6d247a123ad": {
+      "id": "en_8e24fe9ab6d247a123ad",
+      "language": "en",
+      "text": "A dolphin breathes air.",
+      "words": [
+        "A",
+        "dolphin",
+        "breathes",
+        "air."
+      ],
+      "path": "audio/meaning/en/en_8e24fe9ab6d247a123ad.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "A dolphin breathes air.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A dolphin breathes air.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          101,
+          486
+        ],
+        [
+          2,
+          547,
+          911
+        ],
+        [
+          3,
+          1012,
+          1194
+        ]
+      ],
+      "duration_ms": 1660,
+      "sha256": "1102c966c3984651d91b6874075a529f368ab820434e4171108f12432dfaf284",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.7421,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
