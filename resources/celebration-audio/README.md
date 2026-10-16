@@ -11,8 +11,8 @@ one shared unsigned PCM pack; modern browsers use compact MP3 clips.
 ## Migration
 
 - Generic phrases and optional name prefixes are separate recordings.
-- `names.json` indexes the 41 existing canonical names and aliases, with standalone
-  name audio explicitly marked pending. Combined old praise/name clips are not
+- `names.json` indexes 1041 canonical names and aliases. Actual recording and
+  listening-review status are tracked separately for each name. Combined old praise/name clips are not
   reused as standalone names.
 - Arabic hamza, tashkeel, tatweel, spacing and common letter variants normalize
   for lookup. Ambiguous matches return no match; aliases can be extended without
@@ -20,7 +20,7 @@ one shared unsigned PCM pack; modern browsers use compact MP3 clips.
 - The player does not enable personalized audio from caller options, local storage,
   login state, or a browser flag. `personalizationEnabled()` remains false.
 - Subscriber personalization now has a disabled server foundation, documented below.
-  About 1000 additional common Arabic/Yemeni names are planned. Existing app flows
+  The 1000 added Arabic/Yemeni candidates are being recorded in resumable shards. Existing app flows
   and learning cards remain generic; no paid-name or Google-name calls activate by default.
 - Existing combined recordings remain in the repository for continuity. Migrated
   offline bundles exclude their duplicate per-name media and use this shared bank.
@@ -47,8 +47,8 @@ endpoint. Existing login, a local-storage switch or caller flags do not grant ac
 Known names require `audio.auditory_review="approved"` after listening review.
 `review-names.html` previews the independent names and prefix composition without
 changing approval or paid-feature state. Do not mark a clip approved merely because
-its hash or decoder passed. The 41 names are the first batch; the roughly 1000
-additional Arabic/Yemeni names require a curated list and further recording/review.
+its hash or decoder passed. The 41 existing names are the first batch; the 1000 additional candidates have
+authored reading forms and still require recording and listening review.
 
 Unknown names use Google only with the caller's explicit `allowGoogle:true`, an
 active server entitlement, a daily server quota and
@@ -68,8 +68,9 @@ Use `rejected` for a clip needing correction. This command is for a completed hu
 listening review, not automatic validation. The server requires the approved review
 to match the current metadata digest. Regeneration resets that clip to pending.
 
-The name recorder resumes valid existing clips and generates at most 50 new names
-per run (`APP360_NAME_BATCH_LIMIT`, 1–100). This keeps future 1000-name expansion
+The name recorder resumes valid existing clips and defaults to at most 50 new names
+per shard (`APP360_NAME_BATCH_LIMIT`, 1–100). The workflow partitions work into
+20 shards and skips model installation for shards with no pending names. This keeps future 1000-name expansion
 in reviewable batches rather than one long job; `complete` remains false until all
 catalog records have independent audio. Retrying a batch preserves valid recordings
 and their reviews. Do not add invented spelling variants as new canonical people.
@@ -97,3 +98,8 @@ review; no recording job can approve itself.
 shards. `complete` means all canonical names have media, not approved pronunciation.
 The public child applications continue to use generic praise. Billing entitlements,
 review approval and Google server configuration remain independent requirements.
+
+If the catalog is corrected while a recording job is active, the merge skips only
+stale texts and retains other valid outputs. Bounded automatic resume attempts
+read fresh `main` and synthesize only missing/current texts, never overwrite a
+current valid approved clip, and never convert technical QA to listening approval.
