@@ -73,3 +73,6 @@ per run (`APP360_NAME_BATCH_LIMIT`, 1–100). This keeps future 1000-name expans
 in reviewable batches rather than one long job; `complete` remains false until all
 catalog records have independent audio. Retrying a batch preserves valid recordings
 and their reviews. Do not add invented spelling variants as new canonical people.
+
+First batch completed: 41 standalone name recordings, with exact hashes and durations.
+All 41 are pending human listening review; none have been automatically approved.
