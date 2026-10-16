@@ -5,3 +5,15 @@ body[data-page="reels"]{margin:0;background:#edf7f5;color:#123f46;font:15px/1.7 
 .reels-cover img.reels-cover-logo{position:absolute;top:3%;left:50%;transform:translateX(-50%);width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25));border-radius:0;background:none}.reels-cover-title{top:20%;font-size:25px}.showcase-detail-hero .reels-cover img.reels-cover-logo{width:16px;height:16px;top:1%}.showcase-detail-hero .reels-cover-title{top:21%;font-size:7px}.reels-header-logo{width:44px;height:44px;object-fit:contain}@media(max-width:650px){.reels-cover img.reels-cover-logo{width:50px;height:50px}.reels-cover-title{font-size:22px}.reels-header-logo{width:36px;height:36px}.reels-head b{font-size:12px}}
 
 .classic-cover.reels-classic-cover{height:auto}.reels-classic-cover .reels-cover{height:auto}.reels-classic-cover .reels-cover>img:first-child{height:auto;width:100%;object-fit:contain}.reels-cover-title{background:rgba(4,49,55,.5);padding:5px 3px;border-radius:10px}.showcase-detail-hero .reels-cover-title{padding:1px;border-radius:3px}
+
+/* Native Reels page on KitKat: fixed bounds and explicit display, no window library. */
+body[data-page="reels"]{margin:0;overflow:hidden;background:#071e25}
+body[data-page="reels"] .reels-head{position:fixed;top:0;right:0;left:0;height:56px;box-sizing:border-box;z-index:20}
+#reelsTopTools{position:absolute;top:56px;right:8px;padding:8px;background:#075e68;border-radius:8px;z-index:25}
+#reelsTopTools button{display:block;width:100%;margin:5px 0;padding:12px;font:16px Tahoma}
+body[data-page="reels"] .reels-launch{position:fixed;top:56px;right:0;bottom:0;left:0;margin:0;padding:0;max-width:none}
+body[data-page="reels"] .reels-viewer{position:absolute;top:0;right:0;bottom:0;left:0;height:auto;display:block;margin:0;padding:0}
+body[data-page="reels"] .reels-view-toolbar{display:none}
+body[data-page="reels"] .reels-viewer iframe{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;min-height:0;border:0;border-radius:0}
+body[data-page="reels"] .reels-intro{position:absolute;top:0;right:0;bottom:0;left:0;overflow:auto;background:#f5fcfa;padding:14px;z-index:15;min-height:0}
+@media(max-width:650px){body[data-page="reels"] .reels-head{height:56px;flex-wrap:nowrap}.reels-head .reels-age{width:auto}.reels-head b{display:none}}

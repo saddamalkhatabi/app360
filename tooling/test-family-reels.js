@@ -7,16 +7,35 @@ test('all 32 user-supplied age, role and language destinations are exact and val
 test('language preference is profile-specific and survives denied storage in memory',()=>{for(const denied of [false,true]){const r=setup(denied);assert.equal(r.api.preferredLanguage(),'ar');r.api.setLanguage('en');r.setProfile('name:سارة');assert.equal(r.api.preferredLanguage(),'ar');r.setProfile('name:نور');assert.equal(r.api.preferredLanguage(),'en');assert.equal(r.api.setLanguage('invalid'),false)}});
 test('catalog integration is idempotent and only our local bridge is intercepted',()=>{const {api}=setup();const c=JSON.parse(JSON.stringify(catalog));api.mergeCatalog(c);const n=c.apps.length;api.mergeCatalog(c);assert.equal(c.apps.length,n);assert.equal(n,catalog.apps.length+16);assert.equal(api.appFromHref('reels/index.html?age=4-8&role=coach').id,'reels-coach-4-8');assert.equal(api.appFromHref('https://evil.example/repo/commit/reels/index.html?age=4-8&role=coach'),null);assert.equal(api.appFromHref('reels/index.html?age=4-8&role=mixed'),null);});
 test('role selection preserves family restrictions and the original planner image',()=>{const {api,w}=setup();w.APP360_FAMILY_SYNC.getSession=()=>({role:'guest',adminRole:'member'});w.APP360_FAMILY_SYNC.getPolicy=()=>({mode:'locked',selected:'reels-learner-1-4'});assert.equal(api.roleAllowed('1-4','learner'),true);assert.equal(api.roleAllowed('1-4','coach'),false);w.APP360_FAMILY_SYNC.getPolicy=()=>({mode:'guided',allowed:['reels-coach-4-8']});assert.equal(api.roleAllowed('4-8','coach'),true);assert.equal(api.roleAllowed('1-4','coach'),false);assert.equal(catalog.apps.find(a=>a.id==='a1-plan-runner').cover,'assets/covers/a1-plan-runner.jpg');const bytes=fs.readFileSync(path.join(root,'assets/covers/a1-plan-runner.jpg'));assert.equal(crypto.createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex'),'13d0393cc691ec75bd3614867cc0ea0c2ed83879');});
-test('approved HTTPS school origins embed by default while previews keep the independent fallback',()=>{
- for(const [hostname,protocol,internal] of [['family-relay-production.up.railway.app','https:',true],['raw.githack.com','https:',false],['family-relay-production.up.railway.app','http:',false]]){
-  const {w}=setup(),els={},buttons=['ar','en'].map(lang=>({getAttribute:()=>lang,setAttribute(){}}));
-  const el=id=>els[id]||(els[id]={value:'learner',hidden:false,style:{display:'none'},setAttribute(){},removeAttribute(){}});
-  const d={getElementById:el,querySelectorAll:()=>buttons};let opened=0;
-  w.APP360_REELS_WORKSPACE={open(f){w.launched=f},apply(){}};w.XMLHttpRequest=function(){this.open=function(){};this.send=function(){}};
-  w.location={hostname,protocol,search:'?age=1-4&role=learner'};w.navigator={onLine:true};w.addEventListener=()=>{};w.open=()=>{opened++;return{closed:false,location:{replace(){}},focus(){},close(){this.closed=true}}};
-  vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d,XMLHttpRequest:w.XMLHttpRequest,setInterval:()=>1,clearInterval(){}});
-  el('reelsOpen').onclick({preventDefault(){}});
-  if(internal){assert.equal(opened,0);assert.equal(w.launched.age,'1-4');assert.equal(w.launched.role,'learner');assert.equal(w.launched.autoplay,true);assert.equal(el('reelsEmbed').textContent,'فتح مستقل');el('reelsEmbed').onclick({preventDefault(){}});assert.equal(opened,1)}
-  else assert.equal(opened,1);
- }
+test('native launcher starts immediately with tools collapsed on school and preview origins',()=>{
+ const {w}=setup(),els={},buttons=['ar','en'].map(lang=>({getAttribute:()=>lang,setAttribute(){}}));
+ const el=id=>els[id]||(els[id]={value:'',hidden:false,style:{display:'none'},setAttribute(){},getAttribute(k){return this[k]||null},removeAttribute(){}});
+ const d={getElementById:el,querySelectorAll:()=>buttons};
+ w.location={hostname:'school.yem1.com',protocol:'https:',search:'?age=1-4&role=learner'};w.navigator={onLine:true};w.XMLHttpRequest=function(){this.open=function(){};this.send=function(){}};el('reelsFormat').value='auto';el('reelsTopTools').style.display='none';
+ vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d});
+ assert.match(el('reelsFrame').src,/yem1.com\/watch\?age=1-4&role=learner/);assert.equal(el('reelsIntro').style.display,'none');assert.equal(el('reelsTopTools').style.display,'none');
+ el('reelsToolsToggle').onclick();assert.equal(el('reelsTopTools').style.display,'block');el('reelsQuickSettings').onclick();assert.equal(el('reelsIntro').style.display,'block');assert.equal(el('reelsFrame').src.includes('yem1.com'),true,'settings retain playback');el('reelsOpen').onclick({preventDefault(){}});assert.equal(el('reelsIntro').style.display,'none');
+});
+test('legacy taps open a real same-tab page without registration in family sync',()=>{
+ const {w,api,listeners}=setup();w.navigator={userAgent:'Mozilla/5.0 (Linux; Android 4.4.2; DMTAB-NV20A)'};
+ let delegated=0;w.APP360_FAMILY_SYNC.openApp=()=>{delegated++};w.APP360_FAMILY_SYNC.apps=[];w.APP360_FAMILY_SYNC.canNavigate=()=>false;
+ const link={getAttribute:k=>k==='href'?'reels/index.html?age=4-8&role=learner':null,parentNode:null};
+ assert(api.appFromHref('reels/index.html?age=4-8&role=learner'),'valid destination does not depend on registration');
+ const event=(x,y)=>({target:link,touches:[{clientX:x,clientY:y}],changedTouches:[{clientX:x,clientY:y}],preventDefault(){},stopImmediatePropagation(){}});
+ listeners.touchstart(event(30,30));listeners.touchend(event(35,32));assert.match(w.location.href,/reels\/index.html\?age=4-8&role=learner&autoplay=1&legacy=1/);assert.equal(delegated,0);
+});
+test('swiping over a Reels card must never trigger its synthetic click',()=>{
+ const {w,listeners}=setup();w.navigator={userAgent:'Android 4.4.2'};
+ const link={getAttribute:k=>k==='href'?'reels/index.html?age=1-4&role=learner':null};const e=x=>({target:link,touches:[{clientX:x,clientY:10}],changedTouches:[{clientX:x,clientY:10}],preventDefault(){},stopImmediatePropagation(){}});
+ listeners.touchstart(e(10));listeners.touchmove(e(90));listeners.touchend(e(90));listeners.click(e(90));assert.equal(w.location.href,undefined);
+});
+test('direct launch still checks family policy before any navigation',()=>{
+ const {w,api}=setup();w.navigator={userAgent:'Android 4.4.2'};w.APP360_FAMILY_SYNC.getSession=()=>({role:'guest'});w.APP360_FAMILY_SYNC.getPolicy=()=>({mode:'locked',selected:'reels-learner-1-4'});
+ assert.equal(api.launch({id:'reels-coach-4-8',age_group:'4-8',reels_role:'coach'}),false);assert.equal(w.location.href,undefined);
+});
+
+test('standalone return button on old Android uses same-tab navigation',()=>{
+ const w={APP360_SESSION:{},navigator:{userAgent:'Android 4.4.2'},location:{pathname:'/apps/1-4/example/index.html'},open(){throw Error('old tablet must not depend on popups')}};w.parent=w;
+ const d={readyState:'loading',addEventListener(){},documentElement:{lang:'ar'}};
+ vm.runInNewContext(read('assets/js/reels-bridge-v1.js'),{window:w,document:d,location:w.location});w.APP360_REELS_BRIDGE.returnToReels();assert.equal(w.location.href,'/reels-return.html?lang=ar');
 });
