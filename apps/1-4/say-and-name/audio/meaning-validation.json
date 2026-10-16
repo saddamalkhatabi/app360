@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1928,
+  "ready": 1930,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180396,6 +180396,186 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_81dff69bfb8e7d052d51": {
+      "id": "ar_81dff69bfb8e7d052d51",
+      "language": "ar",
+      "text": "تَحْمِلُ الشَّاحِنَةُ الْبَضَائِعَ مِنْ مَكَانٍ إِلَى آخَرَ.",
+      "words": [
+        "تَحْمِلُ",
+        "الشَّاحِنَةُ",
+        "الْبَضَائِعَ",
+        "مِنْ",
+        "مَكَانٍ",
+        "إِلَى",
+        "آخَرَ."
+      ],
+      "path": "audio/meaning/ar/ar_81dff69bfb8e7d052d51.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تَحْمِلُ الشَّاحِنَةُ الْبَضَائِعَ، مِنْ مَكَانٍ إِلَى آخَرَ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تحمل الشاحنة البضائع من مكان إلى آخر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          361
+        ],
+        [
+          1,
+          461,
+          1063
+        ],
+        [
+          2,
+          1264,
+          1745
+        ],
+        [
+          3,
+          3249,
+          3370
+        ],
+        [
+          4,
+          3430,
+          3831
+        ],
+        [
+          5,
+          4072,
+          4232
+        ],
+        [
+          6,
+          4393,
+          4754
+        ]
+      ],
+      "duration_ms": 5396,
+      "sha256": "fde8d62c7319cccd824cf85094d3a28d6ad43f0b9e57b60eece0bbfc8a56c532",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9333,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_68dbc0ff67dcc4405730": {
+      "id": "ar_68dbc0ff67dcc4405730",
+      "language": "ar",
+      "text": "الدائرة شكل مستدير مسطح، ليس له أضلاع مستقيمة أو زوايا.",
+      "words": [
+        "الدائرة",
+        "شكل",
+        "مستدير",
+        "مسطح،",
+        "ليس",
+        "له",
+        "أضلاع",
+        "مستقيمة",
+        "أو",
+        "زوايا."
+      ],
+      "path": "audio/meaning/ar/ar_68dbc0ff67dcc4405730.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الدَّائِرَةُ شَكْلٌ مُسْتَدِيرٌ مُسَطَّحٌ، لَيْسَ لَهُ أَضْلَاعٌ مُسْتَقِيمَةٌ أَوْ زَوَايَا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الدائرةُ شكلٌ مستديرٌ مُسطّحٌ ليس له أضلاعٌ مُستقيمةٌ أو زوايا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0189,
+          "heard": "الدائرة شكل مستدير مصطح ليس له اضلاع مستقيمة أو زوايا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          581
+        ],
+        [
+          1,
+          962,
+          1243
+        ],
+        [
+          2,
+          1464,
+          2025
+        ],
+        [
+          3,
+          2206,
+          2747
+        ],
+        [
+          4,
+          4231,
+          4471
+        ],
+        [
+          5,
+          4612,
+          4752
+        ],
+        [
+          6,
+          4932,
+          5173
+        ],
+        [
+          7,
+          5454,
+          6075
+        ],
+        [
+          8,
+          6476,
+          6556
+        ],
+        [
+          9,
+          6637,
+          7098
+        ]
+      ],
+      "duration_ms": 7840,
+      "sha256": "a200faf3548cd2244bc025e94c334f58ca47bf8065719eb22d0ce07fb1f80db8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9853,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
