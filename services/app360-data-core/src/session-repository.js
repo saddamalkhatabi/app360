@@ -22,17 +22,17 @@ async function ensureExternalUser(db,identity){
   link=await db('external_identities').where({source:source,external_user_id:external}).first();
   if(link){
     userId=link.user_id;
-    await db('external_identities').where({source:source,external_user_id:external}).update({sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})});
+    await db('external_identities').where({source:source,external_user_id:external}).update({sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})}).onConflict(['source','external_user_id']).ignore();
   }else{
     userId=internalId('user-sr',external);
     user=await db('users').where({id:userId}).first();
-    if(!user)await db('users').insert({id:userId,display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',preferences_json:safeJson({identity_source:source})});
+    if(!user)await db('users').insert({id:userId,display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',preferences_json:safeJson({identity_source:source})}).onConflict('id').ignore();
     await db('external_identities').insert({user_id:userId,source:source,external_user_id:external,sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})});
   }
   await db('users').where({id:userId}).update({display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',updated_at:now()});
   if(identity.account_external_id){
     accountId=internalId('acct-sr',identity.account_external_id);
-    var acctType=(identity.role==='parent')?'family':'institution';
+    var acctType=identity.account_type==='institution'?'institution':'family';
     var relationship='learner',permissions=['practice'];
     if(identity.role==='parent'){relationship='owner';permissions=['manage_children','review_events','manage_content','manage_audience']}
     else if(identity.role==='trainer'){relationship='trainer';permissions=['practice','review_events','manage_content','manage_trainees','manage_audience']}
@@ -41,7 +41,8 @@ async function ensureExternalUser(db,identity){
     else if(String(identity.external_role||'').toLowerCase().indexOf('trainee')>=0)relationship='trainee';
     accountId=internalId('acct-sr',identity.account_external_id);
     var acct=await db('accounts').where({id:accountId}).first();
-    if(!acct)await db('accounts').insert({id:accountId,type:acctType,name:identity.account_name||'حساب الريلز الآمن 360',status:'active',metadata_json:safeJson({external_account_id:identity.account_external_id,source:source})});
+    if(!acct)await db('accounts').insert({id:accountId,type:acctType,name:identity.account_name||'حساب الريلز الآمن 360',status:'active',metadata_json:safeJson({external_account_id:identity.account_external_id,source:source})}).onConflict('id').ignore();
+    await db('account_members').where({user_id:userId}).whereNot('account_id',accountId).whereIn('account_id',db('accounts').select('id').where('id','like','acct-sr-%')).del();
     await db('account_members').insert({account_id:accountId,user_id:userId,relationship:relationship,permissions_json:safeJson(permissions)}).onConflict(['account_id','user_id']).merge();
   }
   user=await db('users').where({id:userId}).first();
@@ -115,7 +116,7 @@ async function importUsageBatch(db,userId,batch){
   if(entries.length>100)throw new Error('usage batch too large');
   await db.transaction(async function(trx){
     for(var i=0;i<entries.length;i++){
-      var e=entries[i]||{},appId=String(e.app_id||''),day=String(e.occurred_day||now().slice(0,10)).slice(0,10),seconds=positive(e.active_seconds,86400),opens=positive(e.opens,1000),receiptId=batchId+':'+appId+':'+day;
+      var e=entries[i]||{},appId=String(e.app_id||''),day=String(e.occurred_day||now().slice(0,10)).slice(0,10),seconds=positive(e.active_seconds,86400),opens=positive(e.opens,1000),receiptId='receipt-'+hash(userId+'|'+batchId+'|'+appId+'|'+day);
       if(!appId)continue;
       var app=await trx('applications').where({id:appId}).first();
       if(!app)continue;

@@ -268,24 +268,30 @@ function createApp360Server(options = {}) {
   const root = path.resolve(options.root || DEFAULT_ROOT);
   const allowedOrigins = (options.allowedOrigins || String(process.env.APP360_ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean));
   const relay = createRelayState(options);
+  const dataCore=require('./data-core').createDataCore();
   const server = http.createServer((req, res) => {
     const pathname = normalizeWsPath(req.url);
+    if(pathname==='/api/reels/catalog')return require('./reels-public')(req,res);
+    if(pathname.startsWith('/api/app360/')){if(dataCore)return dataCore.handle(req,res);return json(res,503,{error:'data_core_not_enabled',message:'يلزم تفعيل APP360_DATA_CORE_ENABLED'});}
     const publicLinks = pathname === '/data/public-links.json';
     if(publicLinks)res.setHeader('Vary','Origin');
-    const integrationOrigins = ['https://yem1.com','https://www.yem1.com','https://school.yem1.com'];
-    if(publicLinks && integrationOrigins.includes(req.headers.origin)){res.setHeader('Access-Control-Allow-Origin',req.headers.origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET, OPTIONS');}
+    const integrationOrigin=String(req.headers.origin||'');
+    const publicIntegrationAllowed=/^https:\/\/(?:[a-z0-9-]+\.)*yem1\.com$/.test(integrationOrigin)||integrationOrigin==='https://family-relay-production.up.railway.app';
+    if(publicLinks && publicIntegrationAllowed){res.setHeader('Access-Control-Allow-Origin',req.headers.origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET, OPTIONS');}
     if(publicLinks && req.method === 'OPTIONS'){res.writeHead(204);return res.end();}
     if (pathname === '/health' || pathname === '/family-health') return json(res, 200, {ok:true, service:'app360-family-relay', rooms:relay.rooms.size, clients:relay.clients.size, uptime:Math.round(process.uptime()), now:Date.now()});
     let rel = pathname === '/' ? '/index.html' : pathname;
     let filePath;
     try { filePath = path.resolve(root, '.' + decodeURIComponent(rel)); } catch (_) { res.writeHead(400); return res.end('Bad request'); }
     if (!filePath.startsWith(root + path.sep) && filePath !== path.join(root, 'index.html')) { res.writeHead(403); return res.end('Forbidden'); }
+    const relative=path.relative(root,filePath).replace(/\\/g,'/');
+    if(relative.split('/').some(p=>p.startsWith('.'))||/^(?:services|tooling|node_modules|var)(?:\/|$)/.test(relative)||/\.(?:db|sqlite3?|env|log)(?:$|[-.])/i.test(relative)){res.writeHead(404);return res.end('Not found');}
     fs.stat(filePath, (err, st) => {
       if (!err && st.isDirectory()) filePath = path.join(filePath, 'index.html');
       fs.readFile(filePath, (readErr, data) => {
         if (readErr) { res.writeHead(readErr.code === 'ENOENT' ? 404 : 500, {'content-type':'text/plain; charset=utf-8'}); return res.end('Not found'); }
         const ext = path.extname(filePath).toLowerCase();
-        if(ext === '.html')res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://yem1.com https://www.yem1.com https://school.yem1.com");
+        if(ext === '.html')res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://yem1.com https://*.yem1.com https://family-relay-production.up.railway.app");
         let body = data;
         if (path.basename(filePath) === 'index.html') {
           let text = data.toString('utf8');
@@ -339,7 +345,7 @@ function createApp360Server(options = {}) {
   return {
     server, relay,
     listen(port = DEFAULT_PORT, host = DEFAULT_HOST) { return new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, host, () => { server.off('error', reject); resolve(server.address()); }); }); },
-    close() { clearInterval(pingTimer); for (const c of relay.clients) wsClose(c, 1001, 'server-stop'); return new Promise(resolve => server.close(() => resolve())); }
+    close() { if(dataCore)dataCore.close();clearInterval(pingTimer); for (const c of relay.clients) wsClose(c, 1001, 'server-stop'); return new Promise(resolve => server.close(() => resolve())); }
   };
 }
 

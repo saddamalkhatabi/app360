@@ -1,5 +1,6 @@
 'use strict';
 var http=require('http');var url=require('url');var core=require('./index');var sessions=require('./session-repository');var demoAuth=require('./demo-auth');var safe=require('./safe-reels-adapter');var fileStore=require('./file-store').createFileStore();
+var bridge=require('./reels-bridge');
 var PORT=Number(process.env.APP360_PORT||3036),MAX_BODY=20*1024*1024;
 function send(res,status,obj,origin){var body=JSON.stringify(obj||{});res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.end(body)}
 function allowedOrigin(req){var origin=req.headers.origin||'';if(!origin)return'';try{var u=new URL(origin);if(u.host===req.headers.host)return origin}catch(e){}var list=String(process.env.APP360_ALLOWED_ORIGINS||'').split(',');for(var i=0;i<list.length;i++)if(list[i].trim()===origin)return origin;return null}
@@ -19,17 +20,22 @@ async function loginRequest(db,input){
   }
   input.pin='';
   var created=await sessions.createIdentitySession(db,{user_id:user.id,account_id:accountId,source:source,external_session_ref:identity&&identity.external_session_ref});
+  if(identity&&identity._reels_bridge)await bridge.attach(db,created.session,user.id,identity._reels_bridge);
   return{token:created.token,expires_at:created.session.expires_at,profile:profileOf(user,accountId,extra)};
 }
 async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){send(res,403,{error:'origin_not_allowed'});return}if(req.method==='OPTIONS'){res.statusCode=204;if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');res.setHeader('Vary','Origin');res.end();return}var p=url.parse(req.url,true),path=p.pathname||'',db=await core.db.createDb();try{
-  if(req.method==='GET'&&path==='/api/app360/health'){var m=await db('knex_migrations').count({n:'id'}).first().catch(function(){return{n:0}});send(res,200,{ok:true,service:'app360-data-core',safe_reels_auth_configured:safe.configured(),seed_login_enabled:demoLoginEnabled(),applied_migrations:Number(m.n)||0},origin);return}
+  if(req.method==='GET'&&path==='/api/app360/health'){var m=await db('knex_migrations').count({n:'id'}).first().catch(function(){return{n:0}});send(res,200,{ok:true,service:'app360-data-core',safe_reels_auth_configured:safe.configured(),reels_bridge_configured:bridge.configured(),seed_login_enabled:demoLoginEnabled(),applied_migrations:Number(m.n)||0},origin);return}
+  if(req.method==='POST'&&path==='/api/app360/auth/reels/exchange'){var ticket=await body(req);try{send(res,200,await bridge.exchange(db,ticket.code,sessions),origin)}catch(e){send(res,e.httpStatus||401,{error:'reels_exchange_failed',message:'تعذر ربط الحساب. افتح التطبيق مجدداً من الريلز.'},origin)}return}
   if(req.method==='POST'&&(path==='/api/app360/auth/login'||path==='/api/app360/auth/child-login')){
-    var input=await body(req);try{var logged=await loginRequest(db,input);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الحسابات غير مهيأة، ويمكن استخدام الحسابات التجريبية في بيئة التطوير.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
+    var input=await body(req);input.client_ip=req.socket.remoteAddress||'';try{var logged=await loginRequest(db,input);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الحسابات غير مهيأة، ويمكن استخدام الحسابات التجريبية في بيئة التطوير.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
   }
-  if(req.method==='POST'&&path==='/api/app360/auth/logout'){await sessions.revokeIdentitySession(db,bearer(req));send(res,200,{ok:true},origin);return}
+  if(req.method==='POST'&&path==='/api/app360/auth/logout'){var ending=await auth(db,req);await bridge.logout(db,ending);await sessions.revokeIdentitySession(db,bearer(req));send(res,200,{ok:true},origin);return}
   var me=await auth(db,req);if(!me){send(res,401,{error:'authentication_required',message:'سجل دخول المستخدم أولًا.'},origin);return}
+  try{await bridge.authorize(db,me,req.method==='POST'&&path==='/api/app360/usage/batch')}catch(e){send(res,e.httpStatus||503,{error:'linked_identity_unavailable',message:'تعذر التحقق من الحساب المرتبط. افتح المدرسة من الريلز مجدداً.'},origin);return;}
+  if(req.method==='POST'&&path==='/api/app360/reels/launch'){try{send(res,200,await bridge.launch(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_launch_failed',message:'افتح المدرسة من الريلز لتجديد ربط الحساب.'},origin)}return}
+  if(req.method==='GET'&&path==='/api/app360/reels/policy'){try{send(res,200,await bridge.check(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_policy_unavailable'},origin)}return}
   if(req.method==='GET'&&path==='/api/app360/me/members'){var members=await sessions.listManagedMembers(db,me.user.id,me.account_id);send(res,200,{profile:profileOf(me.user,me.account_id),members:members,can_manage_audience:members.length>0},origin);return}
-  if(req.method==='POST'&&path==='/api/app360/usage/batch'){var usage=await body(req),ur=await sessions.importUsageBatch(db,me.user.id,usage);send(res,200,ur,origin);return}
+  if(req.method==='POST'&&path==='/api/app360/usage/batch'){var usage=await body(req),ur=await sessions.importUsageBatch(db,me.user.id,usage);await bridge.queue(db,me,usage);await bridge.drain(db);send(res,200,ur,origin);return}
   if(req.method==='GET'&&path==='/api/app360/me/dashboard'){var dash=await sessions.managedUsageDashboard(db,me.user.id,me.account_id);dash.profile=profileOf(me.user,me.account_id);send(res,200,dash,origin);return}
   if(req.method==='POST'&&path==='/api/app360/content/batch'){var content=await body(req),cr=await sessions.upsertUserContentBatch(db,me.user.id,content,{account_id:me.account_id,fileStore:fileStore});send(res,200,cr,origin);return}
   if(req.method==='GET'&&path==='/api/app360/content'){var rows=await sessions.listVisibleContent(db,me.user.id,p.query.app_id||null,{account_id:me.account_id,fileStore:fileStore,owned_only:String(p.query.owned||'')==='1'});send(res,200,{items:rows},origin);return}
@@ -37,5 +43,6 @@ async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){
   send(res,404,{error:'not_found'},origin)
  }catch(e){console.error(e&&e.stack||e);send(res,500,{error:'server_error',message:'حدث خطأ في خدمة بيانات App360.'},origin)}finally{await db.destroy()}}
 var server=http.createServer(function(req,res){handler(req,res).catch(function(e){console.error(e&&e.stack||e);if(!res.headersSent)send(res,500,{error:'server_error'})})});
+if(require.main===module){var relayTimer=setInterval(async function(){if(!bridge.configured())return;var db;try{db=await core.db.createDb();await bridge.drain(db);}catch(e){console.error('Reels usage retry unavailable');}finally{if(db)await db.destroy();}},30000);relayTimer.unref();}
 if(require.main===module)server.listen(PORT,function(){console.log('App360 Data Core API listening on '+PORT);console.log('Safe Reels auth configured:',safe.configured()?'yes':'no');console.log('Seed/demo login:',demoLoginEnabled()?'enabled':'disabled')});
 module.exports={handler:handler,server:server,demoLoginEnabled:demoLoginEnabled};

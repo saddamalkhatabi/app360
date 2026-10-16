@@ -1,0 +1,78 @@
+name: Finish and publish age-adapted Islamic routines
+on:
+  push:
+    branches: [feature/routine-islamic-20261016]
+    paths: [apps/1-4/my-little-routine/audio/publish-islamic.request]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: publish-routine-islamic-20261016
+  cancel-in-progress: false
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Wait for the authorized recording build
+        uses: actions/github-script@v7
+        with:
+          script: |
+            for (let attempt = 0; attempt < 300; attempt++) {
+              const {data} = await github.rest.actions.getWorkflowRun({owner: context.repo.owner, repo: context.repo.repo, run_id: 38829246193});
+              if (data.status === 'completed') {
+                if (data.conclusion !== 'success') throw new Error('Recording build did not complete successfully: ' + data.conclusion);
+                core.info('All recording shards and their publication succeeded.');
+                return;
+              }
+              if (attempt % 5 === 0) core.info('Recordings are still running; main remains unchanged.');
+              await new Promise(resolve => setTimeout(resolve, 60000));
+            }
+            throw new Error('Recording build is still pending; no main changes were made.');
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/routine-islamic-20261016
+          fetch-depth: 0
+      - name: Integrate current main without overwriting concurrent work
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git rebase origin/main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify all requested recordings and their actual file hashes
+        run: |
+          node apps/1-4/my-little-routine/tools/test-islamic-routines.cjs
+          node apps/1-4/my-little-routine/tools/verify-islamic-recorded-files.cjs
+      - name: Prepare browser validation
+        run: |
+          npm install --prefix /tmp/routine-test playwright acorn
+          /tmp/routine-test/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verify mobile, desktop, language changes, ES5 and actual media requests
+        env:
+          NODE_PATH: /tmp/routine-test/node_modules
+        run: |
+          node -e "const acorn=require('acorn'),fs=require('fs');for(const p of ['islamic-routines-v1.js','routine-language-v1.js','routine-narration-v1.js','story-reel-v6.js','app.js'])acorn.parse(fs.readFileSync('apps/1-4/my-little-routine/'+p,'utf8'),{ecmaVersion:5});console.log('ES5 parse passed')"
+          python -m http.server 8081 >/tmp/routine-server.log 2>&1 &
+          node apps/1-4/my-little-routine/tools/test-islamic-browser.cjs
+      - name: Update offline hashes for the tested final files
+        run: |
+          node tooling/refresh-routine-offline-preview.cjs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline/a1-routine.json data/offline-catalog.json
+          if ! git diff --cached --quiet; then git commit -m 'Refresh final age-adapted routine offline hashes'; fi
+      - name: Publish to main while preserving concurrent repository work
+        run: |
+          node apps/1-4/my-little-routine/tools/test-islamic-routines.cjs
+          node apps/1-4/my-little-routine/tools/verify-islamic-recorded-files.cjs
+          git push origin HEAD:main
+          echo "Published commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: routine-islamic-final-browser-check
+          path: /tmp/routine-screenshots
+          if-no-files-found: ignore

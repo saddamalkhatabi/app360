@@ -1,0 +1,363 @@
+{
+  "tool": "built-in image generation",
+  "style_reference": "storyboards/001_wash_hands.png",
+  "prompt": "Use case: illustration-story. Asset: photorealistic educational storyboard for a children's website. Create ONE image with EXACTLY FIVE equally sized photographic panels in a single ultra-wide horizontal row; panels read RIGHT TO LEFT. Reference image is STYLE / LAYOUT only. Match its warm realistic photography, soft sunlit home interiors, pastel palette, natural brown eyes/skin/hair, uncluttered surroundings. Upper pale blue header with bright blue rounded title pill in Arabic. Thin white dividers and blue circular badges numbered 1,2,3,4,5 from RIGHTMOST to LEFTMOST. No other text. The same child and clothes throughout all 5 scenes. Never mirror handedness: eating/drinking uses anatomical RIGHT hand. A spoken remembrance is shown by a calm mouth slightly open with hands resting naturally, NOT hands lifted in prayer unless the scene explicitly concerns a general supplication. All adults female must wear full hijab and modest long clothes; children fully clothed. For toilet stories: privacy, all clothing stays on, show closed door and washing area only, NO toilet use or exposed body. Show action clearly, age appropriate, anatomically correct fingers, no exaggerated expressions or extra limbs. Full scenes and faces in each portrait panel. Use reference's ultra-wide composition with minimal outer white margins. Arabic title must be exact.",
+  "routines": [
+    {
+      "id": "sit-meal",
+      "title": "أجلس بهدوء للطعام",
+      "steps": [
+        "I sit at the table",
+        "I look at my food",
+        "I say: بِسْمِ اللَّهِ",
+        "I eat with my right hand from my side",
+        "I eat calmly"
+      ]
+    },
+    {
+      "id": "spoon",
+      "title": "آكل بملعقتي",
+      "steps": [
+        "I hold my spoon in my right hand",
+        "I take a little food",
+        "I lift it slowly",
+        "I put it in my mouth",
+        "I return the spoon to my plate"
+      ]
+    },
+    {
+      "id": "drink-water",
+      "title": "أشرب الماء",
+      "steps": [
+        "I sit and hold my cup, with help if needed",
+        "I say: بِسْمِ اللَّهِ",
+        "I take a small sip",
+        "I put my cup on the table",
+        "I say: الْحَمْدُ لِلَّهِ"
+      ]
+    },
+    {
+      "id": "wipe-mouth",
+      "title": "أمسح فمي بعد الأكل",
+      "steps": [
+        "I finish my meal and say: الْحَمْدُ لِلَّهِ",
+        "I take a tissue",
+        "I gently wipe my mouth",
+        "I put my tissue in the bin",
+        "I wash my hands"
+      ]
+    },
+    {
+      "id": "greet",
+      "title": "ألقي السلام وأرد التحية",
+      "steps": [
+        "I see someone I know",
+        "I look and smile",
+        "I say: السَّلَامُ عَلَيْكُمْ",
+        "I hear the reply: وَعَلَيْكُمُ السَّلَامُ",
+        "I carry on calmly"
+      ]
+    },
+    {
+      "id": "bedtime",
+      "title": "أستعد للنوم",
+      "steps": [
+        "I tidy my toys",
+        "I put on my pyjamas",
+        "I brush my teeth",
+        "I lie down and say: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+        "I rest and go to sleep"
+      ]
+    },
+    {
+      "id": "sneeze-little",
+      "title": "أغطي عطستي وأحمد الله",
+      "steps": [
+        "I feel a sneeze coming",
+        "I cover my nose and mouth with a tissue or elbow",
+        "After sneezing I say: الْحَمْدُ لِلَّهِ",
+        "I put the tissue in the bin",
+        "I wash my hands"
+      ]
+    },
+    {
+      "id": "meal-manners",
+      "title": "آداب مائدتي",
+      "steps": [
+        "I wash my hands and sit down",
+        "Before eating I say: بِسْمِ اللَّهِ",
+        "I eat with my right hand from my side",
+        "I take what I need and chew calmly",
+        "When finished I say: الْحَمْدُ لِلَّهِ"
+      ]
+    },
+    {
+      "id": "remember-meal",
+      "title": "تذكرت التسمية أثناء الأكل",
+      "steps": [
+        "I start eating, then remember",
+        "I pause eating for a moment",
+        "I say: بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+        "I continue my meal calmly",
+        "I praise Allah when finished"
+      ]
+    },
+    {
+      "id": "water-manners",
+      "title": "أشرب وأحافظ على الماء",
+      "steps": [
+        "I pour the water I need",
+        "I hold my cup in my right hand if I can",
+        "I say بِسْمِ اللَّهِ and drink calmly",
+        "I move the cup away when I breathe",
+        "I finish and say: الْحَمْدُ لِلَّهِ"
+      ]
+    },
+    {
+      "id": "sleep-kindly",
+      "title": "أنهي يومي بهدوء",
+      "steps": [
+        "I tidy my space before bed",
+        "I brush my teeth and prepare my bed",
+        "I listen to a calm reminder from my grown-up",
+        "I say: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+        "I lie on my right side if I can"
+      ]
+    },
+    {
+      "id": "wake-grateful",
+      "title": "أستيقظ شاكرًا",
+      "steps": [
+        "I wake and sit calmly",
+        "I say: الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+        "I get up when I am ready",
+        "I tidy my bed as well as I can",
+        "I begin my day by washing"
+      ]
+    },
+    {
+      "id": "toilet-before",
+      "title": "أستعد لدخول الخلاء",
+      "steps": [
+        "I check the toilet is available",
+        "I stand outside the toilet door",
+        "I say: اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+        "I go in and close the door for privacy",
+        "I ask for help if I need it"
+      ]
+    },
+    {
+      "id": "toilet-after",
+      "title": "أخرج نظيفًا وأذكر الله",
+      "steps": [
+        "I finish and clean myself, with help if needed",
+        "I arrange my clothes and wash with soap",
+        "I turn off the tap and dry my hands",
+        "I leave the toilet",
+        "After leaving I say: غُفْرَانَكَ"
+      ]
+    },
+    {
+      "id": "sneeze-friends",
+      "title": "آداب العطاس مع أصحابي",
+      "steps": [
+        "I cover my sneeze with a tissue or elbow",
+        "I say: الْحَمْدُ لِلَّهِ",
+        "My friend says: يَرْحَمُكَ اللَّهُ",
+        "I reply: يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ",
+        "I bin the tissue and wash my hands"
+      ]
+    },
+    {
+      "id": "leave-together",
+      "title": "أخرج متوكلًا وآمنًا",
+      "steps": [
+        "I prepare what I need",
+        "I put on my shoes and wait for my grown-up",
+        "I say: بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+        "I leave with my grown-up",
+        "I watch the road and follow safety instructions"
+      ]
+    },
+    {
+      "id": "home-salam",
+      "title": "أعود إلى البيت بالسلام",
+      "steps": [
+        "I enter home with my grown-up",
+        "I mention Allah: بِسْمِ اللَّهِ",
+        "I greet my family: السَّلَامُ عَلَيْكُمْ",
+        "I put my shoes and bag away",
+        "I wash my hands and greet my family kindly"
+      ]
+    },
+    {
+      "id": "mosque-enter",
+      "title": "أدخل المسجد بهدوء",
+      "steps": [
+        "I go to the mosque with my grown-up",
+        "I keep my clothes and feet clean",
+        "I put my shoes away",
+        "On entering I say: اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+        "I walk quietly and respect people praying"
+      ]
+    },
+    {
+      "id": "mosque-leave",
+      "title": "أخرج من المسجد بأدب",
+      "steps": [
+        "I collect my things and leave the space clean",
+        "I wait calmly for my grown-up",
+        "On leaving I say: اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+        "I put on my shoes without blocking the way",
+        "I return safely with my grown-up"
+      ]
+    },
+    {
+      "id": "rain-benefit",
+      "title": "أفرح بالمطر النافع",
+      "steps": [
+        "I watch rain from a safe place",
+        "I say: صَيِّبًا نَافِعًا",
+        "I remember water helps plants and people",
+        "I stay away from floodwater and wires",
+        "I only go out with my grown-up’s permission"
+      ]
+    },
+    {
+      "id": "anger-gentle",
+      "title": "أهدأ وأحفظ لساني ويدي",
+      "steps": [
+        "I notice I feel angry",
+        "I stop hurting and move somewhere safe",
+        "I say: أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ",
+        "I breathe calmly and ask for help",
+        "I explain what I need with kind words"
+      ]
+    },
+    {
+      "id": "thank-helper",
+      "title": "أشكر من أحسن إلي",
+      "steps": [
+        "I notice someone has helped me",
+        "I look and smile",
+        "I say thank you and: جَزَاكَ اللَّهُ خَيْرًا",
+        "I care for what they gave me",
+        "I help others when I can"
+      ]
+    },
+    {
+      "id": "learn-curious",
+      "title": "أتعلم وأسأل وأحاول",
+      "steps": [
+        "I prepare my book and tools",
+        "I pray: رَبِّ زِدْنِي عِلْمًا",
+        "I listen and try a small step",
+        "I ask when I do not understand",
+        "I try again kindly"
+      ]
+    },
+    {
+      "id": "parents-kind",
+      "title": "أبر والدي وأدعو لهما",
+      "steps": [
+        "I listen respectfully to my parents",
+        "I help with a task I can do",
+        "I use a gentle voice and kind words",
+        "I pray: رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+        "I show love with a kind action"
+      ]
+    },
+    {
+      "id": "wash-prayer",
+      "title": "أتعلم الوضوء مع المرافق",
+      "steps": [
+        "I get ready for wudu with my grown-up",
+        "I learn to wash my face and arms to the elbows",
+        "I learn to wipe my head",
+        "I learn to wash my feet to the ankles",
+        "I close the tap and leave the space clean"
+      ]
+    },
+    {
+      "id": "prayer-ready",
+      "title": "أستعد للصلاة وأتعلم بهدوء",
+      "steps": [
+        "I hear my grown-up’s prayer reminder",
+        "I make wudu and wear clean covering clothes",
+        "I prepare a clean place to pray",
+        "I learn the actions and words with my grown-up",
+        "I tidy my place when finished"
+      ]
+    },
+    {
+      "id": "permission-knock",
+      "title": "أستأذن وأحترم الخصوصية",
+      "steps": [
+        "I stand at the door without peeking inside",
+        "I knock gently and greet with salaam",
+        "I wait without insisting",
+        "I enter when I have permission",
+        "I leave calmly if I am not invited in"
+      ]
+    },
+    {
+      "id": "share-kind",
+      "title": "أشارك وأعطي بلطف",
+      "steps": [
+        "With my family’s permission I choose something to share",
+        "I check it is clean and useful",
+        "I offer it kindly without embarrassing anyone",
+        "I respect my friend’s choice",
+        "I enjoy helping without expecting a reward"
+      ]
+    },
+    {
+      "id": "truth-repair",
+      "title": "أقول الحقيقة وأصلح خطئي",
+      "steps": [
+        "I pause when something goes wrong",
+        "I honestly say what happened",
+        "I kindly apologise to anyone hurt",
+        "I help put things right",
+        "I learn a better way for next time"
+      ]
+    },
+    {
+      "id": "care-place",
+      "title": "أحافظ على المكان والمخلوقات",
+      "steps": [
+        "I keep the play space clean",
+        "I put litter in the bin",
+        "I give the plant the water it needs",
+        "I am gentle with animals and do not hurt them",
+        "I wash my hands afterwards"
+      ]
+    },
+    {
+      "id": "school-bag",
+      "title": "أجهز يومي وأحفظ الأمانة",
+      "steps": [
+        "I check what I need with my grown-up",
+        "I put my book and tools in my bag",
+        "I return borrowed things to their owner",
+        "I prepare my clothes and tidy my space",
+        "I wait to leave with my grown-up"
+      ]
+    }
+  ],
+  "review": "All 31 boards reviewed visually; corrected pre-meal sequence, right-hand eating/drinking, and face/arm wudu detail. Mothers wear hijab; toilet routines use closed doors, washing and hallway scenes.",
+  "export": {
+    "storyboard": {
+      "format": "PNG",
+      "width": 1402,
+      "height": 355
+    },
+    "frame": {
+      "format": "WebP",
+      "width": 280,
+      "height": 297,
+      "quality": 82
+    },
+    "order": "five scenes right to left"
+  }
+}

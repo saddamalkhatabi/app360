@@ -84,15 +84,23 @@
     {
       "id": "a1-routine",
       "status": "live",
-      "href": "apps/1-4/my-little-routine/index.html?v=8",
+      "href": "apps/1-4/my-little-routine/index.html?v=20261016",
       "capabilities": [
         "practice.core",
         "storage.local",
-        "audio.tts",
         "pwa.offline",
-        "compat.legacy-web"
+        "compat.legacy-web",
+        "audio.recorded"
       ],
-      "goal_delivery": "available_with_facilitator"
+      "goal_delivery": "available_with_facilitator",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 2
+      }
     },
     {
       "id": "a1-plan-runner",

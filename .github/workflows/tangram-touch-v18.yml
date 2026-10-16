@@ -1,0 +1,29 @@
+name: Verify tangram child touch continuity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/1-4/tangram-builder/**'
+      - 'tooling/test-tangram-touch*.cjs'
+      - '.github/workflows/tangram-touch-v18.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tooling/test-tangram-touch-v18.cjs
+      - run: npm install --prefix /tmp/tangram-browser playwright@1.62.1
+      - run: /tmp/tangram-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/tangram-browser/node_modules node tooling/test-tangram-touch-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tangram-touch-phone-and-tablet
+          path: /tmp/tangram-touch/

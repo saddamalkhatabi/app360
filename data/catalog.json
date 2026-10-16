@@ -651,10 +651,10 @@
       "slug": "my-little-routine",
       "title_ar": "أستطيع خطوة: روتيني المصور",
       "age_group": "1-4",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
-      "description_ar": "روتين مصور من 50 عادة يومية؛ كل عادة تعرض Storyboard من خمس لقطات ثم تمر على كل مشهد منفردًا قبل العودة إلى القصة الكاملة، مع تنفيذ واقعي وملاحظة مقدار المساعدة.",
+      "description_ar": "52 عادة مبسطة للفئة 1–4، و24 موقفًا للفئة 4–8 لتعلم العادات والأخلاق والأذكار بالصور والتطبيق الواقعي.",
       "practice_model": "اختر روتينًا أو ابنِ واحدًا من صورك ← ابدأ بخطوة ظاهرة بوضوح أو الآن/بعد ذلك ← نفذها في الواقع ← سجّل مقدار المساعدة أو أعد المحاولة بلطف ← انتقل للخطوة التالية أو اختصر الروتين ← اطبع النسخة المناسبة للمكان",
       "goal_keys": [
         "learner-1-4-routines-independence-first-attempts",
@@ -672,7 +672,6 @@
       "capabilities": [
         "practice.core",
         "storage.local",
-        "audio.tts",
         "audio.recorded",
         "pwa.offline",
         "compat.legacy-web"
@@ -777,9 +776,17 @@
       "blueprint_path": "apps/1-4/my-little-routine/BUILD_SPEC.md",
       "prompt_path": "apps/1-4/my-little-routine/PROMPT_AR.md",
       "manifest": "apps/1-4/my-little-routine/app.json",
-      "href": "apps/1-4/my-little-routine/index.html?v=7",
+      "href": "apps/1-4/my-little-routine/index.html?v=20261016",
       "audience": "shared",
-      "audience_note_ar": "المدرب يعد الروتين المصور، والطفل ينفذ الخطوات بمساعدة تتناقص حسب استعداده."
+      "audience_note_ar": "المدرب يعد الروتين المصور، والطفل ينفذ الخطوات بمساعدة تتناقص حسب استعداده.",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 2
+      }
     },
     {
       "id": "a1-screen-move",

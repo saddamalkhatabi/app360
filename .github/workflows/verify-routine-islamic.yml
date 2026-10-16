@@ -1,0 +1,43 @@
+name: Verify age-adapted routines and remembrance
+on:
+  push:
+    branches: [feature/routine-islamic-20261016]
+    paths:
+      - apps/1-4/my-little-routine/islamic-routines-v1.js
+      - apps/1-4/my-little-routine/tools/test-islamic*.cjs
+      - .github/workflows/verify-routine-islamic.yml
+concurrency:
+  group: verify-routine-islamic-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate age libraries, illustration links and exact voice mapping
+        run: |
+          node apps/1-4/my-little-routine/tools/test-islamic-routines.cjs
+          node --check apps/1-4/my-little-routine/islamic-routines-v1.js
+      - name: Install browser testing tools outside the repository
+        run: |
+          npm install --prefix /tmp/routine-test playwright acorn
+          /tmp/routine-test/node_modules/.bin/playwright install --with-deps chromium
+      - name: Test both ages and languages on mobile and desktop
+        env:
+          NODE_PATH: /tmp/routine-test/node_modules
+        run: |
+          python -m http.server 8081 >/tmp/routine-server.log 2>&1 &
+          node -e "const acorn=require('acorn'),fs=require('fs');for(const p of ['islamic-routines-v1.js','routine-language-v1.js','routine-narration-v1.js','story-reel-v6.js','app.js'])acorn.parse(fs.readFileSync('apps/1-4/my-little-routine/'+p,'utf8'),{ecmaVersion:5});console.log('ES5 parse passed')"
+          node apps/1-4/my-little-routine/tools/test-islamic-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: routine-islamic-browser-check
+          path: /tmp/routine-screenshots
+          if-no-files-found: ignore

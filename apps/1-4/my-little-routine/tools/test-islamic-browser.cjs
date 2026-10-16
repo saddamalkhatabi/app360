@@ -1,0 +1,37 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('fs');
+const output=process.env.ROUTINE_SCREENSHOTS||'/tmp/routine-screenshots';fs.mkdirSync(output,{recursive:true});
+(async()=>{const b=await chromium.launch({headless:true});const context=await b.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});const page=await context.newPage();let errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.route('**/assets/js/**',r=>r.fulfill({contentType:'application/javascript',body:''}));await page.route('**/assets/css/**',r=>r.fulfill({contentType:'text/css',body:''}));
+const url='http://127.0.0.1:8081/apps/1-4/my-little-routine/index.html';
+await page.goto(url+'?routine_age=1-4');await page.waitForTimeout(200);assert.equal(await page.locator('.habitCard').count(),52);
+await page.locator('[data-habit="sit-meal"]').click();await page.waitForTimeout(250);assert.match(await page.locator('#routineDuaText').innerText(),/بِسْمِ/);assert.equal(await page.locator('#listenFullRoutine').isDisabled(),!await page.evaluate(()=>!!window.APP360_ROUTINE_NARRATIONS.habits['sit-meal']));
+assert(await page.locator('#routineChallenge').isHidden());await page.screenshot({path:output+'/routine-basic-mobile.png',fullPage:false});
+await page.locator('#useHabit').click();await page.locator('#startRoutine').click();assert.equal(await page.locator('#child').getAttribute('class'),'view on');
+await page.goto(url+'?routine_age=1-4&lang=en');assert.match(await page.locator('#focusLabel').innerText(),/I sit at the table/);
+await page.goto(url+'?launch_age=4-8&launch_level=2&lang=ar');await page.waitForTimeout(150);assert.equal(await page.locator('.habitCard').count(),24);assert.equal(await page.locator('#library').getAttribute('class'),'view on');
+assert(await page.locator('#routineChallenge').isVisible());
+await page.waitForFunction(()=>document.querySelector('#sceneStrip').className.indexOf('assetMode')>=0);
+assert.match(await page.locator('#sceneStrip').getAttribute('data-asset'),/storyboards\/islamic\/meal-manners\.png$/);
+for(let scene=0;scene<5;scene++){
+ await page.evaluate(n=>window.APP360_RoutineReel.showFrame(n),scene);
+ await page.waitForFunction(n=>document.querySelector('#assetFrame').style.backgroundImage.indexOf('meal-manners-'+(n+1)+'.webp')>=0,scene);
+ assert.equal(await page.locator('#assetFrame').evaluate(e=>e.style.backgroundSize),'contain');
+}
+await page.screenshot({path:output+'/routine-photo-frame-mobile.png',fullPage:false});
+await page.evaluate(()=>window.APP360_RoutineReel.showOverview());
+await page.locator('#routineShowAnswer').click();assert.match(await page.locator('#routineQuestionFeedback').innerText(),/بِسْمِ/);
+if(await page.locator('#duaListen').isEnabled()){
+ const received=page.waitForResponse(r=>r.url().includes('/audio/islamic/dua/bismillah.mp3'));
+ await page.locator('#duaListen').click();assert((await received).ok());
+ await page.waitForFunction(()=>document.querySelectorAll('#routineDuaText .duaWord.active').length>0,null,{timeout:6000});
+ await page.locator('#sound').click();assert.equal(await page.locator('#routineDuaText .duaWord.active').count(),0);await page.locator('#sound').click();
+ const narration=page.waitForResponse(r=>r.url().includes('/audio/islamic/ar/meal-manners.mp3'));
+ await page.locator('#listenFullRoutine').click();assert((await narration).ok());
+}
+await page.locator('[data-habit="toilet-before"]').click();await page.waitForTimeout(180);assert.match(await page.locator('#routineDuaText').innerText(),/الْخُبُثِ/);
+assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+await page.screenshot({path:output+'/routine-advanced-mobile.png',fullPage:false});
+await page.selectOption('#routineAge','1-4');await page.waitForURL(/routine_age=1-4/);assert.equal(await page.locator('.habitCard').count(),52);
+await page.goto(url+'?routine_age=4-8&lang=en');await page.waitForTimeout(150);assert.equal(await page.locator('.habitCard').count(),24);assert.match(await page.locator('.habitCard').first().innerText(),/My meal manners/);assert.match(await page.locator('#routineDuaMeaning').innerText(),/Allah/);assert.equal(await page.locator('#routineDuaText').getAttribute('lang'),'ar');
+await page.setViewportSize({width:1280,height:900});await page.screenshot({path:output+'/routine-advanced-desktop.png',fullPage:false});
+assert.deepEqual(errors,[]);await b.close();console.log('PASS browser: mobile, desktop, two languages, mode selection, practice, source, help and no horizontal overflow');})().catch(e=>{console.error(e);process.exit(1)});

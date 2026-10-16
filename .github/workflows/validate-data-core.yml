@@ -4,6 +4,12 @@ on:
   push:
     paths:
       - 'services/app360-data-core/**'
+      - 'services/family-relay/**'
+      - 'assets/js/reels-*.js'
+      - 'assets/js/family-reels-*.js'
+      - 'assets/js/app360-family-*.js'
+      - 'tooling/test-reels*.js'
+      - 'tooling/refresh-reels-offline.js'
       - 'data/ai-content-contracts.json'
       - 'data/session-policy.json'
       - 'data/app-data-needs.json'
@@ -16,6 +22,12 @@ on:
   pull_request:
     paths:
       - 'services/app360-data-core/**'
+      - 'services/family-relay/**'
+      - 'assets/js/reels-*.js'
+      - 'assets/js/family-reels-*.js'
+      - 'assets/js/app360-family-*.js'
+      - 'tooling/test-reels*.js'
+      - 'tooling/refresh-reels-offline.js'
       - 'data/ai-content-contracts.json'
       - 'data/session-policy.json'
       - 'data/app-data-needs.json'
@@ -49,3 +61,8 @@ jobs:
         run: npm run smoke
       - name: Run identity usage and user-content smoke test
         run: npm run smoke:session
+
+      - name: Test Reels identity and usage bridge
+        run: node --test ../../tooling/test-reels-bridge.js ../../tooling/test-reels-public.js
+      - name: Check offline bridge runtime digests
+        run: node ../../tooling/refresh-reels-offline.js --check

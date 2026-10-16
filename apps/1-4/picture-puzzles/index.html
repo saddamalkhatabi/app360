@@ -12,7 +12,7 @@
 <link rel="icon" href="icon.svg?v=4" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css?v=4">
 <link rel="stylesheet" href="audio-v2.css?v=4">
-<link rel="stylesheet" href="v3.css?v=4">
+<link rel="stylesheet" href="v3.css?v=5">
 
 <meta name="apple-mobile-web-app-title" content="مدرسة العائلة 360">
 <meta property="og:site_name" content="مدرسة العائلة 360">
@@ -91,6 +91,7 @@
         <option value="tts">صوت الجهاز</option>
       </select>
     </label>
+    <label class="audioToggle"><input id="showSentencesToggle" type="checkbox"><span>اعرض الجمل المفيدة بعد تركيب الصورة · Useful sentences after winning</span></label>
     <label class="audioToggle"><input id="announceStartToggle" type="checkbox" checked><span>انطق اسم الصورة عند بداية كل صورة.</span></label>
     <label class="audioToggle"><input id="announceFinishToggle" type="checkbox" checked><span>أعد نطق اسم الصورة عند اكتمالها ثم شجّع الطفل مباشرة.</span></label>
     <label class="audioToggle"><input id="nameCheerToggle" type="checkbox" checked><span>شجّع الطفل باسمه بعد اكتمال الصورة.</span></label>
@@ -105,8 +106,15 @@
 <script src="../../../assets/js/app360-family-sync-v1.js?v=129"></script>
 <script src="../../../assets/js/app360-family-catalog-v1.js?v=107&brand=98"></script>
 <script src="legacy-overlays-v4.js?v=4"></script>
-<script src="app-v3.js?v=4"></script>
-<script src="audio-v3.js?v=4"></script>
+<section id="puzzleLesson" class="puzzleLesson" role="dialog" aria-modal="true" aria-labelledby="lessonTitle" aria-hidden="true" style="display:none">
+<button id="lessonClose" type="button">إغلاق × · Close</button><h2>أحسنت! لنتعلم عن الصورة · Well done!</h2>
+<div class="lessonLayout"><div><img id="lessonImage" alt=""><h3 id="lessonTitle"></h3></div><div id="lessonSentences"></div></div>
+<p id="lessonStatus" role="status"></p><button id="lessonNext" type="button">الصورة التالية ← · Next picture</button></section>
+<script src="../say-and-name/data/meaning-sentences-v1.js?v=20261016"></script>
+<script src="../say-and-name/data/meaning-audio-v1.js?v=20261016"></script>
+<script src="learning-v4.js?v=5"></script>
+<script src="app-v3.js?v=5"></script>
+<script src="audio-v3.js?v=5"></script>
 <script src="../../../assets/js/offline-client-v1.js?v=1"></script>
 <script src="../../../assets/js/app360-access-v1.js?v=1"></script>
 </body>
