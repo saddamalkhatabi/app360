@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1771,
+  "ready": 1777,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -165854,6 +165854,526 @@
       "sha256": "e2a8d157435e956bade09a5880b50c73fcccbf7a0cc834c7ff2abebc852cc702",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9267,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_873f6a9a49015e4a8228": {
+      "id": "ar_873f6a9a49015e4a8228",
+      "language": "ar",
+      "text": "يحمي الفراء والدهن الدب القطبي من البرد، وهو سباح قوي.",
+      "words": [
+        "يحمي",
+        "الفراء",
+        "والدهن",
+        "الدب",
+        "القطبي",
+        "من",
+        "البرد،",
+        "وهو",
+        "سباح",
+        "قوي."
+      ],
+      "path": "audio/meaning/ar/ar_873f6a9a49015e4a8228.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يحمي الفراء والدهن الدب القطبي من البرد وهو سباح قوي",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0192,
+          "heard": "يحمي الفراء والدهن الدوب القطبي من البرد وهو سباح قوي",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          281
+        ],
+        [
+          1,
+          321,
+          642
+        ],
+        [
+          2,
+          863,
+          1224
+        ],
+        [
+          3,
+          1284,
+          1545
+        ],
+        [
+          4,
+          1625,
+          2106
+        ],
+        [
+          5,
+          2287,
+          2407
+        ],
+        [
+          6,
+          2467,
+          2889
+        ],
+        [
+          7,
+          3370,
+          3550
+        ],
+        [
+          8,
+          3671,
+          3972
+        ],
+        [
+          9,
+          4132,
+          4413
+        ]
+      ],
+      "duration_ms": 4754,
+      "sha256": "9b11dea7f08e377e14a298a5a4a51c88f5ee575414e2dece8a070ba6159c5a17",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9305,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f839c216058beb09bb24": {
+      "id": "ar_f839c216058beb09bb24",
+      "language": "ar",
+      "text": "الطَّائِرُ حَيَوَانٌ لَهُ رِيشٌ وَمِنْقَارٌ.",
+      "words": [
+        "الطَّائِرُ",
+        "حَيَوَانٌ",
+        "لَهُ",
+        "رِيشٌ",
+        "وَمِنْقَارٌ."
+      ],
+      "path": "audio/meaning/ar/ar_f839c216058beb09bb24.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الطائر حيوان له ريش ومنقار",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          583
+        ],
+        [
+          1,
+          744,
+          1307
+        ],
+        [
+          2,
+          1488,
+          1649
+        ],
+        [
+          3,
+          1830,
+          2071
+        ],
+        [
+          4,
+          2273,
+          2896
+        ]
+      ],
+      "duration_ms": 3419,
+      "sha256": "326fcc812226921b3281f2b64fa9960d271719e0323fc46f312c1c02f2ee6f5f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9697,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a46014102ccc39057b98": {
+      "id": "ar_a46014102ccc39057b98",
+      "language": "ar",
+      "text": "يتشكل الطين عندما تختلط تربة ناعمة بالماء، ويمكن تشكيل بعض أنواعه.",
+      "words": [
+        "يتشكل",
+        "الطين",
+        "عندما",
+        "تختلط",
+        "تربة",
+        "ناعمة",
+        "بالماء،",
+        "ويمكن",
+        "تشكيل",
+        "بعض",
+        "أنواعه."
+      ],
+      "path": "audio/meaning/ar/ar_a46014102ccc39057b98.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يتشكل الطين عندما تختلط تربة ناعمة بالماء ويمكن تشكيل بعض أنواعه.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0312,
+          "heard": "يتشكل الطين عندما تخطلت تربة ناعمة بالماء ويمكن تشكيل بعض أنواعة.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          562
+        ],
+        [
+          1,
+          642,
+          923
+        ],
+        [
+          2,
+          1104,
+          1345
+        ],
+        [
+          3,
+          1425,
+          1887
+        ],
+        [
+          4,
+          1987,
+          2268
+        ],
+        [
+          5,
+          2469,
+          2810
+        ],
+        [
+          6,
+          3011,
+          3272
+        ],
+        [
+          7,
+          3874,
+          4296
+        ],
+        [
+          8,
+          4396,
+          4778
+        ],
+        [
+          9,
+          4878,
+          5079
+        ],
+        [
+          10,
+          5199,
+          5721
+        ]
+      ],
+      "duration_ms": 5822,
+      "sha256": "c17d9c50ee92dd633baa1d20dc5f254d19704ad9aa4df6ca6c5f44d5210404b1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9576,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_84746852ff6158d32def": {
+      "id": "ar_84746852ff6158d32def",
+      "language": "ar",
+      "text": "أَضَعُ أَدَوَاتِي عَلَى الطَّاوِلَةِ لِأَعْمَلَ.",
+      "words": [
+        "أَضَعُ",
+        "أَدَوَاتِي",
+        "عَلَى",
+        "الطَّاوِلَةِ",
+        "لِأَعْمَلَ."
+      ],
+      "path": "audio/meaning/ar/ar_84746852ff6158d32def.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أضع أدواتي على الطاولة لأعمل",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0714,
+          "heard": "أضعوا أدواتي على الطاولة لأعمل",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          140
+        ],
+        [
+          1,
+          502,
+          1124
+        ],
+        [
+          2,
+          1445,
+          1505
+        ],
+        [
+          3,
+          1586,
+          2168
+        ],
+        [
+          4,
+          2409,
+          2930
+        ]
+      ],
+      "duration_ms": 3934,
+      "sha256": "83f797759933a570f037ee23e8a44d8c62e4b7743938f3c2ac6e99b9d25b10e3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.961,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b12a34ca04c500487a70": {
+      "id": "ar_b12a34ca04c500487a70",
+      "language": "ar",
+      "text": "للدراجة النارية محرك وعجلتان، ويرتدي راكبها خوذة للحماية.",
+      "words": [
+        "للدراجة",
+        "النارية",
+        "محرك",
+        "وعجلتان،",
+        "ويرتدي",
+        "راكبها",
+        "خوذة",
+        "للحماية."
+      ],
+      "path": "audio/meaning/ar/ar_b12a34ca04c500487a70.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للدراجة النارية محرك وعجلتان ويرتدي راكبها خوذة للحماية",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0182,
+          "heard": "للدراجة النارية محرك وعجلتان ويرتدي راكبها خودة للحماية",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          541
+        ],
+        [
+          1,
+          662,
+          1042
+        ],
+        [
+          2,
+          1223,
+          1604
+        ],
+        [
+          3,
+          1684,
+          2366
+        ],
+        [
+          4,
+          2807,
+          3248
+        ],
+        [
+          5,
+          3348,
+          3849
+        ],
+        [
+          6,
+          3949,
+          4230
+        ],
+        [
+          7,
+          4410,
+          5012
+        ]
+      ],
+      "duration_ms": 5172,
+      "sha256": "d76e33af88e545a48a4fe03900279e6d4c4b1e018a6b1b3e289796602866534d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9681,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_988a0de7419dbd877ace": {
+      "id": "ar_988a0de7419dbd877ace",
+      "language": "ar",
+      "text": "يغطي المعطف الجسم فوق الملابس ليحافظ على الدفء في البرد.",
+      "words": [
+        "يغطي",
+        "المعطف",
+        "الجسم",
+        "فوق",
+        "الملابس",
+        "ليحافظ",
+        "على",
+        "الدفء",
+        "في",
+        "البرد."
+      ],
+      "path": "audio/meaning/ar/ar_988a0de7419dbd877ace.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يغطي المعطف الجسم فوق الملابس ليحافظ على الدفء في البرد",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1,
+          "cer": 0.0182,
+          "heard": "يغطي المعطف الجسم فوق الملابس ليحافظ على الدفع في البرد",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          381
+        ],
+        [
+          1,
+          441,
+          863
+        ],
+        [
+          2,
+          943,
+          1324
+        ],
+        [
+          3,
+          1444,
+          1665
+        ],
+        [
+          4,
+          1745,
+          2287
+        ],
+        [
+          5,
+          2728,
+          3270
+        ],
+        [
+          6,
+          3450,
+          3490
+        ],
+        [
+          7,
+          3550,
+          3751
+        ],
+        [
+          8,
+          3911,
+          3992
+        ],
+        [
+          9,
+          4012,
+          4393
+        ]
+      ],
+      "duration_ms": 4573,
+      "sha256": "3608644a89082c58f7fba72001500a7c6c73b91971493a71d6626ae92220f82c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9818,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
