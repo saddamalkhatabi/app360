@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2023,
+  "ready": 2024,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187997,6 +187997,67 @@
       "sha256": "1c2820c2e4c9919e496f069b128b778b69befa2c752f773ed01b5c82e31a4887",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9358,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_726a74da14c6a8cd029a": {
+      "id": "ar_726a74da14c6a8cd029a",
+      "language": "ar",
+      "text": "يحمي الدرع جسمها.",
+      "words": [
+        "يحمي",
+        "الدرع",
+        "جسمها."
+      ],
+      "path": "audio/meaning/ar/ar_726a74da14c6a8cd029a.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يحمي الدرع جسمها.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يحمي الدرع جسمها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0625,
+          "heard": "يحمي الدرعي جسمها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 181360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          501
+        ],
+        [
+          1,
+          581,
+          882
+        ],
+        [
+          2,
+          1122,
+          1663
+        ]
+      ],
+      "duration_ms": 2906,
+      "sha256": "885d35fd2c8612fae1fded084a1e567ae0d382726940c11105ea919962323cb7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8736,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
