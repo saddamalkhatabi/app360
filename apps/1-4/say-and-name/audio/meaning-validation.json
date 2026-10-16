@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1759,
+  "ready": 1763,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -164790,6 +164790,372 @@
       "sha256": "756685fa4ef7b8c1c757c3de0d0f6cc0e2c12d2513cb330e391ddd72ba49583d",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9453,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_20cf6a09dbc182211b09": {
+      "id": "en_20cf6a09dbc182211b09",
+      "language": "en",
+      "text": "A cuboid has six rectangular faces, like a shoe box.",
+      "words": [
+        "A",
+        "cuboid",
+        "has",
+        "six",
+        "rectangular",
+        "faces,",
+        "like",
+        "a",
+        "shoe",
+        "box."
+      ],
+      "path": "audio/meaning/en/en_20cf6a09dbc182211b09.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A cuboid has six rectangular faces, like a shoe box.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0208,
+          "heard": "A cuboid has six rectangular faces, like a shoebox.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 3360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          141,
+          623
+        ],
+        [
+          2,
+          664,
+          805
+        ],
+        [
+          3,
+          885,
+          1086
+        ],
+        [
+          4,
+          1267,
+          1870
+        ],
+        [
+          5,
+          1911,
+          2393
+        ],
+        [
+          6,
+          2936,
+          3138
+        ],
+        [
+          7,
+          3158,
+          3178
+        ],
+        [
+          8,
+          3298,
+          3459
+        ],
+        [
+          9,
+          3540,
+          3821
+        ]
+      ],
+      "duration_ms": 4204,
+      "sha256": "9de6b567ac1a467035460f4e2ce5c67767b762a984f3edf5eeaeb941525bdebb",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9206,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_18c157d4face9d19c1a6": {
+      "id": "en_18c157d4face9d19c1a6",
+      "language": "en",
+      "text": "We prepare food in the kitchen.",
+      "words": [
+        "We",
+        "prepare",
+        "food",
+        "in",
+        "the",
+        "kitchen."
+      ],
+      "path": "audio/meaning/en/en_18c157d4face9d19c1a6.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "we prepare food in the kitchen.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          81
+        ],
+        [
+          1,
+          182,
+          628
+        ],
+        [
+          2,
+          688,
+          992
+        ],
+        [
+          3,
+          1033,
+          1114
+        ],
+        [
+          4,
+          1154,
+          1235
+        ],
+        [
+          5,
+          1296,
+          1660
+        ]
+      ],
+      "duration_ms": 1924,
+      "sha256": "c1bd7bfde14bb42a65e42b79aeeb5aedc791c32038d75af2fe747e30fcb8e555",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8622,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_4e23e5388b7e415dec08": {
+      "id": "en_4e23e5388b7e415dec08",
+      "language": "en",
+      "text": "Lentils are small seeds we cook in soups and other dishes.",
+      "words": [
+        "Lentils",
+        "are",
+        "small",
+        "seeds",
+        "we",
+        "cook",
+        "in",
+        "soups",
+        "and",
+        "other",
+        "dishes."
+      ],
+      "path": "audio/meaning/en/en_4e23e5388b7e415dec08.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "lentils are small seeds we cook in soups and other dishes.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          261,
+          764
+        ],
+        [
+          1,
+          865,
+          985
+        ],
+        [
+          2,
+          1066,
+          1368
+        ],
+        [
+          3,
+          1488,
+          1850
+        ],
+        [
+          4,
+          1991,
+          2051
+        ],
+        [
+          5,
+          2152,
+          2333
+        ],
+        [
+          6,
+          2393,
+          2474
+        ],
+        [
+          7,
+          2574,
+          2916
+        ],
+        [
+          8,
+          3057,
+          3178
+        ],
+        [
+          9,
+          3258,
+          3459
+        ],
+        [
+          10,
+          3499,
+          3922
+        ]
+      ],
+      "duration_ms": 4183,
+      "sha256": "f2fa14ff28f15cdd83243a2cb62b8501fd7b4cf3ff511e6bfb1bf1e3f5274f19",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9486,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_2122b9535e9b18d61fed": {
+      "id": "en_2122b9535e9b18d61fed",
+      "language": "en",
+      "text": "A shark breathes through gills, and its body is shaped for swimming.",
+      "words": [
+        "A",
+        "shark",
+        "breathes",
+        "through",
+        "gills,",
+        "and",
+        "its",
+        "body",
+        "is",
+        "shaped",
+        "for",
+        "swimming."
+      ],
+      "path": "audio/meaning/en/en_2122b9535e9b18d61fed.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A shark breathes through gills, and its body is shaped for swimming.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          160,
+          481
+        ],
+        [
+          2,
+          601,
+          1001
+        ],
+        [
+          3,
+          1142,
+          1362
+        ],
+        [
+          4,
+          1402,
+          1802
+        ],
+        [
+          5,
+          2143,
+          2243
+        ],
+        [
+          6,
+          2283,
+          2423
+        ],
+        [
+          7,
+          2523,
+          2804
+        ],
+        [
+          8,
+          3064,
+          3144
+        ],
+        [
+          9,
+          3204,
+          3505
+        ],
+        [
+          10,
+          3545,
+          3645
+        ],
+        [
+          11,
+          3705,
+          4126
+        ]
+      ],
+      "duration_ms": 5087,
+      "sha256": "a74ea2de6efa87e3e9a58332c64510b1625b1f8955d4e81dee5cf80274d19fdd",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9583,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
