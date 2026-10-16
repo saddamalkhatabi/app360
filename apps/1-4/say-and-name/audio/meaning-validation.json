@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1849,
+  "ready": 1852,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -173350,6 +173350,329 @@
       "sha256": "b1630a5db0be99b5e427f3d826fb1574ea9bc91756f4c027864178e8c89947ca",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.8979,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_1bef2374f7422faab6fb": {
+      "id": "en_1bef2374f7422faab6fb",
+      "language": "en",
+      "text": "An entrance is where we enter a building or room.",
+      "words": [
+        "An",
+        "entrance",
+        "is",
+        "where",
+        "we",
+        "enter",
+        "a",
+        "building",
+        "or",
+        "room."
+      ],
+      "path": "audio/meaning/en/en_1bef2374f7422faab6fb.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An entrance is where we enter a building or room.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          161
+        ],
+        [
+          1,
+          262,
+          744
+        ],
+        [
+          2,
+          785,
+          885
+        ],
+        [
+          3,
+          946,
+          1127
+        ],
+        [
+          4,
+          1147,
+          1227
+        ],
+        [
+          5,
+          1388,
+          1710
+        ],
+        [
+          6,
+          1831,
+          1851
+        ],
+        [
+          7,
+          1931,
+          2314
+        ],
+        [
+          8,
+          2374,
+          2474
+        ],
+        [
+          9,
+          2595,
+          2837
+        ]
+      ],
+      "duration_ms": 3521,
+      "sha256": "51cb8f339401045e5847dae8e482a8781715eb51d1f65bd04e33609831eb1851",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9729,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_04dbe92826fbd7887794": {
+      "id": "en_04dbe92826fbd7887794",
+      "language": "en",
+      "text": "A ball is between two boxes when there is one box on each side.",
+      "words": [
+        "A",
+        "ball",
+        "is",
+        "between",
+        "two",
+        "boxes",
+        "when",
+        "there",
+        "is",
+        "one",
+        "box",
+        "on",
+        "each",
+        "side."
+      ],
+      "path": "audio/meaning/en/en_04dbe92826fbd7887794.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A ball is between two boxes when there is one box on each side.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          80
+        ],
+        [
+          1,
+          161,
+          421
+        ],
+        [
+          2,
+          461,
+          562
+        ],
+        [
+          3,
+          622,
+          983
+        ],
+        [
+          4,
+          1124,
+          1304
+        ],
+        [
+          5,
+          1364,
+          1846
+        ],
+        [
+          6,
+          1926,
+          2087
+        ],
+        [
+          7,
+          2167,
+          2388
+        ],
+        [
+          8,
+          2448,
+          2548
+        ],
+        [
+          9,
+          2689,
+          2829
+        ],
+        [
+          10,
+          2909,
+          3150
+        ],
+        [
+          11,
+          3331,
+          3411
+        ],
+        [
+          12,
+          3531,
+          3732
+        ],
+        [
+          13,
+          3832,
+          4153
+        ]
+      ],
+      "duration_ms": 4795,
+      "sha256": "19cc959e74e14429dbffdac08e677b1a9c7e28fded17144ca61a2a7638a77bc2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9847,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_eed74b3b2af2f397c515": {
+      "id": "en_eed74b3b2af2f397c515",
+      "language": "en",
+      "text": "A statue is a three-dimensional form made from clay, stone, or other materials.",
+      "words": [
+        "A",
+        "statue",
+        "is",
+        "a",
+        "three-dimensional",
+        "form",
+        "made",
+        "from",
+        "clay,",
+        "stone,",
+        "or",
+        "other",
+        "materials."
+      ],
+      "path": "audio/meaning/en/en_eed74b3b2af2f397c515.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A statue is a three-dimensional form made from clay, stone, or other materials.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0714,
+          "cer": 0.0556,
+          "heard": "This statue is a three-dimensional form made from clay, stone, or other materials.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          140,
+          161
+        ],
+        [
+          1,
+          281,
+          803
+        ],
+        [
+          2,
+          883,
+          963
+        ],
+        [
+          3,
+          1003,
+          1023
+        ],
+        [
+          4,
+          1164,
+          2067
+        ],
+        [
+          5,
+          2127,
+          2448
+        ],
+        [
+          6,
+          2689,
+          2929
+        ],
+        [
+          7,
+          2949,
+          3090
+        ],
+        [
+          8,
+          3170,
+          3391
+        ],
+        [
+          9,
+          3732,
+          4213
+        ],
+        [
+          10,
+          4715,
+          4835
+        ],
+        [
+          11,
+          4936,
+          5136
+        ],
+        [
+          12,
+          5196,
+          5939
+        ]
+      ],
+      "duration_ms": 6180,
+      "sha256": "9f855932048750d24ca20aab7cb3c4136904ef87eaa6f62a0dc17bbb3c1fb3a7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9663,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
