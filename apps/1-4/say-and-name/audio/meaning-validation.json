@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1942,
+  "ready": 1944,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -181828,6 +181828,174 @@
       "sha256": "dc035bdf992d2c6de8bd478c5b146d2f0c2f6ba30d9a5bc90ec27098e2d3b511",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9803,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5e1fbfcd6caafc4634a9": {
+      "id": "ar_5e1fbfcd6caafc4634a9",
+      "language": "ar",
+      "text": "الْفُسْتَانُ ثَوْبٌ يَجْمَعُ الْجُزْءَ الْعُلْوِيَّ وَالتَّنُّورَةَ.",
+      "words": [
+        "الْفُسْتَانُ",
+        "ثَوْبٌ",
+        "يَجْمَعُ",
+        "الْجُزْءَ",
+        "الْعُلْوِيَّ",
+        "وَالتَّنُّورَةَ."
+      ],
+      "path": "audio/meaning/ar/ar_5e1fbfcd6caafc4634a9.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الْفُسْتَانُ ثَوْبٌ، يَجْمَعُ الْجُزْءَ الْعُلْوِيَّ وَالتَّنُّورَةَ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الفستان ثوب يجمع الجزء العلوي والتنورة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0263,
+          "heard": "الفستان ثوب يجمع الجزء العلوية والتنورة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          622
+        ],
+        [
+          1,
+          782,
+          1123
+        ],
+        [
+          2,
+          2306,
+          2607
+        ],
+        [
+          3,
+          2827,
+          3148
+        ],
+        [
+          4,
+          3329,
+          3930
+        ],
+        [
+          5,
+          4191,
+          4973
+        ]
+      ],
+      "duration_ms": 6196,
+      "sha256": "c684f80a29c0d2acc22d7d5659119623302ea1465c56decab37cff7832f57c8a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9235,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_fdcc9e4f3e26dd88680c": {
+      "id": "ar_fdcc9e4f3e26dd88680c",
+      "language": "ar",
+      "text": "للأخطبوط ثماني أذرع عليها ممصات تساعده على الإمساك بالطعام.",
+      "words": [
+        "للأخطبوط",
+        "ثماني",
+        "أذرع",
+        "عليها",
+        "ممصات",
+        "تساعده",
+        "على",
+        "الإمساك",
+        "بالطعام."
+      ],
+      "path": "audio/meaning/ar/ar_fdcc9e4f3e26dd88680c.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْأُخْطُبُوطِ ثَمَانِي أَذْرُعٍ، عَلَيْهَا مَمَصَّاتٌ تُسَاعِدُهُ عَلَى الْإِمْسَاكِ بِالطَّعَامِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للأخطبوط ثمان أذرع عليها ممصات تساعده على الإمساك بالطعام",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          782
+        ],
+        [
+          1,
+          1043,
+          1464
+        ],
+        [
+          2,
+          1625,
+          1805
+        ],
+        [
+          3,
+          3590,
+          3871
+        ],
+        [
+          4,
+          4011,
+          4613
+        ],
+        [
+          5,
+          4894,
+          5556
+        ],
+        [
+          6,
+          6037,
+          6097
+        ],
+        [
+          7,
+          6157,
+          6739
+        ],
+        [
+          8,
+          6859,
+          7441
+        ]
+      ],
+      "duration_ms": 7782,
+      "sha256": "3eea14d5e340b31271abaabb847c88b612fda1fafa17cd6ef79ecd85bf9cc7d5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9569,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
