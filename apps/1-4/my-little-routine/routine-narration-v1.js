@@ -18,12 +18,13 @@ function text(el,t){if(el)el.textContent=t}
 function setButtons(){
  var listen=E('listenFullRoutine'),play=E('playStory'),a=current(),v=entry(a);
  if(listen){listen.disabled=!v;listen.title=v?txt('شرح صوتي مسجل مع الصور','Recorded voice with pictures'):txt('لم تُنشر التسجيلات لهذا الروتين بعد','This routine recording is not published yet');text(listen,mode==='full'?txt('⏸ إيقاف الشرح','⏸ Stop narration'):txt('🔊 استمع للروتين كاملاً','🔊 Listen to the whole routine'))}
- if(play)text(play,mode==='silent'?txt('⏸ إيقاف','⏸ Stop'):txt('▶ تشغيل من البداية','▶ Play from the beginning'));
+ if(play)text(play,(mode==='silent'||mode==='full')?txt('⏸ إيقاف','⏸ Stop'):txt('▶ تشغيل من البداية','▶ Play from the beginning'));
  if(sceneButton){sceneButton.disabled=!v;sceneButton.title=v?txt('تشغيل صوت هذه اللقطة','Hear this scene'):txt('التسجيل غير متاح','Recording unavailable');}
  if(statusNode)text(statusNode,v?txt('صوت مسجّل جاهز · تتزامن الصور مع الشرح','Recorded voice ready · pictures follow the narration'):txt('التسجيل الصوتي لم يُنشر بعد · يمكن مشاهدة الصور','Audio is being prepared · pictures are available'));
 }
 function clearAudio(){if(!media)return;var a=media;media=null;a.onended=null;a.onerror=null;a.ontimeupdate=null;a.onloadedmetadata=null;try{a.pause()}catch(e){}}
 function stop(keepFrame){
+ if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.stop('routine');
  token++;if(clock){clearTimeout(clock);clock=null}clearAudio();mode='';
  try{w.speechSynthesis.cancel()}catch(e){}
  if(reel&&reel.stop)reel.stop();
@@ -50,6 +51,8 @@ function useAudio(a,kind,segment){
  var e=entry(a);if(!e){feedback(txt('التسجيل الصوتي لم يُنشر بعد.','The recorded English audio is not published yet.'));return}
  stop(true);
  var myToken=token;mode=kind;frame=-1;setButtons();
+ if(w.APP360_ROUTINE_DUA_STOP)w.APP360_ROUTINE_DUA_STOP();
+ if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.begin(e,'routine',segment?segment.start_ms:0);
  var audio;
  try{audio=new w.Audio(e.path+'?routine-audio=1')}catch(err){stop(true);feedback(txt('هذا المتصفح لا يدعم تشغيل التسجيل','This browser cannot play the recording'));return}
  media=audio;audio.preload='auto';
@@ -58,14 +61,16 @@ function useAudio(a,kind,segment){
  audio.ontimeupdate=function(){
   if(myToken!==token)return;
   var ms=audio.currentTime*1000;
+  if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.update(ms);
   if(kind==='full')syncPosition(e,ms);
-  if(kind==='segment'&&segment&&ms>=segment.end_ms-50){stop(true)}
+  if(kind==='segment'&&segment&&ms>=segment.end_ms){stop(true)}
  };
  function go(){
   if(myToken!==token)return;
   try{
    if(segment){audio.currentTime=Math.max(0,segment.start_ms/1000);if(typeof segment.step==='number')showScene(segment.step)}
    else if(reel&&reel.showOverview)reel.showOverview();
+   if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.update(audio.currentTime*1000);
    var p=audio.play();
    if(p&&typeof p.then==='function')p.then(null,function(){if(myToken===token){stop(true);feedback(txt('اضغط زر التشغيل لتفعيل الصوت على جهازك','Tap play to enable audio on your device'))}})
   }catch(err){stop(true);feedback(txt('تعذر تشغيل الملف الصوتي','Unable to play recorded audio'))}
@@ -80,6 +85,9 @@ function useAudio(a,kind,segment){
 }
 function listenFull(){if(mode==='full'){stop(true);return}var a=current();if(a)useAudio(a,'full',null)}
 function visualPlay(){
+ if(mode==='full'){stop(true);return}
+ var reading=w.APP360_ROUTINE_READING,a=current();
+ if(reading&&reading.isEnabled&&reading.isEnabled()&&entry(a)&&!muted()){if(mode==='full')stop(true);else useAudio(a,'full',null);return}
  if(mode==='silent'){stop(true);return}
  stop(true);var myToken=token;mode='silent';frame=0;showScene(0);setButtons();
  function next(){if(myToken!==token||mode!=='silent')return;if(frame>=4){ending();return}showScene(frame+1);clock=setTimeout(next,3200)}
@@ -139,6 +147,7 @@ function bind(){
   var x=ev.target||ev.srcElement;
   while(x&&x!==strip){if(x.getAttribute&&x.getAttribute('data-scene')!==null){var n=parseInt(x.getAttribute('data-scene'),10);if(!isNaN(n)){stop(true);showScene(n)}return}x=x.parentNode}
  },false);
+ d.addEventListener('click',function(ev){var n=ev.target||ev.srcElement;while(n&&n!==d){if(n.id==='startRoutine'||n.id==='backBuilder'||n.id==='stopRun'||(n.getAttribute&&n.getAttribute('data-outcome'))){stop(true);return}n=n.parentNode}},true);
  if(d.addEventListener)d.addEventListener('visibilitychange',function(){if(d.hidden)stop(true)},false);
  w.addEventListener('pagehide',function(){stop(true)},false);
  setButtons();

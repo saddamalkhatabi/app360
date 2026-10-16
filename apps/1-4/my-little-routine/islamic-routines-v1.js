@@ -61,13 +61,14 @@ w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO=installAudio;
 var playing=null,active='',currentId='',repeated=false;
 function clearWords(){var words=E('routineDuaText')&&E('routineDuaText').querySelectorAll('.duaWord'),i;if(words)for(i=0;i<words.length;i++)words[i].className='duaWord'}
 function followWords(clip,ms){var api=w.APP360_FAMILY_SYNC;if(api&&api.getReadingFocus&&!api.getReadingFocus()){clearWords();return}var words=E('routineDuaText').querySelectorAll('.duaWord'),cues=clip.cues||[],n=-1,i;for(i=0;i<cues.length;i++)if(ms>=cues[i][1]&&ms<=cues[i][2])n=cues[i][0];for(i=0;i<words.length;i++)words[i].className='duaWord'+(i===n?' active':'')}
-function stop(){clearWords();active='';if(playing){var old=playing;playing=null;old.onended=null;old.onerror=null;old.ontimeupdate=null;old.pause()}if(E('duaRepeat'))E('duaRepeat').textContent=t('🔁 أسمع وأردد','🔁 Listen and repeat')}
+function stop(){if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.stop('dua');clearWords();active='';if(playing){var old=playing;playing=null;old.onended=null;old.onerror=null;old.ontimeupdate=null;old.pause()}if(E('duaRepeat'))E('duaRepeat').textContent=t('🔁 أسمع وأردد','🔁 Listen and repeat')}
 function play(id,repeat){
  stop();if(E('sound')&&E('sound').textContent.indexOf('🔇')>=0)return;
  var clip=A.clips&&A.clips[id];if(!clip||!clip.verified)return;
  if(w.APP360_RoutineVoice)w.APP360_RoutineVoice.stop();
- var audio=new w.Audio(clip.path+'?v=20261016');playing=audio;active=id;repeated=false;
- audio.ontimeupdate=function(){if(playing===audio&&id.indexOf('dua-')===0)followWords(clip,audio.currentTime*1000)};
+ if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.begin(clip,'dua',0);
+ var audio=new w.Audio(clip.path+'?v='+(clip.sha256||'20261016'));playing=audio;active=id;repeated=false;
+ audio.ontimeupdate=function(){if(playing!==audio)return;var ms=audio.currentTime*1000;if(id.indexOf('dua-')===0)followWords(clip,ms);if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.update(ms)};
  audio.onended=function(){if(playing!==audio)return;clearWords();if(repeat&&!repeated){repeated=true;E('duaRepeat').textContent=t('دورك الآن… ثم نسمعها مجددًا','Your turn… then listen again');w.setTimeout(function(){if(playing!==audio)return;audio.currentTime=0;var p=audio.play();if(p&&p.catch)p.catch(function(){if(playing===audio)stop()})},Math.max(1800,Math.min(6000,clip.duration_ms)))}else stop()};
  audio.onerror=stop;var p=audio.play();if(p&&p.catch)p.catch(function(){if(playing===audio)stop()});
 }

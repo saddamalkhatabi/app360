@@ -1,0 +1,319 @@
+{
+  "method": {
+    "method": "independent unprompted ASR, small/medium",
+    "individual_duas_checked": 19,
+    "individual_duas_repaired": 5,
+    "human_review": "not performed"
+  },
+  "items": [
+    {
+      "id": "dua-bismillah",
+      "status": "retained-complete",
+      "sha256": "9e9a69db588dbcc418978b0b9dead54080a3feaa16d5597cee9207fd04ae409e",
+      "expected": "بِسْمِ اللَّهِ",
+      "recognized": " بسم الله",
+      "comparisons": {
+        "small": " بسم الله",
+        "medium": " بسم الله"
+      }
+    },
+    {
+      "id": "dua-salam-reply",
+      "status": "retained-complete",
+      "sha256": "b822e69a08c298e209304311e324577ee4b6df14de99420a010888b728a794e2",
+      "expected": "وَعَلَيْكُمُ السَّلَامُ",
+      "recognized": " وعليكم السلام",
+      "comparisons": {
+        "small": " وعليكم السلام",
+        "medium": " وعليكم السلام"
+      }
+    },
+    {
+      "id": "dua-toilet-out",
+      "status": "repaired-complete",
+      "sha256": "7dc3f9fa0b61d06b91f33ed7c84d562ccbe303266ea6aba008f4ddc8ed7b534c",
+      "expected": "غُفْرَانَكَ",
+      "recognized": "غفرانك",
+      "last_word": "غُفْرَانَكَ",
+      "word_cues": [
+        [
+          0,
+          0,
+          860
+        ]
+      ]
+    },
+    {
+      "id": "dua-mosque-in",
+      "status": "retained-complete",
+      "sha256": "8777326a703178cdb75afcb238a1b173aa788f17e6735ce153902e72f5e90b9c",
+      "expected": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+      "recognized": " اللهم أفتح لي أبواب رحمتك",
+      "comparisons": {
+        "small": " اللهم أفتح لأبواب رحمتك",
+        "medium": " اللهم أفتح لي أبواب رحمتك"
+      }
+    },
+    {
+      "id": "dua-thanks",
+      "status": "retained-complete",
+      "sha256": "e3f145d23ac8ea9257f7e5b1fce5d4f83f92891224386471276ef60b23d987d4",
+      "expected": "جَزَاكَ اللَّهُ خَيْرًا",
+      "recognized": " جزاك الله خيرا",
+      "comparisons": {
+        "small": " جزاك الله خيراً",
+        "medium": " جزاك الله خيرا"
+      }
+    },
+    {
+      "id": "dua-hamd",
+      "status": "retained-complete",
+      "sha256": "bc5e5d270131d0f24d07f8ca257c92937eff05cda0834328bfc9164089736fb7",
+      "expected": "الْحَمْدُ لِلَّهِ",
+      "recognized": " الحمد لله",
+      "comparisons": {
+        "small": " الحمد لله",
+        "medium": " الحمد لله"
+      }
+    },
+    {
+      "id": "dua-sleep",
+      "status": "repaired-complete",
+      "sha256": "acfc43cba71b0f0622f836b4f24fa9fb96b9fe2c14052b81fcab9a3d188cb093",
+      "expected": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "recognized": "باسمك اللهم أموت وأحيا",
+      "last_word": "وَأَحْيَا",
+      "word_cues": [
+        [
+          0,
+          0,
+          640
+        ],
+        [
+          1,
+          640,
+          1240
+        ],
+        [
+          2,
+          1240,
+          1960
+        ],
+        [
+          3,
+          1960,
+          2700
+        ]
+      ]
+    },
+    {
+      "id": "dua-sneeze-reply",
+      "status": "retained-complete",
+      "sha256": "44f7bc01218ec3f974564672be5c1b681c5c3159791cc4f99ce783f6318de294",
+      "expected": "يَرْحَمُكَ اللَّهُ",
+      "recognized": " يرحمك الله",
+      "comparisons": {
+        "small": " يرحمك الله",
+        "medium": " يرحمك لله"
+      }
+    },
+    {
+      "id": "dua-mosque-out",
+      "status": "retained-complete",
+      "sha256": "5fccdc7c445ee92c6e89e3c75c72ae2b990f165c069b6a438318a67d697c0403",
+      "expected": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+      "recognized": " اللهم إني أسألك من فضلك",
+      "comparisons": {
+        "small": " اللهم إني أسألك من فضلك",
+        "medium": " اللهم إني أسألك من فضلك"
+      }
+    },
+    {
+      "id": "dua-learn",
+      "status": "repaired-complete",
+      "sha256": "0ed52ded902a5eaf291a2255cc5e62794cae41ceb5de54a761e09d3e3c95f86f",
+      "expected": "رَبِّ زِدْنِي عِلْمًا",
+      "recognized": "ربي زدني علما",
+      "last_word": "عِلْمًا",
+      "word_cues": [
+        [
+          0,
+          0,
+          420
+        ],
+        [
+          1,
+          420,
+          940
+        ],
+        [
+          2,
+          940,
+          1500
+        ]
+      ]
+    },
+    {
+      "id": "dua-forgot",
+      "status": "retained-complete",
+      "sha256": "e2093afc6596325964895e4a0c560c04c06d5625ffddab8806292e8fa5477007",
+      "expected": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+      "recognized": " بسم الله أوله وآخره",
+      "comparisons": {
+        "small": " بسم الله أوله وآخره",
+        "medium": " بسم الله أوله وآخره"
+      }
+    },
+    {
+      "id": "dua-wake",
+      "status": "retained-complete",
+      "sha256": "f3091f1598bfb9b83dfb338924c5922d2e24fc4ce73f5aa61ab8501cc75f151c",
+      "expected": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+      "recognized": " الحمد لله الذي أحيانا بعدما أماتنا وإليه النشور",
+      "comparisons": {
+        "small": " الحمد لله الذي أحيانا بعد ما أماتنا وإليه النشور",
+        "medium": " الحمد لله الذي أحيانا بعدما أماتنا وإليه النشور"
+      }
+    },
+    {
+      "id": "dua-sneeze-answer",
+      "status": "retained-complete",
+      "sha256": "5ecbece7595bd495ee099f2e732e62e8b726bb68d1f54756b24f098990128112",
+      "expected": "يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ",
+      "recognized": " يهديكم الله ويصلحوا بالكم",
+      "comparisons": {
+        "small": " يهديكم الله ويصلحوا بالكم",
+        "medium": " يهديكم الله ويصلحوا بالكم"
+      }
+    },
+    {
+      "id": "dua-rain",
+      "status": "retained-complete",
+      "sha256": "f90b1bcfdceb2c85cc21109031c20f0370b3036e35f89a60fedbdcd315e829e3",
+      "expected": "صَيِّبًا نَافِعًا",
+      "recognized": " صيباً نافعاً",
+      "comparisons": {
+        "small": " صيباً نافعاً",
+        "medium": " صيباً نافعاً"
+      }
+    },
+    {
+      "id": "dua-parents",
+      "status": "retained-complete",
+      "sha256": "016ca4d3530d9bdf8ff0abf9613180a10990e6a95c2ded1d7a6d3f79f7505d6b",
+      "expected": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+      "recognized": " رَبِّ إِرْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+      "comparisons": {
+        "small": " رب يرحمهما كما رب ياني صغيرا",
+        "medium": " رَبِّ إِرْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا"
+      }
+    },
+    {
+      "id": "dua-salam",
+      "status": "repaired-complete",
+      "sha256": "6b30553ece14e7a5137a4a334ce3b57c1ca2887cdf832238106606e323556b46",
+      "expected": "السَّلَامُ عَلَيْكُمْ",
+      "recognized": "السلام عليكم",
+      "last_word": "عَلَيْكُمْ",
+      "word_cues": [
+        [
+          0,
+          0,
+          600
+        ],
+        [
+          1,
+          600,
+          1140
+        ]
+      ]
+    },
+    {
+      "id": "dua-toilet-in",
+      "status": "retained-complete",
+      "sha256": "bfc817829b8933a44a0b7768c7092fce70be6214c960dd6282d2af1fe7de806b",
+      "expected": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+      "recognized": " اللهم إني أعوذ بك من الخبث والخبائث",
+      "comparisons": {
+        "small": " اللهم إني أعوذ بك من الخبث والخبائث",
+        "medium": " اللهم إني أعوذ بك من الخبث والخبائث"
+      }
+    },
+    {
+      "id": "dua-leave",
+      "status": "repaired-complete",
+      "sha256": "36ca51151c4fb7569073cb96357c6b1f42c215f48fb61ccc0206a6b26eb6cd48",
+      "expected": "بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+      "recognized": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لَا حَوْلَ وَلَا قُوَّةً إِلَّا بِاللَّهِ",
+      "last_word": "بِاللَّهِ",
+      "word_cues": [
+        [
+          0,
+          0,
+          580
+        ],
+        [
+          1,
+          580,
+          1460
+        ],
+        [
+          2,
+          1460,
+          2320
+        ],
+        [
+          3,
+          2320,
+          2520
+        ],
+        [
+          4,
+          2520,
+          3540
+        ],
+        [
+          5,
+          3540,
+          3800
+        ],
+        [
+          6,
+          3800,
+          4280
+        ],
+        [
+          7,
+          4280,
+          4660
+        ],
+        [
+          8,
+          4660,
+          5340
+        ],
+        [
+          9,
+          5340,
+          5560
+        ],
+        [
+          10,
+          5560,
+          6220
+        ]
+      ]
+    },
+    {
+      "id": "dua-anger",
+      "status": "retained-complete",
+      "sha256": "f1c57e9ab392f508a6e51df7f8e850cd61b040bcd0e7ba2904d3dc40938e2423",
+      "expected": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ",
+      "recognized": " أعوذ بالله من الشيطان",
+      "comparisons": {
+        "small": " أعوذ بالله من الشيطان",
+        "medium": " أعوذ بالله من الشيطان"
+      }
+    }
+  ]
+}
