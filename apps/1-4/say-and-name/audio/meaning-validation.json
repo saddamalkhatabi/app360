@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1814,
+  "ready": 1816,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -169825,6 +169825,232 @@
       "sha256": "d42edb2e23f2c9e332974b22a9d68419f685fa9034e6a8b228ce5112776678ea",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9734,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_e5845fd5377c115d4e76": {
+      "id": "en_e5845fd5377c115d4e76",
+      "language": "en",
+      "text": "An excavator digs the ground with an arm ending in a metal bucket.",
+      "words": [
+        "An",
+        "excavator",
+        "digs",
+        "the",
+        "ground",
+        "with",
+        "an",
+        "arm",
+        "ending",
+        "in",
+        "a",
+        "metal",
+        "bucket."
+      ],
+      "path": "audio/meaning/en/en_e5845fd5377c115d4e76.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "An excavator digs the ground with an arm ending in a metal bucket.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          260,
+          341
+        ],
+        [
+          1,
+          381,
+          1062
+        ],
+        [
+          2,
+          1122,
+          1402
+        ],
+        [
+          3,
+          1442,
+          1522
+        ],
+        [
+          4,
+          1562,
+          1943
+        ],
+        [
+          5,
+          2003,
+          2143
+        ],
+        [
+          6,
+          2183,
+          2263
+        ],
+        [
+          7,
+          2424,
+          2664
+        ],
+        [
+          8,
+          2844,
+          3265
+        ],
+        [
+          9,
+          3405,
+          3485
+        ],
+        [
+          10,
+          3525,
+          3545
+        ],
+        [
+          11,
+          3685,
+          4006
+        ],
+        [
+          12,
+          4126,
+          4467
+        ]
+      ],
+      "duration_ms": 4887,
+      "sha256": "c47ae4b15851c3f61f9f44d2702cab27b95f3a7fad4a1f3bde72b5a899837eaa",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9445,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_cc76a74bf6b165747442": {
+      "id": "en_cc76a74bf6b165747442",
+      "language": "en",
+      "text": "A street is a road between buildings, with pavements for pedestrians where provided.",
+      "words": [
+        "A",
+        "street",
+        "is",
+        "a",
+        "road",
+        "between",
+        "buildings,",
+        "with",
+        "pavements",
+        "for",
+        "pedestrians",
+        "where",
+        "provided."
+      ],
+      "path": "audio/meaning/en/en_cc76a74bf6b165747442.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A street is a road between buildings with pavements for pedestrians, where provided.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0769,
+          "cer": 0.0366,
+          "heard": "East Street is a road between buildings with pavements for pedestrians where provided.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          140,
+          521
+        ],
+        [
+          2,
+          721,
+          801
+        ],
+        [
+          3,
+          861,
+          881
+        ],
+        [
+          4,
+          1001,
+          1282
+        ],
+        [
+          5,
+          1402,
+          1802
+        ],
+        [
+          6,
+          1942,
+          2423
+        ],
+        [
+          7,
+          2823,
+          2963
+        ],
+        [
+          8,
+          3044,
+          3584
+        ],
+        [
+          9,
+          3664,
+          3804
+        ],
+        [
+          10,
+          3845,
+          4645
+        ],
+        [
+          11,
+          4846,
+          5026
+        ],
+        [
+          12,
+          5066,
+          5607
+        ]
+      ],
+      "duration_ms": 6508,
+      "sha256": "d2af6c4eb8dac1b525f72f2e7ee242a47f4930140823db737ca65e2c3c2cd977",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9636,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
