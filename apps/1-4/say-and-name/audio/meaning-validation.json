@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1758,
+  "ready": 1759,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -164675,6 +164675,121 @@
       "sha256": "56c40d133b2fb2f7b0f5546825adb64e22d7ed4f9b2b7b3d95d431575da99059",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9566,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d1b98cec891b8186de34": {
+      "id": "en_d1b98cec891b8186de34",
+      "language": "en",
+      "text": "A camera lens gathers light to form a picture, and we keep it clean.",
+      "words": [
+        "A",
+        "camera",
+        "lens",
+        "gathers",
+        "light",
+        "to",
+        "form",
+        "a",
+        "picture,",
+        "and",
+        "we",
+        "keep",
+        "it",
+        "clean."
+      ],
+      "path": "audio/meaning/en/en_d1b98cec891b8186de34.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A camera lens gathers light to form a picture, and we keep it clean.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          140,
+          521
+        ],
+        [
+          2,
+          621,
+          1062
+        ],
+        [
+          3,
+          1142,
+          1523
+        ],
+        [
+          4,
+          1603,
+          1843
+        ],
+        [
+          5,
+          1883,
+          1943
+        ],
+        [
+          6,
+          2023,
+          2344
+        ],
+        [
+          7,
+          2404,
+          2424
+        ],
+        [
+          8,
+          2504,
+          2985
+        ],
+        [
+          9,
+          3446,
+          3566
+        ],
+        [
+          10,
+          3586,
+          3666
+        ],
+        [
+          11,
+          3766,
+          4007
+        ],
+        [
+          12,
+          4067,
+          4167
+        ],
+        [
+          13,
+          4247,
+          4568
+        ]
+      ],
+      "duration_ms": 4868,
+      "sha256": "756685fa4ef7b8c1c757c3de0d0f6cc0e2c12d2513cb330e391ddd72ba49583d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9453,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
