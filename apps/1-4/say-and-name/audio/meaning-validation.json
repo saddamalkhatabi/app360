@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1932,
+  "ready": 1933,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180776,6 +180776,97 @@
       "sha256": "6e41b27c9fc09f5e05b1b8c3d33ae6fd57ebf96f2a8695dde3bbe4391dcc99fc",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.917,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c702490cfc9d1b0578ae": {
+      "id": "ar_c702490cfc9d1b0578ae",
+      "language": "ar",
+      "text": "للكرز ساق رفيعة ونواة صلبة نزيلها قبل أكله.",
+      "words": [
+        "للكرز",
+        "ساق",
+        "رفيعة",
+        "ونواة",
+        "صلبة",
+        "نزيلها",
+        "قبل",
+        "أكله."
+      ],
+      "path": "audio/meaning/ar/ar_c702490cfc9d1b0578ae.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْكَرَزِ سَاقٌ رَفِيعَةٌ، وَنَوَاةٌ صُلْبَةٌ نُزِيلُهَا قَبْلَ أَكْلِهِ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للكرز ساق رفيعة ونواة صلبة نزيلها قبل أكله",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.125,
+          "cer": 0.0238,
+          "heard": "للكرز ساق رفيعة ونوات صلبة نزيلها قبل أكله",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          501
+        ],
+        [
+          1,
+          681,
+          941
+        ],
+        [
+          2,
+          1182,
+          1642
+        ],
+        [
+          3,
+          2784,
+          3265
+        ],
+        [
+          4,
+          3505,
+          3805
+        ],
+        [
+          5,
+          4046,
+          4647
+        ],
+        [
+          6,
+          5107,
+          5308
+        ],
+        [
+          7,
+          5448,
+          5788
+        ]
+      ],
+      "duration_ms": 6249,
+      "sha256": "3c8a9659ca15d978661b8e99a4a4e1a9562ea3e2a516458895b6a01d01b06fc4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.952,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
