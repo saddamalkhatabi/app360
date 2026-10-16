@@ -1,0 +1,51 @@
+name: Verify shared praise and fullscreen learning
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'resources/celebration-audio/player-v1.js'
+      - 'apps/1-4/picture-puzzles/**'
+      - 'apps/1-4/tangram-builder/**'
+      - 'apps/1-4/drawing-writing-foundations/audio-v21.js'
+      - 'apps/1-4/drawing-writing-foundations/index.html'
+      - 'apps/1-4/screen-to-move/app.js'
+      - 'apps/4-8/command-path-lab/src/celebration.js'
+      - 'tooling/test-shared-celebration*.cjs'
+      - '.github/workflows/verify-shared-celebration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tooling/test-shared-celebration.cjs && node tooling/test-picture-puzzle-learning.cjs && node tooling/test-picture-puzzles-v5.cjs && node tooling/test-tangram-touch-v18.cjs
+      - run: node --test recorded-voice-v19.test.js
+        working-directory: apps/1-4/screen-to-move
+      - name: Verify every shared recording decodes and matches its published digest
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib,subprocess
+          root=pathlib.Path('resources/celebration-audio')
+          data=json.loads((root/'phrases.json').read_text())
+          assert data['complete'] and len(data['items'])==10
+          for row in data['items']:
+              media=root/row['path']
+              assert hashlib.sha256(media.read_bytes()).hexdigest()==row['sha256']
+              subprocess.run(['ffmpeg','-v','error','-i',str(media),'-f','null','-'],check=True)
+          print('10 shared SILMA phrases: exact hashes and decoding passed')
+          PY
+      - run: npm install --prefix /tmp/praise-browser playwright@1.62.1
+      - run: /tmp/praise-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-picture-puzzles-browser.cjs
+      - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-shared-celebration-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fullscreen-learning-and-shared-praise
+          path: /tmp/picture-puzzles/
