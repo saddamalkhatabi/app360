@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1920,
+  "ready": 1921,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -179614,6 +179614,145 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_1d558100b6bc305fd45e": {
+      "id": "en_1d558100b6bc305fd45e",
+      "language": "en",
+      "text": "Fur and fat protect a polar bear from the cold, and it is a strong swimmer.",
+      "words": [
+        "Fur",
+        "and",
+        "fat",
+        "protect",
+        "a",
+        "polar",
+        "bear",
+        "from",
+        "the",
+        "cold,",
+        "and",
+        "it",
+        "is",
+        "a",
+        "strong",
+        "swimmer."
+      ],
+      "path": "audio/meaning/en/en_1d558100b6bc305fd45e.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Fur and fat protect a polar bear from the cold, and it is a strong swimmer.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Fur and fat protect a polar bear from the cold, and it is a strong swimmer.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0625,
+          "cer": 0.0411,
+          "heard": "Four and fat protect a polar bear from the cold, and it is a strong swimmer.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          221
+        ],
+        [
+          1,
+          301,
+          422
+        ],
+        [
+          2,
+          502,
+          703
+        ],
+        [
+          3,
+          823,
+          1245
+        ],
+        [
+          4,
+          1305,
+          1325
+        ],
+        [
+          5,
+          1426,
+          1767
+        ],
+        [
+          6,
+          1848,
+          2129
+        ],
+        [
+          7,
+          2249,
+          2410
+        ],
+        [
+          8,
+          2450,
+          2551
+        ],
+        [
+          9,
+          2611,
+          2992
+        ],
+        [
+          10,
+          3695,
+          3816
+        ],
+        [
+          11,
+          3996,
+          4097
+        ],
+        [
+          12,
+          4217,
+          4298
+        ],
+        [
+          13,
+          4358,
+          4378
+        ],
+        [
+          14,
+          4458,
+          4840
+        ],
+        [
+          15,
+          4960,
+          5342
+        ]
+      ],
+      "duration_ms": 5764,
+      "sha256": "006595dd7d76b270aa704e37d2b1c52fabeeb30682fbec623d54cb406403b1d9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9205,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
