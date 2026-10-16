@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1832,
+  "ready": 1835,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -171795,6 +171795,271 @@
       "sha256": "f19ae7ec3f74f1a5d3e75a818970eb6c039829e10d89a7fda5fe4f161bf81b8a",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9346,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d8efced85e7acf0b5499": {
+      "id": "ar_d8efced85e7acf0b5499",
+      "language": "ar",
+      "text": "نسجل هدفا عندما تدخل الكرة المرمى وفق قواعد اللعبة.",
+      "words": [
+        "نسجل",
+        "هدفا",
+        "عندما",
+        "تدخل",
+        "الكرة",
+        "المرمى",
+        "وفق",
+        "قواعد",
+        "اللعبة."
+      ],
+      "path": "audio/meaning/ar/ar_d8efced85e7acf0b5499.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نسجل هدفا عندما تدخل الكرة المرمى وفق قواعد اللعبة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          442
+        ],
+        [
+          1,
+          543,
+          885
+        ],
+        [
+          2,
+          1106,
+          1347
+        ],
+        [
+          3,
+          1447,
+          1870
+        ],
+        [
+          4,
+          1950,
+          2211
+        ],
+        [
+          5,
+          2332,
+          2694
+        ],
+        [
+          6,
+          2815,
+          3136
+        ],
+        [
+          7,
+          3277,
+          3719
+        ],
+        [
+          8,
+          3800,
+          4182
+        ]
+      ],
+      "duration_ms": 4322,
+      "sha256": "882a75c5d71a56cc6bb1dda41ab47e7d1974e6d593226b9421e2c60c215bce6d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9641,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_08c6aa9d199a29ab232b": {
+      "id": "ar_08c6aa9d199a29ab232b",
+      "language": "ar",
+      "text": "الشاطئ حافة البحر أو البحيرة، وقد يغطيه رمل أو حصى.",
+      "words": [
+        "الشاطئ",
+        "حافة",
+        "البحر",
+        "أو",
+        "البحيرة،",
+        "وقد",
+        "يغطيه",
+        "رمل",
+        "أو",
+        "حصى."
+      ],
+      "path": "audio/meaning/ar/ar_08c6aa9d199a29ab232b.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الشاطئ حافة البحر أو البحيرة، وقد يغطيه رمل أو حصى",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.2,
+          "cer": 0.0816,
+          "heard": "الشاطئ حافة البحر أو البحيرة وقد يغطيه رمل الأوحصة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          481
+        ],
+        [
+          1,
+          541,
+          802
+        ],
+        [
+          2,
+          922,
+          1263
+        ],
+        [
+          3,
+          1424,
+          1504
+        ],
+        [
+          4,
+          1564,
+          2066
+        ],
+        [
+          5,
+          2467,
+          2707
+        ],
+        [
+          6,
+          2747,
+          3229
+        ],
+        [
+          7,
+          3349,
+          3590
+        ],
+        [
+          8,
+          3770,
+          3850
+        ],
+        [
+          9,
+          3931,
+          4231
+        ]
+      ],
+      "duration_ms": 4372,
+      "sha256": "b8e192f68ddd235b2413e977f723f0c46f8dc41442c630839ca04cb903cd25b1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9645,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_455f9cc182f239713101": {
+      "id": "ar_455f9cc182f239713101",
+      "language": "ar",
+      "text": "تُسَاعِدُنِي الْمَظَلَّةُ عَلَى الْبَقَاءِ جَافًّا فِي الْمَطَرِ.",
+      "words": [
+        "تُسَاعِدُنِي",
+        "الْمَظَلَّةُ",
+        "عَلَى",
+        "الْبَقَاءِ",
+        "جَافًّا",
+        "فِي",
+        "الْمَطَرِ."
+      ],
+      "path": "audio/meaning/ar/ar_455f9cc182f239713101.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تساعدني المظلة على البقاء جافاً في المطر",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1429,
+          "cer": 0.0513,
+          "heard": "تساعدني المضلط على البقاء جافا في المطر",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          763
+        ],
+        [
+          1,
+          904,
+          1427
+        ],
+        [
+          2,
+          1909,
+          1969
+        ],
+        [
+          3,
+          2049,
+          2451
+        ],
+        [
+          4,
+          2753,
+          3114
+        ],
+        [
+          5,
+          3878,
+          3978
+        ],
+        [
+          6,
+          3998,
+          4440
+        ]
+      ],
+      "duration_ms": 4601,
+      "sha256": "766d5a811518d20a766fa040f904963915f94572488922f79ded84568988fc3f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9689,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
