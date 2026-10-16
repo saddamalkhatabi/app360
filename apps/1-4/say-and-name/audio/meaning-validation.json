@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1990,
+  "ready": 1992,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -185858,6 +185858,136 @@
       "sha256": "c09a354be93f2300a6d56fed3cd4957e2729f5ba9da06f493265d2215acebfa8",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9901,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_6707d8ed6266897bbc26": {
+      "id": "ar_6707d8ed6266897bbc26",
+      "language": "ar",
+      "text": "يَصْطَادُ حَيَوَانَاتٍ صَغِيرَةً لِيَأْكُلَهَا.",
+      "words": [
+        "يَصْطَادُ",
+        "حَيَوَانَاتٍ",
+        "صَغِيرَةً",
+        "لِيَأْكُلَهَا."
+      ],
+      "path": "audio/meaning/ar/ar_6707d8ed6266897bbc26.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَصْطَادُ حَيَوَانَاتٍ صَغِيرَةً لِيَأْكُلَهَا.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يصطاد حيوانات صغيرة ليأكلها",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          562
+        ],
+        [
+          1,
+          722,
+          1465
+        ],
+        [
+          2,
+          1726,
+          2268
+        ],
+        [
+          3,
+          2549,
+          3231
+        ]
+      ],
+      "duration_ms": 3592,
+      "sha256": "34875013400005f4916cdc2dc1bd4ab69f0e99cbef26a32e48d8f3e0299231c8",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.969,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_716b7e60bfe6730b36bf": {
+      "id": "ar_716b7e60bfe6730b36bf",
+      "language": "ar",
+      "text": "نَقْسِمُ التُّفَّاحَةَ بِالتَّسَاوِي لِنَحْصُلَ عَلَى نِصْفَيْنِ.",
+      "words": [
+        "نَقْسِمُ",
+        "التُّفَّاحَةَ",
+        "بِالتَّسَاوِي",
+        "لِنَحْصُلَ",
+        "عَلَى",
+        "نِصْفَيْنِ."
+      ],
+      "path": "audio/meaning/ar/ar_716b7e60bfe6730b36bf.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَقْسِمُ التُّفَّاحَةَ بِالتَّسَاوِي لِنَحْصُلَ عَلَى نِصْفَيْنِ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نقسم التفاحة بالتساوي لنحصل على نصفين",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 91361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          422
+        ],
+        [
+          1,
+          502,
+          1185
+        ],
+        [
+          2,
+          1466,
+          2189
+        ],
+        [
+          3,
+          2330,
+          2852
+        ],
+        [
+          4,
+          3093,
+          3173
+        ],
+        [
+          5,
+          3253,
+          3776
+        ]
+      ],
+      "duration_ms": 5221,
+      "sha256": "041274d470486716c3d5769a9319a8750945e44dc3ef6c03a3794c381a0e2ea4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9673,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
