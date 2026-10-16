@@ -27,6 +27,7 @@ jobs:
       - run: node tooling/test-shared-celebration.cjs && node tooling/test-picture-puzzle-learning.cjs && node tooling/test-picture-puzzles-v5.cjs && node tooling/test-tangram-touch-v18.cjs
       - run: node --test recorded-voice-v19.test.js
         working-directory: apps/1-4/screen-to-move
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Verify every shared recording decodes and matches its published digest
         run: |
           python - <<'PY'
