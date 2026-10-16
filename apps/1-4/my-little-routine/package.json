@@ -1,0 +1,14 @@
+{
+  "name": "@app360/app-my-little-routine",
+  "version": "0.3.0",
+  "private": true,
+  "description": "عادات مصورة وأذكار بحسب العمر — مدرسة العائلة 360",
+  "app360": {
+    "appId": "a1-routine",
+    "ageGroup": "1-4",
+    "runtimeProfile": "legacy-web"
+  },
+  "scripts": {
+    "validate": "node tools/test-islamic-routines.cjs"
+  }
+}
