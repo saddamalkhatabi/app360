@@ -32,6 +32,8 @@ if a.recover:
   options=[r for r in existing.values() if r.get('language')==lang and 3500<=r.get('duration_ms',0)<=8000 and verified_recording(r,r,ROOT)]
   if options:
    chosen=min(options,key=lambda r:r['duration_ms']);references[lang]=(str(ROOT/chosen['path']),chosen['text'])
+preferred=existing.get('ar_2b9079b514f2a91959a7')
+if a.recover and preferred and verified_recording(preferred,preferred,ROOT):references['ar']=(str(ROOT/preferred['path']),preferred['text'])
 recognizer=WhisperModel(os.environ['MEANING_ASR_MODEL'],device='cpu',compute_type='int8',cpu_threads=2,num_workers=1)
 verifier=None
 accepted=[];rejected=[]
@@ -43,7 +45,7 @@ for i,row in enumerate(items):
   engine._app360_precision='fp32' if attempt==2 else precision
   prompt=spoken_text(row,authored)
   chunks=speech_chunks(prompt,segmented=a.recover and attempt==1)
-  selected_ref,selected_text=references.get(row['language'],(ref,ref_text)) if a.recover and attempt>0 else (ref,ref_text)
+  selected_ref,selected_text=references.get(row['language'],(ref,ref_text)) if a.recover and (attempt>0 or os.environ.get('MEANING_FINAL_REF')=='1') else (ref,ref_text)
   pieces=[]
   for chunk_index,chunk in enumerate(chunks):
    piece,sr,_=engine.infer(ref_file=selected_ref,ref_text=selected_text,gen_text=chunk,file_wave=str(wavfile),seed=seed+chunk_index*17,speed=(.93 if row['language']=='ar' else 1) if attempt==0 or not a.recover else .88,nfe_step=48,force_tashkeel=False,normalize_numbers=False)
