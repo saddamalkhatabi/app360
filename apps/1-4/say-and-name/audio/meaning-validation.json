@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1944,
+  "ready": 1945,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -181996,6 +181996,97 @@
       "sha256": "3eea14d5e340b31271abaabb847c88b612fda1fafa17cd6ef79ecd85bf9cc7d5",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9569,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e5cabf5f2fc8b229a87a": {
+      "id": "ar_e5cabf5f2fc8b229a87a",
+      "language": "ar",
+      "text": "ألف الوشاح حول رقبتي برفق لحمايتها من البرد.",
+      "words": [
+        "ألف",
+        "الوشاح",
+        "حول",
+        "رقبتي",
+        "برفق",
+        "لحمايتها",
+        "من",
+        "البرد."
+      ],
+      "path": "audio/meaning/ar/ar_e5cabf5f2fc8b229a87a.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَلُفُّ الْوِشَاحَ حَوْلَ رَقَبَتِي، بِرِفْقٍ لِحِمَايَتِهَا مِنَ الْبَرْدِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ألف الوشاح حول رقبتي برفق لحمايتها من البرد",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0698,
+          "heard": "ألف الوشاحة حول رقبة برفق لحمايتها من البرد",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          321
+        ],
+        [
+          1,
+          442,
+          943
+        ],
+        [
+          2,
+          1104,
+          1325
+        ],
+        [
+          3,
+          1425,
+          1967
+        ],
+        [
+          4,
+          3452,
+          3834
+        ],
+        [
+          5,
+          4014,
+          4938
+        ],
+        [
+          6,
+          5058,
+          5178
+        ],
+        [
+          7,
+          5239,
+          5660
+        ]
+      ],
+      "duration_ms": 6684,
+      "sha256": "9e521c23bec18822cf62f047c2a586ea0ba0cb7c824180582f01a359110e4d63",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9607,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
