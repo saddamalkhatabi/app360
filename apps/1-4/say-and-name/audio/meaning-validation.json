@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1999,
+  "ready": 2002,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -186469,6 +186469,201 @@
       "sha256": "9cf1cb85d99a301e97750614bd8adc538f9d9d089e90bf8f519e199e937f2115",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9325,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3c5f2af602e0c49539c5": {
+      "id": "ar_3c5f2af602e0c49539c5",
+      "language": "ar",
+      "text": "أُنَظِّفُ أَسْنَانِي كُلَّ يَوْمٍ.",
+      "words": [
+        "أُنَظِّفُ",
+        "أَسْنَانِي",
+        "كُلَّ",
+        "يَوْمٍ."
+      ],
+      "path": "audio/meaning/ar/ar_3c5f2af602e0c49539c5.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أُنَظِّفُ أَسْنَانِي كُلَّ يَوْمٍ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أنظف أسناني كل يوم",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.2222,
+          "heard": "ونضفوا أسناني كل يوم",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          441
+        ],
+        [
+          1,
+          722,
+          1203
+        ],
+        [
+          2,
+          1384,
+          1584
+        ],
+        [
+          3,
+          1704,
+          1985
+        ]
+      ],
+      "duration_ms": 2306,
+      "sha256": "6d357f000f268cd764a1401c30afe64d98882508440f117445fd595f706e724b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9145,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8c6e6887f4df93ffa43d": {
+      "id": "ar_8c6e6887f4df93ffa43d",
+      "language": "ar",
+      "text": "يَصِيدُ السَّمَكَ بِالشَّبَكَةِ.",
+      "words": [
+        "يَصِيدُ",
+        "السَّمَكَ",
+        "بِالشَّبَكَةِ."
+      ],
+      "path": "audio/meaning/ar/ar_8c6e6887f4df93ffa43d.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "يَصِيدُ السَّمَكَ بِالشَّبَكَةِ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يصيد السمك بالشبكة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0556,
+          "heard": "يصيد السمكة بالشبكة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          422
+        ],
+        [
+          1,
+          522,
+          944
+        ],
+        [
+          2,
+          1105,
+          1708
+        ]
+      ],
+      "duration_ms": 2411,
+      "sha256": "6172ae789f3083b7ee0205ae62c6fec3e9d7aa026d4499838d83cc1277bd7f53",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9375,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_2ff8a5e2a31d2e6ae483": {
+      "id": "ar_2ff8a5e2a31d2e6ae483",
+      "language": "ar",
+      "text": "نَصْنَعُهَا مِنَ الْحَلِيبِ وَالنَّشَا.",
+      "words": [
+        "نَصْنَعُهَا",
+        "مِنَ",
+        "الْحَلِيبِ",
+        "وَالنَّشَا."
+      ],
+      "path": "audio/meaning/ar/ar_2ff8a5e2a31d2e6ae483.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَصْنَعُهَا مِنَ الْحَلِيبِ وَالنَّشَا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نصنعها من الحليب والنشا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0435,
+          "heard": "نصنعها من الحليب والنشة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 91361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          645
+        ],
+        [
+          1,
+          826,
+          967
+        ],
+        [
+          2,
+          1027,
+          1491
+        ],
+        [
+          3,
+          1632,
+          2155
+        ]
+      ],
+      "duration_ms": 2739,
+      "sha256": "b8bc6b162992508bcadf3d0ad71657203c185b0498c7811a555a795bec81fa75",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9692,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
