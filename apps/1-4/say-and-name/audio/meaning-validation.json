@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1959,
+  "ready": 1961,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -183337,6 +183337,198 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_42c3f304f665281d3cf0": {
+      "id": "ar_42c3f304f665281d3cf0",
+      "language": "ar",
+      "text": "البيتزا عجين مسطح نضيف إليه الصلصة والجبن، ثم نخبزه.",
+      "words": [
+        "البيتزا",
+        "عجين",
+        "مسطح",
+        "نضيف",
+        "إليه",
+        "الصلصة",
+        "والجبن،",
+        "ثم",
+        "نخبزه."
+      ],
+      "path": "audio/meaning/ar/ar_42c3f304f665281d3cf0.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الْبِيتْزَا عَجِينٌ مُسَطَّحٌ، نُضِيفُ إِلَيْهِ الصَّلْصَةَ وَالْجُبْنَ، ثُمَّ نَخْبِزُهُ.",
+      "phrase_count": 3,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "البيتزا عجين مسطح، نضيف إليه الصلصة والجبن، ثم نخبزه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.04,
+          "heard": "البيت زا عجين مصطح نضيف إليه الصلصة والجبن ثم نخبزه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          661
+        ],
+        [
+          1,
+          1022,
+          1262
+        ],
+        [
+          2,
+          1503,
+          2104
+        ],
+        [
+          3,
+          2845,
+          3205
+        ],
+        [
+          4,
+          3306,
+          3746
+        ],
+        [
+          5,
+          3847,
+          4267
+        ],
+        [
+          6,
+          4528,
+          5009
+        ],
+        [
+          7,
+          6491,
+          6651
+        ],
+        [
+          8,
+          6792,
+          7353
+        ]
+      ],
+      "duration_ms": 8134,
+      "sha256": "7e964d03308bca802610465bebd994b824d4098aa3a398659e2c79ff958c0a9d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9445,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a2dbf418655a9f255edf": {
+      "id": "ar_a2dbf418655a9f255edf",
+      "language": "ar",
+      "text": "لجراد البحر قشرة صلبة وقرنا استشعار، ويعيش قرب قاع البحر.",
+      "words": [
+        "لجراد",
+        "البحر",
+        "قشرة",
+        "صلبة",
+        "وقرنا",
+        "استشعار،",
+        "ويعيش",
+        "قرب",
+        "قاع",
+        "البحر."
+      ],
+      "path": "audio/meaning/ar/ar_a2dbf418655a9f255edf.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِجَرَادِ الْبَحْرِ قِشْرَةٌ صُلْبَةٌ وَقَرْنَا اسْتِشْعَارٍ، وَيَعِيشُ قُرْبَ قَاعِ الْبَحْرِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "لجراد البحر قشرة صلبة وقرنا استشعار ويعيش قرب قاع البحر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          521
+        ],
+        [
+          1,
+          641,
+          1082
+        ],
+        [
+          2,
+          1302,
+          1642
+        ],
+        [
+          3,
+          1923,
+          2263
+        ],
+        [
+          4,
+          2724,
+          3245
+        ],
+        [
+          5,
+          3325,
+          4046
+        ],
+        [
+          6,
+          5848,
+          6409
+        ],
+        [
+          7,
+          6610,
+          6850
+        ],
+        [
+          8,
+          7070,
+          7170
+        ],
+        [
+          9,
+          7411,
+          7831
+        ]
+      ],
+      "duration_ms": 8432,
+      "sha256": "6839928e9283437be8c9044666ca9075f1c17d0f4044d3053d82f23d9e9d074c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9564,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
