@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2020,
+  "ready": 2023,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187826,6 +187826,177 @@
       "sha256": "38158e13368e12cec81ff97c840df867f13c108aa025e0fdcdec04c4f1e3734d",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9634,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e1882ed480d67e00ab66": {
+      "id": "ar_e1882ed480d67e00ab66",
+      "language": "ar",
+      "text": "نأكلها بعد الطبخ.",
+      "words": [
+        "نأكلها",
+        "بعد",
+        "الطبخ."
+      ],
+      "path": "audio/meaning/ar/ar_e1882ed480d67e00ab66.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نأكلها بعد الطبخ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نأكلها بعد الطبخ",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          662
+        ],
+        [
+          1,
+          823,
+          1044
+        ],
+        [
+          2,
+          1124,
+          1585
+        ]
+      ],
+      "duration_ms": 2990,
+      "sha256": "6e94969cd95bf1b7c94dc5167a0b94c53948b3088f681ce2b4676dd06a9410ee",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9432,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_18321a6fc29077dcd741": {
+      "id": "ar_18321a6fc29077dcd741",
+      "language": "ar",
+      "text": "تزيل أثر القلم.",
+      "words": [
+        "تزيل",
+        "أثر",
+        "القلم."
+      ],
+      "path": "audio/meaning/ar/ar_18321a6fc29077dcd741.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تزيل أثر القلم.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تزيل أثر القلم",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          401
+        ],
+        [
+          1,
+          642,
+          923
+        ],
+        [
+          2,
+          1003,
+          1505
+        ]
+      ],
+      "duration_ms": 2508,
+      "sha256": "3d3fbb3cda5b4ebf70183d0af2ebeff1d730f76c38388f6c3763702fb9257a11",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9832,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_02a202a71b5b3571606e": {
+      "id": "ar_02a202a71b5b3571606e",
+      "language": "ar",
+      "text": "تكوي الملابس ولا يلمسها الطفل.",
+      "words": [
+        "تكوي",
+        "الملابس",
+        "ولا",
+        "يلمسها",
+        "الطفل."
+      ],
+      "path": "audio/meaning/ar/ar_02a202a71b5b3571606e.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تكوي الملابس ولا يلمسها الطفل.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تكوي الملابس، ولا يلمسها الطفل",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          0,
+          321
+        ],
+        [
+          1,
+          441,
+          1184
+        ],
+        [
+          2,
+          1866,
+          2087
+        ],
+        [
+          3,
+          2207,
+          2789
+        ],
+        [
+          4,
+          2869,
+          3431
+        ]
+      ],
+      "duration_ms": 4254,
+      "sha256": "1c2820c2e4c9919e496f069b128b778b69befa2c752f773ed01b5c82e31a4887",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9358,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
