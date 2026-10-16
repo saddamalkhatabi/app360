@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1792,
+  "ready": 1795,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -167751,6 +167751,299 @@
       "sha256": "7d7d89eb20106aeaa3fd7845d09e658d9288381115865071a253473892ae895a",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9629,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_e5d9499260d39d590255": {
+      "id": "en_e5d9499260d39d590255",
+      "language": "en",
+      "text": "A koala lives in trees and eats eucalyptus leaves.",
+      "words": [
+        "A",
+        "koala",
+        "lives",
+        "in",
+        "trees",
+        "and",
+        "eats",
+        "eucalyptus",
+        "leaves."
+      ],
+      "path": "audio/meaning/en/en_e5d9499260d39d590255.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A koala lives in trees and eats eucalyptus leaves.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0408,
+          "heard": "a koala lives in trees and its eucalyptus leaves.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          140,
+          521
+        ],
+        [
+          2,
+          642,
+          1003
+        ],
+        [
+          3,
+          1063,
+          1143
+        ],
+        [
+          4,
+          1223,
+          1665
+        ],
+        [
+          5,
+          1825,
+          1925
+        ],
+        [
+          6,
+          2006,
+          2226
+        ],
+        [
+          7,
+          2346,
+          3008
+        ],
+        [
+          8,
+          3109,
+          3490
+        ]
+      ],
+      "duration_ms": 3790,
+      "sha256": "b345b614b8a9f7b2691a2c5f303355f9cdc07a33277e631e1b81ae762cae7d18",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8383,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_29f6aae40aa5cded133d": {
+      "id": "en_29f6aae40aa5cded133d",
+      "language": "en",
+      "text": "A doughnut is a sweet made from dough, often shaped like a ring.",
+      "words": [
+        "A",
+        "doughnut",
+        "is",
+        "a",
+        "sweet",
+        "made",
+        "from",
+        "dough,",
+        "often",
+        "shaped",
+        "like",
+        "a",
+        "ring."
+      ],
+      "path": "audio/meaning/en/en_29f6aae40aa5cded133d.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A doughnut is a sweet made from dough, often shaped like a ring.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          301,
+          321
+        ],
+        [
+          1,
+          402,
+          743
+        ],
+        [
+          2,
+          803,
+          904
+        ],
+        [
+          3,
+          944,
+          964
+        ],
+        [
+          4,
+          1125,
+          1426
+        ],
+        [
+          5,
+          1566,
+          1827
+        ],
+        [
+          6,
+          1848,
+          1988
+        ],
+        [
+          7,
+          2048,
+          2289
+        ],
+        [
+          8,
+          2852,
+          3133
+        ],
+        [
+          9,
+          3233,
+          3514
+        ],
+        [
+          10,
+          3575,
+          3755
+        ],
+        [
+          11,
+          3775,
+          3796
+        ],
+        [
+          12,
+          3896,
+          4117
+        ]
+      ],
+      "duration_ms": 4760,
+      "sha256": "a691a93f0279dcfbd0b6787fce4c480f6c6f03ef1bd5df22bf239774f29bf61b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8426,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_bdf8dc01c10689aecf55": {
+      "id": "en_bdf8dc01c10689aecf55",
+      "language": "en",
+      "text": "A shiny surface reflects light clearly, like a clean mirror.",
+      "words": [
+        "A",
+        "shiny",
+        "surface",
+        "reflects",
+        "light",
+        "clearly,",
+        "like",
+        "a",
+        "clean",
+        "mirror."
+      ],
+      "path": "audio/meaning/en/en_bdf8dc01c10689aecf55.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A shiny surface reflects light clearly, like a clean mirror.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          121,
+          462
+        ],
+        [
+          2,
+          603,
+          1045
+        ],
+        [
+          3,
+          1105,
+          1608
+        ],
+        [
+          4,
+          1729,
+          1930
+        ],
+        [
+          5,
+          1970,
+          2372
+        ],
+        [
+          6,
+          2814,
+          3035
+        ],
+        [
+          7,
+          3035,
+          3055
+        ],
+        [
+          8,
+          3156,
+          3437
+        ],
+        [
+          9,
+          3538,
+          3839
+        ]
+      ],
+      "duration_ms": 4442,
+      "sha256": "a477bec254d7fc70bdedb2d8334fd7007949a05cc303ebfac45132797bfd4dc6",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9225,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
