@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1915,
+  "ready": 1916,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -179101,6 +179101,115 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_50b1b3254554debe722e": {
+      "id": "en_50b1b3254554debe722e",
+      "language": "en",
+      "text": "A jar has a lid and stores food such as jam.",
+      "words": [
+        "A",
+        "jar",
+        "has",
+        "a",
+        "lid",
+        "and",
+        "stores",
+        "food",
+        "such",
+        "as",
+        "jam."
+      ],
+      "path": "audio/meaning/en/en_50b1b3254554debe722e.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "A jar has a lid and stores food such as jam.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A jar has a lid, and stores food such as jam.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0233,
+          "heard": "A jar has a lid and stores foods such as jam.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          161,
+          423
+        ],
+        [
+          2,
+          503,
+          644
+        ],
+        [
+          3,
+          704,
+          724
+        ],
+        [
+          4,
+          805,
+          1026
+        ],
+        [
+          5,
+          1891,
+          2012
+        ],
+        [
+          6,
+          2092,
+          2495
+        ],
+        [
+          7,
+          2555,
+          2776
+        ],
+        [
+          8,
+          2837,
+          3018
+        ],
+        [
+          9,
+          3078,
+          3159
+        ],
+        [
+          10,
+          3239,
+          3541
+        ]
+      ],
+      "duration_ms": 3843,
+      "sha256": "4cee5ee502c4f5dc345897c30c9040b15a193d5a33116c1edf1c27f26587295b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9114,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "verified same-voice SILMA clip",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
