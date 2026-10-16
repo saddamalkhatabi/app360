@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1971,
+  "ready": 1974,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -184279,6 +184279,237 @@
       "sha256": "cf7cd193b87240d56d8a51052a52b7169332ae9bd0df2083637152d20ad667f9",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9387,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0e79dc1e67cc992e2d48": {
+      "id": "ar_0e79dc1e67cc992e2d48",
+      "language": "ar",
+      "text": "للبابايا الناضجة لب برتقالي، وبذور سوداء في وسطها.",
+      "words": [
+        "للبابايا",
+        "الناضجة",
+        "لب",
+        "برتقالي،",
+        "وبذور",
+        "سوداء",
+        "في",
+        "وسطها."
+      ],
+      "path": "audio/meaning/ar/ar_0e79dc1e67cc992e2d48.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "لِلْبَابَايَا النَّاضِجَةِ لُبٌّ بُرْتُقَالِيٌّ، وَبُذُورٌ سَوْدَاءُ فِي وَسَطِهَا.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "للبابايا الناضجة لب برتقالي وبذور سوداء في وسطها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0625,
+          "heard": "للبابايا ناضجة لب برتقالي وبذور سوداء في وصطها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          781
+        ],
+        [
+          1,
+          822,
+          1403
+        ],
+        [
+          2,
+          1723,
+          1964
+        ],
+        [
+          3,
+          2304,
+          3066
+        ],
+        [
+          4,
+          4729,
+          5210
+        ],
+        [
+          5,
+          5410,
+          5751
+        ],
+        [
+          6,
+          6031,
+          6132
+        ],
+        [
+          7,
+          6232,
+          6793
+        ]
+      ],
+      "duration_ms": 7735,
+      "sha256": "2b32d3536a81ea5957b32e7abd28540a87949e72796713700225be00bca122d5",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9616,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_8726d5ad66887297067b": {
+      "id": "ar_8726d5ad66887297067b",
+      "language": "ar",
+      "text": "الديك ذكر الدجاج، ويصدر صوت الصياح.",
+      "words": [
+        "الديك",
+        "ذكر",
+        "الدجاج،",
+        "ويصدر",
+        "صوت",
+        "الصياح."
+      ],
+      "path": "audio/meaning/ar/ar_8726d5ad66887297067b.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "الدِّيكُ ذَكَرُ الدَّجَاجِ، وَيُصْدِرُ صَوْتَ الصِّيَاحِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الديك ذكر الدجاج ويصدر صوت الصياح",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.1212,
+          "heard": "قد يكو ذكر الدجاج ويصدر صوت الصياح",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          421
+        ],
+        [
+          1,
+          641,
+          981
+        ],
+        [
+          2,
+          1041,
+          1682
+        ],
+        [
+          3,
+          2524,
+          3024
+        ],
+        [
+          4,
+          3164,
+          3385
+        ],
+        [
+          5,
+          3485,
+          4046
+        ]
+      ],
+      "duration_ms": 4747,
+      "sha256": "54120b068e90fad74bbe3b375115485809eff7c827da6f8eb84822b99a8ce184",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9381,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_0fca847912278f6382a0": {
+      "id": "ar_0fca847912278f6382a0",
+      "language": "ar",
+      "text": "أَرْسُمُ بِالْفُرْشَاةِ وَالْأَلْوَانِ.",
+      "words": [
+        "أَرْسُمُ",
+        "بِالْفُرْشَاةِ",
+        "وَالْأَلْوَانِ."
+      ],
+      "path": "audio/meaning/ar/ar_0fca847912278f6382a0.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَرْسُمُ بِالْفُرْشَاةِ، وَالْأَلْوَانِ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أرسم بالفرشاة والألوان",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0455,
+          "heard": "أرسم بالفرشة والألوان",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          362
+        ],
+        [
+          1,
+          482,
+          1266
+        ],
+        [
+          2,
+          2110,
+          2893
+        ]
+      ],
+      "duration_ms": 3315,
+      "sha256": "c2e658bf151e71c3a9aa224c64ecba746b5a000406cc2683be67254747db5a42",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9299,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
