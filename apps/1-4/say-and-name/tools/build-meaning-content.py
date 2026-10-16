@@ -248,6 +248,8 @@ CONTEXT.update({
 })
 
 def build():
+ simplified=json.loads((ROOT/'data/meaning-simple-v4.json').read_text())['replacements']
+ replacements={(r['language'],r['previous']):r['replacement'] for r in simplified}
  levels=json.loads((ROOT/'data/levels-inline-v8.js').read_text().split('=',1)[1].strip().rstrip(';'))
  en=json.loads((ROOT/'data/translations-en.js').read_text().split('=',1)[1].strip().rstrip(';'))
  items=[];seen=set();clips={};cats=[];cat_seen=set();spoken=json.loads((ROOT/'data/silma-map.js').read_text().split('=',1)[1].strip().rstrip(';'))['spoken']
@@ -273,7 +275,7 @@ def build():
     for lesson in lessons:
      row={'lead_name':True} if lesson.get('lead_name') else {}
      for lang in ['ar','en']:
-      text=lesson[lang];tokens=text.split();assert text.endswith('.') and 3<=len(tokens)<=32,(word,text)
+      text=replacements.get((lang,lesson[lang]),lesson[lang]);tokens=text.split();assert text.endswith('.') and 3<=len(tokens)<=32,(word,text)
       cid=lang+'_'+hashlib.sha256(('meaning-v2|'+lang+'|'+text).encode()).hexdigest()[:20]
       clips.setdefault(cid,dict(id=cid,language=lang,text=text,words=tokens,path='audio/meaning/'+lang+'/'+cid+'.mp3',engine='silma'))
       row[lang]=dict(text=text,words=tokens,clip=cid)
