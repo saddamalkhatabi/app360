@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1931,
+  "ready": 1932,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180683,6 +180683,101 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "verified same-voice SILMA clip",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_4a1f8c39a689e79f84ad": {
+      "id": "en_4a1f8c39a689e79f84ad",
+      "language": "en",
+      "text": "Bean seeds grow in pods and provide protein and fiber.",
+      "words": [
+        "Bean",
+        "seeds",
+        "grow",
+        "in",
+        "pods",
+        "and",
+        "provide",
+        "protein",
+        "and",
+        "fiber."
+      ],
+      "path": "audio/meaning/en/en_4a1f8c39a689e79f84ad.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Bean seeds grow in pods and provide protein and fiber.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Bean seeds grow in pods and provide protein and fiber.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          161
+        ],
+        [
+          1,
+          261,
+          562
+        ],
+        [
+          2,
+          663,
+          904
+        ],
+        [
+          3,
+          1064,
+          1165
+        ],
+        [
+          4,
+          1245,
+          1707
+        ],
+        [
+          5,
+          2128,
+          2229
+        ],
+        [
+          6,
+          2269,
+          2711
+        ],
+        [
+          7,
+          2751,
+          3213
+        ],
+        [
+          8,
+          3293,
+          3413
+        ],
+        [
+          9,
+          3454,
+          3875
+        ]
+      ],
+      "duration_ms": 4578,
+      "sha256": "6e41b27c9fc09f5e05b1b8c3d33ae6fd57ebf96f2a8695dde3bbe4391dcc99fc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.917,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
       "steps": 48,
       "quality_revision": "facts-v2-asr",
       "auditory_review": "pending"
