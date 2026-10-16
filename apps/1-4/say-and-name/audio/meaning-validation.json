@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1820,
+  "ready": 1827,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -170473,6 +170473,761 @@
       "sha256": "401abf0f50d5e70a92ea6b50e151fa6c31ed7551e50f3b80ae721ce7580a7d89",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.887,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_c979758a704c3e7497a1": {
+      "id": "en_c979758a704c3e7497a1",
+      "language": "en",
+      "text": "Olives grow on trees, and we press the fruit to get oil.",
+      "words": [
+        "Olives",
+        "grow",
+        "on",
+        "trees,",
+        "and",
+        "we",
+        "press",
+        "the",
+        "fruit",
+        "to",
+        "get",
+        "oil."
+      ],
+      "path": "audio/meaning/en/en_c979758a704c3e7497a1.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "olives grow on trees, and we press the fruit to get oil.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0833,
+          "cer": 0.0185,
+          "heard": "Alives grow on trees and we press the fruit to get oil.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          401
+        ],
+        [
+          1,
+          482,
+          723
+        ],
+        [
+          2,
+          903,
+          1004
+        ],
+        [
+          3,
+          1084,
+          1506
+        ],
+        [
+          4,
+          1907,
+          2007
+        ],
+        [
+          5,
+          2047,
+          2128
+        ],
+        [
+          6,
+          2248,
+          2529
+        ],
+        [
+          7,
+          2610,
+          2690
+        ],
+        [
+          8,
+          2770,
+          3011
+        ],
+        [
+          9,
+          3091,
+          3152
+        ],
+        [
+          10,
+          3212,
+          3332
+        ],
+        [
+          11,
+          3453,
+          3653
+        ]
+      ],
+      "duration_ms": 3995,
+      "sha256": "fc3a490a9696c035dd650b38d7f6fb5eb61abda9709f465969f74f683038eed4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9779,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a262c2505721f4d575b4": {
+      "id": "en_a262c2505721f4d575b4",
+      "language": "en",
+      "text": "An airplane wing and the air moving around it help lift the aircraft.",
+      "words": [
+        "An",
+        "airplane",
+        "wing",
+        "and",
+        "the",
+        "air",
+        "moving",
+        "around",
+        "it",
+        "help",
+        "lift",
+        "the",
+        "aircraft."
+      ],
+      "path": "audio/meaning/en/en_a262c2505721f4d575b4.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "an airplane wing and the air moving around it help lift the aircraft.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          140,
+          220
+        ],
+        [
+          1,
+          280,
+          761
+        ],
+        [
+          2,
+          821,
+          1062
+        ],
+        [
+          3,
+          1122,
+          1222
+        ],
+        [
+          4,
+          1242,
+          1342
+        ],
+        [
+          5,
+          1482,
+          1642
+        ],
+        [
+          6,
+          1722,
+          2023
+        ],
+        [
+          7,
+          2083,
+          2464
+        ],
+        [
+          8,
+          2504,
+          2584
+        ],
+        [
+          9,
+          2624,
+          2824
+        ],
+        [
+          10,
+          2924,
+          3104
+        ],
+        [
+          11,
+          3145,
+          3245
+        ],
+        [
+          12,
+          3385,
+          4026
+        ]
+      ],
+      "duration_ms": 5027,
+      "sha256": "9c69f31bec085af5bfc0a9141f92bcbdfa8c46818afdc96ab02c3caf38afdf0c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9675,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_8d50dab0d114f9330cdd": {
+      "id": "en_8d50dab0d114f9330cdd",
+      "language": "en",
+      "text": "When I feel angry I breathe calmly and use words without hitting or hurting.",
+      "words": [
+        "When",
+        "I",
+        "feel",
+        "angry",
+        "I",
+        "breathe",
+        "calmly",
+        "and",
+        "use",
+        "words",
+        "without",
+        "hitting",
+        "or",
+        "hurting."
+      ],
+      "path": "audio/meaning/en/en_8d50dab0d114f9330cdd.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "When I feel angry I breathe calmly and use words without hitting or hurting.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          221,
+          361
+        ],
+        [
+          1,
+          482,
+          502
+        ],
+        [
+          2,
+          582,
+          843
+        ],
+        [
+          3,
+          984,
+          1285
+        ],
+        [
+          4,
+          1466,
+          1486
+        ],
+        [
+          5,
+          1546,
+          1888
+        ],
+        [
+          6,
+          2008,
+          2430
+        ],
+        [
+          7,
+          2590,
+          2711
+        ],
+        [
+          8,
+          2851,
+          3072
+        ],
+        [
+          9,
+          3133,
+          3574
+        ],
+        [
+          10,
+          3695,
+          4016
+        ],
+        [
+          11,
+          4056,
+          4398
+        ],
+        [
+          12,
+          4498,
+          4578
+        ],
+        [
+          13,
+          4639,
+          5040
+        ]
+      ],
+      "duration_ms": 5783,
+      "sha256": "85f4908d46e6309eda1a247149df1efe3e6f31d48c2a45146247539b21249507",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8997,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_5ebc0c1b3d188be799c7": {
+      "id": "en_5ebc0c1b3d188be799c7",
+      "language": "en",
+      "text": "A gardener plants, waters, and trims plants to care for them.",
+      "words": [
+        "A",
+        "gardener",
+        "plants,",
+        "waters,",
+        "and",
+        "trims",
+        "plants",
+        "to",
+        "care",
+        "for",
+        "them."
+      ],
+      "path": "audio/meaning/en/en_5ebc0c1b3d188be799c7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "a gardener plants, waters, and trims plants to care for them.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.0909,
+          "cer": 0.0345,
+          "heard": "gardener plants, waters, and trims plants to care for them.",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          121,
+          522
+        ],
+        [
+          2,
+          603,
+          1065
+        ],
+        [
+          3,
+          1407,
+          1909
+        ],
+        [
+          4,
+          2291,
+          2411
+        ],
+        [
+          5,
+          2452,
+          2733
+        ],
+        [
+          6,
+          2813,
+          3175
+        ],
+        [
+          7,
+          3255,
+          3316
+        ],
+        [
+          8,
+          3376,
+          3637
+        ],
+        [
+          9,
+          3697,
+          3878
+        ],
+        [
+          10,
+          3939,
+          4099
+        ]
+      ],
+      "duration_ms": 4582,
+      "sha256": "cf500749fb619fcc2f90ef625dc96e3b77e195c4af6f2af9c271076d1b812137",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9749,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_f26a73434331c95d4d5e": {
+      "id": "en_f26a73434331c95d4d5e",
+      "language": "en",
+      "text": "Clear glass lets light pass through, and we are careful because broken glass is sharp.",
+      "words": [
+        "Clear",
+        "glass",
+        "lets",
+        "light",
+        "pass",
+        "through,",
+        "and",
+        "we",
+        "are",
+        "careful",
+        "because",
+        "broken",
+        "glass",
+        "is",
+        "sharp."
+      ],
+      "path": "audio/meaning/en/en_f26a73434331c95d4d5e.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "clear glass lets light pass through and we are careful because broken glass is sharp.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          261
+        ],
+        [
+          1,
+          321,
+          743
+        ],
+        [
+          2,
+          863,
+          1124
+        ],
+        [
+          3,
+          1324,
+          1525
+        ],
+        [
+          4,
+          1625,
+          1926
+        ],
+        [
+          5,
+          2047,
+          2348
+        ],
+        [
+          6,
+          3191,
+          3311
+        ],
+        [
+          7,
+          3371,
+          3452
+        ],
+        [
+          8,
+          3592,
+          3713
+        ],
+        [
+          9,
+          3753,
+          4174
+        ],
+        [
+          10,
+          4435,
+          4776
+        ],
+        [
+          11,
+          4876,
+          5258
+        ],
+        [
+          12,
+          5338,
+          5679
+        ],
+        [
+          13,
+          5860,
+          5940
+        ],
+        [
+          14,
+          6161,
+          6522
+        ]
+      ],
+      "duration_ms": 6743,
+      "sha256": "91b5ec0ecb2b8230dbe7a410ee5895413380895b1d57483d5d4f44b8afe4c3bb",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9362,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_cf0db480311c66586343": {
+      "id": "en_cf0db480311c66586343",
+      "language": "en",
+      "text": "A drum makes sound when gentle tapping vibrates its stretched skin.",
+      "words": [
+        "A",
+        "drum",
+        "makes",
+        "sound",
+        "when",
+        "gentle",
+        "tapping",
+        "vibrates",
+        "its",
+        "stretched",
+        "skin."
+      ],
+      "path": "audio/meaning/en/en_cf0db480311c66586343.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A drum makes sound when gentle tapping vibrates its stretched skin.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          120,
+          320
+        ],
+        [
+          2,
+          380,
+          621
+        ],
+        [
+          3,
+          701,
+          1081
+        ],
+        [
+          4,
+          1361,
+          1502
+        ],
+        [
+          5,
+          1582,
+          1902
+        ],
+        [
+          6,
+          1962,
+          2343
+        ],
+        [
+          7,
+          2383,
+          3003
+        ],
+        [
+          8,
+          3163,
+          3284
+        ],
+        [
+          9,
+          3304,
+          3784
+        ],
+        [
+          10,
+          3824,
+          4144
+        ]
+      ],
+      "duration_ms": 5106,
+      "sha256": "93aace123177adecb4f6e0b388766ef87407ab5701a7f5b1b2bfe3ab434a9ab7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9552,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_1179a472182e585a5be7": {
+      "id": "en_1179a472182e585a5be7",
+      "language": "en",
+      "text": "Birdsong is made by many birds to communicate, with varied notes.",
+      "words": [
+        "Birdsong",
+        "is",
+        "made",
+        "by",
+        "many",
+        "birds",
+        "to",
+        "communicate,",
+        "with",
+        "varied",
+        "notes."
+      ],
+      "path": "audio/meaning/en/en_1179a472182e585a5be7.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "Birdsong is made by many birds to communicate with varied notes.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 3360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          481
+        ],
+        [
+          1,
+          521,
+          601
+        ],
+        [
+          2,
+          661,
+          882
+        ],
+        [
+          3,
+          942,
+          1062
+        ],
+        [
+          4,
+          1163,
+          1403
+        ],
+        [
+          5,
+          1624,
+          2085
+        ],
+        [
+          6,
+          2165,
+          2225
+        ],
+        [
+          7,
+          2265,
+          3007
+        ],
+        [
+          8,
+          3427,
+          3568
+        ],
+        [
+          9,
+          3608,
+          3929
+        ],
+        [
+          10,
+          4009,
+          4430
+        ]
+      ],
+      "duration_ms": 5011,
+      "sha256": "b8273de2735064f10a3a646ba5171c3a36dceff556223f697c224b9a3fece53f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9513,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
