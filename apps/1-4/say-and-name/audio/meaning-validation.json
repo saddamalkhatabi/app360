@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2025,
+  "ready": 2026,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -188117,6 +188117,73 @@
       "sha256": "d12af978605c025f4095b2156d5ecb3650bc6ed45eef9202960ddf5503523486",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9868,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_04d0199553183cecc5ca": {
+      "id": "ar_04d0199553183cecc5ca",
+      "language": "ar",
+      "text": "نقشرها قبل أن نأكلها.",
+      "words": [
+        "نقشرها",
+        "قبل",
+        "أن",
+        "نأكلها."
+      ],
+      "path": "audio/meaning/ar/ar_04d0199553183cecc5ca.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نقشرها قبل أن نأكلها.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نقشرها قبل أن نأكلها",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.05,
+          "heard": "نقشرها قبل أن أكلها",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 181360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          801
+        ],
+        [
+          1,
+          1483,
+          1723
+        ],
+        [
+          2,
+          1903,
+          1984
+        ],
+        [
+          3,
+          2024,
+          2785
+        ]
+      ],
+      "duration_ms": 3807,
+      "sha256": "1a9a87e47d03d09e4308b9351a9cae8c01f1cf9f1d00b1f3915a90ac329a2235",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9319,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
