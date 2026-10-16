@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1934,
+  "ready": 1935,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -180958,6 +180958,137 @@
       "sha256": "9d48f082280bf2eb4542f9b557a91f60691cfb47664994b142813d2026335bb9",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9449,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b93a5282ffdc8f736938": {
+      "id": "en_b93a5282ffdc8f736938",
+      "language": "en",
+      "text": "A squid swims by pushing water out of its body and may release ink when threatened.",
+      "words": [
+        "A",
+        "squid",
+        "swims",
+        "by",
+        "pushing",
+        "water",
+        "out",
+        "of",
+        "its",
+        "body",
+        "and",
+        "may",
+        "release",
+        "ink",
+        "when",
+        "threatened."
+      ],
+      "path": "audio/meaning/en/en_b93a5282ffdc8f736938.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "A squid swims by pushing water out of its body and may release ink when threatened.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A squid swims by pushing water out of its body and may release ink when threatened.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          80
+        ],
+        [
+          1,
+          180,
+          481
+        ],
+        [
+          2,
+          621,
+          1021
+        ],
+        [
+          3,
+          1122,
+          1262
+        ],
+        [
+          4,
+          1382,
+          1823
+        ],
+        [
+          5,
+          2323,
+          2644
+        ],
+        [
+          6,
+          2724,
+          2844
+        ],
+        [
+          7,
+          2864,
+          2924
+        ],
+        [
+          8,
+          2964,
+          3084
+        ],
+        [
+          9,
+          3145,
+          3465
+        ],
+        [
+          10,
+          4046,
+          4146
+        ],
+        [
+          11,
+          4186,
+          4326
+        ],
+        [
+          12,
+          4426,
+          4847
+        ],
+        [
+          13,
+          4947,
+          5107
+        ],
+        [
+          14,
+          5187,
+          5328
+        ],
+        [
+          15,
+          5388,
+          5848
+        ]
+      ],
+      "duration_ms": 7411,
+      "sha256": "4ea5fab6d61b09d4e400c279cd10bc57ef9021c41bd60d3f80551b40756b130a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9504,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
