@@ -4,7 +4,7 @@
   "slug": "picture-puzzles",
   "title_ar": "ألغاز الصور: رتّب الصورة",
   "age_group": "1-4",
-  "version": 3,
+  "version": 5,
   "status": "live",
   "scaffold_state": "implementation-complete",
   "kind": "goal_aligned",
@@ -14,7 +14,7 @@
     "learner-1-4-confidence-first-attempts-and-kind-persistence",
     "coach-1-4-safe-play-activity-design-and-independence"
   ],
-  "entry_path": "apps/1-4/picture-puzzles/index.html?v=3",
+  "entry_path": "apps/1-4/picture-puzzles/index.html?v=5",
   "manifest_path": "apps/1-4/picture-puzzles/manifest.webmanifest",
   "icon_path": "apps/1-4/picture-puzzles/icon.svg",
   "runtime_profile": "legacy-web",
@@ -37,7 +37,9 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.focus-mode",
-    "input.touch-recovery"
+    "input.touch-recovery",
+    "interaction.tap-place",
+    "audio.sentence-word-sync"
   ],
   "bundles": [
     "static-core"
@@ -56,7 +58,7 @@
   "practice_model_ar": "اختر مستوى القطع ← اختر أو عشوِ صورة من مكتبة كلماتي مع أشيائي ← اسمع اسم الصورة بالعربية أو الإنجليزية أو كليهما ← اختر آلية تقطيع الصورة أو التنويع التلقائي ← رتّب القطع أو فعّل تحدي الكبار لبعثرة القطع بصورة أصعب ← اسحب القطع إلى أماكنها ← استخدم التلميح عند الحاجة ← عند الاكتمال يُعاد اسم الصورة ثم يبدأ التشجيع بالاسم فورًا ← انتقل للصورة التالية.",
   "implementation": {
     "built_on": "2026-09-29",
-    "build": "v3",
+    "build": "v5",
     "state": "live",
     "legacy_core": "ES5 + Canvas 2D + Touch Events + mouse fallback",
     "image_source": "apps/1-4/say-and-name/assets/word-images via shared word-images-context-map.js",
@@ -80,5 +82,13 @@
     "offline": "shell and language maps offline-first; visited image and audio assets are cached at runtime"
   },
   "audience": "learner",
-  "audience_note_ar": "الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده."
+  "audience_note_ar": "الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده.",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 2
+  }
 }

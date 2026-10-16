@@ -1,0 +1,29 @@
+name: Verify picture puzzle touch and bilingual lessons
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/1-4/picture-puzzles/**'
+      - 'tooling/test-picture-puzzle*.cjs'
+      - '.github/workflows/picture-puzzles-v5.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tooling/test-picture-puzzles-v5.cjs && node tooling/test-picture-puzzle-learning.cjs
+      - run: npm install --prefix /tmp/puzzle-browser playwright@1.62.1
+      - run: /tmp/puzzle-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/puzzle-browser/node_modules node tooling/test-picture-puzzles-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: picture-puzzles-touch-and-lessons
+          path: /tmp/picture-puzzles/

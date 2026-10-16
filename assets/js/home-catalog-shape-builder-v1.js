@@ -11,11 +11,11 @@ var APPS=[
  goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],goal_links:[]
 },
 {
- id:'a1-picture-puzzles',slug:'picture-puzzles',title_ar:'ألغاز الصور: رتّب الصورة',age_group:'1-4',status:'live',kind:'goal_aligned',priority:1,audience:'learner',audience_note_ar:'الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده.',
+ age_groups:['1-4','4-8'],age_entry_levels:{'1-4':1,'4-8':2},id:'a1-picture-puzzles',slug:'picture-puzzles',title_ar:'ألغاز الصور: رتّب الصورة',age_group:'1-4',status:'live',kind:'goal_aligned',priority:1,audience:'learner',audience_note_ar:'الطفل يركب ويجرب؛ المدرب يختار الصعوبة والمساعدة وفق استعداده.',
  description_ar:'لعبة أحجيات صور ممتعة من مكتبة «كلماتي مع أشيائي». يختار المستخدم 4 أو 6 أو 9 قطع، ويمكنه تغيير آلية التقطيع بين قطع غير منتظمة أو شبكة مستقيمة أو قطع متعرجة أو تنويع تلقائي، كما يمكن تشغيل «تحدي الكبار» لبعثرة القطع وجعل التحدي أصعب. ينطق التطبيق اسم الصورة بالعربية أو الإنجليزية أو اللغتين، وعند الاكتمال يعيد الاسم ثم يبدأ التشجيع بالاسم مباشرة.',
  practice_model:'اختر الصعوبة ← اختر آلية القطع ← اسمع اسم الصورة ← رتّب القطع أو فعّل تحدي الكبار لبعثرتها ← أكمل الصورة ← اسمع اسمها مرة أخرى ثم التشجيع بالاسم فورًا ← انتقل لصورة جديدة',
  tags:['ألغاز الصور','Puzzles','تركيب صورة','سحب وإفلات','صور حقيقية','4 قطع','6 قطع','9 قطع','تحدي الكبار','بعثرة القطع','آليات تقطيع متنوعة','صوت عربي وإنجليزي','اسم الصورة','تشجيع بالاسم','صورة عشوائية','تلميح','وضع تكبير','يدعم الأجهزة القديمة'],
- href:'apps/1-4/picture-puzzles/index.html?v=3',icon:'apps/1-4/picture-puzzles/icon.svg?v=3',cover:'assets/covers/a1-picture-puzzles.jpg?v=3',runtime_profile:'legacy-web',depth:'advanced',
+ href:'apps/1-4/picture-puzzles/index.html?v=5',icon:'apps/1-4/picture-puzzles/icon.svg?v=3',cover:'assets/covers/a1-picture-puzzles.jpg?v=3',runtime_profile:'legacy-web',depth:'advanced',
  capabilities:['practice.core','interaction.drag-drop','image.dynamic-slicing','image.cut-modes','challenge.adult-scatter','storage.local','audio.tts','audio.recorded','audio.legacy-pcm','audio.bilingual-labels','audio.name-cheer','audio.preloaded-cheer','celebration.confetti','pwa.offline','compat.legacy-web','ui.focus-mode','input.touch-recovery'],offline_mode:'runtime-image-cache',
  goal_keys:['learner-1-4-safe-sensory-motor-play','learner-1-4-shared-attention-imitation-simple-instructions','learner-1-4-confidence-first-attempts-and-kind-persistence','coach-1-4-safe-play-activity-design-and-independence'],goal_links:[]
 }
