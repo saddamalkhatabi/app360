@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1974,
+  "ready": 1977,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -184510,6 +184510,289 @@
       "sha256": "c2e658bf151e71c3a9aa224c64ecba746b5a000406cc2683be67254747db5a42",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9299,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_75e777539e2215c24a84": {
+      "id": "ar_75e777539e2215c24a84",
+      "language": "ar",
+      "text": "أَضَعُ أَدَوَاتِي فِي حَقِيبَتِي لِأَحْمِلَهَا بِسُهُولَةٍ.",
+      "words": [
+        "أَضَعُ",
+        "أَدَوَاتِي",
+        "فِي",
+        "حَقِيبَتِي",
+        "لِأَحْمِلَهَا",
+        "بِسُهُولَةٍ."
+      ],
+      "path": "audio/meaning/ar/ar_75e777539e2215c24a84.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَضَعُ أَدَوَاتِي فِي حَقِيبَتِي، لِأَحْمِلَهَا بِسُهُولَةٍ.",
+      "phrase_count": 1,
+      "reference_strategy": "publisher reference",
+      "reference": "publisher ar.ref.24k.wav",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أضع أدواتي في حقيبتي لأحملها بسهولة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.5,
+          "cer": 0.1429,
+          "heard": "أضعوا أدوات في حقيبة لأحملها بسهولة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          120
+        ],
+        [
+          1,
+          421,
+          962
+        ],
+        [
+          2,
+          1062,
+          1142
+        ],
+        [
+          3,
+          1242,
+          1844
+        ],
+        [
+          4,
+          2605,
+          3286
+        ],
+        [
+          5,
+          3387,
+          3988
+        ]
+      ],
+      "duration_ms": 4830,
+      "sha256": "6ceb652a72e3feea5ab85aaa8b22352ac38fe514f92f7ccb30d97c21bfa8591e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9166,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5a6a94956eb0c43cc206": {
+      "id": "ar_5a6a94956eb0c43cc206",
+      "language": "ar",
+      "text": "توفر مظلة الشاطئ ظلا نرتاح فيه بعيدا عن أشعة الشمس المباشرة.",
+      "words": [
+        "توفر",
+        "مظلة",
+        "الشاطئ",
+        "ظلا",
+        "نرتاح",
+        "فيه",
+        "بعيدا",
+        "عن",
+        "أشعة",
+        "الشمس",
+        "المباشرة."
+      ],
+      "path": "audio/meaning/ar/ar_5a6a94956eb0c43cc206.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تُوَفِّرُ مِظَلَّةُ الشَّاطِئِ ظِلًّا، نَرْتَاحُ فِيهِ بَعِيدًا عَنْ أَشِعَّةِ الشَّمْسِ الْمُبَاشِرَةِ.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "توفر مظلة الشاطئ ظلا نرتاح فيه بعيدا عن أشعة الشمس المباشرة",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 41360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          540
+        ],
+        [
+          1,
+          681,
+          1121
+        ],
+        [
+          2,
+          1301,
+          1841
+        ],
+        [
+          3,
+          2002,
+          2342
+        ],
+        [
+          4,
+          3683,
+          4183
+        ],
+        [
+          5,
+          4363,
+          4624
+        ],
+        [
+          6,
+          4824,
+          5284
+        ],
+        [
+          7,
+          5925,
+          5945
+        ],
+        [
+          8,
+          6045,
+          6505
+        ],
+        [
+          9,
+          6725,
+          7166
+        ],
+        [
+          10,
+          7266,
+          7986
+        ]
+      ],
+      "duration_ms": 9688,
+      "sha256": "0720e088ce28cca32605c610f76e1c47e7a740e031ce647dfc12557ac2472db9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9576,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_b94ea70d1eb6826ad930": {
+      "id": "ar_b94ea70d1eb6826ad930",
+      "language": "ar",
+      "text": "نطهو الباذنجان قبل أكله، وله قشرة بنفسجية في أنواع كثيرة.",
+      "words": [
+        "نطهو",
+        "الباذنجان",
+        "قبل",
+        "أكله،",
+        "وله",
+        "قشرة",
+        "بنفسجية",
+        "في",
+        "أنواع",
+        "كثيرة."
+      ],
+      "path": "audio/meaning/ar/ar_b94ea70d1eb6826ad930.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "نَطْهُو الْبَاذِنْجَانَ قَبْلَ أَكْلِهِ، وَلَهُ قِشْرَةٌ بَنَفْسَجِيَّةٌ فِي أَنْوَاعٍ كَثِيرَةٍ.",
+      "phrase_count": 2,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_1bc8ce69eddc5abe6281.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "نطهو الباذنجان قبل أكله وله قشرة بنفسجية في أنواع كثيرة",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3,
+          "cer": 0.0545,
+          "heard": "نطه الباذ جانا قبل أكله وله قشرة بنفسجية في أنواع كثيرة",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 42361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          421
+        ],
+        [
+          1,
+          481,
+          1283
+        ],
+        [
+          2,
+          1463,
+          1704
+        ],
+        [
+          3,
+          1924,
+          2305
+        ],
+        [
+          4,
+          3688,
+          3969
+        ],
+        [
+          5,
+          4149,
+          4510
+        ],
+        [
+          6,
+          4790,
+          5572
+        ],
+        [
+          7,
+          5873,
+          5973
+        ],
+        [
+          8,
+          6153,
+          6434
+        ],
+        [
+          9,
+          6775,
+          7256
+        ]
+      ],
+      "duration_ms": 8719,
+      "sha256": "200b2a4d6058128be5d6690fdd512f5071202a5796637f1bdae254a6a9577cc4",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9074,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
