@@ -20,8 +20,14 @@ for(const [age,count] of [['1-4',52],['4-8',24]]){
  const changed=h.find(x=>x.islamic),id=changed.id;
  w.APP360_ROUTINE_NARRATIONS={habits:{[id]:{verified:true,steps:['outdated']}}};w.APP360_ROUTINE_NARRATIONS_EN={habits:{}};
  w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO();assert.equal(w.APP360_ROUTINE_NARRATIONS.habits[id],undefined);
+ const replacement={verified:true,steps:changed.islamic.steps.slice(),segments:new Array(7)};
+ w.APP360_ISLAMIC_AUDIO.habits.ar[changed.islamic.id]=replacement;w.APP360_ROUTINE_INSTALL_ISLAMIC_AUDIO();assert.equal(w.APP360_ROUTINE_NARRATIONS.habits[id],replacement);
+ if(age==='1-4'){assert(h.find(x=>x.id==='hello').islamic);assert(h.find(x=>x.id==='get-ready-for-sleep').islamic);assert(!h.some(x=>x.id==='greet'||x.id==='bedtime'));}
  assert.equal(w.APP360_ROUTINE_STORAGE_KEY,age==='1-4'?'app360-a1-routine-v2':'app360-a4-routine-v1');
 }
+const scripts=JSON.parse(fs.readFileSync(path.join(root,'audio/islamic-scripts-v1.json')));assert.equal(scripts.items.length,119);
+const content=load('4-8').w.APP360_ISLAMIC_ROUTINES;
+for(const row of content.routines)for(const lang of ['ar','en']){const clip=scripts.items.find(x=>x.id===row.id+'-'+lang);assert.deepEqual(clip.steps,Array.from(row[lang==='ar'?'steps':'steps_en']));assert.equal(clip.segments.length,7);assert.equal(clip.text,clip.segments.map(x=>x.text).join(' '));}
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'../../../data/catalog.json')));const app=catalog.apps.find(x=>x.id==='a1-routine');
 assert.deepEqual(app.age_groups,['1-4','4-8']);assert.equal(app.age_entry_levels['4-8'],2);
 const w={location:{search:'?age=4-8'}};w.parent=w;vm.runInNewContext(fs.readFileSync(path.join(root,'../../../assets/js/app360-age-launch-v1.js'),'utf8'),{window:w});

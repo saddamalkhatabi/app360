@@ -19,7 +19,8 @@ if(D&&D.habits){
   if(!x||!x.title||!x.steps||x.steps.length!==5)continue;
   if(lang==='en'){
    a.title=x.title; a.steps=x.steps.slice(0);
-   a.tip='Watch the five pictures, then try the steps together.';
+   a.tip=(a.islamic&&a.islamic.tip_en)||'Watch the five pictures, then try the steps together.';
+   if(a.islamic){for(var j=0;j<5;j++)a.arts[j]='<img class="routineScenePicture" src="assets/routine-scenes/'+a.islamic.scenes[j]+'.svg" alt="'+a.steps[j].replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')+'">';a.icon='<img class="routineScenePicture" src="assets/routine-scenes/'+a.islamic.scenes[0]+'.svg" alt="'+a.title+'">'}
   }
  }
 }
@@ -27,7 +28,7 @@ function setText(selector,t){
  var el=d.querySelector(selector);if(el)el.textContent=t;
 }
 function english(){
- d.documentElement.lang='en';
+ d.documentElement.lang='en';d.documentElement.dir='ltr';
  d.body.className+=' routineLangEnglish';
  var translate={
   '.brand small':'Family School 360 · Ages 1 to 4',
@@ -50,7 +51,14 @@ function english(){
   '#playStory':'▶ Play from the start',
   '#speakStory':'🔊 Hear the routine name',
   '#useHabit':'Practice this routine',
-  '.libraryHead h2':'50 small habits to grow independence',
+  '.libraryHead h2':'Small habits to grow independence',
+  '.libraryHead .eyebrow':'Routine library',
+  '.modePick [data-display="one"]':'One picture',
+  '.modePick [data-display="now-next"]':'Now / next',
+  '.modePick [data-display="sequence"]':'Whole sequence',
+  '.outcomes [data-outcome="independent"]':'✓ Done',
+  '.outcomes [data-outcome="assisted"]':'🤝 With help',
+  '.outcomes [data-outcome="skipped"]':'↷ Skip gently',
   '.libraryHead p':'Each routine has five visual steps for little learners.',
   '#blank':'＋ Our own routine',
   '.designNote b':'Picture-story viewer',

@@ -22,6 +22,7 @@ for(i=0;i<C.routines.length;i++){
  if(r.basic===advanced)continue;
  h=advanced?null:byId[({'greet':'hello','bedtime':'get-ready-for-sleep'})[r.id]||r.id];
  if(!h){h={id:r.id,num:advanced?rows.length+1:next++,category:r.category,icon:'',demo:false};rows.push(h)}
+ if(h.steps)h.previousRoutineSteps={ar:h.steps.slice(0),en:((w.APP360_ROUTINE_ENGLISH_LABELS||{})[h.id]||{}).steps||[]};
  h.title=r.title;h.steps=r.steps.slice(0);h.tip=r.tip||'';h.islamic=r;h.storyboard='';h.demo=false;
  h.icon='<img class="routineScenePicture" src="assets/routine-scenes/'+r.scenes[0]+'.svg" alt="'+esc(r.title)+'">';
  h.arts=[];
@@ -79,6 +80,7 @@ function renderDua(){
  var v=C.duas[id],options='',i;
  for(i=0;i<list.length;i++)options+='<option value="'+esc(list[i])+'"'+(id===list[i]?' selected':'')+'>'+esc(C.duas[list[i]].text)+'</option>';
  box.style.display='block';E('routineDuaSelect').innerHTML=options;E('routineDuaSelect').style.display=list.length>1?'block':'none';
+ var quick='';for(i=0;i<list.length;i++){var dk=list[i],label=dk==='bismillah'?t('قبل الطعام أو الشراب','Before eating or drinking'):dk==='hamd'?t(h.islamic.scene==='sneeze'?'بعد عطاسي':'بعد الطعام أو الشراب',h.islamic.scene==='sneeze'?'After my sneeze':'After eating or drinking'):t('أسمع هذا الذكر','Hear this remembrance');quick+='<button type="button" data-quick-dua="'+dk+'"'+(!(A.clips['dua-'+dk]&&A.clips['dua-'+dk].verified)?' disabled':'')+'><small>'+esc(label)+'</small><b dir="rtl" lang="ar">'+esc(C.duas[dk].text)+'</b></button>'}E('routineDuaQuick').innerHTML=list.length>1?quick:'';
  E('routineDuaText').textContent=v.text;E('routineDuaMeaning').textContent=t(v.meaning_ar,v.meaning_en);
  E('routineDuaSource').href=v.url;E('routineDuaSource').textContent=t('المصدر: ','Source: ')+v.source;
  E('duaListen').disabled=E('duaRepeat').disabled=!(A.clips['dua-'+id]&&A.clips['dua-'+id].verified);
@@ -91,7 +93,7 @@ function challenge(){
  if(answer){
   for(j in C.duas)if(j!==answer&&keys.indexOf(j)<0){other=j;break}
   choices=[answer,other];if(h.num%2===0)choices.reverse();
-  E('routineQuestion').textContent=t('أي ذكر يناسب هذا الموقف؟','Which remembrance fits this situation?');
+  E('routineQuestion').textContent=t(h.islamic.question_ar||'أي ذكر يناسب هذا الموقف؟',h.islamic.question_en||'Which remembrance fits this situation?');
   E('routineChoices').innerHTML=choices.map(function(id){return '<button type="button" data-dua-answer="'+id+'">'+esc(C.duas[id].text)+'</button>'}).join('');
  }else{
   E('routineQuestion').textContent=t('أي تصرف أختار؟','Which action should I choose?');
@@ -110,6 +112,7 @@ function init(){
  switcher.innerHTML='<label for="routineAge">'+t('محتوى الفئة العمرية','Age group content')+'</label><select id="routineAge"><option value="1-4">'+t('1–4 · عاداتي الأولى','1–4 · My first routines')+'</option><option value="4-8">'+t('4–8 · عاداتي وأذكاري','4–8 · My routines and remembrance')+'</option></select>';
  top.parentNode.insertBefore(switcher,top.nextSibling);E('routineAge').value=age;
  E('routineAge').onchange=function(){stop();if(w.APP360_RoutineVoice)w.APP360_RoutineVoice.stop();try{w.localStorage.setItem('app360-routine-age-v1',this.value)}catch(e){}var u=w.location.href.split('#')[0].replace(/([?&])(?:routine_age|launch_age|launch_level)=[^&]*/g,'$1').replace(/[?&]+$/,'').replace(/\?&/,'?').replace(/&&+/g,'&');w.location.href=u+(u.indexOf('?')>=0?'&':'?')+'routine_age='+this.value+'&launch_age='+this.value+'&launch_level='+(this.value==='4-8'?'2':'1')};
+ var home=d.querySelector('.top a.home');if(home)home.href=home.getAttribute('href').replace(/age=1-4/,'age='+age);
  var brand=d.querySelector('.brand small');if(brand)brand.textContent=t('مدرسة العائلة 360 · الفئة '+age+' سنوات','Family School 360 · Ages '+age);
  d.querySelector('.habitCount').textContent=D.habits.length+t(' عادة',' routines');
  d.querySelector('.brand p').textContent=advanced?t('عادات وأذكار نفهمها ونجربها في حياتنا.','Routines and remembrance to understand and practise.'):t('عادات قصيرة بالصورة والصوت والتقليد اللطيف.','Small routines with pictures, sound and gentle imitation.');
@@ -118,10 +121,12 @@ function init(){
  d.querySelector('.routineIntro h2').textContent=advanced?t('أشاهد، أفهم، أردد، ثم أطبق','Watch, understand, repeat and practise'):t('خطوة قصيرة… ثم أجرب مع المرافق','One small step, then practise with a grown-up');
  d.querySelector('.routineIntro p').textContent=t('يمكن مشاهدة القصة كاملة أو التركيز على خطوة وإعادة صوتها. نختصر حسب استعداد الطفل.','Watch the whole story or focus on a step and replay its sound. Shorten the routine to suit the child.');
  d.querySelector('.designNote').style.display='none';
+ d.querySelector('.introMark small').textContent=t('أتعلم خطوة خطوة','I learn step by step');
  var box=d.createElement('section');box.id='routineDuaPanel';box.className='routineDuaPanel';box.setAttribute('aria-label',t('الذكر ومعناه','Remembrance and meaning'));
- box.innerHTML='<h3>'+t('ذكر يناسب الموقف','Remembrance for this moment')+'</h3><select id="routineDuaSelect" aria-label="'+t('اختر الذكر','Choose remembrance')+'"></select><p id="routineDuaText" lang="ar" dir="rtl"></p><p id="routineDuaMeaning"></p><div class="duaActions"><button id="duaListen" type="button">'+t('🔊 أسمع الذكر','🔊 Hear the remembrance')+'</button><button id="duaRepeat" type="button">'+t('🔁 أسمع وأردد','🔁 Listen and repeat')+'</button><button id="duaMeaningListen" type="button">'+t('🔉 أسمع المعنى','🔉 Hear the meaning')+'</button></div><small id="routineDuaAudioStatus" role="status"></small><details><summary>'+t('للمرافق: المصدر','For grown-ups: source')+'</summary><a id="routineDuaSource" target="_blank" rel="noopener"></a></details>';
+ box.innerHTML='<h3>'+t('ذكر يناسب الموقف','Remembrance for this moment')+'</h3><select id="routineDuaSelect" aria-label="'+t('اختر الذكر','Choose remembrance')+'"></select><div id="routineDuaQuick" class="routineDuaQuick"></div><p id="routineDuaText" lang="ar" dir="rtl"></p><p id="routineDuaMeaning"></p><div class="duaActions"><button id="duaListen" type="button">'+t('🔊 أسمع الذكر','🔊 Hear the remembrance')+'</button><button id="duaRepeat" type="button">'+t('🔁 أسمع وأردد','🔁 Listen and repeat')+'</button><button id="duaMeaningListen" type="button">'+t('🔉 أسمع المعنى','🔉 Hear the meaning')+'</button></div><small id="routineDuaAudioStatus" role="status"></small><details><summary>'+t('للمرافق: المصدر','For grown-ups: source')+'</summary><a id="routineDuaSource" target="_blank" rel="noopener"></a></details>';
  E('storyBoard').appendChild(box);
  E('routineDuaSelect').onchange=function(){stop();renderDua()};
+ E('routineDuaQuick').onclick=function(e){var b=e.target||e.srcElement;while(b&&b!==this){if(b.getAttribute&&b.getAttribute('data-quick-dua')){E('routineDuaSelect').value=b.getAttribute('data-quick-dua');renderDua();play('dua-'+E('routineDuaSelect').value,false);return}b=b.parentNode}};
  E('duaListen').onclick=function(){play('dua-'+E('routineDuaSelect').value,false)};
  E('duaRepeat').onclick=function(){play('dua-'+E('routineDuaSelect').value,true)};
  E('duaMeaningListen').onclick=function(){play('meaning-'+E('routineDuaSelect').value+'-'+(en()?'en':'ar'),false)};
