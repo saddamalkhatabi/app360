@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1835,
+  "ready": 1840,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -172060,6 +172060,569 @@
       "sha256": "766d5a811518d20a766fa040f904963915f94572488922f79ded84568988fc3f",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9689,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_5fa2fa7fbac8003c79bc": {
+      "id": "en_5fa2fa7fbac8003c79bc",
+      "language": "en",
+      "text": "A foal is a young horse that learns to stand and walk soon after birth.",
+      "words": [
+        "A",
+        "foal",
+        "is",
+        "a",
+        "young",
+        "horse",
+        "that",
+        "learns",
+        "to",
+        "stand",
+        "and",
+        "walk",
+        "soon",
+        "after",
+        "birth."
+      ],
+      "path": "audio/meaning/en/en_5fa2fa7fbac8003c79bc.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A foal is a young horse that learns to stand and walk soon after birth.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          261,
+          281
+        ],
+        [
+          1,
+          362,
+          703
+        ],
+        [
+          2,
+          844,
+          944
+        ],
+        [
+          3,
+          1005,
+          1025
+        ],
+        [
+          4,
+          1125,
+          1366
+        ],
+        [
+          5,
+          1446,
+          1828
+        ],
+        [
+          6,
+          2130,
+          2250
+        ],
+        [
+          7,
+          2330,
+          2612
+        ],
+        [
+          8,
+          2692,
+          2752
+        ],
+        [
+          9,
+          2853,
+          3295
+        ],
+        [
+          10,
+          3496,
+          3616
+        ],
+        [
+          11,
+          3656,
+          3857
+        ],
+        [
+          12,
+          3978,
+          4259
+        ],
+        [
+          13,
+          4480,
+          4741
+        ],
+        [
+          14,
+          4802,
+          5143
+        ]
+      ],
+      "duration_ms": 5324,
+      "sha256": "c40bb7450aefc41d75161a10f0e1e78f9417dcdd0a43295889d5ff5e5c1168b9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9547,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_bf99b90f31c6119359f4": {
+      "id": "en_bf99b90f31c6119359f4",
+      "language": "en",
+      "text": "A broom's bristles gather dust and crumbs from the floor.",
+      "words": [
+        "A",
+        "broom's",
+        "bristles",
+        "gather",
+        "dust",
+        "and",
+        "crumbs",
+        "from",
+        "the",
+        "floor."
+      ],
+      "path": "audio/meaning/en/en_bf99b90f31c6119359f4.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A broom's bristles gather dust and crumbs from the floor.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          20,
+          40
+        ],
+        [
+          1,
+          161,
+          502
+        ],
+        [
+          2,
+          562,
+          1003
+        ],
+        [
+          3,
+          1104,
+          1405
+        ],
+        [
+          4,
+          1485,
+          1846
+        ],
+        [
+          5,
+          2107,
+          2227
+        ],
+        [
+          6,
+          2287,
+          2809
+        ],
+        [
+          7,
+          3010,
+          3210
+        ],
+        [
+          8,
+          3371,
+          3451
+        ],
+        [
+          9,
+          3551,
+          3872
+        ]
+      ],
+      "duration_ms": 4053,
+      "sha256": "90aca2cfc70fd04d6ca4319f5e3c9060e51ff37c3edeb8c3469d4de6f7392f89",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9477,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_78157bbaede48b8aa335": {
+      "id": "en_78157bbaede48b8aa335",
+      "language": "en",
+      "text": "A goal is a frame we try to send a ball into to score.",
+      "words": [
+        "A",
+        "goal",
+        "is",
+        "a",
+        "frame",
+        "we",
+        "try",
+        "to",
+        "send",
+        "a",
+        "ball",
+        "into",
+        "to",
+        "score."
+      ],
+      "path": "audio/meaning/en/en_78157bbaede48b8aa335.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A goal is a frame we try to send a ball into to score.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          121,
+          382
+        ],
+        [
+          2,
+          442,
+          522
+        ],
+        [
+          3,
+          583,
+          603
+        ],
+        [
+          4,
+          683,
+          1045
+        ],
+        [
+          5,
+          1085,
+          1166
+        ],
+        [
+          6,
+          1266,
+          1507
+        ],
+        [
+          7,
+          1588,
+          1628
+        ],
+        [
+          8,
+          1708,
+          1929
+        ],
+        [
+          9,
+          1989,
+          2010
+        ],
+        [
+          10,
+          2110,
+          2411
+        ],
+        [
+          11,
+          2592,
+          2773
+        ],
+        [
+          12,
+          2833,
+          2914
+        ],
+        [
+          13,
+          3014,
+          3396
+        ]
+      ],
+      "duration_ms": 3959,
+      "sha256": "c937738cd8ea81623c37da298a7340b15dbef27b2043126528703cc874baad54",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.921,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_ca03a2e0ca763c60e9a5": {
+      "id": "en_ca03a2e0ca763c60e9a5",
+      "language": "en",
+      "text": "A galaxy contains many stars, gas, and dust, and our galaxy is the Milky Way.",
+      "words": [
+        "A",
+        "galaxy",
+        "contains",
+        "many",
+        "stars,",
+        "gas,",
+        "and",
+        "dust,",
+        "and",
+        "our",
+        "galaxy",
+        "is",
+        "the",
+        "Milky",
+        "Way."
+      ],
+      "path": "audio/meaning/en/en_ca03a2e0ca763c60e9a5.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A galaxy contains many stars, gas, and dust, and our galaxy is the Milky Way.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          60
+        ],
+        [
+          1,
+          120,
+          561
+        ],
+        [
+          2,
+          681,
+          1221
+        ],
+        [
+          3,
+          1281,
+          1462
+        ],
+        [
+          4,
+          1582,
+          1982
+        ],
+        [
+          5,
+          2142,
+          2483
+        ],
+        [
+          6,
+          3203,
+          3323
+        ],
+        [
+          7,
+          3384,
+          3724
+        ],
+        [
+          8,
+          3864,
+          3984
+        ],
+        [
+          9,
+          4104,
+          4204
+        ],
+        [
+          10,
+          4264,
+          4745
+        ],
+        [
+          11,
+          4805,
+          4885
+        ],
+        [
+          12,
+          4945,
+          5025
+        ],
+        [
+          13,
+          5085,
+          5406
+        ],
+        [
+          14,
+          5506,
+          5686
+        ]
+      ],
+      "duration_ms": 6006,
+      "sha256": "ff215dd23c9a2fd9479e5cadfacc08675c2cba035e3e6e000f752bc3e08e4182",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9517,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_633c1ac1a11174eea708": {
+      "id": "en_633c1ac1a11174eea708",
+      "language": "en",
+      "text": "A building is a structure people make for living, working, or providing a service.",
+      "words": [
+        "A",
+        "building",
+        "is",
+        "a",
+        "structure",
+        "people",
+        "make",
+        "for",
+        "living,",
+        "working,",
+        "or",
+        "providing",
+        "a",
+        "service."
+      ],
+      "path": "audio/meaning/en/en_633c1ac1a11174eea708.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "A building is a structure people make for living, working or providing a service.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          221,
+          241
+        ],
+        [
+          1,
+          361,
+          742
+        ],
+        [
+          2,
+          782,
+          883
+        ],
+        [
+          3,
+          923,
+          943
+        ],
+        [
+          4,
+          1023,
+          1525
+        ],
+        [
+          5,
+          1605,
+          1966
+        ],
+        [
+          6,
+          2046,
+          2307
+        ],
+        [
+          7,
+          2347,
+          2487
+        ],
+        [
+          8,
+          2548,
+          2869
+        ],
+        [
+          9,
+          3410,
+          3831
+        ],
+        [
+          10,
+          4313,
+          4373
+        ],
+        [
+          11,
+          4413,
+          4915
+        ],
+        [
+          12,
+          4955,
+          4975
+        ],
+        [
+          13,
+          5075,
+          5597
+        ]
+      ],
+      "duration_ms": 6238,
+      "sha256": "96ada5a1a7d06a55828d500a3ed780d0fd76d7b1e98cd7089e69dec3f2e9c71e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9734,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
