@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2019,
+  "ready": 2020,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -187767,6 +187767,65 @@
       "sha256": "3a542323e46369c5c192846ae625de000815b30cfc1d28a681c379f2c4f8d004",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9766,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_ffa82b17384cd6cb6e8d": {
+      "id": "ar_ffa82b17384cd6cb6e8d",
+      "language": "ar",
+      "text": "هذا الطائر يأكل الحشرات.",
+      "words": [
+        "هذا",
+        "الطائر",
+        "يأكل",
+        "الحشرات."
+      ],
+      "path": "audio/meaning/ar/ar_ffa82b17384cd6cb6e8d.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "هذا الطائر يأكل الحشرات.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "هذا الطائر يأكل الحشرات",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 181360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          301
+        ],
+        [
+          1,
+          361,
+          942
+        ],
+        [
+          2,
+          1724,
+          2165
+        ],
+        [
+          3,
+          2265,
+          3006
+        ]
+      ],
+      "duration_ms": 4530,
+      "sha256": "38158e13368e12cec81ff97c840df867f13c108aa025e0fdcdec04c4f1e3734d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9634,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,
