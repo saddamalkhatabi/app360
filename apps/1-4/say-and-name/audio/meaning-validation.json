@@ -1,7 +1,7 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 1852,
+  "ready": 1859,
   "expected": 2029,
   "auditory_review": "pending",
   "clips": {
@@ -173673,6 +173673,581 @@
       "sha256": "9f855932048750d24ca20aab7cb3c4136904ef87eaa6f62a0dc17bbb3c1fb3a7",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9663,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_742d4ce30bd3938d2bcf": {
+      "id": "ar_742d4ce30bd3938d2bcf",
+      "language": "ar",
+      "text": "أُغْلِقُ الْحَنَفِيَّةَ بَعْدَ اسْتِخْدَامِ الْمَاءِ.",
+      "words": [
+        "أُغْلِقُ",
+        "الْحَنَفِيَّةَ",
+        "بَعْدَ",
+        "اسْتِخْدَامِ",
+        "الْمَاءِ."
+      ],
+      "path": "audio/meaning/ar/ar_742d4ce30bd3938d2bcf.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أغلق الحنفية بعد استخدام الماء",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          361
+        ],
+        [
+          1,
+          421,
+          1104
+        ],
+        [
+          2,
+          1746,
+          1947
+        ],
+        [
+          3,
+          2027,
+          2649
+        ],
+        [
+          4,
+          2750,
+          2991
+        ]
+      ],
+      "duration_ms": 3272,
+      "sha256": "52eac1d3f06b6c893e0f518b3d93181df41131285d41764baffcc72579c9ee0b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9581,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_43c4f4bc1ac9303719a0": {
+      "id": "ar_43c4f4bc1ac9303719a0",
+      "language": "ar",
+      "text": "يُسْتَخْدَمُ الصَّارُوخُ لِإِرْسَالِ أَشْيَاءَ إِلَى الْفَضَاءِ.",
+      "words": [
+        "يُسْتَخْدَمُ",
+        "الصَّارُوخُ",
+        "لِإِرْسَالِ",
+        "أَشْيَاءَ",
+        "إِلَى",
+        "الْفَضَاءِ."
+      ],
+      "path": "audio/meaning/ar/ar_43c4f4bc1ac9303719a0.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يستخدم الصاروخ لإرسال أشياء إلى الفضاء",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          581
+        ],
+        [
+          1,
+          701,
+          1242
+        ],
+        [
+          2,
+          1402,
+          2003
+        ],
+        [
+          3,
+          2163,
+          2484
+        ],
+        [
+          4,
+          2564,
+          2864
+        ],
+        [
+          5,
+          2924,
+          3305
+        ]
+      ],
+      "duration_ms": 4506,
+      "sha256": "80fc5a71c540a3aa122f5c2ba78c444483b7adfb597b8212b003ef3cf1e2c8e3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.92,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_79bc753166d1d8a320aa": {
+      "id": "ar_79bc753166d1d8a320aa",
+      "language": "ar",
+      "text": "الثلج بلورات جليد تسقط من السحب في الطقس البارد.",
+      "words": [
+        "الثلج",
+        "بلورات",
+        "جليد",
+        "تسقط",
+        "من",
+        "السحب",
+        "في",
+        "الطقس",
+        "البارد."
+      ],
+      "path": "audio/meaning/ar/ar_79bc753166d1d8a320aa.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "الثلج بلورات جليد تسقط من السحب في الطقس البارد",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0213,
+          "heard": "الثلج بلورات جليد تسقط من السحب في التقس البارد",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          401
+        ],
+        [
+          1,
+          542,
+          1003
+        ],
+        [
+          2,
+          1184,
+          1545
+        ],
+        [
+          3,
+          1665,
+          2046
+        ],
+        [
+          4,
+          2167,
+          2267
+        ],
+        [
+          5,
+          2327,
+          2688
+        ],
+        [
+          6,
+          2768,
+          2849
+        ],
+        [
+          7,
+          2849,
+          3190
+        ],
+        [
+          8,
+          3270,
+          3751
+        ]
+      ],
+      "duration_ms": 3972,
+      "sha256": "6e7762f4bf64ff27a2c89ab1b437a49524b2bde832efd60600e315e9f644d570",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9777,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_7ee78f781e420dc27710": {
+      "id": "ar_7ee78f781e420dc27710",
+      "language": "ar",
+      "text": "تنقل سلسلة الدراجة الحركة من الدواسات إلى العجلة الخلفية.",
+      "words": [
+        "تنقل",
+        "سلسلة",
+        "الدراجة",
+        "الحركة",
+        "من",
+        "الدواسات",
+        "إلى",
+        "العجلة",
+        "الخلفية."
+      ],
+      "path": "audio/meaning/ar/ar_7ee78f781e420dc27710.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "تنقل سلسلة الدراجة الحركة من الدواسات إلى العجلة الخلفية.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1111,
+          "cer": 0.0179,
+          "heard": "تنقل سلسلة الدراجة الحركة من الدواصات إلى العجلة الخلفية",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 1360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          361
+        ],
+        [
+          1,
+          501,
+          902
+        ],
+        [
+          2,
+          1043,
+          1464
+        ],
+        [
+          3,
+          1584,
+          2045
+        ],
+        [
+          4,
+          2205,
+          2326
+        ],
+        [
+          5,
+          2386,
+          3007
+        ],
+        [
+          6,
+          3148,
+          3248
+        ],
+        [
+          7,
+          3288,
+          3629
+        ],
+        [
+          8,
+          3749,
+          4291
+        ]
+      ],
+      "duration_ms": 4652,
+      "sha256": "1fb93a0759a160c0da649f1addb59d5a23e741cfb8b0d0888819922dd060e088",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9446,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a52bb95e17429e809610": {
+      "id": "ar_a52bb95e17429e809610",
+      "language": "ar",
+      "text": "يُجَهِّزُ الطَّبَّاخُ الطَّعَامَ وَيَطْبُخُهُ.",
+      "words": [
+        "يُجَهِّزُ",
+        "الطَّبَّاخُ",
+        "الطَّعَامَ",
+        "وَيَطْبُخُهُ."
+      ],
+      "path": "audio/meaning/ar/ar_a52bb95e17429e809610.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يجهز الطباخ الطعام ويطبخه",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.04,
+          "heard": "يجهز الطباخ الطعامة ويطبخه",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          502
+        ],
+        [
+          1,
+          582,
+          1124
+        ],
+        [
+          2,
+          1204,
+          1746
+        ],
+        [
+          3,
+          1907,
+          2630
+        ]
+      ],
+      "duration_ms": 3392,
+      "sha256": "d868e758257d7b57d039d7e544587d6b9b6ac231d59dad1a85fb96aeb12051c7",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9462,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_626942405079780baaa9": {
+      "id": "ar_626942405079780baaa9",
+      "language": "ar",
+      "text": "قد أشعر بالحزن عند فقد شيء أحبه، وأتحدث مع شخص أثق به.",
+      "words": [
+        "قد",
+        "أشعر",
+        "بالحزن",
+        "عند",
+        "فقد",
+        "شيء",
+        "أحبه،",
+        "وأتحدث",
+        "مع",
+        "شخص",
+        "أثق",
+        "به."
+      ],
+      "path": "audio/meaning/ar/ar_626942405079780baaa9.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "قد أشعر بالحزن عند فقد شيء أحبه وأتحدث مع شخص أثق به",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.1667,
+          "cer": 0.0577,
+          "heard": "قد أشعر بالحزن عند فقد شيء وأحبه وأتحدثوا مع شخص أثق به",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          121
+        ],
+        [
+          1,
+          241,
+          522
+        ],
+        [
+          2,
+          623,
+          1025
+        ],
+        [
+          3,
+          1226,
+          1286
+        ],
+        [
+          4,
+          1407,
+          1668
+        ],
+        [
+          5,
+          1728,
+          1869
+        ],
+        [
+          6,
+          2090,
+          2432
+        ],
+        [
+          7,
+          2874,
+          3537
+        ],
+        [
+          8,
+          3678,
+          3698
+        ],
+        [
+          9,
+          3939,
+          4200
+        ],
+        [
+          10,
+          4421,
+          4743
+        ],
+        [
+          11,
+          4843,
+          4964
+        ]
+      ],
+      "duration_ms": 4984,
+      "sha256": "56fc5c7ad01679565a2429daa1af8454f8c58437429108e81f2f816f33c182a9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9628,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "reference": "publisher ar.ref.24k.wav",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_89f391413aade454bf02": {
+      "id": "ar_89f391413aade454bf02",
+      "language": "ar",
+      "text": "يركب السباك أنابيب الماء ويصلح التسربات في المنزل.",
+      "words": [
+        "يركب",
+        "السباك",
+        "أنابيب",
+        "الماء",
+        "ويصلح",
+        "التسربات",
+        "في",
+        "المنزل."
+      ],
+      "path": "audio/meaning/ar/ar_89f391413aade454bf02.mp3",
+      "engine": "silma",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "يركب السباك أنابيب الماء ويصلح التسربات في المنزل.",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.25,
+          "cer": 0.0408,
+          "heard": "يركب السباك أنابي بالماء ويصلح التسربات في المنزل",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 2360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          301
+        ],
+        [
+          1,
+          381,
+          843
+        ],
+        [
+          2,
+          983,
+          1384
+        ],
+        [
+          3,
+          1464,
+          1665
+        ],
+        [
+          4,
+          2267,
+          2688
+        ],
+        [
+          5,
+          2788,
+          3390
+        ],
+        [
+          6,
+          3510,
+          3591
+        ],
+        [
+          7,
+          3611,
+          4072
+        ]
+      ],
+      "duration_ms": 4313,
+      "sha256": "3bc7f04b4ed6fa36b553d8301633ac90815d285a0fefe100fa527e032b4f0efc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9543,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "reference": "publisher ar.ref.24k.wav",
