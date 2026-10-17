@@ -12,7 +12,7 @@ test('native launcher starts immediately with tools collapsed on school and prev
  const el=id=>els[id]||(els[id]={value:'',hidden:false,style:{display:'none'},setAttribute(){},getAttribute(k){return this[k]||null},removeAttribute(){}});
  const d={getElementById:el,querySelectorAll:()=>buttons};
  w.location={hostname:'school.yem1.com',protocol:'https:',search:'?age=1-4&role=learner'};w.navigator={onLine:true};w.XMLHttpRequest=function(){this.open=function(){};this.send=function(){}};el('reelsFormat').value='auto';el('reelsTopTools').style.display='none';
- vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d});
+ vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d,setTimeout:fn=>fn()});
  assert.match(el('reelsFrame').src,/yem1.com\/watch\?age=1-4&role=learner/);assert.equal(el('reelsIntro').style.display,'none');assert.equal(el('reelsTopTools').style.display,'none');
  el('reelsToolsToggle').onclick();assert.equal(el('reelsTopTools').style.display,'block');el('reelsQuickSettings').onclick();assert.equal(el('reelsIntro').style.display,'block');assert.equal(el('reelsFrame').src.includes('yem1.com'),true,'settings retain playback');el('reelsOpen').onclick({preventDefault(){}});assert.equal(el('reelsIntro').style.display,'none');
 });
