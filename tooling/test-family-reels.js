@@ -12,7 +12,7 @@ test('native launcher starts immediately with tools collapsed on school and prev
  const el=id=>els[id]||(els[id]={value:'',hidden:false,style:{display:'none'},setAttribute(){},getAttribute(k){return this[k]||null},removeAttribute(){}});
  const d={getElementById:el,querySelectorAll:()=>buttons};
  w.location={hostname:'school.yem1.com',protocol:'https:',search:'?age=1-4&role=learner'};w.navigator={onLine:true};w.XMLHttpRequest=function(){this.open=function(){};this.send=function(){}};el('reelsFormat').value='auto';el('reelsTopTools').style.display='none';
- vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d});
+ vm.runInNewContext(read('assets/js/family-reels-launcher-v1.js'),{window:w,document:d,setTimeout:fn=>fn()});
  assert.match(el('reelsFrame').src,/yem1.com\/watch\?age=1-4&role=learner/);assert.equal(el('reelsIntro').style.display,'none');assert.equal(el('reelsTopTools').style.display,'none');
  el('reelsToolsToggle').onclick();assert.equal(el('reelsTopTools').style.display,'block');el('reelsQuickSettings').onclick();assert.equal(el('reelsIntro').style.display,'block');assert.equal(el('reelsFrame').src.includes('yem1.com'),true,'settings retain playback');el('reelsOpen').onclick({preventDefault(){}});assert.equal(el('reelsIntro').style.display,'none');
 });
@@ -38,4 +38,8 @@ test('standalone return button on old Android uses same-tab navigation',()=>{
  const w={APP360_SESSION:{},navigator:{userAgent:'Android 4.4.2'},location:{pathname:'/apps/1-4/example/index.html'},open(){throw Error('old tablet must not depend on popups')}};w.parent=w;
  const d={readyState:'loading',addEventListener(){},documentElement:{lang:'ar'}};
  vm.runInNewContext(read('assets/js/reels-bridge-v1.js'),{window:w,document:d,location:w.location});w.APP360_REELS_BRIDGE.returnToReels();assert.equal(w.location.href,'/reels-return.html?lang=ar');
+});
+
+test('old Android opens the full workspace when it is ready',()=>{
+ const {w,api}=setup();w.navigator={userAgent:'Android 4.4.2'};let launch=null;w.APP360_REELS_WORKSPACE={open(f){launch=f;return true}};assert.equal(api.launch({id:'reels-learner-4-8',age_group:'4-8',reels_role:'learner'}),true);assert.equal(w.location.href,undefined);assert.equal(launch.autoplay,true);assert.equal(launch.age,'4-8');
 });

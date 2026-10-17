@@ -1,7 +1,7 @@
 name: Verify Reels native tap and collapsed tools
 on:
   push:
-    branches: [fix/reels-native-tap-autoplay-20261017]
+    branches: [fix/reels-native-tap-autoplay-20261017, fix/reels-legacy-full-window-20261017]
     paths:
       - 'assets/js/*reels*'
       - 'assets/css/family-reels-v1.css'

@@ -28,5 +28,5 @@ $('reelsAge').textContent='الفئة '+age;$('reelsRole').value=role;$('reelsFo
 $('reelsRole').onchange=function(){if(!api.roleAllowed(age,this.value)){this.value=role;return}role=this.value;preset.goals=[];preset.sources=[];loadGoals();update()};
 $('reelsGoal').onchange=function(){preset.goals=this.value?[this.value]:[];update()};$('reelsFormat').onchange=update;
 var buttons=d.querySelectorAll('[data-reels-lang]');for(var i=0;i<buttons.length;i++)buttons[i].onclick=function(){lang=this.getAttribute('data-reels-lang');api.setLanguage(lang);preset.goals=[];preset.sources=[];loadGoals();update()};
-update();play();loadGoals();
+update();var attempts=0;function startWorkspace(){var manager=w.APP360_REELS_WORKSPACE;if(manager){var f=filters();f.age=age;f.role=role;f.lang=lang;f.autoplay=true;try{if(manager.open(f)!==false){var head=d.querySelector('.reels-head');if(head)head.style.display='none';$('reelsViewer').hidden=true;$('reelsViewer').style.display='none';return}}catch(e){}}if(!manager&&++attempts<12){setTimeout(startWorkspace,100);return}play()}startWorkspace();loadGoals();
 })(window,document);
