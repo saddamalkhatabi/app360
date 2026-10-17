@@ -9,7 +9,7 @@ function profileKey(){var s=session(),p=s&&s.getProfile&&s.getProfile();return p
 function esc(s){return api.esc?api.esc(s):String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function status(s){var el=$('reelsWorkspaceStatus');if(el)el.textContent=s}
 // KitKat gets the same controls without depending on the floating-window library.
-function legacy(){if(api.isLegacy&&api.isLegacy())return true;var m=/Android\s+([0-9]+)/i.exec((w.navigator&&w.navigator.userAgent)||'');return !!(m&&+m[1]<6)}
+function legacy(){if(api.query(w.location.search,'legacy')==='1')return true;if(api.isLegacy&&api.isLegacy())return true;var m=/Android\s+([0-9]+)/i.exec((w.navigator&&w.navigator.userAgent)||'');return !!(m&&+m[1]<6)}
 function simpleWindow(o){
  var el=d.createElement('section'),bar=d.createElement('div'),body=d.createElement('div'),buttons=d.createElement('div'),title=d.createElement('div'),handle=d.createElement('button'),closed=false,drag=null,normal=null;
  el.className='winbox reels-workspace reels-simple '+(o.class||'');el.style.cssText='position:fixed;z-index:'+o.index+';background:#075e68;box-sizing:border-box';el.setAttribute('role','dialog');el.setAttribute('aria-label',o.title);
