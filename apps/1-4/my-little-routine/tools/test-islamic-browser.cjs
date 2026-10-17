@@ -12,11 +12,24 @@ await page.goto(url+'?launch_age=4-8&launch_level=2&lang=ar');await page.waitFor
 assert(await page.locator('#routineChallenge').isVisible());
 await page.waitForFunction(()=>document.querySelector('#sceneStrip').className.indexOf('assetMode')>=0);
 assert.match(await page.locator('#sceneStrip').getAttribute('data-asset'),/storyboards\/islamic\/meal-manners\.png$/);
-for(let scene=0;scene<5;scene++){
- await page.evaluate(n=>window.APP360_RoutineReel.showFrame(n),scene);
- await page.waitForFunction(n=>document.querySelector('#assetFrame').style.backgroundImage.indexOf('meal-manners-'+(n+1)+'.webp')>=0,scene);
- assert.equal(await page.locator('#assetFrame').evaluate(e=>e.style.backgroundSize),'contain');
+for(const legacy of [false,true]){
+ await page.evaluate(on=>document.documentElement.classList.toggle('app360-legacy',on),legacy);
+ for(let scene=0;scene<5;scene++){
+  await page.locator('#storyDots i').nth(scene).click();
+  const crop=await page.locator('#assetCrop').evaluate(e=>({
+   image:e.style.backgroundImage,position:e.style.backgroundPosition,
+   width:e.clientWidth,height:e.clientHeight,
+   parentWidth:e.parentNode.clientWidth,parentHeight:e.parentNode.clientHeight,
+   parentImage:getComputedStyle(e.parentNode).backgroundImage
+  }));
+  assert.match(crop.image,/storyboards\/islamic\/meal-manners\.png/);
+  assert.equal(crop.parentImage,'none');
+  assert(crop.width>0&&crop.height>0);
+  assert(crop.width<=crop.parentWidth+1&&crop.height<=crop.parentHeight+1);
+  assert.equal(await page.locator('#reelCounter').innerText(),(scene+1)+' / 5');
+ }
 }
+await page.evaluate(()=>document.documentElement.classList.remove('app360-legacy'));
 await page.screenshot({path:output+'/routine-photo-frame-mobile.png',fullPage:false});
 await page.evaluate(()=>window.APP360_RoutineReel.showOverview());
 await page.locator('#routineShowAnswer').click();assert.match(await page.locator('#routineQuestionFeedback').innerText(),/بِسْمِ/);
@@ -35,3 +48,4 @@ await page.selectOption('#routineAge','1-4');await page.waitForURL(/routine_age=
 await page.goto(url+'?routine_age=4-8&lang=en');await page.waitForTimeout(150);assert.equal(await page.locator('.habitCard').count(),24);assert.match(await page.locator('.habitCard').first().innerText(),/My meal manners/);assert.match(await page.locator('#routineDuaMeaning').innerText(),/Allah/);assert.equal(await page.locator('#routineDuaText').getAttribute('lang'),'ar');
 await page.setViewportSize({width:1280,height:900});await page.screenshot({path:output+'/routine-advanced-desktop.png',fullPage:false});
 assert.deepEqual(errors,[]);await b.close();console.log('PASS browser: mobile, desktop, two languages, mode selection, practice, source, help and no horizontal overflow');})().catch(e=>{console.error(e);process.exit(1)});
+
