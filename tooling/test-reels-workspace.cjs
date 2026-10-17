@@ -8,13 +8,13 @@ async function setup(t,legacy=false,failVendor=false){
  const errors=[];page.on('pageerror',e=>errors.push(e.message));let vendor=0;
  await page.route('**/*',async route=>{
   const u=new URL(route.request().url());
-  if(u.hostname==='yem1.com')return route.fulfill({contentType:'text/html',body:'<!doctype html><h1>Test Reels</h1>'});
+  if(u.hostname==='yem1.com')return route.fulfill({contentType:'text/html; charset=utf-8',body:'<!doctype html><h1>Test Reels</h1>'});
   if(u.pathname.includes('/api/reels/catalog'))return route.fulfill({json:{goals:[{id:44,title:'هدف الاختبار'}],sources:[]}});
   if(u.pathname.includes('/api/'))return route.fulfill({status:401,json:{ok:false}});
   if(u.pathname.includes('/winbox/')){vendor++;if(failVendor)return route.abort()}
-  if(u.pathname==='/test.html')return route.fulfill({contentType:'text/html',body:'<!doctype html><html><body><a id="card" href="/reels/index.html?age=4-8&role=learner">ريلز</a><script src="/assets/js/family-reels-v1.js"></script><script>window.APP360_FAMILY_SYNC={apps:[],openApp:function(){},canNavigate:function(){return false},getSession:function(){return {role:"none"}}};</script></body></html>'});
+  if(u.pathname==='/test.html')return route.fulfill({contentType:'text/html; charset=utf-8',body:'<!doctype html><html><head><meta charset="utf-8"></head><body><a id="card" href="/reels/index.html?age=4-8&role=learner">ريلز</a><script src="/assets/js/family-reels-v1.js"></script><script>window.APP360_FAMILY_SYNC={apps:[],openApp:function(){},canNavigate:function(){return false},getSession:function(){return {role:"none"}}};</script></body></html>'});
   const file=path.join(root,u.pathname);if(!fs.existsSync(file)||fs.statSync(file).isDirectory())return route.fulfill({status:404,body:''});
-  return route.fulfill({contentType:file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html',body:fs.readFileSync(file)});
+  return route.fulfill({contentType:file.endsWith('.js')?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8',body:fs.readFileSync(file)});
  });
  await page.goto('http://school.test/test.html');await page.waitForFunction(()=>!!window.APP360_REELS_WORKSPACE);
  return {page,errors,vendor:()=>vendor};
@@ -26,7 +26,7 @@ test('old Android touch opens a complete persistent window inside school',async 
  const window=page.locator('.reels-workspace-main'),header=window.locator('.wb-header'),frame=page.locator('#reelsWorkspaceFrame');
  assert.equal(await header.locator('#reelsWorkspaceToolsToggle').count(),1,'tools live beside window controls');
  const bodyRect=await window.locator('.wb-body').boundingBox(),frameRect=await frame.boundingBox();assert(Math.abs(bodyRect.y-frameRect.y)<1);assert(Math.abs(bodyRect.height-frameRect.height)<2,'no second toolbar row');
- console.log('Legacy header:',await header.evaluate(el=>el.outerHTML));const source=await frame.getAttribute('src');await header.getByRole('button',{name:'تصغير',exact:true}).click();assert.equal(await window.isVisible(),false);await page.click('#reelsWorkspaceDock');assert.equal(await window.isVisible(),true);assert.equal(await frame.getAttribute('src'),source,'minimize retains the iframe');
+ const source=await frame.getAttribute('src');await header.getByRole('button',{name:'تصغير',exact:true}).click();assert.equal(await window.isVisible(),false);await page.click('#reelsWorkspaceDock');assert.equal(await window.isVisible(),true);assert.equal(await frame.getAttribute('src'),source,'minimize retains the iframe');
  await header.getByRole('button',{name:'تكبير / استعادة',exact:true}).click();assert.equal((await window.boundingBox()).width,800);await header.getByRole('button',{name:'تكبير / استعادة',exact:true}).click();assert((await window.boundingBox()).width<800);
  const before=await window.boundingBox(),title=await header.locator('.wb-drag').boundingBox();await page.mouse.move(title.x+15,title.y+15);await page.mouse.down();await page.mouse.move(title.x-35,title.y+45);await page.mouse.up();const moved=await window.boundingBox();assert(moved.x<before.x);assert(moved.y>before.y);
  const grip=await window.locator('.reels-window-resize').boundingBox();await page.mouse.move(grip.x+10,grip.y+10);await page.mouse.down();await page.mouse.move(grip.x-40,grip.y-35);await page.mouse.up();assert((await window.boundingBox()).width<moved.width);
