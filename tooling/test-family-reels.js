@@ -39,3 +39,7 @@ test('standalone return button on old Android uses same-tab navigation',()=>{
  const d={readyState:'loading',addEventListener(){},documentElement:{lang:'ar'}};
  vm.runInNewContext(read('assets/js/reels-bridge-v1.js'),{window:w,document:d,location:w.location});w.APP360_REELS_BRIDGE.returnToReels();assert.equal(w.location.href,'/reels-return.html?lang=ar');
 });
+
+test('old Android opens the full workspace when it is ready',()=>{
+ const {w,api}=setup();w.navigator={userAgent:'Android 4.4.2'};let launch=null;w.APP360_REELS_WORKSPACE={open(f){launch=f;return true}};assert.equal(api.launch({id:'reels-learner-4-8',age_group:'4-8',reels_role:'learner'}),true);assert.equal(w.location.href,undefined);assert.equal(launch.autoplay,true);assert.equal(launch.age,'4-8');
+});
