@@ -8,9 +8,9 @@
   "prebuild_path": "apps/4-8/movement-missions/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/movement-missions/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "version": 2,
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-active-play-screen-balance-and-body-control",
@@ -30,7 +30,6 @@
     "compat.legacy-web",
     "ui.responsive-maturity",
     "practice.core",
-    "audio.recorded",
     "audio.tts"
   ],
   "bundles": [
@@ -38,5 +37,29 @@
   ],
   "practice_model_ar": "تحقق من المساحة والمواد واختر مسارًا يناسب القدرة ← اعرض قاعدة واحدة ونموذجًا أو بطاقة بديلة للصوت ← أخف الشاشة ونفذ جولة ثم استراحة اختيارية ← غيّر قاعدة واحدة أو تبادل القيادة، ودوّن التعديل بدل درجة سرعة",
   "blueprint_path": "apps/4-8/movement-missions/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/movement-missions/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/movement-missions/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#2f8f5b",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/movement-missions/icon-192.png",
+      "apps/4-8/movement-missions/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-movement:schema-1:<profile>"
+  },
+  "audio_status": "device-tts; dedicated SILMA recordings pending; word tracking only on actual supported boundary events",
+  "launch_path": "apps/4-8/movement-missions/launch.html",
+  "links_path": "apps/4-8/movement-missions/links.json",
+  "creative_prototype": {
+    "title_ar": "كوكب المرآة",
+    "practice_ar": "الطفل يؤلف تسلسل إشارات ويقود شريكه، مع بديل جلوسي ودون كاميرا.",
+    "sample_count": 1,
+    "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+  }
 }

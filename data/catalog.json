@@ -2203,7 +2203,7 @@
       "slug": "my-responsibility-board",
       "title_ar": "مهامي باختياري: أبدأ وأنهي وأراجع",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 1,
       "build_order": 9,
@@ -2230,7 +2230,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -2242,21 +2243,21 @@
           "relationship": "supports",
           "rationale_ar": "دعم الاستقلالية بتقليل المساعدة دون سحبها فجأة",
           "evidence_ar": "مقدار دعم وخطة مرنة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-channel-energy-focus-and-transitions",
           "relationship": "supports",
           "rationale_ar": "تجهيز وبداية واستراحة ونهاية متوقعة",
           "evidence_ar": "انتقال جرى تنفيذه",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-emotional-regulation-friendship-and-cooperation",
           "relationship": "supports",
           "rationale_ar": "التعبير عن الحاجة والمشاركة في قرار مسؤولية",
           "evidence_ar": "طلب مساعدة محدد",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2338,14 +2339,26 @@
       "blueprint_path": "apps/4-8/my-responsibility-board/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/my-responsibility-board/PROMPT_AR.md",
       "manifest": "apps/4-8/my-responsibility-board/app.json",
-      "cover": "assets/covers/a4-responsibility.svg"
+      "cover": "assets/covers/a4-responsibility.svg",
+      "implementation_status": "implemented-preview",
+      "preview_branch": "feature/age4-8-remaining-20261018",
+      "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+      "audio_status": "device-tts; SILMA pending",
+      "href": "apps/4-8/my-responsibility-board/index.html",
+      "release_channel": "preview",
+      "creative_prototype": {
+        "title_ar": "مركز إنقاذ الخطط",
+        "practice_ar": "هدف وأدوات وخطة، ثم مفاجأة تجعل الطفل يصنع بديلًا يجربه في الواقع.",
+        "sample_count": 1,
+        "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+      }
     },
     {
       "id": "a4-movement",
       "slug": "movement-missions",
       "title_ar": "مغامرات الحركة: قاعدة ومسار وتوازن",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 2,
       "build_order": 10,
@@ -2373,7 +2386,6 @@
         "compat.legacy-web",
         "ui.responsive-maturity",
         "practice.core",
-        "audio.recorded",
         "audio.tts"
       ],
       "bundles": [
@@ -2386,21 +2398,21 @@
           "relationship": "supports",
           "rationale_ar": "حركة بقاعدة وتعاون وفترات دون شاشة",
           "evidence_ar": "مسار جرى تنفيذه وتكييفه",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-channel-energy-focus-and-transitions",
           "relationship": "supports",
           "rationale_ar": "المدرب يدير بدءًا وتغييرًا ونهاية متوقعة",
           "evidence_ar": "تعديل واحد مرتبط بالملاحظة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "learner-4-8-emotional-regulation-friendship-and-cooperation",
           "relationship": "supports",
           "rationale_ar": "تبادل قيادة وتعاون بدل إقصاء",
           "evidence_ar": "دور لكل مشارك",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2482,14 +2494,26 @@
       "blueprint_path": "apps/4-8/movement-missions/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/movement-missions/PROMPT_AR.md",
       "manifest": "apps/4-8/movement-missions/app.json",
-      "cover": "assets/covers/a4-movement.svg"
+      "cover": "assets/covers/a4-movement.svg",
+      "implementation_status": "implemented-preview",
+      "preview_branch": "feature/age4-8-remaining-20261018",
+      "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+      "audio_status": "device-tts; SILMA pending",
+      "href": "apps/4-8/movement-missions/index.html",
+      "release_channel": "preview",
+      "creative_prototype": {
+        "title_ar": "كوكب المرآة",
+        "practice_ar": "الطفل يؤلف تسلسل إشارات ويقود شريكه، مع بديل جلوسي ودون كاميرا.",
+        "sample_count": 1,
+        "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+      }
     },
     {
       "id": "a4-play-coach",
       "slug": "playful-learning-coach",
       "title_ar": "مدرب اللعب والتعلّم: ألاحظ وأكيّف",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 3,
       "build_order": 11,
@@ -2517,7 +2541,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -2529,28 +2554,28 @@
           "relationship": "supports",
           "rationale_ar": "اختيار دعم للقراءة أو العدد من عينة فعلية",
           "evidence_ar": "بطاقة دعم قبل وبعد",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "سؤال وتلميح وتعديل قابل للتنفيذ",
           "evidence_ar": "محاولة لاحقة موثقة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-positive-behavior-routines-and-independence",
           "relationship": "supports",
           "rationale_ar": "تقليل الدعم مع الاستعداد واحترام التوقف",
           "evidence_ar": "تكييف لا عقوبة",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-channel-energy-focus-and-transitions",
           "relationship": "supports",
           "rationale_ar": "ملاحظة أثر حجم المهمة والانتقال",
           "evidence_ar": "تغيير محدد للسياق",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2632,14 +2657,26 @@
       "blueprint_path": "apps/4-8/playful-learning-coach/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/playful-learning-coach/PROMPT_AR.md",
       "manifest": "apps/4-8/playful-learning-coach/app.json",
-      "cover": "assets/covers/a4-play-coach.svg"
+      "cover": "assets/covers/a4-play-coach.svg",
+      "implementation_status": "implemented-preview",
+      "preview_branch": "feature/age4-8-remaining-20261018",
+      "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+      "audio_status": "device-tts; SILMA pending",
+      "href": "apps/4-8/playful-learning-coach/index.html",
+      "release_channel": "preview",
+      "creative_prototype": {
+        "title_ar": "مختبر الدعم: أغير عاملًا واحدًا",
+        "practice_ar": "المرافق يميز ما رآه عن تفسيره، ويجرب تغييرًا واحدًا ويسجل النتيجة الفعلية.",
+        "sample_count": 1,
+        "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+      }
     },
     {
       "id": "a4-session-planner",
       "slug": "session-planner-4-8",
       "title_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 3,
       "build_order": 12,
@@ -2666,7 +2703,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -2678,21 +2716,21 @@
           "relationship": "supports",
           "rationale_ar": "تنظيم بداية ونهاية واستراحة وانتقالات مرنة",
           "evidence_ar": "جلسة جرى تنفيذها",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "ربط المهمة بعينة ناتج ومراجعة",
           "evidence_ar": "خطة وتعديل",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-positive-behavior-routines-and-independence",
           "relationship": "supports",
           "rationale_ar": "مشاركة الطفل في اختيار ترتيب وخيارات الدعم",
           "evidence_ar": "اختيار طفل موثق دون إجبار",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2776,7 +2814,19 @@
       "blueprint_path": "apps/4-8/session-planner-4-8/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/session-planner-4-8/PROMPT_AR.md",
       "manifest": "apps/4-8/session-planner-4-8/app.json",
-      "cover": "assets/covers/a4-session-planner.svg"
+      "cover": "assets/covers/a4-session-planner.svg",
+      "implementation_status": "implemented-preview",
+      "preview_branch": "feature/age4-8-remaining-20261018",
+      "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+      "audio_status": "device-tts; SILMA pending",
+      "href": "apps/4-8/session-planner-4-8/index.html",
+      "release_channel": "preview",
+      "creative_prototype": {
+        "title_ar": "خريطة الرحلة التي أصنعها",
+        "practice_ar": "اختيارات الطفل تصنع مسارًا متفرعًا، وتحول الاستراحة أو تغيير الوسيلة إلى تعديل حقيقي في الجلسة.",
+        "sample_count": 1,
+        "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+      }
     },
     {
       "id": "a8-reading",

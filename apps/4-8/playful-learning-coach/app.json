@@ -8,9 +8,9 @@
   "prebuild_path": "apps/4-8/playful-learning-coach/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/playful-learning-coach/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "version": 2,
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "coach-4-8-early-literacy-numeracy-and-learning-support",
@@ -30,12 +30,37 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.tts"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر نشاطًا وملاحظة وصفية لما فعله الطفل لا تفسيرًا للشخصية ← اختر دعمًا واحدًا: نموذج أو تقسيم تعليمة أو تمثيل أو تقليل مواد ← افتح التطبيق المطلوب بمرجع واضح ثم عد إلى الملاحظة ← قارن الاستجابة مع السياق السابق وقرر خطوة تالية أو توقفًا؛ اطبع بطاقة المتابعة",
   "blueprint_path": "apps/4-8/playful-learning-coach/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/playful-learning-coach/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/playful-learning-coach/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#2f8f5b",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/playful-learning-coach/icon-192.png",
+      "apps/4-8/playful-learning-coach/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-play-coach:schema-1:<profile>"
+  },
+  "audio_status": "device-tts; dedicated SILMA recordings pending; word tracking only on actual supported boundary events",
+  "launch_path": "apps/4-8/playful-learning-coach/launch.html",
+  "links_path": "apps/4-8/playful-learning-coach/links.json",
+  "creative_prototype": {
+    "title_ar": "مختبر الدعم: أغير عاملًا واحدًا",
+    "practice_ar": "المرافق يميز ما رآه عن تفسيره، ويجرب تغييرًا واحدًا ويسجل النتيجة الفعلية.",
+    "sample_count": 1,
+    "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+  }
 }
