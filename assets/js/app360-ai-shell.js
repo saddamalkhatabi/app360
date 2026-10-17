@@ -17,7 +17,7 @@ function loadScript(id,src,ready){var h,s;if((ready&&ready())||d.getElementById(
 function appPath(){var p=(w.location&&w.location.pathname)||'';return p.indexOf('/apps/')>=0&&!/\/apps\/_template\//.test(p)}
 function loadSession(){if(!appPath())return;loadScript('app360SessionRuntime','../../../assets/js/app360-session-v1.js?v=360&brand=98&reels=1',function(){return!!w.APP360_SESSION})}
 function loadAccountAccess(){if(!appPath())return;loadScript('app360AccountAccess','../../../assets/js/app360-account-access-v1.js?v=2&brand=98',function(){return!!w.APP360_ACCOUNT_ACCESS})}
-function loadLoginEntry(){if(!appPath())return;loadScript('app360LoginEntry','../../../assets/js/app360-login-entry-v2.js?v=2',function(){return!!w.APP360_LOGIN_ENTRY})}
+function loadLoginEntry(){if(!appPath())return;loadScript('app360LoginEntry','../../../assets/js/app360-login-entry-v2.js?v=361',function(){return!!w.APP360_LOGIN_ENTRY})}
 function loadDailyUsage(){if(!appPath())return;loadScript('app360DailyUsage','../../../assets/js/app360-usage-daily-v1.js?v=1',function(){return!!w.APP360_DAILY_USAGE})}
 function loadFamilySync(){if(!appPath()||embedded())return;loadScript('app360FamilySync','../../../assets/js/app360-family-sync-v1.js?v=107',function(){return!!w.APP360_FAMILY_SYNC})}
 function loadFamilyCatalog(){if(!appPath()||embedded())return;loadScript('app360FamilyCatalog','../../../assets/js/app360-family-catalog-v1.js?v=107&brand=98',function(){return!!d.getElementById('app360FamilyCatalog')})}
