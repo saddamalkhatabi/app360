@@ -63,7 +63,7 @@ function load(cb){if(legacy()){compat=true;cb();return}if(w.WinBox){cb();return}
  s.src=api.rootPath()+'assets/vendor/winbox/winbox.bundle.min.js';s.onload=s.onerror=finish;timeout=setTimeout(finish,6000);(d.head||d.body).appendChild(s)}
 function savedKey(f){return 'app360:reels:preset:v1:'+api.profileKey()+':'+f.age+':'+f.role}
 function remember(){try{w.localStorage.setItem(savedKey(current),JSON.stringify({lang:current.lang,ui_language:current.ui_language,goals:current.goals,sources:current.sources,format:current.format,gender:current.gender,order:current.order}))}catch(e){}}
-function playbackUrl(){var s=session(),p=s&&s.getProfile&&s.getProfile(),lang=current.lang==='mixed'?'ar':current.lang,q='age='+encodeURIComponent(current.age)+'&role='+current.role+'&lang='+lang+'&viewer=1'+api.filterQuery(current)+'&ui_language='+encodeURIComponent(current.ui_language||lang)+(current.lang==='mixed'?'&content_language=mixed':'');return p&&p.external?api.rootPath()+'reels-return.html?'+q:'https://yem1.com/watch?'+q}
+function playbackUrl(){var s=session(),p=s&&s.getProfile&&s.getProfile(),lang=current.lang==='mixed'?'ar':current.lang,q='age='+encodeURIComponent(current.age)+'&role='+current.role+'&lang='+lang+'&viewer=1&host_app=school'+api.filterQuery(current)+'&ui_language='+encodeURIComponent(current.ui_language||lang)+(current.lang==='mixed'?'&content_language=mixed':'');return p&&p.external?api.rootPath()+'reels-return.html?'+q:'https://yem1.com/watch?'+q}
 function play(){if(!win)return;$('reelsWorkspaceDirect').href=playbackUrl();win.minimize(false);win.show();if(settings)settings.hide();$('reelsWorkspaceStart').style.display='none';frame.style.display='block';if(started){flush();return}started=true;initialRequest=true;startHandshake();frame.src=playbackUrl()}
 function options(rows,all){var html='<option value="">'+all+'</option>';for(var i=0;i<(rows||[]).length;i++)html+='<option value="'+esc(rows[i].id)+'">'+esc(rows[i].title)+'</option>';return html}
 function select(id,label,html){return '<label>'+label+'<select id="'+id+'">'+html+'</select></label>'}
@@ -98,6 +98,7 @@ function send(type,filters){if(!frame)return '';var id='school-'+(++sequence);fr
 function scheduleFilterReload(delay){if(filterTimer)return;filterTimer=setTimeout(function(){filterTimer=0;if(!frame||!pending&&!inflight)return;inflight='';pending=null;frame.src=playbackUrl();startHandshake();status('تم تطبيق الاختيارات في نافذة الريلز.')},delay)}
 function flush(){if(!pending)return;if(!ready||inflight){scheduleFilterReload(ready?5000:1800);return}var f=pending;pending=null;inflight=send('school:reels-filters',f);latest=inflight;scheduleFilterReload(5000);status('جارٍ تطبيق الفلاتر…');}
 function open(f){
+ if(w.APP360_INTEGRATION_CONTEXT&&w.APP360_INTEGRATION_CONTEXT.fromReels)return false;
  f=f||{};if(!api.validAge(f.age)||!api.validRole(f.role)||!api.roleAllowed(f.age,f.role))return false;
  try{if(w.parent!==w&&w.parent.APP360_REELS_WORKSPACE)return w.parent.APP360_REELS_WORKSPACE.open(f);}catch(_){}
  load(function(){var fresh=!win;ensure();lastProfile=profileKey();var preset={};try{preset=JSON.parse(w.localStorage.getItem(savedKey(f))||'{}')||{}}catch(e){}

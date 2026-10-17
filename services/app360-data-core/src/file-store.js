@@ -7,7 +7,7 @@ function id(){return 'file-'+Date.now().toString(36)+'-'+Math.random().toString(
 function sha256(buf){return crypto.createHash('sha256').update(buf).digest('hex')}
 function ensure(dir){if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true})}
 function createFileStore(opts){
-  opts=opts||{};var root=opts.root||path.resolve(__dirname,'../var/uploads');ensure(root);
+  opts=opts||{};var root=opts.root||process.env.APP360_UPLOAD_ROOT||path.resolve(__dirname,'../var/uploads');ensure(root);
   async function putBuffer(db,ownerUserId,originalName,mimeType,buffer,meta){
     if(!Buffer.isBuffer(buffer))throw new Error('buffer required');
     var hash=sha256(buffer),existing=await db('files').where({sha256:hash,owner_user_id:ownerUserId||null}).first();
