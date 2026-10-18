@@ -20,17 +20,21 @@ elif mode=='activate':
  source=pathlib.Path(sys.argv[2]);allcues={}
  for p in sorted((source/'cues').glob('part-*.json')):allcues.update(json.loads(p.read_text()))
  assert len(allcues)==len(groups),(len(allcues),len(groups))
+ reports=[json.loads(p.read_text()) for p in sorted((source/'cues').glob('report-*.json'))]
+ assert len(reports)==8,len(reports)
+ metrics={m['path']:m for r in reports for m in r['clips']}
+ assert len(metrics)==len(groups),(len(metrics),len(groups))
  old=json.loads((ROOT/'data/read-along.json').read_text());audio=[]
  for variants in groups.values():
   first=variants[0];cue=allcues[first['path']];assert cue['text']==first['text']
   b=(source/first['path']).read_bytes();assert hashlib.sha256(b).hexdigest()==cue['audio_sha256']
   subprocess.run(['ffmpeg','-v','error','-i',str(source/first['path']),'-f','null','-'],check=True)
   for row in variants:
-   (ROOT/row['path']).write_bytes(b);old['items'][row['path']]=dict(cue);audio.append({'path':row['path'],'sha256':cue['audio_sha256']})
- manifest['voices']['ar']='SILMA 1.0.5 · publisher reference';manifest['arabic_engine']='silma-tts 1.0.5'
+   (ROOT/row['path']).write_bytes(b);old['items'][row['path']]=dict(cue);audio.append({'path':row['path'],'sha256':cue['audio_sha256'],'mean_alignment_score':metrics[first['path']]['mean_alignment_score']})
+ manifest['voices']['ar']='SILMA 1.0.5 · publisher reference';manifest['arabic_engine']='silma-tts 1.0.5';manifest['arabic_speed']=.95
  old['timing_source']='Arabic: measured MMS_FA alignment of SILMA MP3; English: original recording cues'
  (ROOT/'data/audio-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  (ROOT/'data/read-along.json').write_text(json.dumps(old,ensure_ascii=False,separators=(',',':'))+'\n')
- (ROOT/'data/silma-validation.json').write_text(json.dumps({'engine':'silma-tts 1.0.5','clips':len(audio),'unique_utterances':len(groups),'recordings':audio,'alignment':'MMS_FA measured on actual MP3; not equal word intervals','note':'Decoding/alignment validates files, not human pronunciation review.'},ensure_ascii=False,indent=2)+'\n')
+ (ROOT/'data/silma-validation.json').write_text(json.dumps({'engine':'silma-tts 1.0.5','clips':len(audio),'unique_utterances':len(groups),'model_revision':'226dd7a65cadf51f9a6dbe3953fc89003b3844d5','publisher_reference':'ar.ref.24k.wav','steps':16,'speed':.95,'minimum_mean_alignment_score':min(m['mean_alignment_score'] for m in metrics.values()),'alignment_review_candidates':[m for m in metrics.values() if m['mean_alignment_score']<.65],'recordings':audio,'alignment':'MMS_FA measured on actual MP3; not equal word intervals','note':'Decoding/alignment validates files, not human pronunciation review.'},ensure_ascii=False,indent=2)+'\n')
  print('Activated',len(audio),'verified Arabic clips')
 else:raise SystemExit('Unknown mode')
