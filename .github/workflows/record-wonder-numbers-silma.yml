@@ -1,0 +1,68 @@
+name: Complete Wonder SILMA number prompts
+on:
+  push:
+    branches: [preview/wonder-silma-watch-20261018]
+    paths: [apps/4-8/wonder-experiment-lab/data/silma-numbers.request]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - name: Record six number prompts
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-numbers --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-number-audio.json --generate-only --memory-map-weights
+      - name: Measure word boundaries in the recorded numbers
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-numbers --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-number-audio.json --align-only
+          --cues data/silma-number-cues.json --report data/silma-number-report.json
+      - name: Preserve recordings and retrieve the latest review source
+        run: |
+          mkdir -p /tmp/wonder-number-result/audio /tmp/wonder-number-result/data
+          cp apps/4-8/wonder-experiment-lab/audio/ar-number-*.mp3 /tmp/wonder-number-result/audio/
+          cp apps/4-8/wonder-experiment-lab/data/silma-number-cues.json apps/4-8/wonder-experiment-lab/data/silma-number-report.json /tmp/wonder-number-result/data/
+          git fetch origin '${{ github.ref_name }}'
+          git reset --hard FETCH_HEAD
+          cp /tmp/wonder-number-result/audio/* apps/4-8/wonder-experiment-lab/audio/
+          cp /tmp/wonder-number-result/data/* apps/4-8/wonder-experiment-lab/data/
+          printf 'window.WONDER_NUMBER_SILMA_READY=true;\n' > apps/4-8/wonder-experiment-lab/data/silma-number-ready.js
+      - name: Refresh offline records and publish the six numbers only to review
+        run: |
+          node tooling/build-offline-catalog.js
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/wonder-experiment-lab/audio/ar-number-*.mp3 apps/4-8/wonder-experiment-lab/data/silma-number-cues.json apps/4-8/wonder-experiment-lab/data/silma-number-report.json apps/4-8/wonder-experiment-lab/data/silma-number-ready.js data/offline/a4-wonder-lab.json data/offline-catalog.json
+          git commit -m 'Complete Wonder SILMA number prompts 11 through 16'
+          git push origin HEAD:${{ github.ref_name }}
