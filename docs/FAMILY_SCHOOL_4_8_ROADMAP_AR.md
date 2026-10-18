@@ -17,7 +17,6 @@
 | 3 | [سوق العائلة: أعدّ وأقسم وأوازن](../apps/4-8/family-market-lab/BUILD_SPEC.md) | للطفل والمدرب معًا | a1-first-words, a1-sensory, a1-screen-move | a8-math |
 | 4 | [مهندسو الأشكال: أبني وأفسّر](../apps/4-8/shape-design-studio/BUILD_SPEC.md) | للطفل بإسناد المدرب | a1-tangram, a1-picture-puzzles, a1-drawing-writing | a8-maker, a8-math |
 | 5 | [مختبر لماذا: أتوقع وأجرّب](../apps/4-8/wonder-experiment-lab/BUILD_SPEC.md) | للطفل والمدرب معًا | a1-sensory, a1-screen-move | a8-maker, a8-ai-check |
-| 6 | [ورشة الحلول: أصنع وأحسّن](../apps/4-8/maker-solutions-lab/BUILD_SPEC.md) | للطفل والمدرب معًا | a1-drawing-writing, a1-sensory, a1-screen-move | a8-maker, a8-coach |
 | 7 | [مسار الأوامر: أخطط وأصحح](../apps/4-8/command-path-lab/BUILD_SPEC.md) | للطفل بإسناد المدرب | a1-imitate, a1-screen-move, a1-tangram | a8-maker |
 | 8 | [نلعب ونتفق: دور وقاعدة وحل](../apps/4-8/cooperative-play-lab/BUILD_SPEC.md) | للطفل والمدرب معًا | a1-imitate, a1-calm, a1-screen-move | a8-empathy |
 | 9 | [مخطط جلسات 4–8: مسار مرن للتعلّم](../apps/4-8/session-planner-4-8/BUILD_SPEC.md) | للمدرب أساسًا | a1-plan-runner, a1-routine | a8-coach, a8-habits |
