@@ -1,0 +1,81 @@
+{
+  "tested_at": "2026-10-18T13:37:38.752Z",
+  "checks": 44,
+  "results": [
+    "Atlas loaded from one local image",
+    "Initial previous button disabled",
+    "Observation scene",
+    "Stops at child choice",
+    "Layer branch paints second row",
+    "Branch sets layer only",
+    "Layer succeeds with one car",
+    "Notebook stores discovery",
+    "Layer final reached",
+    "Support branch removes layer",
+    "Support branch paints third row",
+    "Support succeeds with one car",
+    "Unsupported bridge bends",
+    "Wrong prediction encourages discovery",
+    "Two cars require extra improvement",
+    "Both modifications pass extra challenge",
+    "Changing experiment cancels stale results",
+    "Idea survives reload",
+    "Discoveries survive reload",
+    "Whole nine-scene sheet opens",
+    "Sheet closes",
+    "Real word event highlights one word",
+    "Stale voice callback cannot highlight new scene",
+    "Autoplay advances after narration",
+    "Autoplay stops at choice",
+    "Pause prevents late auto advance",
+    "Thumbnail navigates to exact scene",
+    "No horizontal overflow 360x640",
+    "Scene keeps crop aspect 360",
+    "No horizontal overflow 412x915",
+    "Scene keeps crop aspect 412",
+    "No horizontal overflow 768x1024",
+    "Scene keeps crop aspect 768",
+    "No horizontal overflow 1024x768",
+    "Scene keeps crop aspect 1024",
+    "No horizontal overflow 1366x768",
+    "Scene keeps crop aspect 1366",
+    "No horizontal overflow 1920x1080",
+    "Scene keeps crop aspect 1920",
+    "Previously cached prototype works offline",
+    "No uncaught browser errors",
+    "Blocked storage reports failure clearly",
+    "app.js parses as ES5",
+    "sw.js parses as ES5"
+  ],
+  "viewports": [
+    [
+      360,
+      640
+    ],
+    [
+      412,
+      915
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      1366,
+      768
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "limitations": [
+    "Desktop Chromium only; physical Android/iOS/Big TAB and actual Arabic voices pending.",
+    "Speech event tests use stub callbacks; no recorded audio generated.",
+    "Visual toy model, not a physical simulation."
+  ]
+}
