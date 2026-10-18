@@ -1,0 +1,99 @@
+name: Record and verify Story and Word SILMA preview
+on:
+  push:
+    branches: [preview/story-silma-20261018]
+    paths: [.github/workflows/record-story-silma.yml, apps/4-8/story-language-lab/tools/silma-target/**]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: story-silma-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install established SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Cache publisher models and acoustic aligner
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          import os,pathlib,torchaudio
+          revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5'
+          snapshot_download(repo_id='silma-ai/silma-tts',revision=revision,allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True);p.write_text(revision)
+          torchaudio.pipelines.MMS_FA.get_model()
+          PY
+      - name: Record exact Arabic curriculum and measure new word timings
+        run: |
+          python apps/4-8/story-language-lab/tools/silma_story.py prepare ${{ matrix.part }} 20
+          python tooling/build-silma-audio.py --root apps/4-8/story-language-lab --manifest data/silma-shard.json --cues data/silma-shard-cues.json --report data/silma-shard-report.json --cache /tmp/story-silma-cache --model-cache "$HF_HOME/hub" --precision bf16
+          python apps/4-8/story-language-lab/tools/silma_story.py pack ${{ matrix.part }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-silma-${{ matrix.part }}
+          path: /tmp/story-output/
+          if-no-files-found: error
+          retention-days: 7
+  english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install edge-tts==7.2.7
+      - run: python apps/4-8/story-language-lab/tools/silma_story.py english
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-english-guides
+          path: /tmp/story-output/
+          if-no-files-found: error
+  verify-preview:
+    needs: [record, english]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/story-silma-20261018
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: story-*
+          merge-multiple: true
+          path: /tmp/story-output/
+      - name: Activate complete recordings, cues and contextual feedback together
+        run: |
+          python apps/4-8/story-language-lab/tools/silma_story.py activate /tmp/story-output
+          node --check apps/4-8/story-language-lab/app.js
+          npm test --prefix apps/4-8/story-language-lab
+      - name: Publish only to isolated review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/story-language-lab/app.js apps/4-8/story-language-lab/index.html apps/4-8/story-language-lab/audio/ apps/4-8/story-language-lab/data/stories.json apps/4-8/story-language-lab/data/stories.js apps/4-8/story-language-lab/data/audio-manifest.json apps/4-8/story-language-lab/data/read-along/ apps/4-8/story-language-lab/data/silma-validation.json data/offline/a4-story-language.json data/offline-catalog.json
+          git commit -m 'Activate verified SILMA Story and Word narration and contextual guidance'
+          git push origin HEAD:preview/story-silma-20261018
