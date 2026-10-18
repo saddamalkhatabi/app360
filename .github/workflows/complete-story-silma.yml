@@ -5,7 +5,7 @@ on:
     paths: [.github/workflows/complete-story-silma.yml]
 permissions:
   contents: write
-  actions: read
+  actions: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -20,6 +20,13 @@ jobs:
         run: |
           python - <<'PYCODE'
           import json,subprocess,time,os
+          # Cancel only this task's slow original build and superseded recovery runs.
+          # All completed artifacts are retained and reused below.
+          runs=json.loads(subprocess.check_output(['gh','api','repos/saddamalkhatabi/app360/actions/runs?branch=preview%2Fstory-silma-20261018&per_page=30']))['workflow_runs']
+          own=int(os.environ['GITHUB_RUN_ID'])
+          for run in runs:
+            if run['id']!=own and run['status']!='completed' and (run['id']==39163353612 or run['name']=='Complete Story SILMA with cropped teaching sounds'):
+              subprocess.run(['gh','api','--method','POST','repos/saddamalkhatabi/app360/actions/runs/'+str(run['id'])+'/cancel'],check=False)
           for attempt in range(420):
             data=json.loads(subprocess.check_output(['gh','api','repos/saddamalkhatabi/app360/actions/runs/39163353612/jobs?per_page=100']))
             jobs=[j for j in data['jobs'] if j['name'].startswith('record (')]
@@ -70,7 +77,7 @@ jobs:
       - name: Record exact Arabic curriculum and measure new word timings
         run: |
           python apps/4-8/story-language-lab/tools/silma_story.py prepare ${{ matrix.part }} 20 --narration-only
-          python tooling/build-silma-audio.py --root apps/4-8/story-language-lab --manifest data/silma-shard.json --cues data/silma-shard-cues.json --report data/silma-shard-report.json --cache /tmp/story-silma-cache --model-cache "$HF_HOME/hub" --precision bf16
+          python tooling/build-silma-audio.py --root apps/4-8/story-language-lab --manifest data/silma-shard.json --cues data/silma-shard-cues.json --report data/silma-shard-report.json --cache /tmp/story-silma-cache --model-cache "$HF_HOME/hub" --precision fp32
           python apps/4-8/story-language-lab/tools/silma_story.py pack ${{ matrix.part }}
       - uses: actions/upload-artifact@v4
         with:
