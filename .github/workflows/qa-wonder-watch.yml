@@ -4,6 +4,9 @@ on:
     branches: [preview/wonder-silma-watch-20261018]
     paths:
       - .github/workflows/qa-wonder-watch.yml
+      - apps/4-8/wonder-experiment-lab/index.html
+      - apps/4-8/wonder-experiment-lab/styles.css
+      - apps/4-8/wonder-experiment-lab/src/model.js
       - apps/4-8/wonder-experiment-lab/app.js
       - apps/4-8/wonder-experiment-lab/src/watch.js
       - apps/4-8/wonder-experiment-lab/tools/qa-watch.cjs
