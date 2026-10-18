@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 jobs:
   record:
     runs-on: ubuntu-latest
@@ -41,7 +42,7 @@ jobs:
         run: >-
           python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
           --cache /tmp/wonder-numbers --model-cache /tmp/silma-hf/hub
-          --manifest data/silma-number-audio.json --generate-only --memory-map-weights
+          --manifest data/silma-number-audio.json --generate-only --memory-map-weights --precision fp32
       - name: Measure word boundaries in the recorded numbers
         run: >-
           python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
@@ -66,3 +67,7 @@ jobs:
           git add apps/4-8/wonder-experiment-lab/audio/ar-number-*.mp3 apps/4-8/wonder-experiment-lab/data/silma-number-cues.json apps/4-8/wonder-experiment-lab/data/silma-number-report.json apps/4-8/wonder-experiment-lab/data/silma-number-ready.js data/offline/a4-wonder-lab.json data/offline-catalog.json
           git commit -m 'Complete Wonder SILMA number prompts 11 through 16'
           git push origin HEAD:${{ github.ref_name }}
+      - name: Stop the superseded slow number-only run after the replacement is verified
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/saddamalkhatabi/app360/actions/runs/39148507981/cancel || true
