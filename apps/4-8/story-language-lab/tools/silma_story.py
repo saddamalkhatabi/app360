@@ -26,7 +26,7 @@ def shard(path):
  return h%4
 mode=sys.argv[1]
 if mode=='prepare':
- part,parts=map(int,sys.argv[2:4]);selected=[v[0] for i,v in enumerate(groups.values()) if i%parts==part]
+ part,parts=map(int,sys.argv[2:4]);selected=[v[0] for i,v in enumerate(groups.values()) if i%parts==part and not ('--narration-only' in sys.argv and v[0]['kind']=='sound-example')]
  write(ROOT/'data/silma-shard.json',{'items':selected});print('Unique utterances:',len(selected))
 elif mode=='pack':
  part=sys.argv[2];out=pathlib.Path('/tmp/story-output');cues=json.loads((ROOT/'data/silma-shard-cues.json').read_text())['items']
@@ -99,4 +99,5 @@ elif mode=='activate':
  for r in catalog['apps']:
   if r['id']=='a4-story-language':r.update(version=bundle['version'],bytes=sum(f['bytes'] for f in updated),count=len(updated))
  write(catalog_path,catalog);print('Activated verified SILMA clips:',len(rows))
+elif mode=='inspect':pass
 else:raise SystemExit('Unknown mode')

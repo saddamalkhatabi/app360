@@ -1,0 +1,142 @@
+name: Complete Story SILMA with cropped teaching sounds
+on:
+  push:
+    branches: [preview/story-silma-20261018]
+    paths: [.github/workflows/complete-story-silma.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    outputs:
+      parts: ${{ steps.inspect.outputs.parts }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Reuse all successful Arabic batches and identify failed batches
+        id: inspect
+        run: |
+          python - <<'PYCODE'
+          import json,subprocess,time,os
+          for attempt in range(420):
+            data=json.loads(subprocess.check_output(['gh','api','repos/saddamalkhatabi/app360/actions/runs/39163353612/jobs?per_page=100']))
+            jobs=[j for j in data['jobs'] if j['name'].startswith('record (')]
+            if len(jobs)==20 and all(j['status']=='completed' for j in jobs):break
+            print('Waiting for original Arabic batches',flush=True);time.sleep(20)
+          else:raise RuntimeError('Original batches still incomplete')
+          failed=[int(j['name'].split('(')[1].split(')')[0]) for j in jobs if j['conclusion']!='success']
+          assert failed,'No failed batches to recover'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('parts='+json.dumps(failed)+'\n')
+          print('Recover narration only for failed batches:',failed)
+          PYCODE
+  record:
+    needs: inspect
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ${{ fromJSON(needs.inspect.outputs.parts) }}
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install established SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Cache publisher models and acoustic aligner
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          import os,pathlib,torchaudio
+          revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5'
+          snapshot_download(repo_id='silma-ai/silma-tts',revision=revision,allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True);p.write_text(revision)
+          torchaudio.pipelines.MMS_FA.get_model()
+          PY
+      - name: Record exact Arabic curriculum and measure new word timings
+        run: |
+          python apps/4-8/story-language-lab/tools/silma_story.py prepare ${{ matrix.part }} 20 --narration-only
+          python tooling/build-silma-audio.py --root apps/4-8/story-language-lab --manifest data/silma-shard.json --cues data/silma-shard-cues.json --report data/silma-shard-report.json --cache /tmp/story-silma-cache --model-cache "$HF_HOME/hub" --precision bf16
+          python apps/4-8/story-language-lab/tools/silma_story.py pack ${{ matrix.part }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-rescue-${{ matrix.part }}
+          path: /tmp/story-output/
+          if-no-files-found: error
+          retention-days: 7
+  english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Record additional English guidance locally
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir kokoro-onnx==0.6.1 soundfile numpy
+          mkdir -p /tmp/story-en-model
+          curl --fail --location --retry 3 --silent --show-error https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx -o /tmp/story-en-model/model.onnx
+          curl --fail --location --retry 3 --silent --show-error https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin -o /tmp/story-en-model/voices.bin
+          python apps/4-8/story-language-lab/tools/record_english_guides.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-rescue-english
+          path: /tmp/story-output/
+          if-no-files-found: error
+          retention-days: 7
+  activate:
+    needs: [inspect, record, english]
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/story-silma-20261018
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Collect verified original and recovered batches
+        run: gh run download 39163353612 --repo saddamalkhatabi/app360 --pattern 'story-silma-*' --dir /tmp/story-output
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: story-rescue-*
+          merge-multiple: true
+          path: /tmp/story-output/
+      - name: Derive phonics from SILMA carrier recordings and activate complete pack
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir uroman soundfile numpy
+          python apps/4-8/story-language-lab/tools/crop_story_sounds.py /tmp/story-output
+          python apps/4-8/story-language-lab/tools/silma_story.py activate /tmp/story-output
+          node --check apps/4-8/story-language-lab/app.js
+          npm test --prefix apps/4-8/story-language-lab
+      - name: Publish complete pack only on the review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/story-language-lab/app.js apps/4-8/story-language-lab/index.html apps/4-8/story-language-lab/audio/ apps/4-8/story-language-lab/data/stories.json apps/4-8/story-language-lab/data/stories.js apps/4-8/story-language-lab/data/audio-manifest.json apps/4-8/story-language-lab/data/read-along/ apps/4-8/story-language-lab/data/silma-validation.json data/offline/a4-story-language.json data/offline-catalog.json
+          git commit -m 'Activate complete SILMA story narration, phonics and contextual feedback'
+          git push origin HEAD:preview/story-silma-20261018
