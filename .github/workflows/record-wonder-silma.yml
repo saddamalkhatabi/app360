@@ -1,0 +1,94 @@
+name: Wonder Lab SILMA narration and measured word cues
+on:
+  push:
+    branches: [preview/wonder-silma-watch-20261018]
+    paths: [apps/4-8/wonder-experiment-lab/data/silma-regenerate.request]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: wonder-silma-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - name: Prepare exact Arabic utterances without duplicating repeated text
+        run: python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py prepare ${{ matrix.part }} 8
+      - name: Generate with the existing SILMA renderer
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-silma --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-shard.json --generate-only --memory-map-weights
+      - name: Measure actual word boundaries
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-silma --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-shard.json --align-only
+          --cues data/silma-shard-cues.json --report data/silma-shard-report.json
+      - name: Package this shard
+        run: python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py pack ${{ matrix.part }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wonder-silma-${{ matrix.part }}
+          path: /tmp/wonder-output/
+          if-no-files-found: error
+          retention-days: 7
+  activate:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wonder-silma-*
+          merge-multiple: true
+          path: /tmp/wonder-output/
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify all clips before replacing Arabic audio and timing together
+        run: python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py activate /tmp/wonder-output
+      - name: Refresh offline inventory
+        run: node tooling/build-offline-catalog.js
+      - name: Publish only to the review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/wonder-experiment-lab/audio/ apps/4-8/wonder-experiment-lab/data/audio-manifest.json apps/4-8/wonder-experiment-lab/data/read-along.json apps/4-8/wonder-experiment-lab/data/silma-validation.json data/offline/a4-wonder-lab.json data/offline-catalog.json
+          git commit -m 'Replace all Wonder Arabic narration with SILMA and measured word cues'
+          git push origin HEAD:${{ github.ref_name }}
