@@ -10,9 +10,11 @@ on:
       - apps/4-8/wonder-experiment-lab/app.js
       - apps/4-8/wonder-experiment-lab/src/watch.js
       - apps/4-8/wonder-experiment-lab/tools/qa-watch.cjs
+      - apps/4-8/wonder-experiment-lab/assets/teacher.svg
+      - apps/4-8/wonder-experiment-lab/test/watch-integration.test.cjs
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -27,6 +29,11 @@ jobs:
           node apps/4-8/wonder-experiment-lab/test/model.test.cjs
           node apps/4-8/wonder-experiment-lab/test/watch.test.cjs
           node apps/4-8/wonder-experiment-lab/test/watch-integration.test.cjs
+      - name: Refresh complete offline inventory
+        run: |
+          node tooling/build-offline-catalog.js
+          node tooling/refresh-reels-offline.js
+          node tooling/refresh-reels-offline.js --check
       - run: npm install --prefix /tmp/wonder-qa playwright@1.56.1
       - run: /tmp/wonder-qa/node_modules/.bin/playwright install --with-deps chromium
       - name: Check actual browser playback and responsive layout
@@ -39,3 +46,12 @@ jobs:
           name: wonder-viewing-qa
           path: wonder-qa-output/
           retention-days: 7
+      - name: Save verified offline inventory on preview branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline data/offline-catalog.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh offline inventory for Wonder teacher icon'
+            git push origin HEAD:preview/wonder-silma-watch-20261018
+          fi
