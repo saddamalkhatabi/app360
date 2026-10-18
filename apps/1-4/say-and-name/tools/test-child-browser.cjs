@@ -8,7 +8,7 @@ let browser,page;try{browser=await chromium.launch({headless:true,args:['--no-sa
 let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace('runtime-v19.js?v=26','runtime-v27.js?v=27');
 if(!html.includes('data/silma-map.js?v=27'))html=html.replace('<script src="runtime-v27.js','<script src="data/silma-map.js?v=27"></script>\n<script src="runtime-v27.js');
 if(!html.includes('id="childAudioHelpBtn"'))html=html.replace('<button id="helpBtn"','<button id="childAudioHelpBtn" class="help-btn" type="button">🔊 <span data-i18n="audioHelp">اسمع طريقة اللعب</span></button><button id="helpBtn"');
-html=html.split('\n').filter(line=>!['app360-family-sync-v1.js','app360-family-catalog-v1.js','app360-access-v1.js','legacy-compat.js','swal-modern-loader.js','app-pwa.js','offline-client-v1.js','ai-native-adapter.js'].some(name=>line.includes(name))).join('\n');
+html=html.split('\n').filter(line=>!['app360-family-sync-v1.js','app360-family-catalog-v1.js','app360-access-v1.js','legacy-compat.js','swal-modern-loader.js','app-pwa.js','offline-client-v1.js'].some(name=>line.includes(name))).join('\n');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'audio/silma-scripts.json'),'utf8')),data={words:{},senses:{},guides:{},spoken:{}};
 for(const r of manifest.items){data[{word:'words',sense:'senses',guide:'guides'}[r.kind]][r.key]=r.path;data.spoken[r.key]=r.spoken}
 await page.route('**/say-and-name/index.html*',r=>r.fulfill({contentType:'text/html',body:html}));await page.route('**/data/silma-map.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.APP360_SILMA='+JSON.stringify(data)+';'}));

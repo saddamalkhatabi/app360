@@ -8,9 +8,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "validate": "node tooling/validate-platform-active.js && node tooling/build-blueprints-active.js --check && node tooling/validate-app-links.js && node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js && node tooling/validate-shared-app-shell.js && node tooling/test-legacy-touch-guard.js && node tooling/validate-next-app-requirements.js && node tooling/validate-session-data.js && node tooling/validate-usage-dashboard.js",
+    "validate": "node tooling/validate-platform-active.js && node tooling/build-blueprints-active.js --check && node tooling/validate-app-links.js && node tooling/test-retired-ai.cjs && node tooling/validate-shared-app-shell.js && node tooling/test-legacy-touch-guard.js && node tooling/validate-next-app-requirements.js && node tooling/validate-session-data.js && node tooling/validate-usage-dashboard.js",
     "validate:links": "node tooling/validate-app-links.js",
-    "validate:ai": "node tooling/validate-ai-core.js && node tooling/test-first-words-ai-adapter.js",
     "validate:shell": "node tooling/validate-shared-app-shell.js && node tooling/test-legacy-touch-guard.js",
     "validate:prebuild": "node tooling/validate-next-app-requirements.js",
     "validate:session": "node tooling/validate-session-data.js",
@@ -29,6 +28,7 @@
     "build:offline": "node tooling/build-public-links.js && node tooling/build-offline-catalog.js",
     "test:offline": "node --test tooling/test-offline-platform.js",
     "build:links": "node tooling/build-public-links.js",
-    "test:access": "node tooling/test-access-browser.cjs"
+    "test:access": "node tooling/test-access-browser.cjs",
+    "validate:retired-ai": "node tooling/test-retired-ai.cjs"
   }
 }

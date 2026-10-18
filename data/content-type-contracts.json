@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-09-23",
+  "bundle_contract": {
+    "required": [
+      "schema_version",
+      "app_id",
+      "content_type",
+      "title",
+      "items"
+    ],
+    "optional": [
+      "assets",
+      "source",
+      "generator",
+      "notes"
+    ],
+    "asset_fields": [
+      "asset_id",
+      "file_name",
+      "mime_type",
+      "purpose",
+      "item_ref"
+    ]
+  },
+  "apps": [
+    {
+      "app_id": "a1-first-words",
+      "slug": "say-and-name",
+      "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "word_cards",
+          "label_ar": "بطاقات كلمات جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "level",
+            "category_ar",
+            "category_en",
+            "word_ar",
+            "word_en",
+            "speech_ar",
+            "speech_en",
+            "image_prompt",
+            "asset_ref",
+            "facilitator_note_ar"
+          ],
+          "required_item_fields": [
+            "id",
+            "level",
+            "category_ar",
+            "word_ar"
+          ]
+        },
+        {
+          "id": "word_category",
+          "label_ar": "تصنيف كلمات كامل",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "level",
+            "category_ar",
+            "category_en",
+            "words"
+          ],
+          "required_item_fields": [
+            "id",
+            "level",
+            "category_ar",
+            "words"
+          ]
+        }
+      ]
+    },
+    {
+      "app_id": "a1-imitate",
+      "slug": "imitate-one-step",
+      "title_ar": "دوري ودورك: قلّد حركة واحدة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "experience",
+          "label_ar": "تجربة تقليد/تبادل دور جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "level",
+            "family",
+            "title_ar",
+            "goal_ar",
+            "materials",
+            "energy",
+            "place",
+            "steps",
+            "storyboard_prompt",
+            "asset_ref",
+            "facilitator_note_ar"
+          ],
+          "required_item_fields": [
+            "id",
+            "level",
+            "family",
+            "title_ar",
+            "steps"
+          ]
+        }
+      ]
+    },
+    {
+      "app_id": "a1-screen-move",
+      "slug": "screen-to-move",
+      "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "game",
+          "label_ar": "لعبة إلكترونية جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "level",
+            "title_ar",
+            "game_type",
+            "instruction_ar",
+            "objects",
+            "correct_rule",
+            "hints",
+            "screen_steps",
+            "offline_variant_ar",
+            "worksheet_variant_ar",
+            "image_prompts",
+            "assets"
+          ],
+          "required_item_fields": [
+            "id",
+            "level",
+            "title_ar",
+            "game_type",
+            "instruction_ar"
+          ]
+        },
+        {
+          "id": "worksheet",
+          "label_ar": "ورقة تدريب/نشاط ورقي",
+          "supports_images": true,
+          "supports_audio_script": false,
+          "fields": [
+            "id",
+            "level",
+            "title_ar",
+            "instruction_ar",
+            "layout",
+            "items",
+            "print_notes_ar",
+            "image_prompts"
+          ],
+          "required_item_fields": [
+            "id",
+            "level",
+            "title_ar",
+            "instruction_ar",
+            "items"
+          ]
+        }
+      ]
+    },
+    {
+      "app_id": "a1-drawing-writing",
+      "slug": "drawing-writing-foundations",
+      "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "drawing_template",
+          "label_ar": "شكل/قالب رسم جديد",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "mode",
+            "title_ar",
+            "instruction_ar",
+            "difficulty",
+            "guide_type",
+            "guide_data",
+            "image_prompt",
+            "asset_ref",
+            "speech_ar"
+          ],
+          "required_item_fields": [
+            "id",
+            "mode",
+            "title_ar",
+            "instruction_ar"
+          ]
+        },
+        {
+          "id": "visual_stamp",
+          "label_ar": "صورة/ختم جديد للرسم",
+          "supports_images": true,
+          "supports_audio_script": false,
+          "fields": [
+            "id",
+            "category",
+            "title_ar",
+            "image_prompt",
+            "asset_ref",
+            "default_size"
+          ],
+          "required_item_fields": [
+            "id",
+            "category",
+            "title_ar",
+            "asset_ref"
+          ]
+        }
+      ]
+    },
+    {
+      "app_id": "a1-calm",
+      "slug": "calm-with-me",
+      "title_ar": "مشاعري معك: أحتاج مساعدة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "emotion_situation",
+          "label_ar": "موقف شعوري/سلوكي جديد",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "category",
+            "age_bands",
+            "title_ar",
+            "observe_ar",
+            "specific_ar",
+            "say_ar",
+            "first_steps_ar",
+            "release_ar",
+            "avoid_ar",
+            "image_prompt",
+            "asset_ref"
+          ],
+          "required_item_fields": [
+            "id",
+            "category",
+            "age_bands",
+            "title_ar",
+            "observe_ar",
+            "say_ar"
+          ]
+        },
+        {
+          "id": "help_option",
+          "label_ar": "مساعدة عمرية جديدة",
+          "supports_images": true,
+          "supports_audio_script": true,
+          "fields": [
+            "id",
+            "label_ar",
+            "category",
+            "speech_ar",
+            "age_bands",
+            "suggest_for",
+            "image_prompt",
+            "asset_ref"
+          ],
+          "required_item_fields": [
+            "id",
+            "label_ar",
+            "category",
+            "age_bands"
+          ]
+        }
+      ]
+    },
+    {
+      "app_id": "a1-plan-runner",
+      "slug": "plan-runner-360",
+      "title_ar": "مخطط جلسات 1–4: ابنِ ونفّذ خطة",
+      "age_group": "1-4",
+      "content_types": [
+        {
+          "id": "plan_template",
+          "label_ar": "نمط خطة تشغيل جديد",
+          "supports_images": false,
+          "supports_audio_script": false,
+          "fields": [
+            "id",
+            "age_band",
+            "title_ar",
+            "purpose_ar",
+            "steps"
+          ],
+          "required_item_fields": [
+            "id",
+            "age_band",
+            "title_ar",
+            "steps"
+          ]
+        }
+      ]
+    }
+  ]
+}
