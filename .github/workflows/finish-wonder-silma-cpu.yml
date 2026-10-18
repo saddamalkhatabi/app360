@@ -1,0 +1,142 @@
+name: Finish Wonder SILMA CPU batches
+on:
+  push:
+    branches: [preview/wonder-silma-watch-20261018]
+    paths: [apps/4-8/wonder-experiment-lab/data/silma-cpu-finish.request]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: wonder-silma-1
+          run-id: 39146147293
+          github-token: ${{ github.token }}
+          path: /tmp/complete/
+      - uses: actions/download-artifact@v4
+        with:
+          name: wonder-silma-3
+          run-id: 39146147293
+          github-token: ${{ github.token }}
+          path: /tmp/complete/
+      - uses: actions/download-artifact@v4
+        with:
+          name: wonder-silma-5
+          run-id: 39146147293
+          github-token: ${{ github.token }}
+          path: /tmp/complete/
+      - name: Verify preserved narration count
+        run: |
+          python - <<'PYCODE'
+          import json,pathlib
+          assert sum(len(json.loads(p.read_text())) for p in pathlib.Path('/tmp/complete/cues').glob('part-*.json'))==302
+          print('302 complete unique utterances and their exact timing preserved')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wonder-silma-preserved
+          path: /tmp/complete/
+          retention-days: 7
+      - name: Free the slow unfinished CPU run after preserving every completed part
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/saddamalkhatabi/app360/actions/runs/39146147293/cancel
+  record:
+    needs: preserve
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        part: [0, 2, 4, 6, 7]
+        slice: [0, 1, 2, 3]
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - name: Prepare only the unfinished text slice
+        run: |
+          python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py prepare ${{ matrix.part }} 8 ${{ matrix.slice }} 4
+          python - <<'PYCODE'
+          import pathlib,json
+          root=pathlib.Path('apps/4-8/wonder-experiment-lab')
+          for row in json.loads((root/'data/silma-shard.json').read_text())['items']:
+              (root/row['path']).unlink(missing_ok=True)
+          script=pathlib.Path('tooling/build-silma-audio.py')
+          script.write_text(script.read_text().replace('torch.set_num_threads(2)','torch.set_num_threads(max(1,min(4,os.cpu_count() or 2)))'))
+          PYCODE
+      - name: Record the small CPU slice with SILMA FP32
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-silma --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-shard.json --generate-only --memory-map-weights --precision fp32
+      - name: Measure the actual word boundaries
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/wonder-experiment-lab
+          --cache /tmp/wonder-silma --model-cache /tmp/silma-hf/hub
+          --manifest data/silma-shard.json --align-only
+          --cues data/silma-shard-cues.json --report data/silma-shard-report.json
+      - run: python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py pack ${{ matrix.part }}-${{ matrix.slice }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wonder-silma-cpu-${{ matrix.part }}-${{ matrix.slice }}
+          path: /tmp/wonder-output/
+          if-no-files-found: error
+          retention-days: 7
+  activate:
+    needs: [preserve, record]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+      - uses: actions/download-artifact@v4
+        with:
+          name: wonder-silma-preserved
+          path: /tmp/wonder-output/
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wonder-silma-cpu-*
+          merge-multiple: true
+          path: /tmp/wonder-output/
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Validate complete sound and timing before activation
+        run: python apps/4-8/wonder-experiment-lab/tools/silma-wonder.py activate /tmp/wonder-output
+      - run: node tooling/build-offline-catalog.js
+      - name: Publish the complete narration to review only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/wonder-experiment-lab/audio/ apps/4-8/wonder-experiment-lab/data/audio-manifest.json apps/4-8/wonder-experiment-lab/data/read-along.json apps/4-8/wonder-experiment-lab/data/silma-validation.json data/offline/a4-wonder-lab.json data/offline-catalog.json
+          git commit -m 'Activate all Wonder SILMA Arabic narration with measured word timing'
+          git push origin HEAD:${{ github.ref_name }}

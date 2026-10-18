@@ -8,6 +8,7 @@ groups={}
 for r in rows:groups.setdefault(r['text'],[]).append(r)
 if mode=='prepare':
  part=int(sys.argv[2]);parts=int(sys.argv[3]); selected=[v[0] for i,v in enumerate(groups.values()) if i%parts==part]
+ if len(sys.argv)>4:selected=selected[int(sys.argv[4])::int(sys.argv[5])]
  (ROOT/'data/silma-shard.json').write_text(json.dumps({'items':selected},ensure_ascii=False))
  print('Unique utterances in shard:',len(selected))
 elif mode=='pack':
@@ -21,7 +22,7 @@ elif mode=='activate':
  for p in sorted((source/'cues').glob('part-*.json')):allcues.update(json.loads(p.read_text()))
  assert len(allcues)==len(groups),(len(allcues),len(groups))
  reports=[json.loads(p.read_text()) for p in sorted((source/'cues').glob('report-*.json'))]
- assert len(reports)==8,len(reports)
+ assert len(reports)>=8,len(reports)
  metrics={m['path']:m for r in reports for m in r['clips']}
  assert len(metrics)==len(groups),(len(metrics),len(groups))
  old=json.loads((ROOT/'data/read-along.json').read_text());audio=[]
