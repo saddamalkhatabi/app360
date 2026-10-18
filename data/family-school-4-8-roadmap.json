@@ -54,9 +54,6 @@
     "a4-maker-solutions",
     "a4-command-path",
     "a4-cooperate",
-    "a4-responsibility",
-    "a4-movement",
-    "a4-play-coach",
     "a4-session-planner"
   ],
   "readiness_tracks": [
@@ -193,54 +190,6 @@
       ],
       "prebuild_path": "apps/4-8/cooperative-play-lab/PREBUILD_REQUIREMENTS_AR.md",
       "content_seed_path": "apps/4-8/cooperative-play-lab/CONTENT_SEEDS.json"
-    },
-    {
-      "id": "a4-responsibility",
-      "slug": "my-responsibility-board",
-      "title_ar": "مهامي باختياري: أبدأ وأنهي وأراجع",
-      "audience": "shared",
-      "from_apps": [
-        "a1-routine",
-        "a1-calm",
-        "a1-first-words"
-      ],
-      "toward_apps": [
-        "a8-habits",
-        "a8-empathy"
-      ],
-      "prebuild_path": "apps/4-8/my-responsibility-board/PREBUILD_REQUIREMENTS_AR.md",
-      "content_seed_path": "apps/4-8/my-responsibility-board/CONTENT_SEEDS.json"
-    },
-    {
-      "id": "a4-movement",
-      "slug": "movement-missions",
-      "title_ar": "مغامرات الحركة: قاعدة ومسار وتوازن",
-      "audience": "shared",
-      "from_apps": [
-        "a1-imitate",
-        "a1-screen-move",
-        "a1-sensory"
-      ],
-      "toward_apps": [
-        "a8-habits"
-      ],
-      "prebuild_path": "apps/4-8/movement-missions/PREBUILD_REQUIREMENTS_AR.md",
-      "content_seed_path": "apps/4-8/movement-missions/CONTENT_SEEDS.json"
-    },
-    {
-      "id": "a4-play-coach",
-      "slug": "playful-learning-coach",
-      "title_ar": "مدرب اللعب والتعلّم: ألاحظ وأكيّف",
-      "audience": "coach",
-      "from_apps": [
-        "a1-calm",
-        "a1-plan-runner"
-      ],
-      "toward_apps": [
-        "a8-coach"
-      ],
-      "prebuild_path": "apps/4-8/playful-learning-coach/PREBUILD_REQUIREMENTS_AR.md",
-      "content_seed_path": "apps/4-8/playful-learning-coach/CONTENT_SEEDS.json"
     },
     {
       "id": "a4-session-planner",

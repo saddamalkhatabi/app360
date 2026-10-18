@@ -1,15 +1,39 @@
 {
-  "schema_version":"1.0",
-  "updated":"2026-09-27",
-  "apps":[
+  "schema_version": "1.0",
+  "updated": "2026-10-18",
+  "apps": [
     {
-      "id":"a1-parent-play",
-      "slug":"responsive-play-coach",
-      "title_ar":"رفيق المرافق: خطط جلسة لعب مستجيبة",
-      "retired_on":"2026-09-27",
-      "merged_into":"a1-plan-runner",
-      "replacement_path":"apps/1-4/plan-runner-360/index.html?v=2",
-      "reason_ar":"وظائف الجلسة المستجيبة أصبحت جزءًا أصيلًا من مخطط جلسات 1–4، لذلك حُذف المجلد المستقل ومنعت أدوات البناء والتحقق من إعادة إنشائه."
+      "id": "a1-parent-play",
+      "slug": "responsive-play-coach",
+      "title_ar": "رفيق المرافق: خطط جلسة لعب مستجيبة",
+      "retired_on": "2026-09-27",
+      "merged_into": "a1-plan-runner",
+      "replacement_path": "apps/1-4/plan-runner-360/index.html?v=2",
+      "reason_ar": "وظائف الجلسة المستجيبة أصبحت جزءًا أصيلًا من مخطط جلسات 1–4، لذلك حُذف المجلد المستقل ومنعت أدوات البناء والتحقق من إعادة إنشائه."
+    },
+    {
+      "id": "a4-responsibility",
+      "slug": "my-responsibility-board",
+      "title_ar": "مهامي باختياري: أبدأ وأنهي وأراجع",
+      "retired_on": "2026-10-18",
+      "reason_ar": "رفض المستخدم التطبيق نهائيًا وطلب حذف المجلد والخطة والروابط؛ البدائل تنتظر مراجعة تقرير العمال الخمسة.",
+      "replacement_path": null
+    },
+    {
+      "id": "a4-movement",
+      "slug": "movement-missions",
+      "title_ar": "مغامرات الحركة: قاعدة ومسار وتوازن",
+      "retired_on": "2026-10-18",
+      "reason_ar": "رفض المستخدم التطبيق نهائيًا وطلب حذف المجلد والخطة والروابط؛ البدائل تنتظر مراجعة تقرير العمال الخمسة.",
+      "replacement_path": null
+    },
+    {
+      "id": "a4-play-coach",
+      "slug": "playful-learning-coach",
+      "title_ar": "مدرب اللعب والتعلّم: ألاحظ وأكيّف",
+      "retired_on": "2026-10-18",
+      "reason_ar": "رفض المستخدم التطبيق نهائيًا وطلب حذف المجلد والخطة والروابط؛ البدائل تنتظر مراجعة تقرير العمال الخمسة.",
+      "replacement_path": null
     }
   ]
 }
