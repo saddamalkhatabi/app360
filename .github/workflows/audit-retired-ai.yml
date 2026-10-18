@@ -1,0 +1,22 @@
+name: Audit retired AI content tool
+on:
+  push:
+    branches: [preview/wonder-silma-watch-20261018]
+    paths: [.github/workflows/audit-retired-ai.yml]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find runtime and build references
+        run: |
+          git grep -n -E 'ai-content-studio|ai-account-bridge|ai-native-adapter|APP360_AI_CONTENT|APP360_AI_WORD_IMAGES|ai-content-contracts|validate-ai-core|test-first-words-ai' -- ':!data/offline*' ':!*.md' ':!*.json' ':!pnpm-lock.yaml' ':!.github/workflows/audit-retired-ai.yml' || true
+      - name: Package text source for review
+        run: |
+          git ls-files | python3 -c 'import sys,zipfile; z=zipfile.ZipFile("/tmp/ai-source.zip","w",zipfile.ZIP_DEFLATED); [z.write(p) for p in (s.strip() for s in sys.stdin) if p.endswith((".js",".cjs",".json",".html",".yml",".md")) and not any(x in p for x in ("/audio/","/images/","/assets/","read-along","silma-validation","offline-targets","offline-catalog"))]; z.close()'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-source-review
+          path: /tmp/ai-source.zip
