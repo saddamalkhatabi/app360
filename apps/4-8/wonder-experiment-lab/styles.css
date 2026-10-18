@@ -19,3 +19,10 @@ body #app360HomeBtn{position:static!important;right:auto!important;left:auto!imp
 
 /* Child-operated SVG examples supplement the existing story scenes. */
 .motion-lab{padding:12px 16px;background:#f3f6eb;border:1px solid #c7d8bf;border-radius:18px;margin:20px 0}.motion-lab>summary{font-weight:bold;color:#245e56}.motion-diagram{max-width:600px;margin:12px auto}.motion-diagram svg{width:100%;height:auto;display:block;direction:ltr}.motion-conditions button{flex:1;min-width:120px}.motion-status{padding:12px;background:#fffdf4;border-radius:12px;min-height:52px}.motion-lab>small{display:block}.motion-lab>div.row>button{min-height:48px}@media(max-width:699px){.motion-lab{padding:10px}.motion-conditions button{font-size:14px;min-width:110px}}
+
+/* Narration visibility is independent of navigation and picture choices. */
+body[data-captions="off"] .ra-text,body[data-captions="off"] .story-caption,body[data-captions="off"] .instruction p,body[data-captions="off"] .spoken{display:none!important}
+.story-caption{font-size:clamp(21px,3vw,30px);font-size:24px;line-height:1.9;background:#fffdf1;border:2px solid #d5a83e;padding:12px 18px;border-radius:18px;text-align:center;color:#173f42}
+.ra-token.ra-active{background:#ffe074!important;color:#162f33!important;box-shadow:0 2px 0 #a86600;border-radius:5px;text-decoration:underline;text-decoration-thickness:2px}
+.watch-launch{background:#e7f5ef}.watch-progress{background:#e7f5ef;border-radius:12px;padding:8px 14px}.watch-lab .story-stage{max-width:880px;margin:auto}.watch-caption{min-height:64px}.watch-finished{text-align:center}.watch-finished button{margin:6px}
+@media(max-width:560px){.watch-lab .story-controls button{flex:1 1 42%;font-size:15px}.story-caption{font-size:21px;padding:10px}.top{padding:8px}.top .row{width:100%}.top button{font-size:13px;padding:8px}}
