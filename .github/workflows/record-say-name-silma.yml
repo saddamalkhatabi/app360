@@ -82,7 +82,7 @@ jobs:
           node --check apps/1-4/say-and-name/runtime-v27.js
           node apps/1-4/say-and-name/tools/test-recorded-player.cjs
           npm run validate --prefix apps/1-4/say-and-name
-          node tooling/test-first-words-ai-adapter.js
+          node tooling/test-retired-ai.cjs
           node tooling/build-offline-catalog.js
       - name: Publish complete verified vocabulary to its original folder
         run: |
