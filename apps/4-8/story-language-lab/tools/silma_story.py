@@ -77,7 +77,7 @@ elif mode=='activate':
  write(ROOT/'data/stories.json',content)
  (ROOT/'data/stories.js').write_text('window.STORY_DATA='+json.dumps(content,ensure_ascii=False,separators=(',',':'))+';\n')
  shutil.copy2(TARGET/'app.js',ROOT/'app.js')
- manifest['narrators']={'ar':'SILMA 1.0.5; publisher reference','en':'en-US-JennyNeural'}
+ manifest['narrators']={'ar':'SILMA 1.0.5; publisher reference','en':'Existing Jenny narration; new guides Kokoro af_heart'}
  manifest['sound_engine']='Arabic SILMA 1.0.5; English existing eSpeak phonetic examples.'
  write(ROOT/'data/audio-manifest.json',manifest)
  for lang in ['ar','en']:
