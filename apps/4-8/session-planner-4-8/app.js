@@ -17,5 +17,17 @@ function add(step){if(C.state.steps.length>=8){C.notice('لنكتف بثماني
 function move(n,delta){var a=C.state.steps,to=n+delta;if(to<0||to>=a.length)return;var x=a[n];a[n]=a[to];a[to]=x;C.save();render()}
 function digitalChoice(index){var a=L[index];C.state.steps[0]={kind:'digital',slug:a.slug,title:a.title,scene:a.scene,role:'child'};C.save();render()}
 C.validateImport=function(s){return ['creative','gate','home','build','run','pause','coachGate','review','saved','history'].indexOf(s.screen)>=0&&Object.prototype.toString.call(s.steps)==='[object Array]'&&s.steps.length<=8&&s.steps.every(function(x){return ['digital','real','rest','review'].indexOf(x.kind)>=0&&typeof x.title==='string'&&(!x.slug||L.some(function(a){return a.slug===x.slug}))})&&s.current>=0&&(s.steps.length===0||s.current<s.steps.length)&&typeof s.goal==='string'&&typeof s.reflection==='string'&&typeof s.adjustment==='string'&&s.template>=0&&s.template<T.length&&Object.prototype.toString.call(s.completed)==='[object Array]'&&(s.screen!=='run'||s.steps.length>0)};
-C.printHTML=function(){var s=C.state,h='<h1>'+e(s.title)+'</h1><p>هدفنا: '+e(s.goal)+'</p>';s.steps.forEach(function(x){h+='<div class="step">□ '+e(x.title)+'</div>'});return h+'<p>المراجعة: '+e(s.reflection)+'</p><p>المرة القادمة: '+e(s.adjustment)+'</p>'};C.init('a4-session-planner',initial,render);
+C.printHTML=function(){var s=C.state,h='<h1>'+e(s.title)+'</h1><p>هدفنا: '+e(s.goal)+'</p>';s.steps.forEach(function(x){h+='<div class="step">□ '+e(x.title)+'</div>'});return h+'<p>المراجعة: '+e(s.reflection)+'</p><p>المرة القادمة: '+e(s.adjustment)+'</p>'};C.migrate=function(s){
+ if(!s||Object.prototype.toString.call(s.steps)!=='[object Array]')return s;
+ var retired=['my-responsibility-board','movement-missions','playful-learning-coach'];
+ function active(step){return step&&retired.indexOf(step.slug)<0}
+ var previous=s.steps,current=s.current||0,removedBefore=0,i;
+ for(i=0;i<Math.min(current,previous.length);i++)if(!active(previous[i]))removedBefore++;
+ s.steps=previous.filter(active);s.current=Math.max(0,Math.min(current-removedBefore,s.steps.length-1));
+ if(Object.prototype.toString.call(s.history)==='[object Array]')s.history.forEach(function(a){if(a&&Object.prototype.toString.call(a.steps)==='[object Array]')a.steps=a.steps.filter(active)});
+ if(!s.steps.length&&['run','pause','review','coachGate','saved'].indexOf(s.screen)>=0)s.screen='gate';
+ if(s.steps.length!==previous.length){s.completed=[];s.retirement_adjustment=true}
+ return s;
+};
+C.init('a4-session-planner',initial,render);
 })(window,document);

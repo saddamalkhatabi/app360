@@ -29,6 +29,13 @@ const primary = palette[age] || '#0f8f8a';
 const root = path.resolve(__dirname, '..');
 const template = path.join(root, 'apps', '_template');
 const target = path.join(root, 'apps', age, slug);
+const retiredFile = path.join(root, 'data', 'retired-apps.json');
+const retiredApps = fs.existsSync(retiredFile) ? JSON.parse(fs.readFileSync(retiredFile, 'utf8')).apps || [] : [];
+if (retiredApps.some(app => app.slug === slug)) {
+  console.error('This app was retired by an explicit user decision; update that decision before scaffolding it again:', slug);
+  process.exit(1);
+}
+
 let blueprint = null;
 if (fs.existsSync(target)) {
   const manifestFile = path.join(target, 'app.json');
