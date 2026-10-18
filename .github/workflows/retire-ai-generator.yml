@@ -24,7 +24,10 @@ jobs:
           node apps/4-8/wonder-experiment-lab/test/watch.test.cjs
           node apps/4-8/wonder-experiment-lab/test/watch-integration.test.cjs
       - name: Refresh offline inventories from complete repository
-        run: node tooling/build-offline-catalog.js
+        run: |
+          node tooling/build-offline-catalog.js
+          node tooling/refresh-reels-offline.js
+          node tooling/refresh-reels-offline.js --check
       - name: Verify offline inventory integrity
         run: |
           node - <<'JS'
