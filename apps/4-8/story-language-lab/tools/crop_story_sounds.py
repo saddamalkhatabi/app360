@@ -1,8 +1,14 @@
 """Use real SILMA word boundaries for chunks; reuse authored SILMA CV sounds."""
-import hashlib,json,pathlib,re,runpy,subprocess,sys,tempfile
+import hashlib,json,pathlib,re,runpy,subprocess,sys,tempfile,shutil
 import numpy as np,soundfile as sf,torch,torchaudio
 from uroman import Uroman
-ROOT=pathlib.Path(__file__).resolve().parents[1];source=pathlib.Path(sys.argv[1]);sys.argv=['silma_story.py','inspect'];state=runpy.run_path(str(ROOT/'tools/silma_story.py'));groups=state['groups'];by_path={r['path']:g for g in groups.values() for r in g};data=state['content'];cues={}
+ROOT=pathlib.Path(__file__).resolve().parents[1];source=pathlib.Path(sys.argv[1])
+# gh run download preserves one folder per original artifact; flatten them
+# before merging with actions/download-artifact's merge-multiple output.
+for artifact in list(source.glob('story-silma-*')):
+ if artifact.is_dir():
+  shutil.copytree(artifact,source,dirs_exist_ok=True);shutil.rmtree(artifact)
+sys.argv=['silma_story.py','inspect'];state=runpy.run_path(str(ROOT/'tools/silma_story.py'));groups=state['groups'];by_path={r['path']:g for g in groups.values() for r in g};data=state['content'];cues={}
 for p in (source/'cues').glob('part-*.json'):cues.update(json.loads(p.read_text()))
 repo=ROOT.parents[2];shared=repo/'apps/1-4/screen-to-move';pd=json.loads((shared/'phonics-data-v30.js').read_text().split('=',1)[1].rstrip(';\n'));proof=json.loads((shared/'audio/phonics-validation.json').read_text());assert proof['engine']=='SILMA'
 cv={r['text']:r['id'] for r in pd['records'] if r['stage']=='short'};proofs={r['id']:r for r in proof['items']};torch.set_num_threads(2)
