@@ -8,9 +8,9 @@
   "prebuild_path": "apps/4-8/session-planner-4-8/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/session-planner-4-8/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
-  "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "version": 2,
+  "status": "live",
+  "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
   "goal_keys": [
     "coach-4-8-channel-energy-focus-and-transitions",
@@ -29,12 +29,37 @@
     "pwa.offline",
     "compat.legacy-web",
     "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "audio.tts"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر فئة 4–8 وهدفًا واحدًا أو ناتجًا واضحًا مع الطفل ← كوّن المسار من نشاط منشور وخطوة واقعية واستراحة أو مراجعة ← اختر ما يفتح للطفل وما يبقى في جهاز المدرب ونفذ انتقالات متوقعة ← أوقف أو اختصر عند الحاجة ثم احفظ تعديلًا واحدًا لجلسة لاحقة",
   "blueprint_path": "apps/4-8/session-planner-4-8/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/session-planner-4-8/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/session-planner-4-8/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#2f8f5b",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/session-planner-4-8/icon-192.png",
+      "apps/4-8/session-planner-4-8/icon-512.png"
+    ]
+  },
+  "release_channel": "preview",
+  "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+  "storage": {
+    "schema_version": 1,
+    "profile_scoped": true,
+    "key": "app360:a4-session-planner:schema-1:<profile>"
+  },
+  "audio_status": "device-tts; dedicated SILMA recordings pending; word tracking only on actual supported boundary events",
+  "launch_path": "apps/4-8/session-planner-4-8/launch.html",
+  "links_path": "apps/4-8/session-planner-4-8/links.json",
+  "creative_prototype": {
+    "title_ar": "خريطة الرحلة التي أصنعها",
+    "practice_ar": "اختيارات الطفل تصنع مسارًا متفرعًا، وتحول الاستراحة أو تغيير الوسيلة إلى تعديل حقيقي في الجلسة.",
+    "sample_count": 1,
+    "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+  }
 }

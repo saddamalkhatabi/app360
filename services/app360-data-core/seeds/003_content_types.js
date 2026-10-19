@@ -2,11 +2,10 @@
 var fs=require('fs');
 var path=require('path');
 exports.seed=async function(knex){
-  var p=path.resolve(__dirname,'../../../data/ai-content-contracts.json');
+  var p=path.resolve(__dirname,'../../../data/content-type-contracts.json');
   var contracts=JSON.parse(fs.readFileSync(p,'utf8'));
   await knex('content_types').del();
   var rows=[],apps=contracts.apps||[],i,j,a,t,base=[
-    {id:'ai_pack',label_ar:'حزمة AI شخصية',supports_images:true,supports_audio_script:true},
     {id:'user_input',label_ar:'مدخل مستخدم محفوظ',supports_images:true,supports_audio_script:false},
     {id:'user_artifact',label_ar:'مخرج أو تصميم شخصي',supports_images:true,supports_audio_script:false}
   ];

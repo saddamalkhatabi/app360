@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.1",
+  "app_id": "a4-session-planner",
+  "title_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
+  "base_path": "apps/4-8/session-planner-4-8/",
+  "app_href": "apps/4-8/session-planner-4-8/index.html",
+  "launch_path": "apps/4-8/session-planner-4-8/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "session-planner-4-8",
+      "kind": "category",
+      "label_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
+      "href": "apps/4-8/session-planner-4-8/launch.html"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ]
+}

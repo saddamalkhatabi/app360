@@ -1,0 +1,46 @@
+{
+  "engine": "silma-tts",
+  "package_version": "1.0.5",
+  "model": "silma-ai/silma-tts",
+  "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+  "network": "Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports",
+  "diacritization": "Authored tashkeel; unused CATT/ONNX backend excluded from process",
+  "reference": "publisher bundled ar.ref.24k.wav",
+  "seed": 360,
+  "steps": 16,
+  "precision": "CPU BF16, Float32 waveform",
+  "speed": 0.95,
+  "alignment": "torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy",
+  "clips": [
+    {
+      "path": "audio/ar-number-11.mp3",
+      "mean_alignment_score": 0.954,
+      "duration_ms": 1100
+    },
+    {
+      "path": "audio/ar-number-12.mp3",
+      "mean_alignment_score": 0.8859,
+      "duration_ms": 1100
+    },
+    {
+      "path": "audio/ar-number-13.mp3",
+      "mean_alignment_score": 0.8782,
+      "duration_ms": 1130
+    },
+    {
+      "path": "audio/ar-number-14.mp3",
+      "mean_alignment_score": 0.7559,
+      "duration_ms": 1226
+    },
+    {
+      "path": "audio/ar-number-15.mp3",
+      "mean_alignment_score": 0.8458,
+      "duration_ms": 1113
+    },
+    {
+      "path": "audio/ar-number-16.mp3",
+      "mean_alignment_score": 0.9616,
+      "duration_ms": 1100
+    }
+  ]
+}

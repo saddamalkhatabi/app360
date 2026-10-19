@@ -1,0 +1,1 @@
+window.WONDER_NUMBER_SILMA_READY=true;

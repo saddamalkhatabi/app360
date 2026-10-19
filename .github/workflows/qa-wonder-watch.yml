@@ -1,0 +1,57 @@
+name: Check Wonder continuous viewing
+on:
+  push:
+    branches: [preview/wonder-silma-watch-20261018]
+    paths:
+      - .github/workflows/qa-wonder-watch.yml
+      - apps/4-8/wonder-experiment-lab/index.html
+      - apps/4-8/wonder-experiment-lab/styles.css
+      - apps/4-8/wonder-experiment-lab/src/model.js
+      - apps/4-8/wonder-experiment-lab/app.js
+      - apps/4-8/wonder-experiment-lab/src/watch.js
+      - apps/4-8/wonder-experiment-lab/tools/qa-watch.cjs
+      - apps/4-8/wonder-experiment-lab/assets/teacher.svg
+      - apps/4-8/wonder-experiment-lab/test/watch-integration.test.cjs
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check experiment records and viewing integration
+        run: |
+          node apps/4-8/wonder-experiment-lab/test/model.test.cjs
+          node apps/4-8/wonder-experiment-lab/test/watch.test.cjs
+          node apps/4-8/wonder-experiment-lab/test/watch-integration.test.cjs
+      - name: Refresh complete offline inventory
+        run: |
+          node tooling/build-offline-catalog.js
+          node tooling/refresh-reels-offline.js
+          node tooling/refresh-reels-offline.js --check
+      - run: npm install --prefix /tmp/wonder-qa playwright@1.56.1
+      - run: /tmp/wonder-qa/node_modules/.bin/playwright install --with-deps chromium
+      - name: Check actual browser playback and responsive layout
+        env:
+          NODE_PATH: /tmp/wonder-qa/node_modules
+        run: node apps/4-8/wonder-experiment-lab/tools/qa-watch.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wonder-viewing-qa
+          path: wonder-qa-output/
+          retention-days: 7
+      - name: Save verified offline inventory on preview branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline data/offline-catalog.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh offline inventory for Wonder teacher icon'
+            git push origin HEAD:preview/wonder-silma-watch-20261018
+          fi

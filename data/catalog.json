@@ -1765,148 +1765,6 @@
       "cover_small_fallback": "assets/covers/a4-wonder-lab-v2-320.jpg"
     },
     {
-      "id": "a4-maker-solutions",
-      "slug": "maker-solutions-lab",
-      "title_ar": "ورشة الحلول: أصنع وأحسّن",
-      "age_group": "4-8",
-      "status": "planned",
-      "kind": "goal_aligned",
-      "priority": 2,
-      "build_order": 6,
-      "description_ar": "مشروعات صغيرة لحل مشكلة يلاحظها الطفل: حامل كتاب أو بيت لدمية أو مسار كرة كبيرة. يحدد شرط النجاح، يختار المواد، يصنع نموذجًا، يختبره ويعدله. تصميم على الشاشة وخطة مواد وورقة عمل لنشاط الواقع، مع معرض للمحاولات لا مسابقة أجمل منتج.",
-      "practice_model": "اختر مشكلة من البيت أو اللعب وحدد شرطًا قابلًا للملاحظة ← صمم بفكرة مرسومة واختر مواد كبيرة آمنة مع المدرب ← اصنع النموذج الأول واختبره بالشرط نفسه ← غيّر جزءًا واحدًا واحفظ مقارنة النموذجين والخطوة التالية",
-      "audience": "shared",
-      "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
-      "goal_keys": [
-        "learner-4-8-curiosity-science-and-first-maker-projects",
-        "learner-4-8-creativity-art-storytelling-and-expression",
-        "coach-4-8-teach-through-play-projects-and-feedback"
-      ],
-      "tags": [
-        "ورشة الحلول",
-        "استعداد متدرج",
-        "شاشة وواقع",
-        "نتيجة عملية",
-        "ممارسة الطفل"
-      ],
-      "runtime_profile": "legacy-web",
-      "depth": "advanced",
-      "capabilities": [
-        "storage.local",
-        "pwa.offline",
-        "compat.legacy-web",
-        "ui.responsive-maturity",
-        "practice.core"
-      ],
-      "bundles": [
-        "static-core"
-      ],
-      "offline_mode": "offline-first",
-      "goal_links": [
-        {
-          "goal_key": "learner-4-8-curiosity-science-and-first-maker-projects",
-          "relationship": "supports",
-          "rationale_ar": "التصميم والبناء والاختبار والتحسين",
-          "evidence_ar": "نموذجان واختبار واحد ثابت",
-          "delivery": "planned"
-        },
-        {
-          "goal_key": "learner-4-8-creativity-art-storytelling-and-expression",
-          "relationship": "supports",
-          "rationale_ar": "رسم الحل وتبرير تغييره",
-          "evidence_ar": "مخطط مع معنى",
-          "delivery": "planned"
-        },
-        {
-          "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
-          "relationship": "supports",
-          "rationale_ar": "مراجعة عملية واحدة قابلة للتنفيذ",
-          "evidence_ar": "ملاحظة المدرب وتعديل الطفل",
-          "delivery": "planned"
-        }
-      ],
-      "blueprint": {
-        "version": 2,
-        "output_ar": "نموذجان متعاقبان لحل مشكلة واحدة، مع اختبار موثق وتفسير ما عُدّل ولماذا.",
-        "mvp_steps_ar": [
-          "اختر مشكلة من البيت أو اللعب وحدد شرطًا قابلًا للملاحظة",
-          "صمم بفكرة مرسومة واختر مواد كبيرة آمنة مع المدرب",
-          "اصنع النموذج الأول واختبره بالشرط نفسه",
-          "غيّر جزءًا واحدًا واحفظ مقارنة النموذجين والخطوة التالية"
-        ],
-        "acceptance_ar": [
-          "تبقى نسخة النموذج الأول محفوظة عند إنتاج الثاني",
-          "لا يقبل مشروعًا دون مشكلة وشرط اختبار وملاحظة",
-          "الخطة المطبوعة تعرض نفس المواد والخطوات المحددة على الشاشة"
-        ],
-        "audience_ar": "للطفل والمدرب معًا — الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
-        "age_adaptation_ar": "مدخل: بناء من قالب ومادة واحدة مع المدرب / ممارسة: اختيار بين مادتين أو تصميمين واختبار شرط / توسع: شرطا تصميم وتعديل بعد ملاحظة استخدام شخص آخر؛ لا أداة حادة مستقلة",
-        "feedback_ar": "التغذية الراجعة مرتبطة بالناتج والمحاولة والاستراتيجية والمساعدة. الخطأ مادة للتجريب، ولا حكم آلي على النطق أو الخط أو الشخصية أو النمو؛ لا مقارنة أطفال أو ترتيب تنافسي.",
-        "data_model": [
-          "schema_version",
-          "profile_ref",
-          "session_id",
-          "readiness_track",
-          "assistance_level",
-          "problem_id",
-          "user_need",
-          "design_constraints",
-          "materials",
-          "prototype_versions",
-          "test_protocol",
-          "test_notes",
-          "change_reason"
-        ],
-        "boundary_ar": "خطة بناء فقط. النسخة الأولى بمحتوى محلي مراجع، بلا ذكاء اصطناعي إلزامي أو رفع تلقائي أو مشتريات؛ الهوية السحابية ومشاركة الأسرة امتداد لاحق بعقود المنصة.",
-        "reference_ids": [
-          "naeyc-dap"
-        ],
-        "design_basis_ar": "تصميم مستقل لمدرسة العائلة 360 انطلاقًا من نضج تطبيقات 1–4؛ المراجع مبادئ تصميم وليست إثباتًا لأثر منتجاتنا. مستوى الاستعداد قابل للتغيير ولا يربط النجاح بعمر رقمي جامد.",
-        "experience_tracks_ar": [
-          "مدخل: بناء من قالب ومادة واحدة مع المدرب",
-          "ممارسة: اختيار بين مادتين أو تصميمين واختبار شرط",
-          "توسع: شرطا تصميم وتعديل بعد ملاحظة استخدام شخص آخر؛ لا أداة حادة مستقلة"
-        ],
-        "shared_infrastructure_ar": [
-          "إعادة استخدام جلسة العائلة وهوية المستخدم والفئة العمرية من API المنصة؛ الفئة تحدد العرض والاستعداد يحدد مستوى المهمة.",
-          "التخزين Local-first بهوية التطبيق وschema مستقل؛ حفظ واسترجاع وتصدير وحذف، مع وضع ذاكرة مؤقتة وتنبيه عند رفض التخزين.",
-          "مكتبة الصور والصوت مرجعية؛ لا نسخ للأصول ولا استيراد لكود تطبيق حي. أي استخراج لمحرك مشترك يبدأ بعقد واختبارات عدم كسر المستهلكين.",
-          "الطباعة والواجهة من نموذج بيانات واحد، والأزرار بديل للسحب، وTouch Guard يفرق Tap من Scroll.",
-          "أعد استخدام نموذج عناصر الرسم والطباعة بعد استخراجه بعقد مشترك؛ لا تستورد كود تطبيق حي",
-          "دفتر الملاحظة يتبادل مرجع مشروع مع مختبر لماذا ولا ينسخ بياناته أو يغيرها دون طلب"
-        ],
-        "content_engine_ar": [
-          "محتوى النسخة الأولى في CONTENT_SEEDS.json: ست مهام مصممة كبداية للاختبار، وليست مكتبة مكتملة أو أنشطة منشورة.",
-          "كل مهمة لها سؤال/تعليمة وفعل طفل وناتج متوقع وبديل مبسط وأعلى وسلامة ومدخل للمدرب؛ نصوص اللغات والصوت والرسوم منفصلة.",
-          "يمكن للمدرب نسخ قالب وتعديل مادته وصعوبة الدعم؛ لا يغير قالبًا عامًا أو محتوى شخصًا آخر دون إجراء صريح."
-        ],
-        "compatibility_ar": "المطلوب أثناء التنفيذ: ES5 وXHR وFlexbox للوظائف الأساسية، لمس 48px، هاتف 360×640 وهاتف 412×915، تابلت رأسي وأفقي وBig TAB Android 4.4.2 وحاسوب. تدوير الجهاز واستعادة النشاط دون فقد. هذه متطلبات قبول مستقبلية وليست ادعاء اختبار تطبيق غير مبني.",
-        "quality_strategy_ar": [
-          "نفذ حلقة واحدة كاملة بمحتوى محدود قبل توسيع المكتبة؛ لا تعتمد واجهة عرض بوصفها تطبيقًا.",
-          "اختبر رفض التخزين والصوت والسحب، الانقطاع والحفظ وإعادة الفتح والطباعة والتحديث دون فقد، وحدود صلاحيات الأسرة.",
-          "تجربة ملاحظة بموافقة ولي الأمر على حالات استعداد مختلفة؛ وثق المهمة والمساعدة وراحة الطفل، دون درجات نمو أو وعود أثر.",
-          "راجع العربية والإنجليزية كلًا على حدة وحقوق الأصول؛ قبل live يضاف عقد launch والروابط والكاش وفق التنفيذ الفعلي."
-        ],
-        "safety_ar": [
-          "القطع والكبس واللاصق بحسب أدوات يجهزها البالغ؛ لا حرارة أو أسلاك أو أدوات حادة مستقلة",
-          "لا تحميل وزن جسم الإنسان على النماذج ولا استخدام الاختبار خارج لعبة خفيفة"
-        ],
-        "screens_ar": [
-          "مشكلة ومستخدم ← شروط ومواد ← مخطط التصميم ← بناء في الواقع ← اختبار وتحسين ← معرض المحاولات"
-        ],
-        "continuity_ar": [
-          "من 1–4: a1-drawing-writing, a1-sensory, a1-screen-move؛ أعد استخدام نموذج عناصر الرسم والطباعة بعد استخراجه بعقد مشترك؛ لا تستورد كود تطبيق حي",
-          "نحو 8–12: a8-maker, a8-coach؛ المطلوب عند الاستعداد تفسير الاختيار وتوثيق محاولة وتعديلها، لا تسريع نفس اللعبة فقط."
-        ],
-        "prebuild_path": "apps/4-8/maker-solutions-lab/PREBUILD_REQUIREMENTS_AR.md",
-        "content_seed_path": "apps/4-8/maker-solutions-lab/CONTENT_SEEDS.json"
-      },
-      "blueprint_path": "apps/4-8/maker-solutions-lab/BUILD_SPEC.md",
-      "prompt_path": "apps/4-8/maker-solutions-lab/PROMPT_AR.md",
-      "manifest": "apps/4-8/maker-solutions-lab/app.json",
-      "cover": "assets/covers/a4-maker-solutions.svg"
-    },
-    {
       "id": "a4-command-path",
       "slug": "command-path-lab",
       "title_ar": "مسار الأوامر: أخطط وأصحح",
@@ -2203,7 +2061,7 @@
       "slug": "session-planner-4-8",
       "title_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
       "priority": 3,
       "build_order": 12,
@@ -2230,7 +2088,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.tts"
       ],
       "bundles": [
         "static-core"
@@ -2242,21 +2101,21 @@
           "relationship": "supports",
           "rationale_ar": "تنظيم بداية ونهاية واستراحة وانتقالات مرنة",
           "evidence_ar": "جلسة جرى تنفيذها",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "ربط المهمة بعينة ناتج ومراجعة",
           "evidence_ar": "خطة وتعديل",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-positive-behavior-routines-and-independence",
           "relationship": "supports",
           "rationale_ar": "مشاركة الطفل في اختيار ترتيب وخيارات الدعم",
           "evidence_ar": "اختيار طفل موثق دون إجبار",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2340,7 +2199,19 @@
       "blueprint_path": "apps/4-8/session-planner-4-8/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/session-planner-4-8/PROMPT_AR.md",
       "manifest": "apps/4-8/session-planner-4-8/app.json",
-      "cover": "assets/covers/a4-session-planner.svg"
+      "cover": "assets/covers/a4-session-planner.svg",
+      "implementation_status": "implemented-preview",
+      "preview_branch": "feature/age4-8-remaining-20261018",
+      "acceptance_state": "creative-prototype-device-and-family-pilot-pending",
+      "audio_status": "device-tts; SILMA pending",
+      "href": "apps/4-8/session-planner-4-8/index.html",
+      "release_channel": "preview",
+      "creative_prototype": {
+        "title_ar": "خريطة الرحلة التي أصنعها",
+        "practice_ar": "اختيارات الطفل تصنع مسارًا متفرعًا، وتحول الاستراحة أو تغيير الوسيلة إلى تعديل حقيقي في الجلسة.",
+        "sample_count": 1,
+        "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
+      }
     },
     {
       "id": "a8-reading",

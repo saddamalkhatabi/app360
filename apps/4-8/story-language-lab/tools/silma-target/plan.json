@@ -1,0 +1,466 @@
+{
+  "guides": {
+    "retry": {
+      "ar": {
+        "text": "لِنُحَاوِلْ مَرَّةً أُخْرَى. اِسْمَعِ السُّؤَالَ، ثُمَّ اِخْتَرِ الصُّورَةَ الْمُنَاسِبَةَ.",
+        "audio": "audio/ar-guide-retry.mp3"
+      },
+      "en": {
+        "text": "Let’s try again. Hear the question, then choose the matching picture.",
+        "audio": "audio/en-guide-retry.mp3"
+      }
+    },
+    "meaning-found": {
+      "ar": {
+        "text": "أَحْسَنْتَ. هَذِهِ هِيَ الصُّورَةُ الْمَطْلُوبَةُ.",
+        "audio": "audio/ar-guide-meaning-found.mp3"
+      },
+      "en": {
+        "text": "Well done. You found the matching picture.",
+        "audio": "audio/en-guide-meaning-found.mp3"
+      }
+    },
+    "order-ready": {
+      "ar": {
+        "text": "رَتَّبْتَ الصُّوَرَ. لِنَسْمَعْ حِكَايَتَكَ بِهَذَا التَّرْتِيبِ.",
+        "audio": "audio/ar-guide-order-ready.mp3"
+      },
+      "en": {
+        "text": "You arranged the pictures. Let’s hear your story in this order.",
+        "audio": "audio/en-guide-order-ready.mp3"
+      }
+    },
+    "continue": {
+      "ar": {
+        "text": "اِضْغَطْ عَلَى التَّالِي لِنُكْمِلَ الْحِكَايَةَ.",
+        "audio": "audio/ar-guide-continue.mp3"
+      },
+      "en": {
+        "text": "Tap Next to continue the story.",
+        "audio": "audio/en-guide-continue.mp3"
+      }
+    },
+    "word-retry": {
+      "ar": {
+        "text": "اِسْمَعِ الْكَلِمَةَ، ثُمَّ رَتِّبْ أَصْوَاتَهَا. لِإِزَالَةِ صَوْتٍ، اِضْغَطْ عَلَيْهِ.",
+        "audio": "audio/ar-guide-word-retry.mp3"
+      },
+      "en": {
+        "text": "Hear the word, then put its sounds in order. Tap a placed sound to remove it.",
+        "audio": "audio/en-guide-word-retry.mp3"
+      }
+    },
+    "word-ready": {
+      "ar": {
+        "text": "أَحْسَنْتَ. رَكَّبْتَ الْكَلِمَةَ. لِنَسْمَعْهَا مَعًا.",
+        "audio": "audio/ar-guide-word-ready.mp3"
+      },
+      "en": {
+        "text": "Well done. You built the word. Let’s hear it together.",
+        "audio": "audio/en-guide-word-ready.mp3"
+      }
+    },
+    "sentence-ready": {
+      "ar": {
+        "text": "أَحْسَنْتَ. رَتَّبْتَ الْكَلِمَاتِ. لِنَسْمَعِ الْجُمْلَةَ.",
+        "audio": "audio/ar-guide-sentence-ready.mp3"
+      },
+      "en": {
+        "text": "Well done. You ordered the words. Let’s hear the sentence.",
+        "audio": "audio/en-guide-sentence-ready.mp3"
+      }
+    },
+    "sentence-retry": {
+      "ar": {
+        "text": "لِنَسْمَعِ الْكَلِمَاتِ الَّتِي رَتَّبْتَهَا. يُمْكِنُكَ إِزَالَةُ كَلِمَةٍ بِالضَّغْطِ عَلَيْهَا، ثُمَّ إِعَادَةُ تَرْتِيبِهَا.",
+        "audio": "audio/ar-guide-sentence-retry.mp3"
+      },
+      "en": {
+        "text": "Let’s hear the words you placed. Tap a placed word to remove it, then try another order.",
+        "audio": "audio/en-guide-sentence-retry.mp3"
+      }
+    }
+  },
+  "meaning_feedback": {
+    "ar-cup": {
+      "text": "الْكِتَابُ حَجَبَ الْكُوبَ.",
+      "audio": "audio/ar-cup-meaning-feedback.mp3"
+    },
+    "ar-ball": {
+      "text": "لَيْلَى أَمْسَكَتِ الْكُرَةَ بَعْدَ عُمَرَ.",
+      "audio": "audio/ar-ball-meaning-feedback.mp3"
+    },
+    "ar-door": {
+      "text": "طَرَقَ عُمَرُ الْبَابَ بِلُطْفٍ.",
+      "audio": "audio/ar-door-meaning-feedback.mp3"
+    },
+    "ar-cat": {
+      "text": "الْقِطَّةُ دَاخِلَ الصُّنْدُوقِ.",
+      "audio": "audio/ar-cat-meaning-feedback.mp3"
+    },
+    "ar-writer": {
+      "text": "أَبْعَدَتْ لَيْلَى الْكِتَابَ فَوَجَدَتِ الْكُوبَ.",
+      "audio": "audio/ar-writer-meaning-feedback.mp3"
+    },
+    "ar-ending": {
+      "text": "نَتْرُكُ الْقِطَّةَ تَخْتَارُ مَكَانَهَا.",
+      "audio": "audio/ar-ending-meaning-feedback.mp3"
+    },
+    "en-cup": {
+      "text": "The book hides the cup. Where is it?",
+      "audio": "audio/en-cup-1.mp3"
+    },
+    "en-ball": {
+      "text": "Mia catches the ball.",
+      "audio": "audio/en-ball-2.mp3"
+    },
+    "en-door": {
+      "text": "Tap, tap. Sam knocks gently.",
+      "audio": "audio/en-door-1.mp3"
+    },
+    "en-cat": {
+      "text": "The cat gets into the box by itself.",
+      "audio": "audio/en-cat-1.mp3"
+    },
+    "en-writer": {
+      "text": "Sam rolls the ball to Mia.",
+      "audio": "audio/en-ball-1.mp3"
+    },
+    "en-ending": {
+      "text": "Sam puts a soft blanket in the open box. The cat can choose.",
+      "audio": "audio/en-cat-3.mp3"
+    },
+    "ar-first-next-last": {
+      "text": "فِي هَذِهِ الصُّورَةِ ظَهَرَ الْكُوبُ مِنْ جَدِيدٍ.",
+      "audio": "audio/ar-first-next-last-meaning-feedback.mp3"
+    },
+    "en-first-next-last": {
+      "text": "Then Mia moves the book and finds the cup.",
+      "audio": "audio/en-first-next-last-2.mp3"
+    },
+    "ar-in-and-out": {
+      "text": "الْقِطُّ دَاخِلَ الصُّنْدُوقِ.",
+      "audio": "audio/ar-in-and-out-meaning-feedback.mp3"
+    },
+    "en-in-and-out": {
+      "text": "Now the cat is inside.",
+      "audio": "audio/en-in-and-out-1.mp3"
+    },
+    "ar-look-for-clues": {
+      "text": "الْكِتَابُ أَخْفَى الْكُوبَ.",
+      "audio": "audio/ar-look-for-clues-meaning-feedback.mp3"
+    },
+    "en-look-for-clues": {
+      "text": "The upright book hides the cup.",
+      "audio": "audio/en-look-for-clues-1.mp3"
+    },
+    "ar-ball-actions": {
+      "text": "الْبِنْتُ تَلْتَقِطُ الْكُرَةَ.",
+      "audio": "audio/ar-ball-actions-meaning-feedback.mp3"
+    },
+    "en-ball-actions": {
+      "text": "The girl catches the ball.",
+      "audio": "audio/en-ball-actions-2.mp3"
+    },
+    "ar-notice-and-explain": {
+      "text": "أَضَافَ الْوَلَدُ غِطَاءً نَاعِمًا إِلَى الصُّنْدُوقِ.",
+      "audio": "audio/ar-notice-and-explain-meaning-feedback.mp3"
+    },
+    "en-notice-and-explain": {
+      "text": "Now the box has a soft blanket. What might the cat choose next?",
+      "audio": "audio/en-notice-and-explain-3.mp3"
+    },
+    "ar-polite-words": {
+      "text": "يُفْتَحُ الْبَابُ قَبْلَ الدُّخُولِ.",
+      "audio": "audio/ar-polite-words-meaning-feedback.mp3"
+    },
+    "en-polite-words": {
+      "text": "Sam waits until the door opens.",
+      "audio": "audio/en-polite-words-2.mp3"
+    },
+    "ar-seed-entry": {
+      "text": "ظَهَرَتِ الْأَوْرَاقُ الصَّغِيرَةُ فَوْقَ التُّرَابِ.",
+      "audio": "audio/ar-seed-entry-meaning-feedback.mp3"
+    },
+    "en-seed-entry": {
+      "text": "After several days, little leaves appear.",
+      "audio": "audio/en-v4-35bbb68150ad2ee5.mp3"
+    },
+    "ar-seed-practice": {
+      "text": "نُورَا تَسْقِي الْبَذْرَةَ بِرِفْقٍ.",
+      "audio": "audio/ar-seed-practice-meaning-feedback.mp3"
+    },
+    "en-seed-practice": {
+      "text": "Mia puts the pot near the light and waters gently.",
+      "audio": "audio/en-v4-049047f61ae3c339.mp3"
+    },
+    "ar-seed-extend": {
+      "text": "ظُهُورُ الْأَوْرَاقِ يَدُلُّ عَلَى أَنَّ الْبَذْرَةَ نَبَتَتْ.",
+      "audio": "audio/ar-seed-extend-meaning-feedback.mp3"
+    },
+    "en-seed-extend": {
+      "text": "Several days later, the leaves are a clue she can see.",
+      "audio": "audio/en-v4-fe1a2ac2efeaffb1.mp3"
+    },
+    "ar-bridge-entry": {
+      "text": "السَّيَّارَةُ تَعْبُرُ فَوْقَ الْجِسْرِ.",
+      "audio": "audio/ar-bridge-entry-meaning-feedback.mp3"
+    },
+    "en-bridge-entry": {
+      "text": "The toy car crosses the bridge.",
+      "audio": "audio/en-v4-fcf9cefe1ded27e5.mp3"
+    },
+    "ar-bridge-practice": {
+      "text": "عَدَّلَتْ نُورَا الْمُكَعَّبَاتِ لِتُصْلِحَ الْجِسْرَ.",
+      "audio": "audio/ar-bridge-practice-meaning-feedback.mp3"
+    },
+    "en-bridge-practice": {
+      "text": "She moves the supports closer and lines them up.",
+      "audio": "audio/en-v4-15c987842439cf87.mp3"
+    },
+    "ar-bridge-extend": {
+      "text": "السَّيَّارَةُ فَوْقَ الْجِسْرِ. هَذَا يَدُلُّ عَلَى أَنَّهُ يَحْمِلُهَا.",
+      "audio": "audio/ar-bridge-extend-meaning-feedback.mp3"
+    },
+    "en-bridge-extend": {
+      "text": "The car crosses. That is a clue that the bridge works for her toy.",
+      "audio": "audio/en-v4-3c88799b15a16e91.mp3"
+    },
+    "ar-colors-entry": {
+      "text": "هَذِهِ هِيَ الزَّهْرَةُ الْبُرْتُقَالِيَّةُ.",
+      "audio": "audio/ar-colors-entry-meaning-feedback.mp3"
+    },
+    "en-colors-entry": {
+      "text": "Mia paints an orange flower.",
+      "audio": "audio/en-v4-2bf9ba5598ecd75f.mp3"
+    },
+    "ar-colors-practice": {
+      "text": "الْفُرْشَاةُ تَمْزِجُ اللَّوْنَيْنِ.",
+      "audio": "audio/ar-colors-practice-meaning-feedback.mp3"
+    },
+    "en-colors-practice": {
+      "text": "She stirs red and yellow together.",
+      "audio": "audio/en-v4-2dd6b186382e222c.mp3"
+    },
+    "ar-colors-extend": {
+      "text": "ظَهَرَ اللَّوْنُ الْبُرْتُقَالِيُّ عَلَى اللَّوْحَةِ قَبْلَ رَسْمِ الزَّهْرَةِ.",
+      "audio": "audio/ar-colors-extend-meaning-feedback.mp3"
+    },
+    "en-colors-extend": {
+      "text": "She says, I see orange after the mixing.",
+      "audio": "audio/en-v4-f1b605eb9e7c4af0.mp3"
+    },
+    "ar-kindness-entry": {
+      "text": "عُمَرُ يُقَدِّمُ الْقِطْعَةَ لِصَدِيقَتِهِ.",
+      "audio": "audio/ar-kindness-entry-meaning-feedback.mp3"
+    },
+    "en-kindness-entry": {
+      "text": "Sam offers the piece to his friend.",
+      "audio": "audio/en-v4-d9b034667d04b234.mp3"
+    },
+    "ar-kindness-practice": {
+      "text": "وَضَعَتْ نُورَا الْقِطْعَةَ فِي الْفَرَاغِ فَاكْتَمَلَتِ الصُّورَةُ.",
+      "audio": "audio/ar-kindness-practice-meaning-feedback.mp3"
+    },
+    "en-kindness-practice": {
+      "text": "Mia fits the piece into the gap.",
+      "audio": "audio/en-v4-832c9236212e4b5a.mp3"
+    },
+    "ar-kindness-extend": {
+      "text": "يُقَدِّمُ عُمَرُ الْقِطْعَةَ وَيَقُولُ: تَفَضَّلِي هَذِهِ الْقِطْعَةَ.",
+      "audio": "audio/ar-kindness-extend-meaning-feedback.mp3"
+    },
+    "en-kindness-extend": {
+      "text": "Sam offers the piece. He could say, Here you are.",
+      "audio": "audio/en-v4-52359e86a8c1f0db.mp3"
+    },
+    "ar-tidy-entry": {
+      "text": "الْجَوْرَبَانِ الْأَزْرَقَانِ جَنْبًا إِلَى جَنْبٍ.",
+      "audio": "audio/ar-tidy-entry-meaning-feedback.mp3"
+    },
+    "en-tidy-entry": {
+      "text": "She finds two matching blue socks.",
+      "audio": "audio/en-v4-a6cc85099af388c1.mp3"
+    },
+    "ar-tidy-practice": {
+      "text": "نُورَا تَطْوِي الْجَوْرَبَيْنِ بَعْدَ الْمُطَابَقَةِ.",
+      "audio": "audio/ar-tidy-practice-meaning-feedback.mp3"
+    },
+    "en-tidy-practice": {
+      "text": "She keeps each pair together and folds it.",
+      "audio": "audio/en-v4-76e2a24bcbc1af41.mp3"
+    },
+    "ar-tidy-extend": {
+      "text": "الْجَوْرَبَانِ لَهُمَا اللَّوْنُ نَفْسُهُ وَالشَّكْلُ نَفْسُهُ.",
+      "audio": "audio/ar-tidy-extend-meaning-feedback.mp3"
+    },
+    "en-tidy-extend": {
+      "text": "She uses color and shape as clues for matching.",
+      "audio": "audio/en-v4-286ae3f72d03f861.mp3"
+    },
+    "ar-letter-entry": {
+      "text": "الطِّفْلُ يَرْسُمُ الشَّمْسَ عَلَى الْبِطَاقَةِ.",
+      "audio": "audio/ar-letter-entry-meaning-feedback.mp3"
+    },
+    "en-letter-entry": {
+      "text": "Mia draws a sun on a card.",
+      "audio": "audio/en-v4-ad1236edb8e81af2.mp3"
+    },
+    "ar-letter-practice": {
+      "text": "وَصَلَتِ الرِّسَالَةُ عِنْدَ تَقْدِيمِ الظَّرْفِ إِلَى الصَّدِيقِ.",
+      "audio": "audio/ar-letter-practice-meaning-feedback.mp3"
+    },
+    "en-letter-practice": {
+      "text": "She gives the message to Sam by hand.",
+      "audio": "audio/en-v4-94138be39a48da2a.mp3"
+    },
+    "ar-letter-extend": {
+      "text": "الْبِطَاقَةُ مَفْتُوحَةٌ، وَالصَّدِيقُ يَرَى الرَّسْمَةَ.",
+      "audio": "audio/ar-letter-extend-meaning-feedback.mp3"
+    },
+    "en-letter-extend": {
+      "text": "Sam sees the sun. What could he say in our conversation?",
+      "audio": "audio/en-v4-b063d85ac93a9888.mp3"
+    },
+    "ar-rain-entry": {
+      "text": "نُورَا تَمْشِي مَعَ أُمِّهَا تَحْتَ الْمِظَلَّةِ.",
+      "audio": "audio/ar-rain-entry-meaning-feedback.mp3"
+    },
+    "en-rain-entry": {
+      "text": "She walks with Mom under the umbrella.",
+      "audio": "audio/en-v4-e78d03b074a3abfc.mp3"
+    },
+    "ar-rain-practice": {
+      "text": "جَهَّزَتْ نُورَا الْحِذَاءَ وَالْمِظَلَّةَ قَبْلَ الْمَشْيِ.",
+      "audio": "audio/ar-rain-practice-meaning-feedback.mp3"
+    },
+    "en-rain-practice": {
+      "text": "When rain starts, she and Mom prepare things for rain.",
+      "audio": "audio/en-v4-4131c93162dfa514.mp3"
+    },
+    "ar-rain-extend": {
+      "text": "قَطَرَاتُ الْمَطَرِ عَلَى الزُّجَاجِ تَدُلُّ عَلَى أَنَّ الْمَطَرَ بَدَأَ.",
+      "audio": "audio/ar-rain-extend-meaning-feedback.mp3"
+    },
+    "en-rain-extend": {
+      "text": "Drops on the window are a clue that rain has started.",
+      "audio": "audio/en-v4-3b19d765c6d0f81d.mp3"
+    },
+    "ar-pack-entry": {
+      "text": "الْحَقِيبَةُ جَاهِزَةٌ عَلَى ظَهْرِ نُورَا.",
+      "audio": "audio/ar-pack-entry-meaning-feedback.mp3"
+    },
+    "en-pack-entry": {
+      "text": "She stands with her bag and Mom by the door.",
+      "audio": "audio/en-v4-8d71f21b6a465a17.mp3"
+    },
+    "ar-pack-practice": {
+      "text": "تَخْتَارُ نُورَا الْأَشْيَاءَ قَبْلَ وَضْعِهَا فِي الْحَقِيبَةِ.",
+      "audio": "audio/ar-pack-practice-meaning-feedback.mp3"
+    },
+    "en-pack-practice": {
+      "text": "She chooses what she needs for her activity and leaves the ball.",
+      "audio": "audio/en-v4-016d1bf91417935f.mp3"
+    },
+    "ar-pack-extend": {
+      "text": "الْحَقِيبَةُ جَاهِزَةٌ عِنْدَ الْبَابِ بَعْدَ انْتِهَاءِ التَّجْهِيزِ.",
+      "audio": "audio/ar-pack-extend-meaning-feedback.mp3"
+    },
+    "en-pack-extend": {
+      "text": "She stands with Mom, and her light bag is ready.",
+      "audio": "audio/en-v4-1c7bcb6978ecf852.mp3"
+    },
+    "ar-picnic-entry": {
+      "text": "الْعَائِلَةُ تَجْلِسُ مَعًا عَلَى الْبِسَاطِ.",
+      "audio": "audio/ar-picnic-entry-meaning-feedback.mp3"
+    },
+    "en-picnic-entry": {
+      "text": "The family sits and shares the fruit.",
+      "audio": "audio/en-v4-44ba8961c3d22fa4.mp3"
+    },
+    "ar-picnic-practice": {
+      "text": "تَضَعُ نُورَا الْأَشْيَاءَ فِي السَّلَّةِ.",
+      "audio": "audio/ar-picnic-practice-meaning-feedback.mp3"
+    },
+    "en-picnic-practice": {
+      "text": "Mia helps put the things in the basket.",
+      "audio": "audio/en-v4-8d2a198b0748df42.mp3"
+    },
+    "ar-picnic-extend": {
+      "text": "تُسَاعِدُ نُورَا أُمَّهَا فِي فَرْدِ الْبِسَاطِ.",
+      "audio": "audio/ar-picnic-extend-meaning-feedback.mp3"
+    },
+    "en-picnic-extend": {
+      "text": "She helps spread the mat with Mom beside her.",
+      "audio": "audio/en-v4-d4bc9736912cad09.mp3"
+    },
+    "ar-boat-entry": {
+      "text": "الْقَارِبُ الْوَرَقِيُّ جَاهِزٌ عَلَى الطَّاوِلَةِ.",
+      "audio": "audio/ar-boat-entry-meaning-feedback.mp3"
+    },
+    "en-boat-entry": {
+      "text": "The paper becomes a little boat.",
+      "audio": "audio/en-v4-cbc40aff803253eb.mp3"
+    },
+    "ar-boat-practice": {
+      "text": "تَطْوِي نُورَا الْوَرَقَةَ بِمُسَاعَدَةِ الْمُرَافِقِ.",
+      "audio": "audio/ar-boat-practice-meaning-feedback.mp3"
+    },
+    "en-boat-practice": {
+      "text": "Mom helps her with the folding.",
+      "audio": "audio/en-v4-5279ad89ac4842d7.mp3"
+    },
+    "ar-boat-extend": {
+      "text": "الْقَارِبُ فَوْقَ الْمَاءِ. هَذَا يَدُلُّ عَلَى أَنَّهُ يَطْفُو فِي هَذِهِ التَّجْرِبَةِ.",
+      "audio": "audio/ar-boat-extend-meaning-feedback.mp3"
+    },
+    "en-boat-extend": {
+      "text": "She sees it float in the basin. This is an observation from this try.",
+      "audio": "audio/en-v4-f23531caa6cb12bf.mp3"
+    }
+  },
+  "reserved": [
+    {
+      "path": "audio/ar-coach-intro.mp3",
+      "language": "ar",
+      "text": "أَنَا مُدَرِّبَتُكَ. سَنَسْمَعُ الْحِكَايَةَ وَنَلْعَبُ بِالصُّوَرِ وَالْكَلِمَاتِ. سَأُسَاعِدُكَ خُطْوَةً خُطْوَةً.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    },
+    {
+      "path": "audio/ar-coach-help.mp3",
+      "language": "ar",
+      "text": "اِضْغَطْ عَلَيَّ عِنْدَمَا تَحْتَاجُ مُسَاعَدَةً. سَأَشْرَحُ لَكَ الْخُطْوَةَ الَّتِي أَنْتَ فِيهَا.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    },
+    {
+      "path": "audio/ar-coach-pause.mp3",
+      "language": "ar",
+      "text": "سَنَتَوَقَّفُ الْآنَ. عِنْدَمَا تَكُونُ جَاهِزًا، نُكْمِلُ مَعًا.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    },
+    {
+      "path": "audio/ar-coach-resume.mp3",
+      "language": "ar",
+      "text": "لِنُكْمِلْ مِنَ الْخُطْوَةِ الَّتِي وَصَلْنَا إِلَيْهَا.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    },
+    {
+      "path": "audio/ar-coach-finished.mp3",
+      "language": "ar",
+      "text": "أَحْسَنْتَ. أَكْمَلْتَ حِكَايَتَكَ. يُمْكِنُكَ سَمَاعُهَا أَوِ اخْتِيَارُ حِكَايَةٍ جَدِيدَةٍ.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    },
+    {
+      "path": "audio/ar-coach-coach-area.mp3",
+      "language": "ar",
+      "text": "هَذَا مَكَانُ الْمُدَرِّبِ. اِطْلُبْ مُسَاعَدَةَ الْمُرَافِقِ لِتَغْيِيرِ الْإِعْدَادَاتِ.",
+      "kind": "coach-reserved",
+      "engine": "silma"
+    }
+  ]
+}

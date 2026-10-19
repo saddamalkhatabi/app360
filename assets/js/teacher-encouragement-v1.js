@@ -1,0 +1,20 @@
+/* Spoken transition encouragement for the currently signed-in learner. ES5. */
+(function(w,d){'use strict';
+var serial=0,audio=null,timer=null,request=null,utterance=null,names=null;
+var base='../../../resources/celebration-audio/';
+function profile(){try{var s=w.APP360_SESSION,p=s&&s.isAuthenticated()&&s.getProfile();return p&&p.user_id&&/^(learner|child)$/.test(p.role||'')?p:null}catch(e){return null}}
+function normalize(v){return String(v||'').toLowerCase().replace(/[\u064b-\u065f\u0670ـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^a-z\u0621-\u064a]/g,'')}
+function resolve(value){var key=normalize(value),hits=[],rows=names||[],i,j,aliases;for(i=0;i<rows.length;i++){aliases=[rows[i].name].concat(rows[i].aliases||[]);for(j=0;j<aliases.length;j++)if(normalize(aliases[j])===key){hits.push(rows[i]);break}}return hits.length===1?hits[0]:null}
+function stop(){serial++;clearTimeout(timer);timer=null;if(request){request.onload=request.onerror=request.ontimeout=null;try{request.abort()}catch(e){}request=null}if(audio){audio.onended=audio.onerror=null;try{audio.pause()}catch(e){}audio=null}if(utterance){utterance.onend=utterance.onerror=null;utterance=null;try{w.speechSynthesis.cancel()}catch(e){}}}
+function play(options,done){options=options||{};stop();var p=profile(),n=serial,settled=false,key=p&&p.user_id,display=p&&String(p.display_name||'').replace(/^\s+|\s+$/g,'');
+function valid(){var q=profile();return n===serial&&(!key||q&&q.user_id===key&&q.display_name===p.display_name)}
+function finish(){if(settled||!valid())return;settled=true;clearTimeout(timer);timer=null;if(options.caption)options.caption('');if(done)done()}
+function clip(path,next){if(!valid())return;clearTimeout(timer);var ended=false;function end(){if(ended||!valid())return;ended=true;clearTimeout(timer);if(audio){audio.onended=audio.onerror=null;try{audio.pause()}catch(e){}audio=null}next()}try{audio=new w.Audio(base+path);audio.onended=audio.onerror=end;timer=setTimeout(end,6500);var promise=audio.play();if(promise&&promise.catch)promise.catch(end)}catch(e){end()}}
+function generic(){if(options.caption)options.caption(options.language==='en'?'Well done!':'أحسنت!');clip(options.language==='en'?'audio/en/well-done-en.mp3':'audio/ar/well-done-m.mp3',finish)}
+function speakName(voice){if(!valid())return;try{var u=new w.SpeechSynthesisUtterance(display);utterance=u;u.lang=voice.lang;u.voice=voice;u.rate=.9;u.onend=u.onerror=finish;timer=setTimeout(function(){if(valid()){try{w.speechSynthesis.cancel()}catch(e){}finish()}},6500);w.speechSynthesis.speak(u)}catch(e){finish()}}
+function ready(){if(!valid())return;var row=resolve(display),a=row&&row.audio,recorded=a&&/^audio\/names\/name-[0-9]+\.mp3$/.test(a.path||'')&&a.sha256,voice=null,i,voices=[];if(!recorded)try{voices=w.speechSynthesis.getVoices()||[];for(i=0;i<voices.length;i++)if(/^ar(?:-|_)/i.test(voices[i].lang||'')){voice=voices[i];if(voice.localService)break}}catch(e){}
+if(!recorded&&!voice){generic();return}var female=(row&&row.gender==='girl')||/^(girl|female|f)$/.test(p.gender||'');if(options.caption)options.caption(options.language==='en'?'Well done, '+display+'!':'أحسنت يا '+display+'!');clip(options.language==='en'?'audio/en/well-done-en.mp3':'audio/ar/well-done-name-'+(female?'f':'m')+'.mp3',function(){if(recorded)clip(a.path,finish);else speakName(voice)})}
+if(options.enabled===false){finish();return}if(!display){generic();return}if(names){ready();return}try{request=new w.XMLHttpRequest();request.open('GET',base+'names.json',true);request.timeout=5000;request.onload=function(){if(!valid())return;try{var data=JSON.parse(request.responseText);if(request.status===200&&Array.isArray(data.records))names=data.records}catch(e){}request=null;ready()};request.onerror=request.ontimeout=function(){request=null;ready()};request.send()}catch(e){request=null;ready()}}
+w.APP360_TEACHER_ENCOURAGEMENT={play:play,stop:stop,profile:profile,resolveName:resolve};
+d.addEventListener('app360:authchange',stop,false);d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);w.addEventListener('pagehide',stop,false);
+})(window,document);

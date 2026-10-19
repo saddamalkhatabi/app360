@@ -10,13 +10,12 @@ on:
       - 'assets/js/app360-family-*.js'
       - 'tooling/test-reels*.js'
       - 'tooling/refresh-reels-offline.js'
-      - 'data/ai-content-contracts.json'
+      - 'data/content-type-contracts.json'
       - 'data/session-policy.json'
       - 'data/app-data-needs.json'
-      - 'assets/js/ai-content-studio.js'
       - 'assets/js/app360-session-v1.js'
       - 'assets/js/legacy-compat.js'
-      - 'tooling/validate-ai-core.js'
+      - 'tooling/test-retired-ai.cjs'
       - 'tooling/validate-session-data.js'
       - '.github/workflows/validate-data-core.yml'
   pull_request:
@@ -28,13 +27,12 @@ on:
       - 'assets/js/app360-family-*.js'
       - 'tooling/test-reels*.js'
       - 'tooling/refresh-reels-offline.js'
-      - 'data/ai-content-contracts.json'
+      - 'data/content-type-contracts.json'
       - 'data/session-policy.json'
       - 'data/app-data-needs.json'
-      - 'assets/js/ai-content-studio.js'
       - 'assets/js/app360-session-v1.js'
       - 'assets/js/legacy-compat.js'
-      - 'tooling/validate-ai-core.js'
+      - 'tooling/test-retired-ai.cjs'
       - 'tooling/validate-session-data.js'
       - '.github/workflows/validate-data-core.yml'
   workflow_dispatch:
@@ -57,7 +55,7 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Reset migrations and seed development identities
         run: npm run reset
-      - name: Run AI/content/session smoke test
+      - name: Run content/session smoke test
         run: npm run smoke
       - name: Run identity usage and user-content smoke test
         run: npm run smoke:session
