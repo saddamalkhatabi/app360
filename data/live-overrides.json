@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-09-27",
+  "updated": "2026-10-19",
   "apps": [
     {
       "id": "a1-first-words",
@@ -114,6 +114,25 @@
         "ui.responsive-maturity"
       ],
       "goal_delivery": "available_with_facilitator"
+    },
+    {
+      "id": "a4-cooperate",
+      "status": "live",
+      "href": "apps/4-8/cooperative-play-lab/index.html?v=scenes1",
+      "title_ar": "نلعب ونتفق — تجربة مصوّرة",
+      "description_ar": "نسخة تجربة بثلاثة مواقف مكتملة بالصور وصوت SILMA: نفس اللعبة، تغيير القاعدة، ولاعب جديد. نجرب الحلول مع مرافق ونراجع الاتفاق.",
+      "release_channel": "pilot",
+      "goal_delivery": "available_with_facilitator",
+      "capabilities": [
+        "audio.recorded",
+        "practice.core",
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "age_groups": [
+        "4-8"
+      ]
     }
   ]
 }

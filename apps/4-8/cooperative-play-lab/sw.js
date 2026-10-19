@@ -1,0 +1,9 @@
+importScripts('offline-files.js');
+var CACHE='a4-cooperate-'+self.COOPERATE_OFFLINE.version;
+var FILES=self.COOPERATE_OFFLINE.files;
+function send(message){return self.clients.matchAll({includeUncontrolled:true}).then(function(clients){clients.forEach(function(c){c.postMessage(message)})})}
+function prepare(){return caches.open(CACHE).then(function(cache){var completed=0;return FILES.reduce(function(previous,path){return previous.then(function(){return cache.match(path).then(function(found){if(found)return;return fetch(new Request(path,{cache:'reload'})).then(function(response){if(!response.ok)throw Error('Missing offline asset: '+path);return cache.put(path,response)})}).then(function(){completed++;return send({type:'COOPERATE_CACHE',loaded:completed,total:FILES.length,done:completed===FILES.length,bytes:self.COOPERATE_OFFLINE.bytes})})})},Promise.resolve())})}
+self.addEventListener('install',function(e){e.waitUntil(prepare())});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.filter(function(k){return k.indexOf('a4-cooperate-')===0&&k!==CACHE}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
+self.addEventListener('message',function(e){if(e.data&&e.data.type==='SKIP_WAITING')self.skipWaiting();if(e.data&&e.data.type==='CACHE_COOPERATE')e.waitUntil(prepare().catch(function(){return send({type:'COOPERATE_CACHE_ERROR'})}))});
+self.addEventListener('fetch',function(e){if(e.request.method!=='GET')return;var url=new URL(e.request.url);if(url.origin!==self.location.origin)return;var html=e.request.mode==='navigate';e.respondWith(caches.open(CACHE).then(function(cache){if(html)return fetch(e.request).then(function(r){if(r.ok)cache.put(e.request,r.clone());return r}).catch(function(){return cache.match('index.html')});return cache.match(e.request,{ignoreSearch:true}).then(function(found){return found||fetch(e.request)})}))});

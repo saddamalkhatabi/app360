@@ -1,0 +1,4 @@
+'use strict';
+const fs=require('fs'),assert=require('node:assert/strict'),{JSDOM}=require(process.env.APP360_TEST_MODULES?process.env.APP360_TEST_MODULES+'/jsdom':'jsdom');
+for(const path of ['/index.html','/apps/4-8/cooperative-play-lab/index.html']){const dom=new JSDOM('<!doctype html><html lang="ar"><body><button id="app360ReelsReturn">old launcher</button></body></html>',{url:'https://school.yem1.com'+path,runScripts:'outside-only'}),w=dom.window;w.APP360_SESSION={getProfile:()=>null,bridgeRequest(){}};w.XMLHttpRequest=function(){this.open=function(){};this.send=function(){}};w.eval(fs.readFileSync('assets/js/reels-bridge-v1.js','utf8'));w.document.dispatchEvent(new w.Event('DOMContentLoaded'));assert.equal(w.document.querySelector('#app360ReelsReturn'),null);assert.equal(typeof w.APP360_REELS_BRIDGE.returnToReels,'function');dom.window.close()}
+console.log('PASS: no global bottom Reels launcher on home or subapps; explicit return actions remain available.');

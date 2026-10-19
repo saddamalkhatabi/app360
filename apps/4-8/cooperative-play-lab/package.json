@@ -1,0 +1,17 @@
+{
+  "name": "@app360/app-cooperative-play-lab",
+  "version": "0.2.0",
+  "private": true,
+  "description": "\u0646\u0644\u0639\u0628 \u0648\u0646\u062a\u0641\u0642: \u062f\u0648\u0631 \u0648\u0642\u0627\u0639\u062f\u0629 \u0648\u062d\u0644 - Family School 360",
+  "app360": {
+    "appId": "a4-cooperate",
+    "ageGroup": "4-8",
+    "runtimeProfile": "legacy-web"
+  },
+  "scripts": {
+    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
+    "test": "node --test test/model.test.cjs",
+    "test:browser": "node test/browser.cjs",
+    "test:offline": "node test/offline.cjs"
+  }
+}

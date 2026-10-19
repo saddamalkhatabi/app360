@@ -8,9 +8,9 @@
   "prebuild_path": "apps/4-8/cooperative-play-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/cooperative-play-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "planned",
-  "scaffold_state": "blueprint-only",
+  "scaffold_state": "implementation-started",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-4-8-emotional-regulation-friendship-and-cooperation",
@@ -23,18 +23,29 @@
   "runtime_profile": "legacy-web",
   "depth": "advanced",
   "offline_mode": "offline-first",
-  "update_policy": "service-worker-auto-activation",
+  "update_policy": "service-worker-prompted-activation",
   "capabilities": [
-    "storage.local",
-    "pwa.offline",
+    "audio.recorded",
     "compat.legacy-web",
-    "ui.responsive-maturity",
-    "practice.core"
+    "practice.core",
+    "pwa.offline",
+    "storage.local",
+    "ui.responsive-maturity"
   ],
   "bundles": [
     "static-core"
   ],
   "practice_model_ar": "اختر لعبة أو موقفًا دون تصوير طفل آخر أو وصفه كمشكلة ← مثّل الأدوار وقل ما تحتاجه بالكلام أو البطاقات ← جرّب حلين واختَر قاعدة يتفق عليها المشاركون ← نفّذ دورة لعب ثم راجع الاتفاق؛ اطلب استراحة أو مساعدة عند الحاجة",
   "blueprint_path": "apps/4-8/cooperative-play-lab/BUILD_SPEC.md",
-  "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md"
+  "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md",
+  "branding": {
+    "theme_color": "#126655",
+    "accent_color": "#ffd54f",
+    "raster_icons": [
+      "apps/4-8/cooperative-play-lab/icon-192.png",
+      "apps/4-8/cooperative-play-lab/icon-512.png"
+    ]
+  },
+  "pilot_release": "scenes-preview-1",
+  "implementation_note_ar": "نسخة تجربة عاملة بثلاثة مواقف مصورة وصوت SILMA؛ اعتماد الممارسة والأجهزة بانتظار مراجعة المستخدم."
 }
