@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),assert=require('node:assert/strict'),{JSDOM}=require((process.env.APP360_TEST_MODULES||'/tmp/app360-test-deps/node_modules')+'/jsdom');
-const dir='apps/4-8/story-language-lab/',dom=new JSDOM(fs.readFileSync(dir+'index.html','utf8'),{url:'https://school.test/'+dir+'index.html',runScripts:'outside-only'}),w=dom.window;
+const dir='apps/4-8/story-language-lab/';const html=fs.readFileSync(dir+'index.html','utf8');const appScript=html.search(/<script src="app\.js[?"]/);assert(appScript>0);for(const src of ['src/watch.js','../../../assets/js/teacher-encouragement-v1.js']){assert(html.indexOf(src)>0&&html.indexOf(src)<appScript,'Teacher dependency must load before app: '+src)}const dom=new JSDOM(fs.readFileSync(dir+'index.html','utf8'),{url:'https://school.test/'+dir+'index.html',runScripts:'outside-only'}),w=dom.window;
 let read=null,encouragement=null,clips=[],timers=new Map(),id=0,errors=[];w.addEventListener('error',e=>errors.push(e.error));w.scrollTo=()=>{};w.HTMLMediaElement.prototype.pause=function(){};w.setTimeout=(fn,ms)=>{timers.set(++id,{fn,ms});return id};w.clearTimeout=n=>timers.delete(n);
 w.APP360_STORY_AUDIO={play:(p,done)=>{clips.push(p);read=done},stop(){},warm(){},unlock(){},onState(){}};
 for(const f of ['data/stories.js','src/model.js','src/watch.js','app.js'])w.eval(fs.readFileSync(dir+f,'utf8'));
