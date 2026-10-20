@@ -18,7 +18,7 @@ jobs:
         run: |
           python3 apps/4-8/cooperative-play-lab/tools/build-release.py
           python3 tooling/build-cooperative-offline.py
-          node tooling/validate-app-links.js
+          node tooling/validate-app-links.js --app a4-cooperate
           node --test apps/4-8/cooperative-play-lab/test/*.test.cjs
       - name: Install browser checks
         run: npm install --no-save --ignore-scripts --workspaces=false playwright && npx playwright install --with-deps chromium
