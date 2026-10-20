@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-10-02",
+  "updated": "2026-10-20",
   "platform": {
     "name_ar": "مدرسة العائلة 360",
     "system_ar": "مدرسة العائلة 360",
@@ -1920,11 +1920,11 @@
       "slug": "cooperative-play-lab",
       "title_ar": "نلعب ونتفق: دور وقاعدة وحل",
       "age_group": "4-8",
-      "status": "planned",
+      "status": "live",
       "kind": "goal_aligned",
-      "priority": 1,
+      "priority": 2,
       "build_order": 8,
-      "description_ar": "مساحة للعب مشترك لاختراع قاعدة وتبادل دور وحل اختلاف واقعي. يمثل الطفل والمدرب أو طفلان موقفًا بدمى أو بطاقات، يعبران عن الحاجة، يجربان اقتراحين ويختاران اتفاقًا يمكن تنفيذه ومراجعته. تبقى المساعدة والرفض والاستراحة خيارات طبيعية.",
+      "description_ar": "60 موقفًا مصورًا في ثلاثة مستويات، بالعربية والإنجليزية وصوت SILMA ومدربة آلية مع تتبع الكلمات. نسمع الحاجات ونقارن الحلول ونجرب اتفاقًا ثم نراجعه، مع حفظ التقدم وتنزيل المحتوى دون اتصال.",
       "practice_model": "اختر لعبة أو موقفًا دون تصوير طفل آخر أو وصفه كمشكلة ← مثّل الأدوار وقل ما تحتاجه بالكلام أو البطاقات ← جرّب حلين واختَر قاعدة يتفق عليها المشاركون ← نفّذ دورة لعب ثم راجع الاتفاق؛ اطلب استراحة أو مساعدة عند الحاجة",
       "audience": "shared",
       "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
@@ -1938,7 +1938,12 @@
         "استعداد متدرج",
         "شاشة وواقع",
         "نتيجة عملية",
-        "ممارسة الطفل"
+        "ممارسة الطفل",
+        "60 موقفًا",
+        "ثلاثة مستويات",
+        "عربي وإنجليزي",
+        "المدربة الآلية",
+        "تتبع الكلمات"
       ],
       "runtime_profile": "legacy-web",
       "depth": "advanced",
@@ -1947,7 +1952,8 @@
         "pwa.offline",
         "compat.legacy-web",
         "ui.responsive-maturity",
-        "practice.core"
+        "practice.core",
+        "audio.recorded"
       ],
       "bundles": [
         "static-core"
@@ -1959,21 +1965,21 @@
           "relationship": "supports",
           "rationale_ar": "تعبير عن الحاجة وتبادل دور واختيار حل",
           "evidence_ar": "اتفاق مجرب ومراجع",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-positive-behavior-routines-and-independence",
           "relationship": "supports",
           "rationale_ar": "المدرب يوضح حدًا وخيارات ويحافظ على حق التوقف",
           "evidence_ar": "وصف استجابة البالغ",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         },
         {
           "goal_key": "coach-4-8-teach-through-play-projects-and-feedback",
           "relationship": "supports",
           "rationale_ar": "تغذية راجعة على سلوك محدد في اللعبة",
           "evidence_ar": "اقتراح تعديل عملي",
-          "delivery": "planned"
+          "delivery": "available_with_facilitator"
         }
       ],
       "blueprint": {
@@ -2054,7 +2060,31 @@
       "blueprint_path": "apps/4-8/cooperative-play-lab/BUILD_SPEC.md",
       "prompt_path": "apps/4-8/cooperative-play-lab/PROMPT_AR.md",
       "manifest": "apps/4-8/cooperative-play-lab/app.json",
-      "cover": "assets/covers/a4-cooperate.svg"
+      "cover": "assets/covers/a4-cooperate-v1-640.webp",
+      "href": "apps/4-8/cooperative-play-lab/index.html?v=20261020-live",
+      "icon": "apps/4-8/cooperative-play-lab/icon.svg",
+      "cover_fallback": "assets/covers/a4-cooperate-v1-640.jpg",
+      "cover_small": "assets/covers/a4-cooperate-v1-320.webp",
+      "cover_small_fallback": "assets/covers/a4-cooperate-v1-320.jpg",
+      "release_channel": "live",
+      "acceptance_state": "technical-checks-passed-user-observation-pending",
+      "learning_levels": [
+        {
+          "level": 1,
+          "age_hint": "4-5",
+          "track": "entry"
+        },
+        {
+          "level": 2,
+          "age_hint": "5-6",
+          "track": "practice"
+        },
+        {
+          "level": 3,
+          "age_hint": "6-8",
+          "track": "extend"
+        }
+      ]
     },
     {
       "id": "a4-session-planner",

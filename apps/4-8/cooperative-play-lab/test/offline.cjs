@@ -1,3 +1,72 @@
 'use strict';
-const fs=require('fs'),path=require('path'),http=require('http'),a=require('node:assert/strict');
-(async()=>{const repo=path.resolve(__dirname,'../../../..'),{chromium}=require('playwright');const server=http.createServer((req,res)=>{const p=path.join(repo,new URL(req.url,'http://local').pathname);if(!p.startsWith(repo+path.sep)){res.writeHead(403);res.end();return}fs.readFile(p,(err,b)=>{if(err){res.writeHead(404);res.end();return}res.setHeader('Content-Type',({'.js':'application/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.mp3':'audio/mpeg','.webp':'image/webp','.jpg':'image/jpeg','.png':'image/png'})[path.extname(p)]||'application/octet-stream');res.end(b)})});await new Promise(r=>server.listen(0,'127.0.0.1',r));const opts={headless:true};if(process.env.APP360_CHROMIUM_PATH){opts.executablePath=process.env.APP360_CHROMIUM_PATH;opts.args=['--no-sandbox','--no-zygote','--disable-dev-shm-usage','--disable-gpu']}const browser=await chromium.launch(opts);try{const ctx=await browser.newContext({serviceWorkers:'allow'}),p=await ctx.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const url='http://127.0.0.1:'+server.address().port+'/apps/4-8/cooperative-play-lab/index.html';await p.goto(url);await p.waitForFunction(()=>navigator.serviceWorker.controller,{timeout:60000});await p.waitForFunction(()=>document.querySelector('#offlineState').textContent.indexOf('جاهزان')>=0,{timeout:60000});await ctx.setOffline(true);await p.reload();await p.waitForFunction(()=>window.APP360_COOPERATE);const clips=await p.evaluate(async()=>{const manifest=await(await fetch('data/audio-manifest.json')).json(),ac=new AudioContext(),out=[];for(const item of manifest.items){const b=await(await fetch(item.path)).arrayBuffer(),decoded=await ac.decodeAudioData(b);if(decoded.duration<=.4||decoded.duration>=60)throw Error('Invalid clip '+item.path);out.push({path:item.path,duration:decoded.duration})}await ac.close();return out});a.equal(clips.length,28);for(let n=0;n<3;n++){await p.locator('[data-do="start"]').nth(n).click();await p.waitForFunction(()=>document.querySelector('.scene img').naturalWidth>0);await p.locator('[data-do="listen"]').click();await p.waitForFunction(()=>!APP360_COOPERATE.audio().paused);await p.waitForFunction(()=>document.querySelector('.ra-active'),{timeout:12000});await p.locator('[data-do="stop"]').click();a(await p.evaluate(()=>APP360_COOPERATE.audio().paused));await p.locator('[data-do="library"]').first().click()}a.deepEqual(errors,[]);console.log('Offline PASS:',JSON.stringify({decoded_silma_clips:clips.length,stories:3,actual_audio_and_word_cues:true,offline_reload:true,pageerrors:errors}));await ctx.close()}finally{await browser.close();server.close()}})().catch(e=>{console.error(e);process.exit(1)});
+const a = require('node:assert/strict'), {setup} = require('./helpers.cjs');
+(async () => {
+  const env = await setup();
+  try {
+    const context = await env.browser.newContext({serviceWorkers: 'allow'}), page = await context.newPage(), errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto(env.url);
+    await page.waitForFunction(() => navigator.serviceWorker.controller, null, {timeout: 60000});
+    await page.locator('#langBtn').click();
+    const draft = !!process.env.COOPERATE_DRAFT;
+    const tracks = draft ? ['entry'] : ['entry','practice','extend'];
+    const languages = draft ? ['en'] : ['en','ar'];
+    for (const language of languages) {
+      if (await page.locator('html').getAttribute('lang') !== language) await page.locator('#langBtn').click();
+      for (const track of tracks) {
+        await page.locator('#navLibrary').click();
+        await page.locator('[data-do="level"][data-value="' + track + '"]').click();
+        await page.locator('#navCoach').click();
+        await page.locator('[data-do="download"]').click();
+        let readiness;
+        for (let attempt = 0; attempt < 600; attempt++) {
+          readiness = await page.evaluate(async ({track, language}) => {
+            const ids = COOPERATE_CONTENT.cases.filter(c => c.track === track).map(c => c.id);
+            const keys = await caches.keys();
+            let ready = 0;
+            for (const id of ids) {
+              const name = keys.find(k => k.endsWith('-pack-' + language + '--' + id));
+              if (name && await (await caches.open(name)).match('__ready__')) ready++;
+            }
+            return {expected: ids.length, ready, cacheCount: keys.length};
+          }, {track, language});
+          if (readiness.expected === 20 && readiness.ready === 20) break;
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        console.log('Offline readiness:', track, language, JSON.stringify(readiness));
+        a.equal(readiness.expected, 20);
+        a.equal(readiness.ready, 20);
+      }
+    }
+    await context.setOffline(true);
+    await page.reload();
+    await page.waitForFunction(() => window.APP360_COOPERATE);
+    const decoded = await page.evaluate(async ({languages, draft}) => {
+      const manifest = await (await fetch('data/audio-manifest.json')).json(), context = new AudioContext();
+      const ids = COOPERATE_CONTENT.cases.filter(c => c.track === 'entry').map(c => c.id);
+      const clips = manifest.items.filter(i => languages.includes(i.language) && (!draft || ids.some(id => i.path.includes(id)) || i.path.includes('common-')));
+      let count = 0;
+      for (const item of clips) {
+        let response;try { response = await fetch(item.path); } catch (error) { throw Error('Offline fetch failed '+item.path+': '+error.message); } if (!response.ok) throw Error('Offline missing ' + item.path);
+        const buffer = await context.decodeAudioData(await response.arrayBuffer());
+        if (buffer.duration <= .4 || buffer.duration >= 60) throw Error('Invalid recording ' + item.path);
+        count++;
+      }
+      await context.close(); return count;
+    }, {languages, draft});
+    if (!draft) a.equal(decoded, 860); else a(decoded >= 140);
+    if (await page.locator('html').getAttribute('lang') !== 'en') await page.locator('#langBtn').click();
+    await page.locator('#navLibrary').click();
+    await page.locator('[data-do="level"][data-value="entry"]').click();
+    await page.locator('.case-card').first().click();
+    await page.waitForFunction(() => document.querySelector('.scene img').naturalWidth > 0);
+    await page.locator('[data-do="listen"]').click();
+    await page.waitForFunction(() => APP360_COOPERATE.audio().time > .2);
+    await page.waitForFunction(() => document.querySelector('.ra-active'), null, {timeout: 15000});
+    await page.locator('.narration [data-do="stop"]').click();
+    a.equal(await page.evaluate(() => APP360_COOPERATE.audio().paused), true);
+    a.deepEqual(errors, []);
+    console.log('Offline PASS:', JSON.stringify({languages, tracks, decoded, realWordTracking: true, reload: true, errors}));
+    await context.close();
+  } finally { await env.close(); }
+})().catch(error => { console.error(error); process.exit(1); });

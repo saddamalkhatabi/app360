@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "apps": [
     {
       "id": "a1-first-words",
@@ -118,17 +118,18 @@
     {
       "id": "a4-cooperate",
       "status": "live",
-      "href": "apps/4-8/cooperative-play-lab/index.html?v=scenes1",
-      "title_ar": "نلعب ونتفق — تجربة مصوّرة",
-      "description_ar": "نسخة تجربة بثلاثة مواقف مكتملة بالصور وصوت SILMA: نفس اللعبة، تغيير القاعدة، ولاعب جديد. نجرب الحلول مع مرافق ونراجع الاتفاق.",
-      "release_channel": "pilot",
+      "href": "apps/4-8/cooperative-play-lab/index.html?v=20261020-live",
+      "title_ar": "نلعب ونتفق: دور وقاعدة وحل",
+      "description_ar": "60 موقفًا مصورًا في ثلاثة مستويات، بالعربية والإنجليزية وصوت SILMA ومدربة آلية مع تتبع الكلمات. نسمع الحاجات ونقارن الحلول ونجرب اتفاقًا ثم نراجعه، مع حفظ التقدم وتنزيل المحتوى دون اتصال.",
+      "release_channel": "live",
       "goal_delivery": "available_with_facilitator",
       "capabilities": [
-        "audio.recorded",
-        "practice.core",
         "storage.local",
         "pwa.offline",
-        "compat.legacy-web"
+        "compat.legacy-web",
+        "ui.responsive-maturity",
+        "practice.core",
+        "audio.recorded"
       ],
       "age_groups": [
         "4-8"
