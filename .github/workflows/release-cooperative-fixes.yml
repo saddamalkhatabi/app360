@@ -20,9 +20,12 @@ jobs:
           python3 apps/4-8/cooperative-play-lab/tools/build-release.py
           python3 tooling/build-cooperative-offline.py
           node tooling/validate-app-links.js --app a4-cooperate
+          node --test apps/4-8/cooperative-play-lab/test/*.test.cjs
       - run: npm install --no-save --ignore-scripts --workspaces=false playwright && npx playwright install --with-deps chromium
       - name: Decode every recording offline with the new release bundle
-        run: node apps/4-8/cooperative-play-lab/test/offline.cjs
+        run: |
+          node apps/4-8/cooperative-play-lab/test/offline.cjs
+          node apps/4-8/cooperative-play-lab/test/offline-cdn.cjs
       - name: Save verified release metadata
         run: |
           git config user.name 'github-actions[bot]'
