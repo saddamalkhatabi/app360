@@ -1,0 +1,60 @@
+{
+  "method": "Targeted comparative Whisper-small Arabic recognition plus acoustic alignment. ASR is a heuristic, not a full human listening review.",
+  "items": [
+    {
+      "path": "audio/ar/puppet-seat-solution-1.mp3",
+      "old_asr": "ثم يزور الدمية ويتركوا لها المقعد",
+      "new_asr": "يجلس الدوبه ثم يزور الدمية ويترك لها المقعد",
+      "old_word_overlap": 0.625,
+      "new_word_overlap": 0.875,
+      "old_alignment_score": 0.6342,
+      "new_alignment_score": 0.9443,
+      "names_recognised": true,
+      "replaced": true
+    },
+    {
+      "path": "audio/ar/clay-tool-0.mp3",
+      "old_asr": "يصنام كرات من الصلصال وتريد ليان الأسطوانة نفسها",
+      "new_asr": "هذا سامي يصنع كرات من الصلصال وتريد ليان الأسطوانة نفسها",
+      "old_word_overlap": 0.7,
+      "new_word_overlap": 1.0,
+      "old_alignment_score": 0.9328,
+      "new_alignment_score": 0.9564,
+      "names_recognised": true,
+      "replaced": true
+    },
+    {
+      "path": "audio/ar/turn-speaker-solution-0.mp3",
+      "old_asr": "و أنتظروا نهاية الفكرة ثم أتكلم",
+      "new_asr": "اشير بهدوء وانتظر نهاية الفكرة ثم اتكلم.",
+      "old_word_overlap": 0.5714285714285714,
+      "new_word_overlap": 1.0,
+      "old_alignment_score": 0.603,
+      "new_alignment_score": 0.9825,
+      "names_recognised": true,
+      "replaced": true
+    },
+    {
+      "path": "audio/ar/block-bridge-0.mp3",
+      "old_asr": "يريد عاليا وهناء تريده واسعا للسيارة",
+      "new_asr": "يريد عمر جسراً عالياً وهناء تريده واسعاً للسيارة",
+      "old_word_overlap": 0.75,
+      "new_word_overlap": 1.0,
+      "old_alignment_score": 0.7957,
+      "new_alignment_score": 0.984,
+      "names_recognised": true,
+      "replaced": true
+    },
+    {
+      "path": "audio/ar/new-idea-test-solution-1.mp3",
+      "old_asr": "واحدة بل اتفاق ونحفظ طريقة عادتها",
+      "new_asr": "نغير قطعة واحدة بالإتفاق ونحفظ طريقة إعادتها",
+      "old_word_overlap": 0.42857142857142855,
+      "new_word_overlap": 1.0,
+      "old_alignment_score": 0.5711,
+      "new_alignment_score": 0.9432,
+      "names_recognised": true,
+      "replaced": true
+    }
+  ]
+}
