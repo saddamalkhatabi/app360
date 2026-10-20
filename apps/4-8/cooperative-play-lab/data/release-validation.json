@@ -1,6 +1,6 @@
 {
-  "complete": false,
-  "draft_only": true,
+  "complete": true,
+  "draft_only": false,
   "cases": 60,
   "per_level": 20,
   "languages": [
@@ -8,15 +8,15 @@
     "en"
   ],
   "expected_recordings": 860,
-  "available_recordings": 463,
-  "missing_recordings": 397,
-  "verified_recordings": 454,
-  "missing_count": 406,
+  "available_recordings": 860,
+  "missing_recordings": 0,
+  "verified_recordings": 860,
+  "missing_count": 0,
   "recordings_by_language": {
     "ar": {
       "expected": 430,
-      "available": 33,
-      "verified_with_cues": 24
+      "available": 430,
+      "verified_with_cues": 430
     },
     "en": {
       "expected": 430,
@@ -26,9 +26,9 @@
   },
   "atlas_frames": 480,
   "practice_stages": 420,
-  "core_bytes": 4528154,
-  "all_pack_bytes": 51848299,
-  "version": "10e4495c4cc16c78",
+  "core_bytes": 5181163,
+  "all_pack_bytes": 62467404,
+  "version": "e82df0a45b54c134",
   "human_listening_review": "not performed for every clip",
   "physical_old_tablet_test": "not performed",
   "child_observation": "pending user review"
