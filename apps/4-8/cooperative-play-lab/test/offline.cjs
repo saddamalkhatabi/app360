@@ -18,9 +18,17 @@ const a = require('node:assert/strict'), {setup} = require('./helpers.cjs');
         await page.locator('[data-do="level"][data-value="' + track + '"]').click();
         await page.locator('#navCoach').click();
         await page.locator('[data-do="download"]').click();
-        await page.waitForFunction(({track, language}) => {
+        await page.waitForFunction(async ({track, language}) => {
           const ids = COOPERATE_CONTENT.cases.filter(c => c.track === track).map(c => c.id);
-          return caches.keys().then(keys => Promise.all(ids.map(id => Promise.all(keys.filter(k => k.endsWith('-pack-' + language + '--' + id)).map(k => caches.open(k).then(c => c.match('__ready__')))).then(rows => rows.some(Boolean))))).then(rows => rows.every(Boolean));
+          if (ids.length !== 20) return false;
+          const keys = await caches.keys();
+          for (const id of ids) {
+            const name = keys.find(k => k.endsWith('-pack-' + language + '--' + id));
+            if (!name) return false;
+            const cache = await caches.open(name);
+            if (!await cache.match('__ready__')) return false;
+          }
+          return true;
         }, {track, language}, {timeout: 120000});
       }
     }
@@ -33,7 +41,7 @@ const a = require('node:assert/strict'), {setup} = require('./helpers.cjs');
       const clips = manifest.items.filter(i => languages.includes(i.language) && (!draft || ids.some(id => i.path.includes(id)) || i.path.includes('common-')));
       let count = 0;
       for (const item of clips) {
-        let response;try { response = await fetch(item.path); } catch (error) { const info=[];for(const key of await caches.keys()){const cache=await caches.open(key);info.push({key,match:!!await cache.match(new URL(item.path,location.href).href),first:(await cache.keys()).slice(0,2).map(r=>r.url)})}throw Error(JSON.stringify({path:item.path,controller:navigator.serviceWorker.controller&&navigator.serviceWorker.controller.scriptURL,info})); } if (!response.ok) throw Error('Offline missing ' + item.path);
+        let response;try { response = await fetch(item.path); } catch (error) { throw Error('Offline fetch failed '+item.path+': '+error.message); } if (!response.ok) throw Error('Offline missing ' + item.path);
         const buffer = await context.decodeAudioData(await response.arrayBuffer());
         if (buffer.duration <= .4 || buffer.duration >= 60) throw Error('Invalid recording ' + item.path);
         count++;
