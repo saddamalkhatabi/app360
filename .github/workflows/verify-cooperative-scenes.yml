@@ -1,0 +1,28 @@
+name: Verify cooperative navigation and scene crops
+on:
+  push:
+    branches: [fix/cooperate-scenes-navigation-20261020]
+    paths: [apps/4-8/cooperative-play-lab/app.js, apps/4-8/cooperative-play-lab/styles.css, apps/4-8/cooperative-play-lab/data/scene-frames.js, .github/workflows/verify-cooperative-scenes.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test apps/4-8/cooperative-play-lab/test/*.test.cjs
+      - run: npm install --no-save --ignore-scripts --workspaces=false playwright && npx playwright install --with-deps chromium
+      - run: |
+          node apps/4-8/cooperative-play-lab/test/browser.cjs
+          node apps/4-8/cooperative-play-lab/test/bilingual.cjs
+          node apps/4-8/cooperative-play-lab/test/navigation-scenes.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cooperative-navigation-screens
+          path: /tmp/cooperate*.png
+          retention-days: 3

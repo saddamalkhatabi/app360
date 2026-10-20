@@ -4,6 +4,13 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser();parser.add_argument('--draft',action='store_true');args=parser.parse_args()
 content=json.loads((ROOT/'data/content.json').read_text());manifest=json.loads((ROOT/'data/audio-manifest.json').read_text())
 assert len(content['cases'])==60
+frames=json.loads((ROOT/'data/scene-frames.json').read_text())
+assert set(frames['frames'])=={c['id'] for c in content['cases']}
+for c in content['cases']:
+ assert frames['atlas_sha256'][c['id']]==hashlib.sha256((ROOT/c['fallback']).read_bytes()).hexdigest(),c['id']
+ boxes=frames['frames'][c['id']];assert len(boxes)==8
+ for x,y,width,height in boxes:assert 0<=x<x+width<=1080 and 0<=y<y+height<=1440 and width>400 and height>250,(c['id'],x,y,width,height)
+
 assert len(manifest['items'])==860
 for track in ['entry','practice','extend']:assert sum(c['track']==track for c in content['cases'])==20
 cue_sets={}
@@ -34,7 +41,7 @@ for c in content['cases']:
    assert 0<=r['frame']<8
    assert any(m['path']==r['audio'] and m['text']==r['text'] and m['language']==lang for m in manifest['items'])
 if missing and not args.draft:raise SystemExit('Incomplete release: '+str(len(missing))+' missing audio/cue/image items; first: '+', '.join(missing[:8]))
-core=['index.html','styles.css','app.js','src/model.js','src/teacher.js','data/content.js','data/content.json','data/audio-manifest.json','data/read-along-ar.json','data/read-along-en.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png']
+core=['data/scene-frames.js','data/scene-frames.json','index.html','styles.css','app.js','src/model.js','src/teacher.js','data/content.js','data/content.json','data/audio-manifest.json','data/read-along-ar.json','data/read-along-en.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png']
 core+=['../../../assets/js/'+s for s in ['app360-read-along-v1.js','app360-session-v1.js','teacher-encouragement-v1.js','app360-ai-shell.js','app360-access-v1.js']]
 core+=['../../../assets/css/app360-read-along-v1.css','../../../assets/ui-icons/family-teacher.svg','../../../resources/celebration-audio/names.json']
 core+=['../../../resources/celebration-audio/audio/'+p for p in ['ar/well-done-m.mp3','ar/well-done-name-m.mp3','ar/well-done-name-f.mp3','en/well-done-en.mp3']]
