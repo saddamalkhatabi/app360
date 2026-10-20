@@ -1,12 +1,35 @@
 {
-  "cases": 3,
-  "atlas_frames": 24,
-  "journey_stages": 21,
-  "arabic_silma_recordings": 28,
-  "offline_files": 49,
-  "offline_bytes": 3434579,
-  "version": "65d5f55cd4f9d8ef",
+  "complete": false,
+  "draft_only": true,
+  "cases": 60,
+  "per_level": 20,
+  "languages": [
+    "ar",
+    "en"
+  ],
+  "expected_recordings": 860,
+  "available_recordings": 463,
+  "missing_recordings": 397,
+  "verified_recordings": 454,
+  "missing_count": 406,
+  "recordings_by_language": {
+    "ar": {
+      "expected": 430,
+      "available": 33,
+      "verified_with_cues": 24
+    },
+    "en": {
+      "expected": 430,
+      "available": 430,
+      "verified_with_cues": 430
+    }
+  },
+  "atlas_frames": 480,
+  "practice_stages": 420,
+  "core_bytes": 4528154,
+  "all_pack_bytes": 51848299,
+  "version": "10e4495c4cc16c78",
   "human_listening_review": "not performed for every clip",
-  "physical_big_tab_test": "not performed",
-  "child_trial": "pending user review"
+  "physical_old_tablet_test": "not performed",
+  "child_observation": "pending user review"
 }

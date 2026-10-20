@@ -41,16 +41,28 @@ from uroman import Uroman
 
 parser=argparse.ArgumentParser();parser.add_argument('--cache',required=True);parser.add_argument('--model-cache',required=True);parser.add_argument('--limit',type=int,default=0);parser.add_argument('--part',type=int,default=0);parser.add_argument('--parts',type=int,default=1);parser.add_argument('--generate-only',action='store_true');parser.add_argument('--align-only',action='store_true');parser.add_argument('--only',help='One manifest path to rebuild');parser.add_argument('--exclude',action='append',default=[],help='Skip a manifest audio path in partitioned builds')
 parser.add_argument('--memory-map-weights',action='store_true');parser.add_argument('--precision',choices=['bf16','fp32'],default='bf16');parser.add_argument('--root',required=True);parser.add_argument('--manifest',default='data/story-expansion-audio.json');parser.add_argument('--cues',default='data/silma-read-along.json');parser.add_argument('--report',default='data/silma-build-report.json')
+parser.add_argument('--quantize-linear',action='store_true',help='Optional CPU dynamic qint8 linear weights; preserve 16 diffusion steps')
+parser.add_argument('--generation-report',help='Checkpoint actual audio provenance after each generated clip')
+parser.add_argument('--normalize-duration',action='store_true',help='Estimate Arabic duration without counting combining vowel marks as extra spoken characters')
+parser.add_argument('--chunk-chars',type=int,default=0,help='Optional authored-text chunk size for normalized-duration builds')
 args=parser.parse_args();ROOT=pathlib.Path(args.root).resolve();cache=pathlib.Path(args.cache);cache.mkdir(parents=True,exist_ok=True)
-torch.set_num_threads(2)
+precision_key=args.precision+('-qint8' if args.quantize_linear else '')+('-normdur' if args.normalize_duration else '')+('-c'+str(args.chunk_chars) if args.chunk_chars else '')
+torch.set_num_threads(max(1,int(os.environ.get('APP360_TTS_THREADS','2'))))
 ref=str(files('silma_tts').joinpath('infer/ref_audio_samples/ar.ref.24k.wav'))
 ref_text='ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام.'
+manifest_items=json.loads((ROOT/args.manifest).read_text())['items']
+if args.chunk_chars:
+ assert args.normalize_duration and 80<=args.chunk_chars<=480
+ from silma_tts.infer import utils_infer
+ original_chunk_text=utils_infer.chunk_text
+ def authored_chunks(text,max_chars=135):return original_chunk_text(text,max_chars=args.chunk_chars)
+ utils_infer.chunk_text=authored_chunks
 # A targeted retry can reuse only an exact synthesis-cache match.
 if args.generate_only and args.only:
  manifest=json.loads((ROOT/args.manifest).read_text())
  matched=next((item for item in manifest['items'] if item['path']==args.only and item['language']=='ar' and item.get('engine','silma')=='silma'),None)
  assert matched,'Unknown Arabic audio path'
- cache_key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|16|.95|360|')+matched['text']).encode()).hexdigest()
+ cache_key=hashlib.sha256((('silma-1.0.5|'+precision_key+'|16|.95|360|')+matched['text']).encode()).hexdigest()
  cached=cache/(cache_key+'.wav')
  if cached.exists():
   target=ROOT/matched['path'];target.parent.mkdir(parents=True,exist_ok=True)
@@ -68,22 +80,32 @@ if not args.align_only:
   torch.load=memory_mapped_load
   try:engine=SilmaTTS(device='cpu',enable_normalizer=False,force_tashkeel=False,hf_cache_dir=args.model_cache)
   finally:torch.load=original_load
+  if args.quantize_linear:
+   assert args.precision=='fp32','qint8 linear layers use Float32 activations'
+   from torch.ao.quantization import quantize_dynamic
+   engine.ema_model=quantize_dynamic(engine.ema_model,{torch.nn.Linear},dtype=torch.qint8,inplace=True)
   # BF16 is the default; FP32 can be selected for CPU builds.
   original_sample=engine.ema_model.sample
   def bounded_sample(*a,**kw):
+   if args.normalize_duration:
+    # Marks guide pronunciation, but are not additional spoken syllables.
+    # Keep the publisher reference words, waveform, speed and diffusion steps.
+    def visible_length(text):return max(1,len(''.join(c for c in unicodedata.normalize('NFKD',text) if not unicodedata.combining(c))))
+    full=kw['text'][0];generated_text=full[len(ref_text):].strip();ref_frames=kw['cond'].shape[-1]//256
+    kw['duration']=ref_frames+int(ref_frames*visible_length(generated_text)/visible_length(ref_text)/.95)
    with torch.autocast('cpu',dtype=torch.bfloat16,enabled=args.precision=='bf16'):
     return original_sample(*a,**kw)
   engine.ema_model.sample=bounded_sample
   gc.collect();ctypes.CDLL(None).malloc_trim(0)
   fcntl.flock(lock,fcntl.LOCK_UN)
-items=[i for i in json.loads((ROOT/args.manifest).read_text())['items'] if i['language']=='ar' and i.get('engine','silma')=='silma']
+items=[i for i in manifest_items if i['language']=='ar' and i.get('engine','silma')=='silma']
 if args.only:items=[item for item in items if item['path']==args.only];assert items,'Unknown audio path'
 if args.exclude:items=[item for item in items if item['path'] not in args.exclude]
 if args.limit:items=items[:args.limit]
 if args.generate_only:items=[item for n,item in enumerate(items) if n%args.parts==args.part]
-outputs=[]
+outputs=[];generation_records=[]
 for n,item in enumerate(items):
- key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|16|.95|360|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
+ key=hashlib.sha256((('silma-1.0.5|'+precision_key+'|16|.95|360|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
  if not args.align_only and not wavfile.exists():
   start=time.time();print('SILMA generating',n+1,len(items),item['path'],flush=True)
   temporary_wav=cache/(key+'.'+str(os.getpid())+'.building.wav')
@@ -99,6 +121,9 @@ for n,item in enumerate(items):
  target=ROOT/item['path'];target.parent.mkdir(parents=True,exist_ok=True)
  if not args.align_only:subprocess.run(['ffmpeg','-v','error','-y','-i',str(wavfile),'-ar','24000','-ac','1','-codec:a','libmp3lame','-b:a','48k','-write_xing','1','-id3v2_version','0',str(target)],check=True)
  outputs.append((item,target))
+ if args.generation_report and target.exists():
+  generation_records.append({'path':item['path'],'text_sha256':hashlib.sha256(item['text'].encode()).hexdigest(),'audio_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'precision':precision_key,'normalized_duration':args.normalize_duration,'chunk_chars':args.chunk_chars,'steps':16,'speed':.95,'seed':360,'engine':'silma-tts-1.0.5','model_revision':'226dd7a65cadf51f9a6dbe3953fc89003b3844d5'})
+  report=ROOT/args.generation_report;report.parent.mkdir(parents=True,exist_ok=True);temporary=report.with_suffix('.building.json');temporary.write_text(json.dumps({'items':generation_records},ensure_ascii=False,indent=2)+'\n');temporary.replace(report)
 if args.generate_only:
  print('Completed generation part',args.part,len(outputs),flush=True);raise SystemExit(0)
 # Release all synthesis allocations before alignment.

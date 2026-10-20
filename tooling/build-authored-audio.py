@@ -1,9 +1,10 @@
 """Generate authored public curriculum only; cue positions come from the actual recording.
 Requires edge-tts and ffmpeg in a build environment, never in the child's browser.
 """
-import asyncio, hashlib, importlib, json, os, pathlib, subprocess, sys, unicodedata
+import argparse, asyncio, hashlib, importlib, json, os, pathlib, subprocess, sys, unicodedata
 import edge_tts
-ROOT = pathlib.Path(sys.argv[1]).resolve()
+parser=argparse.ArgumentParser();parser.add_argument('root');parser.add_argument('cache');parser.add_argument('--manifest',default='data/audio-manifest.json');parser.add_argument('--cues',default='data/read-along.json');args=parser.parse_args()
+ROOT = pathlib.Path(args.root).resolve()
 # Adapter passes the app root, then the reusable recording cache.
 def valid_source(src, meta):
     if not(src.exists() and meta.exists() and meta.stat().st_size):return False
@@ -16,14 +17,23 @@ def valid_source(src, meta):
 def normal(s):
     return ''.join(c.lower() for c in unicodedata.normalize('NFKD', s) if c.isalnum() and not unicodedata.combining(c))
 async def main():
-    manifest=json.loads((ROOT/'data/audio-manifest.json').read_text())
-    cache=pathlib.Path(sys.argv[2]);cache.mkdir(parents=True,exist_ok=True)
+    manifest=json.loads((ROOT/args.manifest).read_text())
+    cache=pathlib.Path(args.cache);cache.mkdir(parents=True,exist_ok=True)
     context=importlib.import_module('edge_tts.communicate')._SSL_CTX
     for cert in pathlib.Path('/usr/local/share/ca-certificates').glob('*.crt'):context.load_verify_locations(str(cert))
-    sem=asyncio.Semaphore(4);clips={};done=0
+    sem=asyncio.Semaphore(max(1,int(os.environ.get('APP360_AUDIO_WORKERS','4'))));clips={};done=0
+    prior={}
+    try:prior=json.loads((ROOT/args.cues).read_text()).get('items',{})
+    except (OSError,ValueError):pass
+    def checkpoint():
+        target=ROOT/args.cues;temporary=target.with_suffix('.building.json')
+        temporary.write_text(json.dumps({'schema_version':1,'timing_source':'Actual recording WordBoundary; punctuation tokens have no fabricated cue','items':{k:clips[k] for k in sorted(clips)}},ensure_ascii=False,separators=(',',':'))+'\n');temporary.replace(target)
     async def one(item):
         nonlocal done
         async with sem:
+            existing=ROOT/item['path'];previous=prior.get(item['path'])
+            if existing.exists() and previous and previous.get('text')==item['text'] and previous.get('audio_sha256')==hashlib.sha256(existing.read_bytes()).hexdigest():
+                clips[item['path']]=previous;done+=1;return
             key=hashlib.sha256((item['language']+item['text']).encode()).hexdigest()
             src=cache/(key+'.mp3');meta=cache/(key+'.jsonl')
             if not valid_source(src,meta):
@@ -51,16 +61,18 @@ async def main():
                     pos+=size
                 cursor+=len(value)
             assert cursor==len(flat) and len(spans)==sum(bool(n) for n in lengths),item['path']
-            target=ROOT/item['path'];target.parent.mkdir(exist_ok=True)
+            target=ROOT/item['path'];target.parent.mkdir(parents=True,exist_ok=True)
             converted=cache/(key+'-'+hashlib.sha256(item['path'].encode()).hexdigest()[:12]+'.converted.mp3')
             subprocess.run(['ffmpeg','-v','error','-y','-i',str(src),'-ar','24000','-ac','1','-codec:a','libmp3lame','-b:a','40k','-write_xing','1','-id3v2_version','0',str(converted)],check=True)
             duration=round(float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=nw=1:nk=1',str(converted)]))*1000)
             assert converted.stat().st_size>0 and all(a<duration and b<=duration+50 for a,b in spans.values()),item['path']
             converted.replace(target)
-            clips[item['path']]={'text':item['text'],'language':item['language'],'duration':duration,'cues':[[i,a,min(b,duration)] for i,(a,b) in sorted(spans.items())]}
+            clips[item['path']]={'text':item['text'],'language':item['language'],'duration':duration,'audio_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'cues':[[i,a,min(b,duration)] for i,(a,b) in sorted(spans.items())]}
             done+=1
-            if done%10==0:print('Built',done,'/',len(manifest['items']),flush=True)
-    await asyncio.gather(*(one(item) for item in manifest['items']))
-    (ROOT/'data/read-along.json').write_text(json.dumps({'schema_version':1,'timing_source':'Actual recording WordBoundary; punctuation tokens have no fabricated cue','items':{k:clips[k] for k in sorted(clips)}},ensure_ascii=False,separators=(',',':'))+'\n')
+            if done%10==0:
+                checkpoint();print('Built',done,'/',len(manifest['items']),flush=True)
+    try:await asyncio.gather(*(one(item) for item in manifest['items']))
+    finally:checkpoint()
+    (ROOT/args.cues).write_text(json.dumps({'schema_version':1,'timing_source':'Actual recording WordBoundary; punctuation tokens have no fabricated cue','items':{k:clips[k] for k in sorted(clips)}},ensure_ascii=False,separators=(',',':'))+'\n')
     print('Completed',done,'clips with real timings',flush=True)
 asyncio.run(main())
