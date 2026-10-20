@@ -1,0 +1,21 @@
+name: Check cooperative bilingual preview
+on:
+  push:
+    branches: [preview/cooperate-60-bilingual-20261020]
+    paths: [apps/4-8/cooperative-play-lab/data/check-preview.request]
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --ignore-scripts --workspaces=false playwright && npx playwright install --with-deps chromium
+      - run: node --test apps/4-8/cooperative-play-lab/test/*.test.cjs
+      - run: node apps/4-8/cooperative-play-lab/test/browser.cjs
+      - run: node apps/4-8/cooperative-play-lab/test/bilingual.cjs
+      - run: COOPERATE_DRAFT=1 node apps/4-8/cooperative-play-lab/test/offline.cjs
