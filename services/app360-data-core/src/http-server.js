@@ -1,6 +1,7 @@
 'use strict';
 var http=require('http');var url=require('url');var core=require('./index');var sessions=require('./session-repository');var demoAuth=require('./demo-auth');var safe=require('./safe-reels-adapter');var fileStore=require('./file-store').createFileStore();
 var bridge=require('./reels-bridge');
+var browserSession=require('./browser-session');
 var celebration=require('./celebration-service').createCelebrationService();
 var PORT=Number(process.env.APP360_PORT||3036),MAX_BODY=20*1024*1024;
 function send(res,status,obj,origin){var body=JSON.stringify(obj||{});res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.end(body)}
@@ -26,11 +27,19 @@ async function loginRequest(db,input){
 }
 async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){send(res,403,{error:'origin_not_allowed'});return}if(req.method==='OPTIONS'){res.statusCode=204;if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');res.setHeader('Vary','Origin');res.end();return}var p=url.parse(req.url,true),path=p.pathname||'',db=await core.db.createDb();try{
   if(req.method==='GET'&&path==='/api/app360/health'){var m=await db('knex_migrations').count({n:'id'}).first().catch(function(){return{n:0}});send(res,200,{ok:true,service:'app360-data-core',safe_reels_auth_configured:safe.configured(),reels_bridge_configured:bridge.configured(),seed_login_enabled:demoLoginEnabled(),applied_migrations:Number(m.n)||0},origin);return}
-  if(req.method==='POST'&&path==='/api/app360/auth/reels/exchange'){var ticket=await body(req);try{send(res,200,await bridge.exchange(db,ticket.code,sessions),origin)}catch(e){send(res,e.httpStatus||401,{error:'reels_exchange_failed',message:'تعذر ربط الحساب. افتح التطبيق مجدداً من الريلز.'},origin)}return}
+  if(req.method==='POST'&&path==='/api/app360/auth/reels/exchange'){var ticket=await body(req);try{var exchanged=await bridge.exchange(db,ticket.code,sessions);browserSession.write(res,exchanged.token,exchanged.expires_at);send(res,200,exchanged,origin)}catch(e){send(res,e.httpStatus||401,{error:'reels_exchange_failed',message:'تعذر ربط الحساب. افتح التطبيق مجدداً من الريلز.'},origin)}return}
   if(req.method==='POST'&&(path==='/api/app360/auth/login'||path==='/api/app360/auth/child-login')){
-    var input=await body(req);input.client_ip=req.socket.remoteAddress||'';try{var logged=await loginRequest(db,input);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الحسابات غير مهيأة، ويمكن استخدام الحسابات التجريبية في بيئة التطوير.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
+    var input=await body(req);input.client_ip=req.socket.remoteAddress||'';try{var logged=await loginRequest(db,input);browserSession.write(res,logged.token,logged.expires_at);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الحسابات غير مهيأة، ويمكن استخدام الحسابات التجريبية في بيئة التطوير.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
   }
-  if(req.method==='POST'&&path==='/api/app360/auth/logout'){var ending=await auth(db,req);await bridge.logout(db,ending);await sessions.revokeIdentitySession(db,bearer(req));send(res,200,{ok:true},origin);return}
+  if(req.method==='POST'&&path==='/api/app360/auth/logout'){var ending=await auth(db,req);await bridge.logout(db,ending);await sessions.revokeIdentitySession(db,bearer(req));browserSession.clear(res);send(res,200,{ok:true},origin);return}
+  if(req.method==='GET'&&path==='/api/app360/auth/session'){
+    if(!browserSession.sameOrigin(req)){send(res,403,{error:'origin_not_allowed'},origin);return}
+    var shared=browserSession.read(req)||bearer(req),restored=await sessions.findIdentitySession(db,shared);
+    if(!restored){browserSession.clear(res);send(res,401,{error:'authentication_required'},origin);return}
+    try{await bridge.authorize(db,restored,false)}catch(e){if(e.httpStatus===401||e.httpStatus===403)browserSession.clear(res);send(res,e.httpStatus||503,{error:'linked_identity_unavailable'},origin);return}
+    var external=restored.session.source==='safe-reels-360';browserSession.write(res,shared,restored.session.expires_at);
+    send(res,200,{token:shared,expires_at:restored.session.expires_at,profile:profileOf(restored.user,restored.account_id,{external:external})},origin);return
+  }
   var me=await auth(db,req);if(!me){send(res,401,{error:'authentication_required',message:'سجل دخول المستخدم أولًا.'},origin);return}
   try{await bridge.authorize(db,me,req.method==='POST'&&path==='/api/app360/usage/batch')}catch(e){send(res,e.httpStatus||503,{error:'linked_identity_unavailable',message:'تعذر التحقق من الحساب المرتبط. افتح المدرسة من الريلز مجدداً.'},origin);return;}
   if(req.method==='POST'&&path==='/api/app360/reels/launch'){try{send(res,200,await bridge.launch(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_launch_failed',message:'افتح المدرسة من الريلز لتجديد ربط الحساب.'},origin)}return}
@@ -48,3 +57,4 @@ var server=http.createServer(function(req,res){handler(req,res).catch(function(e
 if(require.main===module){var relayTimer=setInterval(async function(){if(!bridge.configured())return;var db;try{db=await core.db.createDb();await bridge.drain(db);}catch(e){console.error('Reels usage retry unavailable');}finally{if(db)await db.destroy();}},30000);relayTimer.unref();}
 if(require.main===module)server.listen(PORT,function(){console.log('App360 Data Core API listening on '+PORT);console.log('Safe Reels auth configured:',safe.configured()?'yes':'no');console.log('Seed/demo login:',demoLoginEnabled()?'enabled':'disabled')});
 module.exports={handler:handler,server:server,demoLoginEnabled:demoLoginEnabled};
+

@@ -29,6 +29,8 @@
     "test:offline": "node --test tooling/test-offline-platform.js",
     "build:links": "node tooling/build-public-links.js",
     "test:access": "node tooling/test-access-browser.cjs",
-    "validate:retired-ai": "node tooling/test-retired-ai.cjs"
+    "validate:retired-ai": "node tooling/test-retired-ai.cjs",
+    "build": "npm --prefix services/app360-data-core install --omit=dev --no-audit --no-fund",
+    "start": "node services/family-relay/src/server.js"
   }
 }

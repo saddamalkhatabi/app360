@@ -1,4 +1,5 @@
 'use strict';
+require('./load-env').load();
 
 const http = require('node:http');
 const fs = require('node:fs');
@@ -359,3 +360,4 @@ if (require.main === module) {
 }
 
 module.exports = {createApp360Server, createRelayState};
+
