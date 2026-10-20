@@ -11,6 +11,11 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            apps/4-8/cooperative-play-lab
+            assets
+            resources/celebration-audio
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
