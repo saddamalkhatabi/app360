@@ -40,6 +40,7 @@ assert 'onnxruntime' not in sys.modules, 'Unused telemetry-capable backend must 
 from uroman import Uroman
 
 parser=argparse.ArgumentParser();parser.add_argument('--cache',required=True);parser.add_argument('--model-cache',required=True);parser.add_argument('--limit',type=int,default=0);parser.add_argument('--part',type=int,default=0);parser.add_argument('--parts',type=int,default=1);parser.add_argument('--generate-only',action='store_true');parser.add_argument('--align-only',action='store_true');parser.add_argument('--only',help='One manifest path to rebuild');parser.add_argument('--exclude',action='append',default=[],help='Skip a manifest audio path in partitioned builds')
+parser.add_argument('--seed',type=int,default=360);parser.add_argument('--nfe-step',type=int,default=16);parser.add_argument('--speed',type=float,default=.95)
 parser.add_argument('--memory-map-weights',action='store_true');parser.add_argument('--precision',choices=['bf16','fp32'],default='bf16');parser.add_argument('--root',required=True);parser.add_argument('--manifest',default='data/story-expansion-audio.json');parser.add_argument('--cues',default='data/silma-read-along.json');parser.add_argument('--report',default='data/silma-build-report.json')
 args=parser.parse_args();ROOT=pathlib.Path(args.root).resolve();cache=pathlib.Path(args.cache);cache.mkdir(parents=True,exist_ok=True)
 torch.set_num_threads(2)
@@ -50,7 +51,7 @@ if args.generate_only and args.only:
  manifest=json.loads((ROOT/args.manifest).read_text())
  matched=next((item for item in manifest['items'] if item['path']==args.only and item['language']=='ar' and item.get('engine','silma')=='silma'),None)
  assert matched,'Unknown Arabic audio path'
- cache_key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|16|.95|360|')+matched['text']).encode()).hexdigest()
+ cache_key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+str(args.speed)+'|'+str(args.seed)+'|')+matched['text']).encode()).hexdigest()
  cached=cache/(cache_key+'.wav')
  if cached.exists():
   target=ROOT/matched['path'];target.parent.mkdir(parents=True,exist_ok=True)
@@ -83,11 +84,11 @@ if args.limit:items=items[:args.limit]
 if args.generate_only:items=[item for n,item in enumerate(items) if n%args.parts==args.part]
 outputs=[]
 for n,item in enumerate(items):
- key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|16|.95|360|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
+ key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+str(args.speed)+'|'+str(args.seed)+'|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
  if not args.align_only and not wavfile.exists():
   start=time.time();print('SILMA generating',n+1,len(items),item['path'],flush=True)
   temporary_wav=cache/(key+'.'+str(os.getpid())+'.building.wav')
-  wav,sr,_=engine.infer(ref_file=ref,ref_text=ref_text,gen_text=item['text'],file_wave=str(temporary_wav),seed=360,speed=.95,nfe_step=16,force_tashkeel=False,normalize_numbers=False)
+  wav,sr,_=engine.infer(ref_file=ref,ref_text=ref_text,gen_text=item['text'],file_wave=str(temporary_wav),seed=args.seed,speed=args.speed,nfe_step=args.nfe_step,force_tashkeel=False,normalize_numbers=False)
   # Very short prompts may be shorter than one second. They are valid
   # child-facing audio; pad with silence to preserve the review format.
   assert sr==24000 and np.isfinite(wav).all() and len(wav)/sr>0.16 and len(wav)/sr<40,item['path']
@@ -134,5 +135,5 @@ for n,(item,target) in enumerate(outputs):
  records[item['path']]={'text':item['text'],'language':'ar','duration':duration,'cues':cues,'timing_source':'MMS_FA acoustic forced alignment of actual MP3','audio_sha256':hashlib.sha256(target.read_bytes()).hexdigest()}
  print('Aligned',n+1,len(outputs),item['path'],round(confidence,3),flush=True)
 (ROOT/args.cues).write_text(json.dumps({'schema_version':1,'items':records},ensure_ascii=False,separators=(',',':'))+'\n')
-(ROOT/args.report).write_text(json.dumps({'engine':'silma-tts','package_version':'1.0.5','model':'silma-ai/silma-tts','model_revision':((pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').read_text().strip() if (pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').exists() else 'alignment-only-no-synthesis-checkpoint'),'network':'Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports','diacritization':'Authored tashkeel; unused CATT/ONNX backend excluded from process','reference':'publisher bundled ar.ref.24k.wav','seed':360,'steps':16,'precision':'CPU '+args.precision.upper()+', Float32 waveform','speed':.95,'alignment':'torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy','clips':metrics},ensure_ascii=False,indent=2)+'\n')
+(ROOT/args.report).write_text(json.dumps({'engine':'silma-tts','package_version':'1.0.5','model':'silma-ai/silma-tts','model_revision':((pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').read_text().strip() if (pathlib.Path(args.model_cache)/'models--silma-ai--silma-tts/refs/main').exists() else 'alignment-only-no-synthesis-checkpoint'),'network':'Local cached model weights; outbound Python connections disabled; ORT process-lifetime opt-out before imports','diacritization':'Authored tashkeel; unused CATT/ONNX backend excluded from process','reference':'publisher bundled ar.ref.24k.wav','seed':args.seed,'steps':args.nfe_step,'precision':'CPU '+args.precision.upper()+', Float32 waveform','speed':args.speed,'alignment':'torchaudio MMS_FA + uroman; scores are alignment confidence, not pronunciation accuracy','clips':metrics},ensure_ascii=False,indent=2)+'\n')
 print('Completed',len(outputs),'SILMA Arabic clips',flush=True)

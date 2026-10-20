@@ -1,0 +1,66 @@
+name: Repair selected cooperative narration
+on:
+  push:
+    branches: [fix/cooperate-scenes-navigation-20261020]
+    paths: [apps/4-8/cooperative-play-lab/data/narration-repair.json]
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install recording and alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub faster-whisper
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          import os,pathlib
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main';p.parent.mkdir(parents=True,exist_ok=True);p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - name: Keep old recordings for comparison
+        run: |
+          mkdir -p /tmp/old-cooperate-audio
+          python - <<'PY'
+          import json,pathlib,shutil
+          r=pathlib.Path('apps/4-8/cooperative-play-lab')
+          for i in json.loads((r/'data/narration-repair.json').read_text())['items']:shutil.copyfile(r/i['path'],pathlib.Path('/tmp/old-cooperate-audio')/pathlib.Path(i['path']).name)
+          PY
+      - name: Record five targeted clips with more sampling steps
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/cooperative-play-lab
+          --cache /tmp/cooperate-repair --model-cache /tmp/silma-hf/hub
+          --manifest data/narration-repair.json --generate-only --memory-map-weights
+          --seed 361 --nfe-step 32 --speed .9
+      - name: Measure real acoustic word timing
+        run: >-
+          python tooling/build-silma-audio.py --root apps/4-8/cooperative-play-lab
+          --cache /tmp/cooperate-repair --model-cache /tmp/silma-hf/hub
+          --manifest data/narration-repair.json --align-only
+          --cues data/narration-repair-cues.json --report data/narration-repair-report.json
+      - name: Compare pronunciation and install only improved clips
+        run: python apps/4-8/cooperative-play-lab/tools/review-narration-repair.py
+      - name: Publish reviewed recordings to the fix branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/4-8/cooperative-play-lab/audio/ apps/4-8/cooperative-play-lab/data/read-along-ar.json apps/4-8/cooperative-play-lab/data/narration-repair-*.json
+          git commit -m 'Repair selected SILMA clips and refresh measured word timings'
+          git pull --rebase origin fix/cooperate-scenes-navigation-20261020
+          git push origin HEAD:fix/cooperate-scenes-navigation-20261020
