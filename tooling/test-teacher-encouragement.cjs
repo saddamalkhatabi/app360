@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('nod
 const source=fs.readFileSync('assets/js/teacher-encouragement-v1.js','utf8');
 function fixture(){let current={user_id:'child-1',display_name:'نور',role:'learner'},auth=true,clips=[],requests=[],captions=[],done=0,events={},timers=new Map(),id=0;
  const w={APP360_SESSION:{isAuthenticated:()=>auth,getProfile:()=>current},addEventListener(){},Audio:function(src){this.src=src;this.pause=()=>{};this.play=()=>{clips.push(this)}},XMLHttpRequest:function(){this.open=()=>{};this.send=()=>requests.push(this);this.abort=()=>{};}};
- const d={addEventListener:(name,fn)=>events[name]=fn};vm.runInNewContext(source,{window:w,document:d,setTimeout:(fn)=>{timers.set(++id,fn);return id},clearTimeout:n=>timers.delete(n)});
+ const d={getElementsByTagName:()=>[],addEventListener:(name,fn)=>events[name]=fn};vm.runInNewContext(source,{window:w,document:d,setTimeout:(fn)=>{timers.set(++id,fn);return id},clearTimeout:n=>timers.delete(n)});
  function names(){let r=requests.at(-1);r.status=200;r.responseText=JSON.stringify({records:[{name:'نور',aliases:['Noor'],gender:'girl',audio:{path:'audio/names/name-1.mp3',sha256:'abc'}}]});r.onload()}
  return{w,clips,requests,captions,events,timers,names,play:()=>w.APP360_TEACHER_ENCOURAGEMENT.play({language:'ar',caption:t=>captions.push(t)},()=>done++),get done(){return done},switch:()=>{current={user_id:'child-2',display_name:'علي',role:'learner'};events['app360:authchange']()},guest:()=>auth=false,parent:()=>current.role='parent'};
 }
