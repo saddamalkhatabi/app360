@@ -18,18 +18,24 @@ const a = require('node:assert/strict'), {setup} = require('./helpers.cjs');
         await page.locator('[data-do="level"][data-value="' + track + '"]').click();
         await page.locator('#navCoach').click();
         await page.locator('[data-do="download"]').click();
-        await page.waitForFunction(async ({track, language}) => {
-          const ids = COOPERATE_CONTENT.cases.filter(c => c.track === track).map(c => c.id);
-          if (ids.length !== 20) return false;
-          const keys = await caches.keys();
-          for (const id of ids) {
-            const name = keys.find(k => k.endsWith('-pack-' + language + '--' + id));
-            if (!name) return false;
-            const cache = await caches.open(name);
-            if (!await cache.match('__ready__')) return false;
-          }
-          return true;
-        }, {track, language}, {timeout: 120000});
+        let readiness;
+        for (let attempt = 0; attempt < 600; attempt++) {
+          readiness = await page.evaluate(async ({track, language}) => {
+            const ids = COOPERATE_CONTENT.cases.filter(c => c.track === track).map(c => c.id);
+            const keys = await caches.keys();
+            let ready = 0;
+            for (const id of ids) {
+              const name = keys.find(k => k.endsWith('-pack-' + language + '--' + id));
+              if (name && await (await caches.open(name)).match('__ready__')) ready++;
+            }
+            return {expected: ids.length, ready, cacheCount: keys.length};
+          }, {track, language});
+          if (readiness.expected === 20 && readiness.ready === 20) break;
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        console.log('Offline readiness:', track, language, JSON.stringify(readiness));
+        a.equal(readiness.expected, 20);
+        a.equal(readiness.ready, 20);
       }
     }
     await context.setOffline(true);
