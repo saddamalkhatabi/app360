@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Validate all recordings and refresh the portal bundle
         run: |
           python3 apps/4-8/cooperative-play-lab/tools/build-release.py
