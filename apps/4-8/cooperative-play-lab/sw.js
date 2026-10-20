@@ -1,4 +1,4 @@
-importScripts('offline-files.js');
+importScripts('offline-files.js?v=20261020-voice3');
 var META=self.COOPERATE_OFFLINE,BASE='a4-cooperate-'+META.version,CORE=BASE+'-core',chain=Promise.resolve();
 function send(value){return self.clients.matchAll({includeUncontrolled:true}).then(function(rows){rows.forEach(function(c){c.postMessage(value)})})}
 function cacheFiles(cache,files,progress){var at=0;return files.reduce(function(p,path){return p.then(function(){return cache.match(path,{ignoreSearch:true}).then(function(found){if(found)return;return fetch(new Request(path+(path.indexOf('?')>=0?'&':'?')+'cooperate_release='+encodeURIComponent(META.version),{cache:'reload'})).then(function(response){if(!response.ok)throw Error('offline-file-unavailable');return cache.put(path,response)})}).then(function(){at++;if(progress)return send({type:'COOPERATE_CACHE',loaded:at,total:files.length,done:false})})})},Promise.resolve())}
