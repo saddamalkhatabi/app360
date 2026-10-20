@@ -33,7 +33,7 @@ const a = require('node:assert/strict'), {setup} = require('./helpers.cjs');
       const clips = manifest.items.filter(i => languages.includes(i.language) && (!draft || ids.some(id => i.path.includes(id)) || i.path.includes('common-')));
       let count = 0;
       for (const item of clips) {
-        const response = await fetch(item.path); if (!response.ok) throw Error('Offline missing ' + item.path);
+        let response;try { response = await fetch(item.path); } catch (error) { throw Error('Offline fetch failed '+item.path+': '+error.message); } if (!response.ok) throw Error('Offline missing ' + item.path);
         const buffer = await context.decodeAudioData(await response.arrayBuffer());
         if (buffer.duration <= .4 || buffer.duration >= 60) throw Error('Invalid recording ' + item.path);
         count++;
