@@ -51,7 +51,7 @@ if args.generate_only and args.only:
  manifest=json.loads((ROOT/args.manifest).read_text())
  matched=next((item for item in manifest['items'] if item['path']==args.only and item['language']=='ar' and item.get('engine','silma')=='silma'),None)
  assert matched,'Unknown Arabic audio path'
- cache_key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+str(args.speed)+'|'+str(args.seed)+'|')+matched['text']).encode()).hexdigest()
+ cache_key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+('.95' if args.speed==.95 else str(args.speed))+'|'+str(args.seed)+'|')+matched['text']).encode()).hexdigest()
  cached=cache/(cache_key+'.wav')
  if cached.exists():
   target=ROOT/matched['path'];target.parent.mkdir(parents=True,exist_ok=True)
@@ -84,7 +84,7 @@ if args.limit:items=items[:args.limit]
 if args.generate_only:items=[item for n,item in enumerate(items) if n%args.parts==args.part]
 outputs=[]
 for n,item in enumerate(items):
- key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+str(args.speed)+'|'+str(args.seed)+'|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
+ key=hashlib.sha256((('silma-1.0.5|'+args.precision+'|'+str(args.nfe_step)+'|'+('.95' if args.speed==.95 else str(args.speed))+'|'+str(args.seed)+'|')+item['text']).encode()).hexdigest();wavfile=cache/(key+'.wav')
  if not args.align_only and not wavfile.exists():
   start=time.time();print('SILMA generating',n+1,len(items),item['path'],flush=True)
   temporary_wav=cache/(key+'.'+str(os.getpid())+'.building.wav')

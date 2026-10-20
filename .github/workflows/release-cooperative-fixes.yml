@@ -1,0 +1,32 @@
+name: Verify final cooperative fixes and offline release
+on:
+  push:
+    branches: [fix/cooperate-scenes-navigation-20261020]
+    paths: [apps/4-8/cooperative-play-lab/data/release-fixes.request]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Check updated audio, measured image boundaries and offline inventories
+        run: |
+          python3 apps/4-8/cooperative-play-lab/tools/build-release.py
+          python3 tooling/build-cooperative-offline.py
+          node tooling/validate-app-links.js --app a4-cooperate
+      - run: npm install --no-save --ignore-scripts --workspaces=false playwright && npx playwright install --with-deps chromium
+      - name: Decode every recording offline with the new release bundle
+        run: node apps/4-8/cooperative-play-lab/test/offline.cjs
+      - name: Save verified release metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offline/a4-cooperate.json data/offline-catalog.json apps/4-8/cooperative-play-lab/data/audio-recordings.json apps/4-8/cooperative-play-lab/data/release-validation.json apps/4-8/cooperative-play-lab/offline-files.js
+          git diff --cached --quiet || git commit -m 'Refresh verified cooperative navigation, scenes and repaired voice offline release'
+          git push origin HEAD:fix/cooperate-scenes-navigation-20261020
