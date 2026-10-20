@@ -2,7 +2,7 @@ name: Verify cooperative navigation and scene crops
 on:
   push:
     branches: [fix/cooperate-scenes-navigation-20261020]
-    paths: [apps/4-8/cooperative-play-lab/app.js, apps/4-8/cooperative-play-lab/styles.css, apps/4-8/cooperative-play-lab/data/scene-frames.js, .github/workflows/verify-cooperative-scenes.yml]
+    paths: [apps/4-8/cooperative-play-lab/app.js, apps/4-8/cooperative-play-lab/styles.css, apps/4-8/cooperative-play-lab/data/scene-frames.js, apps/4-8/cooperative-play-lab/test/navigation-scenes.cjs, .github/workflows/verify-cooperative-scenes.yml]
 permissions:
   contents: read
 jobs:
@@ -26,5 +26,3 @@ jobs:
           name: cooperative-navigation-screens
           path: /tmp/cooperate*.png
           retention-days: 3
-
-# Diagnose compact viewport hit targets.
