@@ -41,7 +41,7 @@ for c in content['cases']:
    assert 0<=r['frame']<8
    assert any(m['path']==r['audio'] and m['text']==r['text'] and m['language']==lang for m in manifest['items'])
 if missing and not args.draft:raise SystemExit('Incomplete release: '+str(len(missing))+' missing audio/cue/image items; first: '+', '.join(missing[:8]))
-core=['data/scene-frames.js','data/scene-frames.json','index.html','styles.css','app.js','src/model.js','src/teacher.js','data/content.js','data/content.json','data/audio-manifest.json','data/read-along-ar.json','data/read-along-en.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png']
+core=['data/scene-frames.js','index.html','styles.css','app.js','src/model.js','src/teacher.js','data/content.js','data/content.json','data/audio-manifest.json','data/read-along-ar.json','data/read-along-en.json','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png']
 core+=['../../../assets/js/'+s for s in ['app360-read-along-v1.js','app360-session-v1.js','teacher-encouragement-v1.js','app360-ai-shell.js','app360-access-v1.js']]
 core+=['../../../assets/css/app360-read-along-v1.css','../../../assets/ui-icons/family-teacher.svg','../../../resources/celebration-audio/names.json']
 core+=['../../../resources/celebration-audio/audio/'+p for p in ['ar/well-done-m.mp3','ar/well-done-name-m.mp3','ar/well-done-name-f.mp3','en/well-done-en.mp3']]
