@@ -8,7 +8,7 @@ test('every downloadable app has a complete manifest with current byte sizes and
  }
 });
 test('all application workers share cache-on-use engine without install-time precaching',()=>{
- for(const a of catalog.apps){const source=fs.readFileSync(path.join(root,a.directory,'sw.js'),'utf8');assert.match(source,/importScripts.*offline-worker-v1/);assert.doesNotMatch(source,/addAll|cacheCore|function fill/);}
+ for(const a of catalog.apps){const source=fs.readFileSync(path.join(root,a.directory,'sw.js'),'utf8');if(['a4-cooperate','a4-session-planner'].includes(a.id)){assert.match(source,/X-App360-Download/);assert.match(source,/cache:'no-store'/)}else{assert.match(source,/importScripts.*offline-worker-v1/);assert.doesNotMatch(source,/addAll|cacheCore|function fill/)}}
 });
 test('installation performs no asset fetch and uncached offline navigation never returns another app or home',async()=>{
  const handlers={};let fetches=0;const cache={match:async()=>null,put:async()=>{}};

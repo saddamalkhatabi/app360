@@ -1,7 +1,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_SESSION&&w.APP360_SESSION.__ready)return;
-if(!w.APP360_INTEGRATION_CONTEXT){var ctx=d.createElement('script');ctx.src=repoRoot()+'assets/js/integration-context-v1.js?v=360';ctx.async=false;(d.head||d.body).appendChild(ctx);}
+if(!w.APP360_INTEGRATION_CONTEXT){var ctx=d.createElement('script');ctx.src=repoRoot()+'assets/js/integration-context-v1.js?v=20261021-update';ctx.async=false;(d.head||d.body).appendChild(ctx);}
 var VERSION='1.0',USAGE_KEY='app360:usage:v1',DEVICE_KEY='app360:device:v1',TOKEN_KEY='app360:auth-token:v1',PROFILE_KEY='app360:auth-profile:v1',LAST_PROFILE_KEY='app360:last-profile:v1';
 var FLUSH_MS=15000,MAX_ACTIVE_SLICE=30000,providers=[],startedAt=0,visible=true,panel=null,app=currentApp(),state=loadUsage(),profile=readSession(PROFILE_KEY),token=readSession(TOKEN_KEY),syncing=false,bridgePaused=false,restoring=false;
 var APP_MAP={

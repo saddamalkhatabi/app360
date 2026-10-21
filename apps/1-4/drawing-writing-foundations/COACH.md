@@ -1,4 +1,4 @@
-# Kindergarten drawing coach, build 27
+# Kindergarten drawing coach, build 28
 
 The normal drawing board is preserved. The coach opens its own enlarged drawing
 workspace and restores the previous board when closed. The child can use a
@@ -21,6 +21,15 @@ only a faint guide. Watching the demonstration never earns completion.
 
 Assessment uses local vector proximity, coverage and path length after pen-up,
 with a larger tolerance for the younger entry. Partial attempts can be combined.
+Short contact losses use the ordinary board repair window and distance limit,
+additionally bounded to 12% of the coach model size and checked against the
+same non-dot path. Joined contacts are assessed once as a logical trace.
+Repair never spans a new lesson, step, independent attempt, help or pause.
+Up to 128 unjoined partial attempts are retained per stage; joined traces are
+resampled to at most 512 points. Legacy touchend and touchcancel sequences
+with 51 tiny contacts are covered in the browser regression. Physical Android
+4.4 hardware still requires a user check.
+
 A tap does not complete a long line, and a single dot cannot count as two letter
 dots. Repeated large deviations show the demonstration again. Inactivity offers
 help without completing or advancing a lesson. Help and retry remain available;
@@ -113,6 +122,7 @@ node --test test/geometry.test.cjs test/audio-runtime.test.cjs test/coach-speech
 node test/trainer-browser.cjs
 node test/native-audio.cjs
 node test/coach-sync.cjs
+node test/fragmented-touch.cjs
 node ../../../tooling/test-teacher-encouragement.cjs
 ```
 

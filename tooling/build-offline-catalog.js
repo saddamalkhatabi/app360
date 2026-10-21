@@ -15,8 +15,8 @@ for(const dir of directories){
  const meta=JSON.parse(fs.readFileSync(path.join(root,dir,'app.json'),'utf8'));
  const live=require('../data/live-overrides.json').apps.find(a=>a.id===meta.id);
  if((live&&live.status||meta.status)!=='live')continue;
- const worker="self.APP360_OFFLINE_ROOT='../../../';\nimportScripts('../../../assets/js/offline-worker-v1.js?v=1');\n";fs.writeFileSync(path.join(root,dir,'sw.js'),worker);
- let files=walk(dir).filter(runtime).concat(common,deps[dir]||[],['index.html','manifest.webmanifest','data/catalog.json','data/goals.json','data/live-overrides.json','data/public-links.json','links.html']);
+ const worker="self.APP360_OFFLINE_ROOT='../../../';\nimportScripts('../../../assets/js/offline-worker-v1.js?v=20261021-update');\n";if(!fs.existsSync(path.join(root,dir,'sw.js'))||fs.readFileSync(path.join(root,dir,'sw.js'),'utf8').includes('offline-worker-v1.js'))fs.writeFileSync(path.join(root,dir,'sw.js'),worker);
+ let files=walk(dir).filter(runtime).concat(common,deps[dir]||[],['index.html','update.html','manifest.webmanifest','data/catalog.json','data/goals.json','data/live-overrides.json','data/public-links.json','links.html']);
  const card=catalog.apps.find(a=>a.id===meta.id)||{};
  ['cover','cover_fallback','cover_small','cover_small_fallback'].forEach(field=>{if(card[field])files.push(card[field].split('?')[0]);});
  // Include dynamically selected media directories and sibling-app audio bases, not just old precache literals.
