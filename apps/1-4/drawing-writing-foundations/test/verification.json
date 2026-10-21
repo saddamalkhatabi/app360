@@ -1,10 +1,10 @@
 {
   "verified": "2026-10-21",
-  "scope": "build 26: coach-only speech, media-clock demonstration and child input sequencing",
+  "scope": "build 27: immediate child imitation during remaining coach speech",
   "lessons": 55,
   "audio_clips": 66,
   "automated_checks": {
-    "geometry_and_audio_runtime_unit_tests": 10,
+    "geometry_and_audio_runtime_unit_tests": 11,
     "browser_scenarios": [
       "390x844 touch, age 1-4",
       "1440x900 mouse, age 1-4",
@@ -13,9 +13,9 @@
     "native_audio": {
       "complete_SILMA_playback": true,
       "no_audio_overlap": true,
-      "word_cue_observations": 330,
       "required_match_ratio": 0.95,
-      "coach_excludes_legacy_praise": true
+      "coach_excludes_legacy_praise": true,
+      "word_cue_observations": 265
     },
     "stress": {
       "strokes": 300,
@@ -28,7 +28,7 @@
         "resizeQueued": false
       },
       "heartbeat": 100.30000000074506,
-      "heap": 28052743
+      "heap": 10050343
     },
     "full_platform_page": {
       "idleTaskSeconds": 0.00325,
@@ -39,14 +39,17 @@
     "peer_raster_round_trip": true,
     "offline_manifest_verified": true,
     "controlled_media": [
-      "loading holds hand",
+      "loading holds demonstration hand",
       "buffering freezes media-clock position",
-      "turn prompt finishes before input opens",
-      "failed media requires retry or explicit mute",
-      "older praise and desktop bridge blocked while coaching",
-      "stale callbacks cannot unlock board",
-      "30 second media inactivity fails without advancing",
-      "explicit mute runs visual demonstration"
+      "hand finishes at aligned then-try cue before narration ends",
+      "mouse and finger ink appear during turn speech",
+      "speech completion preserves a stroke in progress",
+      "continue and retry feedback leave practice open",
+      "failed feedback never locks practice",
+      "initial media errors require retry or explicit mute",
+      "coach excludes older congratulations",
+      "pause cancels stale callbacks",
+      "guided and independent attempts complete while invitation speech is active"
     ],
     "official_name_outside_coach": "Noor official-session fixture plays shared name after trainer closes"
   },

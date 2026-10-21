@@ -1,4 +1,4 @@
-# Kindergarten drawing coach, build 26
+# Kindergarten drawing coach, build 27
 
 The normal drawing board is preserved. The coach opens its own enlarged drawing
 workspace and restores the previous board when closed. The child can use a
@@ -39,13 +39,19 @@ Official-session name encouragement remains available in ordinary drawing after
 closing the coach; the editable local nickname is never used for official names.
 
 The hand and pencil follow the narration's decoded `currentTime`, not wall time.
-A loading or buffering clip holds the hand at its current position. Only a real
-`ended` event completes narration; child input opens after the separate turn prompt
-also ends. Feedback temporarily locks input, preventing a new stroke from cutting
-off its instruction. A media error, rejected playback or 30 seconds without media
-progress locks the board and offers retry or explicit mute. Failure is never treated
-as successful playback. Muted demonstrations use a local visual clock. Pause, hide,
-identity changes and closing cancel playback and stale callbacks.
+A loading or buffering clip holds the hand at its current position. The hand
+finishes at the waveform cue for “then try”; that immediately opens child input
+while the remaining instruction continues. The separate “your turn” prompt and
+independent-practice invitation and retry/continue feedback never lock the board. A child can draw as soon as the pen
+finishes, during loading or playback of their turn prompt. Finishing narration
+never clears a stroke already in progress. A pen-up stops remaining narration
+before assessing the attempt, so the next coach response never overlaps it.
+
+An error or 30 seconds without media progress before the demonstration finishes
+keeps the board locked and offers retry or explicit mute. A failed turn/feedback
+clip leaves practice open. Failure never completes the lesson. Muted demonstrations
+use a local visual clock. Pause, hide, identity changes and closing cancel playback
+and stale callbacks.
 
 New instructions and labels use SILMA. The audio manifest has exact text, hashes,
 model revision and generation settings. Read-along cues use attention alignment
