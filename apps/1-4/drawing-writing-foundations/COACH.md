@@ -1,4 +1,4 @@
-# Kindergarten drawing coach, build 25
+# Kindergarten drawing coach, build 26
 
 The normal drawing board is preserved. The coach opens its own enlarged drawing
 workspace and restores the previous board when closed. The child can use a
@@ -26,25 +26,31 @@ dots. Repeated large deviations show the demonstration again. Inactivity offers
 help without completing or advancing a lesson. Help and retry remain available;
 no numerical grade is shown to the child.
 
-Automatic progression is optional, waits for the independent attempt and spoken
-encouragement, and can be paused. It is not a timer that completes activities.
+Automatic progression is optional, waits for the independent attempt, and can be paused. It is not a timer that completes activities.
 Leaving or hiding the page pauses the session. A changed identity ends it.
 Only completion summaries are saved locally under the official learner's ID;
 raw drawings and movement traces are not persisted as training records. Guest
 progress is separate. Restarting a group can select its first unfinished lesson.
 
-The shared celebration system resolves names from the current official
-`APP360_SESSION` learner, never the editable local nickname. Recorded names are
-preferred; available Arabic device speech is the established fallback, otherwise
-generic encouragement plays. Names and prompts play sequentially. Speech stops
-on pause, mute, identity change and closing the trainer. The existing drawing
-celebration path also uses the shared official-session player.
+The active coach owns speech exclusively. Older generic and named congratulations
+are suppressed at both public celebration entry points, the ordinary audio engine,
+and the desktop speech bridge. Pending older playback is cancelled at session start.
+Official-session name encouragement remains available in ordinary drawing after
+closing the coach; the editable local nickname is never used for official names.
+
+The hand and pencil follow the narration's decoded `currentTime`, not wall time.
+A loading or buffering clip holds the hand at its current position. Only a real
+`ended` event completes narration; child input opens after the separate turn prompt
+also ends. Feedback temporarily locks input, preventing a new stroke from cutting
+off its instruction. A media error, rejected playback or 30 seconds without media
+progress locks the board and offers retry or explicit mute. Failure is never treated
+as successful playback. Muted demonstrations use a local visual clock. Pause, hide,
+identity changes and closing cancel playback and stale callbacks.
 
 New instructions and labels use SILMA. The audio manifest has exact text, hashes,
 model revision and generation settings. Read-along cues use attention alignment
 against each exact decoded MP3; highlights read `audio.currentTime`. Independent
-ASR results are review aids, not a substitute for listening. Shared name praise
-shows its caption through the existing encouragement API. The 4–8 launch option
+ASR results are review aids, not a substitute for listening. The 4–8 launch option
 shows coaching text by default; the younger entry can enable it. This prepares
 the same runtime for the older age group without adding a new catalog entry.
 
@@ -97,9 +103,10 @@ checked idle main-thread activity. A legacy Android user agent exercises the
 compatibility branch; it is not a test on physical Android 4.4 hardware.
 
 ```sh
-node --test test/geometry.test.cjs test/audio-runtime.test.cjs
+node --test test/geometry.test.cjs test/audio-runtime.test.cjs test/coach-speech.test.cjs
 node test/trainer-browser.cjs
 node test/native-audio.cjs
+node test/coach-sync.cjs
 node ../../../tooling/test-teacher-encouragement.cjs
 ```
 

@@ -1,10 +1,10 @@
 {
   "verified": "2026-10-21",
-  "scope": "drawing app and shared official-session encouragement contract",
+  "scope": "build 26: coach-only speech, media-clock demonstration and child input sequencing",
   "lessons": 55,
   "audio_clips": 66,
   "automated_checks": {
-    "geometry_and_audio_runtime_unit_tests": 7,
+    "geometry_and_audio_runtime_unit_tests": 10,
     "browser_scenarios": [
       "390x844 touch, age 1-4",
       "1440x900 mouse, age 1-4",
@@ -12,10 +12,10 @@
     ],
     "native_audio": {
       "complete_SILMA_playback": true,
-      "official_session_name_recording_played": "Noor fixture; shared name-1.mp3",
       "no_audio_overlap": true,
-      "word_cue_observations": 295,
-      "required_match_ratio": 0.95
+      "word_cue_observations": 330,
+      "required_match_ratio": 0.95,
+      "coach_excludes_legacy_praise": true
     },
     "stress": {
       "strokes": 300,
@@ -28,7 +28,7 @@
         "resizeQueued": false
       },
       "heartbeat": 100.30000000074506,
-      "heap": 11817265
+      "heap": 28052743
     },
     "full_platform_page": {
       "idleTaskSeconds": 0.00325,
@@ -37,7 +37,18 @@
       "errors": []
     },
     "peer_raster_round_trip": true,
-    "offline_manifest_verified": true
+    "offline_manifest_verified": true,
+    "controlled_media": [
+      "loading holds hand",
+      "buffering freezes media-clock position",
+      "turn prompt finishes before input opens",
+      "failed media requires retry or explicit mute",
+      "older praise and desktop bridge blocked while coaching",
+      "stale callbacks cannot unlock board",
+      "30 second media inactivity fails without advancing",
+      "explicit mute runs visual demonstration"
+    ],
+    "official_name_outside_coach": "Noor official-session fixture plays shared name after trainer closes"
   },
   "limitations": {
     "real_device": "Legacy Android user agent only; no physical Big TAB test",
