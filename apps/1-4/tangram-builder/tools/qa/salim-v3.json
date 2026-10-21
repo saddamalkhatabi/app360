@@ -1,0 +1,135 @@
+{
+  "method": "faster-whisper small, Arabic, int8, beam size 5, no text prompt",
+  "model": "Systran/faster-whisper-small",
+  "scope": "Automatic recognition of the complete word السليم in final decoded MP3, not a human listening review",
+  "clips": [
+    {
+      "id": "move",
+      "path": "audio/teacher/move-complete-v3.mp3",
+      "expected_text": "نَسْحَبُ الْقِطْعَةَ، وَنَقُومُ بِوَضْعِهَا فِي الْمَكَانِ السَّلِيمِ، بِهُدُوءٍ.",
+      "sha256": "4a8afb59a22d8b593901697da043d0cf73b350cac838a4448bc6b9d4acc84496",
+      "transcript": " نسحب القطعة ونقوم بوضعها في المكان السليم بهدوء",
+      "salim": {
+        "word": " السليم",
+        "start": 4.3,
+        "end": 5.54,
+        "probability": 0.952
+      },
+      "duration": 7.108,
+      "words": [
+        {
+          "word": " نسحب",
+          "start": 0.0,
+          "end": 1.02,
+          "probability": 0.957
+        },
+        {
+          "word": " القطعة",
+          "start": 1.02,
+          "end": 1.62,
+          "probability": 0.836
+        },
+        {
+          "word": " ونقوم",
+          "start": 1.62,
+          "end": 2.88,
+          "probability": 0.915
+        },
+        {
+          "word": " بوضعها",
+          "start": 2.88,
+          "end": 3.62,
+          "probability": 0.987
+        },
+        {
+          "word": " في",
+          "start": 3.62,
+          "end": 3.82,
+          "probability": 0.984
+        },
+        {
+          "word": " المكان",
+          "start": 3.82,
+          "end": 4.3,
+          "probability": 0.994
+        },
+        {
+          "word": " السليم",
+          "start": 4.3,
+          "end": 5.54,
+          "probability": 0.952
+        },
+        {
+          "word": " بهدوء",
+          "start": 5.54,
+          "end": 6.56,
+          "probability": 0.915
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "path": "audio/teacher/place-complete-v3.mp3",
+      "expected_text": "نَضَعُ الْقِطْعَةَ فِي الْمَكَانِ السَّلِيمِ، ثُمَّ نَرْفَعُ الْيَدَ.",
+      "sha256": "a0471c1213b926c35ca15b8fbe83090fdf7eeb65c1ee70a6c40651ff03c4b53b",
+      "transcript": " نضع القطعة في المكان السليم، ثم نرفع اليدة",
+      "salim": {
+        "word": " السليم،",
+        "start": 2.32,
+        "end": 3.16,
+        "probability": 0.758
+      },
+      "duration": 5.863,
+      "words": [
+        {
+          "word": " نضع",
+          "start": 0.0,
+          "end": 1.0,
+          "probability": 0.969
+        },
+        {
+          "word": " القطعة",
+          "start": 1.0,
+          "end": 1.58,
+          "probability": 0.943
+        },
+        {
+          "word": " في",
+          "start": 1.58,
+          "end": 1.88,
+          "probability": 0.97
+        },
+        {
+          "word": " المكان",
+          "start": 1.88,
+          "end": 2.32,
+          "probability": 0.988
+        },
+        {
+          "word": " السليم،",
+          "start": 2.32,
+          "end": 3.16,
+          "probability": 0.758
+        },
+        {
+          "word": " ثم",
+          "start": 3.16,
+          "end": 3.66,
+          "probability": 0.932
+        },
+        {
+          "word": " نرفع",
+          "start": 3.66,
+          "end": 4.18,
+          "probability": 0.988
+        },
+        {
+          "word": " اليدة",
+          "start": 4.18,
+          "end": 4.54,
+          "probability": 0.551
+        }
+      ]
+    }
+  ]
+}

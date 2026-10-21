@@ -28,19 +28,6 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
     },
     {
-      "id": "move",
-      "path": "audio/teacher/move.mp3",
-      "text": "نَسْحَبُ الْقِطْعَةَ إِلَى مَكَانِهَا فِي الشَّكْلِ.",
-      "engine": "silma-tts-1.0.5",
-      "reference": "publisher bundled ar.ref.24k.wav",
-      "steps": 24,
-      "seed": 360,
-      "speed": 0.95,
-      "duration": 3.336,
-      "sha256": "a4321a7704e3378a1759b3605bccbcf3fc6a628cb1cb681ad5241522241a42cd",
-      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
-    },
-    {
       "id": "turn",
       "path": "audio/teacher/turn.mp3",
       "text": "الْآنَ دَوْرُكَ. اِخْتَرْ قِطْعَةً، وَجَرِّبْ بِنَفْسِكَ.",
@@ -93,17 +80,34 @@
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
     },
     {
-      "id": "place",
-      "path": "audio/teacher/place.mp3",
-      "text": "نَضَعُ الْقِطْعَةَ هُنَا.",
+      "id": "move",
+      "path": "audio/teacher/move-complete-v3.mp3",
+      "text": "نَسْحَبُ الْقِطْعَةَ، وَنَقُومُ بِوَضْعِهَا فِي الْمَكَانِ السَّلِيمِ، بِهُدُوءٍ.",
       "engine": "silma-tts-1.0.5",
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "reference": "publisher bundled ar.ref.24k.wav",
-      "steps": 24,
-      "seed": 360,
-      "speed": 0.95,
-      "duration": 1.749,
-      "sha256": "6d7dc3bffc9e3ae48748bcc368dd948d5165f827bc80a4998bf2bcec03cc2d5d"
+      "steps": 32,
+      "seed": 361,
+      "speed": 0.85,
+      "duration": 7.176,
+      "sha256": "4a8afb59a22d8b593901697da043d0cf73b350cac838a4448bc6b9d4acc84496",
+      "leading_reference_trim_s": 1.4,
+      "trailing_silence_s": 0.4
+    },
+    {
+      "id": "place",
+      "path": "audio/teacher/place-complete-v3.mp3",
+      "text": "نَضَعُ الْقِطْعَةَ فِي الْمَكَانِ السَّلِيمِ، ثُمَّ نَرْفَعُ الْيَدَ.",
+      "engine": "silma-tts-1.0.5",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 32,
+      "seed": 361,
+      "speed": 0.85,
+      "duration": 5.928,
+      "sha256": "a0471c1213b926c35ca15b8fbe83090fdf7eeb65c1ee70a6c40651ff03c4b53b",
+      "leading_reference_trim_s": 1.4,
+      "trailing_silence_s": 0.4
     }
   ]
 }
