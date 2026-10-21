@@ -1,6 +1,6 @@
 {
-  "build": 24,
-  "updated": "2026-09-21",
+  "build": 25,
+  "updated": "2026-10-21",
   "audioPack": "20-yemeni-male+20-yemeni-female+noor+colors-v21",
   "legacyAudio": [
     "embedded-u8-pcm",
@@ -8,14 +8,16 @@
     "ogg",
     "wav"
   ],
-  "audioEngine": "V22 reusable base-path name audio + lazy per-name embedded PCM + WebAudio/HTMLAudio/TTS fallbacks",
+  "audioEngine": "SILMA coaching with waveform word cues; official-session shared name encouragement",
   "refreshPolicy": "network-first shell, immediate service-worker activation, one automatic refresh per target build",
-  "ui": "compact-child-drawing-v19",
+  "ui": "child drawing + stepwise pen coach",
   "layout": "status toast + top glyph + larger drawing board",
   "maleNamePacks": 20,
   "femaleNamePacks": 20,
   "appId": "a1-drawing-writing",
   "canonicalPath": "apps/1-4/drawing-writing-foundations/",
   "pwa": "unique install identity + offline shell + dedicated icon",
-  "migration": "canonical framework only"
+  "migration": "canonical framework only",
+  "trainingApi": "APP360_DRAWING_TRAINER v1",
+  "performance": "guarded dialog observer; bounded ink history and canvas; animation only during demonstration"
 }

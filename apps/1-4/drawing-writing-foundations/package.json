@@ -1,6 +1,6 @@
 {
   "name": "@app360/app-drawing-writing-foundations",
-  "version": "0.22.0",
+  "version": "0.25.0",
   "private": true,
   "description": "Early drawing, pencil grip and handwriting practice app for Family School 360 ages 1-4",
   "app360": {
@@ -9,6 +9,7 @@
     "runtimeProfile": "legacy-web"
   },
   "scripts": {
-    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\""
+    "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
+    "test": "node --test test/geometry.test.cjs test/audio-runtime.test.cjs"
   }
 }

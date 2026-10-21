@@ -1,0 +1,420 @@
+{
+  "engine": "SILMA",
+  "clips": [
+    {
+      "id": "intro",
+      "text": "أَنَا مُدَرِّبَةُ الرَّوْضَةِ. سَنُشَاهِدُ وَنَرْسُمُ خُطْوَةً خُطْوَةً.",
+      "language": "ar"
+    },
+    {
+      "id": "watch",
+      "text": "شَاهِدْ حَرَكَةَ الْقَلَمِ. ثُمَّ جَرِّبْ بِإِصْبَعِكَ أَوْ بِالْقَلَمِ.",
+      "language": "ar"
+    },
+    {
+      "id": "turn",
+      "text": "الْآنَ دَوْرُكَ. اِبْدَأْ مِنَ النُّقْطَةِ وَاتَّبِعِ الْمَسَارَ.",
+      "language": "ar"
+    },
+    {
+      "id": "continue",
+      "text": "مُحَاوَلَةٌ جَمِيلَةٌ. أَكْمِلِ الْجُزْءَ الْبَاقِيَ بِهُدُوءٍ.",
+      "language": "ar"
+    },
+    {
+      "id": "help",
+      "text": "لِنُجَرِّبْ مَعًا. شَاهِدْ هَذَا الْجُزْءَ، ثُمَّ ارْسُمْهُ بِنَفْسِكَ.",
+      "language": "ar"
+    },
+    {
+      "id": "retry",
+      "text": "لَا بَأْسَ. نَبْدَأُ مِنَ النُّقْطَةِ وَنَقْتَرِبُ مِنَ الْخَطِّ.",
+      "language": "ar"
+    },
+    {
+      "id": "step",
+      "text": "أَكْمَلْتَ هَذَا الْجُزْءَ. نَنْتَقِلُ إِلَى الْجُزْءِ التَّالِي.",
+      "language": "ar"
+    },
+    {
+      "id": "independent",
+      "text": "رَائِعٌ. جَرِّبِ الْآنَ رَسْمَ الشَّكْلِ كَامِلًا دُونَ حَرَكَةِ الْيَدِ، بِهُدُوءٍ.",
+      "language": "ar",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "next",
+      "text": "اِنْتَهَتْ هَذِهِ التَّجْرِبَةُ. نَنْتَقِلُ إِلَى تَجْرِبَةٍ جَدِيدَةٍ.",
+      "language": "ar"
+    },
+    {
+      "id": "finished",
+      "text": "أَكْمَلْتَ الْمَجْمُوعَةَ. يُمْكِنُكَ تَكْرَارُهَا أَوِ اخْتِيَارُ مَجْمُوعَةٍ أُخْرَى.",
+      "language": "ar"
+    },
+    {
+      "id": "label-horizontal",
+      "text": "هَذَا خَطٌّ أُفُقِيّ.",
+      "language": "ar",
+      "keyword": "أُفُقِيّ"
+    },
+    {
+      "id": "label-vertical",
+      "text": "هَذَا خَطٌّ رَأْسِيّ.",
+      "language": "ar",
+      "keyword": "رَأْسِيّ"
+    },
+    {
+      "id": "label-slant",
+      "text": "هَذَا خَطٌّ مَائِل.",
+      "language": "ar",
+      "keyword": "مَائِل"
+    },
+    {
+      "id": "label-zigzag",
+      "text": "هَذَا خَطٌّ مُتَعَرِّجٌ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "مُتَعَرِّج",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-wave",
+      "text": "هَذِهِ مَوْجَة.",
+      "language": "ar",
+      "keyword": "مَوْجَة"
+    },
+    {
+      "id": "label-arch",
+      "text": "هَذَا قَوْس.",
+      "language": "ar",
+      "keyword": "قَوْس"
+    },
+    {
+      "id": "label-circle",
+      "text": "هَذِهِ دَائِرَة.",
+      "language": "ar",
+      "keyword": "دَائِرَة"
+    },
+    {
+      "id": "label-square",
+      "text": "هَذَا مُرَبَّع.",
+      "language": "ar",
+      "keyword": "مُرَبَّع"
+    },
+    {
+      "id": "label-triangle",
+      "text": "هَذَا مُثَلَّثٌ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "مُثَلَّث",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-rectangle",
+      "text": "هَذَا مُسْتَطِيل.",
+      "language": "ar",
+      "keyword": "مُسْتَطِيل"
+    },
+    {
+      "id": "label-oval",
+      "text": "هَذَا بَيْضَاوِيّ.",
+      "language": "ar",
+      "keyword": "بَيْضَاوِيّ"
+    },
+    {
+      "id": "label-diamond",
+      "text": "هَذَا مُعَيَّن.",
+      "language": "ar",
+      "keyword": "مُعَيَّن"
+    },
+    {
+      "id": "label-alif",
+      "text": "نَرْسُمُ أَلِفًا بِخَطٍّ مُسْتَقِيمٍ.",
+      "language": "ar",
+      "keyword": "أَلِف",
+      "seed": 364,
+      "steps": 24,
+      "reference": "picture-intro"
+    },
+    {
+      "id": "label-ba",
+      "text": "هَذَا حَرْفُ الْبَاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "الْبَاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-ta",
+      "text": "هَذَا حَرْفُ التَّاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "التَّاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-tha",
+      "text": "هَذَا حَرْفُ الثَّاء.",
+      "language": "ar",
+      "keyword": "الثَّاء"
+    },
+    {
+      "id": "label-jeem",
+      "text": "هَذَا حَرْفُ الْجِيم.",
+      "language": "ar",
+      "keyword": "الْجِيم"
+    },
+    {
+      "id": "label-ha",
+      "text": "هَذَا حَرْفُ الْحَاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "الْحَاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-kha",
+      "text": "هَذَا حَرْفُ الْخَاء.",
+      "language": "ar",
+      "keyword": "الْخَاء"
+    },
+    {
+      "id": "label-dal",
+      "text": "هَذَا حَرْفُ الدَّال.",
+      "language": "ar",
+      "keyword": "الدَّال"
+    },
+    {
+      "id": "label-dhal",
+      "text": "الْحَرْفُ ذَال.",
+      "language": "ar",
+      "keyword": "ذَال",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete",
+      "source_path": "apps/1-4/screen-to-move/audio/learning/ar/letter-ar-8.mp3",
+      "source_sha256": "af008c2702d55ec4c10b92ca087020c569739602b7ee4bd31a75958fd565efea"
+    },
+    {
+      "id": "label-ra",
+      "text": "هَذَا حَرْفُ الرَّاء.",
+      "language": "ar",
+      "keyword": "الرَّاء"
+    },
+    {
+      "id": "label-zay",
+      "text": "هَذَا حَرْفُ الزَّاي.",
+      "language": "ar",
+      "keyword": "الزَّاي"
+    },
+    {
+      "id": "label-seen",
+      "text": "هَذَا حَرْفُ السِّينِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "السِّين",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-sheen",
+      "text": "هَذَا حَرْفُ الشِّين.",
+      "language": "ar",
+      "keyword": "الشِّين"
+    },
+    {
+      "id": "label-sad",
+      "text": "هَذَا حَرْفُ الصَّاد.",
+      "language": "ar",
+      "keyword": "الصَّاد"
+    },
+    {
+      "id": "label-dad",
+      "text": "هَذَا حَرْفُ الضَّاد.",
+      "language": "ar",
+      "keyword": "الضَّاد"
+    },
+    {
+      "id": "label-tah",
+      "text": "هَذَا حَرْفُ الطَّاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "الطَّاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-zah",
+      "text": "هَذَا حَرْفُ الظَّاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "الظَّاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-ayn",
+      "text": "هَذَا حَرْفُ الْعَيْن.",
+      "language": "ar",
+      "keyword": "الْعَيْن"
+    },
+    {
+      "id": "label-ghayn",
+      "text": "هَذَا حَرْفُ الْغَيْن.",
+      "language": "ar",
+      "keyword": "الْغَيْن"
+    },
+    {
+      "id": "label-fa",
+      "text": "هَذَا حَرْفُ الْفَاء.",
+      "language": "ar",
+      "keyword": "الْفَاء"
+    },
+    {
+      "id": "label-qaf",
+      "text": "هَذَا حَرْفُ الْقَاف.",
+      "language": "ar",
+      "keyword": "الْقَاف"
+    },
+    {
+      "id": "label-kaf",
+      "text": "هَذَا حَرْفُ الْكَاف.",
+      "language": "ar",
+      "keyword": "الْكَاف"
+    },
+    {
+      "id": "label-lam",
+      "text": "هَذَا حَرْفُ اللَّام.",
+      "language": "ar",
+      "keyword": "اللَّام"
+    },
+    {
+      "id": "label-meem",
+      "text": "هَذَا حَرْفُ الْمِيم.",
+      "language": "ar",
+      "keyword": "الْمِيم"
+    },
+    {
+      "id": "label-noon",
+      "text": "هَذَا حَرْفُ النُّون.",
+      "language": "ar",
+      "keyword": "النُّون"
+    },
+    {
+      "id": "label-haa",
+      "text": "هَذَا حَرْفُ الْهَاءِ. نَرْسُمُهُ مَعًا.",
+      "language": "ar",
+      "keyword": "الْهَاء",
+      "seed": 363,
+      "steps": 32,
+      "reference": "tangram-complete"
+    },
+    {
+      "id": "label-waw",
+      "text": "هَذَا حَرْفُ الْوَاو.",
+      "language": "ar",
+      "keyword": "الْوَاو"
+    },
+    {
+      "id": "label-ya",
+      "text": "هَذَا حَرْفُ الْيَاء.",
+      "language": "ar",
+      "keyword": "الْيَاء"
+    },
+    {
+      "id": "label-number-0",
+      "text": "The number is zero.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-1",
+      "text": "The number is one.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-2",
+      "text": "The number is two.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-3",
+      "text": "The number is three.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-4",
+      "text": "The number is four.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-5",
+      "text": "The number is five.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-6",
+      "text": "The number is six.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-7",
+      "text": "The number is seven.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-8",
+      "text": "The number is eight.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-9",
+      "text": "The number is nine.",
+      "language": "en"
+    },
+    {
+      "id": "label-number-10",
+      "text": "The number is ten.",
+      "language": "en"
+    },
+    {
+      "id": "label-house",
+      "text": "هَذَا بَيْت.",
+      "language": "ar",
+      "keyword": "بَيْت"
+    },
+    {
+      "id": "label-sun",
+      "text": "هَذِهِ شَمْس.",
+      "language": "ar",
+      "keyword": "شَمْس"
+    },
+    {
+      "id": "label-flower",
+      "text": "هَذِهِ زَهْرَة.",
+      "language": "ar",
+      "keyword": "زَهْرَة"
+    },
+    {
+      "id": "label-boat",
+      "text": "نَرْسُمُ قَارِبًا فَوْقَ الْمَاءِ.",
+      "language": "ar",
+      "keyword": "قَارِب",
+      "seed": 364,
+      "steps": 24,
+      "reference": "picture-intro"
+    },
+    {
+      "id": "intro-school",
+      "text": "أَنَا مُدَرِّبَةُ الْمَدْرَسَةِ. سَنَتَدَرَّبُ عَلَى الرَّسْمِ خُطْوَةً خُطْوَةً.",
+      "language": "ar"
+    }
+  ]
+}

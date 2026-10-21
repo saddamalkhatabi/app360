@@ -4,7 +4,7 @@
   "slug": "drawing-writing-foundations",
   "title_ar": "لوحة الطفل للرسم والكتابة المبكرة",
   "age_group": "1-4",
-  "version": 23,
+  "version": 25,
   "status": "live",
   "kind": "hybrid",
   "goal_keys": [
@@ -52,5 +52,23 @@
     "shared_extraction_policy": "extract only when a second real consumer exists"
   },
   "audience": "learner",
-  "audience_note_ar": "الطفل يرسم ويتدرّب، والمدرب يجهز النشاط ويدعم الإمساك والمحاولة دون فرض الإتقان."
+  "audience_note_ar": "الطفل يرسم ويتدرّب، والمدرب يجهز النشاط ويدعم الإمساك والمحاولة دون فرض الإتقان.",
+  "training": {
+    "api": "APP360_DRAWING_TRAINER",
+    "version": 1,
+    "ages": [
+      "1-4",
+      "4-8"
+    ],
+    "lesson_count": 55,
+    "groups": [
+      "lines",
+      "shapes",
+      "letters",
+      "numbers",
+      "pictures"
+    ],
+    "progress": "local per official learner; anonymous device progress otherwise",
+    "assessment": "approximate path proximity and coverage; readiness-based practice"
+  }
 }

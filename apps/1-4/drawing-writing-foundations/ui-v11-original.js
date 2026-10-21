@@ -28,7 +28,7 @@ ready(function(){
  $('v11Audio').onclick=function(){hideOptionsBeforeOther();var b=$('userAudioBtn');if(b)b.click()};
  $('v11Sync').onclick=function(){hideOptionsBeforeOther();var b=$('syncBtn');if(b)b.click()};
  panel.addEventListener('click',function(e){var t=e.target||e.srcElement,id=t&&t.id;while(t&&t!==panel&&!id){t=t.parentNode;id=t&&t.id}if(id==='userAudioBtn'||id==='quickAudioBtn'||id==='syncBtn'||id==='quickSyncBtn'||id==='showAllBtn'||id==='quickShowAllBtn')hideOptionsBeforeOther()},true);
- function promote(id,z){var el=$(id);if(el&&el.style.display!=='none')el.style.zIndex=''+z}
+ function promote(id,z){var el=$(id);if(el&&el.style.display!=='none'&&el.style.zIndex!==''+z)el.style.zIndex=''+z}
  function promoteDialogs(){promote('picker',420);promote('settingsPanel',430);promote('syncPanel',440)}
  try{var mo=new MutationObserver(function(){promoteDialogs()});['picker','settingsPanel','syncPanel'].forEach(function(id){var el=$(id);if(el)mo.observe(el,{attributes:true,attributeFilter:['style','class']})})}catch(e){}
  var focused=false;
@@ -39,6 +39,7 @@ ready(function(){
  function resumeSynth(){try{if(window.speechSynthesis){if(speechSynthesis.paused&&speechSynthesis.resume)speechSynthesis.resume();speechSynthesis.getVoices&&speechSynthesis.getVoices()}}catch(e){}}
  d.addEventListener('mousedown',resumeSynth,false);d.addEventListener('touchstart',resumeSynth,false);d.addEventListener('keydown',resumeSynth,false);
  var ua=navigator.userAgent||'',isDesktop=!/Android|iPhone|iPad|iPod|Mobile/i.test(ua),mediaUnlocked=false,activeOnlineAudio=null,lastOnlineText='',lastOnlineAt=0;
+ window.PenKidsStopOnlineAudio=function(){if(activeOnlineAudio){activeOnlineAudio.onplaying=activeOnlineAudio.onended=activeOnlineAudio.onerror=null;activeOnlineAudio.pause();activeOnlineAudio=null}};
  function primeMedia(){if(mediaUnlocked)return;mediaUnlocked=true;try{var a=new Audio();a.volume=0;a.src='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';var p=a.play();if(p&&p.catch)p.catch(function(){})}catch(e){}}
  d.addEventListener('mousedown',primeMedia,false);d.addEventListener('touchstart',primeMedia,false);d.addEventListener('keydown',primeMedia,false);
  function voices(){try{return window.speechSynthesis&&speechSynthesis.getVoices?speechSynthesis.getVoices()||[]:[]}catch(e){return[]}}

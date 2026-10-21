@@ -1,0 +1,57 @@
+{
+  "verified": "2026-10-21",
+  "scope": "drawing app and shared official-session encouragement contract",
+  "lessons": 55,
+  "audio_clips": 66,
+  "automated_checks": {
+    "geometry_and_audio_runtime_unit_tests": 7,
+    "browser_scenarios": [
+      "390x844 touch, age 1-4",
+      "1440x900 mouse, age 1-4",
+      "1280x800 touch, legacy Android UA, age 4-8"
+    ],
+    "native_audio": {
+      "complete_SILMA_playback": true,
+      "official_session_name_recording_played": "Noor fixture; shared name-1.mp3",
+      "no_audio_overlap": true,
+      "word_cue_observations": 295,
+      "required_match_ratio": 0.95
+    },
+    "stress": {
+      "strokes": 300,
+      "movement_events": 510000,
+      "metrics": {
+        "strokes": 128,
+        "points": 43516,
+        "flattened": 172,
+        "pixels": 1499400,
+        "resizeQueued": false
+      },
+      "heartbeat": 100.30000000074506,
+      "heap": 11817265
+    },
+    "full_platform_page": {
+      "idleTaskSeconds": 0.00325,
+      "heap": 5636596,
+      "pixels": 960480,
+      "errors": []
+    },
+    "peer_raster_round_trip": true,
+    "offline_manifest_verified": true
+  },
+  "limitations": {
+    "real_device": "Legacy Android user agent only; no physical Big TAB test",
+    "pronunciation": "Independent ASR and waveform alignment are automated checks, not human listening approval",
+    "asr_review_candidates": [
+      "label-zigzag",
+      "label-triangle",
+      "label-ba",
+      "label-ta",
+      "label-ha",
+      "label-tah",
+      "label-zah"
+    ],
+    "official_login": "Session profile fixture verifies the frontend contract; no real subscriber credentials used",
+    "repository_validation": "Global platform validator has pre-existing blueprint/capability/roadmap failures in other apps; output byte-identical with modified tracked files replaced by HEAD baseline."
+  }
+}
