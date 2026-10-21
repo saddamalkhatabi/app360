@@ -1,2 +1,2 @@
 self.APP360_OFFLINE_ROOT='./';
-importScripts('./assets/js/offline-worker-v1.js?v=20261021-update');
+importScripts('./assets/js/offline-worker-v1.js?v=20261022-pwa2');
