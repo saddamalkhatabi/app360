@@ -1,0 +1,35 @@
+{
+  "engine": "SILMA",
+  "clips": [
+    {
+      "id": "intro",
+      "path": "audio/teacher/intro.mp3",
+      "text": "شَاهِدْ كَيْفَ نُرَكِّبُ الصُّورَةَ.",
+      "engine": "silma-tts-1.0.5",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "reference": "verified same synthetic SILMA voice: tangram move-complete-v3.mp3",
+      "reference_sha256": "4a8afb59a22d8b593901697da043d0cf73b350cac838a4448bc6b9d4acc84496",
+      "seed": 362,
+      "steps": 32,
+      "speed": 0.95,
+      "trailing_silence_s": 0.35,
+      "sha256": "a2415e6acb4153792b65133ef22b14346c31cd7ca94dce8d741fc89962189d1f",
+      "duration": 3.254
+    },
+    {
+      "id": "instructions",
+      "path": "audio/teacher/instructions.mp3",
+      "text": "اِخْتَرْ قِطْعَةً مِنْ أَجْزَاءِ الصُّورَةِ. اِسْحَبْهَا إِلَى مَكَانِهَا. الدَّائِرَةُ الْبَيْضَاءُ تُسَاعِدُكَ. إِذَا تَرَكْتَ الْقِطْعَةَ، يُمْكِنُكَ أَنْ تُكْمِلَ مِنْ مَكَانِهَا.",
+      "engine": "silma-tts-1.0.5",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "reference": "verified same synthetic SILMA voice: tangram move-complete-v3.mp3",
+      "reference_sha256": "4a8afb59a22d8b593901697da043d0cf73b350cac838a4448bc6b9d4acc84496",
+      "seed": 362,
+      "steps": 32,
+      "speed": 0.95,
+      "trailing_silence_s": 0.35,
+      "sha256": "038cd4eb1b09b8eaaa6f1337e763f045b2a54dae65b9afac8aaae4210fc82fb5",
+      "duration": 17.603
+    }
+  ]
+}
