@@ -112,6 +112,7 @@ function challenge(){
 }
 function sync(){renderDua();challenge();}
 w.APP360_ROUTINE_DUA_STOP=stop;
+w.APP360_ROUTINE_SYNC_ISLAMIC=sync;
 function init(){
  var top=d.querySelector('.top'),switcher=d.createElement('div');switcher.className='routineAgeSwitch';
  switcher.innerHTML='<label for="routineAge">'+t('محتوى الفئة العمرية','Age group content')+'</label><select id="routineAge"><option value="1-4">'+t('1–4 · عاداتي الأولى','1–4 · My first routines')+'</option><option value="4-8">'+t('4–8 · عاداتي وأذكاري','4–8 · My routines and remembrance')+'</option></select>';

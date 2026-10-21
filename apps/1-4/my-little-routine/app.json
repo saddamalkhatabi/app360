@@ -6,7 +6,7 @@
   "audience": "shared",
   "audience_note_ar": "المدرب يعد الروتين المصور، والطفل ينفذ الخطوات بمساعدة تتناقص حسب استعداده.",
   "age_group": "1-4",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented",
   "kind": "goal_aligned",
@@ -42,5 +42,22 @@
   "age_entry_levels": {
     "1-4": 1,
     "4-8": 2
+  },
+  "guided_trainer": {
+    "version": 1,
+    "api": "APP360_ROUTINE_TRAINER",
+    "path_options": [
+      "mixed",
+      "all",
+      "category id"
+    ],
+    "custom_content_option": "habitIds",
+    "resume": true,
+    "age_groups": [
+      "1-4",
+      "4-8"
+    ],
+    "completion_event": "app360:routine-trainer:habitcomplete",
+    "session_event": "app360:routine-trainer:sessioncomplete"
   }
 }

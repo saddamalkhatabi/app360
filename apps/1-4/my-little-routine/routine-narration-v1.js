@@ -2,7 +2,7 @@
 'use strict';
 // All child-facing narration comes from verified prerecorded files.
 // No on-device TTS or invented scene timing; supports older Android browsers (ES5).
-var reel=w.APP360_RoutineReel,media=null,clock=null,mode='',frame=0,token=0,sceneButton=null,statusNode=null;
+var reel=w.APP360_RoutineReel,media=null,clock=null,mode='',frame=0,token=0,sceneButton=null,statusNode=null,observer=null,resumeAt=0,guard=null;
 function E(id){return d.getElementById(id)}
 function current(){return reel&&reel.currentHabit?reel.currentHabit():null}
 function isEn(){return w.APP360_ROUTINE_LANG==='en'}
@@ -17,13 +17,16 @@ function feedback(t){var x=E('toast');if(!x)return;x.textContent=t;x.style.displ
 function text(el,t){if(el)el.textContent=t}
 function setButtons(){
  var listen=E('listenFullRoutine'),play=E('playStory'),a=current(),v=entry(a);
- if(listen){listen.disabled=!v;listen.title=v?txt('شرح صوتي مسجل مع الصور','Recorded voice with pictures'):txt('لم تُنشر التسجيلات لهذا الروتين بعد','This routine recording is not published yet');text(listen,mode==='full'?txt('⏸ إيقاف الشرح','⏸ Stop narration'):txt('🔊 استمع للروتين كاملاً','🔊 Listen to the whole routine'))}
+ if(listen){listen.disabled=!v||!!(w.APP360_ROUTINE_TRAINER&&w.APP360_ROUTINE_TRAINER.isActive());listen.title=v?txt('شرح صوتي مسجل مع الصور','Recorded voice with pictures'):txt('لم تُنشر التسجيلات لهذا الروتين بعد','This routine recording is not published yet');text(listen,mode==='full'?txt('⏸ إيقاف الشرح','⏸ Stop narration'):txt('🔊 استمع للروتين كاملاً','🔊 Listen to the whole routine'))}
  if(play)text(play,(mode==='silent'||mode==='full')?txt('⏸ إيقاف','⏸ Stop'):txt('▶ تشغيل من البداية','▶ Play from the beginning'));
- if(sceneButton){sceneButton.disabled=!v;sceneButton.title=v?txt('تشغيل صوت هذه اللقطة','Hear this scene'):txt('التسجيل غير متاح','Recording unavailable');}
+ if(sceneButton){sceneButton.disabled=!v||!!(w.APP360_ROUTINE_TRAINER&&w.APP360_ROUTINE_TRAINER.isActive());sceneButton.title=v?txt('تشغيل صوت هذه اللقطة','Hear this scene'):txt('التسجيل غير متاح','Recording unavailable');}
  if(statusNode)text(statusNode,v?txt('صوت مسجّل جاهز · تتزامن الصور مع الشرح','Recorded voice ready · pictures follow the narration'):txt('التسجيل الصوتي لم يُنشر بعد · يمكن مشاهدة الصور','Audio is being prepared · pictures are available'));
 }
 function clearAudio(){if(!media)return;var a=media;media=null;a.onended=null;a.onerror=null;a.ontimeupdate=null;a.onloadedmetadata=null;try{a.pause()}catch(e){}}
+function signal(kind,extra){if(observer)observer(kind,extra||{})}
+function deadline(myToken){clearTimeout(guard);guard=setTimeout(function(){if(myToken!==token)return;stop(true);signal('error',{reason:'stalled'})},30000)}
 function stop(keepFrame){
+ clearTimeout(guard);guard=null;
  if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.stop('routine');
  token++;if(clock){clearTimeout(clock);clock=null}clearAudio();mode='';
  try{w.speechSynthesis.cancel()}catch(e){}
@@ -37,6 +40,8 @@ function showScene(n){
 }
 function ending(){
  stop(false);
+ signal('ended');
+ if(w.APP360_ROUTINE_TRAINER&&w.APP360_ROUTINE_TRAINER.isActive())return;
  feedback(txt('⭐ أحسنت! شاهدت الروتين كاملاً، والآن نجربه معًا.','⭐ Great job! Now let us practice together.'));
 }
 function syncPosition(a,ms){
@@ -46,21 +51,23 @@ function syncPosition(a,ms){
  if(last.kind==='step'&&typeof last.step==='number'&&last.step!==frame)showScene(last.step);
  else if(last.kind==='outro'&&reel&&reel.showOverview)reel.showOverview();
 }
-function useAudio(a,kind,segment){
- if(muted()){feedback(txt('الصوت مغلق. اضغط زر الصوت أولاً.','Sound is off. Turn it on first.'));return}
- var e=entry(a);if(!e){feedback(txt('التسجيل الصوتي لم يُنشر بعد.','The recorded English audio is not published yet.'));return}
+function useAudio(a,kind,segment,offset){
+ if(muted()){signal('error',{reason:'muted'});feedback(txt('الصوت مغلق. اضغط زر الصوت أولاً.','Sound is off. Turn it on first.'));return}
+ var e=entry(a);if(!e){signal('error',{reason:'missing'});feedback(txt('التسجيل الصوتي لم يُنشر بعد.','The recorded English audio is not published yet.'));return}
  stop(true);
- var myToken=token;mode=kind;frame=-1;setButtons();
+ var myToken=token;mode=kind;frame=-1;resumeAt=Math.max(0,Number(offset)||0);setButtons();deadline(myToken);
  if(w.APP360_ROUTINE_DUA_STOP)w.APP360_ROUTINE_DUA_STOP();
  if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.begin(e,'routine',segment?segment.start_ms:0);
  var audio;
- try{audio=new w.Audio(e.path+'?routine-audio=1')}catch(err){stop(true);feedback(txt('هذا المتصفح لا يدعم تشغيل التسجيل','This browser cannot play the recording'));return}
- media=audio;audio.preload='auto';
- audio.onerror=function(){if(myToken!==token)return;stop(true);feedback(txt('تعذر فتح الملف الصوتي المسجل','Could not load the recorded audio'));};
+ try{audio=new w.Audio(e.path+'?routine-audio=1')}catch(err){stop(true);signal('error',{reason:'media'});feedback(txt('هذا المتصفح لا يدعم تشغيل التسجيل','This browser cannot play the recording'));return}
+ media=audio;audio.preload='auto';var lastTime=-1;
+ audio.onerror=function(){if(myToken!==token)return;stop(true);signal('error',{reason:'media'});feedback(txt('تعذر فتح الملف الصوتي المسجل','Could not load the recorded audio'));};
  audio.onended=function(){if(myToken!==token)return;if(kind==='full')ending();else stop(true)};
  audio.ontimeupdate=function(){
   if(myToken!==token)return;
   var ms=audio.currentTime*1000;
+  if(ms>lastTime){lastTime=ms;deadline(myToken)}
+  signal('position',{seconds:audio.currentTime,frame:frame});
   if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.update(ms);
   if(kind==='full')syncPosition(e,ms);
   if(kind==='segment'&&segment&&ms>=segment.end_ms){stop(true)}
@@ -69,18 +76,18 @@ function useAudio(a,kind,segment){
   if(myToken!==token)return;
   try{
    if(segment){audio.currentTime=Math.max(0,segment.start_ms/1000);if(typeof segment.step==='number')showScene(segment.step)}
-   else if(reel&&reel.showOverview)reel.showOverview();
+   else if(resumeAt){audio.currentTime=resumeAt;syncPosition(e,resumeAt*1000)}else if(reel&&reel.showOverview)reel.showOverview();
    if(w.APP360_ROUTINE_READING)w.APP360_ROUTINE_READING.update(audio.currentTime*1000);
    var p=audio.play();
-   if(p&&typeof p.then==='function')p.then(null,function(){if(myToken===token){stop(true);feedback(txt('اضغط زر التشغيل لتفعيل الصوت على جهازك','Tap play to enable audio on your device'))}})
-  }catch(err){stop(true);feedback(txt('تعذر تشغيل الملف الصوتي','Unable to play recorded audio'))}
+   if(p&&typeof p.then==='function')p.then(null,function(){if(myToken===token){stop(true);signal('error',{reason:'blocked'});feedback(txt('اضغط زر التشغيل لتفعيل الصوت على جهازك','Tap play to enable audio on your device'))}})
+  }catch(err){stop(true);signal('error',{reason:'media'});feedback(txt('تعذر تشغيل الملف الصوتي','Unable to play recorded audio'))}
   setButtons();
  }
  // Start directly in the child's tap gesture for older mobile audio policies.
  try{
   var initial=audio.play();
-  if(initial&&typeof initial.then==='function')initial.then(null,function(){if(myToken===token){stop(true);feedback('اضغط زر التشغيل لتفعيل الصوت على جهازك')}});
- }catch(ex){stop(true);feedback(txt('تعذر بدء التسجيل على هذا الجهاز','Unable to start recording on this device'));return}
+  if(initial&&typeof initial.then==='function')initial.then(null,function(){if(myToken===token){stop(true);signal('error',{reason:'blocked'});feedback('اضغط زر التشغيل لتفعيل الصوت على جهازك')}});
+ }catch(ex){stop(true);signal('error',{reason:'media'});feedback(txt('تعذر بدء التسجيل على هذا الجهاز','Unable to start recording on this device'));return}
  if(audio.readyState>=1)go();else audio.onloadedmetadata=go;
 }
 function listenFull(){if(mode==='full'){stop(true);return}var a=current();if(a)useAudio(a,'full',null)}
@@ -152,7 +159,7 @@ function bind(){
  w.addEventListener('pagehide',function(){stop(true)},false);
  setButtons();
 }
-w.APP360_RoutineVoice={disableBrowserSpeech:true,noBrowserSpeech:true,stop:function(){stop(true)},listen:listenFull};
+w.APP360_RoutineVoice={disableBrowserSpeech:true,noBrowserSpeech:true,stop:function(){stop(true)},listen:listenFull,playFull:function(offset){var a=current();if(a)useAudio(a,'full',null,offset)},observe:function(fn){observer=fn},getPosition:function(){return media?media.currentTime:0},hasRecording:function(a){return !!entry(a)}};
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',bind,false);else bind();
 })(window,document);
 
