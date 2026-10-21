@@ -1,0 +1,41 @@
+const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+const root=path.resolve(__dirname,'../../../..');
+const server=http.createServer((req,res)=>{const name=path.join(root,decodeURIComponent(req.url.split('?')[0]));if(!name.startsWith(root+'/')){res.writeHead(403);return res.end()}fs.readFile(name,(e,b)=>{if(e){res.writeHead(404);return res.end()}res.setHeader('Content-Type',name.endsWith('.js')?'application/javascript':name.endsWith('.css')?'text/css':name.endsWith('.html')?'text/html':name.endsWith('.svg')?'image/svg+xml':name.endsWith('.png')?'image/png':'application/octet-stream');res.end(b)})});
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:process.env.APP360_TEST_CHROMIUM,headless:true,args:['--no-sandbox']});try{
+ for(const view of [{width:390,height:844},{width:1280,height:800}]){
+ const ctx=await browser.newContext({viewport:view,hasTouch:view.width<500,serviceWorkers:'block'});const p=await ctx.newPage(),errors=[];p.on('pageerror',e=>{errors.push(e.message);console.log('PAGE ERROR',e.message)});
+ await p.addInitScript(()=>{window.Audio=function(src){this.src=src;this.pause=function(){clearTimeout(this.timer)};this.play=function(){var self=this;this.timer=setTimeout(function(){if(self.onended)self.onended()},25);return Promise.resolve()}}});
+ await p.goto('http://127.0.0.1:'+server.address().port+'/apps/1-4/tangram-builder/index.html');await p.waitForSelector('#teacherBtn');
+ assert.equal(await p.locator('#hintBtn').getAttribute('aria-pressed'),'true');await p.click('#hintBtn');assert.equal(await p.evaluate(()=>settings.directGuide),false);assert.equal(await p.locator('#directGuideToggle').isChecked(),false);
+ await p.reload();assert.equal(await p.locator('#hintBtn').getAttribute('aria-pressed'),'false');await p.click('#hintBtn');assert.equal(await p.locator('#directGuideToggle').isChecked(),true);
+ // Count actual white-circle canvas calls while dragging, with hint on and off.
+ const circles=await p.evaluate(()=>{var base=ctx.arc,count=0;ctx.arc=function(){count++;return base.apply(this,arguments)};var g=trayStacks[0];beginDrag({x:g.x,y:g.y});count=0;draw();var enabled=count;settings.directGuide=false;count=0;draw();var disabled=count;ctx.arc=base;endDrag();settings.directGuide=true;return {enabled:enabled,disabled:disabled}});assert.equal(circles.enabled,circles.disabled+1);
+ await p.click('#resetBtn');const before=await p.evaluate(()=>({pieces:JSON.stringify(pieces),done:Object.keys(localStorage).filter(k=>k.indexOf('app360:a1-tangram:done:')===0)}));
+ await p.click('#teacherBtn');assert.equal(await p.locator('#teacherBtn').getAttribute('aria-pressed'),'true');await p.waitForFunction(()=>document.getElementById('teacherBtn').getAttribute('aria-pressed')==='false',{},{timeout:30000});
+ assert.equal(await p.evaluate(()=>JSON.stringify(pieces)),before.pieces);assert.deepEqual(await p.evaluate(()=>Object.keys(localStorage).filter(k=>k.indexOf('app360:a1-tangram:done:')===0)),before.done);assert.equal(await p.evaluate(()=>won),false);
+ await p.click('#teacherBtn');await p.click('#resetBtn');assert.equal(await p.locator('#teacherBtn').getAttribute('aria-pressed'),'false');await p.waitForTimeout(200);assert.equal(await p.evaluate(()=>pieces.some(p=>p.placed)),false);
+ await p.click('#teacherBtn');await p.locator('#gameCanvas').tap({position:{x:20,y:60}}).catch(()=>p.locator('#gameCanvas').click({position:{x:20,y:60}}));assert.equal(await p.locator('#teacherBtn').getAttribute('aria-pressed'),'false');
+ // Child can still place a real piece after the demonstration.
+ await p.evaluate(()=>{var g=trayStacks[0];beginDrag({x:g.x,y:g.y});var target=nearestCompatibleTarget(drag.p).p;moveDrag({x:target.tx,y:target.ty})});assert.equal(await p.evaluate(()=>pieces.filter(p=>p.placed).length),1);
+ await p.click('#settingsBtn');await p.locator('#directGuideToggle').uncheck();await p.click('#saveSettingsBtn');assert.equal(await p.locator('#hintBtn').getAttribute('aria-pressed'),'false');
+ await p.click('#focusBtn');await p.waitForTimeout(400);assert.equal(await p.locator('#teacherBtn').isVisible(),true);assert.equal(await p.locator('#hintBtn').isVisible(),true);
+ await p.screenshot({path:'/tmp/tangram-focus-'+view.width+'.png'});await p.click('#focusBack');await p.waitForTimeout(400);await p.screenshot({path:'/tmp/tangram-'+view.width+'.png'});
+ assert.deepEqual(errors,[]);console.log('PASS',view.width,'hint persistence/circle, full demo without progress, cancellation, real placement, settings, fullscreen');await ctx.close();
+ }
+// Exercise the real session-restoration and shared praise scripts with test identities.
+for(const role of ['learner','parent','guest']){
+ const ctx=await browser.newContext({serviceWorkers:'block'}),p=await ctx.newPage();
+ await p.route('**/api/app360/**',route=>{const restore=route.request().url().split('?')[0].endsWith('/auth/session');return route.fulfill({status:restore&&role==='guest'?401:200,contentType:'application/json',body:JSON.stringify(restore?{token:'test-only-session',profile:{user_id:'test-child',display_name:'نور',role:role,gender:'girl'}}:{})})});
+ await p.addInitScript(()=>{window.__played=[];window.Audio=function(src){this.pause=()=>clearTimeout(this.timer);this.play=()=>{window.__played.push(src);this.timer=setTimeout(()=>{if(this.onended)this.onended()},25);return Promise.resolve()}}});
+ await p.goto('http://127.0.0.1:'+server.address().port+'/apps/1-4/tangram-builder/index.html');
+ await p.waitForFunction(role=>window.APP360_SESSION&&(role==='guest'?!APP360_SESSION.isAuthenticated():APP360_SESSION.isAuthenticated()),role);
+ await p.evaluate(()=>{userName='اسم يدوي مختلف';while(!won){var g=trayStacks[0];beginDrag({x:g.x,y:g.y});var target=nearestCompatibleTarget(drag.p).p;moveDrag({x:target.tx,y:target.ty})}});
+ await p.waitForFunction(()=>window.__played.length>0);await p.waitForTimeout(250);
+ const played=await p.evaluate(()=>window.__played);
+ if(role==='learner'){assert.ok(played.some(s=>s.endsWith('/well-done-name-f.mp3')));assert.ok(played.some(s=>s.endsWith('/name-1.mp3')));assert.match(await p.locator('#message').textContent(),/نور/)}
+ else{assert.ok(played.some(s=>/well-done-[mf]\.mp3$/.test(s)));assert.ok(!played.some(s=>s.includes('/audio/names/')))}
+ console.log('PASS tangram success praise',role,role==='learner'?'restored signed-in Noor overrides manual name':'generic praise');await ctx.close();
+}
+if(process.env.TANGRAM_AUDIO_QA==='1'){const p=await browser.newPage();await p.goto('http://127.0.0.1:'+server.address().port+'/apps/1-4/tangram-builder/index.html');for(const id of ['intro','instructions']){const result=await p.evaluate(id=>new Promise((resolve,reject)=>{var a=new Audio('audio/teacher/'+id+'.mp3');a.onended=()=>resolve({duration:a.duration,ended:a.ended});a.onerror=()=>reject(new Error('audio load failed '+id));a.play().catch(reject)}),id);assert.ok(result.ended&&result.duration>1);console.log('PASS native MP3 playback',id,result.duration)}await p.close()}
+}finally{await browser.close();await new Promise(r=>server.close(r))}})().catch(e=>{console.error(e);server.close();process.exitCode=1});

@@ -1,0 +1,109 @@
+{
+  "engine": "SILMA",
+  "clips": [
+    {
+      "id": "intro",
+      "path": "audio/teacher/intro.mp3",
+      "text": "شَاهِدْ كَيْفَ نُرَكِّبُ الْأَشْكَالَ.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 2.442,
+      "sha256": "50ebae3fc3a4a77dbdf552a26a11204647733ee68ec6fe59aaa18669f9924105",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "pick",
+      "path": "audio/teacher/pick.mp3",
+      "text": "نَخْتَارُ قِطْعَةً مِنْ هُنَا.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 1.95,
+      "sha256": "b75f8dd4a2e7400c696d5d77ff598fdd4f77d4aeb61e476ffd238cadd3725e68",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "move",
+      "path": "audio/teacher/move.mp3",
+      "text": "نَسْحَبُ الْقِطْعَةَ إِلَى مَكَانِهَا فِي الشَّكْلِ.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 3.336,
+      "sha256": "a4321a7704e3378a1759b3605bccbcf3fc6a628cb1cb681ad5241522241a42cd",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "place",
+      "path": "audio/teacher/place.mp3",
+      "text": "نَتْرُكُ الْقِطْعَةَ هُنَا.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 1.595,
+      "sha256": "1e7bf99f07d1a6b91356ac6de5e91bbc44744f5d12d3aa5cfcb07099aedfa115",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "turn",
+      "path": "audio/teacher/turn.mp3",
+      "text": "الْآنَ دَوْرُكَ. اِخْتَرْ قِطْعَةً، وَجَرِّبْ بِنَفْسِكَ.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 4.823,
+      "sha256": "ca6ae86a73b6a53acbb8686aef5a3fe0348b21b2c434f82f0ce64c25c9be257a",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "instructions",
+      "path": "audio/teacher/instructions.mp3",
+      "text": "اِخْتَرْ قِطْعَةً مِنَ الْأَدَوَاتِ. اِسْحَبْهَا إِلَى مَكَانِهَا فِي الشَّكْلِ، ثُمَّ اُتْرُكْهَا. الدَّائِرَةُ الْبَيْضَاءُ تُسَاعِدُكَ عِنْدَمَا يَكُونُ التَّلْمِيحُ مُفَعَّلًا.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 15.332,
+      "sha256": "ba6ab5cc1777efdfcf36568002acc946761b61eaa137aa4abe5b817a959eee93",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "hintOn",
+      "path": "audio/teacher/hintOn.mp3",
+      "text": "التَّلْمِيحُ مُفَعَّلٌ. الدَّائِرَةُ الْبَيْضَاءُ تَدُلُّكَ عَلَى مَكَانِ الْقِطْعَةِ.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 7.103,
+      "sha256": "2f71f11534853a138e3d265a105c216a5256dee163cb03a154db9a614f35c1fa",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    },
+    {
+      "id": "hintOff",
+      "path": "audio/teacher/hintOff.mp3",
+      "text": "أَوْقَفْنَا التَّلْمِيحَ. جَرِّبْ تَرْكِيبَ الْقِطْعَةِ دُونَ الدَّائِرَةِ الْبَيْضَاءِ.",
+      "engine": "silma-tts-1.0.5",
+      "reference": "publisher bundled ar.ref.24k.wav",
+      "steps": 24,
+      "seed": 360,
+      "speed": 0.95,
+      "duration": 6.112,
+      "sha256": "8b53a3cda00437ae900693848ed34c76427be9e470380ad85e244a69e4cd9618",
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5"
+    }
+  ]
+}

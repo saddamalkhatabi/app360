@@ -20,7 +20,7 @@ draw=function(){
  }
  for(i=0;i<pieces.length;i++){
   p=pieces[i];
-  if(p.state!=='placed')drawGuidePiece(p,hints===2?Math.max(cfg.targetAlpha,.50):cfg.targetAlpha);
+  if(p.state!=='placed')drawGuidePiece(p,cfg.targetAlpha);
  }
  if(helper){
   ctx.save();
