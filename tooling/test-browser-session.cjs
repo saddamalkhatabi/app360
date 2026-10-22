@@ -38,6 +38,15 @@ test('installed mode keeps its original window and callback closes the login pop
  const storage={},popup={},location={protocol:'https:',host:'school.test',pathname:'/index.html',search:'?age=1-4',hash:''},events={};let opened='',accepted=null,closed=0;
  const w={APP360_SESSION:{isAuthenticated:()=>false,acceptBridgeSession:v=>accepted=v,close(){}},navigator:{standalone:true},crypto:{getRandomValues:a=>a.fill(1234567890)},sessionStorage:{setItem:(k,v)=>storage[k]=v},addEventListener:(n,f)=>events[n]=f,open:(url)=>{opened=url;return popup},focus(){}};
  vm.runInNewContext(fs.readFileSync('assets/js/unified-login-v1.js','utf8'),{window:w,document:{},location,Uint32Array,setInterval:()=>1,setTimeout:()=>1,clearInterval(){}});w.APP360_SESSION.unifiedLogin();assert.equal(location.href,undefined);const back=new URL(new URL(opened).searchParams.get('return'));assert.equal(back.searchParams.get('popup'),'1');events.message({source:popup,origin:'https://school.test',data:{type:'app360:auth-complete',version:1,request:storage['app360:signin-request:v1'],session:{token:TOKEN,profile:{display_name:'نور'}}}});assert.equal(accepted.profile.display_name,'نور');
+ const callbackLocation={search:back.search,protocol:'https:',host:'school.test',replace(){throw Error('Popup must not navigate the original app')}};
  const ss={'app360:auth-token:v1':JSON.stringify(TOKEN),'app360:auth-profile:v1':'{"display_name":"نور"}','app360:signin-request:v1':back.searchParams.get('request')};let posted=null;
- vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{location:{search:back.search,protocol:'https:',host:'school.test'},history:{replaceState(){}},sessionStorage:{getItem:k=>ss[k],removeItem:k=>delete ss[k]},localStorage:{setItem(){}},opener:{postMessage:(m)=>posted=m},window:{close:()=>closed++},document:{getElementById:()=>({})},Date,JSON});assert.equal(posted.request,back.searchParams.get('request'));assert.equal(closed,1);
+ vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{location:callbackLocation,history:{replaceState(){callbackLocation.search=''}},sessionStorage:{getItem:k=>ss[k],removeItem:k=>delete ss[k]},localStorage:{setItem(){}},opener:{postMessage:(m)=>posted=m},window:{close:()=>closed++},document:{getElementById:()=>({})},Date,JSON});assert.equal(posted.request,back.searchParams.get('request'));assert.equal(closed,1);
+});
+
+
+test('popup callback without an opener retains popup mode after clearing its URL',()=>{
+ const state={'app360:auth-token:v1':JSON.stringify(TOKEN),'app360:auth-profile:v1':'{"display_name":"نور"}','app360:signin-request:v1':'request-1234567890'};
+ const status={},location={search:'?request=request-1234567890&popup=1&next=%2Findex.html',replace(){throw Error('Detached popup must not navigate')}};let closed=0;
+ vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{location,history:{replaceState(){location.search=''}},sessionStorage:{getItem:k=>state[k],removeItem:k=>delete state[k]},localStorage:{setItem(){}},opener:null,window:{close:()=>closed++},document:{getElementById:()=>status},Date,JSON});
+ assert.equal(closed,1);assert.match(status.textContent,/العودة إلى تطبيق المدرسة/);
 });
