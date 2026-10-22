@@ -1,0 +1,96 @@
+name: Record My Turn Your Turn SILMA scenes
+on:
+  push:
+    branches: [feature/turn-taking-advanced-20261022]
+    paths: [.github/workflows/record-turn-scenes.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: turn-scenes-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      HF_HOME: /tmp/turn-silma-hf
+      PYTHONUNBUFFERED: '1'
+      HF_HUB_DISABLE_XET: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tooling/build-silma-audio.py
+            /apps/1-4/imitate-one-step/audio/scene-recording-request.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install SILMA CPU dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --quiet torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --quiet torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/turn-constraints.txt
+          python -m pip install --quiet -c /tmp/turn-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Cache publisher model weights
+        run: |
+          python - <<'PY'
+          import os,pathlib
+          from huggingface_hub import snapshot_download
+          revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5'
+          snapshot_download(repo_id='silma-ai/silma-tts',revision=revision,allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True);p.write_text(revision)
+          PY
+      - name: Record exact scene utterances
+        run: >-
+          python tooling/build-silma-audio.py --root apps/1-4/imitate-one-step
+          --cache /tmp/turn-audio --model-cache /tmp/turn-silma-hf/hub
+          --manifest audio/scene-recording-request.json --generate-only --memory-map-weights
+          --parts 16 --part ${{ matrix.part }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: turn-scenes-${{ matrix.part }}
+          path: apps/1-4/imitate-one-step/audio/scenes/
+          if-no-files-found: error
+          retention-days: 7
+  collect:
+    needs: record
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /apps/1-4/imitate-one-step/audio/
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: turn-scenes-*
+          merge-multiple: true
+          path: apps/1-4/imitate-one-step/audio/scenes/
+      - name: Verify all requested recordings and commit to the review branch
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib,subprocess
+          app=pathlib.Path('apps/1-4/imitate-one-step');req=json.loads((app/'audio/scene-recording-request.json').read_text());clips=[]
+          for item in req['items']:
+            p=app/item['path'];assert p.exists() and p.stat().st_size>1000,p
+            d=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=nw=1:nk=1',str(p)]));assert .16<d<40,p
+            clips.append(dict(item,sha256=hashlib.sha256(p.read_bytes()).hexdigest(),duration_seconds=d))
+          (app/'audio/scene-build-report.json').write_text(json.dumps({'engine':'silma-tts','package_version':'1.0.5','model_revision':'226dd7a65cadf51f9a6dbe3953fc89003b3844d5','reference':'publisher ar.ref.24k.wav','seed':360,'steps':16,'speed':.95,'precision':'BF16','clips':clips},ensure_ascii=False,indent=2)+'\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/imitate-one-step/audio/scenes/ apps/1-4/imitate-one-step/audio/scene-build-report.json
+          git commit -m 'Record SILMA narration for all 1100 My Turn Your Turn scenes'
+          git push origin HEAD:${{ github.ref_name }}
