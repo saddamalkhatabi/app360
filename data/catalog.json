@@ -994,6 +994,27 @@
       "age_entry_levels": {
         "1-4": 1,
         "4-8": 5
+      },
+      "automated_coach": {
+        "version": 1,
+        "routes_path": "apps/1-4/screen-to-move/coach-routes-v34.json",
+        "route_count": 36,
+        "launch_query": {
+          "route": "coach_route",
+          "duration_seconds": "duration_seconds",
+          "autoplay": "1",
+          "age": "launch_age"
+        },
+        "api": "CreativeCoach",
+        "completion_event": "app360:creative:complete",
+        "session_event": "app360:creative-coach:sessioncomplete",
+        "adaptive_help": {
+          "consecutive_errors": 2,
+          "idle_seconds": 25,
+          "maximum_idle_demonstrations": 2
+        },
+        "completion": "Automatic save on verified screen completion; user confirmation for open drawing and real-world play",
+        "personalized_encouragement": "App360Celebration with the currently authenticated learner"
       }
     },
     {

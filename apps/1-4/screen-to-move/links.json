@@ -3,18 +3,135 @@
   "app_id": "a1-screen-move",
   "title_ar": "ألعاب إبداعية عبر الشاشة — أو بدون الشاشة",
   "base_path": "apps/1-4/screen-to-move/",
-  "app_href": "apps/1-4/screen-to-move/index.html?v=18",
+  "app_href": "apps/1-4/screen-to-move/index.html",
   "launch_path": "apps/1-4/screen-to-move/launch.html",
   "domain_policy": "relative-only",
   "events": "app360:interop:v1:events",
   "routes": [
-    {"id":"library","kind":"service","label_ar":"مكتبة الألعاب كاملة","href":"apps/1-4/screen-to-move/launch.html?action=library"},
-    {"id":"level","kind":"category","label_ar":"مستوى الألعاب","href_template":"apps/1-4/screen-to-move/launch.html?action=level&level={id}","params":["id"],"items":[1,2,3,4]},
-    {"id":"game","kind":"item","label_ar":"لعبة محددة","href_template":"apps/1-4/screen-to-move/launch.html?action=game&item={id}","params":["id"],"collection_sources":["games-data.js","games-data-v12.js"],"collection_kind":"games","item_key":"id","completion_ar":"يسجل التنفيذ عند إنهاء الجولة وعرض نتيجتها."},
-    {"id":"worksheets","kind":"service","label_ar":"أوراق الألعاب","href":"apps/1-4/screen-to-move/launch.html?action=worksheets"},
-    {"id":"worksheet-designer","kind":"service-item","label_ar":"مصمم أوراق الألعاب","href_template":"apps/1-4/screen-to-move/launch.html?action=worksheet-designer&item={id}","params":["id"],"collection_sources":["games-data.js","games-data-v12.js"],"collection_kind":"games","completion_ar":"يسجل التنفيذ عند حفظ الورقة أو طباعتها."},
-    {"id":"game-designer","kind":"service","label_ar":"مصمم الألعاب الإلكترونية v18","href":"apps/1-4/screen-to-move/launch.html?action=game-designer","completion_ar":"يسجل التنفيذ عند حفظ التصميم؛ تجربة اللعبة جولة مستقلة ولا تغير لوحة التصميم."}
+    {
+      "id": "library",
+      "kind": "service",
+      "label_ar": "مكتبة الألعاب كاملة",
+      "href": "apps/1-4/screen-to-move/launch.html?action=library"
+    },
+    {
+      "id": "level",
+      "kind": "category",
+      "label_ar": "مستوى الألعاب",
+      "href_template": "apps/1-4/screen-to-move/launch.html?action=level&level={id}",
+      "params": [
+        "id"
+      ],
+      "items": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "game",
+      "kind": "item",
+      "label_ar": "لعبة محددة",
+      "href_template": "apps/1-4/screen-to-move/launch.html?action=game&item={id}",
+      "params": [
+        "id"
+      ],
+      "collection_sources": [
+        "games-data.js",
+        "games-data-v12.js"
+      ],
+      "collection_kind": "games",
+      "item_key": "id",
+      "completion_ar": "يسجل الاكتمال مباشرة عند النجاح دون الحاجة إلى فتح شاشة النتيجة."
+    },
+    {
+      "id": "worksheets",
+      "kind": "service",
+      "label_ar": "أوراق الألعاب",
+      "href": "apps/1-4/screen-to-move/launch.html?action=worksheets"
+    },
+    {
+      "id": "worksheet-designer",
+      "kind": "service-item",
+      "label_ar": "مصمم أوراق الألعاب",
+      "href_template": "apps/1-4/screen-to-move/launch.html?action=worksheet-designer&item={id}",
+      "params": [
+        "id"
+      ],
+      "collection_sources": [
+        "games-data.js",
+        "games-data-v12.js"
+      ],
+      "collection_kind": "games",
+      "completion_ar": "يسجل التنفيذ عند حفظ الورقة أو طباعتها."
+    },
+    {
+      "id": "game-designer",
+      "kind": "service",
+      "label_ar": "مصمم الألعاب الإلكترونية v18",
+      "href": "apps/1-4/screen-to-move/launch.html?action=game-designer",
+      "completion_ar": "يسجل التنفيذ عند حفظ التصميم؛ تجربة اللعبة جولة مستقلة ولا تغير لوحة التصميم."
+    },
+    {
+      "id": "session",
+      "kind": "category",
+      "label_ar": "مسارات المدرب الآلي",
+      "href_template": "apps/1-4/screen-to-move/launch.html?action=session&coach_route={id}&duration_seconds=300&autoplay=1",
+      "params": [
+        "id"
+      ],
+      "items": [
+        "level-1",
+        "level-2",
+        "level-3",
+        "level-4",
+        "level-5",
+        "level-6",
+        "level-7",
+        "level-8",
+        "nursery-balanced",
+        "nursery-attention",
+        "nursery-pairs",
+        "nursery-sorting",
+        "nursery-sequence",
+        "nursery-pieces",
+        "nursery-paths",
+        "nursery-drawing",
+        "nursery-offscreen",
+        "nursery-mixed",
+        "school-balanced",
+        "school-attention",
+        "school-pairs",
+        "school-sorting",
+        "school-sequence",
+        "school-pieces",
+        "school-paths",
+        "school-drawing",
+        "school-offscreen",
+        "school-mixed",
+        "letter-choices",
+        "letter-writing",
+        "phonics-listening",
+        "phonics-building",
+        "word-reading",
+        "word-building",
+        "sentence-reading",
+        "sentence-building"
+      ],
+      "duration_param": "duration_seconds",
+      "completion_ar": "يسجل كل إنجاز في الجلسة، ويبلغ المخطط بانتهاء الجلسة بعد المدة أو الإنهاء الصريح؛ لا يحسب مرور الوقت إنجازًا."
+    }
   ],
-  "interop_params": ["caller","launch_id","return_to","embedded"],
-  "note_ar": "يمكن فتح التطبيق كاملًا أو مستوى كاملًا أو لعبة بعينها أو أدوات الأوراق والتصميم. الإصدار 18 يجعل تجربة الألعاب المصممة جولة لعب فعلية بخَلط العناصر والصوت والإكمال وإعادة التجربة مع بقاء التصميم الأصلي ثابتًا."
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded"
+  ],
+  "note_ar": "مسارات مصنفة حسب المهارة والاستعداد، مع حفظ مباشر للجولات المكتملة ومساعدة مرئية وصوتية وتنقل آلي بعد التشجيع."
 }
