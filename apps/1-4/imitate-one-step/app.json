@@ -53,7 +53,7 @@
     "storyboard_display_ratio": "5:1",
     "storyboard_mode": "large-square-single-frame-then-full-strip",
     "storyboard_batch_status": "active-direct-root",
-    "per_experience_steps": false,
+    "per_experience_steps": true,
     "global_method_once": true,
     "local_completion_count": true,
     "local_improvement_notes": true,
@@ -65,7 +65,7 @@
     },
     "storyboard_playback": {
       "frames": 5,
-      "frame_seconds": 2.2,
+      "frame_seconds": null,
       "frame_view": "large centered square",
       "end_view": "full five-panel image",
       "controls": [
@@ -81,7 +81,8 @@
         "desktop": "capped around 640px and 70vh",
         "legacy_fallback": "vw + max-width",
         "overview": "wide full five-panel image after playback; compact sizing applies only to one-frame playback"
-      }
+      },
+      "advancement": "narration-ended; silent playback only uses text reading duration"
     },
     "runtime": "app-v16.js",
     "hq_storyboard_reference": "storyboards/001.webp",
@@ -138,7 +139,28 @@
     "storyboard_batch_001_010": "storyboards/001.webp ... storyboards/010.webp",
     "scene_narration": true,
     "automatic_navigation": true,
-    "planner_routes": true
+    "planner_routes": true,
+    "planner_contract": {
+      "api": "A1TurnTaking",
+      "methods": [
+        "start",
+        "pause",
+        "resume",
+        "stop",
+        "open",
+        "library",
+        "state"
+      ],
+      "events": [
+        "activity-completed",
+        "session-ended"
+      ],
+      "time_budget_seconds": [
+        30,
+        1800
+      ],
+      "timed_session_implies_completion": false
+    }
   },
   "branding": {
     "icon": "icon.svg",
