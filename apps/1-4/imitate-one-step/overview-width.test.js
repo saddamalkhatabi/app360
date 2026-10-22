@@ -2,7 +2,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const js=fs.readFileSync('app-v16.js','utf8');
+const js=fs.readFileSync('scene-player.js','utf8');
 const css=fs.readFileSync('styles-v16.css','utf8');
 const html=fs.readFileSync('index.html','utf8');
 
@@ -21,6 +21,6 @@ test('overview keeps five-to-one layout',()=>{
   assert.ok(css.includes('aspect-ratio:5/1'));
 });
 test('v16 assets are wired',()=>{
-  assert.ok(html.includes('app-v16.js?v=7'));
+  assert.ok(html.includes('app-v16.js?v=20261022'));
   assert.ok(html.includes('styles-v16.css?v=4'));
 });

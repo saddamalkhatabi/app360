@@ -8,15 +8,116 @@
   "domain_policy": "relative-only",
   "events": "app360:interop:v1:events",
   "routes": [
-    {"id":"library","kind":"service","label_ar":"مكتبة التجارب كاملة","href":"apps/1-4/imitate-one-step/launch.html?action=library"},
-    {"id":"family","kind":"category","label_ar":"مجال/عائلة تجارب","href_template":"apps/1-4/imitate-one-step/launch.html?action=family&family={id}","params":["id"],"collection_source":"experiences.json","collection_kind":"families"},
-    {"id":"level","kind":"category","label_ar":"مستوى التجارب","href_template":"apps/1-4/imitate-one-step/launch.html?action=level&level={id}","params":["id"],"items":[1,2,3,4]},
-    {"id":"experience","kind":"item","label_ar":"تجربة محددة من مكتبة 200 تجربة","href_template":"apps/1-4/imitate-one-step/launch.html?action=experience&item={id}","params":["id"],"collection_source":"experiences.json","collection_kind":"experiences","item_key":"id","completion_ar":"يسجل التنفيذ عند الضغط على تم عمل التجربة داخل التجربة المستدعاة."},
-    {"id":"drawing","kind":"service","label_ar":"الرسم الجماعي","href":"apps/1-4/imitate-one-step/launch.html?action=drawing","completion_ar":"يسجل التنفيذ عند الرسم فعليًا على اللوحة."},
-    {"id":"timer","kind":"service","label_ar":"أداة المؤقت","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=timer"},
-    {"id":"signal","kind":"service","label_ar":"أداة ابدأ/انتظر/توقف","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=signal"},
-    {"id":"whiteboard","kind":"service","label_ar":"الصبورة","href":"apps/1-4/imitate-one-step/launch.html?action=helper&service=whiteboard","completion_ar":"يسجل التنفيذ عند استخدام الصبورة."}
+    {
+      "id": "library",
+      "kind": "service",
+      "label_ar": "مكتبة التجارب كاملة",
+      "href": "apps/1-4/imitate-one-step/launch.html?action=library"
+    },
+    {
+      "id": "family",
+      "kind": "category",
+      "label_ar": "مجال/عائلة تجارب",
+      "href_template": "apps/1-4/imitate-one-step/launch.html?action=family&family={id}",
+      "params": [
+        "id"
+      ],
+      "collection_source": "experiences.json",
+      "collection_kind": "families"
+    },
+    {
+      "id": "level",
+      "kind": "category",
+      "label_ar": "مستوى التجارب",
+      "href_template": "apps/1-4/imitate-one-step/launch.html?action=level&level={id}",
+      "params": [
+        "id"
+      ],
+      "items": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "experience",
+      "kind": "item",
+      "label_ar": "تجربة محددة من مكتبة 220 تجربة",
+      "href_template": "apps/1-4/imitate-one-step/launch.html?action=experience&item={id}",
+      "params": [
+        "id"
+      ],
+      "collection_source": "experiences.json",
+      "collection_kind": "experiences",
+      "item_key": "id",
+      "completion_ar": "يسجل التنفيذ عند الضغط على تم عمل التجربة داخل التجربة المستدعاة."
+    },
+    {
+      "id": "drawing",
+      "kind": "service",
+      "label_ar": "الرسم الجماعي",
+      "href": "apps/1-4/imitate-one-step/launch.html?action=drawing",
+      "completion_ar": "يسجل التنفيذ عند الرسم فعليًا على اللوحة."
+    },
+    {
+      "id": "timer",
+      "kind": "service",
+      "label_ar": "أداة المؤقت",
+      "href": "apps/1-4/imitate-one-step/launch.html?action=helper&service=timer"
+    },
+    {
+      "id": "signal",
+      "kind": "service",
+      "label_ar": "أداة ابدأ/انتظر/توقف",
+      "href": "apps/1-4/imitate-one-step/launch.html?action=helper&service=signal"
+    },
+    {
+      "id": "whiteboard",
+      "kind": "service",
+      "label_ar": "الصبورة",
+      "href": "apps/1-4/imitate-one-step/launch.html?action=helper&service=whiteboard",
+      "completion_ar": "يسجل التنفيذ عند استخدام الصبورة."
+    },
+    {
+      "id": "session-1-4",
+      "kind": "service",
+      "label_ar": "مسار دوري ودورك · 1–4",
+      "href_template": "apps/1-4/imitate-one-step/launch.html?action=session&launch_age=1-4&autoplay=1&duration_seconds={seconds}",
+      "params": [
+        "seconds"
+      ]
+    },
+    {
+      "id": "session-4-8",
+      "kind": "service",
+      "label_ar": "مسار التعاون المتقدم · 4–8",
+      "href_template": "apps/1-4/imitate-one-step/launch.html?action=session&launch_age=4-8&launch_level=5&autoplay=1&duration_seconds={seconds}",
+      "params": [
+        "seconds"
+      ]
+    },
+    {
+      "id": "advanced",
+      "kind": "category",
+      "label_ar": "تجارب المستوى المتقدم · 4–8",
+      "href": "apps/1-4/imitate-one-step/launch.html?launch_age=4-8&launch_level=5"
+    }
   ],
-  "interop_params": ["caller","launch_id","return_to","embedded"],
-  "note_ar": "يمكن فتح التطبيق كاملًا أو مجال من مجالاته أو مستوى أو تجربة بعينها أو أداة داخلية، وكل الروابط الداخلية نسبية."
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded",
+    "launch_age",
+    "launch_level",
+    "autoplay",
+    "duration_seconds"
+  ],
+  "note_ar": "يمكن فتح التطبيق كاملًا أو مجال من مجالاته أو مستوى أو تجربة بعينها أو أداة داخلية، وكل الروابط الداخلية نسبية.",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ]
 }

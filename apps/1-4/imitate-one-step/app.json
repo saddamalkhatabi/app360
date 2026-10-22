@@ -4,10 +4,10 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: قلّد حركة واحدة",
   "age_group": "1-4",
-  "version": 19,
+  "version": 20,
   "status": "live",
   "scaffold_state": "live",
-  "implementation_state": "live-200-experiences",
+  "implementation_state": "live-220-experiences",
   "kind": "goal_aligned",
   "goal_keys": [
     "learner-1-4-shared-attention-imitation-simple-instructions",
@@ -29,8 +29,8 @@
   ],
   "practice_model_ar": "اختر التجربة ← شاهد Storyboard متحركًا لقطة لقطة ← نفذ الفكرة في الواقع ← اضغط تم عمل التجربة ← أضف ملاحظة تحسين محلية اختيارية ← اقرأ أو شارك تعليقًا عامًا للمجتمع",
   "features": {
-    "experience_count": 200,
-    "levels": 4,
+    "experience_count": 220,
+    "levels": 5,
     "families": 10,
     "progressive_rendering": true,
     "filters": [
@@ -135,7 +135,10 @@
       "settings",
       "collaborative drawing"
     ],
-    "storyboard_batch_001_010": "storyboards/001.webp ... storyboards/010.webp"
+    "storyboard_batch_001_010": "storyboards/001.webp ... storyboards/010.webp",
+    "scene_narration": true,
+    "automatic_navigation": true,
+    "planner_routes": true
   },
   "branding": {
     "icon": "icon.svg",
@@ -196,6 +199,16 @@
     "manifest": "audio/manifest.json",
     "files": 22,
     "coverage": "shared play instructions, child requests, experience selection and completion; individual experiment narratives not recorded",
-    "offline": true
+    "offline": true,
+    "scene_manifest": "audio/scene-recording-request.json",
+    "scene_status": "awaiting-silma-build"
+  },
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 5
   }
 }

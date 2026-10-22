@@ -1,0 +1,6 @@
+/* Validated local routes, bounded sessions, and a planner contract. No achievement is inferred from elapsed time. */
+(function(w){'use strict';
+function query(search){var q={},a=String(search||'').replace(/^\?/,'').split('&');for(var i=0;i<a.length;i++){var p=a[i].split('=');try{q[decodeURIComponent(p[0])]=decodeURIComponent(p.slice(1).join('=')||'')}catch(e){}}return q}
+function parse(search){var q=query(search),age=q.launch_age==='4-8'||q.age==='4-8'?'4-8':'1-4',level=Number(q.launch_level||q.level),seconds=Number(q.duration_seconds||q.seconds),action=q.action||'library';if(['library','experience','family','level','session'].indexOf(action)<0)action='library';return{age:age,level:level>=1&&level<=5?level:age==='4-8'?5:0,experience:/^\d{3}$/.test(q.item||q.experience||'')?(q.item||q.experience):'',family:/^[a-z]+$/.test(q.family||'')?q.family:'',action:action,autoplay:q.autoplay==='1'||action==='session',seconds:isFinite(seconds)&&seconds>0?Math.max(30,Math.min(1800,Math.round(seconds))):300,caller:String(q.caller||'').slice(0,80),launch_id:String(q.launch_id||'').slice(0,120)}}
+var api={parse:parse};if(typeof module==='object'&&module.exports)module.exports=api;w.A1SessionRoutes=api;
+})(typeof window!=='undefined'?window:globalThis);
