@@ -9,7 +9,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="app360-build" content="say-and-name-v26-family-sync-20260929">
+<meta name="app360-build" content="say-and-name-coach-20261022">
 <title>كلماتي مع أشيائي | مدرسة العائلة 360</title>
 <link rel="manifest" href="manifest.webmanifest?v=98">
 <link rel="icon" type="image/png" href="icon-192.png?v=27">
@@ -24,8 +24,9 @@
 <meta property="og:image" content="../../../assets/brand/family-school-360-share.jpg?v=98">
 <meta name="description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
 <link rel="stylesheet" href="meaning-learning-v1.css?v=6">
+<link rel="stylesheet" href="auto-coach.css?v=1">
 </head>
-<body data-build="v27-reviewed-content">
+<body data-build="v29-auto-coach">
 <a class="skip-link" href="#mainContent">انتقل إلى المحتوى</a>
 <main class="app" id="mainContent">
   <header class="hero hero-v18">
@@ -51,6 +52,7 @@
           </div>
         </div>
         <div class="hero-tools">
+          <button id="wordCoachButton" class="help-btn" type="button" aria-controls="wordCoachPanel" aria-expanded="false"><img src="coach-icon.svg?v=1" width="36" height="36" alt=""> <span id="wordCoachLabel">مدربة الروضة · المدرب الآلي</span></button>
           <button id="childAudioHelpBtn" class="help-btn" type="button">🔊 <span data-i18n="audioHelp">اسمع طريقة اللعب</span></button>
           <button id="helpBtn" class="help-btn" type="button">؟ <span data-i18n="help">تعليمات</span></button>
           <button id="advancedSettingsBtn" class="settings-btn" type="button">⚙ <span data-i18n="settings">الإعدادات</span></button>
@@ -61,6 +63,12 @@
     </div>
   </header>
 
+<section id="wordCoachPanel" class="word-coach panel" hidden aria-label="إعداد جلسة المدرب الآلي">
+<h2>جلسة المدرب الآلي</h2><p>أختار صورة، أشرحها بالصوت، ثم أترك وقتًا للطفل ليشير أو يردد أو يربطها بشيء حقيقي.</p>
+<div class="word-coach-fields"><label>مسار التدريب<select id="wordCoachRoute"></select></label><label>مستوى الكلمات<select id="wordCoachLevel"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></label><label>المجموعة<select id="wordCoachCategory"></select></label><label>مدة الجلسة بالدقائق<input id="wordCoachMinutes" type="number" min="0.5" max="30" step="0.5" value="5"></label><label>وقت الاستجابة بالثواني<input id="wordCoachWait" type="number" min="3" max="30" value="6"></label></div>
+<label><input id="wordCoachAuto" type="checkbox" checked> التنقل الآلي بعد الصوت ووقت الاستجابة</label>
+<p>لغة الصوت تتبع إعدادات التطبيق. يمكن اختيار العربية أو English أو كليهما. لا يُسجّل صوت الطفل ولا يُقيّم نطقه.</p>
+<button id="wordCoachStart" type="button">ابدأ جلسة جديدة</button></section>
 <p id="learningTrackBadge" class="learning-track-badge" role="status">1–4 · اسمع وسمِّ</p>
 <nav class="learning-tracks" aria-label="مستوى التعلم">
 <button type="button" data-learning-track="names" aria-pressed="true">١ · أسماء الأشياء · 1–4</button>
@@ -98,6 +106,9 @@
     <div class="stage-shell">
       <button id="prevBtn" class="arrow stage-prev" type="button" aria-label="السابق">‹</button>
       <article id="stage" class="stage" tabindex="0" aria-live="polite">
+        <section id="wordCoachControls" class="word-coach-controls" hidden aria-label="المدرب الآلي">
+<p id="wordCoachStatus" role="status" aria-live="polite"></p><p id="wordCoachCaption" role="status"></p><div>
+<button id="wordCoachPrevious" type="button">السابق</button><button id="wordCoachToggle" type="button">إيقاف مؤقت</button><button id="wordCoachNext" type="button">التالي</button><button id="wordCoachStop" type="button">إنهاء الجلسة</button></div></section>
         <div class="stage-top">
           <div class="stage-tags">
             <span id="levelTag" class="tag soft"></span>
@@ -174,8 +185,11 @@
 <script src="../../../assets/js/app360-age-launch-v1.js?v=1"></script>
 <script src="data/meaning-sentences-v1.js?v=final17-5"></script>
 <script src="data/meaning-audio-v1.js?v=final17-5"></script>
-<script src="runtime-v27.js?v=31&brand=98"></script>
-<script src="meaning-learning-v1.js?v=6"></script>
+<script src="runtime-v27.js?v=32&brand=98"></script>
+<script src="meaning-learning-v1.js?v=7"></script>
+<script src="session-routes.js?v=1"></script>
+<script src="../../../assets/js/teacher-encouragement-v1.js?v=1"></script>
+<script src="auto-coach.js?v=1"></script>
 <script src="../../../assets/js/app-pwa.js?v=27"></script>
 <script src="../../../assets/js/offline-client-v1.js?v=20261022-pwa2"></script>
 <script src="../../../assets/js/app360-access-v1.js?v=1"></script>

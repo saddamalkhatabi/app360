@@ -8,9 +8,10 @@ function clearHighlight(){if(!panel)return;Array.prototype.forEach.call(panel.qu
 function stop(){token++;clearTimeout(pendingCheck);pendingCheck=null;clearTimeout(timer);timer=null;if(frame)cancelAnimationFrame(frame);frame=null;if(audio){audio.onended=null;audio.onerror=null;audio.pause();audio=null}clearHighlight();var reader=$('meaningReader');if(reader)reader.hidden=true;if($('meaningStatus'))$('meaningStatus').textContent=''}
 function cueIndex(cues,time){for(var i=0;i<cues.length;i++)if(time>=cues[i][1]&&time<cues[i][2])return cues[i][0];return -1}
 function play(number,done,retried){
- if(window.App360WordPlayer)window.App360WordPlayer.stop();stop();var it=current(),p=prefs();if(!it||!p.speech)return;var seq=token,langs=p.voice==='both'?['ar','en']:[p.voice],queue=[];
+ if(window.App360WordPlayer)window.App360WordPlayer.stop();stop();var it=current(),p=prefs();if(!it||!p.speech){if(done)done(new Error('speech-disabled'));return}var seq=token,langs=p.voice==='both'?['ar','en']:[p.voice],queue=[];
  langs.forEach(function(lang){if(it.sentences[number][lang])queue.push(lang)});
  var missing=queue.some(function(lang){return !recordings.clips[it.sentences[number][lang].clip]});
+ if(missing&&done){done(new Error('recording-unavailable'));return}
  if(missing){$('meaningStatus').textContent='التسجيل قيد التجهيز · Recording pending';if(!retried)refreshRecordings(function(ok){if(seq!==token)return;var ready=queue.every(function(lang){return !!recordings.clips[it.sentences[number][lang].clip]});if(ready)play(number,done,true);else pendingCheck=setTimeout(function(){if(seq===token)play(number,done)},60000)});return}
  function one(pos,repeatRound){
   if(seq!==token)return;
@@ -19,8 +20,8 @@ function play(number,done,retried){
   $('meaningStatus').textContent=p.display==='en'?'Listen':'استمع';var reader=$('meaningReader'),lastWord=-2;if(reader){reader.innerHTML='<p dir="'+(lang==='ar'?'rtl':'ltr')+'" lang="'+lang+'">'+row.words.map(function(word,i){return '<span id="meaning-reader-'+i+'" class="meaning-reader-word">'+esc(word)+'</span>'}).join(' ')+'</p>';reader.hidden=false;}
   function tick(){if(seq!==token||!audio)return;clearHighlight();var word=cueIndex(clip.cues,audio.currentTime*1000),el=word>=0?$('meaning-'+number+'-'+lang+'-'+word):null;if(el)el.classList.add('is-speaking');var line=$('meaning-line-'+number+'-'+lang);if(line&&word>=0)line.hidden=false;if(reader){Array.prototype.forEach.call(reader.querySelectorAll('.meaning-reader-word'),function(el){el.classList.remove('is-speaking')});var mirror=word>=0?$('meaning-reader-'+word):null;if(mirror)mirror.classList.add('is-speaking')}if(word>=0&&word!==lastWord){lastWord=word;if(el&&el.getBoundingClientRect){var rect=el.getBoundingClientRect(),height=window.innerHeight||document.documentElement.clientHeight;if(rect.top<10||rect.bottom>height-120)try{el.scrollIntoView({block:'center',inline:'nearest',behavior:'smooth'})}catch(e){el.scrollIntoView(false)}}}frame=requestAnimationFrame(tick)}
   audio.onended=function(){if(seq!==token)return;if(frame)cancelAnimationFrame(frame);clearHighlight();one(pos+1,repeatRound)};
-  audio.onerror=function(){if(seq!==token)return;stop();$('meaningStatus').textContent='تعذر تحميل التسجيل. حاول مرة أخرى · Please try again'};
-  tick();var promise=audio.play();if(promise&&promise.catch)promise.catch(function(){if(seq===token){stop();$('meaningStatus').textContent='اضغط على الجملة لتشغيل الصوت · Tap the sentence to play'}});
+  audio.onerror=function(){if(seq!==token)return;stop();$('meaningStatus').textContent='تعذر تحميل التسجيل. حاول مرة أخرى · Please try again';if(done)done(new Error('recording-unavailable'))};
+  tick();var promise=audio.play();if(promise&&promise.catch)promise.catch(function(){if(seq===token){stop();$('meaningStatus').textContent='اضغط على الجملة لتشغيل الصوت · Tap the sentence to play';if(done)done(new Error('playback-blocked'))}});
  }
  one(0,false);
 }
@@ -68,6 +69,6 @@ function init(){
  var track=query.get('learn');setActive(track==='sentences'||(track!=='names'&&(level==='2'||explicit==='4-8'||(!explicit&&!level&&saved==='sentences'))));
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop();else if(active&&!recordings.complete)refreshRecordings()});window.addEventListener('pagehide',stop);window.addEventListener('focus',function(){if(active&&!recordings.complete)refreshRecordings()});
 }
-window.App360MeaningLearning={active:function(){return active},speak:function(){stop();var it=current();if(!it)return;var n=0;function next(){if(n<it.sentences.length)play(n++,next)}if(it.sentences[0].lead_name)next();else window.App360WordPlayer.sayCurrent(next,{once:true})},refresh:function(){if(active)render()},stop:stop,cueIndex:cueIndex};
+window.App360MeaningLearning={setActive:setActive,active:function(){return active},speak:function(done,options){stop();var it=current();if(!it){if(done)done(new Error('no-sentences'));return}var n=0;function next(error){if(error){if(done)done(error);return}if(n<it.sentences.length)play(n++,next);else if(done)done()}if((options&&options.skipName)||it.sentences[0].lead_name)next();else window.App360WordPlayer.sayCurrent(next,{once:true})},refresh:function(){if(active)render()},stop:stop,cueIndex:cueIndex};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

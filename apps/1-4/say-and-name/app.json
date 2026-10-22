@@ -5,7 +5,7 @@
   "title_ar": "كلماتي مع أشيائي: اسمع وأشر وسمِّ",
   "title_en": "My Words & Things: Listen, Point & Name",
   "age_group": "1-4",
-  "version": 28,
+  "version": 29,
   "status": "live",
   "scaffold_state": "live",
   "kind": "goal_aligned",
@@ -73,5 +73,29 @@
   "age_entry_levels": {
     "1-4": 1,
     "4-8": 2
+  },
+  "automated_coach": {
+    "api": "App360WordCoach",
+    "entry_button": "wordCoachButton",
+    "routes": "session-routes.js",
+    "methods": [
+      "start",
+      "pause",
+      "resume",
+      "stop",
+      "prepare",
+      "state"
+    ],
+    "duration_seconds": [
+      30,
+      1800
+    ],
+    "response_seconds": [
+      3,
+      30
+    ],
+    "events": "app360:word-coach",
+    "personalized_encouragement": "teacher-encouragement-v1 (authenticated learner only)",
+    "timed_session_implies_completion": false
   }
 }

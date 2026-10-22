@@ -1,0 +1,43 @@
+'use strict';
+// Run against the real word/sentence players and recordings manifests; media ends are controlled.
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const {JSDOM}=require((process.env.APP360_TEST_MODULES||'/tmp/adult-test-deps/node_modules')+'/jsdom');
+const base='apps/1-4/say-and-name/';
+const routes=require('../'+base+'session-routes.js');
+assert.equal(routes.parse({duration_seconds:'Infinity',level:-1}).duration_seconds,300);
+assert.equal(routes.parse({duration_seconds:9999,response_seconds:1}).duration_seconds,1800);
+assert.equal(routes.parse({duration_seconds:1,response_seconds:999}).response_seconds,30);
+assert.equal(routes.parse('?route=bad&launch_age=4-8&autoplay=0').route,'sentences-category');
+assert.equal(routes.parse('?autoplay=0').autoplay,false);
+(async()=>{
+const dom=new JSDOM(fs.readFileSync(base+'index.html','utf8'),{url:'https://school.test/'+base+'index.html',runScripts:'outside-only'}),w=dom.window,d=w.document;
+let now=100000,seq=0,timers=new Map(),plays=[],errors=[],events=[],profile={user_id:'child-1',role:'learner',display_name:'نور'};
+w.Date.now=()=>now;w.setTimeout=(fn,ms)=>(timers.set(++seq,{fn,at:now+Number(ms||0),interval:0}),seq);w.clearTimeout=id=>timers.delete(id);w.setInterval=(fn,ms)=>(timers.set(++seq,{fn,at:now+ms,interval:ms}),seq);w.clearInterval=w.clearTimeout;w.requestAnimationFrame=()=>0;w.cancelAnimationFrame=()=>{};w.HTMLElement.prototype.scrollIntoView=function(){};
+w.addEventListener('error',e=>errors.push(e.error));d.addEventListener('app360:word-coach',e=>events.push(e.detail));
+w.Audio=function(src){this.src=src;this.currentTime=0;this.pause=()=>{};this.load=()=>{};this.play=()=>{let ended=this.onended,error=this.onerror;plays.push({src:this.src,end:()=>ended&&ended(),error:()=>error&&error()})}};
+w.APP360_SESSION={isAuthenticated:()=>!!profile,getProfile:()=>profile};
+w.XMLHttpRequest=function(){this.open=()=>{};this.abort=()=>{};this.send=()=>{this.status=200;this.responseText=fs.readFileSync('resources/celebration-audio/names.json','utf8');this.onload()}};
+function advance(ms){const until=now+ms;let count=0;while(true){let next=[...timers].filter(([,r])=>r.at<=until).sort((a,b)=>a[1].at-b[1].at)[0];if(!next)break;if(++count>20000)throw Error('timer loop');now=next[1].at;timers.delete(next[0]);if(next[1].interval){next[1].at+=next[1].interval;timers.set(next[0],next[1])}next[1].fn()}now=until}
+const ready=new Promise(resolve=>d.addEventListener('DOMContentLoaded',resolve,{once:true}));
+for(const file of ['data/levels-inline-v8.js','data/visuals.js','data/audio-map.js','data/audio-sense-map.js','data/translations-en.js','data/audio-map-en.js','data/word-images-map.js','data/word-images-context-map.js','data/silma-map.js','data/meaning-sentences-v1.js','data/meaning-audio-v1.js','runtime-v27.js','meaning-learning-v1.js','session-routes.js'])w.eval(fs.readFileSync(base+file,'utf8'));
+w.eval(fs.readFileSync('assets/js/teacher-encouragement-v1.js','utf8'));w.eval(fs.readFileSync(base+'auto-coach.js','utf8'));await ready;
+const c=w.App360WordCoach;function end(){assert(plays.length);plays.at(-1).end()}
+function start(opts={}){assert(c.start({route:'names-category',category:'الأسرة',level:1,duration_seconds:60,response_seconds:3,...opts}));assert.equal(c.state().phase,'intro');end();advance(2000);assert.equal(c.state().phase,'listen')}
+start();const first=w.App360WordPlayer.current().ar;advance(7000);assert.equal(c.state().phase,'listen','No navigation before media ended');end();assert.equal(c.state().phase,'practice');advance(2999);assert.equal(c.state().index,0);advance(1);assert.equal(c.state().phase,'praise');assert.match(plays.at(-1).src,/well-done-name-f/);assert.match(d.getElementById('wordCoachCaption').textContent,/نور/);end();assert.match(plays.at(-1).src,/name-1\.mp3/);assert.equal(c.state().index,0);end();assert.equal(c.state().index,1);assert.notEqual(w.App360WordPlayer.current().ar,first);
+advance(2000);const late=plays.at(-1).end;c.pause();const remaining=c.state().remaining_seconds;advance(100000);assert.equal(c.state().remaining_seconds,remaining);late();assert(c.state().paused);c.resume();advance(2000);assert.equal(c.state().phase,'listen');plays.at(-1).error();assert(c.state().paused,'Failed clip pauses instead of moving');assert.match(d.getElementById('wordCoachStatus').textContent,/تعذر/);
+c.resume();advance(2000);profile=null;d.dispatchEvent(new w.CustomEvent('app360:authchange'));assert(c.state().paused);assert.equal(d.getElementById('wordCoachCaption').textContent,'');c.stop();
+start({autoplay:false,duration_seconds:30});end();advance(3000);assert.equal(c.state().phase,'manual');advance(30000);assert(!c.state().active);assert(events.some(e=>e.type==='session-ended'&&e.reason==='time'&&e.practice_confirmed===false));
+// Sentence track reuses measured word highlights and skips the separate word clip.
+start({route:'sentences-category',category:'',duration_seconds:120});assert(w.App360MeaningLearning.active());assert.match(plays.at(-1).src,/audio\/meaning\/ar\//);assert.equal(d.body.getAttribute('data-learning-track'),'sentences');for(let i=0;i<10&&c.state().phase==='listen';i++)end();assert.equal(c.state().phase,'practice');c.pause();c.stop();
+// A planner opens a reviewable session setup; no unsolicited sound is started.
+const before=plays.length;c.prepare({route:'names-review',level:2,duration_seconds:90,autoplay:false});assert.equal(plays.length,before);assert.equal(d.getElementById('wordCoachMinutes').value,'1.5');assert(!d.getElementById('wordCoachPanel').hidden);assert(!c.state().active);
+// Manual navigation, range, and account changes cancel stale coach callbacks.
+start();d.getElementById('bottomNextBtn').click();assert(c.state().paused);c.resume();advance(2000);d.getElementById('itemRange').dispatchEvent(new w.Event('input',{bubbles:true}));assert(c.state().paused);c.stop();assert.equal(errors.length,0,errors.map(String).join('\n'));
+// Both voice languages finish before practice; generic guest praise never speaks the prior name.
+d.querySelector('[data-lang="both"]').click();assert(c.start({route:'names-category',category:'الأسرة',duration_seconds:60,response_seconds:3}));end();assert.equal(c.state().phase,'intro');end();advance(2000);const arWord=plays.at(-1).src;end();assert.equal(c.state().phase,'listen');assert.notEqual(plays.at(-1).src,arWord);end();assert.equal(c.state().phase,'practice');advance(3000);assert.match(plays.at(-1).src,/well-done-m/);assert(!d.getElementById('wordCoachCaption').textContent.includes('نور'));end();c.stop();
+const acorn=require((process.env.APP360_TEST_MODULES||'/tmp/adult-test-deps/node_modules')+'/acorn');
+for(const file of ['auto-coach.js','session-routes.js','runtime-v27.js','meaning-learning-v1.js'])acorn.parse(fs.readFileSync(base+file,'utf8'),{ecmaVersion:5});
+for(const file of ['auto-coach.js','session-routes.js','runtime-v27.js','meaning-learning-v1.js'])new vm.Script(fs.readFileSync(base+file,'utf8'));
+const manifest=JSON.parse(fs.readFileSync('data/offline/a1-first-words.json'));for(const path of [base+'auto-coach.js',base+'auto-coach.css',base+'session-routes.js','resources/celebration-audio/names.json','resources/celebration-audio/audio/names/name-1.mp3'])assert(manifest.files.some(f=>f.path===path),path);
+dom.window.close();console.log('PASS: real players; wait for narration; practice interval; named sequential encouragement; pause/resume and stale callbacks; audio failures; logout; manual sessions; deadline; sentence narration; planner setup; manual navigation; offline assets.');
+})().catch(error=>{console.error(error);process.exitCode=1});
