@@ -70,3 +70,42 @@ body[data-scene-age="8-12"] button:focus,body[data-scene-age="8-12"] input:focus
 /* Old Android gets the same paint and readable controls without CSS variables or blur. */
 html.app360-legacy body[data-scene-age="4-8"] .home-showcase-section{background:#edf4e4;color:#183f36}
 html.app360-legacy body[data-scene-age="8-12"] .home-showcase-section{background:#14243f;color:#f2f7ff}
+
+/* 12–16: ideas studio, lilac drafting paper, geometric frames and a coral accent. */
+body[data-scene-age="12-16"]{background:#f3f0fa;color:#34234f}
+body[data-scene-age="12-16"] .home-showcase-section,
+body[data-page="age"][data-scene-age="12-16"]{
+ background-color:#f3f0fa;
+ background-image:radial-gradient(ellipse at 0 5%,rgba(170,133,218,.24),transparent 45%),radial-gradient(ellipse at 100% 90%,rgba(100,169,185,.18),transparent 40%),repeating-linear-gradient(135deg,rgba(109,79,148,.035) 0 1px,transparent 1px 44px),linear-gradient(145deg,#faf5ff,#f1effa 55%,#e9edf9);
+ color:#34234f
+}
+body[data-scene-age="12-16"] .topbar,body[data-scene-age="12-16"] .footer{background:#302247;color:#faf7ff}
+body[data-scene-age="12-16"] .showcase-intro{background:#fffaff;border:1px solid #cfc3df;border-radius:22px;padding:18px}
+body[data-scene-age="12-16"] .showcase-title h1,body[data-scene-age="12-16"] .showcase-meta strong,body[data-scene-age="12-16"] .classic-head h2{color:#34234f}
+body[data-scene-age="12-16"] .showcase-title p,body[data-scene-age="12-16"] .showcase-meta,body[data-scene-age="12-16"] .classic-head span{color:#5e526f}
+body[data-scene-age="12-16"] .showcase-kicker,body[data-scene-age="12-16"] .result-chip,body[data-scene-age="12-16"] .showcase-tools{background:#fffaff;border-color:#cfc3df;color:#48335f}
+body[data-scene-age="12-16"] .age-picker button,body[data-scene-age="12-16"] .showcase-tools-toggle,body[data-scene-age="12-16"] .showcase-mode,body[data-scene-age="12-16"] .showcase-status-btn,body[data-scene-age="12-16"] .showcase-music{background:#fffaff;color:#48335f;border-color:#ad99c5;box-shadow:none}
+body[data-scene-age="12-16"] .age-picker button.on,body[data-scene-age="12-16"] .showcase-tools-toggle.on,body[data-scene-age="12-16"] .showcase-mode.on,body[data-scene-age="12-16"] .showcase-status-btn.on{background:#66418b;color:#fff;border-color:#66418b}
+body[data-scene-age="12-16"] .showcase-search{background:#fff;color:#34234f;border-color:#ad99c5}
+body[data-scene-age="12-16"] .showcase-search::placeholder{color:#685676}
+body[data-scene-age="12-16"] .showcase-stage{background:#ebe6f4;border-color:#beb0d2;box-shadow:inset 0 1px 0 #fff,0 18px 48px rgba(69,42,98,.12)}
+body[data-scene-age="12-16"] .showcase-nav{background:#66418b;border-color:#fff;color:#fff}
+body[data-scene-age="12-16"] .showcase-dot{background:#9a86b3}body[data-scene-age="12-16"] .showcase-dot.on{background:#66418b}
+body[data-scene-age="12-16"] .home-showcase-section:before{content:"";position:absolute;z-index:0;pointer-events:none;top:250px;left:-120px;width:300px;height:300px;border:2px solid rgba(102,65,139,.14);border-radius:46px;transform:rotate(32deg);box-shadow:0 0 0 24px rgba(102,65,139,.035)}
+body[data-scene-age="12-16"] .home-showcase-section:after{content:"";position:absolute;z-index:0;pointer-events:none;bottom:55px;right:-90px;width:270px;height:110px;border:20px solid rgba(205,132,117,.14);border-radius:80px;transform:rotate(-28deg)}
+body[data-scene-age="12-16"] .showcase-meta{align-items:flex-start;flex-wrap:wrap}
+body[data-scene-age="12-16"] .showcase-meta .age-focus{flex:1 1 240px;min-width:0;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.8}
+body[data-page="age"][data-scene-age="12-16"] .age-hero{background:#f1e9fa;border-color:#beb0d2}
+body[data-page="age"][data-scene-age="12-16"] .age-hero h1{color:#34234f}
+body[data-page="age"][data-scene-age="12-16"] .age-hero p,body[data-page="age"][data-scene-age="12-16"] .age-meta{color:#5e526f}
+body[data-page="age"][data-scene-age="12-16"] .section>.shell{background:#fff;border:1px solid #cfc3df;border-radius:20px;padding:18px;color:#34234f}
+body[data-page="age"][data-scene-age="12-16"] .app-card .btn:not(.disabled),body[data-page="age"][data-scene-age="12-16"] .filter-btn.on{background:#66418b;color:#fff;border-color:#66418b}
+body[data-scene-age="12-16"] button:focus,body[data-scene-age="12-16"] input:focus,body[data-scene-age="12-16"] a:focus{outline:3px solid #a5452a;outline-offset:3px}
+@media(max-width:720px){
+ body[data-scene-age="12-16"] .showcase-meta .age-focus{flex:0 1 auto}
+ body[data-scene-age="12-16"] .showcase-intro{padding:13px;border-radius:18px;gap:10px}
+ body[data-scene-age="12-16"] .home-showcase-section:before{opacity:.35;width:180px;height:180px}
+ body[data-scene-age="12-16"] .home-showcase-section:after{opacity:.35}
+ body[data-page="age"][data-scene-age="12-16"] .section>.shell{padding:13px}
+}
+html.app360-legacy body[data-scene-age="12-16"] .home-showcase-section{background:#f1effa;color:#34234f}
