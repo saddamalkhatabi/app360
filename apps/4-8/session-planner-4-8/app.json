@@ -4,11 +4,11 @@
   "slug": "session-planner-4-8",
   "title_ar": "مخطط جلسات 4–8: مسار مرن للتعلّم",
   "audience": "coach",
-  "audience_note_ar": "المدرب يستخدم التخطيط أو المراجعة؛ يشارك الطفل في أنشطة منفصلة تناسبه.",
+  "audience_note_ar": "أدوات تخطيط للمرافق أو المدرب البالغ؛ الفئة العمرية تخص المتعلم.",
   "prebuild_path": "apps/4-8/session-planner-4-8/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/session-planner-4-8/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -61,5 +61,6 @@
     "practice_ar": "اختيارات الطفل تصنع مسارًا متفرعًا، وتحول الاستراحة أو تغيير الوسيلة إلى تعديل حقيقي في الجلسة.",
     "sample_count": 1,
     "expansion_policy_ar": "نموذج صغير للتجربة والتعديل منفردًا قبل التوسع."
-  }
+  },
+  "requires_adult_confirmation": true
 }

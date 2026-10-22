@@ -29,5 +29,5 @@ C.printHTML=function(){var s=C.state,h='<h1>'+e(s.title)+'</h1><p>هدفنا: '+
  if(s.steps.length!==previous.length){s.completed=[];s.retirement_adjustment=true}
  return s;
 };
-C.init('a4-session-planner',initial,render);
+if(w.APP360_ADULT_GATE)w.APP360_ADULT_GATE.request('a4-session-planner','مخطط جلسات 4–8',function(){C.init('a4-session-planner',initial,render)});
 })(window,document);
