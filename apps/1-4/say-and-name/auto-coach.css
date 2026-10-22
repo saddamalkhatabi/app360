@@ -4,8 +4,10 @@
 .word-coach select,.word-coach input[type=number]{display:block;width:100%;box-sizing:border-box;padding:10px;background:white;color:#17343a;border:1px solid #739c99;border-radius:10px;font:inherit}
 .word-coach button,.word-coach-controls button{min-height:44px;padding:10px 14px;margin:4px;border:1px solid #0f8f8a;border-radius:12px;background:#fff;color:#174d48;font:inherit;font-weight:bold;cursor:pointer}
 #wordCoachButton,#wordCoachStart,#wordCoachToggle{background:#0e746d;color:white}#wordCoachButton{min-height:44px;border:2px solid #075850}
-.word-coach-controls{width:100%;box-sizing:border-box;background:#e0f5ef;border:2px solid #0e746d;border-radius:14px;padding:8px;text-align:center;margin-bottom:10px}
+.word-coach-controls{grid-column:1/-1;width:100%;box-sizing:border-box;background:#e0f5ef;border:2px solid #0e746d;border-radius:14px;padding:8px;text-align:center;margin-bottom:10px}
 .word-coach-controls p{margin:4px;line-height:1.5;color:#143d38}#wordCoachCaption{font-weight:bold;min-height:1.5em}.word-coach-controls>div{display:flex;flex-wrap:wrap;justify-content:center}
 @media(max-width:520px){.word-coach-controls button{flex:1 1 40%;margin:3px;padding:8px}.word-coach-fields{display:block}.word-coach-fields label{margin-bottom:10px}}
 
 #wordCoachButton img{vertical-align:middle;flex-shrink:0;border-radius:50%;background:#e4f4ec}
+
+#wordCoachStatus{min-height:3em}#wordCoachCaption{min-height:1.5em}
