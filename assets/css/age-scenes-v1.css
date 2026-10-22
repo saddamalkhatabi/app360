@@ -1,0 +1,72 @@
+/* Age-specific portal scenes. Decorative paint only; no images, hit targets, fixed layers or animation. */
+/* 4–8: discovery garden, paper, warm daylight and soft green hills. */
+body[data-scene-age="4-8"]{background:#f3f6e9;color:#183f36}
+body[data-scene-age="4-8"] .home-showcase-section,
+body[data-page="age"][data-scene-age="4-8"]{
+ background-color:#f3f6e9;
+ background-image:radial-gradient(circle at 7% 7%,#ffe6a3 0,rgba(255,230,163,0) 240px),radial-gradient(ellipse at 98% 85%,rgba(125,183,136,.27) 0,rgba(125,183,136,0) 36%),radial-gradient(ellipse at 4% 100%,rgba(232,176,116,.24) 0,rgba(232,176,116,0) 33%),linear-gradient(155deg,#fff8e9 0%,#eef6e9 53%,#e0eee1 100%);
+ color:#183f36
+}
+body[data-scene-age="4-8"] .home-showcase-section:before{content:"";position:absolute;z-index:0;pointer-events:none;top:270px;left:-100px;width:280px;height:280px;border:28px solid rgba(211,153,100,.12);border-radius:34%;transform:rotate(24deg)}
+body[data-scene-age="4-8"] .home-showcase-section:after{content:"";position:absolute;z-index:0;pointer-events:none;bottom:22px;right:-100px;width:390px;height:200px;border-radius:70% 30% 0 0;background:rgba(105,164,119,.18);transform:rotate(-12deg)}
+body[data-scene-age="4-8"] .topbar,body[data-scene-age="4-8"] .footer{background:#173f35;color:#f6fff9}
+body[data-scene-age="4-8"] .showcase-intro{background:#fffdf6;border:1px solid #c8d8ca;border-radius:22px;padding:18px}
+body[data-scene-age="4-8"] .showcase-title h1,body[data-scene-age="4-8"] .showcase-meta strong,body[data-scene-age="4-8"] .classic-head h2{color:#183f36}
+body[data-scene-age="4-8"] .showcase-title p,body[data-scene-age="4-8"] .showcase-meta,body[data-scene-age="4-8"] .classic-head span{color:#405d51}
+body[data-scene-age="4-8"] .showcase-kicker,body[data-scene-age="4-8"] .result-chip,body[data-scene-age="4-8"] .showcase-tools{background:#fffdf6;border-color:#c8d8ca;color:#294c3f}
+body[data-scene-age="4-8"] .age-picker button,body[data-scene-age="4-8"] .showcase-tools-toggle,body[data-scene-age="4-8"] .showcase-mode,body[data-scene-age="4-8"] .showcase-status-btn,body[data-scene-age="4-8"] .showcase-music{background:#fffdf6;color:#244c3b;border-color:#9bb9a5;box-shadow:none}
+body[data-scene-age="4-8"] .age-picker button.on,body[data-scene-age="4-8"] .showcase-tools-toggle.on,body[data-scene-age="4-8"] .showcase-mode.on,body[data-scene-age="4-8"] .showcase-status-btn.on{background:#235d46;color:#fff;border-color:#235d46}
+body[data-scene-age="4-8"] .showcase-search{background:#fff;color:#183f36;border-color:#8da998}
+body[data-scene-age="4-8"] .showcase-search::placeholder{color:#526c5e}
+body[data-scene-age="4-8"] .showcase-stage{background:#e9f1e6;border-color:#abc5ad;box-shadow:inset 0 1px 0 #fff,0 18px 48px rgba(39,78,50,.13)}
+body[data-scene-age="4-8"] .showcase-nav{background:#235d46;border-color:#fff;color:#fff}
+body[data-scene-age="4-8"] .showcase-dot{background:#809b86}body[data-scene-age="4-8"] .showcase-dot.on{background:#235d46}
+/* 8–12: an observatory, faint stars, orbit rings and a quiet blue-violet horizon. */
+body[data-scene-age="8-12"]{background:#101b36;color:#f2f7ff}
+body[data-scene-age="8-12"] .home-showcase-section,
+body[data-page="age"][data-scene-age="8-12"]{
+ background-color:#101b36;
+ background-image:radial-gradient(circle at 8% 19%,rgba(192,224,255,.55) 0 1px,transparent 2px),radial-gradient(circle at 92% 12%,rgba(255,222,155,.6) 0 2px,transparent 3px),radial-gradient(circle at 17% 72%,rgba(192,224,255,.4) 0 1px,transparent 2px),radial-gradient(circle at 86% 67%,rgba(192,224,255,.4) 0 1px,transparent 2px),radial-gradient(ellipse at 100% 2%,rgba(90,89,163,.45) 0,rgba(90,89,163,0) 48%),radial-gradient(ellipse at 0 95%,rgba(29,99,126,.35) 0,rgba(29,99,126,0) 43%),linear-gradient(145deg,#101b36,#182845 58%,#102b3f);
+ color:#f2f7ff
+}
+body[data-scene-age="8-12"] .home-showcase-section:before{content:"";position:absolute;z-index:0;pointer-events:none;top:290px;right:-190px;width:390px;height:390px;border:1px solid rgba(163,192,249,.22);border-radius:50%;box-shadow:0 0 0 28px rgba(163,192,249,.035),0 0 0 62px rgba(163,192,249,.025)}
+body[data-scene-age="8-12"] .home-showcase-section:after{content:"";position:absolute;z-index:0;pointer-events:none;left:20px;bottom:40px;width:150px;height:150px;border:1px solid rgba(128,206,230,.2);border-radius:26px;transform:rotate(35deg);background:linear-gradient(135deg,rgba(91,172,203,.07),transparent)}
+body[data-scene-age="8-12"] .topbar,body[data-scene-age="8-12"] .footer{background:#101b36;color:#f2f7ff}
+body[data-scene-age="8-12"] .showcase-intro{background:#19294b;border:1px solid #53678e;border-radius:22px;padding:18px}
+body[data-scene-age="8-12"] .showcase-title h1,body[data-scene-age="8-12"] .showcase-meta strong,body[data-scene-age="8-12"] .classic-head h2{color:#f2f7ff}
+body[data-scene-age="8-12"] .showcase-title p,body[data-scene-age="8-12"] .showcase-meta,body[data-scene-age="8-12"] .classic-head span{color:#cbd9f1}
+body[data-scene-age="8-12"] .showcase-kicker,body[data-scene-age="8-12"] .result-chip,body[data-scene-age="8-12"] .showcase-tools{background:#19294b;border-color:#53678e;color:#dfebff}
+body[data-scene-age="8-12"] .age-picker button,body[data-scene-age="8-12"] .showcase-tools-toggle,body[data-scene-age="8-12"] .showcase-mode,body[data-scene-age="8-12"] .showcase-status-btn,body[data-scene-age="8-12"] .showcase-music{background:#19294b;color:#dfebff;border-color:#6b7fa6;box-shadow:none}
+body[data-scene-age="8-12"] .age-picker button.on,body[data-scene-age="8-12"] .showcase-tools-toggle.on,body[data-scene-age="8-12"] .showcase-mode.on,body[data-scene-age="8-12"] .showcase-status-btn.on{background:#c9e7ff;color:#162749;border-color:#c9e7ff}
+body[data-scene-age="8-12"] .showcase-search{background:#f6f9ff;color:#19294b;border-color:#8fa6cc}
+body[data-scene-age="8-12"] .showcase-search::placeholder{color:#526380}
+body[data-scene-age="8-12"] .showcase-stage{background:#14243f;border-color:#53678e;box-shadow:inset 0 1px 0 #354a6c,0 18px 48px rgba(2,9,28,.25)}
+body[data-scene-age="8-12"] .showcase-nav{background:#c9e7ff;color:#162749;border-color:#fff}
+body[data-scene-age="8-12"] .showcase-dot{background:#8299c1}body[data-scene-age="8-12"] .showcase-dot.on{background:#c9e7ff}
+/* Let the full category description wrap instead of hiding it on narrow screens. */
+body[data-scene-age="4-8"] .showcase-meta,body[data-scene-age="8-12"] .showcase-meta{align-items:flex-start;flex-wrap:wrap}
+body[data-scene-age="4-8"] .showcase-meta .age-focus,body[data-scene-age="8-12"] .showcase-meta .age-focus{flex:1 1 240px;min-width:0;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.8}
+/* Dedicated age directory pages use the same identity with readable, solid content panels. */
+body[data-page="age"][data-scene-age="4-8"] .age-hero{background:#fff6df;border-color:#b7cdbb}
+body[data-page="age"][data-scene-age="8-12"] .age-hero{background:#19294b;border-color:#53678e}
+body[data-page="age"][data-scene-age="4-8"] .age-hero h1{color:#183f36}
+body[data-page="age"][data-scene-age="4-8"] .age-hero p,body[data-page="age"][data-scene-age="4-8"] .age-meta{color:#405d51}
+body[data-page="age"][data-scene-age="8-12"] .age-hero h1{color:#f2f7ff}
+body[data-page="age"][data-scene-age="8-12"] .age-hero p,body[data-page="age"][data-scene-age="8-12"] .age-meta{color:#cbd9f1}
+body[data-page="age"][data-scene-age="8-12"] .mini{background:#243a60;color:#dfebff}
+body[data-page="age"][data-scene-age="4-8"] .section>.shell,body[data-page="age"][data-scene-age="8-12"] .section>.shell{background:#fff;border:1px solid #b6c7cb;border-radius:20px;padding:18px;color:#17343a}
+body[data-page="age"][data-scene-age="4-8"] .app-card .btn:not(.disabled),body[data-page="age"][data-scene-age="4-8"] .filter-btn.on{background:#235d46;color:#fff;border-color:#235d46}
+body[data-page="age"][data-scene-age="8-12"] .app-card .btn:not(.disabled),body[data-page="age"][data-scene-age="8-12"] .filter-btn.on{background:#284b82;color:#fff;border-color:#284b82}
+body[data-page="age"][data-scene-age="8-12"] .breadcrumb,body[data-page="age"][data-scene-age="8-12"] .breadcrumb a{color:#dfebff}
+body[data-scene-age="4-8"] button:focus,body[data-scene-age="4-8"] input:focus,body[data-scene-age="4-8"] a:focus{outline:3px solid #96521b;outline-offset:3px}
+body[data-scene-age="8-12"] button:focus,body[data-scene-age="8-12"] input:focus,body[data-scene-age="8-12"] a:focus{outline:3px solid #ffd48b;outline-offset:3px}
+@media(max-width:720px){
+ body[data-scene-age="4-8"] .showcase-meta .age-focus,body[data-scene-age="8-12"] .showcase-meta .age-focus{flex:0 1 auto}
+ body[data-scene-age="4-8"] .showcase-intro,body[data-scene-age="8-12"] .showcase-intro{padding:13px;border-radius:18px;gap:10px}
+ body[data-scene-age="4-8"] .home-showcase-section:before,body[data-scene-age="8-12"] .home-showcase-section:before{opacity:.35;width:180px;height:180px}
+ body[data-scene-age="4-8"] .home-showcase-section:after,body[data-scene-age="8-12"] .home-showcase-section:after{opacity:.35}
+ body[data-page="age"][data-scene-age="4-8"] .section>.shell,body[data-page="age"][data-scene-age="8-12"] .section>.shell{padding:13px}
+}
+/* Old Android gets the same paint and readable controls without CSS variables or blur. */
+html.app360-legacy body[data-scene-age="4-8"] .home-showcase-section{background:#edf4e4;color:#183f36}
+html.app360-legacy body[data-scene-age="8-12"] .home-showcase-section{background:#14243f;color:#f2f7ff}
