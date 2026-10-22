@@ -6,7 +6,8 @@ const overrides=require('../data/offline-policy.json');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 function walk(dir){if(!fs.existsSync(path.join(root,dir)))return [];return fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(e=>e.isDirectory()?(/^(tools?|tooling|tests?|node_modules|\.git|drafts|archive)$/.test(e.name)?[]:walk(dir+'/'+e.name)):[dir+'/'+e.name]);}
 function runtime(p){return !/^data\/offline(?:\/|[-.])/.test(p)&&/\.(html|js|css|json|webmanifest|svg|png|jpe?g|webp|gif|avif|mp3|wav|ogg|m4a|mp4|webm|woff2?|ttf|bin)$/i.test(p)&&!/(?:CONTENT_SEEDS|test[-_]|\.test\.|validation|package(?:-lock)?\.json)/i.test(p);}
-const common=walk('assets/js').concat(walk('assets/css'),walk('assets/brand'),walk('assets/vendor'),walk('assets/fonts'),walk('assets/ui-icons'),walk('packages')).filter(runtime);
+const reelCovers=(catalog.external_apps||[]).filter(a=>a.integration==='family-reels').flatMap(a=>[a.cover,a.cover_fallback].filter(Boolean).map(p=>p.split('?')[0]));
+const common=walk('assets/js').concat(walk('assets/css'),walk('assets/brand'),walk('assets/vendor'),walk('assets/fonts'),walk('assets/ui-icons'),walk('packages'),reelCovers).filter(runtime);
 const records=new Map();
 function record(p){if(!records.has(p)){const b=fs.readFileSync(path.join(root,p));records.set(p,{path:p,bytes:b.length,sha256:hash(b)});}return records.get(p);}
 const result={schema:1,policy:'cache-on-use',ages:catalog.age_groups,apps:[]};

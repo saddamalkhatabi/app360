@@ -17,3 +17,9 @@ body[data-page="reels"] .reels-view-toolbar{display:none}
 body[data-page="reels"] .reels-viewer iframe{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;min-height:0;border:0;border-radius:0}
 body[data-page="reels"] .reels-intro{position:absolute;top:0;right:0;bottom:0;left:0;overflow:auto;background:#f5fcfa;padding:14px;z-index:15;min-height:0}
 @media(max-width:650px){body[data-page="reels"] .reels-head{height:56px;flex-wrap:nowrap}.reels-head .reels-age{width:auto}.reels-head b{display:none}}
+/* Adult resources remain distinct even when the learner's band is 1–4. */
+.reels-adult-badge{display:inline-block;background:#ffe0a0;color:#3c2a0b;border-radius:8px;padding:5px 13px;font-weight:bold;font-size:18px}.reels-cover-coach .reels-cover-age small{display:block;margin-top:5px}.reels-cover-coach .reels-cover-title small{color:#ffe0a0}
+
+.showcase-detail-hero .reels-adult-badge{font-size:6px;padding:1px 3px;border-radius:3px}
+
+.reels-cover-coach .reels-cover-title{top:4%;font-size:22px}.reels-cover-coach img.reels-cover-logo{display:none}.showcase-detail-hero .reels-cover-coach .reels-cover-title{font-size:7px;top:4%}
