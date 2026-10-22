@@ -40,6 +40,8 @@ for(const dir of directories){
  // Name congratulations use a shared local registry and must also work without Google TTS.
  const texts=walk(dir).filter(p=>/\.(js|html)$/.test(p)).map(p=>fs.readFileSync(path.join(root,p),'utf8')).join('\n');
  if(/early-child-name-audio|audio\/names|names\/manifest/.test(texts))files=files.concat(walk('resources/early-child-name-audio').filter(runtime));
+ const teacherPraise=/teacher-encouragement-v1\.js/.test(texts);
+ if(teacherPraise)files=files.concat(walk('resources/celebration-audio').filter(runtime).filter(p=>/\/names\.json$|\/audio\/(?:ar|en|names)\//.test(p)));
  const sharedPraise=/resources\/celebration-audio\/player-v1/.test(texts);
  if(sharedPraise)files=files.concat(walk('resources/celebration-audio').filter(runtime).filter(p=>/\/(?:player-v1\.js|manifest-v1\.js|pcm-v1\.js|phrases\.json)$|\/audio\/(?:ar|en)\//.test(p)));
  if(sharedPraise)files=files.filter(p=>!/(?:resources\/early-child-name-audio|apps\/1-4\/drawing-writing-foundations)\/audio\/(?:names|noor|نور|pcm)\//.test(p));
