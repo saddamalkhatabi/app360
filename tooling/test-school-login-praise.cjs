@@ -1,18 +1,20 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const read=p=>fs.readFileSync(p,'utf8');
+function ConfirmedXHR(){this.open=function(){};this.setRequestHeader=function(){};this.send=function(){this.status=200;this.responseText=JSON.stringify({token:'confirmed-test-session',profile:{user_id:'test-child',display_name:'نور',role:'learner'}});this.onload()}}
+
 test('login keeps the current tab and original app, query and fragment; an existing session opens account',()=>{
  const saved={},location={protocol:'https:',host:'school.yem1.com',pathname:'/apps/1-4/drawing-writing-foundations/index.html',search:'?mode=draw',hash:'#board'};
  let authenticated=false,opened=0;const S={isAuthenticated:()=>authenticated,open:()=>opened++};
  const w={APP360_SESSION:S,crypto:{getRandomValues:a=>a.fill(23)},sessionStorage:{setItem:(k,v)=>saved[k]=v},addEventListener(){},open(){throw Error('Must not open a tab')}};
- vm.runInNewContext(read('assets/js/unified-login-v1.js'),{window:w,document:{},location,Uint32Array,encodeURIComponent});
+ vm.runInNewContext(read('assets/js/unified-login-v1.js'),{window:w,document:{},location,Uint32Array,encodeURIComponent,clearInterval(){},clearTimeout(){}});
  S.unifiedLogin();const back=new URL(new URL(location.href).searchParams.get('return'));assert.equal(back.pathname,'/auth-complete.html');assert.equal(back.searchParams.get('next'),location.pathname+location.search+location.hash);assert.equal(back.searchParams.get('request'),saved['app360:signin-request:v1']);
  location.href='unchanged';authenticated=true;S.unifiedLogin();assert.equal(opened,1);assert.equal(location.href,'unchanged');
 });
 test('same-tab callback returns to the original app even if window.opener exists; wrong nonce stays on callback',()=>{
  function run(request){const state={'app360:auth-token:v1':'"test-session"','app360:auth-profile:v1':'{"user_id":"test-child"}','app360:signin-request:v1':'request-123'},status={};
  let target='',messages=0;const location={search:'?request='+request+'&next='+encodeURIComponent('/apps/demo/index.html?mode=draw#board'),replace:v=>target=v};
- const ctx={location,history:{replaceState(){}},sessionStorage:{getItem:k=>state[k],removeItem:k=>delete state[k]},document:{getElementById:()=>status},opener:{postMessage:()=>messages++},window:{close(){}}};
+ const ctx={XMLHttpRequest:ConfirmedXHR,location,history:{replaceState(){}},sessionStorage:{getItem:k=>state[k],removeItem:k=>delete state[k]},document:{getElementById:()=>status},opener:{postMessage:()=>messages++},window:{close(){}}};
  vm.runInNewContext(read('assets/js/auth-complete-v1.js'),ctx);return{target,messages,status};}
  const ok=run('request-123');assert.equal(ok.target,'/apps/demo/index.html?mode=draw#board');assert.equal(ok.messages,0);const fail=run('wrong');assert.equal(fail.target,'');assert.match(fail.status.textContent,/مطابقة/);
 });

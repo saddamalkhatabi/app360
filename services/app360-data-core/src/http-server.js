@@ -5,12 +5,12 @@ var browserSession=require('./browser-session');
 var celebration=require('./celebration-service').createCelebrationService();
 var PORT=Number(process.env.APP360_PORT||3036),MAX_BODY=20*1024*1024;
 function send(res,status,obj,origin){var body=JSON.stringify(obj||{});res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.end(body)}
-function allowedOrigin(req){var origin=req.headers.origin||'';if(!origin)return'';try{var u=new URL(origin);if(u.host===req.headers.host)return origin}catch(e){}var list=String(process.env.APP360_ALLOWED_ORIGINS||'').split(',');for(var i=0;i<list.length;i++)if(list[i].trim()===origin)return origin;return null}
+function allowedOrigin(req){var origin=req.headers.origin||'';if(!origin)return'';try{var u=new URL(origin);if(u.host===req.headers.host&&u.protocol==='https:'||origin===process.env.APP360_PUBLIC_ORIGIN)return origin}catch(e){}var list=String(process.env.APP360_ALLOWED_ORIGINS||'').split(',');for(var i=0;i<list.length;i++)if(list[i].trim()===origin)return origin;return null}
 function body(req){return new Promise(function(resolve,reject){var parts=[],size=0;req.on('data',function(c){size+=c.length;if(size>MAX_BODY){reject(new Error('body too large'));req.destroy();return}parts.push(c)});req.on('end',function(){if(!parts.length){resolve({});return}try{resolve(JSON.parse(Buffer.concat(parts).toString('utf8')))}catch(e){reject(new Error('invalid JSON'))}});req.on('error',reject)})}
 function bearer(req){var h=String(req.headers.authorization||''),m=/^Bearer\s+(.+)$/i.exec(h);return m?m[1]:''}
 function demoLoginEnabled(){if(String(process.env.APP360_ENABLE_SEED_LOGIN||'')==='1')return true;if(String(process.env.APP360_ENABLE_SEED_LOGIN||'')==='0')return false;return String(process.env.NODE_ENV||'development')!=='production'}
 async function auth(db,req){return await sessions.findIdentitySession(db,bearer(req))}
-function profileOf(user,accountId,extra){var p={user_id:user.id,display_name:user.display_name,role:user.role,age_band:user.age_band,account_id:accountId||null};if(extra)for(var k in extra)p[k]=extra[k];return p}
+function profileOf(user,accountId,extra){var prefs={};try{prefs=JSON.parse(user.preferences_json||'{}')}catch(_){}var p={user_id:user.id,display_name:user.display_name,role:user.role,age_band:user.age_band,account_id:accountId||null};if(prefs.official_gender)p.gender=prefs.official_gender;if(extra)for(var k in extra)p[k]=extra[k];return p}
 async function loginRequest(db,input){
   input=input||{};var local=null,identity,linked,source='safe-reels-360',accountId=null,user=null,extra={};
   if(demoLoginEnabled())local=await demoAuth.authenticate(db,input.query,input.pin);
@@ -29,15 +29,15 @@ async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){
   if(req.method==='GET'&&path==='/api/app360/health'){var m=await db('knex_migrations').count({n:'id'}).first().catch(function(){return{n:0}});send(res,200,{ok:true,service:'app360-data-core',safe_reels_auth_configured:safe.configured(),reels_bridge_configured:bridge.configured(),seed_login_enabled:demoLoginEnabled(),applied_migrations:Number(m.n)||0},origin);return}
   if(req.method==='POST'&&path==='/api/app360/auth/reels/exchange'){var ticket=await body(req);try{var exchanged=await bridge.exchange(db,ticket.code,sessions);browserSession.write(res,exchanged.token,exchanged.expires_at);send(res,200,exchanged,origin)}catch(e){send(res,e.httpStatus||401,{error:'reels_exchange_failed',message:'تعذر ربط الحساب. افتح التطبيق مجدداً من الريلز.'},origin)}return}
   if(req.method==='POST'&&(path==='/api/app360/auth/login'||path==='/api/app360/auth/child-login')){
-    var input=await body(req);input.client_ip=req.socket.remoteAddress||'';try{var logged=await loginRequest(db,input);browserSession.write(res,logged.token,logged.expires_at);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الحسابات غير مهيأة، ويمكن استخدام الحسابات التجريبية في بيئة التطوير.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
+    var input=await body(req);input.client_ip=req.socket.remoteAddress||'';try{var logged=await loginRequest(db,input);browserSession.write(res,logged.token,logged.expires_at);send(res,200,logged,origin)}catch(e){input.pin='';if(e.httpStatus===503){send(res,503,{error:'SAFE_REELS_NOT_CONFIGURED',message:'خدمة الربط غير مهيأة. تحقق من إعدادات الحسابات والاتصال بالريلز.'},origin);return}if(e.httpStatus===401){send(res,401,{error:'AUTH_REJECTED',message:'بيانات الدخول غير صحيحة.'},origin);return}throw e}return
   }
-  if(req.method==='POST'&&path==='/api/app360/auth/logout'){var ending=await auth(db,req);await bridge.logout(db,ending);await sessions.revokeIdentitySession(db,bearer(req));browserSession.clear(res);send(res,200,{ok:true},origin);return}
+  if(req.method==='POST'&&path==='/api/app360/auth/logout'){if(!browserSession.sameOrigin(req)){send(res,403,{error:'origin_not_allowed'},origin);return}var endingToken=bearer(req)||browserSession.read(req),ending=await sessions.findIdentitySession(db,endingToken);await bridge.logout(db,ending);await sessions.revokeIdentitySession(db,endingToken);browserSession.clear(res);send(res,200,{ok:true},origin);return}
   if(req.method==='GET'&&path==='/api/app360/auth/session'){
     if(!browserSession.sameOrigin(req)){send(res,403,{error:'origin_not_allowed'},origin);return}
     var shared=browserSession.read(req)||bearer(req),restored=await sessions.findIdentitySession(db,shared);
-    if(!restored){browserSession.clear(res);send(res,401,{error:'authentication_required'},origin);return}
-    try{await bridge.authorize(db,restored,false)}catch(e){if(e.httpStatus===401||e.httpStatus===403)browserSession.clear(res);send(res,e.httpStatus||503,{error:'linked_identity_unavailable'},origin);return}
-    var external=restored.session.source==='safe-reels-360';browserSession.write(res,shared,restored.session.expires_at);
+    if(!restored){send(res,401,{error:'authentication_required'},origin);return}
+    try{await bridge.authorize(db,restored,false)}catch(e){send(res,e.httpStatus||503,{error:'linked_identity_unavailable'},origin);return}
+    var external=restored.session.source==='safe-reels-360';
     send(res,200,{token:shared,expires_at:restored.session.expires_at,profile:profileOf(restored.user,restored.account_id,{external:external})},origin);return
   }
   var me=await auth(db,req);if(!me){send(res,401,{error:'authentication_required',message:'سجل دخول المستخدم أولًا.'},origin);return}
@@ -52,8 +52,8 @@ async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){
   if(req.method==='GET'&&path==='/api/app360/content'){var rows=await sessions.listVisibleContent(db,me.user.id,p.query.app_id||null,{account_id:me.account_id,fileStore:fileStore,owned_only:String(p.query.owned||'')==='1'});send(res,200,{items:rows},origin);return}
   if(req.method==='POST'&&path==='/api/app360/content/audience'){var au=await body(req);try{var ar=await sessions.setContentAudience(db,me.user.id,me.account_id,String(au.content_item_id||''),au.audience_user_ids||[]);send(res,200,ar,origin)}catch(e){if(e.message==='content_not_found'){send(res,404,{error:e.message},origin);return}if(e.message==='content_not_owned'){send(res,403,{error:e.message,message:'لا يمكن تعديل جمهور محتوى لا تملكه.'},origin);return}throw e}return}
   send(res,404,{error:'not_found'},origin)
- }catch(e){console.error(e&&e.stack||e);send(res,500,{error:'server_error',message:'حدث خطأ في خدمة بيانات App360.'},origin)}finally{await db.destroy()}}
-var server=http.createServer(function(req,res){handler(req,res).catch(function(e){console.error(e&&e.stack||e);if(!res.headersSent)send(res,500,{error:'server_error'})})});
+ }catch(e){console.error('App360 data request failed');send(res,500,{error:'server_error',message:'حدث خطأ في خدمة بيانات App360.'},origin)}finally{await db.destroy()}}
+var server=http.createServer(function(req,res){handler(req,res).catch(function(e){console.error('App360 data request failed');if(!res.headersSent)send(res,500,{error:'server_error'})})});
 if(require.main===module){var relayTimer=setInterval(async function(){if(!bridge.configured())return;var db;try{db=await core.db.createDb();await bridge.drain(db);}catch(e){console.error('Reels usage retry unavailable');}finally{if(db)await db.destroy();}},30000);relayTimer.unref();}
 if(require.main===module)server.listen(PORT,function(){console.log('App360 Data Core API listening on '+PORT);console.log('Safe Reels auth configured:',safe.configured()?'yes':'no');console.log('Seed/demo login:',demoLoginEnabled()?'enabled':'disabled')});
 module.exports={handler:handler,server:server,demoLoginEnabled:demoLoginEnabled};

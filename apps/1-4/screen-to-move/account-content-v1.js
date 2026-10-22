@@ -4,7 +4,7 @@ var PROVIDER_ID='a1-screen-move-user-content-v2',COMPAT_MARKER='syncMyContent',b
 function parse(s){try{return JSON.parse(s)}catch(e){return null}}
 function ls(k){try{return parse(w.localStorage.getItem(k)||'')}catch(e){return null}}
 function clone(x){try{return JSON.parse(JSON.stringify(x))}catch(e){return x}}
-function ensureSession(){if(w.APP360_SESSION||d.getElementById('app360SessionRuntimeDirect'))return;var s=d.createElement('script');s.id='app360SessionRuntimeDirect';s.src='../../../assets/js/app360-session-v1.js?v=98&brand=98';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
+function ensureSession(){if(w.APP360_SESSION||d.getElementById('app360SessionRuntimeDirect'))return;var s=d.createElement('script');s.id='app360SessionRuntimeDirect';s.src='../../../assets/js/app360-session-v1.js?v=20261023-unified&brand=98';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
 function ensureAccountAccess(){if(w.APP360_ACCOUNT_ACCESS||d.getElementById('app360AccountAccessDirect'))return;var s=d.createElement('script');s.id='app360AccountAccessDirect';s.src='../../../assets/js/app360-account-access-v1.js?v=1&brand=98';s.async=true;(d.head||d.getElementsByTagName('head')[0]||d.body).appendChild(s)}
 function tagged(kind,content){var x=clone(content||{});if(!x||typeof x!=='object'||x.push)x={value:x};x._app360_kind=kind;return x}
 function add(out,seen,type,kind,key,title,content){key=String(key||'');if(!key||seen[key])return;seen[key]=1;out.push({app_id:'a1-screen-move',content_type:type,client_key:key,title:title||'تصميم شخصي',content:tagged(kind,content),tags:['kind:'+kind],source_kind:'user-created'})}

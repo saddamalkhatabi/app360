@@ -29,7 +29,8 @@ async function ensureExternalUser(db,identity){
     if(!user)await db('users').insert({id:userId,display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',preferences_json:safeJson({identity_source:source})}).onConflict('id').ignore();
     await db('external_identities').insert({user_id:userId,source:source,external_user_id:external,sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})});
   }
-  await db('users').where({id:userId}).update({display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',updated_at:now()});
+  var previous=await db('users').where({id:userId}).first(),preferences=parseJson(previous&&previous.preferences_json,{})||{};if(identity.gender==='male'||identity.gender==='female')preferences.official_gender=identity.gender;else delete preferences.official_gender;
+  await db('users').where({id:userId}).update({preferences_json:safeJson(preferences),display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',updated_at:now()});
   if(identity.account_external_id){
     accountId=internalId('acct-sr',identity.account_external_id);
     var acctType=identity.account_type==='institution'?'institution':'family';

@@ -2,6 +2,8 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),os=require('node:os'),path=require('node:path');
 const cookie=require('../services/app360-data-core/src/browser-session');
 const TOKEN='a'.repeat(64),expiry=new Date(Date.now()+3600000).toISOString();
+function ConfirmedXHR(){this.open=function(){};this.setRequestHeader=function(){};this.send=function(){this.status=200;this.responseText=JSON.stringify({token:'confirmed-test-session',profile:{user_id:'test-child',display_name:'نور',role:'learner'}});this.onload()}}
+
 test('host-only secure HttpOnly cookie has bounded expiry and cannot inject headers',()=>{
  const headers={},res={setHeader:(k,v)=>headers[k]=v};cookie.write(res,TOKEN,expiry);assert.match(headers['Set-Cookie'],/__Host-app360_session=.*; Path=\/; HttpOnly; Secure; SameSite=Lax; Max-Age=/);assert(!headers['Set-Cookie'].includes('Domain='));assert.equal(cookie.read({headers:{cookie:'other=x; __Host-app360_session='+TOKEN}}),TOKEN);
  cookie.clear(res);assert.match(headers['Set-Cookie'],/Max-Age=0$/);cookie.write(res,'x\r\nBad: true',expiry);assert.match(headers['Set-Cookie'],/Max-Age=0$/);
@@ -18,7 +20,7 @@ function endpoint(){let revoked=false,authorized=0;const current={session:{sourc
 test('restores cookie identity over an old tab bearer; rejects revoked and cross-origin sessions; no-store response',async()=>{
  const x=endpoint();let r=await x.call({cookie:'__Host-app360_session='+TOKEN,authorization:'Bearer old-token'});assert.equal(r.statusCode,200);assert.equal(r.body.profile.display_name,'نور');assert.equal(r.body.token,TOKEN);assert.equal(r.headers['Cache-Control'],'no-store');assert.equal(x.authorized(),1);
  r=await x.call({cookie:'__Host-app360_session='+TOKEN,'sec-fetch-site':'cross-site'});assert.equal(r.statusCode,403);assert.equal(r.body.token,undefined);
- x.revoke();r=await x.call({cookie:'__Host-app360_session='+TOKEN});assert.equal(r.statusCode,401);assert.match(r.headers['Set-Cookie'],/Max-Age=0/);
+ x.revoke();r=await x.call({cookie:'__Host-app360_session='+TOKEN});assert.equal(r.statusCode,401);assert.equal(r.headers['Set-Cookie'],undefined,'background checks must not erase a newer login cookie');
 });
 test('hosting .env loads before startup and never overwrites injected platform values',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'a360-env-')),file=path.join(dir,'.env'),key='APP360_ENV_LOADER_TEST';
@@ -37,16 +39,16 @@ test('installed app restores on initial load and foreground; expiry clears ident
 test('installed mode keeps its original window and callback closes the login popup even with cloned request state',()=>{
  const storage={},popup={},location={protocol:'https:',host:'school.test',pathname:'/index.html',search:'?age=1-4',hash:''},events={};let opened='',accepted=null,closed=0;
  const w={APP360_SESSION:{isAuthenticated:()=>false,acceptBridgeSession:v=>accepted=v,close(){}},navigator:{standalone:true},crypto:{getRandomValues:a=>a.fill(1234567890)},sessionStorage:{setItem:(k,v)=>storage[k]=v},addEventListener:(n,f)=>events[n]=f,open:(url)=>{opened=url;return popup},focus(){}};
- vm.runInNewContext(fs.readFileSync('assets/js/unified-login-v1.js','utf8'),{window:w,document:{},location,Uint32Array,setInterval:()=>1,setTimeout:()=>1,clearInterval(){}});w.APP360_SESSION.unifiedLogin();assert.equal(location.href,undefined);const back=new URL(new URL(opened).searchParams.get('return'));assert.equal(back.searchParams.get('popup'),'1');events.message({source:popup,origin:'https://school.test',data:{type:'app360:auth-complete',version:1,request:storage['app360:signin-request:v1'],session:{token:TOKEN,profile:{display_name:'نور'}}}});assert.equal(accepted.profile.display_name,'نور');
+ vm.runInNewContext(fs.readFileSync('assets/js/unified-login-v1.js','utf8'),{window:w,document:{},location,Uint32Array,setInterval:()=>1,setTimeout:()=>1,clearInterval(){},clearTimeout(){}});w.APP360_SESSION.unifiedLogin();assert.equal(location.href,undefined);const back=new URL(new URL(opened).searchParams.get('return'));assert.equal(back.searchParams.get('popup'),'1');events.message({source:popup,origin:'https://school.test',data:{type:'app360:auth-complete',version:1,request:storage['app360:signin-request:v1'],session:{token:TOKEN,profile:{display_name:'نور'}}}});assert.equal(accepted.profile.display_name,'نور');
  const callbackLocation={search:back.search,protocol:'https:',host:'school.test',replace(){throw Error('Popup must not navigate the original app')}};
  const ss={'app360:auth-token:v1':JSON.stringify(TOKEN),'app360:auth-profile:v1':'{"display_name":"نور"}','app360:signin-request:v1':back.searchParams.get('request')};let posted=null;
- vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{location:callbackLocation,history:{replaceState(){callbackLocation.search=''}},sessionStorage:{getItem:k=>ss[k],removeItem:k=>delete ss[k]},localStorage:{setItem(){}},opener:{postMessage:(m)=>posted=m},window:{close:()=>closed++},document:{getElementById:()=>({})},Date,JSON});assert.equal(posted.request,back.searchParams.get('request'));assert.equal(closed,1);
+ vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{XMLHttpRequest:ConfirmedXHR,location:callbackLocation,history:{replaceState(){callbackLocation.search=''}},sessionStorage:{getItem:k=>ss[k],removeItem:k=>delete ss[k]},localStorage:{setItem(){}},opener:{postMessage:(m)=>posted=m},window:{close:()=>closed++},document:{getElementById:()=>({})},Date,JSON});assert.equal(posted.request,back.searchParams.get('request'));assert.equal(closed,1);
 });
 
 
 test('popup callback without an opener retains popup mode after clearing its URL',()=>{
  const state={'app360:auth-token:v1':JSON.stringify(TOKEN),'app360:auth-profile:v1':'{"display_name":"نور"}','app360:signin-request:v1':'request-1234567890'};
  const status={},location={search:'?request=request-1234567890&popup=1&next=%2Findex.html',replace(){throw Error('Detached popup must not navigate')}};let closed=0;
- vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{location,history:{replaceState(){location.search=''}},sessionStorage:{getItem:k=>state[k],removeItem:k=>delete state[k]},localStorage:{setItem(){}},opener:null,window:{close:()=>closed++},document:{getElementById:()=>status},Date,JSON});
+ vm.runInNewContext(fs.readFileSync('assets/js/auth-complete-v1.js','utf8'),{XMLHttpRequest:ConfirmedXHR,location,history:{replaceState(){location.search=''}},sessionStorage:{getItem:k=>state[k],removeItem:k=>delete state[k]},localStorage:{setItem(){}},opener:null,window:{close:()=>closed++},document:{getElementById:()=>status},Date,JSON});
  assert.equal(closed,1);assert.match(status.textContent,/العودة إلى تطبيق المدرسة/);
 });

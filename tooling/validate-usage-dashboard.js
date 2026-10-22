@@ -9,7 +9,7 @@ const daily=read('assets/js/app360-usage-daily-v1.js'),portal=read('assets/js/ap
 ['app360:usage-daily:v1','visibilitychange','age_group','user:','active_seconds','opens'].forEach(x=>{if(daily.indexOf(x)<0)fail('daily tracker missing '+x)});
 ['اليوم','7 أيام','30 يومًا','هذا الشهر','كل الوقت','type="date"','a360-usage-track','a360-usage-fill','portalUsageBtn','app360PortalUsagePanel'].forEach(x=>{if(portal.indexOf(x)<0)fail('usage dashboard missing '+x)});
 if(shell.indexOf('app360-usage-daily-v1.js?v=1')<0)fail('shared shell does not load daily tracker');
-if(shell.indexOf('#app360ActivityBtn{left:10px!important;bottom:72px!important')<0)fail('account/activity button is not stacked above AI');
-if(shell.indexOf('#app360AiBtn{left:10px!important;bottom:12px!important')<0)fail('AI button layout rule missing');
+if(shell.indexOf('#app360ActivityBtn{display:none!important}')<0)fail('subapps must not add a floating login button');
+if(shell.indexOf('app360HomeBtn')<0)fail('shared Home navigation missing');if(/createElement[^\n]*app360AiBtn/.test(shell))fail('retired AI entry must not return');
 [home,age].forEach((html,i)=>{if(html.indexOf('portalUsageBtn')<0||html.indexOf('app360-portal-usage-v1.js?v=1')<0)fail((i?'age':'home')+' portal missing usage control')});
 if(failed){console.error('\nUsage dashboard validation FAILED');process.exit(1)}console.log('\nUsage dashboard validation PASSED');
