@@ -1,0 +1,31 @@
+/* Keep the live question in view; ES5 for older family tablets. */
+(function(w,d){'use strict';
+var games=w.CreativeGames;if(!games)return;
+var dock=null,enabled=false,token=0,focusToken=0,pending=0,watchdog=0,advancing=false,focusTimer=0;
+function el(id){return d.getElementById(id)}
+function en(){return w.CreativeI18n&&CreativeI18n.getLanguage()==='en'}
+function t(a,b){return en()?b:a}
+function coaching(){return !!(w.CreativeCoach&&CreativeCoach.isActive())}
+function overlay(){return el('app360ProfilePanel')&&!el('app360ProfilePanel').hidden||el('app360FamilyPanel')&&!el('app360FamilyPanel').hidden||d.hidden||el('sheet')&&!el('sheet').hidden||el('drawingOverlay')&&!el('drawingOverlay').hidden||d.querySelector('[aria-modal="true"]:not([hidden])')&&d.querySelector('.swal2-container')}
+function screen(){return games.current()&&el('challenge')&&games.snapshot().mode==='screen'}
+function cancel(){token++;clearTimeout(pending);clearTimeout(watchdog);pending=watchdog=0;if(advancing&&w.App360Celebration)App360Celebration.stop();advancing=false;update()}
+function stopFocus(){focusToken++;clearTimeout(focusTimer)}
+function focus(){var q=el('challenge')||d.querySelector('.offline-card');if(!q||overlay())return;var y=q.getBoundingClientRect().top+(w.pageYOffset||d.documentElement.scrollTop||0)-8;try{w.scrollTo(0,Math.max(0,y))}catch(e){q.scrollIntoView(true)}}
+function scheduleFocus(){stopFocus();var n=focusToken;focus();focusTimer=setTimeout(function(){if(n===focusToken)focus()},100)}
+function click(id){var b=el(id);if(b&&!b.disabled)b.click()}
+function update(){if(!dock)return;dock.hidden=!screen();var b=el('playAuto');b.textContent=coaching()?t('تلقائي المدرب','Coach auto'):enabled?t('تلقائي ✓','Auto ✓'):t('تلقائي','Auto');b.setAttribute('aria-pressed',String(coaching()?w.CreativeCoach.getState().autoAdvance:enabled));b.disabled=coaching();b.title=coaching()?t('غيّر الانتقال التلقائي من إعدادات المدرب','Change automatic advance in coach settings'):t('الانتقال بعد النجاح والتشجيع','Advance after success and encouragement');el('playPrev').textContent=t('السابق','Back');el('playNext').textContent=t('التالي','Next');el('playListen').textContent=t('استمع','Listen');el('playHelp').textContent=t('ساعدني','Help');el('playCoach').textContent=t('المدرب','Coach')}
+function mount(){if(!screen()){d.body.className=d.body.className.replace(/\s*creative-playing/g,'');if(dock)dock.hidden=true;return}if((' '+d.body.className+' ').indexOf(' creative-playing ')<0)d.body.className+=' creative-playing';var q=el('challenge'),score=d.querySelector('.primary-game-panel .score-hud');if(score)q.parentNode.insertBefore(score,q.nextSibling);var listening=q.querySelector('.word-listening,.sentence-listening');if(listening)q.appendChild(listening);if(!dock){dock=d.createElement('nav');dock.id='creativePlayDock';dock.className='creative-play-dock';dock.setAttribute('data-i18n-user','1');dock.setAttribute('aria-label',t('أزرار اللعب والتنقل','Play and navigation controls'));dock.innerHTML='<button id="playPrev"></button><button id="playListen"></button><button id="playHelp"></button><button id="playAuto" aria-pressed="false"></button><button id="playCoach"></button><button id="playNext"></button>';d.body.appendChild(dock);el('playPrev').onclick=function(){cancel();click('prevGame')};el('playNext').onclick=function(){cancel();if(coaching()){if(w.CreativeCoach.getState().paused)CreativeCoach.resume();CreativeCoach.next()}else click('nextGame')};el('playHelp').onclick=function(){click('hintBtn')};el('playListen').onclick=function(){if(w.CreativeVoice)CreativeVoice.prompt(games.current())};el('playCoach').onclick=function(){cancel();if(w.CreativeCoach)CreativeCoach.open()};el('playAuto').onclick=function(){setAuto(!enabled)}}update();scheduleFocus()}
+function setAuto(value){cancel();enabled=!!value;try{w.localStorage.setItem('app360:creative:auto-advance:v35',String(enabled))}catch(e){}update();if(enabled&&screen()&&games.snapshot().finished)complete({detail:games.snapshot()})}
+function complete(e){if(!enabled||coaching()||!screen()||overlay()||advancing)return;var s=e.detail;if(!s||!s.finished||s.sessionId!==games.snapshot().sessionId)return;cancel();advancing=true;var n=token,id=s.sessionId;function valid(){return n===token&&enabled&&!coaching()&&screen()&&!overlay()&&games.snapshot().sessionId===id}function advance(){if(!valid()){cancel();return}clearTimeout(watchdog);clearTimeout(pending);pending=setTimeout(function(){if(valid())click('nextGame');else cancel()},1200)}watchdog=setTimeout(advance,24000);if(w.CreativeVoice)CreativeVoice.stop();if(w.App360Celebration&&!(w.CreativeVoice&&CreativeVoice.isMuted()))App360Celebration.play({language:w.CreativeVoice?CreativeVoice.getLanguage():'ar'},advance);else advance()}
+try{enabled=w.localStorage.getItem('app360:creative:auto-advance:v35')==='true'}catch(e){}
+var query=String(w.location.search||'').match(/[?&]auto_advance=([01])(?:&|$)/);if(query)enabled=query[1]==='1';
+w.CreativePlayView={focus:focus,setAutoAdvance:setAuto,isAutoAdvance:function(){return enabled},ownsCelebration:function(){return enabled&&!coaching()&&!!screen()}};
+d.addEventListener('app360:creative:ready',mount,false);d.addEventListener('app360:creative:complete',complete,false);
+['start','library','result'].forEach(function(name){d.addEventListener('app360:creative:'+name,function(){cancel();stopFocus();if(name!=='start'){d.body.className=d.body.className.replace(/\s*creative-playing/g,'');if(dock)dock.hidden=true}},false)});
+['start','stop','pause','resume','gamechange'].forEach(function(name){d.addEventListener('app360:creative-coach:'+name,function(){cancel();update()},false)});
+d.addEventListener('creative:ui-language',update,false);d.addEventListener('app360:authchange',cancel,false);
+d.addEventListener('visibilitychange',function(){if(d.hidden){cancel();stopFocus()}},false);w.addEventListener('pagehide',cancel,false);
+['touchstart','mousedown','wheel','keydown'].forEach(function(name){d.addEventListener(name,stopFocus,true)});
+w.addEventListener('resize',function(){if(screen())scheduleFocus()},false);w.addEventListener('orientationchange',function(){if(screen())scheduleFocus()},false);
+mount();
+})(window,document);

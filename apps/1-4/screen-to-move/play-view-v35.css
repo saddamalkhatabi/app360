@@ -1,0 +1,24 @@
+/* The document still scrolls normally; tools stay within reach below the question. */
+body.creative-playing{padding-bottom:84px}
+html body.creative-playing .topbar{position:relative!important;top:auto!important}
+body.creative-playing .game-switcher{position:relative!important;top:auto!important}
+body.creative-playing #challenge{scroll-margin-top:8px;scroll-margin-bottom:84px}
+.creative-play-dock{position:fixed;bottom:0;left:0;right:0;z-index:40;display:-webkit-flex;display:flex;gap:5px;padding:7px;background:#fff;border-top:2px solid #0f8f8a;box-shadow:0 -3px 14px rgba(18,60,57,.15);padding-bottom:calc(7px + env(safe-area-inset-bottom,0px))}
+.creative-play-dock button{-webkit-flex:1;flex:1;min-width:0;min-height:48px;padding:5px 3px;border:1px solid #a5c9c4;border-radius:10px;background:#edf8f6;color:#17302f;font:700 14px Tahoma,Arial,sans-serif;cursor:pointer;overflow-wrap:break-word}
+.creative-play-dock #playPrev,.creative-play-dock #playNext{background:#0b7772;color:#fff;border-color:#0b7772}
+.creative-play-dock button[aria-pressed=true]{background:#e9ddff;border:2px solid #6844a3;color:#38214d}
+.creative-play-dock button:focus{outline:3px solid #e6ad15;outline-offset:1px}
+.creative-play-dock button:disabled{cursor:default}
+@media(min-width:901px){.creative-play-dock{left:50%;right:auto;width:760px;margin-left:-380px;border-radius:14px 14px 0 0}}
+@media(max-width:600px){
+ html body.creative-playing .primary-game-panel .screen-game-head h2{font-size:21px!important}
+ body.creative-playing #challenge{margin-top:4px;padding:8px!important;gap:8px}
+ body.creative-playing #challenge h3{margin:5px 0 10px;font-size:20px!important;line-height:1.4}
+ body.creative-playing #challenge .memory-card{min-height:78px}
+ body.creative-playing #challenge .stable-visual img{max-width:64px;max-height:64px}
+ .creative-play-dock button{font-size:12px}
+}
+@media print{.creative-play-dock{display:none!important}body.creative-playing{padding-bottom:0}}
+
+/* Global shortcuts remain in the document without covering child controls. */
+body.creative-playing #app360HomeBtn,body.creative-playing #app360FamilyBtn,body.creative-playing #app360ProfileBtn{position:static!important;display:inline-block;margin:8px;max-width:none!important}

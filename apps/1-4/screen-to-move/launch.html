@@ -3,11 +3,11 @@
 <script src="../../../assets/js/app-link-host.js"></script>
 <script>
 (function(){'use strict';
-var query=App360LinkHost.query(),parts=[],allowed=['launch_age','launch_level','letter','phonics_letter','word','sentence'];
+var query=App360LinkHost.query(),parts=[],allowed=['launch_age','launch_level','letter','phonics_letter','word','sentence','auto_advance'];
 for(var i=0;i<allowed.length;i++)if(query[allowed[i]])parts.push(allowed[i]+'='+encodeURIComponent(query[allowed[i]]));
 function later(fn){var i=0,t=setInterval(function(){if(fn()||++i>50)clearInterval(t)},100)}
 function click(n){if(!n)return false;n.click();return true}
-App360LinkHost.mount({appId:'a1-screen-move',title:'ألعاب إبداعية · لعبة أو تدريب آلي',entry:'index.html?v=34'+(parts.length?'&'+parts.join('&'):''),targetRef:function(q){return q.coach_route||q.item||q.game||q.level||q.service||q.action||'library'},onReady:function(W,D,q,host){
+App360LinkHost.mount({appId:'a1-screen-move',title:'ألعاب إبداعية · لعبة أو تدريب آلي',entry:'index.html?v=35'+(parts.length?'&'+parts.join('&'):''),targetRef:function(q){return q.coach_route||q.item||q.game||q.level||q.service||q.action||'library'},onReady:function(W,D,q,host){
 var action=q.action||(q.coach_route?'session':q.item||q.game?'game':'library'),target=q.item||q.game||'';
 D.addEventListener('app360:creative:complete',function(e){var v=e.detail||{};if(action==='session')host.emit('activity-completed',v);else if(action==='game'&&v.gameId===target&&v.finished)host.complete({action:'game',game:target,session_id:v.sessionId,source:'verified-round-completion',mode:v.mode})},false);
 D.addEventListener('app360:creative-coach:sessioncomplete',function(e){var v=e.detail||{};if(action!=='session')return;if(v.completed>0)host.complete({action:'session',route:v.routeId,completed:v.completed,remaining_seconds:v.remaining_seconds,source:'guided-session'});else host.emit('session-ended-without-completion',v)},false);
