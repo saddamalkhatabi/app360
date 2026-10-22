@@ -46,7 +46,7 @@ for(const dir of directories){
  const version=hash(JSON.stringify(rows)).slice(0,16),policy=overrides.apps[meta.id]||{};
  const bundle={schema:1,id:meta.id,version,files:rows};
  fs.writeFileSync(path.join(root,'data/offline',meta.id+'.json'),JSON.stringify(bundle)+'\n');
- result.apps.push({id:meta.id,title:meta.title_ar,age:meta.age_group,entry:dir+'/index.html',directory:dir+'/',version,release:String(meta.version||1),bytes:rows.reduce((n,r)=>n+r.bytes,0),count:rows.length,manifest:'data/offline/'+meta.id+'.json',required:!!policy.required,minimumVersion:policy.minimumVersion||null,updateNote:policy.note_ar||'',networkNote:'المزامنة العائلية والذكاء الاصطناعي والصوت السحابي تحتاج اتصالًا؛ الأنشطة والمواد المحلية تعمل دون اتصال.'});
+ result.apps.push({id:meta.id,title:meta.title_ar,age:meta.age_group,age_groups:meta.age_groups||[meta.age_group],age_entry_levels:meta.age_entry_levels||{},entry:dir+'/index.html',directory:dir+'/',version,release:String(meta.version||1),bytes:rows.reduce((n,r)=>n+r.bytes,0),count:rows.length,manifest:'data/offline/'+meta.id+'.json',required:!!policy.required,minimumVersion:policy.minimumVersion||null,updateNote:policy.note_ar||'',networkNote:'المزامنة العائلية والذكاء الاصطناعي والصوت السحابي تحتاج اتصالًا؛ الأنشطة والمواد المحلية تعمل دون اتصال.'});
 }
 fs.writeFileSync(path.join(root,'data/offline-catalog.json'),JSON.stringify(result,null,2)+'\n');
 console.log('Offline catalog:',result.apps.length,'applications; no install-time bulk download.');

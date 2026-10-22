@@ -1,6 +1,6 @@
 # دوري ودورك
 
-النسخة الحالية تجمع 200 تجربة مع عرض بصري مبسط.
+النسخة الحالية تجمع 220 تجربة في مسارين للفئتين 1–4 و4–8، مع شرح صوتي للمشاهد وخيارات للتنقل التلقائي.
 
 ## العرض
 - Storyboard من خمس لوحات؛ أثناء التشغيل تظهر لوحة واحدة كبيرة، ثم تظهر الصورة كاملة في النهاية.
@@ -30,3 +30,6 @@ The library's **كيف نلعب؟** button plays the app introduction, watch-fir
 Coverage is shared play guidance across the 200 experiences. Individual experience titles and scene instructions are not recorded in this release. The interface remains Arabic; the selector changes the recorded prompts and their captions/buttons. All recordings live under this app's own `audio/ar` and `audio/en` directories and are included in its offline download catalog.
 
 Validation: `npm run validate` includes recording integrity, queue cancellation, language/mute persistence, and hidden-document/error tests. The recordings also pass FFmpeg decode verification. Live deployment and browser listening require separate verification.
+
+
+تفاصيل روابط المسارات المؤقتة وواجهة ربط المدرب موجودة في [SESSION_CONTRACT.md](SESSION_CONTRACT.md). انتهاء الوقت لا يسجّل إنجازًا؛ التأكيد اليدوي مستقل. يُحفظ اختيار الفئة محليًا، وتبقى أولوية الفئة المحددة في رابط الإطلاق.

@@ -1,8 +1,5 @@
 name: Record My Turn Your Turn SILMA scenes
 on:
-  push:
-    branches: [feature/turn-taking-advanced-20261022]
-    paths: [.github/workflows/record-turn-scenes.yml]
   workflow_dispatch:
 permissions:
   contents: write
@@ -85,6 +82,8 @@ jobs:
           pattern: turn-scenes-*
           merge-multiple: true
           path: apps/1-4/imitate-one-step/audio/scenes/
+      - name: Install media inspection binaries
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Verify all requested recordings and commit to the review branch
         run: |
           python - <<'PY'

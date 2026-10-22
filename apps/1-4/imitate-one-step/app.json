@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "id": "a1-imitate",
   "slug": "imitate-one-step",
-  "title_ar": "دوري ودورك: قلّد حركة واحدة",
+  "title_ar": "دوري ودورك: نتبادل ونتعاون",
   "age_group": "1-4",
   "version": 20,
   "status": "live",
@@ -22,7 +22,8 @@
   "update_policy": "service-worker-auto-activation",
   "capabilities": [
     "storage.local",
-    "pwa.offline"
+    "pwa.offline",
+    "audio.recorded"
   ],
   "bundles": [
     "static-core"
@@ -160,7 +161,8 @@
         1800
       ],
       "timed_session_implies_completion": false
-    }
+    },
+    "storyboard_assets": 220
   },
   "branding": {
     "icon": "icon.svg",
@@ -194,7 +196,8 @@
       "experience_id",
       "completion_count",
       "last_done",
-      "improvement_notes"
+      "improvement_notes",
+      "selected_age_group"
     ],
     "retention_ar": "عداد التنفيذ وملاحظات التحسين تبقى محليًا حتى حذفها. التعليقات العامة المنشورة في GitHub تخضع لسجل GitHub العام."
   },
@@ -219,11 +222,16 @@
       "en"
     ],
     "manifest": "audio/manifest.json",
-    "files": 22,
-    "coverage": "shared play instructions, child requests, experience selection and completion; individual experiment narratives not recorded",
+    "files": 366,
+    "coverage": "Shared AR/EN play prompts and Arabic narration for every one of 1100 scenes across both age tracks.",
     "offline": true,
     "scene_manifest": "audio/scene-recording-request.json",
-    "scene_status": "awaiting-silma-build"
+    "scene_status": "ready",
+    "scene_languages": [
+      "ar"
+    ],
+    "scene_files": 344,
+    "scene_report": "audio/scene-build-report.json"
   },
   "age_groups": [
     "1-4",

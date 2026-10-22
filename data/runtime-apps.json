@@ -318,7 +318,12 @@
       ],
       "cover": "assets/covers/a1-imitate.jpg",
       "audience": "shared",
-      "icon": "apps/1-4/imitate-one-step/icon.svg"
+      "icon": "apps/1-4/imitate-one-step/icon.svg",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "audio.recorded"
+      ]
     }
   ]
 }
