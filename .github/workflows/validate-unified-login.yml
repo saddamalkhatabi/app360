@@ -32,4 +32,3 @@ jobs:
         env:
           APP360_TEST_MODULES: /tmp/unified-identity-test/node_modules
         run: node tooling/test-say-name-coach.cjs && node tooling/test-picture-puzzle-learning.cjs
-
