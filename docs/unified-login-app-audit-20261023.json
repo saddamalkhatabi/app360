@@ -1,0 +1,151 @@
+{
+  "kind": "source audit, not audible verification",
+  "es5_scripts": [
+    "assets/js/app360-session-v1.js",
+    "assets/js/unified-login-v1.js",
+    "assets/js/auth-complete-v1.js",
+    "assets/js/reels-login-v1.js",
+    "assets/js/reels-bridge-v1.js",
+    "assets/js/integration-context-v1.js",
+    "assets/js/teacher-encouragement-v1.js",
+    "resources/celebration-audio/player-v1.js",
+    "apps/1-4/drawing-writing-foundations/coach/trainer.js",
+    "apps/1-4/picture-puzzles/audio-v3.js",
+    "apps/1-4/picture-puzzles/learning-v4.js",
+    "apps/1-4/tangram-builder/teacher-v1.js"
+  ],
+  "apps": [
+    {
+      "app": "apps/1-4/drawing-writing-foundations",
+      "entry": "apps/1-4/drawing-writing-foundations/index.html",
+      "session_script": "../../../assets/js/app360-session-v1.js?v=20261023-unified",
+      "praise_scripts": [
+        "../../../resources/celebration-audio/manifest-v1.js?v=1",
+        "../../../resources/celebration-audio/player-v1.js?v=20261023-unified",
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/1-4/drawing-writing-foundations/audio-v21.js",
+        "apps/1-4/drawing-writing-foundations/coach/speech.js",
+        "apps/1-4/drawing-writing-foundations/coach/trainer.js"
+      ]
+    },
+    {
+      "app": "apps/1-4/my-little-routine",
+      "entry": "apps/1-4/my-little-routine/index.html",
+      "session_script": "../../../assets/js/app360-session-v1.js?v=20261023-unified",
+      "praise_scripts": [
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/1-4/my-little-routine/routine-coach-v1.js"
+      ]
+    },
+    {
+      "app": "apps/1-4/picture-puzzles",
+      "entry": "apps/1-4/picture-puzzles/index.html",
+      "session_script": "../../../assets/js/app360-session-v1.js?v=20261023-unified",
+      "praise_scripts": [
+        "../../../resources/celebration-audio/manifest-v1.js?v=1",
+        "../../../resources/celebration-audio/player-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/1-4/picture-puzzles/audio-v3.js",
+        "apps/1-4/picture-puzzles/learning-v4.js",
+        "apps/1-4/picture-puzzles/play-support-v1.js"
+      ]
+    },
+    {
+      "app": "apps/1-4/say-and-name",
+      "entry": "apps/1-4/say-and-name/index.html",
+      "session_script": "via app360-ai-shell/shared loader",
+      "praise_scripts": [
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/1-4/say-and-name/auto-coach.js"
+      ]
+    },
+    {
+      "app": "apps/1-4/screen-to-move",
+      "entry": "apps/1-4/screen-to-move/index.html",
+      "session_script": "via app360-ai-shell/shared loader",
+      "praise_scripts": [
+        "../../../resources/celebration-audio/manifest-v1.js?v=1",
+        "../../../resources/celebration-audio/player-v1.js?v=20261023-unified",
+        "game-designer-v18.js?v=18&celebration=1"
+      ],
+      "callers": [
+        "apps/1-4/screen-to-move/app.js",
+        "apps/1-4/screen-to-move/auto-coach-v34.js",
+        "apps/1-4/screen-to-move/game-designer-v18.js",
+        "apps/1-4/screen-to-move/play-view-v35.js"
+      ]
+    },
+    {
+      "app": "apps/1-4/tangram-builder",
+      "entry": "apps/1-4/tangram-builder/index.html",
+      "session_script": "../../../assets/js/app360-session-v1.js?v=20261023-unified",
+      "praise_scripts": [
+        "../../../resources/celebration-audio/manifest-v1.js?v=1",
+        "../../../resources/celebration-audio/player-v1.js?v=20261023-unified",
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/1-4/tangram-builder/input-audio.js",
+        "apps/1-4/tangram-builder/play-music-v1.js"
+      ]
+    },
+    {
+      "app": "apps/4-8/command-path-lab",
+      "entry": "apps/4-8/command-path-lab/index.html",
+      "session_script": "via app360-ai-shell/shared loader",
+      "praise_scripts": [
+        "../../../resources/celebration-audio/manifest-v1.js?v=1",
+        "../../../resources/celebration-audio/player-v1.js?v=20261023-unified",
+        "src/celebration.js?v=8"
+      ],
+      "callers": [
+        "apps/4-8/command-path-lab/src/celebration.js"
+      ]
+    },
+    {
+      "app": "apps/4-8/cooperative-play-lab",
+      "entry": "apps/4-8/cooperative-play-lab/index.html",
+      "session_script": "../../../assets/js/app360-session-v1.js?v=20261023-unified",
+      "praise_scripts": [
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/4-8/cooperative-play-lab/app.js"
+      ]
+    },
+    {
+      "app": "apps/4-8/story-language-lab",
+      "entry": "apps/4-8/story-language-lab/index.html",
+      "session_script": "via app360-ai-shell/shared loader",
+      "praise_scripts": [
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/4-8/story-language-lab/app.js"
+      ]
+    },
+    {
+      "app": "apps/4-8/wonder-experiment-lab",
+      "entry": "apps/4-8/wonder-experiment-lab/index.html",
+      "session_script": "via app360-ai-shell/shared loader",
+      "praise_scripts": [
+        "../../../assets/js/teacher-encouragement-v1.js?v=20261023-unified"
+      ],
+      "callers": [
+        "apps/4-8/wonder-experiment-lab/app.js"
+      ]
+    }
+  ],
+  "notes": [
+    "Current slugs: tangram-builder, my-little-routine, story-language-lab.",
+    "Official identity comes only from APP360_SESSION. Local learning profiles are not login credentials.",
+    "Explicit subscription/entitlement playPersonalized remains distinct from the shared recorded teacher encouragement."
+  ]
+}

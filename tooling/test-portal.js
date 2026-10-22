@@ -156,7 +156,7 @@ test('audience roles and rebuilt 4–8 plans are visible with their implementati
   assert.ok(p.elements.appGrid.innerHTML.includes('للطفل والمدرب معًا'));
   assert.ok(p.elements.appGrid.innerHTML.includes('للطفل بإسناد المدرب'));
   const next = portal({age:'4-8'}), a = catalog.apps.find(x=>x.id==='a4-story-language');
-  assert.equal((next.elements.appGrid.innerHTML.match(/class="app-card"/g)||[]).length, 14);
+  assert.equal((next.elements.appGrid.innerHTML.match(/class="app-card"/g)||[]).length, visibleApps.filter(x=>x.age_group==='4-8').length);
   clickDetail(next,'plan',a.id);
   assert.ok(next.swalCalls[0].html.includes('مسارات التجربة'));
   assert.ok(next.swalCalls[0].html.includes(a.blueprint.prebuild_path));

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-09-24",
+  "updated": "2026-10-23",
   "principle_ar": "التطبيق يعلن القدرات التي يحتاجها فقط. القدرات المشتركة تتحول إلى packages أو services، ويمكن جمعها في bundles حسب العمق والجهاز والحاجة.",
   "capabilities": [
     {
@@ -191,6 +191,48 @@
       "scope": "server",
       "maturity": "planned",
       "description_ar": "أحداث استخدام محدودة الخصوصية لقياس نجاح الممارسة لا لمراقبة المستخدم."
+    },
+    {
+      "id": "ui.simple-first",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "واجهة المشاعر المبسطة الحالية بثلاث خطوات، مع إمكانية فتح الأدوات المتقدمة عند الحاجة."
+    },
+    {
+      "id": "ui.progressive-disclosure",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "إظهار الأدوات المتقدمة اختيارياً مع إبقاء المسار الأساسي بسيطاً."
+    },
+    {
+      "id": "cross-app.play-shortcuts",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "روابط الأنشطة القصيرة القائمة من صفحة ماذا بعد إلى تطبيقات المدرسة المنشورة."
+    },
+    {
+      "id": "emotion.next-activity-games",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "اختيار لعبة قصيرة تالية ضمن الآن/بعد دون اعتباره علاجاً أو نتيجة نمائية."
+    },
+    {
+      "id": "cross-app.registry",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "سجل روابط التطبيقات والخدمات والعناصر الذي يستخدمه مخطط الجلسات الحالي دون نسخ محتواها."
+    },
+    {
+      "id": "cross-app.latest-apps",
+      "type": "client",
+      "scope": "app",
+      "maturity": "live-core",
+      "description_ar": "قراءة التطبيقات المنشورة من السجل مع إبقاء المخطط مرتبطاً بمساراتها الحالية."
     }
   ],
   "promotion_rule": {

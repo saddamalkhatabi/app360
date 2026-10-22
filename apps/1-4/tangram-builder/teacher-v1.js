@@ -33,7 +33,7 @@ function start(){if(active){stop();showMsg('الآن دورك. جرب بنفسك
  var sound=d.getElementById('soundBtn'),oldSound=sound.onclick;sound.onclick=function(){stop();oldSound()};
  function touchBoard(e){if(!active||e.target!==canvas)return;stop();showMsg('الآن دورك. اختر قطعة وجرب.','',0);if(e.cancelable!==false)e.preventDefault();e.stopPropagation()}
  d.addEventListener('mousedown',touchBoard,true);d.addEventListener('touchstart',touchBoard,true);
- d.addEventListener('keydown',function(e){if((e.keyCode||e.which)===27)stop()},false);d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);w.addEventListener('pagehide',stop,false);w.addEventListener('blur',stop,false);
+ d.addEventListener('keydown',function(e){if((e.keyCode||e.which)===27)stop()},false);d.addEventListener('visibilitychange',function(){if(d.hidden)stop()},false);d.addEventListener('app360:authchange',stop,false);w.addEventListener('pagehide',stop,false);w.addEventListener('blur',stop,false);
  w.APP360_TANGRAM_TEACHER={phase:'ready',stop:stop,isActive:function(){return active},isSpeaking:function(){return !!voice}};
  syncHint();draw();
 })();

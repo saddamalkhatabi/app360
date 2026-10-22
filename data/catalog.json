@@ -2140,7 +2140,8 @@
       "goal_keys": [
         "coach-4-8-channel-energy-focus-and-transitions",
         "coach-4-8-teach-through-play-projects-and-feedback",
-        "coach-4-8-positive-behavior-routines-and-independence"
+        "coach-4-8-positive-behavior-routines-and-independence",
+        "learner-4-8-active-play-screen-balance-and-body-control"
       ],
       "tags": [
         "مخطط جلسات 4–8",
@@ -2183,6 +2184,13 @@
           "relationship": "supports",
           "rationale_ar": "مشاركة الطفل في اختيار ترتيب وخيارات الدعم",
           "evidence_ar": "اختيار طفل موثق دون إجبار",
+          "delivery": "available_with_facilitator"
+        },
+        {
+          "goal_key": "learner-4-8-active-play-screen-balance-and-body-control",
+          "relationship": "supports",
+          "rationale_ar": "المخطط الحالي يقرن النشاط الرقمي بخطوة لعب واقعي واستراحة بعيداً عن الشاشة؛ ومن نماذجه تبادل قيادة حركة مريحة وإشارة بين المشاركين. ينفذ المرافق الحركة مع الطفل بدلاً من إبقائه أمام الشاشة.",
+          "evidence_ar": "ينفذ الطفل والمرافق خطوة الحركة أو تبادل الإشارة خارج الشاشة، ثم يسجل المرافق تعديل المدة أو الاستراحة إن أراد؛ لا يدعي التطبيق قياس التحكم بالجسم آلياً.",
           "delivery": "available_with_facilitator"
         }
       ],
@@ -6028,7 +6036,39 @@
       "audience_note_ar": "أدوات تخطيط للمرافق أو المدرب البالغ، وليست للاستخدام المستقل من الطفل.",
       "cover": "assets/covers/trainer-session-planner-v2-640.webp",
       "cover_fallback": "assets/covers/trainer-session-planner-v2-640.jpg",
-      "requires_adult_confirmation": true
+      "requires_adult_confirmation": true,
+      "blueprint_path": "apps/1-4/plan-runner-360/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/plan-runner-360/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "خطة جلسة محفوظة ومعدّلة للفئة 1–4، تنفذ نشاطاً منشوراً ولعباً واقعياً وانتقالاً متوقعاً ومراجعة المرافق.",
+        "audience_ar": "أداة للمرافق؛ الطفل يشارك في الأنشطة التي يفتحها المرافق، دون تحويل واجهة التخطيط إلى واجهة طفل.",
+        "age_adaptation_ar": "النماذج الحالية موزعة على 1–2 و2–3 و3–4 ويمكن تعديل المدة والمادة والمساعدة وفق استعداد الطفل.",
+        "boundary_ar": "المخطط يربط التطبيقات ولا ينسخ محتواها أو يقيّم نمو الطفل. تبقى ملاحظة النشاط الواقعي للمرافق، والتوافق الفعلي للجهاز القديم يحتاج تجربة الجهاز.",
+        "mvp_steps_ar": [
+          "اختيار نشاط من سجل الروابط القائم وإضافته بالمدة وطريقة الانتقال.",
+          "ترتيب خطوات قصيرة مع لعب واقعي وخيار إخفاء الشاشة أو الاختصار.",
+          "تنفيذ الخطة والعودة إلى موضعها وحفظ مراجعة اختيارية دون جمع رسم الطفل أو تشخيصه."
+        ],
+        "acceptance_ar": [
+          "تبقى الخطط القديمة قابلة للاستعادة بنفس الهوية ومفتاح التخزين.",
+          "تفتح أنشطة الألغاز والصور والرسم وغيرها عبر عقد روابطها النسبي الصحيح.",
+          "يحفظ المرافق الخطة ويعدلها ويصدرها ويستوردها دون تحويلها إلى سجل أداء نمائي."
+        ],
+        "feedback_ar": "تصف المراجعة ملاءمة الخطوة والمساعدة والانتقال، ولا تنتج درجة للطفل.",
+        "data_model": [
+          "plan_id",
+          "steps",
+          "app_id",
+          "route_id",
+          "duration",
+          "transition",
+          "run_id",
+          "reflection"
+        ],
+        "reference_ids": [],
+        "design_basis_ar": "توثيق التنفيذ القائم وسجل الروابط والنماذج الحالية؛ ليس ادعاء تجربة تربوية منشورة."
+      }
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",

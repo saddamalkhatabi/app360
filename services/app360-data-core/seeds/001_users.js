@@ -1,5 +1,6 @@
 'use strict';
 exports.seed=async function(knex){
+  if(process.env.NODE_ENV==='production')return;
   var accounts=[
     {id:'acct-family-demo',type:'family',name:'أسرة App360 التجريبية',status:'active',metadata_json:JSON.stringify({seed:true,demo:true})},
     {id:'acct-institution-demo',type:'institution',name:'مؤسسة App360 التدريبية التجريبية',status:'active',metadata_json:JSON.stringify({seed:true,demo:true})}
