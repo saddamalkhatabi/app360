@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: نتبادل ونتعاون",
   "age_group": "1-4",
-  "version": 20,
+  "version": 21,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-220-experiences",
@@ -162,7 +162,25 @@
       ],
       "timed_session_implies_completion": false
     },
-    "storyboard_assets": 220
+    "storyboard_assets": 220,
+    "automated_coach": {
+      "enabled": true,
+      "entry_button": "coachBtn",
+      "age_labels": {
+        "1-4": "مدربة الروضة",
+        "4-8": "مدربة المدرسة"
+      },
+      "navigation": [
+        "automatic",
+        "manual"
+      ],
+      "duration_minutes": [
+        1,
+        30
+      ],
+      "audio_owner": "A1ScenePlayer",
+      "routes": "A1AutoCoach.routes"
+    }
   },
   "branding": {
     "icon": "icon.svg",
