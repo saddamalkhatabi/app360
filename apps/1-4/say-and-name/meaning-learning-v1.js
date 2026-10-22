@@ -11,7 +11,7 @@ function play(number,done,retried){
  if(window.App360WordPlayer)window.App360WordPlayer.stop();stop();var it=current(),p=prefs();if(!it||!p.speech){if(done)done(new Error('speech-disabled'));return}var seq=token,langs=p.voice==='both'?['ar','en']:[p.voice],queue=[];
  langs.forEach(function(lang){if(it.sentences[number][lang])queue.push(lang)});
  var missing=queue.some(function(lang){return !recordings.clips[it.sentences[number][lang].clip]});
- if(missing&&done){done(new Error('recording-unavailable'));return}
+ if(missing&&done&&window.App360WordCoach&&window.App360WordCoach.ownsAudio()){done(new Error('recording-unavailable'));return}
  if(missing){$('meaningStatus').textContent='التسجيل قيد التجهيز · Recording pending';if(!retried)refreshRecordings(function(ok){if(seq!==token)return;var ready=queue.every(function(lang){return !!recordings.clips[it.sentences[number][lang].clip]});if(ready)play(number,done,true);else pendingCheck=setTimeout(function(){if(seq===token)play(number,done)},60000)});return}
  function one(pos,repeatRound){
   if(seq!==token)return;

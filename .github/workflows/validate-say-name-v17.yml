@@ -32,7 +32,7 @@ jobs:
           root=Path('apps/1-4/say-and-name')
           html=(root/'index.html').read_text()
           assert 'data-lang="both"' in html
-          assert "importScripts('../../../assets/js/offline-worker-v1.js?v=1')" in (root/'sw.js').read_text()
+          assert re.search(r"importScripts\('\.\./\.\./\.\./assets/js/offline-worker-v1\.js\?v=[^']+'\)", (root/'sw.js').read_text())
           for path in re.findall(r'<script src="([^"?]+)',html):assert (root/path).is_file(),path
           if 'runtime-v27.js' in html:
               data=json.loads((root/'data/silma-map.js').read_text().split('=',1)[1].strip().rstrip(';'))
