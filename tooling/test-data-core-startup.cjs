@@ -11,3 +11,26 @@ test('login callback distinguishes unavailable service from browser storage refu
 test('fresh install and explicit build both install the separately managed native service',()=>{const pkg=require('../package.json');assert.equal(pkg.scripts.postinstall,'node tooling/install-data-core.cjs');assert.equal(pkg.scripts.build,pkg.scripts.postinstall);assert.equal(pkg.scripts['doctor:data-core'],'node tooling/check-data-core.cjs');assert.equal(require('../services/app360-data-core/package.json').engines.node,'20.x || 22.x')});
 test('standalone migrate and reset still prepare new storage after removing config import side effects',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'school-cli-storage-')),file=path.join(dir,'missing','database','account.sqlite3');const env={...process.env,APP360_DB_FILE:file,APP360_ENABLE_SEED_LOGIN:'0',NODE_ENV:'production'};for(const name of ['migrate','seed','rollback','reset']){const r=cp.spawnSync(process.execPath,['services/app360-data-core/scripts/'+name+'.js'],{cwd:root,env,encoding:'utf8',timeout:30000,windowsHide:true});assert.equal(r.status,0,name+' should initialize its isolated directory');assert(fs.existsSync(file))}});
 test('native service lock pins only its matching manifest outside the pnpm workspace',()=>{const pkg=require('../services/app360-data-core/package.json'),lock=require('../services/app360-data-core/package-lock.json');assert.equal(lock.lockfileVersion,3);assert.deepEqual(lock.packages[''].dependencies,pkg.dependencies);assert.deepEqual(lock.packages[''].optionalDependencies,pkg.optionalDependencies);assert.deepEqual(lock.packages[''].engines,pkg.engines);assert(fs.readFileSync(path.join(root,'pnpm-workspace.yaml'),'utf8').includes("!services/app360-data-core"))});
+
+test('storage diagnostics identify database versus uploads without disclosing paths or arbitrary fields',()=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'school-target-')),block=path.join(dir,'blocked');fs.writeFileSync(block,'keep');
+ for(const target of ['database_directory','uploads_directory']){
+  const env={APP360_DB_FILE:path.join(target==='database_directory'?block:dir,'account.sqlite3'),APP360_UPLOAD_ROOT:target==='uploads_directory'?path.join(block,'uploads'):path.join(dir,'uploads')};
+  let failure;try{storage.prepare(env)}catch(e){failure=diagnostics.classify(e,'storage')}
+  assert.equal(failure.storage_target,target);assert.equal(failure.storage_operation,'mkdir');assert(!JSON.stringify(failure).includes(dir));
+ }
+ const untrusted=diagnostics.classify({code:'APP360_STORAGE_UNAVAILABLE',storageTarget:'SECRET',storageOperation:'/private/path'},'storage');assert(!JSON.stringify(untrusted).includes('SECRET'));assert(!JSON.stringify(untrusted).includes('/private'));
+});
+
+test('read-only storage inspector identifies missing paths without creating an empty replacement',()=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'school-inspect-')),file=path.join(dir,'missing','account.sqlite3');
+ const r=cp.spawnSync(process.execPath,['tooling/inspect-school-storage.cjs'],{cwd:root,encoding:'utf8',windowsHide:true,env:{...process.env,APP360_DB_FILE:file,APP360_UPLOAD_ROOT:path.join(dir,'uploads'),APP360_REELS_BRIDGE_SECRET:'SECRET_NOT_FOR_LOGS'}});
+ assert.equal(r.status,0);const report=JSON.parse(r.stdout);assert.equal(report.database.at(-1).error,'ENOENT');assert.equal(report.database_source,'APP360_DB_FILE');assert(!r.stdout.includes('SECRET_NOT_FOR_LOGS'));assert(!fs.existsSync(path.dirname(file)));assert(!fs.existsSync(path.join(dir,'uploads')));
+});
+
+test('a dangling database symlink cannot create an empty replacement at a lost mount',t=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'school-lost-mount-')),file=path.join(dir,'account.sqlite3'),missing=path.join(dir,'missing-target.sqlite3');
+ try{fs.symlinkSync(missing,file,'file')}catch(e){if(process.platform==='win32'&&e.code==='EPERM'){t.skip('Windows account cannot create file symlinks');return}throw e;}
+ assert.throws(()=>storage.prepare({APP360_DB_FILE:file,APP360_UPLOAD_ROOT:path.join(dir,'uploads')}),e=>e.code==='APP360_STORAGE_UNAVAILABLE'&&e.storageReason==='ENOENT'&&e.storageTarget==='database_file');
+ assert(fs.lstatSync(file).isSymbolicLink());assert(!fs.existsSync(missing));assert(!fs.existsSync(path.join(dir,'uploads')));
+});
