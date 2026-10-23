@@ -10,7 +10,7 @@ function body(req){return new Promise(function(resolve,reject){var parts=[],size
 function bearer(req){var h=String(req.headers.authorization||''),m=/^Bearer\s+(.+)$/i.exec(h);return m?m[1]:''}
 function demoLoginEnabled(){if(String(process.env.APP360_ENABLE_SEED_LOGIN||'')==='1')return true;if(String(process.env.APP360_ENABLE_SEED_LOGIN||'')==='0')return false;return String(process.env.NODE_ENV||'development')!=='production'}
 async function auth(db,req){return await sessions.findIdentitySession(db,bearer(req))}
-function profileOf(user,accountId,extra){var prefs={};try{prefs=JSON.parse(user.preferences_json||'{}')}catch(_){}var p={user_id:user.id,display_name:user.display_name,role:user.role,age_band:user.age_band,account_id:accountId||null};if(prefs.official_gender)p.gender=prefs.official_gender;if(extra)for(var k in extra)p[k]=extra[k];return p}
+function profileOf(user,accountId,extra){var prefs={};try{prefs=JSON.parse(user.preferences_json||'{}')}catch(_){}var p={user_id:user.id,display_name:user.display_name,role:user.role,age_band:user.age_band,account_id:accountId||null};if(prefs.official_gender)p.gender=prefs.official_gender;if(prefs.official_entitlements)p.entitlements=prefs.official_entitlements;if(extra)for(var k in extra)p[k]=extra[k];return p}
 async function loginRequest(db,input){
   input=input||{};var local=null,identity,linked,source='safe-reels-360',accountId=null,user=null,extra={};
   if(demoLoginEnabled())local=await demoAuth.authenticate(db,input.query,input.pin);
@@ -25,6 +25,7 @@ async function loginRequest(db,input){
   if(identity&&identity._reels_bridge)await bridge.attach(db,created.session,user.id,identity._reels_bridge);
   return{token:created.token,expires_at:created.session.expires_at,profile:profileOf(user,accountId,extra)};
 }
+function schoolGuestId(req,res){var m=/(?:^|;\s*)__Host-app360_guest=([a-f0-9]{64})(?:;|$)/.exec(String(req.headers.cookie||'')),id=m&&m[1];if(!id){id=require('crypto').randomBytes(32).toString('hex');res.setHeader('Set-Cookie','__Host-app360_guest='+id+'; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=31536000')}return id}
 async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){send(res,403,{error:'origin_not_allowed'});return}if(req.method==='OPTIONS'){res.statusCode=204;if(origin)res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');res.setHeader('Vary','Origin');res.end();return}var p=url.parse(req.url,true),path=p.pathname||'',db=await core.db.createDb();try{
   if(req.method==='GET'&&path==='/api/app360/health'){var m=await db('knex_migrations').count({n:'id'}).first().catch(function(){return{n:0}});send(res,200,{ok:true,service:'app360-data-core',safe_reels_auth_configured:safe.configured(),reels_bridge_configured:bridge.configured(),seed_login_enabled:demoLoginEnabled(),applied_migrations:Number(m.n)||0},origin);return}
   if(req.method==='POST'&&path==='/api/app360/auth/reels/exchange'){var ticket=await body(req);try{var exchanged=await bridge.exchange(db,ticket.code,sessions);browserSession.write(res,exchanged.token,exchanged.expires_at);send(res,200,exchanged,origin)}catch(e){send(res,e.httpStatus||401,{error:'reels_exchange_failed',message:'تعذر ربط الحساب. افتح التطبيق مجدداً من الريلز.'},origin)}return}
@@ -40,9 +41,11 @@ async function handler(req,res){var origin=allowedOrigin(req);if(origin===null){
     var external=restored.session.source==='safe-reels-360';
     send(res,200,{token:shared,expires_at:restored.session.expires_at,profile:profileOf(restored.user,restored.account_id,{external:external})},origin);return
   }
+  if(req.method==='POST'&&path==='/api/app360/reels/guest-pulse'){var guestInput=await body(req);if(!browserSession.sameOrigin(req)){send(res,403,{error:'origin_not_allowed'},origin);return}send(res,200,await bridge.call('guest-pulse',{client_ip:schoolGuestId(req,res),active:guestInput.active===true}),origin);return}
   var me=await auth(db,req);if(!me){send(res,401,{error:'authentication_required',message:'سجل دخول المستخدم أولًا.'},origin);return}
   try{await bridge.authorize(db,me,req.method==='POST'&&path==='/api/app360/usage/batch')}catch(e){send(res,e.httpStatus||503,{error:'linked_identity_unavailable',message:'تعذر التحقق من الحساب المرتبط. افتح المدرسة من الريلز مجدداً.'},origin);return;}
-  if(req.method==='POST'&&path==='/api/app360/reels/launch'){try{send(res,200,await bridge.launch(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_launch_failed',message:'افتح المدرسة من الريلز لتجديد ربط الحساب.'},origin)}return}
+  if(req.method==='POST'&&path==='/api/app360/reels/launch'){try{var launchInput=await body(req);send(res,200,await bridge.launch(db,me,launchInput.destination),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_launch_failed',message:'افتح المدرسة من الريلز لتجديد ربط الحساب.'},origin)}return}
+  if(req.method==='POST'&&path==='/api/app360/reels/pulse'){var pulseInput=await body(req);send(res,200,await bridge.call('pulse',{grant_token:await bridge.credential(db,me),active:pulseInput.active===true}),origin);return}
   if(req.method==='GET'&&path==='/api/app360/reels/policy'){try{send(res,200,await bridge.check(db,me),origin)}catch(e){send(res,e.httpStatus||503,{error:'reels_policy_unavailable'},origin)}return}
   if(req.method==='POST'&&path==='/api/app360/celebration/prepare'){send(res,200,await celebration.prepare(db,me,await body(req)),origin);return}
   if(req.method==='GET'&&path==='/api/app360/me/members'){var members=await sessions.listManagedMembers(db,me.user.id,me.account_id);send(res,200,{profile:profileOf(me.user,me.account_id),members:members,can_manage_audience:members.length>0},origin);return}

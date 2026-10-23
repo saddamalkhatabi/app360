@@ -3,7 +3,7 @@
 var serial=0,audio=null,timer=null,request=null,names=null,captionSink=null,lastEvent='',lastEventAt=0;
 var base='../../../resources/celebration-audio/';
 var scripts=d.getElementsByTagName('script');for(var si=0;si<scripts.length;si++){var src=scripts[si].src||'',at=src.indexOf('/assets/js/teacher-encouragement-v1.js');if(at>=0){base=src.slice(0,at)+'/resources/celebration-audio/';break}}
-function profile(){try{var s=w.APP360_SESSION,p=s&&s.isAuthenticated()&&s.getProfile();return p&&p.user_id&&/^(learner|child)$/.test(p.role||'')?p:null}catch(_){return null}}
+function profile(){try{var s=w.APP360_SESSION,p=s&&s.isAuthenticated()&&s.getProfile();return p&&p.user_id&&p.entitlements&&p.entitlements.named_encouragement===true&&(!p.entitlements.ends_at||new Date(p.entitlements.ends_at).getTime()>Date.now())&&/^(learner|child)$/.test(p.role||'')?p:null}catch(_){return null}}
 function normalize(v){return String(v||'').toLowerCase().replace(/[\u064b-\u065f\u0670ـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^a-z\u0621-\u064a]/g,'')}
 function resolve(value){var key=normalize(value),hits=[],rows=names||[],i,j,aliases;for(i=0;i<rows.length;i++){aliases=[rows[i].name].concat(rows[i].aliases||[]);for(j=0;j<aliases.length;j++)if(normalize(aliases[j])===key){hits.push(rows[i]);break}}return hits.length===1?hits[0]:null}
 function firstName(display){var exact=resolve(display);if(exact)return exact;var words=String(display||'').replace(/^\s+|\s+$/g,'').split(/\s+/),row;for(var i=Math.min(3,words.length-1);i>0;i--){row=resolve(words.slice(0,i).join(' '));if(row)return row}return null}
