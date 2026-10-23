@@ -14,7 +14,7 @@ function classify(error,stage){
 }
 function runtime(){if(!/^(20|22)\./.test(process.versions.node))throw Object.assign(Error('Use Node 20 or 22'),{code:'APP360_UNSUPPORTED_RUNTIME'});}
 function dependencies(){
- require('knex');var Database=require('better-sqlite3'),db;
+ require('knex');var Database=require('./sqlite-driver').driver().Database,db;
  try{db=new Database(':memory:');db.prepare('SELECT 1').get();}
  catch(e){throw Object.assign(Error('SQLite native binding unavailable'),{code:'APP360_NATIVE_UNAVAILABLE'});}
  finally{if(db)db.close();}

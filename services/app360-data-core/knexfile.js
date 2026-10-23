@@ -3,7 +3,7 @@ var path=require('path');
 var file=require('./src/storage').settings().database;
 module.exports={
   development:{
-    client:'better-sqlite3',
+    client:require('./src/sqlite-client'),
     connection:{filename:file},
     useNullAsDefault:true,
     migrations:{directory:path.join(__dirname,'migrations'),tableName:'knex_migrations'},
