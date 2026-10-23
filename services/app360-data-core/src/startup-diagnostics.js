@@ -10,7 +10,12 @@ function classify(error,stage){
  else if(e.code==='MODULE_NOT_FOUND'||e.code==='ERR_MODULE_NOT_FOUND'){code='data_core_dependencies_missing';reason='MODULE_NOT_FOUND';message='ملفات خدمة الحسابات أو اعتمادياتها غير مكتملة على الاستضافة.'}
  else if(e.code==='APP360_BRIDGE_CONFIG_INVALID'){code='data_core_configuration_invalid';reason='BRIDGE_ORIGIN';message='إعدادات اتصال المدرسة بخدمة الحسابات تحتاج مراجعة.'}
  else if(stage==='database'){code='data_core_database_unavailable';reason=/^SQLITE_[A-Z_]+$/.test(e.code||'')?e.code:'DATABASE_INITIALIZATION';message='قاعدة حسابات المدرسة غير متاحة حالياً.'}
- return {error:code,reason:reason,stage:['runtime','dependencies','storage','modules','configuration','database'].includes(stage)?stage:'startup',message:message};
+ var result={error:code,reason:reason,stage:['runtime','dependencies','storage','modules','configuration','database'].includes(stage)?stage:'startup',message:message};
+ if(code==='data_core_storage_unavailable'){
+  if(['database_directory','database_file','uploads_directory'].includes(e.storageTarget))result.storage_target=e.storageTarget;
+  if(['mkdir','stat','write','unlink'].includes(e.storageOperation))result.storage_operation=e.storageOperation;
+ }
+ return result;
 }
 function runtime(){if(!/^(20|22)\./.test(process.versions.node))throw Object.assign(Error('Use Node 20 or 22'),{code:'APP360_UNSUPPORTED_RUNTIME'});}
 function dependencies(){
@@ -19,5 +24,5 @@ function dependencies(){
  catch(e){throw Object.assign(Error('SQLite native binding unavailable'),{code:'APP360_NATIVE_UNAVAILABLE'});}
  finally{if(db)db.close();}
 }
-function log(diagnostic){console.error('[APP360_DATA_CORE] '+JSON.stringify({error:diagnostic.error,reason:diagnostic.reason,stage:diagnostic.stage,node:process.versions.node,platform:process.platform,arch:process.arch}));}
+function log(diagnostic){console.error('[APP360_DATA_CORE] '+JSON.stringify({error:diagnostic.error,reason:diagnostic.reason,stage:diagnostic.stage,storage_target:diagnostic.storage_target,storage_operation:diagnostic.storage_operation,node:process.versions.node,platform:process.platform,arch:process.arch}));}
 module.exports={classify:classify,runtime:runtime,dependencies:dependencies,log:log};
