@@ -16,9 +16,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      # This monorepo keeps one pnpm lockfile; there is no nested npm lockfile.
-      # Match the existing Data Core workflow; native package versions are exact.
-      - run: npm --prefix services/app360-data-core install --no-audit --no-fund
+      # The native service has a separate npm lockfile, outside pnpm workspaces.
+      - run: npm --prefix services/app360-data-core ci --no-audit --no-fund
       - run: npm install --prefix /tmp/unified-identity-test jsdom@26 acorn@8 --no-audit --no-fund
       - name: Identity, cancellation, callback, praise and isolated production startup
         env:

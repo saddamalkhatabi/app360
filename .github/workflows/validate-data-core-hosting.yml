@@ -1,0 +1,36 @@
+name: Verify School hosting startup
+on:
+  pull_request:
+    paths: ['services/app360-data-core/**', 'services/family-relay/**', 'tooling/*data-core*', 'tooling/test-unified-hosting.cjs', 'assets/js/reels-login-v1.js', 'package.json', '.github/workflows/validate-data-core-hosting.yml']
+  push:
+    branches: [main]
+    paths: ['services/app360-data-core/**', 'services/family-relay/**', 'tooling/*data-core*', 'tooling/test-unified-hosting.cjs', 'assets/js/reels-login-v1.js', 'package.json', '.github/workflows/validate-data-core-hosting.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install through the hosting root lifecycle
+        run: npm install --omit=dev --no-audit --no-fund
+      - name: Verify storage, startup diagnostics and real identity exchange
+        env:
+          APP360_TEST_MODULES: /tmp/unified-identity-test/node_modules
+        run: |
+          npm install --prefix /tmp/unified-identity-test jsdom@26 --no-audit --no-fund
+          node --test tooling/test-data-core-startup.cjs tooling/test-unified-hosting.cjs tooling/test-reels-bridge.js tooling/test-unified-identity.cjs tooling/test-membership.cjs
+      - name: Run operator diagnosis against isolated temporary storage
+        env:
+          APP360_DB_FILE: ${{ runner.temp }}/school-doctor/account.sqlite3
+          APP360_UPLOAD_ROOT: ${{ runner.temp }}/school-doctor/uploads
+          APP360_ENABLE_SEED_LOGIN: '0'
+          NODE_ENV: production
+        run: npm run doctor:data-core

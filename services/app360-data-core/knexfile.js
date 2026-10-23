@@ -1,8 +1,6 @@
 'use strict';
-var fs=require('fs');
 var path=require('path');
-var file=process.env.APP360_DB_FILE||path.join(__dirname,'var','app360.sqlite3');
-var dir=path.dirname(file);if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true});
+var file=require('./src/storage').settings().database;
 module.exports={
   development:{
     client:'better-sqlite3',

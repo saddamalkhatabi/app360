@@ -94,7 +94,7 @@ usage يثبت محلياً ويرسل إلى outbox دائم، يعاد كل 30
 | PORT | المنفذ الذي تعينه منصة Node للاستضافة |
 | SCHOOL_BRIDGE_SECRET / SCHOOL_REELS_ORIGIN / PUBLIC_BASE_URL | في خادم الريلز؛ لا تنسخ .env المحلي على إعدادات السيرفر |
 
-School: Node 20.x وفق engines الخاص بـbetter-sqlite3، ثم من جذر المستودع `npm run build` (يثبت اعتماديات services/app360-data-core، Native better-sqlite3 11.10.0 وKnex 3.3.0) و`npm start` (family-relay، نفس منفذ static وAPI). عند غياب binary جاهز يلزم toolchain Linux/build-essential/Python أو دعم المضيف. لم يفحص توفر ذلك على حساب SmarterASP. متغيرات لوحة الاستضافة تسبق .env؛ الملف المحمل هو .env في جذر المدرسة، ويقرأ قبل بدء الخدمة. لا تضع أسراراً في public أو Git.
+School: Node 22 LTS موصى به، وNode 20 مدعوم أيضاً. من جذر المستودع `npm install --omit=dev` يجهز خدمة البيانات عبر postinstall، ويمكن تكرار `npm run build` صراحة، ثم `npm run doctor:data-core` و`npm start` (family-relay، نفس منفذ static وAPI). عند غياب binary جاهز يلزم toolchain Linux/build-essential/Python أو دعم المضيف. لم يفحص توفر ذلك على حساب SmarterASP. متغيرات لوحة الاستضافة تسبق .env؛ الملف المحمل هو .env في جذر المدرسة، ويقرأ قبل بدء الخدمة. لا تضع أسراراً في public أو Git. راجع SCHOOL_HOSTING_REPAIR_20261023_AR.md لرموز التشخيص ومسارات التخزين الدائم.
 
 المدرسة SQLite، والريلز يعمل بمحركه المحدد في إعداداته؛ لا ربط جداول مباشر ولا نقل PostgreSQL للمدرسة. لا migration جديدة لهذا الإصلاح؛ startup ينتظر migrate.latest الموجود ثم seeds. seed 001 لا ينشئ/يعيد كتابة demo users في production؛ بقية seeds فهارس تطبيقات وأنواع محتوى، دون حذف حسابات أو أعمال الأطفال. سجل content_types metadata يعاد بناؤه وفق العقد القائم. لا تشغّل reset على الإنتاج. احتفظ بسر الربط نفسه لأن تدويره سيمنع فك منح المدرسة المحفوظة.
 
