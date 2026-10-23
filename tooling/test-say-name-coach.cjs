@@ -11,7 +11,7 @@ assert.equal(routes.parse('?route=bad&launch_age=4-8&autoplay=0').route,'sentenc
 assert.equal(routes.parse('?autoplay=0').autoplay,false);
 (async()=>{
 const dom=new JSDOM(fs.readFileSync(base+'index.html','utf8'),{url:'https://school.test/'+base+'index.html',runScripts:'outside-only'}),w=dom.window,d=w.document;
-let now=100000,seq=0,timers=new Map(),plays=[],errors=[],events=[],profile={user_id:'child-1',role:'learner',display_name:'نور'};
+let now=100000,seq=0,timers=new Map(),plays=[],errors=[],events=[],profile={entitlements:{named_encouragement:true},user_id:'child-1',role:'learner',display_name:'نور'};
 w.Date.now=()=>now;w.setTimeout=(fn,ms)=>(timers.set(++seq,{fn,at:now+Number(ms||0),interval:0}),seq);w.clearTimeout=id=>timers.delete(id);w.setInterval=(fn,ms)=>(timers.set(++seq,{fn,at:now+ms,interval:ms}),seq);w.clearInterval=w.clearTimeout;w.requestAnimationFrame=()=>0;w.cancelAnimationFrame=()=>{};w.HTMLElement.prototype.scrollIntoView=function(){};
 w.addEventListener('error',e=>errors.push(e.error));d.addEventListener('app360:word-coach',e=>events.push(e.detail));
 w.Audio=function(src){this.src=src;this.currentTime=0;this.pause=()=>{};this.load=()=>{};this.play=()=>{let ended=this.onended,error=this.onerror;plays.push({src:this.src,end:()=>ended&&ended(),error:()=>error&&error()})}};
