@@ -30,6 +30,7 @@ async function ensureExternalUser(db,identity){
     await db('external_identities').insert({user_id:userId,source:source,external_user_id:external,sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})});
   }
   var previous=await db('users').where({id:userId}).first(),preferences=parseJson(previous&&previous.preferences_json,{})||{};if(identity.gender==='male'||identity.gender==='female')preferences.official_gender=identity.gender;else delete preferences.official_gender;
+  preferences.official_entitlements=identity.entitlements&&typeof identity.entitlements==='object'?{active:identity.entitlements.active===true,named_encouragement:identity.entitlements.named_encouragement===true,can_manage_content:identity.entitlements.can_manage_content===true,can_read_reports:identity.entitlements.can_read_reports===true,ends_at:identity.entitlements.ends_at||null,access_tier:identity.entitlements.access_tier||'usage_reports'}:{active:false,named_encouragement:false,can_manage_content:false};
   await db('users').where({id:userId}).update({preferences_json:safeJson(preferences),display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',updated_at:now()});
   if(identity.account_external_id){
     accountId=internalId('acct-sr',identity.account_external_id);
@@ -44,6 +45,7 @@ async function ensureExternalUser(db,identity){
     var acct=await db('accounts').where({id:accountId}).first();
     if(!acct)await db('accounts').insert({id:accountId,type:acctType,name:identity.account_name||'حساب الريلز الآمن 360',status:'active',metadata_json:safeJson({external_account_id:identity.account_external_id,source:source})}).onConflict('id').ignore();
     await db('account_members').where({user_id:userId}).whereNot('account_id',accountId).whereIn('account_id',db('accounts').select('id').where('id','like','acct-sr-%')).del();
+    if(preferences.official_entitlements.can_manage_content!==true)permissions=permissions.filter(function(p){return p.indexOf('manage_')!==0;});
     await db('account_members').insert({account_id:accountId,user_id:userId,relationship:relationship,permissions_json:safeJson(permissions)}).onConflict(['account_id','user_id']).merge();
   }
   user=await db('users').where({id:userId}).first();

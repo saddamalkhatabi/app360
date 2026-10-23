@@ -1,6 +1,7 @@
 {
   "kind": "source audit, not audible verification",
   "es5_scripts": [
+    "assets/js/membership-v1.js",
     "assets/js/app360-session-v1.js",
     "assets/js/unified-login-v1.js",
     "assets/js/auth-complete-v1.js",
@@ -146,6 +147,6 @@
   "notes": [
     "Current slugs: tangram-builder, my-little-routine, story-language-lab.",
     "Official identity comes only from APP360_SESSION. Local learning profiles are not login credentials.",
-    "Explicit subscription/entitlement playPersonalized remains distinct from the shared recorded teacher encouragement."
+    "Both named teacher encouragement and explicit personalized praise obey the current official membership; expired learners keep generic praise."
   ]
 }
