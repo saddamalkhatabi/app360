@@ -185,10 +185,16 @@ for (const rel of workspacePkgs) {
   else if (packageNames.has(pkg.name)) fail(`duplicate workspace package name: ${pkg.name}`);
   else packageNames.add(pkg.name);
   const dir = path.dirname(rel);
-  for (const lock of ['pnpm-lock.yaml','package-lock.json','yarn.lock']) if (exists(`${dir}/${lock}`)) fail(`nested lockfile is not allowed: ${dir}/${lock}`);
+  for (const lock of ['pnpm-lock.yaml','package-lock.json','yarn.lock']) if (exists(`${dir}/${lock}`)) {
+    // Only the native service already excluded from pnpm has a standalone npm install.
+    if (dir === 'services/app360-data-core' && lock === 'package-lock.json') {
+      const pinned = readJson(`${dir}/${lock}`), manifest = pinned.packages && pinned.packages[''];
+      if (pinned.lockfileVersion !== 3 || !manifest || JSON.stringify(manifest.dependencies) !== JSON.stringify(pkg.dependencies) || !manifest.engines || manifest.engines.node !== pkg.engines.node) fail('data-core native lockfile must match its service manifest');
+    } else fail(`nested lockfile is not allowed: ${dir}/${lock}`);
+  }
   if (exists(`${dir}/node_modules`)) fail(`node_modules must not be committed inside workspace: ${dir}`);
 }
-ok(`${workspacePkgs.length} workspace package manifests, unique names and no nested lockfiles`);
+ok(`${workspacePkgs.length} package manifests, unique names and no unexpected nested lockfiles`);
 
 for (const app of apps.filter(x => x.status === 'live' && x.href && x.href.indexOf('apps/') === 0)) {
   const appDir = path.dirname(app.href.split('?')[0].split('#')[0]);

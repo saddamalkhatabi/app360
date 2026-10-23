@@ -4,7 +4,7 @@
   "private": true,
   "description": "App360 local-first content, optional external identity bridge, usage dashboard, user-owned content and learning-event data core",
   "engines": {
-    "node": ">=20 <22"
+    "node": "20.x || 22.x"
   },
   "scripts": {
     "migrate": "node scripts/migrate.js",

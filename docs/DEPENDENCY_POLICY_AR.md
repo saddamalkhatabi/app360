@@ -17,6 +17,8 @@ pnpm install
 
 ## لماذا pnpm؟
 
+استثناء محدد لخدمة `services/app360-data-core` فقط: هي مستثناة بالفعل من pnpm-workspace.yaml وتثبت مكتبة SQLite الأصلية محلياً على نظام الاستضافة وإصدار Node نفسه. لها package-lock.json مستقل للتثبيت عبر npm ci، ويشغّل تثبيتها أمر postinstall/build في الجذر. يتحقق Validator من مطابقة هذا القفل لبيان الخدمة، وتبقى الأقفال الداخلية ممنوعة لكل التطبيقات والخدمات الأخرى. لا ترفع node_modules إلى المستودع أو من Windows إلى Linux.
+
 - Workspace واحد وLockfile واحد.
 - إعادة استخدام محتوى الحزم في مخزن content-addressed بدل نسخ متكررة.
 - دعم `workspace:*` للحزم الداخلية.

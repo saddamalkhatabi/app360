@@ -30,7 +30,9 @@
     "build:links": "node tooling/build-public-links.js",
     "test:access": "node tooling/test-access-browser.cjs",
     "validate:retired-ai": "node tooling/test-retired-ai.cjs",
-    "build": "npm --prefix services/app360-data-core install --omit=dev --no-audit --no-fund",
+    "postinstall": "node tooling/install-data-core.cjs",
+    "build": "node tooling/install-data-core.cjs",
+    "doctor:data-core": "node tooling/check-data-core.cjs",
     "start": "node services/family-relay/src/server.js"
   }
 }
