@@ -1,5 +1,14 @@
 name: Verify shared praise and fullscreen learning
 on:
+  pull_request:
+    paths:
+      - 'resources/celebration-audio/player-v1.js'
+      - 'apps/1-4/picture-puzzles/**'
+      - 'apps/1-4/tangram-builder/**'
+      - 'tooling/test-shared-celebration*.cjs'
+      - 'tooling/test-picture-puzzles*.cjs'
+      - 'tooling/test-picture-puzzle-learning.cjs'
+      - '.github/workflows/verify-shared-celebration.yml'
   push:
     branches: [main]
     paths:
@@ -12,6 +21,7 @@ on:
       - 'apps/4-8/command-path-lab/src/celebration.js'
       - 'tooling/test-shared-celebration*.cjs'
       - 'tooling/test-picture-puzzles-browser.cjs'
+      - 'tooling/test-picture-puzzles-v5.cjs'
       - 'tooling/test-picture-puzzle-learning.cjs'
       - '.github/workflows/verify-shared-celebration.yml'
   workflow_dispatch:
