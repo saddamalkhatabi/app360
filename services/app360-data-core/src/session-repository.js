@@ -8,7 +8,7 @@ function safeJson(v){try{return JSON.stringify(v==null?{}:v)}catch(e){return'{}'
 function parseJson(v,fallback){try{return JSON.parse(v||'')}catch(e){return fallback}}
 function internalId(prefix,value){return prefix+'-'+hash(value).slice(0,24)}
 function unique(a){var out=[],seen={},i,v;for(i=0;i<(a||[]).length;i++){v=String(a[i]||'');if(v&&!seen[v]){seen[v]=1;out.push(v)}}return out}
-function isManagerMembership(m){if(!m)return false;var p=parseJson(m.permissions_json,[])||[];return m.relationship==='owner'||m.relationship==='trainer'||p.indexOf('manage_content')>=0||p.indexOf('manage_children')>=0||p.indexOf('manage_members')>=0||p.indexOf('manage_trainees')>=0||p.indexOf('manage_audience')>=0}
+function isManagerMembership(m){if(!m)return false;var p=parseJson(m.permissions_json,[])||[];return (!/^acct-sr-/.test(m.account_id||'')&&(m.relationship==='owner'||m.relationship==='trainer'))||p.indexOf('manage_content')>=0||p.indexOf('manage_children')>=0||p.indexOf('manage_members')>=0||p.indexOf('manage_trainees')>=0||p.indexOf('manage_audience')>=0}
 function positive(n,max){n=Math.round(Number(n)||0);if(n<0)n=0;if(max&&n>max)n=max;return n}
 function clone(v){try{return JSON.parse(JSON.stringify(v))}catch(e){return v}}
 function dataUrlParts(v){var m=/^data:([^;,]+);base64,(.+)$/i.exec(String(v||''));if(!m)return null;var buf;try{buf=Buffer.from(m[2],'base64')}catch(e){return null}return{mime:m[1].toLowerCase(),buffer:buf}}
@@ -86,12 +86,12 @@ async function memberContext(db,userId,accountId){
   var q=db('account_members').where({user_id:userId});
   if(accountId)q=q.andWhere({account_id:accountId});
   var membership=await q.first();
-  return{membership:membership,manager:isManagerMembership(membership),account_id:membership?membership.account_id:(accountId||null)};
+  return{membership:membership,manager:isManagerMembership(membership),reviewer:!!membership&&(isManagerMembership(membership)||membership.relationship==='owner'||membership.relationship==='trainer'||parseJson(membership.permissions_json,[]).indexOf('review_events')>=0),account_id:membership?membership.account_id:(accountId||null)};
 }
 
 async function listManagedMembers(db,userId,accountId){
   var ctx=await memberContext(db,userId,accountId);
-  if(!ctx.manager||!ctx.account_id)return[];
+  if(!ctx.reviewer||!ctx.account_id)return[];
   var rows=await db('account_members as m').join('users as u','u.id','m.user_id').where('m.account_id',ctx.account_id).andWhereNot('u.id',userId).andWhere('u.status','active').select('u.id as user_id','u.display_name','u.role','u.age_band','m.relationship','m.permissions_json').orderBy('u.display_name','asc');
   var out=[];
   for(var i=0;i<rows.length;i++){
@@ -104,6 +104,7 @@ async function listManagedMembers(db,userId,accountId){
 async function allowedAudienceIds(db,userId,accountId,requested){
   requested=unique(requested||[]);
   if(!requested.length)return[];
+  var ctx=await memberContext(db,userId,accountId);if(!ctx.manager)throw new Error('audience_permission_denied');
   var members=await listManagedMembers(db,userId,accountId),allowed={},out=[],i;
   for(i=0;i<members.length;i++)allowed[members[i].user_id]=1;
   for(i=0;i<requested.length;i++)if(allowed[requested[i]])out.push(requested[i]);
