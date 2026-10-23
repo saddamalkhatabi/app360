@@ -189,7 +189,7 @@ for (const rel of workspacePkgs) {
     // Only the native service already excluded from pnpm has a standalone npm install.
     if (dir === 'services/app360-data-core' && lock === 'package-lock.json') {
       const pinned = readJson(`${dir}/${lock}`), manifest = pinned.packages && pinned.packages[''];
-      if (pinned.lockfileVersion !== 3 || !manifest || JSON.stringify(manifest.dependencies) !== JSON.stringify(pkg.dependencies) || !manifest.engines || manifest.engines.node !== pkg.engines.node) fail('data-core native lockfile must match its service manifest');
+      if (pinned.lockfileVersion !== 3 || !manifest || JSON.stringify(manifest.dependencies) !== JSON.stringify(pkg.dependencies) || JSON.stringify(manifest.optionalDependencies) !== JSON.stringify(pkg.optionalDependencies) || !manifest.engines || manifest.engines.node !== pkg.engines.node) fail('data-core native lockfile must match its service manifest');
     } else fail(`nested lockfile is not allowed: ${dir}/${lock}`);
   }
   if (exists(`${dir}/node_modules`)) fail(`node_modules must not be committed inside workspace: ${dir}`);
