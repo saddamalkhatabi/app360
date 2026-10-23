@@ -1,5 +1,10 @@
 name: Verify tangram child touch continuity
 on:
+  pull_request:
+    paths:
+      - 'apps/1-4/tangram-builder/**'
+      - 'tooling/test-tangram-touch*.cjs'
+      - '.github/workflows/tangram-touch-v18.yml'
   push:
     branches: [main]
     paths:
