@@ -39,7 +39,13 @@ jobs:
       - run: node tooling/test-shared-celebration.cjs && node tooling/test-picture-puzzle-learning.cjs && node tooling/test-picture-puzzles-v5.cjs && node tooling/test-tangram-touch-v18.cjs
       - run: node --test recorded-voice-v19.test.js
         working-directory: apps/1-4/screen-to-move
-      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Ensure FFmpeg without reinstalling the runner's existing decoder
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update -qq
+            sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y ffmpeg
+          fi
+          ffmpeg -version
       - name: Verify every shared recording decodes and matches its published digest
         run: |
           python - <<'PY'
