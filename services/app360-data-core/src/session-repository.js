@@ -45,7 +45,7 @@ async function ensureExternalUser(db,identity){
     var acct=await db('accounts').where({id:accountId}).first();
     if(!acct)await db('accounts').insert({id:accountId,type:acctType,name:identity.account_name||'حساب الريلز الآمن 360',status:'active',metadata_json:safeJson({external_account_id:identity.account_external_id,source:source})}).onConflict('id').ignore();
     await db('account_members').where({user_id:userId}).whereNot('account_id',accountId).whereIn('account_id',db('accounts').select('id').where('id','like','acct-sr-%')).del();
-    if(preferences.official_entitlements.can_manage_content!==true)permissions=permissions.filter(function(p){return p.indexOf('manage_')!==0;});
+    if(preferences.official_entitlements.can_manage_content!==true)permissions=permissions.filter(function(p){return p.indexOf('manage_')!==0;});if(preferences.official_entitlements.can_read_reports!==true)permissions=permissions.filter(function(p){return p!=='review_events';});
     await db('account_members').insert({account_id:accountId,user_id:userId,relationship:relationship,permissions_json:safeJson(permissions)}).onConflict(['account_id','user_id']).merge();
   }
   user=await db('users').where({id:userId}).first();
@@ -86,7 +86,7 @@ async function memberContext(db,userId,accountId){
   var q=db('account_members').where({user_id:userId});
   if(accountId)q=q.andWhere({account_id:accountId});
   var membership=await q.first();
-  return{membership:membership,manager:isManagerMembership(membership),reviewer:!!membership&&(isManagerMembership(membership)||membership.relationship==='owner'||membership.relationship==='trainer'||parseJson(membership.permissions_json,[]).indexOf('review_events')>=0),account_id:membership?membership.account_id:(accountId||null)};
+  return{membership:membership,manager:isManagerMembership(membership),reviewer:!!membership&&(isManagerMembership(membership)||!/^acct-sr-/.test(membership.account_id||'')&&(membership.relationship==='owner'||membership.relationship==='trainer')||parseJson(membership.permissions_json,[]).indexOf('review_events')>=0),account_id:membership?membership.account_id:(accountId||null)};
 }
 
 async function listManagedMembers(db,userId,accountId){
