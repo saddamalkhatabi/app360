@@ -5,7 +5,7 @@
   "description": "مدرسة العائلة 360 — independent family learning applications",
   "packageManager": "pnpm@10.15.1",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "scripts": {
     "validate": "node tooling/validate-platform-active.js && node tooling/build-blueprints-active.js --check && node tooling/validate-app-links.js && node tooling/test-retired-ai.cjs && node tooling/validate-shared-app-shell.js && node tooling/test-legacy-touch-guard.js && node tooling/validate-next-app-requirements.js && node tooling/validate-session-data.js && node tooling/validate-usage-dashboard.js",

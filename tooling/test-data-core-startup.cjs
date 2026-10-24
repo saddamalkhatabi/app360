@@ -34,3 +34,10 @@ test('a dangling database symlink cannot create an empty replacement at a lost m
  assert.throws(()=>storage.prepare({APP360_DB_FILE:file,APP360_UPLOAD_ROOT:path.join(dir,'uploads')}),e=>e.code==='APP360_STORAGE_UNAVAILABLE'&&e.storageReason==='ENOENT'&&e.storageTarget==='database_file');
  assert(fs.lstatSync(file).isSymbolicLink());assert(!fs.existsSync(missing));assert(!fs.existsSync(path.join(dir,'uploads')));
 });
+
+test('the single Node hosting entry prints optional storage diagnosis and still starts the web server',async()=>{
+ assert.equal(require('../package.json').engines.node,'22.x');
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'school-entry-')),file=path.join(dir,'absent','account.sqlite3');
+ const child=cp.spawn(process.execPath,['services/family-relay/src/server.js'],{cwd:root,windowsHide:true,stdio:['ignore','pipe','pipe'],env:{...process.env,PORT:'0',HOST:'127.0.0.1',APP360_DATA_CORE_ENABLED:'0',APP360_STORAGE_DIAGNOSTICS:'1',APP360_DB_FILE:file,APP360_UPLOAD_ROOT:path.join(dir,'uploads'),APP360_REELS_BRIDGE_SECRET:'SECRET_NOT_FOR_LOGS'}});
+ let output='';try{await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('entry startup timeout')),15000);child.stdout.on('data',chunk=>{output+=chunk;if(output.includes('[App360 Family] WebSocket')){clearTimeout(timer);resolve()}});child.once('error',e=>{clearTimeout(timer);reject(e)});child.once('exit',()=>{clearTimeout(timer);reject(Error('entry exited before listening'))});});assert(output.includes('school-storage-read-only'));assert(!output.includes('SECRET_NOT_FOR_LOGS'));assert(!fs.existsSync(path.dirname(file)));}finally{if(child.exitCode===null)await new Promise(resolve=>{child.once('exit',resolve);child.kill()});}
+});
