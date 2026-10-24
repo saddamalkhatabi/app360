@@ -13,7 +13,7 @@ test('host-only secure HttpOnly cookie has bounded expiry and cannot inject head
 });
 function endpoint(){let revoked=false,authorized=0;const current={session:{source:'safe-reels-360',expires_at:expiry},user:{id:'child',display_name:'نور',role:'learner'},account_id:'family'};
  const fakeDb={destroy:async()=>{}};const sessions={findIdentitySession:async(db,t)=>!revoked&&t===TOKEN?current:null};
- const requires={'http':{createServer:()=>({})},'url':require('node:url'),'./index':{db:{createDb:async()=>fakeDb}},'./session-repository':sessions,'./demo-auth':{},'./safe-reels-adapter':{},'./file-store':{createFileStore:()=>({})},'./reels-bridge':{authorize:async()=>authorized++},'./celebration-service':{createCelebrationService:()=>({})},'./browser-session':cookie};
+ const requires={'http':{createServer:()=>({})},'url':require('node:url'),'./index':{db:{requestDb:async()=>fakeDb,releaseRequestDb:async db=>db.destroy()}},'./session-repository':sessions,'./demo-auth':{},'./safe-reels-adapter':{},'./file-store':{createFileStore:()=>({})},'./reels-bridge':{authorize:async()=>authorized++},'./celebration-service':{createCelebrationService:()=>({})},'./browser-session':cookie};
  const module={exports:{}};vm.runInNewContext(fs.readFileSync('services/app360-data-core/src/http-server.js','utf8'),{require:Object.assign(n=>requires[n],{main:null}),module,process:{env:{}},URL,Buffer,console,setInterval});
  return{revoke:()=>revoked=true,authorized:()=>authorized,call:async(headers)=>{const res={headers:{},setHeader(k,v){this.headers[k]=v},end(s){this.body=JSON.parse(s)}};await module.exports.handler({url:'/api/app360/auth/session',method:'GET',headers:{host:'school.test',...headers}},res);return res}};
 }

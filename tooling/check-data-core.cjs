@@ -10,5 +10,5 @@ let diagnostics,stage='modules';
  stage='modules';require('../services/app360-data-core/src/http-server');
  stage='configuration';try{require('../services/app360-data-core/src/reels-bridge').configured()}catch(_){throw Object.assign(Error('Invalid bridge configuration'),{code:'APP360_BRIDGE_CONFIG_INVALID'});}
  stage='database';const db=await require('../services/app360-data-core/src/db').createDb();try{await db.raw('SELECT 1')}finally{await db.destroy()}
- console.log(JSON.stringify({ok:true,check:'data-core-startup',node:process.versions.node,sqlite_driver:require('../services/app360-data-core/src/sqlite-driver').driver().name,migrations_run:false,seeds_run:false,bridge_request_sent:false}));
+ console.log(JSON.stringify({ok:true,check:'data-core-startup',node:process.versions.node,database_engine:require('../services/app360-data-core/src/database-config').engine(),migrations_run:false,seeds_run:false,bridge_request_sent:false}));
 })().catch(e=>{const d=diagnostics?diagnostics.classify(e,stage):{error:'data_core_files_missing',reason:'SERVICE_FILES_INCOMPLETE',stage:'modules'};if(diagnostics)diagnostics.log(d);else console.error('[APP360_DATA_CORE] SERVICE_FILES_INCOMPLETE');process.exitCode=1;});

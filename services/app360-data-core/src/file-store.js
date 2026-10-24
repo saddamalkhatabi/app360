@@ -7,15 +7,16 @@ function id(){return 'file-'+Date.now().toString(36)+'-'+Math.random().toString(
 function sha256(buf){return crypto.createHash('sha256').update(buf).digest('hex')}
 function ensure(dir){if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true})}
 function createFileStore(opts){
-  opts=opts||{};var root=opts.root||process.env.APP360_UPLOAD_ROOT||path.resolve(__dirname,'../var/uploads');ensure(root);
+  opts=opts||{};var mode=opts.mode||require('./database-config').fileStorage(),root=mode==='database'?null:(opts.root||process.env.APP360_UPLOAD_ROOT||require('./storage').settings().uploads);if(root)ensure(root);
   async function putBuffer(db,ownerUserId,originalName,mimeType,buffer,meta){
     if(!Buffer.isBuffer(buffer))throw new Error('buffer required');
     var hash=sha256(buffer),existing=await db('files').where({sha256:hash,owner_user_id:ownerUserId||null}).first();
+    if(existing&&existing.storage_kind==='database'&&await db('file_contents').where({file_id:existing.id}).first('file_id'))return existing;
     if(existing&&existing.storage_path&&fs.existsSync(existing.storage_path))return existing;
-    var ext=path.extname(originalName||'')||'';var fileId=id(),diskName=fileId+(ext?ext.toLowerCase():'');var target=path.join(root,safeName(diskName));
-    fs.writeFileSync(target,buffer);
-    var row={id:fileId,owner_user_id:ownerUserId||null,storage_kind:'filesystem',storage_path:target,original_name:safeName(originalName||diskName),mime_type:mimeType||'application/octet-stream',byte_size:buffer.length,sha256:hash,width:meta&&meta.width||null,height:meta&&meta.height||null,metadata_json:JSON.stringify(meta||{})};
-    await db('files').insert(row);return await db('files').where({id:fileId}).first();
+    var ext=path.extname(originalName||'')||'';var fileId=id(),diskName=fileId+(ext?ext.toLowerCase():'');var target=root?path.join(root,safeName(diskName)):null;
+    var row={id:fileId,owner_user_id:ownerUserId||null,storage_kind:mode,storage_path:target,original_name:safeName(originalName||diskName),mime_type:mimeType||'application/octet-stream',byte_size:buffer.length,sha256:hash,width:meta&&meta.width||null,height:meta&&meta.height||null,metadata_json:JSON.stringify(meta||{})};
+    if(mode==='database')await db.transaction(async trx=>{await trx('files').insert(row);await trx('file_contents').insert({file_id:fileId,data:buffer})});
+    else{fs.writeFileSync(target,buffer);await db('files').insert(row);}return await db('files').where({id:fileId}).first();
   }
   async function linkToContent(db,contentItemId,fileId,purpose,itemRef,sortOrder){
     var row={content_item_id:contentItemId,file_id:fileId,purpose:purpose||'illustration',item_ref:itemRef||null,sort_order:sortOrder||0};
@@ -26,6 +27,7 @@ function createFileStore(opts){
   }
   async function readBuffer(db,fileId){
     var row=await db('files').where({id:fileId}).first();
+    if(row&&row.storage_kind==='database'){var content=await db('file_contents').where({file_id:fileId}).first();return content?{row:row,buffer:Buffer.from(content.data)}:null;}
     if(!row||!row.storage_path||!fs.existsSync(row.storage_path))return null;
     return{row:row,buffer:fs.readFileSync(row.storage_path)};
   }

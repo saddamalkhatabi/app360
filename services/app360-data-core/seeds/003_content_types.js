@@ -4,7 +4,6 @@ var path=require('path');
 exports.seed=async function(knex){
   var p=path.resolve(__dirname,'../../../data/content-type-contracts.json');
   var contracts=JSON.parse(fs.readFileSync(p,'utf8'));
-  await knex('content_types').del();
   var rows=[],apps=contracts.apps||[],i,j,a,t,base=[
     {id:'user_input',label_ar:'مدخل مستخدم محفوظ',supports_images:true,supports_audio_script:false},
     {id:'user_artifact',label_ar:'مخرج أو تصميم شخصي',supports_images:true,supports_audio_script:false}
@@ -17,5 +16,5 @@ exports.seed=async function(knex){
     }
     for(j=0;j<base.length;j++)rows.push({key:a.app_id+':'+base[j].id,app_id:a.app_id,type_id:base[j].id,label_ar:base[j].label_ar,supports_images:base[j].supports_images?1:0,supports_audio_script:base[j].supports_audio_script?1:0,schema_json:JSON.stringify({generic:true,fields:['content','assets'],required_item_fields:[]})});
   }
-  if(rows.length)await knex('content_types').insert(rows);
+  if(rows.length)await knex('content_types').insert(rows).onConflict('key').merge();
 };

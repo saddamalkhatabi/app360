@@ -16,7 +16,8 @@
     "serve": "node src/http-server.js"
   },
   "dependencies": {
-    "knex": "3.3.0"
+    "knex": "3.3.0",
+    "pg": "8.16.3"
   },
   "optionalDependencies": {
     "better-sqlite3": "11.10.0"

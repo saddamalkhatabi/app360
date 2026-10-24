@@ -346,7 +346,7 @@ function createApp360Server(options = {}) {
   return {
     server, relay,
     listen(port = DEFAULT_PORT, host = DEFAULT_HOST) { return new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, host, () => { server.off('error', reject); resolve(server.address()); }); }); },
-    close() { if(dataCore)dataCore.close();clearInterval(pingTimer); for (const c of relay.clients) wsClose(c, 1001, 'server-stop'); return new Promise(resolve => server.close(() => resolve())); }
+    async close() { if(dataCore)await dataCore.close();clearInterval(pingTimer); for (const c of relay.clients) wsClose(c, 1001, 'server-stop'); return new Promise(resolve => server.close(() => resolve())); }
   };
 }
 
