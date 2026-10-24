@@ -34,6 +34,12 @@ function prepareDirectory(dir,verifyWrite,target){
  finally{if(probe)try{fs.unlinkSync(probe)}catch(_){}}
 }
 function prepare(env){
+ env=env||process.env;
+ const config=require('./database-config');
+ if(config.engine(env)==='postgresql'){
+  if(config.fileStorage(env)==='filesystem')prepareDirectory(path.resolve(env.APP360_UPLOAD_ROOT||path.join(__dirname,'../school-data/uploads')),true,'uploads_directory');
+  return {database:null,uploads:config.fileStorage(env)==='filesystem'?path.resolve(env.APP360_UPLOAD_ROOT||path.join(__dirname,'../school-data/uploads')):null};
+ }
  var s=settings(env);prepareDirectory(path.dirname(s.database),true,'database_directory');
  try{
   var stat;

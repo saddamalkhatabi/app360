@@ -14,9 +14,9 @@ function createDataCore(){
   stage='configuration';try{bridge.configured()}catch(_){throw Object.assign(Error('Invalid bridge configuration'),{code:'APP360_BRIDGE_CONFIG_INVALID'});}
  }catch(e){record(e);return{ready:Promise.resolve(false),handle(req,res){unavailable(res)},close(){}}}
  stage='database';
- const ready=(async()=>{const db=await core.db.createDb();try{await db.migrate.latest();await db.seed.run();}finally{await db.destroy();}})();
+ const ready=(async()=>{const db=await core.db.createDb();try{await require('../../app360-data-core/src/bootstrap').initialize(db);}finally{await db.destroy();}})();
  ready.catch(record);
  const timer=setInterval(async()=>{let db;try{await ready;if(!bridge.configured())return;db=await core.db.createDb();await bridge.drain(db);}catch(_){}finally{if(db)await db.destroy();}},30000);timer.unref();
- return {ready,handle(req,res){ready.then(()=>api.handler(req,res)).catch(()=>{unavailable(res)});},close(){clearInterval(timer);}};
+ return {ready,handle(req,res){ready.then(()=>api.handler(req,res)).catch(()=>{unavailable(res)});},close(){clearInterval(timer);return core.db.closeRequestDb();}};
 }
 module.exports={createDataCore};
