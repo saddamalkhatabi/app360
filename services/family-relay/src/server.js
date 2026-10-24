@@ -351,6 +351,11 @@ function createApp360Server(options = {}) {
 }
 
 if (require.main === module) {
+  // Hosting entry discovery requires a single Node entry, not a chained shell command.
+  if (process.env.APP360_STORAGE_DIAGNOSTICS === '1') {
+    try { require('../../../tooling/inspect-school-storage.cjs'); }
+    catch (_) { console.error('[APP360_STORAGE_INSPECT] inspection_unavailable'); }
+  }
   const app = createApp360Server();
   app.listen().then(addr => {
     const port = addr && addr.port || DEFAULT_PORT;
