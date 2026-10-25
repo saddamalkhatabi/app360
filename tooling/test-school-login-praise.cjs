@@ -19,7 +19,7 @@ test('same-tab callback returns to the original app even if window.opener exists
  const ok=run('request-123');assert.equal(ok.target,'/apps/demo/index.html?mode=draw#board');assert.equal(ok.messages,0);const fail=run('wrong');assert.equal(fail.target,'');assert.match(fail.status.textContent,/مطابقة/);
 });
 test('shared drawing praise uses authenticated learner identity, cancels a pending load at logout and keeps guests generic',()=>{
- let p={user_id:'test-child',display_name:'نور',role:'learner'},calls=[],scripts=[],audios=[],events={},stops=0;
+ let p={user_id:'test-child',display_name:'نور',role:'learner',entitlements:{active:true,named_encouragement:true,ends_at:new Date(Date.now()+3600000).toISOString()}},calls=[],scripts=[],audios=[],events={},stops=0;
  const w={APP360_SESSION:{isAuthenticated:()=>!!p,getProfile:()=>p},Audio:function(src){audios.push(src);this.pause=()=>{};this.play=()=>{}},addEventListener(){},speechSynthesis:{cancel(){}}};
  const d={getElementsByTagName:()=>[],createElement:()=>({}),head:{appendChild:s=>scripts.push(s)},addEventListener:(k,v)=>events[k]=v};
  vm.runInNewContext(read('resources/celebration-audio/player-v1.js'),{window:w,document:d,navigator:{userAgent:''},setTimeout:()=>1,clearTimeout(){}});
