@@ -25,7 +25,25 @@
         "auditory_review": "pending"
       },
       "status": "recorded-awaiting-listening-review",
-      "spoken_text": "نُور"
+      "spoken_text": "نُور",
+      "praise_audio": {
+        "f": {
+          "id": "name-1",
+          "gender": "f",
+          "path": "audio/praise/name-1-f.mp3",
+          "text": "أَحْسَنْتِ يَا عَزِيزَتِي نُور",
+          "kind": "full-praise",
+          "revision": "full-dear-praise-v1",
+          "sha256": "0906ca30af8556daa1d76b610b7c838b153494e3a087e513a6d62cff7a83fc08",
+          "duration_ms": 1858,
+          "engine": "silma-tts-demo",
+          "model_revision": "not-exposed-by-demo",
+          "auditory_review": "pending",
+          "reference_sha256": "53b39d6e1dfffd259c0ab99c848e96670dee5ab803bf86d8682a587c1093ec12",
+          "source_sha256": "6cfbe7aa749122db5f985608ea604cf6590520fbb9f8ee4c5f995209d99b76cd",
+          "source_note": "Complete female Noor WAV explicitly preferred by project owner in listening experiment; MP3 encoding not separately human-approved"
+        }
+      }
     },
     {
       "id": "name-2",
@@ -19005,5 +19023,13 @@
     "received_shards": 20,
     "expected_shards": 20,
     "stale_recording_ids": []
+  },
+  "full_praise_progress": {
+    "revision": "full-dear-praise-v1",
+    "names": 1041,
+    "required_clips": 2084,
+    "recorded": 1,
+    "pending": 2083,
+    "complete": false
   }
 }
