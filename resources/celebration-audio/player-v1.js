@@ -14,7 +14,7 @@ function learner(){try{var s=w.APP360_SESSION,p=s&&s.isAuthenticated()&&s.getPro
 var encouragementLoading=false,encouragementQueue=[];
 function loadEncouragement(done){if(w.APP360_TEACHER_ENCOURAGEMENT){done(true);return}encouragementQueue.push(done);if(encouragementLoading)return;encouragementLoading=true;var s=d.createElement('script'),ended=false,t;
 function finish(){if(ended)return;ended=true;clearTimeout(t);encouragementLoading=false;var list=encouragementQueue;encouragementQueue=[];for(var j=0;j<list.length;j++)list[j](!!w.APP360_TEACHER_ENCOURAGEMENT)}
-s.src=base+'../../assets/js/teacher-encouragement-v1.js?v=20261025-experience';s.onload=s.onerror=finish;t=setTimeout(finish,6000);(d.head||d.body).appendChild(s)}
+s.src=base+'../../assets/js/teacher-encouragement-v1.js?v=20261025-account';s.onload=s.onerror=finish;t=setTimeout(finish,6000);(d.head||d.body).appendChild(s)}
 function play(options,done){options=options||{};if(!learner()||options.signedInName===false)return playClip(choose(options),done,true);stop();var seq=token,p=learner();loadEncouragement(function(ok){if(seq!==token)return;var current=learner();if(!current||current.user_id!==p.user_id)return;if(ok)w.APP360_TEACHER_ENCOURAGEMENT.play(options,function(){if(done)done(true)});else playClip(choose(options),done,true)});return true}
 function playClip(row,done,allowNative){stop();var seq=token,settled=false;
  function finish(ok){if(seq!==token||settled)return;settled=true;clearTimeout(timer);timer=null;if(done)done(ok)}
