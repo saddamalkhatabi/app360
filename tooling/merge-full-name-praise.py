@@ -1,6 +1,7 @@
 """Merge only matching current texts/IDs; never convert technical QA to listening approval."""
 import argparse
 import json
+import os
 import pathlib
 import shutil
 import subprocess
@@ -55,4 +56,20 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--incoming', required=True)
     args = parser.parse_args()
-    merge(args.incoming)
+    state = merge(args.incoming)
+    # The already-running workflow checks out the latest working branch in its
+    # publish job. Stage the generated offline indexes together with the media.
+    # Never stage files during local review/tests or an incomplete recording run.
+    if state['complete'] and os.environ.get('GITHUB_ACTIONS') == 'true' and os.environ.get('GITHUB_JOB') == 'publish':
+        for command in [
+            ['node', 'tooling/refresh-full-praise-offline.cjs'],
+            ['node', 'tooling/refresh-reels-offline.js'],
+            ['node', 'tooling/refresh-reels-offline.js', '--check'],
+            ['node', '--test', 'tooling/test-unified-offline.cjs', 'tooling/test-connected-praise.cjs',
+             'tooling/test-personalized-celebration.cjs', 'tooling/test-teacher-encouragement.cjs'],
+        ]:
+            subprocess.run(command, cwd=ROOT, check=True)
+        subprocess.run(['git', 'add', 'data/offline', 'data/offline-catalog.json',
+                        'resources/celebration-audio/phrases.json',
+                        'resources/celebration-audio/manifest-v1.js',
+                        'resources/celebration-audio/pcm-v1.js'], cwd=ROOT, check=True)
