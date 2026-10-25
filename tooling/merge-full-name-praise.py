@@ -5,6 +5,7 @@ import os
 import pathlib
 import shutil
 import subprocess
+import sys
 from full_praise_batches import tasks, metadata, valid, generic_catalog, progress, REVISION
 from celebration_name_batches import write_json
 
@@ -62,6 +63,7 @@ if __name__ == '__main__':
     # Never stage files during local review/tests or an incomplete recording run.
     if state['complete'] and os.environ.get('GITHUB_ACTIONS') == 'true' and os.environ.get('GITHUB_JOB') == 'publish':
         for command in [
+            [sys.executable, 'tooling/test_full_praise_batches.py'],
             ['node', 'tooling/refresh-full-praise-offline.cjs'],
             ['node', 'tooling/refresh-reels-offline.js'],
             ['node', 'tooling/refresh-reels-offline.js', '--check'],

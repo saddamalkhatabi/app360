@@ -4,7 +4,7 @@ function stop(){generation++;w.App360Celebration.stop();if(audio){audio.onended=
 function text(el,value){el.appendChild(d.createTextNode(value))}
 function preview(row,withPrefix,gender){
  stop();var seq=generation;
- if(!row.audio){status.textContent='هذا الاسم لم يكتمل تسجيله بعد.';return}
+ if(!withPrefix&&!row.audio){status.textContent='هذا الاسم لم يكتمل تسجيله بعد.';return}
  status.textContent='استمع إلى: '+row.name;
  function name(){if(seq!==generation)return;audio=new Audio(row.audio.path);audio.onended=function(){if(seq===generation)status.textContent='انتهى التسجيل: '+row.name+' — دوّن أي تصحيح مطلوب.'};audio.onerror=function(){if(seq===generation)status.textContent='تعذر تحميل صوت الاسم.'};var p=audio.play();if(p&&p.catch)p.catch(audio.onerror)}
  if(withPrefix){var full=row.praise_audio&&row.praise_audio[gender];if(!full){status.textContent='العبارة الكاملة لم تسجل بعد.';return}audio=new Audio(full.path);audio.onended=function(){if(seq===generation)status.textContent='انتهت العبارة الكاملة — '+row.name};audio.onerror=function(){if(seq===generation)status.textContent='تعذر تشغيل العبارة الكاملة.'};var p=audio.play();if(p&&p.catch)p.catch(audio.onerror)}else name()
