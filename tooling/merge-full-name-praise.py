@@ -57,6 +57,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--incoming', required=True)
     args = parser.parse_args()
+    if shutil.which('ffmpeg') is None and os.environ.get('GITHUB_ACTIONS') == 'true':
+        # Publish jobs also decode media; generation runners install this separately.
+        subprocess.run(['sudo', 'apt-get', 'update', '-qq'], check=True)
+        subprocess.run(['sudo', 'apt-get', 'install', '-y', '-qq', 'ffmpeg'], check=True)
     state = merge(args.incoming)
     # The already-running workflow checks out the latest working branch in its
     # publish job. Stage the generated offline indexes together with the media.

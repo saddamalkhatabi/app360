@@ -91,6 +91,10 @@ jobs:
           pattern: full-praise-silma-*
           merge-multiple: true
           path: /tmp/full-praise-results
+      - name: Install media decoder for publishing
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
       - name: Verify and merge against current branch catalog
         run: |
           git pull --ff-only origin "${{ github.ref_name }}"
