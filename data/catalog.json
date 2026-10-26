@@ -6298,6 +6298,83 @@
         ],
         "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ لا ادعاء تجربة تربوية منشورة."
       }
+    },
+    {
+      "id": "fun-wonder-machine",
+      "slug": "wonder-machine",
+      "title_ar": "جهاز العجائب",
+      "title_en": "Wonder Machine",
+      "age_group": "1-4",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 3
+      },
+      "category": "fun",
+      "status": "live",
+      "kind": "modern_extension",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_keys": [],
+      "description_ar": "زر وعجلة ورافعة وهواء: استكشاف حر للصغار، و12 مهمة لحالات آلة متدرجة، فرديًا أو بشراكة بالتناوب.",
+      "practice_model": "حرّك أداة ← شاهد الأثر ← جرّب حالة أخرى ← جهّز المشهد",
+      "audience": "learner",
+      "priority": 3,
+      "href": "apps/1-4/wonder-machine/index.html?v=1",
+      "manifest": "apps/1-4/wonder-machine/app.json",
+      "icon": "apps/1-4/wonder-machine/icon.svg",
+      "cover": "apps/1-4/wonder-machine/assets/cover.svg",
+      "cover_fallback": "apps/1-4/wonder-machine/icon.svg",
+      "tags": [
+        "تسلية",
+        "سبب ونتيجة",
+        "استكشاف",
+        "أدوات",
+        "تعاون"
+      ],
+      "goal_links": [],
+      "blueprint_path": "apps/1-4/wonder-machine/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/wonder-machine/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "مشهد تفاعلي تغيّره أربع أدوات؛ وفي المهمات حالة نهائية تحقق شرطين إلى أربعة شروط واضحة.",
+        "audience_ar": "للطفل؛ الصغار مع مرافق بحسب الاستعداد.",
+        "age_adaptation_ar": "1–4 يبدأ بزر واحد مع مرافق، ثم استكشاف بأربع أدوات. 4–8 يبدأ بمهمات من خطوتين ويتدرج إلى ثلاث أو أربع بحسب الاستعداد.",
+        "boundary_ar": "الجولة تسلية؛ لا تقييم معرفي أو ترتيب للأطفال.",
+        "mvp_steps_ar": [
+          "يلمس أداة كبيرة ويشاهد أثرها في المشهد مباشرة",
+          "يستكشف حرًا أو يضبط حالات الأدوات للوصول إلى المشهد المطلوب",
+          "يتراجع ويشاهد مثالًا أو ينتقل إلى تجربة تحفظ حالتها"
+        ],
+        "acceptance_ar": [
+          "اكتمال المهمة يتطلب جميع القيم المطلوبة معًا، ولا يتحقق بمجرد لمس الأدوات",
+          "تغيير المستوى أو المهمة أو العالم يحفظ حالة كل تجربة، والشراكة تتبدل مرة واحدة لكل فعل",
+          "عرض المثال مستقل عن الحفظ ويلغى فور تفاعل الطفل أو مغادرة الصفحة"
+        ],
+        "reference_ids": [],
+        "feedback_ar": "أثر بصري مباشر ونغمة محلية قصيرة اختيارية؛ تلميح قابل للإيقاف ودون مؤقت أو عقوبات.",
+        "data_model": [
+          "schema",
+          "settings",
+          "selected",
+          "rounds.machine",
+          "rounds.turn",
+          "rounds.history"
+        ],
+        "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ لا ادعاء تجربة تربوية منشورة."
+      }
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",

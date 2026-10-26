@@ -1,25 +1,11 @@
 'use strict';
-// A small DOM fixture tests runtime transitions; it does not claim layout/browser coverage.
-const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),C=require('../core.js');
+const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),C=require('../core.js');
+const createRuntime=require('../../../../tooling/test-helpers/static-app-dom.cjs');
 function runtime(search=''){
- const nodes={},all=[],listeners={},events={},timers=new Map(),storage=new Map();let timerId=0,child=null,denied=false;
- class Element{
-  constructor(tag='div'){this.tagName=tag.toUpperCase();this.attrs={};this.children=[];this.style={};this.hidden=false;this.options=[];this._html='';this.textContent='';this.value='';this.disabled=false;all.push(this);}
-  set id(v){this._id=v;nodes[v]=this;}get id(){return this._id;}
-  setAttribute(k,v){this.attrs[k]=String(v);}getAttribute(k){return this.attrs[k]??null;}
-  appendChild(el){this.children.push(el);el.parentNode=this;}
-  set innerHTML(v){this._html=v;if(v==='')this.children=[];}get innerHTML(){return this._html;}
-  querySelectorAll(selector){const out=[];const visit=el=>{for(const c of el.children){if(selector==='[data-edge]'&&c.attrs['data-edge']!==undefined)out.push(c);visit(c);}};visit(this);return out;}
-  focus(){document.activeElement=this;}scrollIntoView(){}
- }
- const html=fs.readFileSync(require.resolve('../index.html'),'utf8');
- for(const match of html.matchAll(/<([a-z][a-z0-9]*)\b([^>]*)>/g)){const e=new Element(match[1]);for(const a of match[2].matchAll(/([\w-]+)="([^"]*)"/g)){if(a[1]==='id')e.id=a[2];else e.setAttribute(a[1],a[2]);}e.hidden=/\bhidden\b/.test(match[2]);}
- for(const m of html.matchAll(/<select id="([^"]+)"[^>]*>(.*?)<\/select>/gs))nodes[m[1]].options=[...m[2].matchAll(/<option value="([^"]+)"/g)].map(x=>({value:x[1],text:''}));
- const document={hidden:false,activeElement:null,documentElement:{},title:'',getElementById:id=>nodes[id],createElement:tag=>new Element(tag),querySelectorAll:selector=>all.filter(e=>selector==='[data-t]'?e.attrs['data-t']!==undefined:selector==='[data-theme]'?e.attrs['data-theme']!==undefined:false),addEventListener:(name,fn)=>{(listeners[name]??=[]).push(fn);}};
- const window={LinesHousesCore:C,location:{search,href:'https://school.example/apps/1-4/lines-and-houses/index.html'+search},localStorage:{getItem:k=>{if(denied)throw Error('denied');return storage.get(k);},setItem:(k,v)=>{if(denied)throw Error('denied');storage.set(k,v);}},APP360_SESSION:{getProfile:()=>child?{user_id:child}:null},setTimeout:fn=>{timers.set(++timerId,fn);return timerId;},clearTimeout:id=>timers.delete(id),history:{pushState(){},back(){(events.popstate||[]).forEach(f=>f());}},matchMedia:()=>({matches:false}),scrollTo(){},addEventListener:(name,fn)=>{(events[name]??=[]).push(fn);}};window.parent=window;
- vm.runInNewContext(fs.readFileSync(require.resolve('../app.js'),'utf8'),{window,document,navigator:{}});
- const state=()=>JSON.parse(JSON.stringify(window.LinesHouses.getState()));
- return {nodes,window,document,state,storage,timers,click:id=>nodes[id].onclick(),move:e=>nodes.boardInner.onclick({target:nodes.boardInner.children.find(n=>n.attrs['data-edge']===String(e))}),dispatch:(name,arg={})=>(listeners[name]||[]).forEach(f=>f(arg)),tick(){const next=timers.entries().next().value;if(next){timers.delete(next[0]);next[1]();}},identity(id){child=id;(listeners['app360:authchange']||[]).forEach(f=>f());},deny(){denied=true;}};
+ const g=createRuntime({directory:path.resolve(__dirname,'..'),globals:{LinesHousesCore:C},search});
+ g.state=()=>JSON.parse(JSON.stringify(g.window.LinesHouses.getState()));
+ g.move=e=>g.nodes.boardInner.onclick({target:g.nodes.boardInner.children.find(n=>n.attrs['data-edge']===String(e))});
+ return g;
 }
 test('runtime starts in cooperative one-house mode and saves after building and undoing',()=>{const g=runtime();assert.equal(g.state().settings.mode,'coop');g.move(3);assert.equal(g.state().round.completed,1);assert.equal(g.state().round.moves.length,1);assert.equal(g.nodes.status.textContent,'بنينا القرية معًا!');g.click('undoBtn');assert.equal(g.state().round.completed,0);assert.equal(JSON.parse([...g.storage.values()][0]).round.moves.length,0);});
 test('older age opens with gentle computer, hides pending actions in settings, and resumes on close',()=>{const g=runtime('?launch_age=4-8');assert.equal(g.state().settings.mode,'ai');assert.equal(g.state().settings.size,2);g.move(0);assert.equal(g.timers.size,1);g.click('settingsBtn');assert.equal(g.state().panel,true);assert.equal(g.timers.size,0);g.click('closeSettings');assert.equal(g.state().panel,false);assert.equal(g.timers.size,1);g.tick();assert.equal(g.state().round.moves.length,2);});

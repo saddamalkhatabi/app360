@@ -1,0 +1,18 @@
+(function(root,factory){'use strict';if(typeof module==='object'&&module.exports)module.exports=factory();else root.WonderMachineContent=factory();})(this,function(){
+'use strict';
+var tasks=[
+{id:'welcome',level:3,title:{ar:'البيت ينتظر زائره',en:'A visitor for the house'},note:{ar:'أضئ البيت وأوصل المركبة إليه.',en:'Light the house and bring the vehicle over.'},initial:{},targets:[{tool:'light',value:1},{tool:'lever',value:1}]},
+{id:'shade',level:3,title:{ar:'ظل ونسمة',en:'Shade and a little breeze'},note:{ar:'افتح المظلة كاملة وشغّل نسمة خفيفة.',en:'Open the canopy fully and make a gentle breeze.'},initial:{},targets:[{tool:'wheel',value:2},{tool:'wind',value:1}]},
+{id:'calm',level:3,title:{ar:'بيت هادئ',en:'A quiet little house'},note:{ar:'أضئ البيت وأوقف المروحة.',en:'Light the house and stop the fan.'},initial:{wind:2},targets:[{tool:'light',value:1},{tool:'wind',value:0}]},
+{id:'return',level:3,title:{ar:'نعود إلى البداية',en:'Back to the start'},note:{ar:'أعد المركبة إلى محطتها وأطفئ الضوء.',en:'Return the vehicle to its station and turn off the light.'},initial:{lever:1,light:1},targets:[{tool:'lever',value:0},{tool:'light',value:0}]},
+{id:'half',level:3,title:{ar:'المظلة الصغيرة',en:'A little canopy'},note:{ar:'افتح المظلة إلى النصف وأوصل المركبة.',en:'Open the canopy halfway and bring the vehicle over.'},initial:{},targets:[{tool:'wheel',value:1},{tool:'lever',value:1}]},
+{id:'breeze',level:3,title:{ar:'رحلة مع النسيم',en:'A breezy little trip'},note:{ar:'شغّل نسمة خفيفة وأوصل المركبة.',en:'Make a gentle breeze and bring the vehicle over.'},initial:{},targets:[{tool:'wind',value:1},{tool:'lever',value:1}]},
+{id:'rain-ready',level:4,title:{ar:'جهّز المحطة',en:'Get the station ready'},note:{ar:'افتح المظلة كاملة، وأضئ البيت، وأوصل المركبة.',en:'Open the canopy fully, light the house and bring the vehicle over.'},initial:{},targets:[{tool:'wheel',value:2},{tool:'light',value:1},{tool:'lever',value:1}]},
+{id:'quiet-night',level:4,title:{ar:'ليلة هادئة',en:'A peaceful night'},note:{ar:'أبقِ الضوء مضاءً، وأغلق المظلة، وأوقف المروحة، وأعد المركبة.',en:'Leave the light on, close the canopy, stop the fan and return the vehicle.'},initial:{wheel:2,wind:3,lever:1},targets:[{tool:'light',value:1},{tool:'wheel',value:0},{tool:'wind',value:0},{tool:'lever',value:0}]},
+{id:'windy-morning',level:4,title:{ar:'صباح متحرك',en:'A breezy morning'},note:{ar:'أغلق المظلة، وشغّل هواءً متوسطًا، وأطفئ الضوء.',en:'Close the canopy, set a medium breeze and turn off the light.'},initial:{wheel:2,light:1},targets:[{tool:'wheel',value:0},{tool:'wind',value:2},{tool:'light',value:0}]},
+{id:'gentle-visit',level:4,title:{ar:'زيارة لطيفة',en:'A gentle visit'},note:{ar:'أضئ البيت، وشغّل نسمة خفيفة، وافتح نصف المظلة، وأوصل المركبة.',en:'Light the house, make a gentle breeze, open the canopy halfway and bring the vehicle over.'},initial:{},targets:[{tool:'light',value:1},{tool:'wind',value:1},{tool:'wheel',value:1},{tool:'lever',value:1}]},
+{id:'rest',level:4,title:{ar:'وقت الراحة',en:'Time to rest'},note:{ar:'أعد المركبة وأطفئ الضوء وأوقف المروحة.',en:'Return the vehicle, turn off the light and stop the fan.'},initial:{lever:1,light:1,wind:2},targets:[{tool:'lever',value:0},{tool:'light',value:0},{tool:'wind',value:0}]},
+{id:'bright-station',level:4,title:{ar:'محطة مبهجة',en:'A cheerful station'},note:{ar:'افتح المظلة، وأضئ البيت، وشغّل الهواء القوي، واترك المركبة في محطتها.',en:'Open the canopy, light the house, set a strong breeze and leave the vehicle at its station.'},initial:{lever:1},targets:[{tool:'wheel',value:2},{tool:'light',value:1},{tool:'wind',value:3},{tool:'lever',value:0}]}
+];
+return {tasks:tasks};
+});

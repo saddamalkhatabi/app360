@@ -35,7 +35,7 @@ for(const name of required){const row=fs.existsSync(name)&&changed.has(name)?rec
 const files=[...records.values()].sort((a,b)=>a.path.localeCompare(b.path,'en'));
 const version=hash(JSON.stringify(files)).slice(0,16);
 fs.writeFileSync('data/offline/'+id+'.json',JSON.stringify({schema:1,id,version,files})+'\n');
-const row={id,title:options.title,age:'1-4',age_groups:['1-4','4-8'],age_entry_levels:{'1-4':1,'4-8':2},entry:dir+'/index.html',directory:dir+'/',version,release:'1.0.0',bytes:files.reduce((n,f)=>n+f.bytes,0),count:files.length,manifest:'data/offline/'+id+'.json',required:false,minimumVersion:null,updateNote:options.updateNote,networkNote:'تعمل اللعبة وأصواتها محليًا بعد تنزيل الملفات على متصفح يدعم التخزين دون اتصال؛ مزامنة الحساب تحتاج اتصالًا.'};
+const row={id,title:options.title,age:'1-4',age_groups:['1-4','4-8'],age_entry_levels:options.ageEntryLevels||{'1-4':1,'4-8':2},entry:dir+'/index.html',directory:dir+'/',version,release:'1.0.0',bytes:files.reduce((n,f)=>n+f.bytes,0),count:files.length,manifest:'data/offline/'+id+'.json',required:false,minimumVersion:null,updateNote:options.updateNote,networkNote:'تعمل اللعبة وأصواتها محليًا بعد تنزيل الملفات على متصفح يدعم التخزين دون اتصال؛ مزامنة الحساب تحتاج اتصالًا.'};
 catalog.apps=catalog.apps.filter(a=>a.id!==id).concat([row]);
 fs.writeFileSync('data/offline-catalog.json',JSON.stringify(catalog,null,2)+'\n');
 console.log(JSON.stringify({app:id,files:row.count,bytes:row.bytes,version}));
