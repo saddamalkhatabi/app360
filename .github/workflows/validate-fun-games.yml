@@ -1,0 +1,34 @@
+name: Validate Fun games
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/1-4/balloon-garden/**'
+      - 'apps/1-4/tic-tac-toe/**'
+      - 'data/catalog.json'
+      - 'data/offline/**'
+      - 'data/offline-catalog.json'
+      - 'assets/js/offline-*.js'
+      - '.github/workflows/validate-fun-games.yml'
+  pull_request:
+    paths:
+      - 'apps/1-4/balloon-garden/**'
+      - 'apps/1-4/tic-tac-toe/**'
+      - 'data/catalog.json'
+      - 'data/offline/**'
+      - 'data/offline-catalog.json'
+      - 'assets/js/offline-*.js'
+      - '.github/workflows/validate-fun-games.yml'
+permissions:
+  contents: read
+jobs:
+  fun-games:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs
+      - run: node tooling/test-legacy-touch-guard.js
