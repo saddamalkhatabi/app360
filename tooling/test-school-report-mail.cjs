@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const core=path.resolve(__dirname,'../services/app360-data-core'),db=require('knex')({client:'better-sqlite3',connection:{filename:':memory:'},useNullAsDefault:true,pool:{min:1,max:1}});
+const core=path.resolve(__dirname,'../services/app360-data-core'),db=require('node:module').createRequire(path.join(core,'package.json'))('knex')({client:'better-sqlite3',connection:{filename:':memory:'},useNullAsDefault:true,pool:{min:1,max:1}});
 let time=Date.parse('2026-10-26T09:00:00Z'),allowed=true,sent=[];
 const parent={user:{id:'mail-parent',preferences_json:JSON.stringify({official_school_family:true})},session:{source:'safe-reels-360'},account_id:'mail-account'};
 const service=require(path.join(core,'src/school-report-mail')).createSchoolReportMail({clock:()=>time,send:async message=>sent.push(message),call:async(action,input)=>{assert.equal(action,'directory');assert.equal(input.parent_external_id,'admin:2');assert.equal(input.child_external_id,'child:3');if(!allowed)throw Object.assign(Error('No longer owned'),{httpStatus:403});return {identity:{external_user_id:'admin:2',email:'parent@example.test',can_manage_school_family:true,entitlements:{can_read_reports:true}},child:{external_user_id:'child:3',display_name:'طفل تقرير معزول'}};}});

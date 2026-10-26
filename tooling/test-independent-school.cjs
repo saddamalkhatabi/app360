@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),os=require('node:os');
-const knex=require('knex');
+const knex=require('node:module').createRequire(require('node:path').resolve(__dirname,'../services/app360-data-core/package.json'))('knex');
 const root=path.resolve(__dirname,'..'),core=path.join(root,'services/app360-data-core');
 const media=require(path.join(core,'src/parent-media-service')).createParentMediaService();
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'school-independent-test-')),file=path.join(temp,'school.sqlite3');
