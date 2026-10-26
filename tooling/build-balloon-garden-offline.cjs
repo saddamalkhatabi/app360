@@ -8,7 +8,7 @@ const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const record=p=>{const b=fs.readFileSync(p);return{path:p,bytes:b.length,sha256:hash(b)}};
 const runtime=p=>/\.(html|js|css|svg|mp3|webmanifest|json)$/.test(p)&&!p.includes('/tests/')&&!/package\.json|app\.json|offline-files\.json/.test(p);
 function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(d+'/'+x.name):[d+'/'+x.name]);}
-const shared=['assets/js/integration-context-v1.js','assets/js/app360-ai-shell.js','assets/js/app-pwa.js','assets/js/offline-worker-v1.js','assets/js/offline-client-v1.js','assets/js/offline-manager-v2.js','assets/js/app360-session-v1.js','assets/js/app360-account-access-v1.js','assets/js/app360-login-entry-v2.js','assets/js/app360-usage-daily-v1.js','assets/js/app360-family-sync-v1.js','assets/js/app360-family-core-v2.js','assets/js/app360-family-media-core-v3.js','assets/js/app360-peer-media-bootstrap-v1.js','assets/js/app360-peer-bootstrap-v1.js','assets/js/app360-family-catalog-v1.js','assets/js/app360-access-v1.js','assets/css/app360-responsive-policy-v1.css'];
+const shared=['assets/js/integration-context-v1.js','assets/js/app360-ai-shell.js','assets/js/app-pwa.js','assets/js/offline-worker-v1.js','assets/js/offline-client-v1.js','assets/js/offline-manager-v2.js','assets/js/app360-session-v1.js','assets/js/app360-account-access-v1.js','assets/js/app360-login-entry-v2.js','assets/js/app360-usage-daily-v1.js','assets/js/app360-family-sync-v1.js','assets/js/app360-family-core-v2.js','assets/js/app360-family-media-core-v3.js','assets/js/app360-peer-media-bootstrap-v1.js','assets/js/app360-peer-bootstrap-v1.js','assets/js/app360-family-catalog-v1.js','assets/js/app360-access-v1.js','assets/css/app360-responsive-policy-v1.css','resources/celebration-audio/player-v1.js'];
 const local=walk(dir).filter(runtime);
 const preparation=local.concat(shared);
 fs.writeFileSync(dir+'/offline-files.json',JSON.stringify({schema:1,files:preparation.map(p=>path.posix.relative(dir,p))})+'\n');
@@ -24,7 +24,14 @@ for(const row of catalog.apps){
  bundle.files.sort((a,b)=>a.path.localeCompare(b.path));bundle.version=hash(JSON.stringify(bundle.files)).slice(0,16);
  fs.writeFileSync(file,JSON.stringify(bundle)+'\n');row.version=bundle.version;row.bytes=bundle.files.reduce((n,f)=>n+f.bytes,0);row.count=bundle.files.length;
 }
-const files=[...new Set(local.concat(shared,dir+'/offline-files.json'))].sort().map(record);
+// The bridge's mandatory shared records apply to every downloadable application.
+const bridgeSource=fs.readFileSync('tooling/refresh-reels-offline.js','utf8');
+const required=new Function('require','__dirname',bridgeSource.slice(0,bridgeSource.indexOf('const hash='))+'return changed;')(require,__dirname);
+const inherited=new Map();
+for(const app of catalog.apps){if(app.id===id)continue;const m=JSON.parse(fs.readFileSync(app.manifest));for(const f of m.files)inherited.set(f.path,f);}
+const records=new Map([...new Set(local.concat(shared,dir+'/offline-files.json'))].map(p=>[p,record(p)]));
+for(const name of required){const row=fs.existsSync(name)&&changed.has(name)?record(name):inherited.get(name);if(!row)throw Error('Missing required bridge record: '+name);records.set(name,row);}
+const files=[...records.values()].sort((a,b)=>a.path.localeCompare(b.path,'en'));
 const version=hash(JSON.stringify(files)).slice(0,16);
 fs.writeFileSync('data/offline/'+id+'.json',JSON.stringify({schema:1,id,version,files})+'\n');
 const row={id,title:'حديقة البالونات',age:'1-4',age_groups:['1-4','4-8'],age_entry_levels:{'1-4':2,'4-8':3},entry:dir+'/index.html',directory:dir+'/',version,release:'1.0.0',bytes:files.reduce((n,f)=>n+f.bytes,0),count:files.length,manifest:'data/offline/'+id+'.json',required:false,minimumVersion:null,updateNote:'حديقة البالونات: أول تطبيقات التسلية، بعوالم مرحة ولعب تعاوني.',networkNote:'تعمل اللعبة وأصواتها محليًا بعد تنزيل الملفات على متصفح يدعم التخزين دون اتصال؛ مزامنة الحساب تحتاج اتصالًا.'};
