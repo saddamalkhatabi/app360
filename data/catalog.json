@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-10-22",
+  "updated": "2026-10-26",
   "platform": {
     "name_ar": "مدرسة العائلة 360",
     "system_ar": "مدرسة العائلة 360",
@@ -6068,6 +6068,85 @@
         ],
         "reference_ids": [],
         "design_basis_ar": "توثيق التنفيذ القائم وسجل الروابط والنماذج الحالية؛ ليس ادعاء تجربة تربوية منشورة."
+      }
+    },
+    {
+      "id": "fun-balloon-garden",
+      "slug": "balloon-garden",
+      "title_ar": "حديقة البالونات",
+      "title_en": "Balloon Garden",
+      "age_group": "1-4",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 2,
+        "4-8": 3
+      },
+      "category": "fun",
+      "status": "live",
+      "kind": "modern_extension",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "storage.local",
+        "audio.recorded",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_keys": [],
+      "description_ar": "بالونات وعوالم مرحة للعب الحر واكتشاف الألوان والأعداد والحروف، فرديًا أو بالتعاون بالتناوب، دون أسئلة أو خسارة أو سباق على الوقت.",
+      "practice_model": "المس بالونًا ← شاهد المفاجأة ← ازرع زهرة ← أكمل حديقتك أو جرّب عالمًا آخر",
+      "audience": "learner",
+      "priority": 2,
+      "href": "apps/1-4/balloon-garden/index.html?v=1",
+      "manifest": "apps/1-4/balloon-garden/app.json",
+      "icon": "apps/1-4/balloon-garden/icon.svg",
+      "cover": "apps/1-4/balloon-garden/assets/cover.svg",
+      "cover_fallback": "apps/1-4/balloon-garden/icon.svg",
+      "tags": [
+        "تسلية",
+        "بالونات",
+        "لعب حر",
+        "ألوان",
+        "أعداد",
+        "لعب تعاوني"
+      ],
+      "goal_links": [],
+      "blueprint_path": "apps/1-4/balloon-garden/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/balloon-garden/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "حديقة من 6 زهور يكوّنها الطفل باللعب الحر أو التعاون، دون درجات معرفية.",
+        "audience_ar": "للطفل مع إسناد المرافق بحسب الاستعداد.",
+        "age_adaptation_ar": "أربعة مستويات بكثافة بالونات مختلفة للفئتين 1–4 و4–8؛ المستوى الأول مع مرافق.",
+        "boundary_ar": "اكتمال جولة لعب لا يثبت إتقانًا معرفيًا أو تقييمًا نمائيًا.",
+        "mvp_steps_ar": [
+          "يفتح الطفل اللعب مباشرة ويلمس بالونًا كبيرًا",
+          "يختار عالمًا أو نمطًا بصريًا ويشاهد المفاجآت",
+          "يكمل حديقته ويختار إعادة اللعب أو العودة"
+        ],
+        "acceptance_ar": [
+          "اللمس مرة واحدة ينفذ فرقعة واحدة ويُحفظ فورًا",
+          "التناوب ونهاية الجولة والحفظ والعوالم تعمل دون اتصال بعد التنزيل"
+        ],
+        "reference_ids": [],
+        "feedback_ar": "مفاجأة بصرية وزهرة بعد مجموعة لمسات؛ لا خسارة أو تقييم معرفي.",
+        "data_model": [
+          "schema",
+          "settings",
+          "round.seed",
+          "round.pops",
+          "round.turn",
+          "round.balloons",
+          "round.ended"
+        ],
+        "design_basis_ar": "ألعاب سبب ونتيجة وعوالم مرسومة أصلية؛ التصميم المقترح لا يدعي أثرًا تعليميًا مثبتًا."
       }
     }
   ],

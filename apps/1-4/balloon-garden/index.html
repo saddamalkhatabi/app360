@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="theme-color" content="#f7efe1">
+<meta name="description" content="حديقة البالونات: مساحة تسلية مرحة للصغار، بعوالم الحديقة والبحر والفضاء ولعب فردي أو تعاوني.">
+<meta name="app360-app-id" content="fun-balloon-garden"><title>حديقة البالونات | مدرسة العائلة 360</title>
+<link rel="icon" href="icon.svg"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css?v=1">
+<script>window.APP360_PROFILE_OPTIONAL=true;</script>
+<script src="../../../assets/js/integration-context-v1.js?v=20261026"></script><script src="../../../assets/js/app360-ai-shell.js?v=20261026"></script>
+</head><body data-app-id="fun-balloon-garden" data-root="../../..">
+<div class="game-app" id="gameApp">
+<header class="topbar">
+<a class="back-btn" id="backToFun" href="../../../index.html?age=1-4&amp;category=fun" aria-label="تطبيقات التسلية"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7M16 12H3"/></svg></a>
+<div class="brand"><img src="icon.svg" width="44" height="44" alt=""><div><span class="eyebrow" data-i18n="collection">تطبيقات التسلية</span><h1 data-i18n="title">حديقة البالونات</h1></div></div>
+<div class="top-actions"><button id="soundBtn" class="icon-btn" type="button" aria-label="المؤثرات الصوتية" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8c3 2 3 6 0 8M20 5c5 4 5 10 0 14"/></svg><span data-i18n="sound">الصوت</span></button><button id="settingsBtn" class="icon-btn" type="button" aria-label="خيارات اللعب" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/></svg><span data-i18n="options">خيارات</span></button></div>
+</header>
+<main class="play-main">
+<section class="scene scene-garden" id="scene" aria-label="مساحة لعب البالونات">
+<div class="scene-art" aria-hidden="true"></div>
+<div class="scene-top"><div class="scene-heading"><span class="mini-label" id="worldSubtitle">عالم صغير من البهجة</span><h2 id="sceneTitle">كل لمسة… زهرة!</h2></div><div class="round-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 13C5-4 0 14 13 16 0 22 12 32 16 19 23 32 33 20 19 16 33 7 20-1 16 13" fill="#f4a6a2"/><circle cx="16" cy="16" r="4" fill="#ffda7d"/></svg><span id="flowerCount">0 / 6</span></div></div>
+<div class="turn-pill" id="turnBadge" role="status" aria-live="polite" hidden></div>
+<div class="balloon-field" id="balloonField" aria-label="البالونات"></div>
+<div class="reveal" id="reveal" aria-live="polite"></div><div class="sparkles" id="sparkles" aria-hidden="true"></div>
+<div class="scene-bottom"><div class="garden-strip" id="gardenStrip" aria-label="زهور الحديقة"></div><span id="playHint" class="play-hint">المس بالونًا… وشاهد المفاجأة</span></div>
+<button id="pauseBtn" class="pause-btn" type="button" aria-label="إيقاف مؤقت" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+<div class="pause-layer" id="pauseLayer" hidden><button id="resumeBtn" type="button" class="primary"><span data-i18n="resume">نكمل اللعب</span> ▷</button></div>
+</section>
+<div class="play-dock"><div class="mode-picker" role="group" aria-label="طريقة اللعب"><button type="button" data-mode="free" class="mode active"><span class="mode-symbol">✦</span><span data-i18n="free">لعب حر</span></button><button type="button" data-mode="colors" class="mode"><span class="mode-symbol color-dots"><i></i><i></i><i></i></span><span data-i18n="colors">ألوان</span></button><button type="button" data-mode="numbers" class="mode"><span class="mode-symbol">123</span><span data-i18n="numbers">أعداد</span></button><button type="button" data-mode="letters" class="mode" id="lettersMode"><span class="mode-symbol" id="letterModeSymbol">أ ب</span><span data-i18n="letters">حروف</span></button></div><button id="musicBtn" type="button" class="music-btn" aria-pressed="false"><span>♫</span><span data-i18n="music">الموسيقى</span><i class="switch-dot"></i></button></div>
+<nav class="world-nav" aria-label="التنقل بين العوالم"><button id="prevWorld" type="button"><span>→</span> <span data-i18n="previous">السابق</span></button><div class="world-dots" id="worldDots" role="group" aria-label="العالم"><button type="button" data-world="garden" class="on" aria-label="الحديقة"><span>✿</span></button><button type="button" data-world="sea" aria-label="البحر"><span>≈</span></button><button type="button" data-world="space" aria-label="الفضاء"><span>✧</span></button></div><button id="nextWorld" type="button"><span data-i18n="next">التالي</span> <span>←</span></button></nav>
+<p class="storage-notice" id="storageNotice" role="status" hidden></p>
+</main><footer class="page-foot"><span data-i18n="footer">مدرسة العائلة 360 · نلعب ونكتشف معًا</span></footer>
+</div>
+<div class="panel-overlay" id="settingsOverlay" hidden><section class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" tabindex="-1"><div class="panel-head"><h2 id="settingsTitle" data-i18n="options">خيارات اللعب</h2><button id="closeSettings" type="button" class="close" aria-label="إغلاق">×</button></div><p class="panel-note" data-i18n="settingsNote">اختر ما يناسب طفلك. التغيير متاح دائمًا.</p>
+<label for="levelSelect" data-i18n="level">حجم مساحة اللعب</label><select id="levelSelect"><option value="1">بداية هادئة · مع مرافق</option><option value="2">بالونات كبيرة · 2–4</option><option value="3">اكتشاف أكثر · 4–6</option><option value="4">حديقة أوسع · 6–8</option></select>
+<label for="playersSelect" data-i18n="players">اللاعبون</label><select id="playersSelect"><option value="1">ألعب وحدي</option><option value="2">نلعب معًا · بالتناوب</option></select>
+<label class="check-row"><input id="motionCheck" type="checkbox" checked><span data-i18n="motion">حركة هادئة للبالونات</span></label>
+<label for="languageSelect" data-i18n="language">لغة العرض والحروف</label><select id="languageSelect"><option value="ar">العربية</option><option value="en">English</option></select>
+<p class="panel-note" data-i18n="roundNote">تغيير المستوى أو اللاعبين أو اللغة يبدأ حديقة جديدة. تبديل العالم والصوت يحافظ على حديقتك.</p><div class="panel-actions"><button id="applySettings" type="button" class="primary" data-i18n="apply">حفظ ونلعب</button><button id="restartBtn" type="button" class="secondary" data-i18n="restart">حديقة جديدة</button></div>
+<div class="parent-note"><strong data-i18n="parentTitle">للمرافق</strong><p data-i18n="parentNote">للأصغر: ابدأ معه باللمس والاكتشاف. لا أسئلة ولا خسارة ولا سباق على الوقت. الموسيقى اختيارية، ومؤثرات اللعبة بلا كلام.</p><button id="familySessionBtn" class="secondary" type="button" data-i18n="familySession">جلسة العائلة</button> <button id="downloadBtn" class="secondary" type="button" data-i18n="download">تجهيز اللعب دون اتصال</button><p id="downloadStatus" class="panel-note" role="status"></p></div>
+</section></div>
+<div class="panel-overlay" id="finishOverlay" hidden><section class="finish-panel" role="dialog" aria-modal="true" aria-labelledby="finishTitle" tabindex="-1"><div class="finish-art" aria-hidden="true">✿</div><span class="eyebrow" data-i18n="completeLabel">لمسات صغيرة… بهجة كبيرة</span><h2 id="finishTitle" data-i18n="complete">أزهرت حديقتك!</h2><p id="finishMessage">صنعت حديقة جميلة بلمساتك.</p><div class="finish-flowers" id="finishFlowers" aria-hidden="true"></div><div class="panel-actions"><button id="playAgainBtn" class="primary" type="button" data-i18n="again">حديقة أخرى</button><button id="finishNextBtn" class="secondary" type="button" data-i18n="anotherWorld">عالم آخر</button><a class="secondary" id="finishExit" href="../../../index.html?category=fun" data-i18n="back">العودة إلى التسلية</a></div></section></div>
+<noscript><p>تحتاج اللعبة إلى تفعيل JavaScript في المتصفح.</p></noscript>
+<script src="core.js?v=1"></script><script src="app.js?v=1"></script><script src="../../../assets/js/app-pwa.js?v=20261026"></script><script src="../../../assets/js/offline-client-v1.js?v=20261026-fun1"></script>
+</body></html>
