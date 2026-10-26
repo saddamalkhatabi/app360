@@ -4,7 +4,7 @@ var LENGTH=960,MAX_STEPS=5000,GAP=130;
 function int(n,min,max,fallback){return typeof n==='number'&&isFinite(n)&&n%1===0&&n>=min&&n<=max?n:fallback;}
 function clone(x){return JSON.parse(JSON.stringify(x));}
 function settings(x){x=x||{};var level=int(x.level,1,4,1);return {level:level,players:x.players===2?2:1,speed:level===1?1:int(x.speed,1,3,1),theme:['garden','coast','night'].indexOf(x.theme)>=0?x.theme:'garden',car:['coral','mint','violet'].indexOf(x.car)>=0?x.car:'coral',language:x.language==='en'?'en':'ar',sound:x.sound===true,motion:x.motion!==false,hints:x.hints!==false};}
-function track(level,index){level=int(level,1,4,1);index=int(index,0,2,0);var flags=[],cones=[],i;for(i=0;i<6;i++)flags.push({at:150+i*125,lane:level===1?1:(i+index)%3,color:i%3});
+function track(level,index){level=int(level,1,4,1);index=int(index,0,2,0);var flags=[],cones=[],i;for(i=0;i<6;i++)flags.push({at:150+i*125+(level===1?index*15:0),lane:level===1?1:(i+index)%3,color:(i+index)%3});
 if(level===3)for(i=0;i<3;i++)cones.push({at:290+i*280,lane:(i+index+1)%3});
 if(level===4)for(i=0;i<3;i++){var open=(i+index)%3;for(var lane=0;lane<3;lane++)if(lane!==open)cones.push({at:290+i*280,lane:lane});}
 for(i=0;i<flags.length;i++){var closed=[false,false,false];for(var j=0;j<cones.length;j++)if(Math.abs(cones[j].at-flags[i].at)<GAP)closed[cones[j].lane]=true;if(closed[flags[i].lane])for(var k=0;k<3;k++)if(!closed[k]){flags[i].lane=k;break;}}
