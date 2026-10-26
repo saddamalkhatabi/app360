@@ -6452,6 +6452,82 @@
         ],
         "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ تصميم ومحاكاة أصلية دون ادعاء أثر تربوي مثبت."
       }
+    },
+    {
+      "id": "mini-golf",
+      "slug": "mini-golf",
+      "title_ar": "الغولف الصغير",
+      "title_en": "Little Mini Golf",
+      "age_group": "1-4",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 3
+      },
+      "category": "fun",
+      "status": "live",
+      "kind": "modern_extension",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_keys": [],
+      "description_ar": "وجّه الكرة نحو العلم في اثني عشر مسارًا متدرجًا؛ ثلاثة أجواء وأربعة مستويات ولعب فردي أو بالتناوب.",
+      "practice_model": "وجّه الضربة ← اختر القوة ← شاهد الكرة ← جرّب أو انتقل",
+      "audience": "learner",
+      "priority": 4,
+      "href": "apps/1-4/mini-golf/index.html?v=1",
+      "manifest": "apps/1-4/mini-golf/app.json",
+      "icon": "apps/1-4/mini-golf/icon.svg",
+      "cover": "apps/1-4/mini-golf/assets/cover.svg",
+      "cover_fallback": "apps/1-4/mini-golf/icon.svg",
+      "goal_links": [],
+      "tags": [
+        "تسلية",
+        "غولف",
+        "اتجاه",
+        "قوة",
+        "تناوب"
+      ],
+      "blueprint_path": "apps/1-4/mini-golf/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/mini-golf/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "جولة غولف من ثلاثة مسارات لكل لاعب مع حفظ الضربات والتجاوز والتراجع.",
+        "audience_ar": "للطفل؛ الصغار مع مرافق بحسب الاستعداد.",
+        "age_adaptation_ar": "1–4 يبدأ بزر واحد وحفرة كبيرة ثم اتجاه وقوة؛ 4–8 يبدأ بحواجز ويتدرج إلى منعطفات وارتدادات.",
+        "boundary_ar": "محاكاة تسلية محلية مبسطة دون مؤقت أو ترتيب للأطفال أو احتساب بطولة.",
+        "mvp_steps_ar": [
+          "يوجه الكرة ويختار القوة أو يبدأ بضربة مساعدة واحدة",
+          "يضرب ويلاحظ التوقف أو الارتداد أو دخول الحفرة ثم يجرب من الموقع الجديد",
+          "ينتقل إلى المسار التالي أو يتبادل الدور ويحفظ الجولة"
+        ],
+        "acceptance_ar": [
+          "المحاكاة حتمية والكرة لا تعبر الحواجز؛ كل مسار قابل للحل",
+          "تحفظ النتيجة قبل الحركة ولا تتكرر الضربة عند الإغلاق أو تغيير الهوية",
+          "التراجع يعيد الضربة والانتقال؛ الجولات مستقلة لكل مستوى ولاعبين وهوية"
+        ],
+        "reference_ids": [],
+        "feedback_ar": "حركة قصيرة ومسار متوقع اختياري ونغمات محلية اختيارية؛ يمكن تجاوز المسار دون عقوبة.",
+        "data_model": [
+          "schema",
+          "settings",
+          "games.round.steps",
+          "games.aim",
+          "games.power"
+        ],
+        "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ محاكاة وأصول أصلية دون ادعاء أثر تربوي مثبت."
+      }
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",
