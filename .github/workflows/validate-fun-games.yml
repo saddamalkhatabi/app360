@@ -9,6 +9,7 @@ on:
       - 'apps/1-4/wonder-machine/**'
       - 'apps/1-4/fun-bowling/**'
       - 'apps/1-4/mini-golf/**'
+      - 'apps/1-4/little-car-race/**'
       - 'tooling/*offline.cjs'
       - 'tooling/lib/build-fun-offline.cjs'
       - 'tooling/test-helpers/**'
@@ -25,6 +26,7 @@ on:
       - 'apps/1-4/wonder-machine/**'
       - 'apps/1-4/fun-bowling/**'
       - 'apps/1-4/mini-golf/**'
+      - 'apps/1-4/little-car-race/**'
       - 'tooling/*offline.cjs'
       - 'tooling/lib/build-fun-offline.cjs'
       - 'tooling/test-helpers/**'
@@ -44,7 +46,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs apps/1-4/fun-bowling/tests/*.test.cjs apps/1-4/mini-golf/tests/*.test.cjs
+      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs apps/1-4/fun-bowling/tests/*.test.cjs apps/1-4/mini-golf/tests/*.test.cjs apps/1-4/little-car-race/tests/*.test.cjs
       - run: node tooling/test-legacy-touch-guard.js
   golf-browser:
     runs-on: ubuntu-latest
@@ -66,3 +68,22 @@ jobs:
         with:
           name: mini-golf-browser-screenshots
           path: /tmp/golf-screenshots
+  race-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser QA tools
+        run: npm install --prefix /tmp/race-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8
+      - name: Test rally on six viewports and actual offline play
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/race-browser-qa/node_modules node apps/1-4/little-car-race/tests/browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: little-car-race-browser-screenshots
+          path: /tmp/race-screenshots
