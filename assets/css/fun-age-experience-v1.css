@@ -3,7 +3,7 @@ body[data-fun-age="1-4"]{background:#eff9f0;background-image:radial-gradient(ell
 body[data-fun-age="4-8"]{background:#eaf0fb;background-image:radial-gradient(ellipse at 7% 5%,#d9def7 0,transparent 45%),radial-gradient(ellipse at 95% 90%,#c9e9ed 0,transparent 40%)}
 body[data-fun-age="1-4"]>.app>.topbar,body[data-fun-age="1-4"]>.game-app>.topbar{background:#fffaf0;border:2px solid #c5dfce;border-radius:28px;box-shadow:0 5px 0 #d4e8d7}
 body[data-fun-age="4-8"]>.app>.topbar,body[data-fun-age="4-8"]>.game-app>.topbar{background:#f5f6ff;border:2px solid #b4c4e1;border-radius:14px;box-shadow:0 5px 0 #cbd5ec}
-.fun-age-badge{display:block;font:700 11px/1.5 Tahoma,Arial,sans-serif;color:#35674f;margin-top:3px;white-space:normal}
+.fun-age-badge{display:block;font:700 11px/1.5 Tahoma,Arial,sans-serif;color:#35674f;margin:6px 0 10px;padding:5px 10px;text-align:center;background:#e1efdf;border-radius:16px;white-space:normal}
 body[data-fun-age="4-8"] .fun-age-badge{color:#354b82}
 .fun-age-note{padding:12px 14px;margin:12px 0 18px;border:1px solid #b4cfbd;border-radius:15px;background:#eff8ed;color:#30583e;font:14px/1.8 Tahoma,Arial,sans-serif}
 body[data-fun-age="4-8"] .fun-age-note{background:#edf1fc;border-color:#bdc9e4;color:#32476d;border-radius:9px}
@@ -11,3 +11,9 @@ body[data-fun-age="1-4"] .playground,body[data-fun-age="1-4"] .arena,body[data-f
 body[data-fun-age="4-8"] .playground,body[data-fun-age="4-8"] .arena,body[data-fun-age="4-8"] .machine{border-color:#a7bbda;box-shadow:0 8px 22px rgba(44,66,117,.16)}
 body[data-fun-age="4-8"] .world-nav{background:#edf1fc;border-radius:12px}
 @media(max-width:600px){.fun-age-badge{font-size:10px}body[data-fun-age]>.app>.topbar{border-width:1px}.fun-age-note{font-size:13px}}
+
+body[data-fun-age="4-8"] .fun-age-badge{background:#dfe6f6}
+body[data-fun-home="header"] .topbar{position:relative}
+body[data-fun-home="header"] #backLink,body[data-fun-home="header"] #backToFun{visibility:hidden}
+body[data-fun-home="header"] #app360HomeBtn{position:absolute!important;top:50%!important;bottom:auto!important;right:0!important;left:auto!important;transform:translateY(-50%)!important;width:48px!important;min-width:48px!important;height:48px!important;margin:0!important;padding:0!important;font-size:0!important;line-height:48px!important;background:#fffdf5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 15 16 5l12 10M8 13v14h6v-8h5v8h5V13' fill='none' stroke='%23284d4d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/25px 25px no-repeat!important}
+html[dir="ltr"] body[data-fun-home="header"] #app360HomeBtn{left:0!important;right:auto!important}

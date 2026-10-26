@@ -25,7 +25,7 @@ for(const app of catalog.apps.filter(a=>a.category==='fun')){
   const level=page.locator('#levelSelect');if(await level.count()){assert.equal(await level.locator('optgroup').count(),2);assert.equal(await level.inputValue(),String(before.level));}
   await page.locator('#languageSelect').selectOption('en');await page.locator('#applySettings').click();await page.waitForFunction(()=>document.documentElement.lang==='en');
   assert((await page.locator('#funAgeBadge').textContent()).includes(age==='4-8'?'Explorer':'Little'));
-  for(const [width,height] of [[320,740],[390,844],[844,390],[1440,1000]]){await page.setViewportSize({width,height});await noOverflow(page,name+' '+age+' '+width);await page.screenshot({path:path.join(output,name+'-'+age+'-'+width+'.png'),fullPage:true});}
+  for(const [width,height] of [[320,740],[390,844],[844,390],[1440,1000]]){await page.setViewportSize({width,height});await noOverflow(page,name+' '+age+' '+width);if(await page.locator('body[data-fun-home="header"]').count()){const home=await page.locator('#app360HomeBtn').boundingBox();for(const selector of ['#settingsBtn','#soundBtn']){const b=await page.locator(selector).boundingBox();assert(home.x+home.width<=b.x+1||home.x>=b.x+b.width-1||home.y+home.height<=b.y+1||home.y>=b.y+b.height-1,'Home overlaps '+selector+' in '+name+' '+width);}}await page.screenshot({path:path.join(output,name+'-'+age+'-'+width+'.png'),fullPage:true});}
   await page.reload();await ready(page,api);assert.equal(await page.locator('html').getAttribute('lang'),'en');
   if(before.level)assert.equal(await page.evaluate(k=>window[k].getState().settings.level,api),before.level);
  }
