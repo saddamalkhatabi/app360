@@ -1,0 +1,38 @@
+{
+  "id": "fun-wonder-machine",
+  "slug": "wonder-machine",
+  "title_ar": "جهاز العجائب",
+  "title_en": "Wonder Machine",
+  "age_group": "1-4",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 3
+  },
+  "category": "fun",
+  "status": "live",
+  "kind": "modern_extension",
+  "runtime_profile": "legacy-web",
+  "depth": "standard",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "offline_mode": "offline-first",
+  "goal_keys": [],
+  "description_ar": "زر وعجلة ورافعة وهواء: استكشاف حر للصغار، و12 مهمة لحالات آلة متدرجة، فرديًا أو بشراكة بالتناوب.",
+  "practice_model": "حرّك أداة ← شاهد الأثر ← جرّب حالة أخرى ← جهّز المشهد",
+  "audience": "learner",
+  "version": "1.0.0",
+  "entry_path": "apps/1-4/wonder-machine/index.html",
+  "manifest_path": "apps/1-4/wonder-machine/manifest.webmanifest",
+  "icon_path": "apps/1-4/wonder-machine/icon.svg",
+  "scaffold_state": "implemented"
+}
