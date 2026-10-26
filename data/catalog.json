@@ -6528,6 +6528,80 @@
         ],
         "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ محاكاة وأصول أصلية دون ادعاء أثر تربوي مثبت."
       }
+    },
+    {
+      "id": "little-car-race",
+      "slug": "little-car-race",
+      "title_ar": "سباق السيارات الصغيرة",
+      "title_en": "Little Car Rally",
+      "age_group": "1-4",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 3
+      },
+      "category": "fun",
+      "status": "live",
+      "kind": "modern_extension",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_keys": [],
+      "description_ar": "انطلق وبدّل المسار واجمع الرايات في اثني عشر مضمارًا متدرجًا؛ ثلاثة أجواء ولعب فردي أو بالتناوب مع توقف مساعد قبل المخاريط.",
+      "practice_model": "انطلق ← اختر مسارك ← لاحظ الطريق ← توقف أو أكمل إلى النهاية",
+      "audience": "learner",
+      "priority": 4,
+      "href": "apps/1-4/little-car-race/index.html?v=1",
+      "manifest": "apps/1-4/little-car-race/app.json",
+      "icon": "apps/1-4/little-car-race/icon.svg",
+      "cover": "apps/1-4/little-car-race/assets/cover.svg",
+      "cover_fallback": "apps/1-4/little-car-race/icon.svg",
+      "goal_links": [],
+      "tags": [
+        "تسلية",
+        "سيارات",
+        "مسارات",
+        "توقف",
+        "تناوب"
+      ],
+      "blueprint_path": "apps/1-4/little-car-race/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/little-car-race/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "جولة من ثلاثة مضامير لكل لاعب مع تقدم ورايات وأوامر قيادة محفوظة وقابلة للاستعادة.",
+        "audience_ar": "للطفل؛ الصغار مع مرافق بحسب الاستعداد.",
+        "age_adaptation_ar": "1–4 يبدأ بزر واحد ومسار واحد ثم تبديل المسارات؛ 4–8 يبدأ بمخاريط ويتدرج إلى منعطفات وممرات مفتوحة.",
+        "boundary_ar": "محاكاة تسلية محلية مبسطة؛ ليست تدريب قيادة واقعية، ولا مؤقت تنافسي أو ترتيب للأطفال.",
+        "mvp_steps_ar": [
+          "ينطلق ويتوقف ويغير المسار بأزرار كبيرة",
+          "يجمع رايات اختيارية ويلاحظ التوقف المساعد قبل المخاريط ويختار طريقًا مفتوحًا",
+          "يصل إلى النهاية أو يتجاوز المضمار ويتبادل الدور ويحفظ التقدم"
+        ],
+        "acceptance_ar": [
+          "المضامير الاثنا عشر قابلة للإكمال ولا تمر السيارة بمخروط أو تغادر المسارات",
+          "فتح الصفحة يستعيد السيارة متوقفة؛ الإخفاء والخيارات وتبديل الهوية تلغي الحركة",
+          "التراجع يعيد التقدم والرايات والانتقال حتميًا دون ازدواج؛ الجولات معزولة لكل هوية وفئة ومستوى ولاعبين"
+        ],
+        "reference_ids": [],
+        "feedback_ar": "رايات وصفية وحركة قابلة للتقليل وتوقف مساعد دون عقوبة ونغمات محلية اختيارية.",
+        "data_model": [
+          "schema",
+          "settings",
+          "games.round.steps"
+        ],
+        "design_basis_ar": "خطة التسلية المعتمدة 26 أكتوبر 2026؛ محاكاة وأصول أصلية دون ادعاء أثر تربوي مثبت."
+      }
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",
