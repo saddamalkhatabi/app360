@@ -7,6 +7,7 @@ on:
       - 'apps/1-4/tic-tac-toe/**'
       - 'apps/1-4/lines-and-houses/**'
       - 'apps/1-4/wonder-machine/**'
+      - 'apps/1-4/fun-bowling/**'
       - 'tooling/*offline.cjs'
       - 'tooling/lib/build-fun-offline.cjs'
       - 'tooling/test-helpers/**'
@@ -21,6 +22,7 @@ on:
       - 'apps/1-4/tic-tac-toe/**'
       - 'apps/1-4/lines-and-houses/**'
       - 'apps/1-4/wonder-machine/**'
+      - 'apps/1-4/fun-bowling/**'
       - 'tooling/*offline.cjs'
       - 'tooling/lib/build-fun-offline.cjs'
       - 'tooling/test-helpers/**'
@@ -40,5 +42,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs
+      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs apps/1-4/fun-bowling/tests/*.test.cjs
       - run: node tooling/test-legacy-touch-guard.js
