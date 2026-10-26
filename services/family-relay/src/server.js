@@ -281,7 +281,7 @@ function createApp360Server(options = {}) {
     if(publicLinks && publicIntegrationAllowed){res.setHeader('Access-Control-Allow-Origin',req.headers.origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET, OPTIONS');}
     if(publicLinks && req.method === 'OPTIONS'){res.writeHead(204);return res.end();}
     if (pathname === '/health' || pathname === '/family-health') return json(res, 200, {ok:true, service:'app360-family-relay', rooms:relay.rooms.size, clients:relay.clients.size, uptime:Math.round(process.uptime()), now:Date.now()});
-    let rel = pathname === '/' ? '/index.html' : pathname;
+    let rel = /^\/admin\/?$/.test(pathname) ? '/admin/index.html' : pathname === '/' ? '/index.html' : pathname;
     let filePath;
     try { filePath = path.resolve(root, '.' + decodeURIComponent(rel)); } catch (_) { res.writeHead(400); return res.end('Bad request'); }
     if (!filePath.startsWith(root + path.sep) && filePath !== path.join(root, 'index.html')) { res.writeHead(403); return res.end('Forbidden'); }
@@ -292,7 +292,7 @@ function createApp360Server(options = {}) {
       fs.readFile(filePath, (readErr, data) => {
         if (readErr) { res.writeHead(readErr.code === 'ENOENT' ? 404 : 500, {'content-type':'text/plain; charset=utf-8'}); return res.end('Not found'); }
         const ext = path.extname(filePath).toLowerCase();
-        if(ext === '.html')res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://yem1.com https://*.yem1.com https://family-relay-production.up.railway.app");
+        if(/^\/admin(?:\/|$)/.test(pathname))res.setHeader('Content-Security-Policy',"frame-ancestors 'self'");else if(ext === '.html')res.setHeader('Content-Security-Policy', "frame-ancestors 'self' https://yem1.com https://*.yem1.com https://family-relay-production.up.railway.app");
         let body = data;
         if (path.basename(filePath) === 'index.html') {
           let text = data.toString('utf8');

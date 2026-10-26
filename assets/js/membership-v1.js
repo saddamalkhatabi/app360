@@ -1,6 +1,6 @@
 (function(w,d){'use strict';
 var S=w.APP360_SESSION,pending=false,overlay=null,badge=null,remaining=null,last=Date.now(),user='',refreshing=false,lastQuota=null,renewSerial=0;
-if(!S)return;
+if(!S||w.APP360_SCHOOL_ADMIN_PAGE)return;
 function root(){var scripts=d.getElementsByTagName('script');for(var i=0;i<scripts.length;i++){var a=(scripts[i].src||'').indexOf('/assets/js/membership-v1.js');if(a>=0)return scripts[i].src.slice(0,a);}return '';}
 function panelReady(done){if(w.FamilyAccountPanel){done();return;}var script=d.createElement('script');script.src=root()+'/assets/js/account-panel-v1.js?v=20261025-account';script.onload=function(){done();};script.onerror=function(){if(badge)badge.textContent='تعذر فتح الاشتراك. أعد المحاولة.';};(d.head||d.documentElement).appendChild(script);}
 function returnToReels(){var host=w;try{while(host.parent!==host&&host.parent.location.origin===host.location.origin)host=host.parent;}catch(_){}var context=host.APP360_INTEGRATION_CONTEXT;if(context&&context.fromReels&&context.parentOrigin&&context.parentOrigin()){host.parent.postMessage({type:'app360:return-to-reels',version:1},context.parentOrigin());return;}if(host.APP360_REELS_WORKSPACE){host.APP360_REELS_WORKSPACE.open({age:S.getProfile()&&S.getProfile().age_band||'1-4',role:'learner'});return;}w.location.href='https://yem1.com/watch';}
