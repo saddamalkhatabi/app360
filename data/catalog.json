@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "platform": {
     "name_ar": "مدرسة العائلة 360",
     "system_ar": "مدرسة العائلة 360",
@@ -2136,7 +2136,7 @@
       "description_ar": "مخطط مخصص لمدرب الفئة 4–8 يربط نشاطًا رقميًا ولعبًا واقعيًا واستراحة ومراجعة قصيرة. ينظم هدف الجلسة ومقدار المساعدة ونهاية متوقعة، ويفتح التطبيقات بأدوارها الصحيحة من شاشة الأسرة دون إرسال الطفل إلى واجهة المدرب الخاصة.",
       "practice_model": "اختر فئة 4–8 وهدفًا واحدًا أو ناتجًا واضحًا مع الطفل ← كوّن المسار من نشاط منشور وخطوة واقعية واستراحة أو مراجعة ← اختر ما يفتح للطفل وما يبقى في جهاز المدرب ونفذ انتقالات متوقعة ← أوقف أو اختصر عند الحاجة ثم احفظ تعديلًا واحدًا لجلسة لاحقة",
       "audience": "coach",
-      "audience_note_ar": "أدوات تخطيط للمرافق أو المدرب البالغ، وليست للاستخدام المستقل من الطفل.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "goal_keys": [
         "coach-4-8-channel-energy-focus-and-transitions",
         "coach-4-8-teach-through-play-projects-and-feedback",
@@ -6033,7 +6033,7 @@
         }
       ],
       "audience": "coach",
-      "audience_note_ar": "أدوات تخطيط للمرافق أو المدرب البالغ، وليست للاستخدام المستقل من الطفل.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "cover": "assets/covers/trainer-session-planner-v2-640.webp",
       "cover_fallback": "assets/covers/trainer-session-planner-v2-640.jpg",
       "requires_adult_confirmation": true,
@@ -6773,7 +6773,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=1-4&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-1-4-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 1 إلى 4 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -6790,7 +6790,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-1-4-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-1-4-v1-320.webp"
     },
     {
       "id": "reels-coach-1-4",
@@ -6803,7 +6804,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=1-4&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -6838,7 +6839,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=4-8&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-4-8-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 4 إلى 8 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -6855,7 +6856,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-4-8-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-4-8-v1-320.webp"
     },
     {
       "id": "reels-coach-4-8",
@@ -6868,7 +6870,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=4-8&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -6903,7 +6905,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=8-12&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-8-12-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 8 إلى 12 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -6920,7 +6922,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-8-12-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-8-12-v1-320.webp"
     },
     {
       "id": "reels-coach-8-12",
@@ -6933,7 +6936,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=8-12&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -6968,7 +6971,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=12-16&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-12-16-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 12 إلى 16 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -6985,7 +6988,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-12-16-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-12-16-v1-320.webp"
     },
     {
       "id": "reels-coach-12-16",
@@ -6998,7 +7002,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=12-16&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -7033,7 +7037,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=16-24&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-16-24-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 16 إلى 24 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -7050,7 +7054,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-16-24-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-16-24-v1-320.webp"
     },
     {
       "id": "reels-coach-16-24",
@@ -7063,7 +7068,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=16-24&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -7098,7 +7103,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=24-45&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-24-45-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 24 إلى 45 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -7115,7 +7120,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-24-45-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-24-45-v1-320.webp"
     },
     {
       "id": "reels-coach-24-45",
@@ -7128,7 +7134,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=24-45&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -7163,7 +7169,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=45-60&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-45-60-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 45 إلى 60 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -7180,7 +7186,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-45-60-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-45-60-v1-320.webp"
     },
     {
       "id": "reels-coach-45-60",
@@ -7193,7 +7200,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=45-60&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
@@ -7228,7 +7235,7 @@
       "audience": "learner",
       "audience_note_ar": "محتوى الفئة بلغتك المفضلة؛ الأطفال يشاهدون بإسناد المرافق.",
       "href": "reels/index.html?age=60-80&role=learner",
-      "cover": "assets/covers/family-reels-learner-v2-640.webp",
+      "cover": "assets/covers/reels-age-60-80-v1-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",
       "description_ar": "الوصول المباشر إلى محتوى الفئة للفئة من 60 إلى 80 سنة في ريلز مدرسة العائلة 360. اختر العربية أو الإنجليزية للواجهة والمحتوى، ثم افتح الريلز وتابع إلى العودة للمدرسة.",
       "practice_model": "اختر المحتوى واللغة ← شاهد الريلز ← أغلق التبويب وعد إلى المدرسة",
@@ -7245,7 +7252,8 @@
       "goal_links": [],
       "capabilities": [],
       "offline_mode": "online-required",
-      "cover_fallback": "assets/covers/family-reels-learner-v2-640.jpg"
+      "cover_fallback": "assets/covers/reels-age-60-80-v1-640.jpg",
+      "cover_small": "assets/covers/reels-age-60-80-v1-320.webp"
     },
     {
       "id": "reels-coach-60-80",
@@ -7258,7 +7266,7 @@
       "integration": "family-reels",
       "reels_role": "coach",
       "audience": "coach",
-      "audience_note_ar": "ريلز للمرافق أو المدرب البالغ؛ الفئة العمرية تخص من يدربه.",
+      "audience_note_ar": "مخصص للمدرب أو ولي الأمر فقط؛ الفئة العمرية تخص المتعلم الذي تسانده.",
       "href": "reels/index.html?age=60-80&role=coach",
       "cover": "assets/covers/family-reels-coach-v2-640.webp",
       "icon": "assets/brand/family-reels-360-logo-160.png",

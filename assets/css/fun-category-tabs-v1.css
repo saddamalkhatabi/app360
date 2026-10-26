@@ -1,2 +1,10 @@
 /* Shared fun category tabs, ES5-era layout. */
 .fun-category-tabs{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin:12px 0 18px}.fun-category-tabs button{min-height:48px;padding:10px 19px;border:1px solid #ccd9c9;border-radius:18px;background:#fffdf5;color:#526e54;font:14px Tahoma,Arial,sans-serif;cursor:pointer}.fun-category-tabs button.on{background:#e4eedb;color:#355a37;border-color:#9fb995;font-weight:bold}.fun-category-tabs[hidden]{display:none!important}.fun-category-tabs button:focus{outline:3px solid #609279;outline-offset:2px}
+
+.fun-category-tabs button{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;text-align:start}
+.fun-category-tabs button img{display:block;width:66px;height:44px;object-fit:cover;border-radius:10px;margin-inline-end:10px;margin-left:10px}
+.fun-category-tabs button span{display:block}.fun-category-tabs button small{display:block;font-size:11px;margin-top:4px;font-weight:normal}
+.fun-entry-intro{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;background:#fffaf0;border:1px solid #c3d9c7;border-radius:24px;overflow:hidden;margin:12px 0 22px;box-shadow:0 8px 24px rgba(46,89,64,.09)}
+.fun-entry-intro>img{display:block;width:34%;max-width:300px;height:180px;object-fit:cover}.fun-entry-intro>div{padding:18px 24px;flex:1;min-width:0}.fun-entry-intro small{color:#3c7458;font-weight:bold}.fun-entry-intro h2{font-size:28px;line-height:1.5;margin:6px 0;color:#2b5945}.fun-entry-intro p{font-size:15px;line-height:1.9;color:#486a59;margin:0}
+.fun-entry-4-8{background:#f4f6ff;border-color:#bac9e6;border-radius:15px}.fun-entry-4-8 h2,.fun-entry-4-8 small{color:#35497f}.fun-entry-4-8 p{color:#526485}
+@media(max-width:600px){.fun-entry-intro{display:block}.fun-entry-intro>img{width:100%;max-width:none;height:145px;object-position:50% 55%}.fun-entry-intro>div{padding:14px 17px}.fun-entry-intro h2{font-size:24px}.fun-entry-intro p{font-size:14px}.fun-category-tabs button{padding:8px 12px}.fun-category-tabs button img{width:54px;height:40px}}

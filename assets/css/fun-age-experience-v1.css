@@ -1,0 +1,13 @@
+/* Two visual families; artwork, control geometry and each game's contrast stay intact. */
+body[data-fun-age="1-4"]{background:#eff9f0;background-image:radial-gradient(ellipse at 7% 5%,#ffedcf 0,transparent 45%),radial-gradient(ellipse at 95% 90%,#cceee6 0,transparent 40%)}
+body[data-fun-age="4-8"]{background:#eaf0fb;background-image:radial-gradient(ellipse at 7% 5%,#d9def7 0,transparent 45%),radial-gradient(ellipse at 95% 90%,#c9e9ed 0,transparent 40%)}
+body[data-fun-age="1-4"]>.app>.topbar,body[data-fun-age="1-4"]>.game-app>.topbar{background:#fffaf0;border:2px solid #c5dfce;border-radius:28px;box-shadow:0 5px 0 #d4e8d7}
+body[data-fun-age="4-8"]>.app>.topbar,body[data-fun-age="4-8"]>.game-app>.topbar{background:#f5f6ff;border:2px solid #b4c4e1;border-radius:14px;box-shadow:0 5px 0 #cbd5ec}
+.fun-age-badge{display:block;font:700 11px/1.5 Tahoma,Arial,sans-serif;color:#35674f;margin-top:3px;white-space:normal}
+body[data-fun-age="4-8"] .fun-age-badge{color:#354b82}
+.fun-age-note{padding:12px 14px;margin:12px 0 18px;border:1px solid #b4cfbd;border-radius:15px;background:#eff8ed;color:#30583e;font:14px/1.8 Tahoma,Arial,sans-serif}
+body[data-fun-age="4-8"] .fun-age-note{background:#edf1fc;border-color:#bdc9e4;color:#32476d;border-radius:9px}
+body[data-fun-age="1-4"] .playground,body[data-fun-age="1-4"] .arena,body[data-fun-age="1-4"] .machine{border-color:#afccad;box-shadow:0 8px 22px rgba(63,110,79,.12)}
+body[data-fun-age="4-8"] .playground,body[data-fun-age="4-8"] .arena,body[data-fun-age="4-8"] .machine{border-color:#a7bbda;box-shadow:0 8px 22px rgba(44,66,117,.16)}
+body[data-fun-age="4-8"] .world-nav{background:#edf1fc;border-radius:12px}
+@media(max-width:600px){.fun-age-badge{font-size:10px}body[data-fun-age]>.app>.topbar{border-width:1px}.fun-age-note{font-size:13px}}
