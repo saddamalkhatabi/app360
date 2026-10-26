@@ -26,5 +26,5 @@ test('shared drawing praise uses authenticated learner identity, cancels a pendi
  let completed=false;w.App360Celebration.play({name:'اسم محلي مختلف'},ok=>completed=ok);assert.equal(audios.length,0);assert.equal(scripts.length,1);
  w.APP360_TEACHER_ENCOURAGEMENT={play:(o,done)=>calls.push([p.display_name,o,done]),stop:()=>stops++};scripts[0].onload();assert.equal(calls[0][0],'نور');calls[0][2]();assert.equal(completed,true);
  w.App360Celebration.play({kind:'creative'});assert.equal(calls[1][1].kind,'creative');
- p=null;events['app360:authchange']();assert(stops>0);w.App360Celebration.play({name:'نور'});assert.match(audios[0],/well-done-m.mp3$/);assert.equal(calls.length,2);
+ p=null;events['app360:authchange']();assert(stops>0);w.App360Celebration.play({name:'نور'});assert.match(audios[0],/well-done-dear-m.mp3$/);assert.equal(calls.length,2);
 });

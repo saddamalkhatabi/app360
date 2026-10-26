@@ -52,17 +52,18 @@ jobs:
           import pathlib,json,hashlib,subprocess
           root=pathlib.Path('resources/celebration-audio')
           data=json.loads((root/'phrases.json').read_text())
-          assert data['complete'] and len(data['items'])==10
+          assert data['complete'] and len(data['items'])>=12
           for row in data['items']:
               media=root/row['path']
               assert hashlib.sha256(media.read_bytes()).hexdigest()==row['sha256']
               subprocess.run(['ffmpeg','-v','error','-i',str(media),'-f','null','-'],check=True)
-          print('10 shared SILMA phrases: exact hashes and decoding passed')
+          print('Shared SILMA phrases including dear-generic variants: exact hashes and decoding passed')
           PY
       - run: npm install --prefix /tmp/praise-browser playwright@1.62.1
       - run: /tmp/praise-browser/node_modules/.bin/playwright install --with-deps chromium
       - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-picture-puzzles-browser.cjs
       - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-shared-celebration-browser.cjs
+      - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-full-praise-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

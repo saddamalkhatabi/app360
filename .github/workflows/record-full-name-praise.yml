@@ -1,0 +1,120 @@
+name: Record complete personalized praise
+on:
+  push:
+    branches: [feat/full-name-praise-20261026]
+    paths: [resources/celebration-audio/full-praise.request]
+  workflow_dispatch:
+    inputs:
+      attempt:
+        default: '0'
+        type: choice
+        options: ['0', '1', '2']
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: full-name-praise-recording
+  cancel-in-progress: false
+jobs:
+  record:
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+      APP360_PRAISE_SHARD_INDEX: ${{ matrix.shard }}
+      APP360_PRAISE_SHARD_COUNT: '20'
+      APP360_PRAISE_EXPORT_DIR: /tmp/full-praise-export
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tooling/
+            /resources/celebration-audio/
+            /apps/1-4/screen-to-move/tools/
+            /apps/1-4/say-and-name/audio/meaning/ar/ar_be4705b0127e4d97794e.mp3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check for pending complete phrases
+        id: pending
+        run: python tooling/generate-full-name-praise.py --check-pending
+      - name: Install SILMA CPU environment
+        if: steps.pending.outputs.needed == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
+      - name: Download publisher models
+        if: steps.pending.outputs.needed == 'true'
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+      - run: python tooling/generate-full-name-praise.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-praise-silma-${{ matrix.shard }}
+          path: /tmp/full-praise-export/
+          if-no-files-found: warn
+  publish:
+    needs: record
+    if: ${{ always() && !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: full-praise-silma-*
+          merge-multiple: true
+          path: /tmp/full-praise-results
+      - name: Install media decoder for publishing
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Verify and merge against current branch catalog
+        run: |
+          git pull --ff-only origin "${{ github.ref_name }}"
+          python tooling/merge-full-name-praise.py --incoming /tmp/full-praise-results
+      - name: Save completed recordings on the working branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add resources/celebration-audio/names.json resources/celebration-audio/full-praise-generics.json resources/celebration-audio/audio/praise resources/celebration-audio/audio/ar/well-done-dear-*.mp3
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record complete SILMA name praise; preserve standalone originals'
+            git push origin "HEAD:${{ github.ref_name }}"
+          fi
+      - name: Resume missing complete phrases at most twice
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESUME_ATTEMPT: ${{ inputs.attempt || '0' }}
+        run: |
+          pending=$(python -c "import json; print(json.load(open('resources/celebration-audio/names.json'))['full_praise_progress']['pending'])")
+          if [ "$pending" -gt 0 ] && [ "$RESUME_ATTEMPT" -lt 2 ]; then
+            gh api --method POST "repos/${{ github.repository }}/actions/workflows/record-full-name-praise.yml/dispatches" -f "ref=${{ github.ref_name }}" -f "inputs[attempt]=$((RESUME_ATTEMPT + 1))"
+          fi
+          echo "Remaining complete phrase recordings: $pending"

@@ -1,3 +1,5 @@
+> Current Arabic name-praise design: see [complete phrase handoff](../../docs/FULL_NAME_PRAISE_20261026_AR.md). The new player uses one full recording per name/gender. The standalone/device-speech descriptions below are historical and are superseded for named playback. Actual generation progress is `names.json.full_praise_progress`; technical recording status is not human listening approval.
+
 # Shared celebration audio
 
 All age groups use this resource. Active clients: drawing-writing-foundations,
