@@ -1,0 +1,38 @@
+{
+  "id": "fun-tic-tac-toe",
+  "slug": "tic-tac-toe",
+  "title_ar": "X وO · ساحة الأصدقاء",
+  "title_en": "X & O · Friendship Square",
+  "age_group": "1-4",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 2
+  },
+  "category": "fun",
+  "status": "live",
+  "kind": "modern_extension",
+  "version": "1.0.0",
+  "runtime_profile": "legacy-web",
+  "depth": "standard",
+  "entry_path": "apps/1-4/tic-tac-toe/index.html",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "offline_mode": "offline-first",
+  "goal_keys": [],
+  "description_ar": "لعبة X وO بشخصيات مرحة: تعاون للصغار، أو لعب مع صديق، أو خصم محلي بثلاث درجات؛ دون مؤقت أو أسئلة.",
+  "practice_model": "اختر خانة ← نتبادل الدور ← نكمل صفًا ← نلعب جولة أخرى",
+  "audience": "learner",
+  "scaffold_state": "implemented",
+  "manifest_path": "apps/1-4/tic-tac-toe/manifest.webmanifest",
+  "icon_path": "apps/1-4/tic-tac-toe/icon.svg"
+}
