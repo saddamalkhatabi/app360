@@ -63,6 +63,7 @@ jobs:
       - run: /tmp/praise-browser/node_modules/.bin/playwright install --with-deps chromium
       - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-picture-puzzles-browser.cjs
       - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-shared-celebration-browser.cjs
+      - run: NODE_PATH=/tmp/praise-browser/node_modules node tooling/test-full-praise-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
