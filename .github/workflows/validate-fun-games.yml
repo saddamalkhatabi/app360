@@ -57,9 +57,10 @@ jobs:
       - name: Install isolated browser QA tools
         run: |
           npm install --prefix /tmp/golf-browser-qa --no-audit --no-fund playwright@1.62.1
-          /tmp/golf-browser-qa/node_modules/.bin/playwright install --with-deps chromium
       - name: Test six screen sizes, full rounds and actual offline play
-        run: NODE_PATH=/tmp/golf-browser-qa/node_modules node apps/1-4/mini-golf/tests/browser.cjs
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/golf-browser-qa/node_modules node apps/1-4/mini-golf/tests/browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
