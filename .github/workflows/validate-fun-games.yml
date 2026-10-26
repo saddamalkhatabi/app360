@@ -18,6 +18,13 @@ on:
       - 'data/offline/**'
       - 'data/offline-catalog.json'
       - 'assets/js/offline-*.js'
+      - 'assets/js/fun-age-experience-v1.js'
+      - 'assets/css/fun-age-experience-v1.css'
+      - 'assets/js/home-showcase-v31.js'
+      - 'assets/css/fun-category-tabs-v1.css'
+      - 'assets/covers/reels-age-*'
+      - 'assets/covers/fun-entry-*'
+      - 'tooling/test-fun-age-browser.cjs'
       - '.github/workflows/validate-fun-games.yml'
   pull_request:
     paths:
@@ -36,6 +43,13 @@ on:
       - 'data/offline/**'
       - 'data/offline-catalog.json'
       - 'assets/js/offline-*.js'
+      - 'assets/js/fun-age-experience-v1.js'
+      - 'assets/css/fun-age-experience-v1.css'
+      - 'assets/js/home-showcase-v31.js'
+      - 'assets/css/fun-category-tabs-v1.css'
+      - 'assets/covers/reels-age-*'
+      - 'assets/covers/fun-entry-*'
+      - 'tooling/test-fun-age-browser.cjs'
       - '.github/workflows/validate-fun-games.yml'
 permissions:
   contents: read
@@ -108,3 +122,25 @@ jobs:
         with:
           name: toy-city-crane-browser-screenshots
           path: /tmp/crane-screenshots
+
+  age-art-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser QA tools
+        run: npm install --prefix /tmp/age-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8 jsdom@26
+      - name: Verify coach controls and exact guardian labels
+        run: APP360_TEST_MODULES=/tmp/age-browser-qa/node_modules node --test tooling/test-adult-only.cjs
+      - name: Test both ages, all eight games, layouts, restored saves and Reels covers
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/age-browser-qa/node_modules node tooling/test-fun-age-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fun-age-art-screenshots
+          path: /tmp/fun-age-screenshots
