@@ -30,6 +30,10 @@ async function ensureExternalUser(db,identity){
     await db('external_identities').insert({user_id:userId,source:source,external_user_id:external,sync_status:'linked',last_synced_at:now(),metadata_json:safeJson({external_role:identity.external_role,age_band:identity.age_band})});
   }
   var previous=await db('users').where({id:userId}).first(),preferences=parseJson(previous&&previous.preferences_json,{})||{};if(identity.gender==='male'||identity.gender==='female')preferences.official_gender=identity.gender;else delete preferences.official_gender;
+  // Only trusted server-to-server identity claims grant School administration.
+  preferences.official_school_family=identity.can_manage_school_family===true;
+  preferences.official_school_global=identity.can_manage_school_global===true;
+  preferences.official_source_account_external_id=String(identity.source_account_external_id||identity.account_external_id||'');
   preferences.official_entitlements=identity.entitlements&&typeof identity.entitlements==='object'?{active:identity.entitlements.active===true,named_encouragement:identity.entitlements.named_encouragement===true,can_manage_content:identity.entitlements.can_manage_content===true,can_read_reports:identity.entitlements.can_read_reports===true,ends_at:identity.entitlements.ends_at||null,access_tier:identity.entitlements.access_tier||'usage_reports'}:{active:false,named_encouragement:false,can_manage_content:false};
   await db('users').where({id:userId}).update({preferences_json:safeJson(preferences),display_name:identity.display_name||'متدرب',role:identity.role||'learner',age_band:identity.age_band||null,status:'active',updated_at:now()});
   if(identity.account_external_id){
@@ -92,7 +96,9 @@ async function memberContext(db,userId,accountId){
 async function listManagedMembers(db,userId,accountId){
   var ctx=await memberContext(db,userId,accountId);
   if(!ctx.reviewer||!ctx.account_id)return[];
-  var rows=await db('account_members as m').join('users as u','u.id','m.user_id').where('m.account_id',ctx.account_id).andWhereNot('u.id',userId).andWhere('u.status','active').select('u.id as user_id','u.display_name','u.role','u.age_band','m.relationship','m.permissions_json').orderBy('u.display_name','asc');
+  var memberQuery=db('account_members as m').join('users as u','u.id','m.user_id').where('m.account_id',ctx.account_id).andWhereNot('u.id',userId).andWhere('u.status','active').select('u.id as user_id','u.display_name','u.role','u.age_band','m.relationship','m.permissions_json').orderBy('u.display_name','asc');
+  if(/^acct-sr-/.test(ctx.account_id))memberQuery.whereIn('u.id',db('school_manager_children').select('child_user_id').where({manager_user_id:userId}));
+  var rows=await memberQuery;
   var out=[];
   for(var i=0;i<rows.length;i++){
     var r=rows[i];

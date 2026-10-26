@@ -11,7 +11,7 @@ async function attach(db,session,userId,result){await db('reels_bridge_sessions'
 function identityGender(identity){return identity&&(identity.gender==='male'||identity.gender==='female')?identity.gender:undefined}
 async function exchange(db,raw,sessions){var result=await call('exchange',{code:raw}),linked=await sessions.ensureExternalUser(db,result.identity);var created=await sessions.createIdentitySession(db,{user_id:linked.user.id,account_id:linked.account_id,source:'safe-reels-360',ttl_hours:12});await attach(db,created.session,linked.user.id,result);return {token:created.token,expires_at:created.session.expires_at,profile:{entitlements:result.identity.entitlements||null,gender:identityGender(result.identity),user_id:linked.user.id,display_name:linked.user.display_name,role:linked.user.role,age_band:linked.user.age_band,account_id:linked.account_id,external:true}};}
 async function credential(db,me){var r=await db('reels_bridge_sessions').where({session_id:me.session.id,user_id:me.user.id}).first();if(!r||new Date(r.expires_at).getTime()<=Date.now())throw Object.assign(Error('Linked Reels session required'),{httpStatus:401});return decrypt(r.grant_cipher);}
-async function launch(db,me,destination){return call('return',{grant_token:await credential(db,me),destination:destination==='account'?'account':undefined});}
+async function launch(db,me,destination){return call('return',{grant_token:await credential(db,me),destination:['account','admin'].includes(destination)?destination:undefined});}
 async function check(db,me){try{var data=await call('check',{grant_token:await credential(db,me)});if(data.identity){var linked=await require('./session-repository').ensureExternalUser(db,data.identity);if(linked.user.id!==me.user.id)throw Object.assign(Error('Identity mismatch'),{httpStatus:401});Object.assign(me.user,linked.user)}return data;}catch(e){if(e.httpStatus===401||e.httpStatus===403){await db('identity_sessions').where({id:me.session.id}).update({status:'revoked'});if(authorizationCache)authorizationCache.delete(me.session.id);}throw e;}}
 var authorizationCache=new Map();
 async function authorize(db,me,offlineUsage){
@@ -22,11 +22,8 @@ async function authorize(db,me,offlineUsage){
  catch(e){authorizationCache.delete(me.session.id);if(e.httpStatus===401||e.httpStatus===403){await db('identity_sessions').where({id:me.session.id}).update({status:'revoked'});throw e;}if(!offlineUsage)throw Object.assign(Error('Identity authority unavailable'),{httpStatus:503});}
 }
 async function logout(db,me){if(!configured()||!me)return;var row=await db('reels_bridge_sessions').where({session_id:me.session.id}).first();if(row){try{await call('logout',{grant_token:decrypt(row.grant_cipher)});}catch(_){}await db('reels_bridge_sessions').where({session_id:me.session.id}).del();}}
-async function queue(db,me,batch){if(!configured())return;var link=await db('reels_bridge_sessions').where({session_id:me.session.id,user_id:me.user.id}).first();if(!link)return;
- // Only forward receipts accepted by this server for the authenticated user, never client-supplied child IDs.
- var rows=await db('usage_receipts').where({user_id:me.user.id,batch_id:String(batch.batch_id||'')}).select('app_id','occurred_day','active_seconds','opens');if(!rows.length)return;
- var payload={batch_id:String(batch.batch_id),entries:rows};var id=crypto.createHash('sha256').update(me.user.id+'|'+payload.batch_id).digest('hex');await db('reels_bridge_outbox').insert({id:id,user_id:me.user.id,batch_json:JSON.stringify(payload)}).onConflict('id').ignore();
-}
-var draining=false;
-async function drain(db){if(!configured()||draining)return;draining=true;try{var rows=await db('reels_bridge_outbox').orderBy('created_at').limit(50);for(var row of rows){var link=await db('reels_bridge_sessions as b').join('identity_sessions as s','s.id','b.session_id').where('b.user_id',row.user_id).where('s.status','active').where('b.expires_at','>',new Date().toISOString()).orderBy('b.created_at','desc').select('b.grant_cipher').first();if(!link)continue;try{await call('usage',{grant_token:decrypt(link.grant_cipher),batch:JSON.parse(row.batch_json)});await db('reels_bridge_outbox').where({id:row.id}).del();}catch(_){await db('reels_bridge_outbox').where({id:row.id}).increment('attempts',1);break;}}}finally{draining=false;}}
+// App reports are owned exclusively by School. The historical outbox table is kept
+// until a verified transfer so upgrading never discards pending provenance blindly.
+async function queue(){return;}
+async function drain(){return;}
 module.exports={credential:credential,configured:configured,config:config,call:call,attach:attach,exchange:exchange,launch:launch,check:check,logout:logout,queue:queue,drain:drain,authorize:authorize};

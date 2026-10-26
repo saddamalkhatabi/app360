@@ -16,7 +16,8 @@ function createDataCore(){
  stage='database';
  const ready=(async()=>{const db=await core.db.createDb();try{await require('../../app360-data-core/src/bootstrap').initialize(db);}finally{await db.destroy();}})();
  ready.catch(record);
- const timer=setInterval(async()=>{let db;try{await ready;if(!bridge.configured())return;db=await core.db.createDb();await bridge.drain(db);}catch(_){}finally{if(db)await db.destroy();}},30000);timer.unref();
+ const schoolMail=require('../../app360-data-core/src/school-report-mail').createSchoolReportMail();
+ const timer=setInterval(async()=>{let db;try{await ready;if(!bridge.configured()||process.env.APP360_EMAIL_REPORTS_ENABLED!=='1')return;db=await core.db.requestDb();await schoolMail.jobs(db);}catch(_){}finally{if(db)await core.db.releaseRequestDb(db);}},60000);timer.unref();
  return {ready,handle(req,res){ready.then(()=>api.handler(req,res)).catch(()=>{unavailable(res)});},close(){clearInterval(timer);return core.db.closeRequestDb();}};
 }
 module.exports={createDataCore};
