@@ -1,6 +1,6 @@
 (function(){'use strict';
 function param(k){var m=new RegExp('(?:^#|&)'+k+'=([^&]*)').exec(location.hash);try{return m?decodeURIComponent(m[1]):''}catch(_){return ''}}
-var code=param('code'),back=param('return')||'https://school.yem1.com/index.html';
+var code=param('code'),back=param('return')||(param('destination')==='dashboard'?'https://school.yem1.com/dashboard.html':'https://school.yem1.com/index.html');
 history.replaceState(null,'','reels-login.html');
 function fail(text){document.getElementById('status').textContent=text}
 function allowed(value){if(!/^https:\/\/school\.yem1\.com\//i.test(value)||/[\\\u0000-\u0020\u007f]/.test(value)||/%(?:0[0-9a-f]|1[0-9a-f]|7f|5c)/i.test(value)||/^https:\/\/[^/]*@/i.test(value))return false;var a=document.createElement('a');a.href=value;if(a.protocol!=='https:'||a.host!=='school.yem1.com')return false;return /^\/(?:auth-complete|index|dashboard)\.html$/.test(a.pathname)||/^\/(?:apps|ages)\/[a-zA-Z0-9/_-]+\/(?:index|launch)\.html$/.test(a.pathname)}

@@ -16,16 +16,17 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/brand/family-school-360-share.jpg?v=98">
 <meta name="description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
+<link rel="stylesheet" href="assets/css/school-dashboard-v2.css?v=20261026-independent">
 </head>
 <body>
 <header class="dash-head"><div class="dash-shell"><h1>داشبورد نشاطي</h1><p>وقت الاستخدام لكل تطبيق — للضيف محليًا، وللحساب تقرير مركزي، وللأب/المدرب تقارير الأعضاء الذين يديرهم.</p></div></header>
 <main class="dash-shell">
-<div class="dash-actions"><a href="index.html">🏠 مدرسة العائلة 360</a><button id="openAccountBtn" type="button">الحساب / تسجيل الدخول</button><button id="refreshServerBtn" type="button">تحديث التقرير المركزي</button><button id="manageContentBtn" type="button">إدارة ظهور المحتوى</button></div>
+<section id="schoolLegacyDashboard"><div class="dash-actions"><a href="index.html">🏠 مدرسة العائلة 360</a><button id="openAccountBtn" type="button">الحساب / تسجيل الدخول</button><button id="refreshServerBtn" type="button">تحديث التقرير المركزي</button><button id="manageContentBtn" type="button">إدارة ظهور المحتوى</button></div>
 <div class="dash-note">وقت الضيف يخص هذا المتصفح فقط ولا يُنسب تلقائيًا إلى مستخدم يسجل الدخول لاحقًا. المحتوى الخاص لا يظهر لغير مالكه إلا إذا عيّنه الأب/المدرب لمستخدم يديره.</div>
 <div id="fullDashboard"><p>جارٍ قراءة النشاط المحلي…</p></div>
 <section id="serverBox" class="server-box" hidden><h2>التقرير المركزي للحساب</h2><div id="serverDashboard"></div></section>
-</main>
-<script src="assets/js/app360-session-v1.js?v=98&brand=98"></script>
+</section></main>
+<script src="assets/js/app360-session-v1.js?v=20261026-independent"></script>
 <script src="assets/js/app360-account-access-v1.js?v=1&brand=98"></script>
 <script>(function(w,d){
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]})}
@@ -35,5 +36,7 @@ function renderServer(data){var h='<section class="a360-dashboard-summary"><h2>'
 function ready(){if(!w.APP360_SESSION||!w.APP360_SESSION.openContentManager){setTimeout(ready,80);return}w.APP360_SESSION.renderDashboard('fullDashboard');d.getElementById('openAccountBtn').onclick=function(){w.APP360_SESSION.open()};d.getElementById('manageContentBtn').onclick=function(){if(!w.APP360_SESSION.isAuthenticated()){w.APP360_SESSION.open();return}w.APP360_SESSION.openContentManager()};d.getElementById('refreshServerBtn').onclick=function(){if(!w.APP360_SESSION.isAuthenticated()){w.APP360_SESSION.open();return}w.APP360_SESSION.serverDashboard(function(ok,data){var box=d.getElementById('serverBox'),root=d.getElementById('serverDashboard');box.hidden=false;if(!ok){root.innerHTML='تعذر جلب التقرير المركزي الآن.';return}root.innerHTML=renderServer(data||{})})}}
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',ready,false);else ready()
 })(window,document);</script>
+<script src="assets/js/parent-media-recorder-v1.js?v=20261026-independent"></script>
+<script src="assets/js/school-dashboard-v2.js?v=20261026-independent"></script>
 </body>
 </html>
