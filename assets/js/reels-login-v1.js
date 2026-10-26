@@ -1,9 +1,9 @@
 (function(){'use strict';
 function param(k){var m=new RegExp('(?:^#|&)'+k+'=([^&]*)').exec(location.hash);try{return m?decodeURIComponent(m[1]):''}catch(_){return ''}}
-var code=param('code'),back=param('return')||(param('destination')==='dashboard'?'https://school.yem1.com/dashboard.html':'https://school.yem1.com/index.html');
+var code=param('code'),back=param('return')||(param('destination')==='admin'?'https://school.yem1.com/admin':param('destination')==='dashboard'?'https://school.yem1.com/dashboard.html':'https://school.yem1.com/index.html');
 history.replaceState(null,'','reels-login.html');
 function fail(text){document.getElementById('status').textContent=text}
-function allowed(value){if(!/^https:\/\/school\.yem1\.com\//i.test(value)||/[\\\u0000-\u0020\u007f]/.test(value)||/%(?:0[0-9a-f]|1[0-9a-f]|7f|5c)/i.test(value)||/^https:\/\/[^/]*@/i.test(value))return false;var a=document.createElement('a');a.href=value;if(a.protocol!=='https:'||a.host!=='school.yem1.com')return false;return /^\/(?:auth-complete|index|dashboard)\.html$/.test(a.pathname)||/^\/(?:apps|ages)\/[a-zA-Z0-9/_-]+\/(?:index|launch)\.html$/.test(a.pathname)}
+function allowed(value){if(!/^https:\/\/school\.yem1\.com\//i.test(value)||/[\\\u0000-\u0020\u007f]/.test(value)||/%(?:0[0-9a-f]|1[0-9a-f]|7f|5c)/i.test(value)||/^https:\/\/[^/]*@/i.test(value))return false;var a=document.createElement('a');a.href=value;if(a.protocol!=='https:'||a.host!=='school.yem1.com')return false;return /^\/admin\/?$/.test(a.pathname)||/^\/(?:auth-complete|index|dashboard)\.html$/.test(a.pathname)||/^\/(?:apps|ages)\/[a-zA-Z0-9/_-]+\/(?:index|launch)\.html$/.test(a.pathname)}
 if(!allowed(back)){fail('عنوان العودة غير معتمد. افتح المدرسة من الرابط الرسمي مجدداً.');return}
 if(!/^[a-f0-9]{64}$/.test(code)){fail('رابط الدخول غير صالح. افتح المدرسة من الريلز مجدداً.');return}
 function unavailable(data){var key=data&&data.error;if(/^data_core_[a-z_]+$/.test(key||'')){fail('خدمة حسابات المدرسة غير جاهزة. أبلغ مسؤول الموقع بالرمز: '+key);return}if(x.status===503||x.status===502){fail('خدمة ربط الحسابات غير متاحة حالياً. حاول لاحقاً أو تواصل مع مسؤول الموقع.');return}fail('تعذر اعتماد رابط الدخول. افتح رابط دخول جديد من الريلز، وإذا تكرر الخطأ أبلغ مسؤول الموقع.')}
