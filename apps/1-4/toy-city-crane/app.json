@@ -1,0 +1,49 @@
+{
+  "id": "toy-city-crane",
+  "slug": "toy-city-crane",
+  "title_ar": "رافعة مدينة الألعاب",
+  "title_en": "Toy City Crane",
+  "age_group": "1-4",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 3
+  },
+  "category": "fun",
+  "status": "live",
+  "kind": "modern_extension",
+  "runtime_profile": "legacy-web",
+  "depth": "standard",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "offline_mode": "offline-first",
+  "goal_keys": [],
+  "description_ar": "نرفع قطع الألعاب ونركب مدينة صغيرة في اثني عشر مشروعًا؛ أربعة مستويات وثلاثة أجواء، تدوير ومساعدة اختيارية ولعب بالتناوب.",
+  "practice_model": "اختر قطعة ← ارفعها ← حرك الرافعة ← طابق المكان والاتجاه ← ضعها",
+  "audience": "learner",
+  "tags": [
+    "تسلية",
+    "رافعة",
+    "بناء",
+    "مطابقة",
+    "تدوير",
+    "تناوب"
+  ],
+  "blueprint_path": "apps/1-4/toy-city-crane/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/toy-city-crane/PROMPT_AR.md",
+  "version": "1.0.0",
+  "entry_path": "apps/1-4/toy-city-crane/index.html",
+  "manifest_path": "apps/1-4/toy-city-crane/manifest.webmanifest",
+  "icon_path": "apps/1-4/toy-city-crane/icon.svg",
+  "scaffold_state": "implemented",
+  "update_policy": "shared-atomic-bundle"
+}
