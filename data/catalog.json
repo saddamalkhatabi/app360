@@ -6223,6 +6223,81 @@
         ],
         "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ لا ادعاء تجربة تربوية منشورة."
       }
+    },
+    {
+      "id": "fun-lines-and-houses",
+      "slug": "lines-and-houses",
+      "title_ar": "خطوط وبيوت",
+      "title_en": "Lines & Houses",
+      "age_group": "1-4",
+      "age_groups": [
+        "1-4",
+        "4-8"
+      ],
+      "age_entry_levels": {
+        "1-4": 1,
+        "4-8": 2
+      },
+      "category": "fun",
+      "status": "live",
+      "kind": "modern_extension",
+      "runtime_profile": "legacy-web",
+      "depth": "standard",
+      "capabilities": [
+        "storage.local",
+        "pwa.offline",
+        "compat.legacy-web"
+      ],
+      "bundles": [
+        "static-core"
+      ],
+      "offline_mode": "offline-first",
+      "goal_keys": [],
+      "description_ar": "نصل النقاط ونبني قرية صغيرة: تعاون للصغار، أو صديق، أو خصم محلي بثلاث درجات ولوحات متدرجة.",
+      "practice_model": "المس خطًا ← أكمل بيتًا ← تابع الدور أو شاركه ← ابنِ قرية",
+      "audience": "learner",
+      "priority": 3,
+      "href": "apps/1-4/lines-and-houses/index.html?v=1",
+      "manifest": "apps/1-4/lines-and-houses/app.json",
+      "icon": "apps/1-4/lines-and-houses/icon.svg",
+      "cover": "apps/1-4/lines-and-houses/assets/cover.svg",
+      "cover_fallback": "apps/1-4/lines-and-houses/icon.svg",
+      "tags": [
+        "تسلية",
+        "نقاط",
+        "بيوت",
+        "تناوب",
+        "تخطيط"
+      ],
+      "goal_links": [],
+      "blueprint_path": "apps/1-4/lines-and-houses/BUILD_SPEC.md",
+      "prompt_path": "apps/1-4/lines-and-houses/PROMPT_AR.md",
+      "blueprint": {
+        "version": 1,
+        "output_ar": "قرية من 1 أو 4 أو 9 بيوت بنيت بخطوط متجاورة، مشتركة أو موزعة بين لاعبين.",
+        "audience_ar": "للطفل؛ الصغار مع مرافق بحسب الاستعداد.",
+        "age_adaptation_ar": "1–4: تعاون وبيت واحد بثلاثة خطوط تمهيدية مع مرافق. 4–8: أربعة بيوت وخصم لطيف. توسيع حتى تسعة بيوت بحسب الاستعداد.",
+        "boundary_ar": "الجولة تسلية؛ لا تقييم معرفي أو ترتيب للأطفال.",
+        "mvp_steps_ar": [
+          "يفتح مباشرة على لوحة نقاط وخطوط كبيرة",
+          "يصل نقطتين ويشاهد البيت عند إكمال أربعة جوانب",
+          "يكمل القرية مع مرافق أو صديق أو جهاز ويختار جولة جديدة"
+        ],
+        "acceptance_ar": [
+          "إكمال بيتين بضلع مشترك يسجلهما لنفس اللاعب مع استمرار دوره؛ التعاون يتناوب دائمًا",
+          "التراجع يعيد قرار الطفل السابق دون بقاء سلسلة خصم معلقة، والحفظ يسترجع الجولة بعد التحقق منها",
+          "التمرير لا يرسم ضلعًا والتغيير البصري لا يفقد الحالة وتتوفر ثلاث لوحات وثلاث درجات للخصم"
+        ],
+        "reference_ids": [],
+        "feedback_ar": "بيت مرسوم ورمز مالكه ونغمة قصيرة اختيارية؛ لا مؤقت ولا عقوبات.",
+        "data_model": [
+          "schema",
+          "settings",
+          "round.starter",
+          "round.moves"
+        ],
+        "design_basis_ar": "خطة تطبيقات التسلية المعتمدة 26 أكتوبر 2026؛ لا ادعاء تجربة تربوية منشورة."
+      }
     }
   ],
   "mapping_policy_ar": "الارتباط مساهمة محددة في الهدف، لا ادعاء تغطية كل أجزائه. الخطط ليست تطبيقات عاملة ولا دليل أثر مثبت. مهام المدرب مستقلة ومبينة في كل ارتباط.",
