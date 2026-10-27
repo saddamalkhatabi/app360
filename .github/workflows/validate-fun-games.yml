@@ -8,7 +8,6 @@ on:
       - 'apps/1-4/lines-and-houses/**'
       - 'apps/1-4/wonder-machine/**'
       - 'apps/1-4/fun-bowling/**'
-      - 'apps/1-4/mini-golf/**'
       - 'apps/1-4/little-car-race/**'
       - 'apps/1-4/toy-city-crane/**'
       - 'tooling/*offline.cjs'
@@ -33,7 +32,6 @@ on:
       - 'apps/1-4/lines-and-houses/**'
       - 'apps/1-4/wonder-machine/**'
       - 'apps/1-4/fun-bowling/**'
-      - 'apps/1-4/mini-golf/**'
       - 'apps/1-4/little-car-race/**'
       - 'apps/1-4/toy-city-crane/**'
       - 'tooling/*offline.cjs'
@@ -62,28 +60,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs apps/1-4/fun-bowling/tests/*.test.cjs apps/1-4/mini-golf/tests/*.test.cjs apps/1-4/little-car-race/tests/*.test.cjs apps/1-4/toy-city-crane/tests/*.test.cjs
+      - run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/tic-tac-toe/tests/*.test.cjs apps/1-4/lines-and-houses/tests/*.test.cjs apps/1-4/wonder-machine/tests/*.test.cjs apps/1-4/fun-bowling/tests/*.test.cjs apps/1-4/little-car-race/tests/*.test.cjs apps/1-4/toy-city-crane/tests/*.test.cjs
       - run: node tooling/test-legacy-touch-guard.js
-  golf-browser:
+  balloon-browser:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install isolated browser QA tools
-        run: |
-          npm install --prefix /tmp/golf-browser-qa --no-audit --no-fund playwright@1.62.1
-      - name: Test six screen sizes, full rounds and actual offline play
+      - name: Install isolated farm QA tools
+        run: npm install --prefix /tmp/balloon-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8
+      - name: Test both ages, six screens, gifts, identity and real offline play
         run: |
           browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
-          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/golf-browser-qa/node_modules node apps/1-4/mini-golf/tests/browser.cjs
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/balloon-browser-qa/node_modules node apps/1-4/balloon-garden/tests/browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: mini-golf-browser-screenshots
-          path: /tmp/golf-screenshots
+          name: balloon-farm-browser-screenshots
+          path: /tmp/balloon-screenshots
   race-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -135,7 +132,7 @@ jobs:
         run: npm install --prefix /tmp/age-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8 jsdom@26
       - name: Verify coach controls and exact guardian labels
         run: APP360_TEST_MODULES=/tmp/age-browser-qa/node_modules node --test tooling/test-adult-only.cjs
-      - name: Test both ages, all eight games, layouts, restored saves and Reels covers
+      - name: Test both ages, all seven games, layouts, restored saves and Reels covers
         run: |
           browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
           APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/age-browser-qa/node_modules node tooling/test-fun-age-browser.cjs
