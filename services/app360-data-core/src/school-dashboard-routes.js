@@ -8,11 +8,13 @@ async function handle(req,res,db,me,parsed,readBody,send,origin){
   if(dashboard.media.scope(me).global&&(req.method==='POST'||path==='/api/app360/school/dashboard'))await require('./reels-bridge').check(db,me);
   let data;
   if(req.method==='GET'&&path==='/api/app360/school/dashboard'){data=await dashboard.dashboard(db,me);data.report_preferences=await db('school_report_preferences').where({owner_user_id:me.user.id});data.report_email_configured=reports.configured();}
+  else if(req.method==='GET'&&path==='/api/app360/school/children')data=await dashboard.manageChildren(db,me,'children-info',parsed.query);
   else if(req.method==='GET'&&path==='/api/app360/school/reports')data=await dashboard.usageReport(db,me,parsed.query);
   else if(req.method==='GET'&&path==='/api/app360/school/catalog')data=await dashboard.catalog(db,me);
   else if(req.method==='POST'){
    const input=await readBody(req);
-   if(path==='/api/app360/school/policy')data=await dashboard.savePolicy(db,me,input);
+   if(path==='/api/app360/school/children')data=await dashboard.manageChildren(db,me,'children-create',input);
+   else if(path==='/api/app360/school/policy')data=await dashboard.savePolicy(db,me,input);
    else if(path==='/api/app360/school/report-preferences'){await dashboard.syncRoster(db,me);data=await reports.save(db,me,input);}
    else if(path==='/api/app360/school/platform')data=await dashboard.savePlatform(db,me,input);
    else if(path==='/api/app360/school/app')data=await dashboard.saveApp(db,me,input);

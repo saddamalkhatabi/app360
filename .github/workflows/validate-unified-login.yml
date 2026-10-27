@@ -22,7 +22,7 @@ jobs:
       - name: Identity, cancellation, callback, praise and isolated production startup
         env:
           APP360_TEST_MODULES: /tmp/unified-identity-test/node_modules
-        run: node --test tooling/test-school-admin.cjs tooling/test-school-report-mail.cjs tooling/test-independent-school.cjs tooling/test-browser-session.cjs tooling/test-school-login-praise.cjs tooling/test-teacher-encouragement.cjs tooling/test-reels-bridge.js tooling/test-update-context.cjs tooling/test-reels-return-visibility.cjs tooling/test-personalized-celebration.cjs tooling/test-unified-identity.cjs tooling/test-unified-hosting.cjs tooling/test-unified-offline.cjs tooling/test-membership.cjs tooling/test-membership-experience.cjs tooling/test-connected-praise.cjs
+        run: node --test tooling/test-session-lanes.cjs tooling/test-media-clusters.cjs tooling/test-membership-session-race.cjs tooling/test-school-admin.cjs tooling/test-school-report-mail.cjs tooling/test-independent-school.cjs tooling/test-browser-session.cjs tooling/test-school-login-praise.cjs tooling/test-teacher-encouragement.cjs tooling/test-reels-bridge.js tooling/test-update-context.cjs tooling/test-reels-return-visibility.cjs tooling/test-personalized-celebration.cjs tooling/test-unified-identity.cjs tooling/test-unified-hosting.cjs tooling/test-unified-offline.cjs tooling/test-membership.cjs tooling/test-membership-experience.cjs tooling/test-connected-praise.cjs
       - name: Legacy browser grammar and actual application integration audit
         env:
           APP360_TEST_MODULES: /tmp/unified-identity-test/node_modules

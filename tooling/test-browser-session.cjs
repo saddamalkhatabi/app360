@@ -17,8 +17,8 @@ function endpoint(){let revoked=false,authorized=0;const current={session:{sourc
  const module={exports:{}};vm.runInNewContext(fs.readFileSync('services/app360-data-core/src/http-server.js','utf8'),{require:Object.assign(n=>requires[n],{main:null}),module,process:{env:{}},URL,Buffer,console,setInterval});
  return{revoke:()=>revoked=true,authorized:()=>authorized,call:async(headers)=>{const res={headers:{},setHeader(k,v){this.headers[k]=v},end(s){this.body=JSON.parse(s)}};await module.exports.handler({url:'/api/app360/auth/session',method:'GET',headers:{host:'school.test',...headers}},res);return res}};
 }
-test('restores cookie identity over an old tab bearer; rejects revoked and cross-origin sessions; no-store response',async()=>{
- const x=endpoint();let r=await x.call({cookie:'__Host-app360_session='+TOKEN,authorization:'Bearer old-token'});assert.equal(r.statusCode,200);assert.equal(r.body.profile.display_name,'نور');assert.equal(r.body.token,TOKEN);assert.equal(r.headers['Cache-Control'],'no-store');assert.equal(x.authorized(),1);
+test('does not substitute a cookie for an explicitly rejected bearer; restores matching cookie identity; rejects revoked and cross-origin sessions; no-store response',async()=>{
+ const x=endpoint();let r=await x.call({cookie:'__Host-app360_session='+TOKEN,authorization:'Bearer old-token'});assert.equal(r.statusCode,401);r=await x.call({cookie:'__Host-app360_session='+TOKEN});assert.equal(r.statusCode,200);assert.equal(r.body.profile.display_name,'نور');assert.equal(r.body.token,TOKEN);assert.equal(r.headers['Cache-Control'],'no-store');assert.equal(x.authorized(),1);
  r=await x.call({cookie:'__Host-app360_session='+TOKEN,'sec-fetch-site':'cross-site'});assert.equal(r.statusCode,403);assert.equal(r.body.token,undefined);
  x.revoke();r=await x.call({cookie:'__Host-app360_session='+TOKEN});assert.equal(r.statusCode,401);assert.equal(r.headers['Set-Cookie'],undefined,'background checks must not erase a newer login cookie');
 });
