@@ -19,11 +19,24 @@ function mp4Duration(b){
 }
 function webmDuration(b){
  if(b.length<8||b.readUInt32BE(0)!==0x1a45dfa3)throw fail('Invalid WebM');
- function vint(pos,keep){if(pos>=b.length)throw fail('Truncated WebM');let n=1,mask=128;while(n<=8&&!(b[pos]&mask)){n++;mask>>=1;}if(n>8||pos+n>b.length)throw fail('Invalid WebM integer');let value=keep?b[pos]:b[pos]&(mask-1);for(let i=1;i<n;i++)value=value*256+b[pos+i];return {n,value,unknown:!keep&&value===Math.pow(2,7*n)-1};}
- let scale=1000000,duration=0,last=0,blocks=0,defaultMs=0;
- const uint=(s,e)=>{let n=0;if(e-s>8)throw fail('Invalid WebM scalar');for(let p=s;p<e;p++)n=n*256+b[p];return n;};
- function walk(start,end,cluster,depth){if(depth>8)throw fail('Invalid WebM nesting');let clock=cluster||0;for(let p=start;p<end;){const id=vint(p,true),size=vint(p+id.n,false),s=p+id.n+size.n,e=size.unknown?end:s+size.value;if(e>end||e<s||s>end)throw fail('Truncated WebM element');if(id.value===0x2ad7b1)scale=uint(s,e);if(id.value===0x4489){if(e-s!==4&&e-s!==8)throw fail('Invalid WebM duration');duration=Math.max(duration,(e-s===4?b.readFloatBE(s):b.readDoubleBE(s))*scale/1e6);}if(id.value===0x23e383)defaultMs=Math.max(defaultMs,uint(s,e)/1e6);if(id.value===0xe7)clock=uint(s,e);if(id.value===0xa3||id.value===0xa1){const track=vint(s,false);if(s+track.n+3>e)throw fail('Truncated WebM block');const flags=b[s+track.n+2];if(flags&6)throw fail('Laced WebM is not accepted');const stamp=(clock+b.readInt16BE(s+track.n))*scale/1e6;if(stamp<0)throw fail('Invalid WebM timestamp');last=Math.max(last,stamp);blocks++;}if([0x18538067,0x1549a966,0x1654ae6b,0xae,0x1f43b675,0xa0].includes(id.value))walk(s,e,id.value===0x1f43b675?0:clock,depth+1);p=e;}}
- walk(0,b.length,0,0);if(!blocks)throw fail('WebM has no media blocks');return Math.max(duration,last+Math.max(defaultMs,20));
+ function vint(pos,keep){if(pos>=b.length)throw fail('Truncated WebM');let n=1,mask=128;while(n<=8&&!(b[pos]&mask)){n++;mask>>=1;}if(n>8||keep&&n>4||pos+n>b.length)throw fail('Invalid WebM integer');let value=keep?b[pos]:b[pos]&(mask-1),unknown=!keep&&(b[pos]&(mask-1))===mask-1;for(let i=1;i<n;i++){value=value*256+b[pos+i];unknown=unknown&&b[pos+i]===255;}if(!unknown&&!Number.isSafeInteger(value))throw fail('Invalid WebM integer');return {n,value,unknown};}
+ let scale=1000000,declared=0,last=0,first=0,blocks=0,defaultMs=0,elements=0;
+ const levels=new Map([[0x18538067,0],[0x1549a966,1],[0x1654ae6b,1],[0x1f43b675,1],[0x114d9b74,1],[0x1c53bb6b,1],[0x1254c367,1],[0x1043a770,1],[0x1941a469,1],[0xae,2],[0xa0,2]]);
+ const masters=new Set([0x18538067,0x1549a966,0x1654ae6b,0xae,0x1f43b675,0xa0]);
+ function uint(s,e){let n=0;if(e-s<1||e-s>8)throw fail('Invalid WebM scalar');for(let p=s;p<e;p++)n=n*256+b[p];if(!Number.isSafeInteger(n))throw fail('Invalid WebM scalar');return n;}
+ // An unknown-sized Cluster ends at its next level-one sibling. It is not
+ // the parent of every later Cluster emitted by MediaRecorder.start(timeslice).
+ function walk(start,end,parent,depth,unknown,inheritedClock){if(depth>8)throw fail('Invalid WebM nesting');let clock=inheritedClock||0,p=start;for(;p<end;){if(++elements>500000)throw fail('Too many WebM elements');const id=vint(p,true),level=levels.get(id.value);if(unknown&&level!==undefined&&level<=levels.get(parent))return p;
+  const size=vint(p+id.n,false),a=p+id.n+size.n,z=size.unknown?end:a+size.value;if(a>end||z>end||z<a)throw fail('Truncated WebM element');if(size.unknown&&id.value!==0x18538067&&id.value!==0x1f43b675)throw fail('Invalid unknown WebM size');
+  if(level!==undefined&&((parent===0&&id.value!==0x18538067)||(parent===0x18538067&&level!==1)||(parent===0x1654ae6b&&id.value!==0xae)||(parent===0x1f43b675&&level<=1)))throw fail('Invalid WebM hierarchy');
+  if(id.value===0x2ad7b1){scale=uint(a,z);if(!scale)throw fail('Invalid WebM scale');}
+  if(id.value===0x4489){if(z-a!==4&&z-a!==8)throw fail('Invalid WebM duration');const value=z-a===4?b.readFloatBE(a):b.readDoubleBE(a);if(!Number.isFinite(value)||value<0)throw fail('Invalid WebM duration');declared=Math.max(declared,value);}
+  if(id.value===0x23e383)defaultMs=Math.max(defaultMs,uint(a,z)/1e6);
+  if(id.value===0xe7)clock=uint(a,z);
+  if(id.value===0xa3||id.value===0xa1){if(parent!==0x1f43b675&&parent!==0xa0)throw fail('WebM block outside cluster');const track=vint(a,false);if(a+track.n+3>=z)throw fail('Truncated WebM block');const flags=b[a+track.n+2];if(flags&6)throw fail('Laced WebM is not accepted');const stamp=clock+b.readInt16BE(a+track.n);first=Math.min(first,stamp);last=Math.max(last,stamp);blocks++;}
+  if(masters.has(id.value)){const next=walk(a,z,id.value,depth+1,size.unknown,id.value===0xa0?clock:0);if(next<=p)throw fail('Invalid WebM progress');p=next;}else p=z;
+ }return p;}
+ walk(0,b.length,0,0,false);if(!blocks)throw fail('WebM has no media blocks');return Math.max(declared*scale/1e6,(last-first)*scale/1e6+Math.max(defaultMs,20));
 }
 function validateMedia(buffer,mime,kind){
  if(!Buffer.isBuffer(buffer)||!buffer.length)throw fail('Empty recording');
