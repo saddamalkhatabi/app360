@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),http=require('http'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),catalog=require('../data/catalog.json'),output=process.env.APP360_AGE_SCREENSHOTS||'/tmp/fun-age-screenshots';
 const acorn=require('acorn');for(const file of ['assets/js/fun-age-experience-v1.js','assets/js/home-showcase-v31.js','assets/js/family-reels-v1.js'])acorn.parse(fs.readFileSync(path.join(root,file),'utf8'),{ecmaVersion:5});
-const names={'balloon-garden':'BalloonGarden','tic-tac-toe':'TicTacToe','lines-and-houses':'LinesHouses','wonder-machine':'WonderMachine','fun-bowling':'FunBowling','mini-golf':'MiniGolf','little-car-race':'LittleRace','toy-city-crane':'ToyCrane'};
+const names={'balloon-garden':'BalloonGarden','tic-tac-toe':'TicTacToe','lines-and-houses':'LinesHouses','wonder-machine':'WonderMachine','fun-bowling':'FunBowling','little-car-race':'LittleRace','toy-city-crane':'ToyCrane'};
 const types={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.webp':'image/webp','.jpg':'image/jpeg','.png':'image/png','.mp3':'audio/mpeg','.webmanifest':'application/manifest+json'};
 fs.mkdirSync(output,{recursive:true});
 const server=http.createServer((req,res)=>{const url=new URL(req.url,'http://localhost');if(url.pathname.startsWith('/api/')||url.pathname.startsWith('/auth/')){res.writeHead(200,{'Content-Type':'application/json'});return res.end('{"authenticated":false,"ok":true,"session":null}');}const rel=decodeURIComponent(url.pathname).replace(/^\//,'')||'index.html',file=path.resolve(root,rel.endsWith('/')?rel+'index.html':rel);if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});fs.createReadStream(file).pipe(res);});
@@ -22,7 +22,7 @@ for(const app of catalog.apps.filter(a=>a.category==='fun')){
   if(name==='tic-tac-toe')assert.equal(before.mode,age==='1-4'?'coop':'ai');
   if(name==='lines-and-houses')assert.equal(before.size,age==='1-4'?1:2);
   await page.locator('#settingsBtn').click();assert(await page.locator('#funAgeNote').isVisible());
-  const level=page.locator('#levelSelect');if(await level.count()){assert.equal(await level.locator('optgroup').count(),2);assert.equal(await level.inputValue(),String(before.level));}
+  const level=page.locator('#levelSelect');if(await level.count()){assert.equal(await level.locator('optgroup').count(),name==='balloon-garden'?0:2);assert.equal(await level.inputValue(),String(before.level));}
   await page.locator('#languageSelect').selectOption('en');await page.locator('#applySettings').click();await page.waitForFunction(()=>document.documentElement.lang==='en');
   assert((await page.locator('#funAgeBadge').textContent()).includes(age==='4-8'?'Explorer':'Little'));
   for(const [width,height] of [[320,740],[390,844],[844,390],[1440,1000]]){await page.setViewportSize({width,height});await noOverflow(page,name+' '+age+' '+width);if(await page.locator('body[data-fun-home="header"]').count()){const home=await page.locator('#app360HomeBtn').boundingBox();for(const selector of ['#settingsBtn','#soundBtn']){const b=await page.locator(selector).boundingBox();assert(home.x+home.width<=b.x+1||home.x>=b.x+b.width-1||home.y+home.height<=b.y+1||home.y>=b.y+b.height-1,'Home overlaps '+selector+' in '+name+' '+width);}}await page.screenshot({path:path.join(output,name+'-'+age+'-'+width+'.png'),fullPage:true});}
@@ -35,7 +35,7 @@ for(const app of catalog.apps.filter(a=>a.category==='fun')){
 const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage();await context.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
 for(const age of ['1-4','4-8']){
  await page.goto(base+'/index.html?age='+age+'&category=fun');await page.waitForFunction(()=>document.getElementById('funCategoryTitle')&&document.getElementById('funCategoryTitle').textContent);
- assert.equal(await page.locator('#showcaseTrack .showcase-card').count(),8);assert((await page.locator('#funCategoryImage').getAttribute('src')).includes('fun-entry-'+age));await page.waitForFunction(()=>document.getElementById('funCategoryImage').naturalWidth>0);await noOverflow(page,'home '+age);
+ assert.equal(await page.locator('#showcaseTrack .showcase-card').count(),7);assert((await page.locator('#funCategoryImage').getAttribute('src')).includes('fun-entry-'+age));await page.waitForFunction(()=>document.getElementById('funCategoryImage').naturalWidth>0);await noOverflow(page,'home '+age);
  await page.locator('#funCategoryHeader').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(output,'home-fun-'+age+'.png')});
  const href=await page.locator('#showcaseTrack .showcase-cover-link').first().getAttribute('href');assert(href.includes('launch_age='+age));
 }
@@ -45,5 +45,5 @@ for(const age of catalog.age_groups.map(a=>a.id)){
  assert((await card.locator('img.showcase-cover-img').getAttribute('src')).includes('reels-age-'+age));
  const coach=page.locator('[data-app="reels-coach-'+age+'"]');assert((await coach.textContent()).includes('للمدرب أو ولي الأمر فقط'));assert(!(await coach.textContent()).includes('للبالغين فقط'));
 }
-await context.close();fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({games:results,learnerCovers:8,coachRoleLabels:8},null,2));console.log(JSON.stringify({games:results.length,ageLaunches:16,gameLayouts:64,learnerCovers:8,coachRoleLabels:8,restoredAfterReload:true}));
+await context.close();fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({games:results,learnerCovers:8,coachRoleLabels:8},null,2));console.log(JSON.stringify({games:results.length,ageLaunches:results.length*2,gameLayouts:results.length*8,learnerCovers:8,coachRoleLabels:8,restoredAfterReload:true}));
 }finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);server.close();process.exitCode=1;});
