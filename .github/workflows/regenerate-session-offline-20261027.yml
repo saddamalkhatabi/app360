@@ -1,0 +1,26 @@
+name: Regenerate repaired offline indexes
+on:
+  push:
+    branches: [codex/school-session-media-repair-20261027]
+permissions:
+  contents: write
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/school-session-media-repair-20261027
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Refresh only offline manifests using the existing project generator
+        run: |
+          node tooling/refresh-membership-offline.cjs
+          if git diff --quiet -- data/offline data/offline-catalog.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/offline data/offline-catalog.json
+          git commit -m 'Refresh offline digests for separated account sessions'
+          git push origin HEAD:codex/school-session-media-repair-20261027
