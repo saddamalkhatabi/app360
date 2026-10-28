@@ -2,7 +2,7 @@
 (function(w,d){
 'use strict';
 if(w.APP360_REELS_WORKSPACE)return;
-var api=w.APP360_REELS,win=null,settings=null,frame=null,controls=null,dock=null,ready=false,loading=false,callbacks=[],sequence=0,pending=null,inflight='',latest='',timer=0,origin='https://yem1.com',current={},lastProfile='',initialRequest=false,started=false,compat=false,filterTimer=0;
+var api=w.APP360_REELS,win=null,settings=null,frame=null,controls=null,dock=null,ready=false,loading=false,callbacks=[],sequence=0,pending=null,inflight='',latest='',timer=0,origin='https://rails.yem1.com',current={},lastProfile='',initialRequest=false,started=false,compat=false,filterTimer=0;
 function $(id){return d.getElementById(id)}
 function session(){return w.APP360_SESSION||null}
 function profileKey(){var s=session(),p=s&&s.getProfile&&s.getProfile();return p?String(p.id||p.user_id||JSON.stringify(p.external||{})):'guest'}
@@ -63,7 +63,7 @@ function load(cb){if(legacy()){compat=true;cb();return}if(w.WinBox){cb();return}
  s.src=api.rootPath()+'assets/vendor/winbox/winbox.bundle.min.js';s.onload=s.onerror=finish;timeout=setTimeout(finish,6000);(d.head||d.body).appendChild(s)}
 function savedKey(f){return 'app360:reels:preset:v1:'+api.profileKey()+':'+f.age+':'+f.role}
 function remember(){try{w.localStorage.setItem(savedKey(current),JSON.stringify({lang:current.lang,ui_language:current.ui_language,goals:current.goals,sources:current.sources,format:current.format,gender:current.gender,order:current.order}))}catch(e){}}
-function playbackUrl(){var s=session(),p=s&&s.getProfile&&s.getProfile(),lang=current.lang==='mixed'?'ar':current.lang,q='age='+encodeURIComponent(current.age)+'&role='+current.role+'&lang='+lang+'&viewer=1&host_app=school'+api.filterQuery(current)+'&ui_language='+encodeURIComponent(current.ui_language||lang)+(current.lang==='mixed'?'&content_language=mixed':'');return p&&p.external?api.rootPath()+'reels-return.html?'+q:'https://yem1.com/watch?'+q}
+function playbackUrl(){var s=session(),p=s&&s.getProfile&&s.getProfile(),lang=current.lang==='mixed'?'ar':current.lang,q='age='+encodeURIComponent(current.age)+'&role='+current.role+'&lang='+lang+'&viewer=1&host_app=school'+api.filterQuery(current)+'&ui_language='+encodeURIComponent(current.ui_language||lang)+(current.lang==='mixed'?'&content_language=mixed':'');return p&&p.external?api.rootPath()+'reels-return.html?'+q:'https://rails.yem1.com/watch?'+q}
 function play(){if(!win)return;if((current.role==='coach'||current.role==='mixed')&&!(w.APP360_ADULT_GATE&&w.APP360_ADULT_GATE.has('reels-coach'))){api.withAdult(current.role,play);return;}if(dock)dock.style.display='none';$('reelsWorkspaceDirect').href=playbackUrl();win.minimize(false);win.show();if(settings)settings.hide();$('reelsWorkspaceStart').style.display='none';frame.style.display='block';if(started){flush();return}started=true;initialRequest=true;startHandshake();frame.src=playbackUrl()}
 function options(rows,all){var html='<option value="">'+all+'</option>';for(var i=0;i<(rows||[]).length;i++)html+='<option value="'+esc(rows[i].id)+'">'+esc(rows[i].title)+'</option>';return html}
 function select(id,label,html){return '<label>'+label+'<select id="'+id+'">'+html+'</select></label>'}

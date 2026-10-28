@@ -1,7 +1,7 @@
 (function(w,d){
  'use strict';if(w.APP360_REELS_BRIDGE)return;
  var S=w.APP360_SESSION;if(!S)return;var nonce='',busy=false,lastCode='',pendingExchange=null,notice=null,blocked=null,elapsed=0,used=0,limit=0,allowed=null,currentId=String(w.APP360_APP_ID||''),last=Date.now(),ready=false;
- function trusted(v){return v==='https://yem1.com'||v==='https://apps.yem1.com';}
+ function trusted(v){return v==='https://rails.yem1.com'||v==='https://apps.yem1.com';}
  function parentOrigin(){if(w.parent===w)return '';try{var u=d.createElement('a');u.href=d.referrer;var o=u.protocol+'//'+u.host;return trusted(o)?o:'';}catch(_){return '';}}
  function tell(text){if(!notice){notice=d.createElement('div');notice.id='app360ReelsAccount';notice.style.cssText='position:fixed;right:8px;top:8px;z-index:9900;max-width:75%;padding:8px;border-radius:12px;background:#e5faf6;color:#134b50;font:13px Tahoma;direction:rtl';notice.setAttribute('role','status');d.body.appendChild(notice);}notice.textContent=text;}
  function pause(){try{Array.prototype.forEach.call(d.querySelectorAll('audio,video'),function(a){a.pause();});}catch(_){}if(S.setBridgePaused)S.setBridgePaused(true);}

@@ -273,6 +273,7 @@ function createApp360Server(options = {}) {
   const server = http.createServer((req, res) => {
     const pathname = normalizeWsPath(req.url);
     if(pathname==='/api/reels/catalog')return require('./reels-public')(req,res);
+    if(pathname==='/sso/start'||pathname==='/sso/callback'||pathname==='/api/identity/config'){return require('../../app360-data-core/src/yem1-sso').handle(req,res).catch(()=>json(res,503,{error:'identity_unavailable',message:'تعذر إكمال الدخول. افتح رابط دخول جديد.'}));}
     if(pathname.startsWith('/api/app360/')){if(dataCore)return dataCore.handle(req,res);return json(res,503,{error:'data_core_not_enabled',message:'يلزم تفعيل APP360_DATA_CORE_ENABLED'});}
     const publicLinks = pathname === '/data/public-links.json';
     if(publicLinks)res.setHeader('Vary','Origin');

@@ -6,7 +6,7 @@ module.exports=async function(req,res){
  if(req.method!=='GET')return json(405,{error:'method_not_allowed'});
  const q=new URL(req.url,'http://school.local').searchParams,age=q.get('age'),role=q.get('role'),lang=q.get('lang');
  if(!['1-4','4-8','8-12','12-16','16-24','24-45','45-60','60-80'].includes(age)||!['learner','coach'].includes(role)||!['ar','en'].includes(lang))return json(400,{error:'invalid_filters'});
- let base;try{base=new URL(process.env.APP360_REELS_BASE_URL||'https://yem1.com');}catch(_){return json(503,{error:'invalid_reels_origin'});}
+ let base;try{base=new URL(process.env.APP360_REELS_BASE_URL||'https://rails.yem1.com');}catch(_){return json(503,{error:'invalid_reels_origin'});}
  if(base.username||base.password||base.pathname!=='/'||base.search||base.hash)return json(503,{error:'invalid_reels_origin'});
  if(base.protocol!=='https:'&&!(process.env.NODE_ENV==='test'&&['localhost','127.0.0.1'].includes(base.hostname)))return json(503,{error:'invalid_reels_origin'});
  const key=[base.origin,age,role,lang].join('|'),previous=cache.get(key);if(previous&&previous.until>Date.now())return json(200,await previous.result);
