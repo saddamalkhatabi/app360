@@ -8,7 +8,7 @@ async function setup(t,legacy=false,failVendor=false){
  const errors=[];page.on('pageerror',e=>errors.push(e.message));let vendor=0;
  await page.route('**/*',async route=>{
   const u=new URL(route.request().url());
-  if(u.hostname==='yem1.com')return route.fulfill({contentType:'text/html; charset=utf-8',body:'<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><button id="player" data-taps="0" style="position:fixed;inset:0;width:100%;height:100%" onclick="this.dataset.taps=String(+this.dataset.taps+1)">Test Reels</button>'});
+  if(u.hostname==='rails.yem1.com')return route.fulfill({contentType:'text/html; charset=utf-8',body:'<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><button id="player" data-taps="0" style="position:fixed;inset:0;width:100%;height:100%" onclick="this.dataset.taps=String(+this.dataset.taps+1)">Test Reels</button>'});
   if(u.pathname.includes('/api/reels/catalog'))return route.fulfill({json:{goals:[{id:44,title:'هدف الاختبار'}],sources:[]}});
   if(u.pathname.includes('/api/'))return route.fulfill({status:401,json:{ok:false}});
   if(u.pathname.includes('/winbox/')){vendor++;if(failVendor)return route.abort()}
@@ -68,3 +68,4 @@ test('small KitKat window moves all directions, resizes at both sides and releas
 });
 
 for(const legacy of [false,true])test('only the return dock appears while minimized; no duplicate launcher '+legacy,async t=>{const {page,errors}=await setup(t,legacy);await page.click('#card');await page.locator('#reelsWorkspaceFrame').waitFor({state:'visible'});assert.equal(await page.locator('#reelsWorkspaceDock').isVisible(),false);const src=await page.locator('#reelsWorkspaceFrame').getAttribute('src');await page.evaluate(()=>APP360_REELS_WORKSPACE.getWindow().minimize(true));assert.equal(await page.locator('#reelsWorkspaceDock').isVisible(),true);assert.equal(await page.locator('.reels-workspace-main').isVisible(),false);await page.locator('#reelsWorkspaceDock').click();assert.equal(await page.locator('#reelsWorkspaceDock').isVisible(),false);assert.equal(await page.locator('#reelsWorkspaceFrame').getAttribute('src'),src);await page.evaluate(()=>APP360_REELS_WORKSPACE.close());assert.equal(await page.locator('#reelsWorkspaceDock').count(),0);assert.deepEqual(errors,[])});
+
