@@ -20,7 +20,7 @@ for(const app of catalog.apps.filter(a=>a.category==='fun')){
   const before=await page.evaluate(k=>window[k].getState().settings,api);settings.push(before);
   if(before.level)assert.equal(before.level,app.age_entry_levels[age]);
   if(name==='tic-tac-toe')assert.equal(before.mode,age==='1-4'?'coop':'ai');
-  if(name==='lines-and-houses')assert.equal(before.size,age==='1-4'?1:2);
+  if(name==='lines-and-houses')assert.equal(before.size,age==='1-4'?2:3);
   await page.locator('#settingsBtn').click();assert(await page.locator('#funAgeNote').isVisible());
   const level=page.locator('#levelSelect');if(await level.count()){assert.equal(await level.locator('optgroup').count(),name==='balloon-garden'?0:2);assert.equal(await level.inputValue(),String(before.level));}
   await page.locator('#languageSelect').selectOption('en');await page.locator('#applySettings').click();await page.waitForFunction(()=>document.documentElement.lang==='en');
