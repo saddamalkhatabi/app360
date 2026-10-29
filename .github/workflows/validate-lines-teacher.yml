@@ -24,6 +24,10 @@ jobs:
         run: |
           browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
           APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/lines-qa/node_modules node apps/1-4/lines-and-houses/tests/coach-browser.cjs
+      - name: Decode real SILMA instructions and practice after an atomic offline download
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/lines-qa/node_modules node apps/1-4/lines-and-houses/tests/media-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
