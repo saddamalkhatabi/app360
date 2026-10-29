@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),http=require('http'),assert=require('node:assert/strict'),{chromium}=require('playwright');
-const root=path.resolve(__dirname,'../../../..'),out=process.env.APP360_BALLOON_SCREENSHOTS||path.join(root,'../../../reports/balloon-coach-20261029');
+const root=path.resolve(__dirname,'../../../..'),out=process.env.APP360_BALLOON_SCREENSHOTS||path.join(require('os').tmpdir(),'balloon-coach-results');
 fs.mkdirSync(out,{recursive:true});let slow=false;
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.jpg':'image/jpeg','.json':'application/json','.mp3':'audio/mpeg'};
 const server=http.createServer((req,res)=>{const u=new URL(req.url,'http://localhost');if(/^\/(api|auth)\//.test(u.pathname)){res.setHeader('Content-Type','application/json');return res.end('{"authenticated":false,"ok":true}');}const p=path.resolve(root,'.'+u.pathname);if(!p.startsWith(root+path.sep)||!fs.existsSync(p)||!fs.statSync(p).isFile()){res.writeHead(404);return res.end();}function send(){if(res.destroyed)return;res.setHeader('Content-Type',types[path.extname(p)]||'application/octet-stream');fs.createReadStream(p).pipe(res);}if(slow&&p.endsWith('.jpg'))setTimeout(send,2300);else send();});
