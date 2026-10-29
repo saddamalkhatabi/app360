@@ -2,7 +2,7 @@
 (function(w,d){'use strict';
 function age(){var m=/[?&](?:launch_age|age)=([^&]*)/.exec(w.location.search||'');return m&&m[1]==='4-8'?'4-8':'1-4';}
 var band=age(),homeObserver=null;
-function arrangeHome(){var id=d.body&&d.body.getAttribute('data-app-id'),eligible=['fun-balloon-garden','fun-tic-tac-toe','fun-lines-and-houses','fun-wonder-machine','fun-bowling'],button=d.getElementById('app360HomeBtn'),bar=d.querySelector('.topbar');if(eligible.indexOf(id)<0||!button||!bar)return false;if(button.parentNode!==bar)bar.appendChild(button);d.body.setAttribute('data-fun-home','header');if(homeObserver){homeObserver.disconnect();homeObserver=null;}return true;}
+function arrangeHome(){var id=d.body&&d.body.getAttribute('data-app-id'),eligible=['fun-balloon-garden','fun-tic-tac-toe','fun-lines-and-houses','fun-wonder-machine'],button=d.getElementById('app360HomeBtn'),bar=d.querySelector('.topbar');if(eligible.indexOf(id)<0||!button||!bar)return false;if(button.parentNode!==bar)bar.appendChild(button);d.body.setAttribute('data-fun-home','header');if(homeObserver){homeObserver.disconnect();homeObserver=null;}return true;}
 
 function refresh(){
  if(!d.body)return;
@@ -25,7 +25,7 @@ function refresh(){
  for(var j=0;j<groups.length;j++){var little=groups[j].getAttribute('data-fun-level-group')==='little';groups[j].label=english?(little?'Little discoveries · 1–4':'Explorer challenges · 4–8'):(little?'اكتشاف بسيط · 1–4':'تحديات الاستكشاف · 4–8');}
 }
 w.APP360_FUN_AGE={age:age,refresh:refresh};
-if(w.MutationObserver&&['fun-balloon-garden','fun-tic-tac-toe','fun-lines-and-houses','fun-wonder-machine','fun-bowling'].indexOf(d.body&&d.body.getAttribute('data-app-id'))>=0){homeObserver=new w.MutationObserver(function(){arrangeHome();});homeObserver.observe(d.documentElement,{childList:true,subtree:true});}
+if(w.MutationObserver&&['fun-balloon-garden','fun-tic-tac-toe','fun-lines-and-houses','fun-wonder-machine'].indexOf(d.body&&d.body.getAttribute('data-app-id'))>=0){homeObserver=new w.MutationObserver(function(){arrangeHome();});homeObserver.observe(d.documentElement,{childList:true,subtree:true});}
 w.addEventListener('load',arrangeHome,false);
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',refresh,false);else refresh();
 })(window,document);

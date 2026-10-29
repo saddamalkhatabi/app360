@@ -1,0 +1,47 @@
+{
+  "id": "mini-golf",
+  "slug": "mini-golf",
+  "title_ar": "الغولف الصغير",
+  "title_en": "Little Mini Golf",
+  "age_group": "1-4",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "age_entry_levels": {
+    "1-4": 1,
+    "4-8": 3
+  },
+  "category": "fun",
+  "status": "live",
+  "kind": "modern_extension",
+  "runtime_profile": "legacy-web",
+  "depth": "standard",
+  "capabilities": [
+    "storage.local",
+    "pwa.offline",
+    "compat.legacy-web"
+  ],
+  "bundles": [
+    "static-core"
+  ],
+  "offline_mode": "offline-first",
+  "goal_keys": [],
+  "description_ar": "وجّه الكرة نحو العلم في اثني عشر مسارًا متدرجًا؛ ثلاثة أجواء وأربعة مستويات ولعب فردي أو بالتناوب.",
+  "practice_model": "وجّه الضربة ← اختر القوة ← شاهد الكرة ← جرّب أو انتقل",
+  "audience": "learner",
+  "tags": [
+    "تسلية",
+    "غولف",
+    "اتجاه",
+    "قوة",
+    "تناوب"
+  ],
+  "blueprint_path": "apps/1-4/mini-golf/BUILD_SPEC.md",
+  "prompt_path": "apps/1-4/mini-golf/PROMPT_AR.md",
+  "version": "1.0.0",
+  "entry_path": "apps/1-4/mini-golf/index.html",
+  "manifest_path": "apps/1-4/mini-golf/manifest.webmanifest",
+  "icon_path": "apps/1-4/mini-golf/icon.svg",
+  "scaffold_state": "implemented"
+}
