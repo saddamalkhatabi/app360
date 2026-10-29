@@ -1,0 +1,35 @@
+name: Validate Tic Tac Toe teacher
+on:
+  push:
+    branches: [codex/tic-tac-toe-teacher-20261030, main]
+    paths: ['apps/1-4/tic-tac-toe/**', 'tooling/*lines*', '.github/workflows/validate-xo-teacher.yml']
+  pull_request:
+    paths: ['apps/1-4/tic-tac-toe/**', 'tooling/*lines*', '.github/workflows/validate-xo-teacher.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  teacher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tooling/build-xo-coach-catalog.cjs --check
+      - run: node --test apps/1-4/tic-tac-toe/tests/*.test.cjs
+      - run: npm install --prefix /tmp/lines-qa playwright@1.62.1 acorn@8 --no-audit --no-fund
+      - name: Both ages, real practice, saved villages, correction and responsive UI
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/lines-qa/node_modules node apps/1-4/tic-tac-toe/tests/coach-browser.cjs
+      - name: Decode real SILMA instructions and practice after an atomic offline download
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/lines-qa/node_modules node apps/1-4/tic-tac-toe/tests/media-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xo-teacher-browser-evidence
+          path: /tmp/xo-teacher-results
