@@ -8,7 +8,7 @@ permissions:
   actions: read
 concurrency:
   group: shared-number-recovery-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   recover:
     runs-on: ubuntu-latest
@@ -25,19 +25,6 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
-      - name: Wait for the original batches to finish uploading their verified media
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python - <<'PYWAIT'
-          import urllib.request,json,os,time
-          for attempt in range(45):
-              request=urllib.request.Request('https://api.github.com/repos/saddamalkhatabi/app360/actions/runs/40896938717',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
-              with urllib.request.urlopen(request) as response:status=json.load(response)['status']
-              if status=='completed':break
-              time.sleep(20)
-          else:raise SystemExit('Original recording batches are still running')
-          PYWAIT
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
@@ -72,6 +59,15 @@ jobs:
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
           python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: '40896938717'
+          pattern: number-lessons-*
+          merge-multiple: true
+          path: /tmp/original-number-media
+      - name: Refresh completed original batches before generating the remainder
+        run: python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
       - name: Recover only missing speech with explicit pronunciation and fresh seeds
         run: |
           for attempt in 1 2 3; do
