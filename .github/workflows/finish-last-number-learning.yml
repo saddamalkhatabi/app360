@@ -1,0 +1,94 @@
+name: Finish the last number sentence with a verified counting reference
+on:
+  push:
+    branches: [codex/balloon-language-learning-20261029]
+    paths: [apps/1-4/say-and-name/data/number-last-sentence.request]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HF_HOME: /tmp/silma-hf
+      PYTHONUNBUFFERED: '1'
+      MEANING_FINAL_REF: '1'
+      MEANING_ONLY_IDS: data/number-lessons-20.json
+      MEANING_NUMBER_REFERENCE: '1'
+      MEANING_ASR_MODEL: /tmp/meaning-asr
+      MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: '40896938717'
+          pattern: number-lessons-*
+          merge-multiple: true
+          path: /tmp/original-number-media
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: '40905035454'
+          pattern: number-final-*
+          merge-multiple: true
+          path: /tmp/completed-number-media
+      - name: Retain all completed exact recordings
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/completed-number-media --merge
+      - name: Install SILMA CPU environment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python -m pip install --no-cache-dir torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
+          python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub faster-whisper==1.2.1
+      - name: Download publisher models
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(repo_id='silma-ai/silma-tts',revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',allow_patterns=['*.pt','*.safetensors','*.json','*.txt','*.yaml','*.wav','*.model'])
+          snapshot_download(repo_id='charactr/vocos-mel-24khz')
+          snapshot_download(repo_id='Systran/faster-whisper-small',local_dir='/tmp/meaning-asr')
+          snapshot_download(repo_id='Systran/faster-whisper-medium',local_dir='/tmp/meaning-asr-verify')
+          import os,pathlib
+          p=pathlib.Path(os.environ['HF_HOME'])/'hub/models--silma-ai--silma-tts/refs/main'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
+          PY
+          python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
+      - name: Finish only the unverified clip using the successful count-twenty voice reference
+        run: |
+          MEANING_SEED_OFFSET=393000 python apps/1-4/say-and-name/tools/generate_meaning.py --recover --part 0 --parts 1 --output /tmp/last-number-output
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/last-number-output --merge
+          python - <<'PYVERIFY'
+          import json,pathlib,sys
+          root=pathlib.Path('apps/1-4/say-and-name');sys.path.insert(0,str(root/'tools'))
+          from meaning_speech_qa import verified_recording
+          clips=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips'];ids=set(json.loads((root/'data/number-lessons-20.json').read_text())['new_clip_ids'])
+          rows=json.loads((root/'data/meaning-scripts-v1.json').read_text())['items']
+          assert all(verified_recording(row,clips.get(row['id']),root) for row in rows if row['id'] in ids)
+          PYVERIFY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
+          git diff --cached --quiet || git commit -m 'Complete all forty verified number recordings using the closest same-voice counting reference'
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: last-number-proof
+          path: /tmp/last-number-output
+          retention-days: 7

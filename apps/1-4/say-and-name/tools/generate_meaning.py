@@ -34,7 +34,7 @@ if a.recover:
   options=[r for r in existing.values() if r.get('language')==lang and 3500<=r.get('duration_ms',0)<=8000 and verified_recording(r,r,ROOT)]
   if options:
    chosen=min(options,key=lambda r:r['duration_ms']);references[lang]=(str(ROOT/chosen['path']),chosen['text'])
-preferred=existing.get('ar_2b9079b514f2a91959a7')
+preferred=existing.get('ar_a9aa86e139da6f7efdd1') if os.environ.get('MEANING_NUMBER_REFERENCE')=='1' else existing.get('ar_2b9079b514f2a91959a7')
 if a.recover and preferred and verified_recording(preferred,preferred,ROOT):references['ar']=(str(ROOT/preferred['path']),preferred['text'])
 recognizer=WhisperModel(os.environ['MEANING_ASR_MODEL'],device='cpu',compute_type='int8',cpu_threads=2,num_workers=1)
 verifier=None
