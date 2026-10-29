@@ -8,6 +8,8 @@ manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());n=manifes
 items=manifest['items'][:n] if a.priority else [r for i,r in enumerate(manifest['items'][n:]) if i%a.parts==a.part]
 existing=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
 items=[r for r in items if not verified_recording(r,existing.get(r['id']),ROOT)]
+if os.environ.get('MEANING_ONLY_IDS'):
+ wanted_ids=set(json.loads((ROOT/os.environ['MEANING_ONLY_IDS']).read_text())['new_clip_ids']);items=[r for r in items if r['id'] in wanted_ids]
 out=pathlib.Path(a.output);out.mkdir(parents=True,exist_ok=True)
 if not items:
  print('All recordings in this batch already verified; no model loading needed',flush=True)
