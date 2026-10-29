@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.1",
+  "app_id": "fun-lines-and-houses",
+  "title_ar": "خطوط وبيوت · مدربة الروضة والمدرسة",
+  "base_path": "apps/1-4/lines-and-houses/",
+  "app_href": "apps/1-4/lines-and-houses/index.html",
+  "launch_path": "apps/1-4/lines-and-houses/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:lines-trainer:sessioncomplete",
+  "routes": [
+    {
+      "id": "lines-1-4-all",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "رحلة البناء كاملة",
+      "label_en": "Whole building journey",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=1-4&route_ids=lines-1-4-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-1-4-build",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "أول بيت لي",
+      "label_en": "My first house",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=1-4&route_ids=lines-1-4-build",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-1-4-shared",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "الخط المشترك",
+      "label_en": "The shared line",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=1-4&route_ids=lines-1-4-shared",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-1-4-together",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "نبني معًا",
+      "label_en": "Build together",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=1-4&route_ids=lines-1-4-together",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-1-4-independent",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "أجرب بنفسي",
+      "label_en": "Try for myself",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=1-4&route_ids=lines-1-4-independent",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-4-8-all",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "رحلة التخطيط كاملة",
+      "label_en": "Whole planning journey",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=4-8&route_ids=lines-4-8-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-4-8-build",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "إكمال البيوت",
+      "label_en": "Complete houses",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=4-8&route_ids=lines-4-8-build",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-4-8-safe",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "الخط الآمن",
+      "label_en": "A safer line",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=4-8&route_ids=lines-4-8-safe",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-4-8-chains",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "البيوت المتتابعة",
+      "label_en": "House chains",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=4-8&route_ids=lines-4-8-chains",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "lines-4-8-independent",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "أخطط بنفسي",
+      "label_en": "Plan for myself",
+      "href": "apps/1-4/lines-and-houses/launch.html?action=session&launch_age=4-8&route_ids=lines-4-8-independent",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "lines-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id"
+  ]
+}

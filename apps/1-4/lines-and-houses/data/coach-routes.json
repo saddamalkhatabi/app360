@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "app_id": "fun-lines-and-houses",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "routes": [
+    {
+      "id": "lines-1-4-all",
+      "age_group": "1-4",
+      "label_ar": "رحلة البناء كاملة",
+      "label_en": "Whole building journey",
+      "unit_ids": [
+        "line",
+        "capture",
+        "double",
+        "together",
+        "independent"
+      ]
+    },
+    {
+      "id": "lines-1-4-build",
+      "age_group": "1-4",
+      "label_ar": "أول بيت لي",
+      "label_en": "My first house",
+      "unit_ids": [
+        "line",
+        "capture"
+      ]
+    },
+    {
+      "id": "lines-1-4-shared",
+      "age_group": "1-4",
+      "label_ar": "الخط المشترك",
+      "label_en": "The shared line",
+      "unit_ids": [
+        "capture",
+        "double"
+      ]
+    },
+    {
+      "id": "lines-1-4-together",
+      "age_group": "1-4",
+      "label_ar": "نبني معًا",
+      "label_en": "Build together",
+      "unit_ids": [
+        "line",
+        "together"
+      ]
+    },
+    {
+      "id": "lines-1-4-independent",
+      "age_group": "1-4",
+      "label_ar": "أجرب بنفسي",
+      "label_en": "Try for myself",
+      "unit_ids": [
+        "independent"
+      ]
+    },
+    {
+      "id": "lines-4-8-all",
+      "age_group": "4-8",
+      "label_ar": "رحلة التخطيط كاملة",
+      "label_en": "Whole planning journey",
+      "unit_ids": [
+        "capture",
+        "safe",
+        "double",
+        "chain",
+        "independent"
+      ]
+    },
+    {
+      "id": "lines-4-8-build",
+      "age_group": "4-8",
+      "label_ar": "إكمال البيوت",
+      "label_en": "Complete houses",
+      "unit_ids": [
+        "capture",
+        "double"
+      ]
+    },
+    {
+      "id": "lines-4-8-safe",
+      "age_group": "4-8",
+      "label_ar": "الخط الآمن",
+      "label_en": "A safer line",
+      "unit_ids": [
+        "safe"
+      ]
+    },
+    {
+      "id": "lines-4-8-chains",
+      "age_group": "4-8",
+      "label_ar": "البيوت المتتابعة",
+      "label_en": "House chains",
+      "unit_ids": [
+        "double",
+        "chain"
+      ]
+    },
+    {
+      "id": "lines-4-8-independent",
+      "age_group": "4-8",
+      "label_ar": "أخطط بنفسي",
+      "label_en": "Plan for myself",
+      "unit_ids": [
+        "independent"
+      ]
+    }
+  ],
+  "units": {
+    "line": {
+      "id": "line",
+      "cue": "line",
+      "label_ar": "نصل نقطتين",
+      "label_en": "Connect two dots",
+      "mode": "local",
+      "moves": [],
+      "target": 0,
+      "goal": "line"
+    },
+    "capture": {
+      "id": "capture",
+      "cue": "capture",
+      "label_ar": "أكمل البيت",
+      "label_en": "Complete a house",
+      "mode": "local",
+      "moves": [
+        0,
+        2,
+        6
+      ],
+      "target": 7,
+      "goal": "capture"
+    },
+    "double": {
+      "id": "double",
+      "cue": "double",
+      "label_ar": "خط يبني بيتين",
+      "label_en": "Two houses, one line",
+      "mode": "local",
+      "moves": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        8
+      ],
+      "target": 7,
+      "goal": "double"
+    },
+    "together": {
+      "id": "together",
+      "cue": "together",
+      "label_ar": "دوري ودورك",
+      "label_en": "Take turns together",
+      "mode": "coop",
+      "moves": [],
+      "target": 7,
+      "goal": "line"
+    },
+    "safe": {
+      "id": "safe",
+      "cue": "safe",
+      "label_ar": "أفكر قبل الخط",
+      "label_en": "Think before drawing",
+      "mode": "local",
+      "moves": [
+        0,
+        6
+      ],
+      "target": 1,
+      "goal": "safe"
+    },
+    "chain": {
+      "id": "chain",
+      "cue": "chain",
+      "label_ar": "بيت ثم جاره",
+      "label_en": "A house and its neighbor",
+      "mode": "local",
+      "moves": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "target": 7,
+      "goal": "chain"
+    },
+    "independent": {
+      "id": "independent",
+      "cue": "independent",
+      "label_ar": "أختار بنفسي",
+      "label_en": "Choose for myself",
+      "mode": "local",
+      "moves": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "target": 7,
+      "goal": "capture",
+      "independent": true
+    }
+  },
+  "launch": {
+    "path": "launch.html",
+    "params": [
+      "launch_age",
+      "route_ids",
+      "mode",
+      "autoplay",
+      "duration_seconds",
+      "response_seconds",
+      "caller",
+      "launch_id"
+    ]
+  },
+  "events": {
+    "viewed": "app360:lines-trainer:experienceviewed",
+    "practiced": "app360:lines-trainer:practice",
+    "complete": "app360:lines-trainer:sessioncomplete"
+  },
+  "completion": {
+    "demonstrations_are_practice": false,
+    "automatic_mastery": false
+  }
+}
