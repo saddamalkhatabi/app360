@@ -30,7 +30,8 @@ try{
    await p.locator('.balloon:not([disabled])').first().click();await p.waitForFunction(()=>!BalloonGarden.getState().coachBusy);
   }
   assert.equal((await state(p)).settings.stage,1);assert.equal((await state(p)).round.pops,0);
-  await p.reload();await p.waitForFunction(()=>window.BalloonGarden);assert((await state(p)).settings.coach);assert.equal((await state(p)).settings.stage,1);
+  await p.locator('[data-level="4"]').click();slow=true;await p.locator('.balloon:not([disabled])').first().click();await p.waitForTimeout(1500);assert((await state(p)).coachBusy,'the coach also waits for the slow picture');await p.waitForFunction(()=>!BalloonGarden.getState().coachBusy);slow=false;
+  await p.locator('[data-level="1"]').click();await p.locator('[data-stage="1"]').click();await p.reload();await p.waitForFunction(()=>window.BalloonGarden);assert((await state(p)).settings.coach);assert.equal((await state(p)).settings.stage,1);
   await p.locator('#coachBtn').click();await p.locator('[data-stage="0"]').click();assert.equal((await state(p)).round.pops,1,'free play stays independent');
   assert.deepEqual(errors,[]);results.push({age,width,startup,slowImage:true,automaticRoute:true});await c.close();
  }

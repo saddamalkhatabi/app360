@@ -4,7 +4,7 @@ const {JSDOM}=require('jsdom');
 const dir=path.resolve(__dirname,'..'),root=path.resolve(dir,'../../..');
 function runtime(age='4-8',saved){
  const dom=new JSDOM(fs.readFileSync(path.join(dir,'index.html'),'utf8'),{url:'https://school.example/apps/1-4/balloon-garden/index.html?launch_age='+age,runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,played=[],praise=[];
- w.HTMLElement.prototype.scrollIntoView=function(){};w.Math.random=()=>.351;w.Audio=function(src){const a=w.document.createElement('audio');a.src=src||'';let paused=true;Object.defineProperty(a,'paused',{get:()=>paused});Object.defineProperty(a,'currentTime',{value:0,writable:true});a.play=()=>{paused=false;played.push(a);return Promise.resolve();};a.pause=()=>{paused=true;};return a;};
+ w.HTMLElement.prototype.scrollIntoView=function(){};Object.defineProperty(w.HTMLImageElement.prototype,'complete',{get:()=>true});Object.defineProperty(w.HTMLImageElement.prototype,'naturalWidth',{get:()=>100});w.Math.random=()=>.351;w.Audio=function(src){const a=w.document.createElement('audio');a.src=src||'';let paused=true;Object.defineProperty(a,'paused',{get:()=>paused});Object.defineProperty(a,'currentTime',{value:0,writable:true});a.play=()=>{paused=false;played.push(a);return Promise.resolve();};a.pause=()=>{paused=true;};return a;};
  const activityPauses=new Set();w.APP360_SESSION={getProfile:()=>null,pauseActivity:(reason,on)=>on?activityPauses.add(reason):activityPauses.delete(reason),isUsageActive:()=>activityPauses.size===0};w.APP360_TEACHER_ENCOURAGEMENT={play:(o,done)=>{praise.push(o);if(done)done();},stop(){}};
  if(saved)for(const [k,v] of saved)w.localStorage.setItem(k,v);
  for(const name of ['core','art','content','learning','guidance','speech','app'])w.eval(fs.readFileSync(path.join(dir,name+'.js'),'utf8'));
@@ -65,7 +65,7 @@ for(const age of ['1-4','4-8'])test('coach waits for lesson AND praise, advances
   assert.equal(r.w.BalloonGardenCore.config(r.state().settings).mode,'colors');
   r.pop();assert(r.state().coachBusy);assert.equal(scheduled.size,0);
   r.drain();assert.equal(scheduled.size,0,'the child hears praise before the next trial');
-  finishPraise();assert.equal(scheduled.size,1);const resume=[...scheduled.values()][0];scheduled.clear();resume();
+  finishPraise();assert.equal(scheduled.size,1);r.el('repeatBtn').click();assert.equal(scheduled.size,0,'replaying the lesson cancels the pending advance');r.drain();finishPraise();assert.equal(scheduled.size,1);const resume=[...scheduled.values()][0];scheduled.clear();resume();
   assert.equal(r.state().coachBusy,false);assert(r.el('balloonField').querySelector('.balloon:not([disabled])'));
   r.pop();r.drain();const late=finishPraise;r.w.APP360_SESSION.getProfile=()=>({user_id:'new-child'});r.w.document.dispatchEvent(new r.w.Event('app360:authchange'));late();assert.equal(scheduled.size,0);assert.equal(r.state().round.pops,0);
   r.w.APP360_SESSION.getProfile=()=>null;r.w.document.dispatchEvent(new r.w.Event('app360:authchange'));assert(r.state().settings.coach);assert.equal(r.state().round.pops,2);
