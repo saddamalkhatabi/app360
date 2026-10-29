@@ -1,16 +1,17 @@
-name: Recover only unverified shared number recordings
+name: Complete the five remaining shared Arabic number sentences
 on:
   push:
     branches: [codex/balloon-language-learning-20261029]
-    paths: [apps/1-4/say-and-name/data/number-lessons-recovery.request]
+    paths: [apps/1-4/say-and-name/data/number-lessons-final.request]
 permissions:
-  contents: write
+  contents: read
   actions: read
-concurrency:
-  group: shared-number-recovery-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
-  recover:
+  record:
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4]
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
@@ -22,9 +23,9 @@ jobs:
       MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          ref: ${{ github.ref_name }}
-          fetch-depth: 0
+          python-version: '3.11'
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
@@ -32,10 +33,10 @@ jobs:
           pattern: number-lessons-*
           merge-multiple: true
           path: /tmp/original-number-media
-      - name: Preserve already verified recordings
+      - name: Restore all thirty-five verified recordings
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          sudo apt-get install -y -qq ffmpeg
           python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
       - name: Install SILMA CPU environment
         run: |
@@ -59,6 +60,34 @@ jobs:
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
           python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
+      - name: Generate and verify this remaining Arabic sentence
+        run: |
+          result=1
+          for attempt in 1 2 3; do
+            result=0
+            MEANING_SEED_OFFSET=$((192000 + attempt * 1000 + ${{ matrix.part }} * 17)) python apps/1-4/say-and-name/tools/generate_meaning.py --recover --part ${{ matrix.part }} --parts 5 --output /tmp/final-number-output || result=$?
+            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/final-number-output --merge
+            if [ -f /tmp/final-number-output/part-${{ matrix.part }}.json ]; then mv /tmp/final-number-output/part-${{ matrix.part }}.json /tmp/final-number-output/round-$attempt-part-${{ matrix.part }}.json; fi
+            if [ "$result" = 0 ]; then break; fi
+          done
+          exit "$result"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: number-final-${{ matrix.part }}
+          path: /tmp/final-number-output
+          retention-days: 7
+  publish:
+    needs: record
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
@@ -66,34 +95,28 @@ jobs:
           pattern: number-lessons-*
           merge-multiple: true
           path: /tmp/original-number-media
-      - name: Refresh completed original batches before generating the remainder
-        run: python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
-      - name: Recover only missing speech with explicit pronunciation and fresh seeds
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: number-final-*
+          merge-multiple: true
+          path: /tmp/final-number-output
+      - name: Require all forty exact verified recordings before publishing
         run: |
-          for attempt in 1 2 3; do
-            result=0
-            MEANING_SEED_OFFSET=$((92000 + attempt * 1000)) python apps/1-4/say-and-name/tools/generate_meaning.py --recover --part 0 --parts 1 --output /tmp/number-recovery-output || result=$?
-            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/number-recovery-output --merge
-            if [ "$result" = 0 ]; then break; fi
-          done
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/final-number-output --merge
           python - <<'PYVERIFY'
           import json,pathlib,sys
           root=pathlib.Path('apps/1-4/say-and-name');sys.path.insert(0,str(root/'tools'))
           from meaning_speech_qa import verified_recording
           clips=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips'];ids=set(json.loads((root/'data/number-lessons-20.json').read_text())['new_clip_ids'])
           rows=json.loads((root/'data/meaning-scripts-v1.json').read_text())['items']
-          missing=[row['id'] for row in rows if row['id'] in ids and not verified_recording(row,clips.get(row['id']),root)]
-          assert not missing,missing
+          assert all(verified_recording(row,clips.get(row['id']),root) for row in rows if row['id'] in ids)
           PYVERIFY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
-          git diff --cached --quiet || git commit -m 'Publish all forty verified SILMA number recordings with measured word cues'
+          git diff --cached --quiet || git commit -m 'Publish all forty independently verified SILMA number recordings and acoustic word timings'
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: number-recovery-proof
-          path: /tmp/number-recovery-output
-          retention-days: 7
