@@ -1,0 +1,41 @@
+name: Validate interactive School guide
+on:
+  pull_request:
+    paths: ['index.html', 'assets/js/school-guide-v1.js', 'assets/css/school-guide-v1.css', 'assets/js/home-showcase-v31.js', 'tooling/test-school-guide-browser.cjs', 'tooling/refresh-school-guide-offline.cjs', '.github/workflows/validate-school-guide.yml']
+  push:
+    branches: [main]
+    paths: ['index.html', 'assets/js/school-guide-v1.js', 'assets/css/school-guide-v1.css', 'assets/js/home-showcase-v31.js', 'tooling/test-school-guide-browser.cjs', '.github/workflows/validate-school-guide.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  guide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser test tools
+        run: |
+          npm install --prefix /tmp/school-guide-qa playwright@1.62.1 acorn@8 --no-audit --no-fund
+          /tmp/school-guide-qa/node_modules/.bin/playwright install --with-deps chromium
+      - name: Check legacy syntax and offline manifest consistency
+        env:
+          NODE_PATH: /tmp/school-guide-qa/node_modules
+        run: |
+          node --check assets/js/school-guide-v1.js
+          node -e "require('acorn').parse(require('fs').readFileSync('assets/js/school-guide-v1.js','utf8'),{ecmaVersion:5})"
+          node tooling/refresh-school-guide-offline.cjs
+          git diff --exit-code -- data/offline data/offline-catalog.json
+      - name: Exercise actual portal controls on mobile, desktop and legacy tablet emulation
+        env:
+          NODE_PATH: /tmp/school-guide-qa/node_modules
+          APP360_GUIDE_REPORT: /tmp/school-guide-report
+        run: node tooling/test-school-guide-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: school-guide-browser
+          path: /tmp/school-guide-report

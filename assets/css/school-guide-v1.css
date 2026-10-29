@@ -1,0 +1,28 @@
+/* Scoped guide styling; no changes to application cards or general button colours. */
+#schoolGuideCard[hidden],#schoolGuideRing[hidden],#schoolGuideArrow[hidden],#schoolGuideCard [hidden]{display:none!important}
+#schoolGuideBtn{white-space:nowrap}
+#schoolGuideCard{position:fixed;z-index:2147483100;box-sizing:border-box;width:390px;max-width:calc(100% - 24px);padding:18px;border:1px solid #5edbd3;border-radius:20px;background:#062e39;color:#fff;box-shadow:0 14px 48px rgba(0,0,0,.4);overflow:auto;direction:rtl;text-align:right;font:15px/1.65 Tahoma,Arial,sans-serif}
+#schoolGuideCard *{box-sizing:border-box}
+#schoolGuideCard h2{color:#fff;font:bold 21px/1.5 Tahoma,Arial,sans-serif;margin:12px 0 8px;outline:none}
+#schoolGuideCard p{color:#f2fcff;margin:8px 0;line-height:1.7}
+#schoolGuideCard #schoolGuideHint{color:#c4f5e7;background:#104650;padding:10px;border-radius:10px;font-size:13px}
+#schoolGuideCard button{font:inherit;cursor:pointer;min-height:44px;padding:8px 13px;border:1px solid #79c7c7;border-radius:11px;background:#123f4a;color:#fff;touch-action:manipulation}
+#schoolGuideCard button:focus{outline:3px solid #ffe18a;outline-offset:2px}
+#schoolGuideCard button:disabled{opacity:.45;cursor:default}
+#schoolGuideCard #schoolGuideNext{background:#ffe18a;color:#163e44;border-color:#ffe18a;font-weight:bold;flex:1}
+#schoolGuideCard #schoolGuideLater{font-size:13px;background:transparent;border-color:transparent}
+#schoolGuideCard #schoolGuideTry{background:#e4fff5;color:#083c42;width:100%;margin:5px 0;font-weight:bold}
+#schoolGuideCard .sg-heading{display:flex;align-items:center;justify-content:space-between;color:#a7eee6;font-size:12px}
+#schoolGuideCard #schoolGuideSkip{font-size:27px;padding:0;width:44px;line-height:1;background:transparent;border-color:transparent}
+#schoolGuideCard .sg-actions{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:12px}
+#schoolGuideCard .sg-progress{height:4px;border-radius:3px;background:#29535b;overflow:hidden}
+#schoolGuideProgress{display:block;height:100%;background:#ffe18a}
+#schoolGuideRing{position:fixed;z-index:2147483098;pointer-events:none;box-sizing:border-box;border:3px solid #ffd966;border-radius:12px;box-shadow:0 0 0 3px #074f5a,0 0 22px rgba(255,217,102,.5)}
+#schoolGuideArrow{position:fixed;z-index:2147483099;pointer-events:none;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent}
+#schoolGuideArrow.sg-arrow-up{border-bottom:12px solid #5edbd3}
+#schoolGuideArrow.sg-arrow-down{border-top:12px solid #5edbd3}
+#schoolGuideCard.sg-compact{padding:7px 12px;width:auto!important;max-width:calc(100% - 24px);border-radius:14px}
+#schoolGuideCard.sg-compact>.sg-heading,#schoolGuideCard.sg-compact>.sg-progress,#schoolGuideCard.sg-compact>h2,#schoolGuideCard.sg-compact>p,#schoolGuideCard.sg-compact>.sg-actions,#schoolGuideCard.sg-compact>#schoolGuideTry{display:none!important}
+#schoolGuideCard #schoolGuideResume{border:0;background:transparent;color:#fff;font-weight:bold;width:100%}
+@media(max-width:420px),(max-height:520px){#schoolGuideCard{padding:12px;font-size:14px;border-radius:14px}#schoolGuideCard h2{font-size:18px;margin-top:8px}#schoolGuideCard #schoolGuideHint{padding:7px;font-size:12px}#schoolGuideCard button{padding:7px 9px}.sg-actions{gap:4px}}
+@media(prefers-reduced-motion:reduce){#schoolGuideCard,#schoolGuideRing{scroll-behavior:auto}}
