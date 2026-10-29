@@ -1,8 +1,8 @@
 {
   "engine": "silma-tts",
   "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
-  "ready": 2029,
-  "expected": 2029,
+  "ready": 2069,
+  "expected": 2069,
   "auditory_review": "pending",
   "clips": {
     "en_038409bfab183e1095a6": {
@@ -188349,6 +188349,2138 @@
       "sha256": "88fde414bf75d9a99bb80976c873bed17e0afa8dbef3d4a774d51c3f11b813bd",
       "timing_source": "MMS_FA acoustic alignment of decoded MP3",
       "alignment_score": 0.9664,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a9aa86e139da6f7efdd1": {
+      "id": "ar_a9aa86e139da6f7efdd1",
+      "language": "ar",
+      "text": "أعد عشرين مكعبًا.",
+      "words": [
+        "أعد",
+        "عشرين",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_a9aa86e139da6f7efdd1.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أعد عشرين مكعبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد عشرين مكعبا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          302
+        ],
+        [
+          1,
+          585,
+          988
+        ],
+        [
+          2,
+          1109,
+          1714
+        ]
+      ],
+      "duration_ms": 2984,
+      "sha256": "1a91814a255d312689478d8be48dc3e0155cd183b23c03965b1459f27e3da86e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.991,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_2baf416f377c1e03aeeb": {
+      "id": "en_2baf416f377c1e03aeeb",
+      "language": "en",
+      "text": "I count eleven blocks.",
+      "words": [
+        "I",
+        "count",
+        "eleven",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_2baf416f377c1e03aeeb.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count eleven blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 11 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          81,
+          101
+        ],
+        [
+          1,
+          162,
+          465
+        ],
+        [
+          2,
+          546,
+          910
+        ],
+        [
+          3,
+          1072,
+          1597
+        ]
+      ],
+      "duration_ms": 1739,
+      "sha256": "2a1dfd2c927efd84aeae7d368597bf2dc1f50c711fad8b27f3380f6e7f9350ac",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.939,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_50e97d663c92fbd36811": {
+      "id": "en_50e97d663c92fbd36811",
+      "language": "en",
+      "text": "I count thirteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "thirteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_50e97d663c92fbd36811.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count thirteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 13 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          121,
+          141
+        ],
+        [
+          1,
+          221,
+          463
+        ],
+        [
+          2,
+          563,
+          1066
+        ],
+        [
+          3,
+          1147,
+          1590
+        ]
+      ],
+      "duration_ms": 1891,
+      "sha256": "dc7046a62f58316ef2cd1e28e387c094708308b63224ae73491d7ff6872d46ea",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9645,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_9239bafcca00d8227419": {
+      "id": "en_9239bafcca00d8227419",
+      "language": "en",
+      "text": "I count fifteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "fifteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_9239bafcca00d8227419.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count fifteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 15 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          80,
+          101
+        ],
+        [
+          1,
+          181,
+          442
+        ],
+        [
+          2,
+          523,
+          1005
+        ],
+        [
+          3,
+          1065,
+          1568
+        ]
+      ],
+      "duration_ms": 1749,
+      "sha256": "8bea47f2d817a5c65280e21e375896ffb38cbd516b42687db27ab1c3d359515c",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9599,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d4ceb2e7ab338fcce861": {
+      "id": "en_d4ceb2e7ab338fcce861",
+      "language": "en",
+      "text": "I count seventeen blocks.",
+      "words": [
+        "I",
+        "count",
+        "seventeen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_d4ceb2e7ab338fcce861.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count seventeen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 17 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          61,
+          81
+        ],
+        [
+          1,
+          141,
+          363
+        ],
+        [
+          2,
+          444,
+          989
+        ],
+        [
+          3,
+          1070,
+          1453
+        ]
+      ],
+      "duration_ms": 1655,
+      "sha256": "2763746f71c5d8235ff1bebf38678f5e24693de200bbcaa2eff4baf2e529db84",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9484,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d60f076b4a189f5aca53": {
+      "id": "en_d60f076b4a189f5aca53",
+      "language": "en",
+      "text": "I count nineteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "nineteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_d60f076b4a189f5aca53.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count nineteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 19 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          182,
+          465
+        ],
+        [
+          2,
+          546,
+          1091
+        ],
+        [
+          3,
+          1172,
+          1617
+        ]
+      ],
+      "duration_ms": 1900,
+      "sha256": "15950b9b80c31ec0bc46a49ab20c8cd964d667863e630736117f7e4a7ebba576",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8789,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_03aa83b27bfa26a83084": {
+      "id": "ar_03aa83b27bfa26a83084",
+      "language": "ar",
+      "text": "أعد أحد عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "أحد",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_03aa83b27bfa26a83084.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أعد أحد عشر مكعبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد أحد عشر مكعبا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          342
+        ],
+        [
+          1,
+          522,
+          1045
+        ],
+        [
+          2,
+          1989,
+          2190
+        ],
+        [
+          3,
+          2391,
+          2994
+        ]
+      ],
+      "duration_ms": 4099,
+      "sha256": "bae479f58953bbe3326d99a24249fd94774bc84f8040c2e8ddfc30975763dc62",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9746,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e901630dc4ec36c656d8": {
+      "id": "ar_e901630dc4ec36c656d8",
+      "language": "ar",
+      "text": "أعد ثلاثة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "ثلاثة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_e901630dc4ec36c656d8.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أعد ثلاثة عشر مكعبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد ثلاثة عشر مكعبا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0833,
+          "heard": "أعد ثلاثة عشر مكحبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          341
+        ],
+        [
+          1,
+          461,
+          942
+        ],
+        [
+          2,
+          1603,
+          1804
+        ],
+        [
+          3,
+          2124,
+          2686
+        ]
+      ],
+      "duration_ms": 3928,
+      "sha256": "050824903793daf1ca935deebbd885c2509e429ceeff43e36f13e78bb8324d3f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9745,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_caf53bb36cdf9fecde18": {
+      "id": "ar_caf53bb36cdf9fecde18",
+      "language": "ar",
+      "text": "أعد سبعة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "سبعة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_caf53bb36cdf9fecde18.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أعد سبعة عشر مكعبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد سبعة عشر مكعبا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          361
+        ],
+        [
+          1,
+          441,
+          1224
+        ],
+        [
+          2,
+          1344,
+          1525
+        ],
+        [
+          3,
+          1746,
+          2368
+        ]
+      ],
+      "duration_ms": 3692,
+      "sha256": "7ebb063adda6c03c4a1b6a5c36998e7bed8ffeb21cb43ccabb1949d8609b80df",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9294,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_e2ada05104efa01b06c3": {
+      "id": "ar_e2ada05104efa01b06c3",
+      "language": "ar",
+      "text": "أعد تسعة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "تسعة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_e2ada05104efa01b06c3.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أعد تسعة عشر مكعبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد تسعة عشر مكعبا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 361,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          40,
+          301
+        ],
+        [
+          1,
+          381,
+          863
+        ],
+        [
+          2,
+          1344,
+          1525
+        ],
+        [
+          3,
+          1746,
+          2368
+        ]
+      ],
+      "duration_ms": 3692,
+      "sha256": "296d274241f837b234c74b1ba0879d9c1368b67a90fe00ec7e47778e051bc417",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8498,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_59edfb1f49f997b9a14e": {
+      "id": "en_59edfb1f49f997b9a14e",
+      "language": "en",
+      "text": "Twelve",
+      "words": [
+        "Twelve"
+      ],
+      "path": "audio/meaning/en/en_59edfb1f49f997b9a14e.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Twelve",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "12.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          21,
+          438
+        ]
+      ],
+      "duration_ms": 585,
+      "sha256": "1631ed8eed9dd6d99f147abe3b1d8d2ef3f8ae37f2e00c6a222bf47427ba8efe",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.1367,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b5fb09a5988dd845b584": {
+      "id": "en_b5fb09a5988dd845b584",
+      "language": "en",
+      "text": "Fourteen",
+      "words": [
+        "Fourteen"
+      ],
+      "path": "audio/meaning/en/en_b5fb09a5988dd845b584.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Fourteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "14",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          41,
+          578
+        ]
+      ],
+      "duration_ms": 805,
+      "sha256": "f39b2cffcacfe416dde180a2e4b88f3f3d9d14c2904396043219efa1a962e41b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.6176,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_aff8afa5f397842e313b": {
+      "id": "en_aff8afa5f397842e313b",
+      "language": "en",
+      "text": "Sixteen",
+      "words": [
+        "Sixteen"
+      ],
+      "path": "audio/meaning/en/en_aff8afa5f397842e313b.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Sixteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "16",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          61,
+          630
+        ]
+      ],
+      "duration_ms": 833,
+      "sha256": "1a35ba82814f77414685d81fa199ee13378bea19e7c11348a2a59a88dc8caab3",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.7216,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_d66a287a874b3125cc44": {
+      "id": "en_d66a287a874b3125cc44",
+      "language": "en",
+      "text": "Eighteen",
+      "words": [
+        "Eighteen"
+      ],
+      "path": "audio/meaning/en/en_d66a287a874b3125cc44.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Eighteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "18.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          42,
+          498
+        ]
+      ],
+      "duration_ms": 602,
+      "sha256": "3cad83418686774d12745491e5c8e3b1b85cdf23306a7fd174d53d9d75fc9b07",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.2318,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_0feb2d87cea893f53001": {
+      "id": "en_0feb2d87cea893f53001",
+      "language": "en",
+      "text": "Twenty",
+      "words": [
+        "Twenty"
+      ],
+      "path": "audio/meaning/en/en_0feb2d87cea893f53001.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Twenty",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "20.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          388
+        ]
+      ],
+      "duration_ms": 653,
+      "sha256": "2d6f9a72f25918668ece009eb4a6893e0073ab7212591c3d3b9a1f68d1b6071b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.4739,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c41edce80775b8ad42e6": {
+      "id": "ar_c41edce80775b8ad42e6",
+      "language": "ar",
+      "text": "اثنا عشر",
+      "words": [
+        "اثنا",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_c41edce80775b8ad42e6.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "اثنا عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "اثنى عشر",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 2.0,
+          "cer": 3.0,
+          "heard": "إثنة عشر",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          524
+        ],
+        [
+          1,
+          665,
+          887
+        ]
+      ],
+      "duration_ms": 1874,
+      "sha256": "be2583276cb4b81a8b3d32e01dd04e808fa3c09f220fd44c5d3b737856ece822",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.6354,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_86602e58beee9cb977c8": {
+      "id": "ar_86602e58beee9cb977c8",
+      "language": "ar",
+      "text": "أربعة عشر",
+      "words": [
+        "أربعة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_86602e58beee9cb977c8.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أربعة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "اربعة عشر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          302
+        ],
+        [
+          1,
+          866,
+          1068
+        ]
+      ],
+      "duration_ms": 1571,
+      "sha256": "a05f82ef84d4dc1492d8cd2f38e0f75ecec193993bf43dd87de8603c6780e37f",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8291,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_3ddeb9b366ea9bf4f8f0": {
+      "id": "ar_3ddeb9b366ea9bf4f8f0",
+      "language": "ar",
+      "text": "ستة عشر",
+      "words": [
+        "ستة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_3ddeb9b366ea9bf4f8f0.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "ستة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ستة عشر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          61,
+          364
+        ],
+        [
+          1,
+          748,
+          991
+        ]
+      ],
+      "duration_ms": 1334,
+      "sha256": "6fd4b3f0c06f298b596d332a120af26a72d81f5707b6d7116709a060af172e12",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.968,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_dd920512479be9c8ffc6": {
+      "id": "ar_dd920512479be9c8ffc6",
+      "language": "ar",
+      "text": "ثمانية عشر",
+      "words": [
+        "ثمانية",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_dd920512479be9c8ffc6.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "ثمانية عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ثمانية عشر",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 1.0,
+          "cer": 1.0,
+          "heard": "810",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          241,
+          743
+        ],
+        [
+          1,
+          1224,
+          1405
+        ]
+      ],
+      "duration_ms": 2168,
+      "sha256": "fedd6713cd5c8d2fed01eaa724aa8ce9ee8dfcd6916c6998911a88c89dd93ed9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9554,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_f377559d0ef39af16031": {
+      "id": "ar_f377559d0ef39af16031",
+      "language": "ar",
+      "text": "عشرون",
+      "words": [
+        "عشرون"
+      ],
+      "path": "audio/meaning/ar/ar_f377559d0ef39af16031.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "عشرون",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "عشرون",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          261,
+          744
+        ]
+      ],
+      "duration_ms": 1045,
+      "sha256": "9c11ca96c0ddf60c2f29f8eb74b718bf28c198fd2532374bc2af9307c3890a24",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.6201,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_55dcf7a11d693900e755": {
+      "id": "ar_55dcf7a11d693900e755",
+      "language": "ar",
+      "text": "أحد عشر",
+      "words": [
+        "أحد",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_55dcf7a11d693900e755.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أحد عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "11",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          342
+        ],
+        [
+          1,
+          644,
+          865
+        ]
+      ],
+      "duration_ms": 1227,
+      "sha256": "200ebd7ab740353f7666a03f5b45c0038acecba17fe6aa4ff0b6be22ea719449",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9438,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_79d1449aec0ab1e0ee08": {
+      "id": "ar_79d1449aec0ab1e0ee08",
+      "language": "ar",
+      "text": "ثلاثة عشر",
+      "words": [
+        "ثلاثة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_79d1449aec0ab1e0ee08.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "ثلاثة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "ثلاثة عشر",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          20,
+          666
+        ],
+        [
+          1,
+          827,
+          1029
+        ]
+      ],
+      "duration_ms": 1675,
+      "sha256": "9033962f9ef9260d9df9bf6f6cdcd5a25988cfee468a47aa0b664c720f3db7cc",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8693,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_20b2a7e39131ae9d0ba4": {
+      "id": "ar_20b2a7e39131ae9d0ba4",
+      "language": "ar",
+      "text": "خمسة عشر",
+      "words": [
+        "خمسة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_20b2a7e39131ae9d0ba4.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "خمسة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "15",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          585
+        ],
+        [
+          1,
+          706,
+          927
+        ]
+      ],
+      "duration_ms": 1552,
+      "sha256": "965368004b70b1259d56b53cfe9dad5eaf773d98a7902ca786ee5bfdd1cad34a",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8731,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_adcea870cd2dae22bf19": {
+      "id": "ar_adcea870cd2dae22bf19",
+      "language": "ar",
+      "text": "سبعة عشر",
+      "words": [
+        "سبعة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_adcea870cd2dae22bf19.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "سبعة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "سبعة عشر",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 2.0,
+          "cer": 3.5,
+          "heard": "سبعة تنعشر",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          102,
+          731
+        ],
+        [
+          1,
+          873,
+          1076
+        ]
+      ],
+      "duration_ms": 1442,
+      "sha256": "fba20590ab3418c25481aad8dda889ecea4acfc135cde14c49a8023b2d79caa9",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9592,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d9ca43d25259c7241079": {
+      "id": "ar_d9ca43d25259c7241079",
+      "language": "ar",
+      "text": "تسعة عشر",
+      "words": [
+        "تسعة",
+        "عشر"
+      ],
+      "path": "audio/meaning/ar/ar_d9ca43d25259c7241079.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "تسعة عشر",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "١٩",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          0,
+          422
+        ],
+        [
+          1,
+          683,
+          884
+        ]
+      ],
+      "duration_ms": 1466,
+      "sha256": "b189ffe3dae8d5002088cd0b40030fa0450850a4571f29ea711073eba928c8e2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9413,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_988d6793ff803b4e2255": {
+      "id": "en_988d6793ff803b4e2255",
+      "language": "en",
+      "text": "Eleven",
+      "words": [
+        "Eleven"
+      ],
+      "path": "audio/meaning/en/en_988d6793ff803b4e2255.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Eleven",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "11.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          41,
+          433
+        ]
+      ],
+      "duration_ms": 701,
+      "sha256": "a251a304466299b423926128d7b220d3237bad706b36cb4ac7eacfea05eecbc0",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8945,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_6721919e5b50f024bf2a": {
+      "id": "en_6721919e5b50f024bf2a",
+      "language": "en",
+      "text": "Thirteen",
+      "words": [
+        "Thirteen"
+      ],
+      "path": "audio/meaning/en/en_6721919e5b50f024bf2a.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Thirteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "13",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          41,
+          619
+        ]
+      ],
+      "duration_ms": 805,
+      "sha256": "8ff3efa4d302e91a686d8994b35a11c355e7783b6253a30ff9067880038b622b",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.4721,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a35f1c304a01df233e21": {
+      "id": "en_a35f1c304a01df233e21",
+      "language": "en",
+      "text": "Fifteen",
+      "words": [
+        "Fifteen"
+      ],
+      "path": "audio/meaning/en/en_a35f1c304a01df233e21.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Fifteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "15",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          40,
+          604
+        ]
+      ],
+      "duration_ms": 805,
+      "sha256": "c3997373e7ce0aa46f1f9ca8be2fa3fea842d4514c3c25696fea49cfe7b72973",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.4812,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_5e918734c8bd6bea0332": {
+      "id": "en_5e918734c8bd6bea0332",
+      "language": "en",
+      "text": "Seventeen",
+      "words": [
+        "Seventeen"
+      ],
+      "path": "audio/meaning/en/en_5e918734c8bd6bea0332.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Seventeen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "17",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          61,
+          752
+        ]
+      ],
+      "duration_ms": 996,
+      "sha256": "f30b5f0fe786dd803a54474364340f04d60f70c5a788b1c32fc8959f54f5a519",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8269,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_347bf5ed87b70e33c55b": {
+      "id": "en_347bf5ed87b70e33c55b",
+      "language": "en",
+      "text": "Nineteen",
+      "words": [
+        "Nineteen"
+      ],
+      "path": "audio/meaning/en/en_347bf5ed87b70e33c55b.mp3",
+      "engine": "silma",
+      "kind": "word",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "Nineteen",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "19",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          41,
+          652
+        ]
+      ],
+      "duration_ms": 713,
+      "sha256": "ae7de65029e3d9760f507ab30d2196fe01e0c101c0917aa8fa96f3a6194d7429",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.4105,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_feb4a0a3b45396dd6a42": {
+      "id": "en_feb4a0a3b45396dd6a42",
+      "language": "en",
+      "text": "I count twelve blocks.",
+      "words": [
+        "I",
+        "count",
+        "twelve",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_feb4a0a3b45396dd6a42.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count twelve blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 12 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          80,
+          101
+        ],
+        [
+          1,
+          161,
+          422
+        ],
+        [
+          2,
+          523,
+          925
+        ],
+        [
+          3,
+          1086,
+          1549
+        ]
+      ],
+      "duration_ms": 1730,
+      "sha256": "03bd8f717aea134b25e045162614ed4525382a4237e7288f63675e3c48f57341",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9255,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_b5323ff2b0082b8ceab1": {
+      "id": "en_b5323ff2b0082b8ceab1",
+      "language": "en",
+      "text": "I count fourteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "fourteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_b5323ff2b0082b8ceab1.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count fourteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 14 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          101,
+          121
+        ],
+        [
+          1,
+          181,
+          444
+        ],
+        [
+          2,
+          544,
+          1068
+        ],
+        [
+          3,
+          1129,
+          1593
+        ]
+      ],
+      "duration_ms": 1875,
+      "sha256": "dbc27093462dd3db954623559e623b5355a0e1e3228b4fd5981bda2e51ffa1a2",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9779,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_3e2fc2c807b3411d58a7": {
+      "id": "en_3e2fc2c807b3411d58a7",
+      "language": "en",
+      "text": "I count sixteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "sixteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_3e2fc2c807b3411d58a7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count sixteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 16 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          80,
+          100
+        ],
+        [
+          1,
+          181,
+          462
+        ],
+        [
+          2,
+          562,
+          1064
+        ],
+        [
+          3,
+          1144,
+          1606
+        ]
+      ],
+      "duration_ms": 1786,
+      "sha256": "2b25f6787946a1bceceaaf5b2305c2cd1751812e279db688cf52ad68b3ec2d6d",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9383,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_2e7d0cae2e8e094c4b31": {
+      "id": "en_2e7d0cae2e8e094c4b31",
+      "language": "en",
+      "text": "I count eighteen blocks.",
+      "words": [
+        "I",
+        "count",
+        "eighteen",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_2e7d0cae2e8e094c4b31.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count eighteen blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 18 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          121,
+          161
+        ],
+        [
+          1,
+          221,
+          503
+        ],
+        [
+          2,
+          644,
+          1066
+        ],
+        [
+          3,
+          1147,
+          1589
+        ]
+      ],
+      "duration_ms": 1891,
+      "sha256": "03147903d2ce08d16294c99bce85f74b09d5b15c10cc2235461b969f85c4f96e",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.93,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "en_a0d01f367b2e67071b36": {
+      "id": "en_a0d01f367b2e67071b36",
+      "language": "en",
+      "text": "I count twenty blocks.",
+      "words": [
+        "I",
+        "count",
+        "twenty",
+        "blocks."
+      ],
+      "path": "audio/meaning/en/en_a0d01f367b2e67071b36.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "I count twenty blocks.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/en/en_cc9374b5f2b4d947051d.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "I count 20 blocks.",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 360,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          122,
+          142
+        ],
+        [
+          1,
+          203,
+          466
+        ],
+        [
+          2,
+          568,
+          953
+        ],
+        [
+          3,
+          1136,
+          1602
+        ]
+      ],
+      "duration_ms": 1724,
+      "sha256": "8da1e870144844efd3dbe14053238d3bcb672178614216410c997d482fc4bf29",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9554,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_c1e88cdad1f940d1eff7": {
+      "id": "ar_c1e88cdad1f940d1eff7",
+      "language": "ar",
+      "text": "أعد ستة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "ستة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_c1e88cdad1f940d1eff7.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَعُدُّ سِتَّةَ عَشَرَ مُكَعَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعدُّ ستة عشر مكعباً",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.1667,
+          "heard": "أعدوا ستة عشر مكعبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 195361,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          60,
+          481
+        ],
+        [
+          1,
+          2185,
+          2726
+        ],
+        [
+          2,
+          3087,
+          3287
+        ],
+        [
+          3,
+          3488,
+          4129
+        ]
+      ],
+      "duration_ms": 5933,
+      "sha256": "78008eb2cea76a38a22c525bff0b9f265a59693230e4d83934e7243f9512ec29",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8925,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5647949c6e22573ae0ac": {
+      "id": "ar_5647949c6e22573ae0ac",
+      "language": "ar",
+      "text": "أعد اثني عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "اثني",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_5647949c6e22573ae0ac.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَعُدُّ اثْنَيْ عَشَرَ مُكَعَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعدُّ 12 مكعباً",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.6667,
+          "cer": 0.25,
+          "heard": "أعد إثنين مكاعمبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 194428,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          60,
+          541
+        ],
+        [
+          1,
+          1364,
+          1765
+        ],
+        [
+          2,
+          2066,
+          2266
+        ],
+        [
+          3,
+          2507,
+          3429
+        ]
+      ],
+      "duration_ms": 5074,
+      "sha256": "629ca68923e77f0d1dbb6a76c8c502ee2c1ae95b96fb06496c24fafec7c3ff18",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.971,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_d2eda0ae7e9909d5fd77": {
+      "id": "ar_d2eda0ae7e9909d5fd77",
+      "language": "ar",
+      "text": "أعد ثمانية عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "ثمانية",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_d2eda0ae7e9909d5fd77.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَعُدُّ ثَمَانِيَةَ عَشَرَ مُكَعَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد ثمانية عشر مكعبا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.3333,
+          "cer": 0.0833,
+          "heard": "أعد ثمانية عشر مكاعبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 193411,
+      "precision": "fp32",
+      "cues": [
+        [
+          0,
+          1101,
+          1442
+        ],
+        [
+          1,
+          1602,
+          2263
+        ],
+        [
+          2,
+          2844,
+          3044
+        ],
+        [
+          3,
+          3224,
+          3905
+        ]
+      ],
+      "duration_ms": 6448,
+      "sha256": "1c9d0b3e6a894713cecca7c9402c67c4a888912db04c3fecc4c1485edfa9e1db",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.989,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_a7be44709e81ed5a00af": {
+      "id": "ar_a7be44709e81ed5a00af",
+      "language": "ar",
+      "text": "أعد خمسة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "خمسة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_a7be44709e81ed5a00af.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَعُدُّ خَمْسَةَ عَشَرَ مُكَعَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد خمسة عشر مكعبا",
+        "recognizer": "faster-whisper-small",
+        "human_review": "pending"
+      },
+      "seed": 193377,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          120,
+          641
+        ],
+        [
+          1,
+          1021,
+          1502
+        ],
+        [
+          2,
+          2663,
+          2883
+        ],
+        [
+          3,
+          3063,
+          3904
+        ]
+      ],
+      "duration_ms": 5306,
+      "sha256": "e214566eb6444e3af08414794ddfea31cd3570d21bbb1d5fcfb911bae05c4a79",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.8683,
+      "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+      "package_version": "1.0.5",
+      "steps": 48,
+      "quality_revision": "facts-v2-asr",
+      "auditory_review": "pending"
+    },
+    "ar_5cdac6c12060a441eb20": {
+      "id": "ar_5cdac6c12060a441eb20",
+      "language": "ar",
+      "text": "أعد أربعة عشر مكعبًا.",
+      "words": [
+        "أعد",
+        "أربعة",
+        "عشر",
+        "مكعبًا."
+      ],
+      "path": "audio/meaning/ar/ar_5cdac6c12060a441eb20.mp3",
+      "engine": "silma",
+      "pronunciation_revision": "authored-recovery-v3",
+      "spoken_text": "أَعُدُّ أَرْبَعَةَ عَشَرَ مُكَعَّبًا.",
+      "phrase_count": 1,
+      "reference_strategy": "verified same-voice clip",
+      "reference": "verified clip audio/meaning/ar/ar_2b9079b514f2a91959a7.mp3",
+      "speech_qa": {
+        "passed": true,
+        "wer": 0.0,
+        "cer": 0.0,
+        "heard": "أعد 14 مكعبا",
+        "recognizer": "faster-whisper-medium",
+        "human_review": "pending",
+        "primary": {
+          "passed": false,
+          "wer": 0.6667,
+          "cer": 0.25,
+          "heard": "أعد 4 عشرة مكعبا",
+          "recognizer": "faster-whisper-small",
+          "human_review": "pending"
+        }
+      },
+      "seed": 193394,
+      "precision": "bf16",
+      "cues": [
+        [
+          0,
+          140,
+          462
+        ],
+        [
+          1,
+          722,
+          1405
+        ],
+        [
+          2,
+          1846,
+          2087
+        ],
+        [
+          3,
+          2288,
+          3050
+        ]
+      ],
+      "duration_ms": 4916,
+      "sha256": "ac20807c38e06d0bfbd6aeae4fb41d876197fa6eaf003e6fcca892b89e5c26c1",
+      "timing_source": "MMS_FA acoustic alignment of decoded MP3",
+      "alignment_score": 0.9754,
       "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
       "package_version": "1.0.5",
       "steps": 48,

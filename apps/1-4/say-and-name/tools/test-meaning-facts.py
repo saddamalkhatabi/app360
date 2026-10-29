@@ -5,7 +5,7 @@ sys.path.insert(0,str(ROOT/'tools'))
 from meaning_speech_qa import compare
 content=json.loads((ROOT/'data/meaning-sentences-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))
 assert content['revision']=='facts-v2'
-assert len({x['ar'] for x in content['items']})==985
+assert len({x['ar'] for x in content['items']})==995
 for item in content['items']:
  for row in item['sentences']:
   for lang in ('ar','en'):
@@ -62,3 +62,7 @@ try:spoken_text(dict(id='bad',text='لا ألمس السكين'),{'bad':'ألم�
 except ValueError:pass
 else:raise AssertionError('Hints must never remove negation')
 print('Authored recovery, phrase boundaries, exact words and conservative English spelling checks passed')
+
+assert compare('أعد أحد عشر مكعبًا.','أعد ١١ مكعبا')['passed']
+assert compare('أعد عشرين مكعبًا.','أعد 20 مكعبا')['passed']
+assert not compare('أعد أحد عشر مكعبًا.','أعد 12 مكعبا')['passed']

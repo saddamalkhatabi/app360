@@ -8,7 +8,7 @@ function create(hooks){var serial=0,audio=null,tick=0,deadline=0;hooks=hooks||{}
   function fail(){if(id!==serial)return;stop();if(hooks.error)hooks.error();}
   function next(){if(id!==serial)return;clear();if(pos>=queue.length){if(hooks.word)hooks.word(-1);if(hooks.done)hooks.done();return;}var row=queue[pos++];if(!row.audio){next();return;}audio=new w.Audio(row.audio);audio.preload='none';audio.volume=.92;if(hooks.attach)hooks.attach(audio);var playing=audio;function rowFail(){if(id===serial&&audio===playing)fail();}if(hooks.line)hooks.line(row);
    function update(){if(id!==serial||audio!==playing)return;if(hooks.word)hooks.word(row.cues?cueIndex(row.cues,audio.currentTime*1000):(row.words&&row.words.length===1?0:-1));}
-   audio.onended=function(){if(id===serial&&audio===playing)next();};audio.onerror=rowFail;audio.onpause=function(){if(id===serial&&audio===playing){stop();if(hooks.done)hooks.done();}};audio.ontimeupdate=update;tick=w.setInterval(update,40);deadline=w.setTimeout(rowFail,(row.duration_ms||30000)+10000);
+   audio.onended=function(){if(id===serial&&audio===playing)next();};audio.onerror=rowFail;audio.onpause=function(){if(id===serial&&audio===playing&&!playing.ended){stop();if(hooks.cancel)hooks.cancel();}};audio.ontimeupdate=update;tick=w.setInterval(update,40);deadline=w.setTimeout(rowFail,(row.duration_ms||30000)+10000);
    try{var p=audio.play();if(p&&p.catch)p.catch(rowFail);if(hooks.started)hooks.started();}catch(e){rowFail();}update();
   }next();
  }

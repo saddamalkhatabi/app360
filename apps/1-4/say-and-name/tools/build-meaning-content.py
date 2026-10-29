@@ -248,6 +248,12 @@ CONTEXT.update({
 })
 
 def build():
+ number_lessons=json.loads((ROOT/'data/number-lessons-20.json').read_text())['numbers']
+ number_by_word={row['ar']:row for row in number_lessons}
+ previous_path=ROOT/'data/meaning-sentences-v1.js'
+ previous=json.loads(previous_path.read_text().split('=',1)[1].strip().rstrip(';'))['items'] if previous_path.exists() else []
+ previous_order={row['id']:i for i,row in enumerate(previous)}
+ for number in number_lessons:CONTEXT['الأعداد والكميات\u0001'+number['ar']]=[number['sentence']]
  simplified=json.loads((ROOT/'data/meaning-simple-v4.json').read_text())['replacements']
  replacements={(r['language'],r['previous']):r['replacement'] for r in simplified}
  levels=json.loads((ROOT/'data/levels-inline-v8.js').read_text().split('=',1)[1].strip().rstrip(';'))
@@ -281,7 +287,10 @@ def build():
       row[lang]=dict(text=text,words=tokens,clip=cid)
      rows_out.append(row)
     items.append(dict(id=hashlib.sha256(key.encode()).hexdigest()[:16],key=key,ar=word,en=en['words'].get(key,word),category=cat,emoji=emoji,sentences=rows_out))
+ for item in items:
+  if item['ar'] in number_by_word and item['category']=='الأعداد والكميات':item.update(min_age=4,number_value=number_by_word[item['ar']]['value'],emoji='🔢')
  items.sort(key=lambda x:(priority.index(x['ar']) if x['ar'] in priority else 100,cat_seen and next(i for i,c in enumerate(cats) if c['ar']==x['category'])))
+ if previous_order:items.sort(key=lambda x:previous_order[x['id']] if x['id'] in previous_order else len(previous_order)+number_by_word.get(x['ar'],{}).get('value',100))
  ordered=[];added=set()
  for item in items:
   for row in item['sentences']:
@@ -293,6 +302,10 @@ def build():
  word_text='Racket'
  wid='en_'+hashlib.sha256(('meaning-v2-word|en|'+word_text).encode()).hexdigest()[:20]
  ordered.append(dict(id=wid,language='en',text=word_text,words=[word_text],path='audio/meaning/en/'+wid+'.mp3',engine='silma',kind='word'))
+ for number in number_lessons:
+  for lang,text in [('ar',number['ar']),('en',number['en'])]:
+   cid=lang+'_'+hashlib.sha256(('meaning-v2-word|'+lang+'|'+text).encode()).hexdigest()[:20]
+   ordered.append(dict(id=cid,language=lang,text=text,words=text.split(),path='audio/meaning/'+lang+'/'+cid+'.mp3',engine='silma',kind='word'))
  manifest=dict(schema=1,revision='facts-v2',engine='silma-tts',package_version='1.0.5',model_revision='226dd7a65cadf51f9a6dbe3953fc89003b3844d5',priority_count=4,items=ordered)
  (ROOT/'data/meaning-scripts-v1.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  if not (ROOT/'data/meaning-audio-v1.js').exists():(ROOT/'data/meaning-audio-v1.js').write_text('window.APP360_MEANING_AUDIO='+json.dumps(dict(schema=1,expected=len(ordered),clips={}))+';\n')
