@@ -8,7 +8,7 @@ const state=p=>p.evaluate(()=>BalloonGarden.getState());
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port,url=base+'/apps/1-4/balloon-garden/index.html',browser=await chromium.launch({headless:true,executablePath:process.env.APP360_TEST_CHROMIUM||undefined}),results=[];
 try{
  for(const age of ['1-4','4-8'])for(const width of [390,1024]){
-  const c=await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'}),p=await c.newPage(),errors=[],requests=[];
+  const c=await browser.newContext({viewport:{width,height:844},reducedMotion:width===1024?'reduce':'no-preference',serviceWorkers:'block'}),p=await c.newPage(),errors=[],requests=[];
   p.on('pageerror',e=>errors.push(e.message));p.on('request',r=>requests.push(r.url()));
   await c.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
   await p.addInitScript(()=>{Math.random=()=>.000001;window.__long=[];new PerformanceObserver(l=>__long.push(...l.getEntries().map(x=>x.duration))).observe({type:'longtask',buffered:true});});
