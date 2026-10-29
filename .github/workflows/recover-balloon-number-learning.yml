@@ -1,19 +1,16 @@
-name: Prepare shared number lessons 11 to 20
+name: Recover only unverified shared number recordings
 on:
   push:
     branches: [codex/balloon-language-learning-20261029]
-    paths: [apps/1-4/say-and-name/data/number-lessons-20.json]
+    paths: [apps/1-4/say-and-name/data/number-lessons-recovery.request]
 permissions:
-  contents: read
+  contents: write
+  actions: read
 concurrency:
-  group: shared-number-lessons-${{ github.ref }}
+  group: shared-number-recovery-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  record:
-    strategy:
-      fail-fast: false
-      matrix:
-        part: [0, 1, 2, 3, 4, 5, 6, 7]
+  recover:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
@@ -25,9 +22,34 @@ jobs:
       MEANING_ASR_VERIFY_MODEL: /tmp/meaning-asr-verify
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - name: Wait for the original batches to finish uploading their verified media
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYWAIT'
+          import urllib.request,json,os,time
+          for attempt in range(45):
+              request=urllib.request.Request('https://api.github.com/repos/saddamalkhatabi/app360/actions/runs/40896938717',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(request) as response:status=json.load(response)['status']
+              if status=='completed':break
+              time.sleep(20)
+          else:raise SystemExit('Original recording batches are still running')
+          PYWAIT
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: '40896938717'
+          pattern: number-lessons-*
+          merge-multiple: true
+          path: /tmp/original-number-media
+      - name: Preserve already verified recordings
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
+          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/original-number-media --merge
       - name: Install SILMA CPU environment
         run: |
           sudo apt-get update -qq
@@ -50,47 +72,32 @@ jobs:
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
           python -c 'import torchaudio; torchaudio.pipelines.MMS_FA.get_model()'
-      - name: Generate only the new shared number recordings
-        run: python apps/1-4/say-and-name/tools/generate_meaning.py --recover --part ${{ matrix.part }} --parts 8 --output /tmp/number-learning-output
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: number-lessons-${{ matrix.part }}
-          path: /tmp/number-learning-output
-          retention-days: 7
-  publish:
-    needs: record
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-          fetch-depth: 0
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: number-lessons-*
-          merge-multiple: true
-          path: /tmp/number-learning-output
-      - name: Verify speech and measured word timings before publishing
+      - name: Recover only missing speech with explicit pronunciation and fresh seeds
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
-          python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/number-learning-output --merge
+          for attempt in 1 2 3; do
+            result=0
+            MEANING_SEED_OFFSET=$((92000 + attempt * 1000)) python apps/1-4/say-and-name/tools/generate_meaning.py --recover --part 0 --parts 1 --output /tmp/number-recovery-output || result=$?
+            python apps/1-4/say-and-name/tools/finalize_meaning.py --input /tmp/number-recovery-output --merge
+            if [ "$result" = 0 ]; then break; fi
+          done
           python - <<'PYVERIFY'
           import json,pathlib,sys
-          root=pathlib.Path('apps/1-4/say-and-name')
-          sys.path.insert(0,str(root/'tools'))
+          root=pathlib.Path('apps/1-4/say-and-name');sys.path.insert(0,str(root/'tools'))
           from meaning_speech_qa import verified_recording
-          clips=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
-          ids=set(json.loads((root/'data/number-lessons-20.json').read_text())['new_clip_ids'])
+          clips=json.loads((root/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips'];ids=set(json.loads((root/'data/number-lessons-20.json').read_text())['new_clip_ids'])
           rows=json.loads((root/'data/meaning-scripts-v1.json').read_text())['items']
-          assert all(verified_recording(row,clips.get(row['id']),root) for row in rows if row['id'] in ids)
+          missing=[row['id'] for row in rows if row['id'] in ids and not verified_recording(row,clips.get(row['id']),root)]
+          assert not missing,missing
           PYVERIFY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add apps/1-4/say-and-name/audio/meaning apps/1-4/say-and-name/audio/meaning-validation.json apps/1-4/say-and-name/data/meaning-audio-v1.js
-          git diff --cached --quiet || git commit -m 'Publish shared SILMA number lessons with independently checked speech and measured cues'
+          git diff --cached --quiet || git commit -m 'Publish all forty verified SILMA number recordings with measured word cues'
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: number-recovery-proof
+          path: /tmp/number-recovery-output
+          retention-days: 7
