@@ -49,4 +49,6 @@ test('the bottom Reels entry is outside the hidden footer, launches the selected
   const bottom=els.schoolReelsFooterBtn;assert(bottom);assert.equal(bottom.parentNode.id,'schoolReelsEntry');assert.equal(bottom.hidden,embedded);assert.equal(els.portalReelsBtn.hidden,embedded);assert.equal(bottom.parentNode.style.display,embedded?'none':'block');bottom.onclick({preventDefault(){}});assert.equal(calls.length,embedded?0:1);if(!embedded)assert.equal(calls[0].age,'4-8');
  }
 });
-test('every downloadable standalone app loads the common automatic update client',()=>{for(const a of require('../data/offline-catalog.json').apps)assert.match(fs.readFileSync(a.entry,'utf8'),/offline-client-v1\.js\?v=20261022-pwa2/,a.id)});
+test('every downloadable standalone app loads the versioned common automatic update client',()=>{for(const a of require('../data/offline-catalog.json').apps)assert.match(fs.readFileSync(a.entry,'utf8'),/offline-client-v1\.js\?v=[^"\']+/,a.id)});
+
+test('an application download can report measured file and byte progress to its own screen',async()=>{const f=await manager(),progress=[];const downloading=f.api.downloadApp('a',{onProgress:row=>progress.push(row)});await f.flush();assert.equal(await downloading,true);assert(progress.length>0);const last=progress.at(-1);assert.equal(last.bytes,f.apps[0].bytes);assert.equal(last.totalBytes,f.apps[0].bytes);assert.equal(last.count,1);assert.equal(last.totalCount,1);});

@@ -1,5 +1,5 @@
 {
-  "version": 21,
+  "version": 22,
   "voices": {
     "noor": {
       "engine": "Microsoft Neural via edge-tts",
@@ -7,9 +7,9 @@
       "style": "warm female Arabic"
     },
     "colors": {
-      "engine": "Microsoft Neural via edge-tts",
-      "voice": "ar-SA-ZariyahNeural",
-      "style": "clear MSA Arabic"
+      "engine": "SILMA 1.0.5",
+      "style": "Recorded shared vocabulary color names",
+      "source": "apps/1-4/say-and-name/data/silma-map.js"
     },
     "yemen_male_names": {
       "engine": "Microsoft Neural via edge-tts",
@@ -35,7 +35,7 @@
       "id": "color-red",
       "kind": "color",
       "name": "أحمر",
-      "text": "اللون أحمر",
+      "text": "أحمر",
       "aliases": [
         "أحمر",
         "لون أحمر"
@@ -45,13 +45,15 @@
         "mp3": "audio/colors/color-red.mp3",
         "ogg": "audio/colors/color-red.ogg",
         "wav": "audio/colors/color-red.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_2822596a9ac959bfc96a.mp3"
     },
     {
       "id": "color-blue",
       "kind": "color",
       "name": "أزرق",
-      "text": "اللون أزرق",
+      "text": "أزرق",
       "aliases": [
         "أزرق",
         "لون أزرق"
@@ -61,13 +63,15 @@
         "mp3": "audio/colors/color-blue.mp3",
         "ogg": "audio/colors/color-blue.ogg",
         "wav": "audio/colors/color-blue.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_2a722a6b0021f4806713.mp3"
     },
     {
       "id": "color-green",
       "kind": "color",
       "name": "أخضر",
-      "text": "اللون أخضر",
+      "text": "أخضر",
       "aliases": [
         "أخضر",
         "لون أخضر"
@@ -77,13 +81,15 @@
         "mp3": "audio/colors/color-green.mp3",
         "ogg": "audio/colors/color-green.ogg",
         "wav": "audio/colors/color-green.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_fd3c2a5c44605041a38b.mp3"
     },
     {
       "id": "color-yellow",
       "kind": "color",
       "name": "أصفر",
-      "text": "اللون أصفر",
+      "text": "أصفر",
       "aliases": [
         "أصفر",
         "لون أصفر"
@@ -93,13 +99,15 @@
         "mp3": "audio/colors/color-yellow.mp3",
         "ogg": "audio/colors/color-yellow.ogg",
         "wav": "audio/colors/color-yellow.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_4b3038e79f620ffb4741.mp3"
     },
     {
       "id": "color-orange",
       "kind": "color",
       "name": "برتقالي",
-      "text": "اللون برتقالي",
+      "text": "برتقالي",
       "aliases": [
         "برتقالي",
         "لون برتقالي"
@@ -109,13 +117,15 @@
         "mp3": "audio/colors/color-orange.mp3",
         "ogg": "audio/colors/color-orange.ogg",
         "wav": "audio/colors/color-orange.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_13cddea6c182b580abcc.mp3"
     },
     {
       "id": "color-purple",
       "kind": "color",
       "name": "بنفسجي",
-      "text": "اللون بنفسجي",
+      "text": "بنفسجي",
       "aliases": [
         "بنفسجي",
         "لون بنفسجي"
@@ -125,13 +135,15 @@
         "mp3": "audio/colors/color-purple.mp3",
         "ogg": "audio/colors/color-purple.ogg",
         "wav": "audio/colors/color-purple.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_14cdd57222021fa7eb67.mp3"
     },
     {
       "id": "color-pink",
       "kind": "color",
       "name": "وردي",
-      "text": "اللون وردي",
+      "text": "وردي",
       "aliases": [
         "وردي",
         "لون وردي"
@@ -141,13 +153,15 @@
         "mp3": "audio/colors/color-pink.mp3",
         "ogg": "audio/colors/color-pink.ogg",
         "wav": "audio/colors/color-pink.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_07293572a18454080c5f.mp3"
     },
     {
       "id": "color-brown",
       "kind": "color",
       "name": "بني",
-      "text": "اللون بني",
+      "text": "بني",
       "aliases": [
         "بني",
         "لون بني"
@@ -157,13 +171,15 @@
         "mp3": "audio/colors/color-brown.mp3",
         "ogg": "audio/colors/color-brown.ogg",
         "wav": "audio/colors/color-brown.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_c41e99a19a3621284eb4.mp3"
     },
     {
       "id": "color-black",
       "kind": "color",
       "name": "أسود",
-      "text": "اللون أسود",
+      "text": "أسود",
       "aliases": [
         "أسود",
         "لون أسود"
@@ -173,13 +189,15 @@
         "mp3": "audio/colors/color-black.mp3",
         "ogg": "audio/colors/color-black.ogg",
         "wav": "audio/colors/color-black.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_b5847ac66b11240c7ea2.mp3"
     },
     {
       "id": "color-gray",
       "kind": "color",
       "name": "رمادي",
-      "text": "اللون رمادي",
+      "text": "رمادي",
       "aliases": [
         "رمادي",
         "لون رمادي"
@@ -189,7 +207,9 @@
         "mp3": "audio/colors/color-gray.mp3",
         "ogg": "audio/colors/color-gray.ogg",
         "wav": "audio/colors/color-gray.wav"
-      }
+      },
+      "engine": "silma",
+      "source": "apps/1-4/say-and-name/audio/edge/w_682d788f24a104639e38.mp3"
     }
   ],
   "users": {
