@@ -8,6 +8,8 @@ manifest=json.loads((ROOT/'data/meaning-scripts-v1.json').read_text());n=manifes
 items=manifest['items'][:n] if a.priority else [r for i,r in enumerate(manifest['items'][n:]) if i%a.parts==a.part]
 existing=json.loads((ROOT/'data/meaning-audio-v1.js').read_text().split('=',1)[1].strip().rstrip(';'))['clips']
 items=[r for r in items if not verified_recording(r,existing.get(r['id']),ROOT)]
+if os.environ.get('MEANING_ONLY_IDS'):
+ wanted_ids=set(json.loads((ROOT/os.environ['MEANING_ONLY_IDS']).read_text())['new_clip_ids']);items=[r for r in items if r['id'] in wanted_ids]
 out=pathlib.Path(a.output);out.mkdir(parents=True,exist_ok=True)
 if not items:
  print('All recordings in this batch already verified; no model loading needed',flush=True)
@@ -55,11 +57,12 @@ for i,row in enumerate(items):
   if a.recover:row.update(pronunciation_revision='authored-recovery-v3',spoken_text=prompt,phrase_count=len(chunks),reference_strategy='verified same-voice clip' if selected_ref!=ref else 'publisher reference',reference=('verified clip '+pathlib.Path(selected_ref).relative_to(ROOT).as_posix()) if selected_ref!=ref else 'publisher ar.ref.24k.wav')
   assert sr==24000 and np.isfinite(wav).all() and .5<len(wav)/sr<45 and np.max(np.abs(wav))>.005,row['id']
   subprocess.run(['ffmpeg','-v','error','-y','-i',str(wavfile),'-ar','24000','-ac','1','-codec:a','libmp3lame','-b:a','64k','-id3v2_version','0',str(target)],check=True);wavfile.unlink()
-  segments,_=recognizer.transcribe(str(target),language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)
+  decoded=np.frombuffer(subprocess.check_output(['ffmpeg','-v','error','-i',str(target),'-f','f32le','-ac','1','-ar','16000','-']),dtype=np.float32)
+  segments,_=recognizer.transcribe(decoded,language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)
   qa=compare(row['text'],' '.join(x.text.strip() for x in segments));print('Speech QA',row['id'],attempt,qa,flush=True)
   if not qa['passed']:
    if verifier is None:verifier=WhisperModel(os.environ['MEANING_ASR_VERIFY_MODEL'],device='cpu',compute_type='int8',cpu_threads=2,num_workers=1)
-   segments,_=verifier.transcribe(str(target),language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)
+   segments,_=verifier.transcribe(decoded,language=row['language'],beam_size=5,condition_on_previous_text=False,vad_filter=False)
    second=compare(row['text'],' '.join(x.text.strip() for x in segments));second.update(recognizer='faster-whisper-medium',primary=qa)
    print('Independent second transcription',row['id'],second,flush=True)
    if second['passed']:qa=second

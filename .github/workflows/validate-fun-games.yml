@@ -71,7 +71,9 @@ jobs:
         with:
           node-version: '22'
       - name: Install isolated farm QA tools
-        run: npm install --prefix /tmp/balloon-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8
+        run: npm install --prefix /tmp/balloon-browser-qa --no-audit --no-fund playwright@1.62.1 acorn@8 jsdom@26
+      - name: Verify localized discoveries, opt-in sentences and milestone praise
+        run: NODE_PATH=/tmp/balloon-browser-qa/node_modules node --test apps/1-4/balloon-garden/tests/language-runtime.cjs
       - name: Test both ages, six screens, gifts, identity and real offline play
         run: |
           browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
