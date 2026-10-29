@@ -17,3 +17,13 @@ test('settings normalize corruption and all stages are available immediately',()
 test('older mixed farm and younger level progression use their own content modes',()=>{assert.equal(C.config({age:'1-4',level:1}).count,2);assert.equal(C.config({age:'1-4',level:4}).mode,'words');const s=C.settings({age:'4-8',level:4});const r=C.create(s),seen=new Set();for(let n=0;n<10;n++){r.pops=n;for(const o of C.offers(r,s,36))seen.add(o.kind);}assert.deepEqual(seen,new Set(['colors','numbers','letters','words','shapes']));});
 
 test('sentence defaults, localized number ranges and explicit shape discovery follow age settings',()=>{assert.equal(C.settings({age:'1-4'}).sentences,false);assert.equal(C.settings({age:'4-8'}).sentences,true);assert.equal(C.settings({age:'1-4',sentences:true}).sentences,true);assert.equal(C.settings({age:'4-8',sentences:false}).sentences,false);for(const age of ['1-4','4-8']){const s=C.settings({age,topic:'numbers'}),r=C.create(s),seen=new Set();for(let i=0;i<100;i++){r.pops=i;for(const o of C.offers(r,s,1203)){assert.equal(o.kind,'numbers');seen.add(o.item+1);}}assert.equal(Math.max(...seen),age==='1-4'?10:20);assert(seen.has(10));}const shape=C.settings({topic:'shapes'}),r=C.create(shape);assert(C.offers(r,shape,1203).every(o=>o.kind==='shapes'));const a=C.pop(r,shape,C.offers(r,shape,1203)[0].id,1203);C.apply(r,r.active);assert.equal(C.restore(JSON.parse(JSON.stringify(r)),shape,1203).discoveries[0].kind,'shapes');});
+
+for(const age of ['1-4','4-8'])test('twelve coach routes keep their precise topic and number range: '+age,()=>{
+ const ids=new Set();for(let level=1;level<=4;level++)for(let stage=0;stage<3;stage++){
+  const s=C.settings({age,level,stage,coach:true,topic:'words'}),unit=C.route(s),r=C.create(s);ids.add(unit.id);
+  for(let n=0;n<36;n++){r.pops=n;for(const o of C.offers(r,s,100)){
+   if(unit.topic==='colorsShapes')assert(['colors','shapes'].includes(o.kind));else assert.equal(o.kind,unit.topic);
+   if(o.kind==='numbers'){assert(o.item+1>=unit.minNumber);assert(o.item+1<=unit.maxNumber);}
+  }}
+ }assert.equal(ids.size,12);
+});
