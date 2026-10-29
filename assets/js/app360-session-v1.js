@@ -84,4 +84,4 @@ if(d.readyState==='loading'){if(d.addEventListener)d.addEventListener('DOMConten
 
 
 /* Membership UI follows the existing session module; no second login is created. */
-(function(w,d){'use strict';if(w.APP360_MEMBERSHIP_LOADING)return;w.APP360_MEMBERSHIP_LOADING=true;var tags=d.getElementsByTagName?d.getElementsByTagName('script'):[],base='';for(var i=0;i<tags.length;i++){var src=tags[i].src||'',at=src.indexOf('/assets/js/app360-session-v1.js');if(at>=0){base=src.slice(0,at);break;}}var script=d.createElement('script');script.src=base+'/assets/js/membership-v1.js?v=20261025-account';(d.head||d.documentElement).appendChild(script);}(window,document));
+(function(w,d){'use strict';if(w.APP360_MEMBERSHIP_LOADING)return;w.APP360_MEMBERSHIP_LOADING=true;var tags=d.getElementsByTagName?d.getElementsByTagName('script'):[],base='';for(var i=0;i<tags.length;i++){var src=tags[i].src||'',at=src.indexOf('/assets/js/app360-session-v1.js');if(at>=0){base=src.slice(0,at);break;}}var script=d.createElement('script');script.src=base+'/assets/js/membership-v1.js?v=20261029-quota';(d.head||d.documentElement).appendChild(script);}(window,document));
