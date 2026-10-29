@@ -24,7 +24,7 @@ APP360_BALLOON_TRAINER.start({
 });
 ```
 
-الأوامر الأخرى: `pause`, `resume`, `stop`, `next`, `previous`, `replay`, `setAuto`, `open`, `getState`, `isActive`, و`listPaths`. يتوقف الوقت والتنقل عند الإيقاف وإخفاء الصفحة وفتح لوحة المسارات. الاستئناف المحفوظ يحتاج طلبًا صريحًا، ويعيد قراءة التجربة إذا قوطع صوتها. لا تعاد جلسة تلقائيًا لمجرد إعادة فتح الصفحة. الحفظ مستقل بحسب الطفل والفئة؛ الانتهاء أو الخروج يعيد مزرعة اللعب السابقة دون نسخ نمو العرض إليها.
+الأوامر الأخرى: `pause`, `resume`, `stop`, `next`, `previous`, `replay`, `setAuto`, `open`, `getState`, `isActive`, و`listPaths`. يتوقف الوقت والتنقل عند الإيقاف وإخفاء الصفحة وفتح لوحة المسارات، وكذلك عند إيقاف الصوت خارجيًا أو توقف وقت الاستخدام أو جلسة العائلة. الاستئناف المحفوظ يحتاج طلبًا صريحًا، ويعيد قراءة التجربة إذا قوطع صوتها. لا تعاد جلسة تلقائيًا لمجرد إعادة فتح الصفحة. الحفظ مستقل بحسب الطفل والفئة؛ الانتهاء أو الخروج يعيد مزرعة اللعب السابقة دون نسخ نمو العرض إليها.
 
 الأحداث على `document`: `app360:balloon-trainer:sessionstarted`, `sessionpaused`, `sessionresumed`, `sessionstopped`, `sessioncomplete`, `unitchanged`, `experienceviewed`, و`optionschanged`، مع البادئة نفسها لكل اسم. تتضمن الحالة `schema_version`, `appId`, `ageGroup`, `routeIds`, `unitIds`, `unitIndex`, `unitId`, `experienceIndex`, `viewedCount`, `autoplay`, `remaining_seconds`, `caller`, و`launch_id`. يبقى `practice_confirmed=false`؛ العرض والتشجيع لا يصدران إيصال تنفيذ أو درجة إتقان. لا يبدأ المخطط خطوة أخرى اعتمادًا على المشاهدة باعتبارها تنفيذًا من الطفل.
 
