@@ -25,7 +25,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Plan only unverified recordings
+        id: plan
+        run: python tooling/build-balloon-guidance.py --root apps/1-4/balloon-garden --manifest data/guidance-scripts.json --part ${{ matrix.part }} --parts 8 --plan-only
       - name: Install SILMA CPU environment
+        if: steps.plan.outputs.needed == 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg libavcodec-dev libavformat-dev libavutil-dev
@@ -34,6 +38,7 @@ jobs:
           printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' >/tmp/silma-constraints.txt
           python -m pip install --no-cache-dir -c /tmp/silma-constraints.txt --extra-index-url https://download.pytorch.org/whl/cpu silma-tts==1.0.5 uroman huggingface-hub
       - name: Download publisher models
+        if: steps.plan.outputs.needed == 'true'
         run: |
           python - <<'PY'
           from huggingface_hub import snapshot_download
@@ -45,11 +50,13 @@ jobs:
           p.write_text('226dd7a65cadf51f9a6dbe3953fc89003b3844d5')
           PY
       - name: Generate exact public bilingual instructions
+        if: steps.plan.outputs.needed == 'true'
         run: python tooling/build-balloon-guidance.py --root apps/1-4/balloon-garden --manifest data/guidance-scripts.json --cache /tmp/balloon-silma-cache --model-cache "$HF_HOME/hub" --precision fp32 --memory-map-weights --generate-only --part ${{ matrix.part }} --parts 8
       - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.needed == 'true'
         with:
           name: balloon-guidance-${{ matrix.part }}
-          path: apps/1-4/balloon-garden/audio/guide/
+          path: /tmp/balloon-guidance-artifact/
           if-no-files-found: error
   publish:
     needs: record
