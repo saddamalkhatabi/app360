@@ -9,11 +9,11 @@ var STAGES={ar:['روضة الورد','حقل دوّار الشمس','بستان
 function route(s){var older=s.age==='4-8',index=(s.level-1)*3+s.stage,rows=[
  ['colors','ألوان مزرعتي','Farm colors'],['shapes','أشكال حولي','Shapes around me'],['colorsShapes','ألوان وأشكال','Colors and shapes'],
  ['numbers',older?'الأعداد ١–١٠':'الأعداد ١–٥',older?'Numbers 1–10':'Numbers 1–5'],['numbers',older?'الأعداد ١١–٢٠':'الأعداد ٦–١٠',older?'Numbers 11–20':'Numbers 6–10'],['numbers','أعدّ وأراجع','Count and revisit'],
- ['letters','حروفي الأولى','My first letters'],['letters','حروف جديدة','More letters'],['letters','أراجع حروفي','Revisit letters'],
+ ['letters','حروفي الأولى','My first letters'],['letters','حروف جديدة','More letters'],['letters','بقية حروفي ومراجعتها','More letters and review'],
  ['words','حيوانات أعرفها','Animals I know','الحيوانات'],['words','فواكه أحبها','Fruit I like','الفواكه'],['words',older?'كلمات المدرسة وجملها':'كلمات من بيتي',older?'School words and sentences':'Words from home',older?'المدرسة':'المنزل']
  ],r=rows[index],min=0,max=0;
  if(r[0]==='numbers'){min=s.stage===1?(older?11:6):1;max=s.stage===0?(older?10:5):(older?20:10);}
- return{id:s.age+':'+index,index:index,topic:r[0],ar:r[1],en:r[2],category:r[3]||'',minNumber:min,maxNumber:max,letterOffset:s.level===3&&s.stage===1?10:0,letterCount:s.level===3&&s.stage<2?10:0};
+ return{id:s.age+':'+index,index:index,topic:r[0],ar:r[1],en:r[2],category:r[3]||'',minNumber:min,maxNumber:max,letterOffset:s.level===3?s.stage*10:0,letterCount:s.level===3?Math.min(10,LETTERS[s.language||'ar'].length-s.stage*10):0};
 }
 function int(x,min,max,f){return typeof x==='number'&&isFinite(x)&&Math.floor(x)===x&&x>=min&&x<=max?x:f;}
 function settings(s){s=s||{};return{age:s.age==='4-8'?'4-8':'1-4',level:int(Number(s.level),1,4,1),stage:int(Number(s.stage),0,2,0),language:s.language==='en'?'en':'ar',players:s.players===2?2:1,sound:s.sound!==false,music:s.music===true,motion:s.motion!==false,world:s.age==='4-8'?'orchard':'garden',approach:s.approach==='farm'?'farm':'discover',category:typeof s.category==='string'?s.category:'',showText:s.showText!==false,sentences:typeof s.sentences==='boolean'?s.sentences:s.age==='4-8',coach:s.coach===true,topic:['colors','shapes','numbers','letters','words'].indexOf(s.topic)>=0?s.topic:'auto'};}

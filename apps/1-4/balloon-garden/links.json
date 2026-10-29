@@ -1,0 +1,324 @@
+{
+  "schema_version": "1.1",
+  "app_id": "fun-balloon-garden",
+  "title_ar": "حديقة البالونات · مدربة الروضة والمدرسة",
+  "base_path": "apps/1-4/balloon-garden/",
+  "app_href": "apps/1-4/balloon-garden/index.html",
+  "launch_path": "apps/1-4/balloon-garden/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:balloon-trainer:sessioncomplete",
+  "routes": [
+    {
+      "id": "balloon-1-4-all",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "رحلة المزرعة كاملة",
+      "label_en": "My whole farm journey",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-colors-shapes",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "الألوان والأشكال",
+      "label_en": "Colors and shapes",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-colors-shapes",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-numbers",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "الأعداد من ١ إلى ١٠",
+      "label_en": "Numbers 1 to 10",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-numbers",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-letters",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "رحلة الحروف",
+      "label_en": "Letter journey",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-letters",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-animals",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "حيوانات أعرفها",
+      "label_en": "Animals I know",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-animals",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-fruit",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "فواكه أحبها",
+      "label_en": "Fruit I like",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-fruit",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-1-4-daily-words",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "كلمات من بيتي",
+      "label_en": "Words from home",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=1-4&route_ids=balloon-1-4-daily-words",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-all",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "رحلة المزرعة كاملة",
+      "label_en": "My whole farm journey",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-colors-shapes",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "الألوان والأشكال",
+      "label_en": "Colors and shapes",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-colors-shapes",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-numbers",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "الأعداد من ١ إلى ٢٠",
+      "label_en": "Numbers 1 to 20",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-numbers",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-letters",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "رحلة الحروف",
+      "label_en": "Letter journey",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-letters",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-animals",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "حيوانات أعرفها",
+      "label_en": "Animals I know",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-animals",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-fruit",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "فواكه أحبها",
+      "label_en": "Fruit I like",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-fruit",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "balloon-4-8-daily-words",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "كلمات المدرسة وجملها",
+      "label_en": "School words and sentences",
+      "href": "apps/1-4/balloon-garden/launch.html?action=session&launch_age=4-8&route_ids=balloon-4-8-daily-words",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "balloon-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id"
+  ]
+}

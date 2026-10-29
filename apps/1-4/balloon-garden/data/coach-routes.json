@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "app_id": "fun-balloon-garden",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "routes": [
+    {
+      "id": "balloon-1-4-all",
+      "age_group": "1-4",
+      "label_ar": "رحلة المزرعة كاملة",
+      "label_en": "My whole farm journey",
+      "unit_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "balloon-1-4-colors-shapes",
+      "age_group": "1-4",
+      "label_ar": "الألوان والأشكال",
+      "label_en": "Colors and shapes",
+      "unit_ids": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "balloon-1-4-numbers",
+      "age_group": "1-4",
+      "label_ar": "الأعداد من ١ إلى ١٠",
+      "label_en": "Numbers 1 to 10",
+      "unit_ids": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "balloon-1-4-letters",
+      "age_group": "1-4",
+      "label_ar": "رحلة الحروف",
+      "label_en": "Letter journey",
+      "unit_ids": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "balloon-1-4-animals",
+      "age_group": "1-4",
+      "label_ar": "حيوانات أعرفها",
+      "label_en": "Animals I know",
+      "unit_ids": [
+        9
+      ]
+    },
+    {
+      "id": "balloon-1-4-fruit",
+      "age_group": "1-4",
+      "label_ar": "فواكه أحبها",
+      "label_en": "Fruit I like",
+      "unit_ids": [
+        10
+      ]
+    },
+    {
+      "id": "balloon-1-4-daily-words",
+      "age_group": "1-4",
+      "label_ar": "كلمات من بيتي",
+      "label_en": "Words from home",
+      "unit_ids": [
+        11
+      ]
+    },
+    {
+      "id": "balloon-4-8-all",
+      "age_group": "4-8",
+      "label_ar": "رحلة المزرعة كاملة",
+      "label_en": "My whole farm journey",
+      "unit_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "balloon-4-8-colors-shapes",
+      "age_group": "4-8",
+      "label_ar": "الألوان والأشكال",
+      "label_en": "Colors and shapes",
+      "unit_ids": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "balloon-4-8-numbers",
+      "age_group": "4-8",
+      "label_ar": "الأعداد من ١ إلى ٢٠",
+      "label_en": "Numbers 1 to 20",
+      "unit_ids": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "balloon-4-8-letters",
+      "age_group": "4-8",
+      "label_ar": "رحلة الحروف",
+      "label_en": "Letter journey",
+      "unit_ids": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "balloon-4-8-animals",
+      "age_group": "4-8",
+      "label_ar": "حيوانات أعرفها",
+      "label_en": "Animals I know",
+      "unit_ids": [
+        9
+      ]
+    },
+    {
+      "id": "balloon-4-8-fruit",
+      "age_group": "4-8",
+      "label_ar": "فواكه أحبها",
+      "label_en": "Fruit I like",
+      "unit_ids": [
+        10
+      ]
+    },
+    {
+      "id": "balloon-4-8-daily-words",
+      "age_group": "4-8",
+      "label_ar": "كلمات المدرسة وجملها",
+      "label_en": "School words and sentences",
+      "unit_ids": [
+        11
+      ]
+    }
+  ],
+  "completion": {
+    "event": "app360:balloon-trainer:sessioncomplete",
+    "practice_confirmed": false
+  },
+  "launch": {
+    "path": "launch.html",
+    "action": "session",
+    "params": [
+      "launch_age",
+      "route_ids",
+      "autoplay",
+      "duration_seconds",
+      "response_seconds",
+      "caller",
+      "launch_id"
+    ]
+  }
+}

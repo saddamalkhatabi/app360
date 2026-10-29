@@ -1,0 +1,18 @@
+/* Stable, age-scoped launch contract. No UI, media or achievement side effects. ES5. */
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./core.js'));else root.BalloonCoachSession=factory(root.BalloonGardenCore);})(this,function(C){
+'use strict';
+function routes(age){age=age==='4-8'?'4-8':'1-4';var rows=[['all','رحلة المزرعة كاملة','My whole farm journey',[0,1,2,3,4,5,6,7,8,9,10,11]],['colors-shapes','الألوان والأشكال','Colors and shapes',[0,1,2]],['numbers',age==='4-8'?'الأعداد من ١ إلى ٢٠':'الأعداد من ١ إلى ١٠',age==='4-8'?'Numbers 1 to 20':'Numbers 1 to 10',[3,4,5]],['letters','رحلة الحروف','Letter journey',[6,7,8]],['animals','حيوانات أعرفها','Animals I know',[9]],['fruit','فواكه أحبها','Fruit I like',[10]],['daily-words',age==='4-8'?'كلمات المدرسة وجملها':'كلمات من بيتي',age==='4-8'?'School words and sentences':'Words from home',[11]]],out=[];
+ for(var i=0;i<rows.length;i++)out.push({id:'balloon-'+age+'-'+rows[i][0],age_group:age,label_ar:rows[i][1],label_en:rows[i][2],unit_ids:rows[i][3]});return out;
+}
+function integer(value,min,max,fallback){var n=Number(value);return isFinite(n)&&Math.floor(n)===n&&n>=min&&n<=max?n:fallback;}
+function query(text){var result={},parts=String(text||'').replace(/^\?/,'').split('&');for(var i=0;i<parts.length;i++){var pair=parts[i].split('=');try{var k=decodeURIComponent(pair[0]),v=decodeURIComponent((pair.slice(1).join('=')||'').replace(/\+/g,' '));if(['launch_age','age','route','route_id','coach_route','routes','route_ids','autoplay','auto_coach','duration_seconds','response_seconds','caller','launch_id','action'].indexOf(k)>=0)result[k]=v;}catch(e){}}return result;}
+function normalize(input,age){input=typeof input==='string'?query(input):input||{};age=age==='4-8'?'4-8':'1-4';if((input.ageGroup||input.launch_age||input.age)&&String(input.ageGroup||input.launch_age||input.age)!==age)return{ok:false,error:'age'};
+ var ids=input.routeIds||input.route_ids||input.routes||input.coach_route||input.route_id||input.route||[],catalog=routes(age),unitIds=[],selected=[],i,j,row;
+ if(typeof ids==='string')ids=ids.split(',');if(!Array.isArray(ids)||ids.length>7)return{ok:false,error:'route'};if(!ids.length){if(input.routeIds!==undefined||input.route_ids!==undefined||input.routes!==undefined)return{ok:false,error:'route'};ids=[catalog[0].id];}
+ for(i=0;i<ids.length;i++){row=null;for(j=0;j<catalog.length;j++)if(catalog[j].id===ids[i])row=catalog[j];if(!row)return{ok:false,error:'route'};if(selected.indexOf(row.id)<0)selected.push(row.id);for(j=0;j<row.unit_ids.length;j++)if(unitIds.indexOf(row.unit_ids[j])<0)unitIds.push(row.unit_ids[j]);}
+ return{ok:true,schema_version:1,ageGroup:age,routeIds:selected,unitIds:unitIds,autoplay:input.autoplay!==false&&input.autoplay!==0&&input.autoplay!=='0',duration_seconds:integer(input.duration_seconds,0,1800,0),response_seconds:integer(input.response_seconds,0,15,0),caller:String(input.caller||'').slice(0,80),launch_id:String(input.launch_id||'').slice(0,100)};
+}
+function unit(age,id){id=integer(id,0,11,-1);if(id<0)return null;var s=C.settings({age:age,level:Math.floor(id/3)+1,stage:id%3,coach:true}),r=C.route(s);r.level=s.level;r.stage=s.stage;r.age_group=s.age;return r;}
+function catalog(){return{schema_version:1,app_id:'fun-balloon-garden',age_groups:['1-4','4-8'],routes:routes('1-4').concat(routes('4-8')),completion:{event:'app360:balloon-trainer:sessioncomplete',practice_confirmed:false},launch:{path:'launch.html',action:'session',params:['launch_age','route_ids','autoplay','duration_seconds','response_seconds','caller','launch_id']}};}
+return{routes:routes,normalize:normalize,query:query,unit:unit,catalog:catalog};
+});
