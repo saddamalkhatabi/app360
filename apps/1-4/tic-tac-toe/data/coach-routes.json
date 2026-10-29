@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "app_id": "fun-tic-tac-toe",
+  "age_groups": [
+    "1-4",
+    "4-8"
+  ],
+  "routes": [
+    {
+      "id": "xo-1-4-all",
+      "age_group": "1-4",
+      "label_ar": "رحلة اكتشاف اللعبة",
+      "label_en": "Discover the game",
+      "unit_ids": [
+        "place",
+        "row",
+        "column",
+        "diagonal",
+        "win",
+        "block",
+        "independent"
+      ]
+    },
+    {
+      "id": "xo-1-4-lines",
+      "age_group": "1-4",
+      "label_ar": "أكتشف الخطوط",
+      "label_en": "Discover lines",
+      "unit_ids": [
+        "row",
+        "column",
+        "diagonal"
+      ]
+    },
+    {
+      "id": "xo-1-4-turns",
+      "age_group": "1-4",
+      "label_ar": "خانة ودور",
+      "label_en": "Squares and turns",
+      "unit_ids": [
+        "place",
+        "row"
+      ]
+    },
+    {
+      "id": "xo-1-4-protect",
+      "age_group": "1-4",
+      "label_ar": "أكمل وأحمي",
+      "label_en": "Complete and protect",
+      "unit_ids": [
+        "win",
+        "block"
+      ]
+    },
+    {
+      "id": "xo-1-4-independent",
+      "age_group": "1-4",
+      "label_ar": "أجرب وحدي",
+      "label_en": "Try for myself",
+      "unit_ids": [
+        "independent"
+      ]
+    },
+    {
+      "id": "xo-4-8-all",
+      "age_group": "4-8",
+      "label_ar": "رحلة أسرار اللعبة",
+      "label_en": "Explore game strategy",
+      "unit_ids": [
+        "win",
+        "block",
+        "center",
+        "fork",
+        "stop-fork",
+        "independent"
+      ]
+    },
+    {
+      "id": "xo-4-8-win-block",
+      "age_group": "4-8",
+      "label_ar": "أفوز وأصد",
+      "label_en": "Win and block",
+      "unit_ids": [
+        "win",
+        "block"
+      ]
+    },
+    {
+      "id": "xo-4-8-opening",
+      "age_group": "4-8",
+      "label_ar": "قوة الوسط",
+      "label_en": "The center",
+      "unit_ids": [
+        "center",
+        "block"
+      ]
+    },
+    {
+      "id": "xo-4-8-forks",
+      "age_group": "4-8",
+      "label_ar": "الفرصة المزدوجة",
+      "label_en": "Double threats",
+      "unit_ids": [
+        "fork",
+        "stop-fork"
+      ]
+    },
+    {
+      "id": "xo-4-8-independent",
+      "age_group": "4-8",
+      "label_ar": "أخطط وحدي",
+      "label_en": "Plan for myself",
+      "unit_ids": [
+        "independent"
+      ]
+    }
+  ],
+  "units": {
+    "place": {
+      "id": "place",
+      "cue": "place",
+      "label_ar": "خانة ودور",
+      "label_en": "A square and a turn",
+      "mode": "local",
+      "moves": [],
+      "target": 4,
+      "goal": "place"
+    },
+    "row": {
+      "id": "row",
+      "cue": "row",
+      "label_ar": "صف أفقي",
+      "label_en": "Across",
+      "mode": "coop",
+      "line": 0,
+      "moves": [
+        0,
+        1
+      ],
+      "target": 2,
+      "goal": "line"
+    },
+    "column": {
+      "id": "column",
+      "cue": "column",
+      "label_ar": "خط رأسي",
+      "label_en": "Down",
+      "mode": "coop",
+      "line": 3,
+      "moves": [
+        0,
+        3
+      ],
+      "target": 6,
+      "goal": "line"
+    },
+    "diagonal": {
+      "id": "diagonal",
+      "cue": "diagonal",
+      "label_ar": "خط مائل",
+      "label_en": "Diagonally",
+      "mode": "coop",
+      "line": 6,
+      "moves": [
+        0,
+        4
+      ],
+      "target": 8,
+      "goal": "line"
+    },
+    "win": {
+      "id": "win",
+      "cue": "win",
+      "label_ar": "أكمل وأفوز",
+      "label_en": "Find a win",
+      "mode": "local",
+      "moves": [
+        0,
+        3,
+        1,
+        4
+      ],
+      "target": 2,
+      "goal": "win"
+    },
+    "block": {
+      "id": "block",
+      "cue": "block",
+      "label_ar": "أحمي الخط",
+      "label_en": "Block a threat",
+      "mode": "local",
+      "moves": [
+        0,
+        3,
+        8,
+        4
+      ],
+      "target": 5,
+      "goal": "block"
+    },
+    "center": {
+      "id": "center",
+      "cue": "center",
+      "label_ar": "قوة الوسط",
+      "label_en": "The center",
+      "mode": "local",
+      "moves": [
+        0
+      ],
+      "target": 4,
+      "goal": "center"
+    },
+    "fork": {
+      "id": "fork",
+      "cue": "fork",
+      "label_ar": "فرصتان معًا",
+      "label_en": "Two threats at once",
+      "mode": "local",
+      "moves": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "target": 4,
+      "goal": "fork"
+    },
+    "stop-fork": {
+      "id": "stop-fork",
+      "cue": "stop-fork",
+      "label_ar": "أمنع الفرصتين",
+      "label_en": "Prevent two threats",
+      "mode": "local",
+      "moves": [
+        0,
+        4,
+        8
+      ],
+      "target": 1,
+      "goal": "stop-fork"
+    },
+    "independent": {
+      "id": "independent",
+      "cue": "independent",
+      "label_ar": "أكتشف وحدي",
+      "label_en": "Discover for myself",
+      "mode": "local",
+      "moves": [
+        0,
+        3,
+        8,
+        4
+      ],
+      "target": 5,
+      "goal": "block",
+      "independent": true
+    }
+  },
+  "launch": {
+    "path": "launch.html",
+    "params": [
+      "launch_age",
+      "route_ids",
+      "mode",
+      "autoplay",
+      "duration_seconds",
+      "response_seconds",
+      "caller",
+      "launch_id"
+    ]
+  },
+  "events": {
+    "viewed": "app360:xo-trainer:experienceviewed",
+    "practiced": "app360:xo-trainer:practice",
+    "complete": "app360:xo-trainer:sessioncomplete"
+  },
+  "completion": {
+    "demonstrations_are_practice": false,
+    "automatic_mastery": false
+  }
+}

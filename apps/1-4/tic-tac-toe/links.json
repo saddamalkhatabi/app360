@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.1",
+  "app_id": "fun-tic-tac-toe",
+  "title_ar": "X وO · مدربة الروضة والمدرسة",
+  "base_path": "apps/1-4/tic-tac-toe/",
+  "app_href": "apps/1-4/tic-tac-toe/index.html",
+  "launch_path": "apps/1-4/tic-tac-toe/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:xo-trainer:sessioncomplete",
+  "routes": [
+    {
+      "id": "xo-1-4-all",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "رحلة اكتشاف اللعبة",
+      "label_en": "Discover the game",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=1-4&route_ids=xo-1-4-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-1-4-lines",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "أكتشف الخطوط",
+      "label_en": "Discover lines",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=1-4&route_ids=xo-1-4-lines",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-1-4-turns",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "خانة ودور",
+      "label_en": "Squares and turns",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=1-4&route_ids=xo-1-4-turns",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-1-4-protect",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "أكمل وأحمي",
+      "label_en": "Complete and protect",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=1-4&route_ids=xo-1-4-protect",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-1-4-independent",
+      "kind": "service",
+      "age_groups": [
+        "1-4"
+      ],
+      "label_ar": "أجرب وحدي",
+      "label_en": "Try for myself",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=1-4&route_ids=xo-1-4-independent",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-4-8-all",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "رحلة أسرار اللعبة",
+      "label_en": "Explore game strategy",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=4-8&route_ids=xo-4-8-all",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-4-8-win-block",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "أفوز وأصد",
+      "label_en": "Win and block",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=4-8&route_ids=xo-4-8-win-block",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-4-8-opening",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "قوة الوسط",
+      "label_en": "The center",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=4-8&route_ids=xo-4-8-opening",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-4-8-forks",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "الفرصة المزدوجة",
+      "label_en": "Double threats",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=4-8&route_ids=xo-4-8-forks",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    },
+    {
+      "id": "xo-4-8-independent",
+      "kind": "service",
+      "age_groups": [
+        "4-8"
+      ],
+      "label_ar": "أخطط وحدي",
+      "label_en": "Plan for myself",
+      "href": "apps/1-4/tic-tac-toe/launch.html?action=session&launch_age=4-8&route_ids=xo-4-8-independent",
+      "params": [
+        "launch_age",
+        "route_ids",
+        "mode",
+        "autoplay",
+        "duration_seconds",
+        "response_seconds",
+        "caller",
+        "launch_id"
+      ],
+      "collection_source": "data/coach-routes.json",
+      "collection_kind": "xo-coach-routes",
+      "completion_ar": "انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل."
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id"
+  ]
+}
