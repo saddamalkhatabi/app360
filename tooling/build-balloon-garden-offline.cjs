@@ -19,7 +19,7 @@ const prep=[...new Set(local.concat(referenced,inherited.map(f=>f.path)))].sort(
 fs.writeFileSync(dir+'/offline-files.json',JSON.stringify({schema:1,files:prep.map(p=>path.posix.relative(dir,p))})+'\n');
 for(const row of catalog.apps){const file=row.manifest,bundle=JSON.parse(fs.readFileSync(file));
  if(row.id===id){const rows=new Map(inherited.map(f=>[f.path,f]));for(const p of local.concat(referenced,[dir+'/offline-files.json']))rows.set(p,record(p));bundle.files=[...rows.values()];row.release='3.1.0';row.title='حديقة البالونات · مزرعتي تنمو';row.age_entry_levels={'1-4':1,'4-8':1};row.updateNote='اكتشاف غامض ونمو مباشر، وطريقة الزراعة أولًا، ومكتبة 1203 كلمة و110 تصنيفات، وأعداد عربية وإنجليزية حتى 20 وأشكال هندسية؛ الجمل افتراضية للفئة 4–8 واختيارية للصغار، مع التشجيع العام والمخصص. تنزيل المكتبة الكاملة اختياري.';}
- bundle.files=bundle.files.filter(f=>!f.path.startsWith('apps/1-4/mini-golf/')).map(f=>sharedChanges.includes(f.path)?record(f.path):f).sort((a,b)=>a.path.localeCompare(b.path,'en'));
+ bundle.files=bundle.files.filter(f=>!f.path.startsWith('apps/1-4/fun-bowling/')).map(f=>sharedChanges.includes(f.path)?record(f.path):f).sort((a,b)=>a.path.localeCompare(b.path,'en'));
  bundle.version=hash(JSON.stringify(bundle.files)).slice(0,16);row.version=bundle.version;row.bytes=bundle.files.reduce((n,f)=>n+f.bytes,0);row.count=bundle.files.length;fs.writeFileSync(file,JSON.stringify(bundle)+'\n');
 }
 fs.writeFileSync('data/offline-catalog.json',JSON.stringify(catalog,null,2)+'\n');console.log(JSON.stringify(catalog.apps.find(a=>a.id===id)));
