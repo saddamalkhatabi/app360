@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('fs'),path=require('path'),M=require('../apps/1-4/balloon-garden/coach-session.js');
+const root=path.resolve(__dirname,'..'),base='apps/1-4/balloon-garden/',catalog=M.catalog(),check=process.argv.includes('--check');
+const links={schema_version:'1.1',app_id:catalog.app_id,title_ar:'حديقة البالونات · مدربة الروضة والمدرسة',base_path:base,app_href:base+'index.html',launch_path:base+'launch.html',domain_policy:'relative-only',events:'app360:balloon-trainer:sessioncomplete',routes:catalog.routes.map(r=>({id:r.id,kind:'service',age_groups:[r.age_group],label_ar:r.label_ar,label_en:r.label_en,href:base+'launch.html?action=session&launch_age='+r.age_group+'&route_ids='+r.id,params:catalog.launch.params,collection_source:'data/coach-routes.json',collection_kind:'balloon-coach-routes',completion_ar:'انتهاء العرض أو الوقت لا يسجل تنفيذًا أو إتقانًا بالنيابة عن الطفل.'})),interop_params:['caller','launch_id']};
+for(const [name,value] of [['data/coach-routes.json',catalog],['links.json',links]]){const file=path.join(root,base,name),text=JSON.stringify(value,null,2)+'\n';if(check){if(fs.readFileSync(file,'utf8')!==text)throw Error('Stale coach contract '+name);}else fs.writeFileSync(file,text);}
+console.log((check?'Verified':'Built')+' fourteen age-scoped Balloon Garden route contracts.');

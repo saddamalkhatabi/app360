@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ['apps/1-4/balloon-garden/**', 'assets/js/app360-family-*.js', 'tooling/*balloon*', '.github/workflows/validate-balloon-coach.yml']
   push:
-    branches: [codex/balloon-coach-performance-20261029]
+    branches: [codex/balloon-kindergarten-coach-20261030]
     paths: ['apps/1-4/balloon-garden/**', 'assets/js/app360-family-*.js', 'tooling/*balloon*', '.github/workflows/validate-balloon-coach.yml']
   workflow_dispatch:
 permissions:
@@ -18,15 +18,21 @@ jobs:
           node-version: '22'
       - run: npm install --prefix /tmp/balloon-qa jsdom@26 acorn@8 playwright@1.56.1 --no-audit --no-fund
       - run: /tmp/balloon-qa/node_modules/.bin/playwright install --with-deps chromium
+      - run: node tooling/build-balloon-coach-catalog.cjs --check
       - name: Routes, exact media, speech, saved progress and cancellation
         env:
           NODE_PATH: /tmp/balloon-qa/node_modules
-        run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/balloon-garden/tests/language-runtime.cjs tooling/test-family-navigation.js tooling/test-legacy-touch-guard.js tooling/test-teacher-encouragement.cjs
+        run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/balloon-garden/tests/language-runtime.cjs apps/1-4/balloon-garden/tests/teacher-runtime.cjs tooling/test-family-navigation.js tooling/test-legacy-touch-guard.js tooling/test-teacher-encouragement.cjs
       - name: Slow images, quiet startup and automatic route changes
         env:
           NODE_PATH: /tmp/balloon-qa/node_modules
           APP360_BALLOON_SCREENSHOTS: /tmp/balloon-coach-results
         run: node apps/1-4/balloon-garden/tests/coach-browser.cjs
+      - name: Teacher journeys, controls, resume and planner launches
+        env:
+          NODE_PATH: /tmp/balloon-qa/node_modules
+          APP360_BALLOON_SCREENSHOTS: /tmp/balloon-teacher-results
+        run: node apps/1-4/balloon-garden/tests/teacher-browser.cjs
       - name: Real recorded sentences and offline replay
         env:
           NODE_PATH: /tmp/balloon-qa/node_modules
@@ -39,3 +45,4 @@ jobs:
           path: |
             /tmp/balloon-coach-results
             /tmp/balloon-full-results
+            /tmp/balloon-teacher-results

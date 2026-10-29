@@ -25,14 +25,14 @@ try{
   assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   // Keep real DOM, cancellation and timers; shorten only the quiet coach interval.
   await p.evaluate(()=>{const native=window.setTimeout;window.setTimeout=function(fn,ms){return native(fn,ms===2400?30:ms);};});
-  await p.locator('#coachBtn').click();assert.equal((await state(p)).round.pops,0);
+  await p.evaluate(()=>BalloonGarden.toggleLegacyCoach());assert.equal((await state(p)).round.pops,0);
   for(let i=0;i<(age==='1-4'?12:18);i++){
    await p.locator('.balloon:not([disabled])').first().click();await p.waitForFunction(()=>!BalloonGarden.getState().coachBusy);
   }
   assert.equal((await state(p)).settings.stage,1);assert.equal((await state(p)).round.pops,0);
   await p.locator('[data-level="4"]').click();slow=true;await p.locator('.balloon:not([disabled])').first().click();await p.waitForTimeout(1500);assert((await state(p)).coachBusy,'the coach also waits for the slow picture');await p.waitForFunction(()=>!BalloonGarden.getState().coachBusy);slow=false;
   await p.locator('[data-level="1"]').click();await p.locator('[data-stage="1"]').click();await p.reload();await p.waitForFunction(()=>window.BalloonGarden);assert((await state(p)).settings.coach);assert.equal((await state(p)).settings.stage,1);
-  await p.locator('#coachBtn').click();await p.locator('[data-stage="0"]').click();assert.equal((await state(p)).round.pops,1,'free play stays independent');
+  await p.evaluate(()=>BalloonGarden.toggleLegacyCoach());await p.locator('[data-stage="0"]').click();assert.equal((await state(p)).round.pops,1,'free play stays independent');
   assert.deepEqual(errors,[]);results.push({age,width,startup,slowImage:true,automaticRoute:true});await c.close();
  }
  fs.writeFileSync(path.join(out,'coach-browser-results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify({layouts:results.length,slowImages:true,lazySentences:true,noStartupPeerJS:true,automaticRoutes:true}));
