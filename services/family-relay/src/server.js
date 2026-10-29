@@ -272,6 +272,8 @@ function createApp360Server(options = {}) {
   const dataCore=require('./data-core').createDataCore();
   const server = http.createServer((req, res) => {
     const pathname = normalizeWsPath(req.url);
+    if(['/register','/register.html','/signup'].includes(pathname)){const hub=require('../../app360-data-core/src/yem1-client').createClient();res.writeHead(303,{Location:hub.base+'/register','Cache-Control':'no-store'});return res.end();}
+    if(['/login','/login.html','/signin'].includes(pathname)){const hub=require('../../app360-data-core/src/yem1-client').createClient(),u=new URL(req.url,'http://localhost');res.writeHead(303,{Location:hub.enabled?'/sso/start?scope='+(u.searchParams.get('scope')==='admin'?'admin':'viewer'):hub.base+'/login','Cache-Control':'no-store'});return res.end();}
     if(pathname==='/api/reels/catalog')return require('./reels-public')(req,res);
     if(pathname==='/sso/start'||pathname==='/sso/callback'||pathname==='/api/identity/config'){return require('../../app360-data-core/src/yem1-sso').handle(req,res).catch(()=>json(res,503,{error:'identity_unavailable',message:'تعذر إكمال الدخول. افتح رابط دخول جديد.'}));}
     if(pathname.startsWith('/api/app360/')){if(dataCore)return dataCore.handle(req,res);return json(res,503,{error:'data_core_not_enabled',message:'يلزم تفعيل APP360_DATA_CORE_ENABLED'});}
