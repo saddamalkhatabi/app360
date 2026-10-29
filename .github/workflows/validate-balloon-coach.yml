@@ -22,7 +22,7 @@ jobs:
       - name: Routes, exact media, speech, saved progress and cancellation
         env:
           NODE_PATH: /tmp/balloon-qa/node_modules
-        run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/balloon-garden/tests/language-runtime.cjs tooling/test-family-navigation.js tooling/test-legacy-touch-guard.js tooling/test-teacher-encouragement.cjs
+        run: node --test apps/1-4/balloon-garden/tests/*.test.cjs apps/1-4/balloon-garden/tests/language-runtime.cjs apps/1-4/balloon-garden/tests/teacher-runtime.cjs tooling/test-family-navigation.js tooling/test-legacy-touch-guard.js tooling/test-teacher-encouragement.cjs
       - name: Slow images, quiet startup and automatic route changes
         env:
           NODE_PATH: /tmp/balloon-qa/node_modules

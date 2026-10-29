@@ -53,4 +53,4 @@
 
 العقد الجاهز لمخطط التطبيقات موثق في `TRAINER_CONTRACT_AR.md`، مع `data/coach-routes.json` و`links.json` و`launch.html`. لا تتغير واجهة المخطط في هذه المرحلة. تدعم الحروف كامل المجموعة عبر 10 ثم 10 ثم الحروف المتبقية؛ تبقى الحروف الإنجليزية الثمانية غير المعتمدة مرئية مع التنبيه الخاص بتسجيلاتها.
 
-الفحص الإضافي: `node tooling/build-balloon-coach-catalog.cjs --check`، واختبارات `teacher.test.cjs` و`teacher-browser.cjs` داخل `tests/`. تستعمل الواجهة أصل `family-teacher.svg` وأيقونات التحكم المشتركة دون نسخ أو إعادة رسم.
+الفحص الإضافي: `node tooling/build-balloon-coach-catalog.cjs --check`، واختبارات `teacher-runtime.cjs` و`teacher-browser.cjs` داخل `tests/`. تستعمل الواجهة أصل `family-teacher.svg` وأيقونات التحكم المشتركة دون نسخ أو إعادة رسم.
