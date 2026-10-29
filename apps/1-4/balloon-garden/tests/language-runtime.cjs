@@ -41,6 +41,19 @@ test('the last flower still receives encouragement after gameplay activity pause
 
 test('changing levels returns to the level content while changing fields preserves a chosen topic',()=>{const r=runtime();try{r.topic('shapes');r.el('stageTabs').querySelector('[data-stage="1"]').click();assert.equal(r.state().settings.topic,'shapes');r.el('levelTabs').querySelector('[data-level="2"]').click();assert.equal(r.state().settings.topic,'auto');assert.equal(r.w.BalloonGardenCore.config(r.state().settings).mode,'numbers');}finally{r.close();}});
 
+for(const language of ['ar','en'])test('every farm change speaks encouraging growth feedback before praise: '+language,()=>{
+ const r=runtime('1-4');try{
+  if(language==='en'){r.el('settingsBtn').click();r.el('languageSelect').value='en';r.el('applySettings').click();}
+  r.topic('colors');
+  for(const [index,id] of ['growSeed','growWater','growFlower'].entries()){
+   r.pop();assert.equal(r.praise.length,index);r.drain();
+   assert(r.played.some(a=>a.src.endsWith('/audio/guide/'+language+'/'+id+'.mp3')));
+   assert.equal(r.praise.length,index+1);
+  }
+  assert(!r.played.some(a=>/\/(?:seed|water|sun)\.mp3$/.test(a.src)),'procedural narration is replaced');
+ }finally{r.close();}
+});
+
 for(const age of ['1-4','4-8'])test('coach waits for lesson AND praise, advances automatically, and cancels on identity change: '+age,()=>{
  const r=runtime(age);try{
   const scheduled=new Map(),native=r.w.setTimeout;let counter=0,finishPraise;
