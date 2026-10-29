@@ -1,0 +1,5 @@
+'use strict';
+// Update digests for existing shared dependencies without widening lightweight bundles.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),root=path.resolve(__dirname,'..'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const paths=['assets/js/membership-v1.js','assets/js/account-panel-v1.js','assets/js/reels-bridge-v1.js','assets/js/app360-session-v1.js'],records=new Map(paths.map(p=>{const b=fs.readFileSync(path.join(root,p));return[p,{path:p,bytes:b.length,sha256:hash(b)}]})),catalog=JSON.parse(fs.readFileSync(path.join(root,'data/offline-catalog.json')));
+for(const a of catalog.apps){const p=path.join(root,a.manifest),m=JSON.parse(fs.readFileSync(p));m.files=m.files.map(f=>records.get(f.path)||f);m.version=hash(JSON.stringify(m.files)).slice(0,16);fs.writeFileSync(p,JSON.stringify(m)+'\n');a.version=m.version;a.count=m.files.length;a.bytes=m.files.reduce((n,f)=>n+f.bytes,0)}fs.writeFileSync(path.join(root,'data/offline-catalog.json'),JSON.stringify(catalog,null,2)+'\n');console.log('Renewal offline records refreshed:',catalog.apps.length);
