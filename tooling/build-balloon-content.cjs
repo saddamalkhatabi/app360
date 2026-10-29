@@ -18,3 +18,5 @@ const items={},clips={};for(const row of meaning.items){items[row.id]=row.senten
 fs.writeFileSync('apps/1-4/balloon-garden/learning.js','/* Shared sentence text and measured timings; loaded when sentences are enabled. */\nwindow.BalloonGardenLearning='+JSON.stringify({schema:1,items,clips})+';\n');
 if(!process.argv.includes('--allow-pending'))for(const word of words)for(const ref of [word.image,word.audio.ar,word.audio.en])if(ref&&!fs.existsSync(path.posix.normalize('apps/1-4/balloon-garden/'+ref)))throw Error('Missing source '+ref);
 console.log(JSON.stringify({words:words.length,categories:meaning.categories.length,sentenceClips:Object.keys(clips).length,numbers:numbers.length,shapes:shapes.length}));
+
+require('child_process').execFileSync(process.execPath,[path.join(__dirname,'build-balloon-learning-chunks.cjs')],{stdio:'inherit'});
