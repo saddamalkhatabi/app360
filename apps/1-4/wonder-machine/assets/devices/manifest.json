@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "frameOrder": [
+    "A0 B0",
+    "A1 B0",
+    "A0 B1",
+    "A1 B1"
+  ],
+  "atlas": [
+    2048,
+    1152
+  ],
+  "frame": [
+    1024,
+    576
+  ],
+  "masterAtlas": [
+    3328,
+    1872
+  ],
+  "devices": [
+    {
+      "id": "room",
+      "atlas": "assets/devices/room.webp",
+      "bytes": 255782,
+      "thumbBytes": 3248,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "aa3c2c90a4e9846cf4121f11b92435bf7bfa1e14d1dc54dbcc8dbe0b4dd63bb5",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "e959c9c7327b6b4ea8c0b53f0c4bc1374d358462b02e47b064fc5cafb8bb1400",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "f94cbfca810b22cb4899bcb885b8f2cb0c7e8e858af88e023e25a027303fa677",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "32ead41d4c74a28d23b3520fe30aebf881b14375f0713ba54245ade657add8a0",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "atlas": "assets/devices/garden.webp",
+      "bytes": 589820,
+      "thumbBytes": 9940,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "4fcc0bc8e6b95fccc6a1bd5cfc762d9ae5060d378d94e4fcf0064427d7202453",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "aaadbe4fa080e111f32ce8e0d45bc68389cae4d8b4b67c9e7c828ba297a0e7d5",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "33d34f71a35337357dd6f1fbc725597121764f701fda2853a87a380477fc4ea4",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "cd499677736af4223a3038657cbe9786860fb6a3f660627b5a26e489ba5a2d5b",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "wash",
+      "atlas": "assets/devices/wash.webp",
+      "bytes": 292670,
+      "thumbBytes": 6884,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "29baa862335c899ad15bb3fdefc1a0beba034fb6941f262d6b71dfce847e4948",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "1f20f59d148300ba6310743482396052877b0d512223ce1c90d1090a826c036d",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "66e91ff33dffa62b4f843337d9210d9d30125c583c18937683203c1da84fc286",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "5d45f3ee084442a196a20bd86b71ea99ea83548b3dce182434cf903475d9fd92",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "tidy",
+      "atlas": "assets/devices/tidy.webp",
+      "bytes": 327168,
+      "thumbBytes": 7690,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "117b5cb2093cea68f45ef59ee9be02c50208757fba1756dffdb0431d9b490316",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "f8bf445c8ca8b53cf511a96f2dc3655380f2db2ae193d48d802b579c1340403b",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "216c6fbe345675e3a8b44af0d70e2ffff3f42e6de4927b6bdf4d5d7c8e5977f8",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "816775347c7c2d7c017e04b3e3bfaa60453c03e64ce416f14421c2df11bbee97",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "laundry",
+      "atlas": "assets/devices/laundry.webp",
+      "bytes": 300076,
+      "thumbBytes": 6336,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "e3307f9ec5c2c8c3d2e2fc3f528be644093c16c18e0e95d9bbb82b51512042bf",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 940,
+          "sha256": "737de596932a515ad94bb70122e6735310ab8176550d7ad746676ba7eb51838f",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "e3307f9ec5c2c8c3d2e2fc3f528be644093c16c18e0e95d9bbb82b51512042bf",
+          "repeated": true
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "ec13d4ecdf458e05237707a6177b0e2270094b033ae8e993412f2d8727425d6e",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "recycle",
+      "atlas": "assets/devices/recycle.webp",
+      "bytes": 286440,
+      "thumbBytes": 6934,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "365eb4dbe6f57498e2c3b07983b0d73c72542edd58820a580a0a42eeecb1edbc",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "588f729b0838d290f03369e3f9f0859e2b155e92b5d07e45eb0b215dc2038e03",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "ee6e6a3bcb423e7c1ef5022a6b9cf9bbd8e4bdc79d437aa87be89bbbebe8945f",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "39a4d90e17c9834803c4b8d6bba081ece6d02dfdb543d9b6da788ac0c51c4762",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "atlas": "assets/devices/delivery.webp",
+      "bytes": 368092,
+      "thumbBytes": 5768,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "2c730cba364db7c76fcbd34efd9ae68c4555f0d32e94ac8ec554ac2120aec3e2",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "51e4224922e74c1e03280207a712933a77a1627dca0df95481c5d139bb2d6ee6",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "6317229b6e79f625db4d5ee97d5a476b931304c91664dbb9c4ba84b8125010f1",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "5d168953b4d44b51b066ad9e64a7b3a68e8977024e688323fc554a04dac2e4f3",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "harbor",
+      "atlas": "assets/devices/harbor.webp",
+      "bytes": 664518,
+      "thumbBytes": 9152,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "31e467442e512949234957a651ea2cb7aef695b6e1e8308daa624e0614de0e3e",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "c5969b97292d5bfd60b087c8d0b023b1c94a50a70ad4cff86f2acb5ecfbb2e59",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "cf99685b53aee2efff89c5d2406632fcb1150bba77cdfaa04da9bd56db67d9ae",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "6b51d6eaaaa718b4cca877a8f8299fd9506652144bf553b57d4e187fb017b049",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "atlas": "assets/devices/access.webp",
+      "bytes": 419338,
+      "thumbBytes": 7276,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "98b83ea8ed752960f67d3d56856145db40addf37bd717d4c3a99bfc0fb144002",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "02b1e16cc6ceeff5bbf37480e6c76bc7d19f93c69dfe1feb3320d8e39a1949e7",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "04c4abe48aeb99194507d4f0c372854a8ea66c54a3696e4a6fa92245eb9e53d9",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "baa4e6c7924e9eeea2c96ba2ae85c16f92b878a417c9b38e3690aa6ee79c514c",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "shelter",
+      "atlas": "assets/devices/shelter.webp",
+      "bytes": 641908,
+      "thumbBytes": 9634,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "e2e0345a424e8452f09f5e61fc5a68e723a55542b3d1dd3b52eb8b1129cd835a",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "962aa872598ffdd94da64dc11c4d0b9ba32d46c8bc415877ccbc5512ddfa6b43",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "3d2b3b5e2bcde39c22a9153c6733d117fa71838b38ae10d6e1ad1fd3f2f8c98e",
+          "repeated": false
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "2bce4bee21d7c7dba49450a9b6970fa27ad0f178837cb87a4cd30b03ae70cdc7",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "crossing",
+      "atlas": "assets/devices/crossing.webp",
+      "bytes": 635014,
+      "thumbBytes": 9760,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "93fa60f91ef01431073b49aea102c34c643c6ce1ed6e3098e433be21bef9626f",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "3a99d8e59f3d677584101b7ca21c42302905ffc035e97f2ec13d941aab0a35ac",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "93fa60f91ef01431073b49aea102c34c643c6ce1ed6e3098e433be21bef9626f",
+          "repeated": true
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "2c54a31f25cda4d40d43bb8a84f598b28e1b082d5b6b929043436de29f9db6f2",
+          "repeated": false
+        }
+      ]
+    },
+    {
+      "id": "fire",
+      "atlas": "assets/devices/fire.webp",
+      "bytes": 546668,
+      "thumbBytes": 5758,
+      "sources": [
+        {
+          "frame": 0,
+          "width": 1672,
+          "height": 941,
+          "sha256": "96fea4d56a6014f8deba48cfe5c5e813af3fbe8983afb662a947c54ec50cc9d9",
+          "repeated": false
+        },
+        {
+          "frame": 1,
+          "width": 1672,
+          "height": 941,
+          "sha256": "b1a0aed049dde8cd73913bfefea2a61193d22d9808d7bcadf90523fb0fbf23f6",
+          "repeated": false
+        },
+        {
+          "frame": 2,
+          "width": 1672,
+          "height": 941,
+          "sha256": "96fea4d56a6014f8deba48cfe5c5e813af3fbe8983afb662a947c54ec50cc9d9",
+          "repeated": true
+        },
+        {
+          "frame": 3,
+          "width": 1672,
+          "height": 941,
+          "sha256": "07950b52f047ffc94cc8ab919bda47a364e8e4d86f72c52f3aee7f76048cf598",
+          "repeated": false
+        }
+      ]
+    }
+  ]
+}
