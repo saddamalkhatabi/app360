@@ -14,7 +14,7 @@ const plan=C.plan(d,r.machine,t);assert(plan.length>0);let turn=0;
 for(const action of plan){const before=C.copy(r);assert(C.act(r,d,action.tool,action.value,2).changed);turn=1-turn;assert.equal(r.turn,turn);assert(C.valid(d,r.machine));assert.deepEqual(C.restore(C.copy(r),d,t.id),r);const clone=C.copy(r);assert(C.undo(clone));assert.deepEqual(clone,before);}
 assert(C.progress(r.machine,t).done);const snapshot=C.copy(r);assert(!C.act(r,d,plan[plan.length-1].tool,plan[plan.length-1].value,2).changed);assert.deepEqual(r,snapshot);
 }
-for(let bits=0;bits<Math.pow(2,d.tools.length);bits++){const m=C.empty(d);d.tools.forEach((tool,i)=>m[tool.key]=(bits>>i)&1);if(!C.valid(d,m))continue;assert(C.frame(d,m)>=0&&C.frame(d,m)<4);
+for(let bits=0;bits<Math.pow(2,d.tools.length);bits++){const m=C.empty(d);d.tools.forEach((tool,i)=>m[tool.key]=(bits>>i)&1);if(!C.valid(d,m))continue;assert(C.frame(d,m)>=0&&C.frame(d,m)<4);const freePlan=C.plan(d,m,C.task(d,'free'));for(const action of freePlan){assert.equal(C.guard(d,m,action.tool,action.value),null,'a demonstration must respect all tool prerequisites');const preview=C.copy(m);preview[action.tool]=action.value;assert(C.valid(d,preview),'a demonstration cannot show an unsafe state');}if(!freePlan.length)assert(d.tools.every(tool=>C.guard(d,m,tool.key,1-m[tool.key])));
 for(const tool of d.tools)for(const n of [0,1]){const r={machine:C.copy(m),turn:0,history:[]},before=C.copy(r),result=C.act(r,d,tool.key,n,2);if(result.changed){assert(C.valid(d,r.machine));assert.equal(r.machine[tool.key],n);}else assert.deepEqual(r,before);}
 }
 });

@@ -34,7 +34,7 @@ function act(r,d,k,n,players){var reason=guard(d,r.machine,k,n);if(reason)return
 function undo(r){var old=r.history.pop();if(!old)return false;r.machine=old.machine;r.turn=old.turn;return true;}
 function progress(m,t){var count=0,total=0,next=null;if(!t.goal)return {count:0,total:0,done:false,next:null};for(var k in t.goal)if(Object.prototype.hasOwnProperty.call(t.goal,k)){total++;if(m[k]===t.goal[k])count++;else if(!next)next={tool:k,value:t.goal[k]};}return {count:count,total:total,done:count===total,next:next};}
 function frame(d,m){return m[d.photoKeys[0]]+2*m[d.photoKeys[1]];}
-function plan(d,m,t){if(!t.goal)return [{tool:d.tools[0].key,value:1-m[d.tools[0].key]}];var queue=[{m:copy(m),path:[]}],seen={};
+function plan(d,m,t){if(!t.goal){for(var freeIndex=0;freeIndex<d.tools.length;freeIndex++){var freeKey=d.tools[freeIndex].key,freeValue=1-m[freeKey];if(!guard(d,m,freeKey,freeValue))return [{tool:freeKey,value:freeValue}];}return [];}var queue=[{m:copy(m),path:[]}],seen={};
  while(queue.length){var item=queue.shift(),signature=d.tools.map(function(x){return item.m[x.key];}).join('');if(seen[signature])continue;seen[signature]=true;if(progress(item.m,t).done)return item.path;
   for(var i=0;i<d.tools.length;i++){var k=d.tools[i].key,n=1-item.m[k];if(guard(d,item.m,k,n))continue;var next=copy(item.m);next[k]=n;queue.push({m:next,path:item.path.concat([{tool:k,value:n}])});}
  }return [];
