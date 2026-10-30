@@ -1,2 +1,4 @@
 'use strict';
-require('./lib/build-fun-offline.cjs')({onlyApp:true,release:'2.0.0',directory:'apps/1-4/little-car-race',id:'little-car-race',title:'سباق السيارات الصغيرة',ageEntryLevels:{'1-4':1,'4-8':3},updateNote:'سباق جديد بحركة سلسة ومقود تفاعلي وأسهم، وأزرار للفئتين العمريتين وأربعة مستويات واثنتي عشرة مرحلة مع حفظ مستقل.'});
+const path=require('path');
+require('child_process').execFileSync(process.execPath,[path.join(__dirname,'build-race-knowledge.cjs')],{stdio:'inherit'});
+require('./refresh-race-knowledge-offline.cjs');

@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),C=require('../core.js'),fixture=require('../../../../tooling/test-helpers/static-app-dom.cjs');
-const setup=options=>fixture({directory:path.resolve(__dirname,'..'),globals:{LittleRaceCore:C,LittleRaceScene:{draw(){}}},...options});
+const setup=options=>fixture({directory:path.resolve(__dirname,'..'),globals:{LittleRaceCore:C,LittleRaceScene:{draw(){}},LittleRaceKnowledge:{create(){return{configure(){},cancel(){},capture(){},offers(){return[];},imageFor(){},album(){return'';},settingsView(){},readSettings(){return{};},getState(){return{waiting:false,busy:false};},rock(){}};}}},...options});
 const state=r=>r.window.LittleRace.getState();
 function tick(r,n){for(let i=0;i<n;i++)r.tick();}
 function apply(r,{level=1,players=1,speed=1,language='ar',motion=true,car='coral'}={}){r.click('settingsBtn');r.nodes.levelSelect.value=String(level);r.nodes.playersSelect.value=String(players);r.nodes.speedSelect.value=String(speed);r.nodes.languageSelect.value=language;r.nodes.motionCheck.checked=motion;r.nodes.carSelect.value=car;r.click('applySettings');}

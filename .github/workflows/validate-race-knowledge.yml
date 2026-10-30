@@ -1,0 +1,37 @@
+name: Validate Ashyaee knowledge car rally
+on:
+  push:
+    branches: [main]
+    paths: ['apps/1-4/little-car-race/**', 'tooling/*race*knowledge*', 'tooling/build-race-offline.cjs', '.github/workflows/validate-race-knowledge.yml']
+  pull_request:
+    paths: ['apps/1-4/little-car-race/**', 'tooling/*race*knowledge*', 'tooling/build-race-offline.cjs', '.github/workflows/validate-race-knowledge.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  knowledge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/race-knowledge-qa playwright@1.62.1 acorn@8 --no-audit --no-fund
+      - name: Exact original words, pictures, recordings and measured timings
+        run: node tooling/build-race-knowledge.cjs --check
+      - name: Rules, saves, age pools, all sentence hashes and offline digests
+        run: NODE_PATH=/tmp/race-knowledge-qa/node_modules node --test apps/1-4/little-car-race/tests/*.test.cjs
+      - name: Actual Arabic and English audio, aligned sentences, wait/resume and failure recovery
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_RACE_SCREENSHOTS=/tmp/race-knowledge-results APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/race-knowledge-qa/node_modules node apps/1-4/little-car-race/tests/knowledge-browser.cjs
+      - name: Complete atomic download, offline photo and sentence playback, and saved discoveries
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_RACE_SCREENSHOTS=/tmp/race-knowledge-results APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/race-knowledge-qa/node_modules node apps/1-4/little-car-race/tests/knowledge-offline.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: race-knowledge-browser-evidence
+          path: /tmp/race-knowledge-results
