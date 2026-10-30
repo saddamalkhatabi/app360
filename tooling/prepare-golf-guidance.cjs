@@ -29,3 +29,5 @@ const rows=[
 ];
 const items=rows.flatMap(([id,ar,en])=>[['ar',ar],['en',en]].map(([language,text])=>({id,language,text,path:'audio/guide/'+language+'/'+id+'.mp3',engine:'silma'})));
 fs.mkdirSync(path.join(root,'data'),{recursive:true});fs.writeFileSync(path.join(root,'data/guidance-scripts.json'),JSON.stringify({schema_version:1,items},null,2)+'\n');
+
+const texts={};for(const row of items)texts[row.language+':'+row.id]=row.text;fs.writeFileSync(path.join(root,'guidance-text.js'),'window.MiniGolfCoachText='+JSON.stringify(texts)+';\n');
