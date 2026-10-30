@@ -1,0 +1,154 @@
+{
+  "generator": "Built-in image_gen",
+  "requestedSize": [
+    3840,
+    2160
+  ],
+  "common": "Create one high-resolution 3840 x 2160 photographic state atlas for a children's virtual control-panel game. Exactly four equal 1920 x 1080 frames in a strict 2-column by 2-row grid. No borders, gutters, captions, letters, numbers, UI, arrows, logos or watermarks. Fill every quadrant completely with its landscape photograph. Frame order: top-left state 0; top-right state 1; bottom-left state 2; bottom-right state 3. For non-fire scenes, use exactly the same camera position, scale, geometry and object identities in every frame, changing ONLY the specified states. Tangible realistic materials, natural light and physically plausible shadows, actual photographic appearance, not a cartoon, toy render or illustration. Clear large objects and state differences easy for a child to notice. ",
+  "specs": [
+    {
+      "id": "room",
+      "scene": "A real calm family reading room, wide fixed camera, a desk lamp on the right, a large window with solid curtains on the left, a book and chair. No people.",
+      "a": "curtains",
+      "b": "desk lamp",
+      "states": [
+        "Curtains fully closed; lamp off. Room dim but still clearly visible.",
+        "Curtains fully open; lamp off. Daylight clearly illuminates the room.",
+        "Curtains fully closed; lamp on, warm pool of light on the book.",
+        "Curtains fully open; lamp on, daylight and warm lamp light both visible."
+      ]
+    },
+    {
+      "id": "garden",
+      "scene": "A real home garden care station, fixed wide camera, a rectangular bed of plants and a mechanical retractable cream canopy overhead, a visible watering pipe above the bed. No people. Plant sizes remain identical.",
+      "a": "canopy",
+      "b": "watering",
+      "states": [
+        "Canopy retracted, no shade over the bed; watering pipe off, no water.",
+        "Canopy extended over the plants, clear shaded bed; water off.",
+        "Canopy retracted, watering pipe visibly showering fine clear water onto soil.",
+        "Canopy extended creating shade; watering pipe visibly showering fine water onto soil."
+      ]
+    },
+    {
+      "id": "wash",
+      "scene": "A real clean handwashing sink, fixed close wide camera, realistic pair of hands held above the basin, faucet above hands, soap dispenser left. Only hands, no faces. Same hands in the same position in all four panels.",
+      "a": "water",
+      "b": "soap",
+      "states": [
+        "Faucet off; wet hands without foam.",
+        "Faucet on, visible narrow water stream; hands without foam.",
+        "Faucet off; both hands covered in visible white soap lather.",
+        "Faucet on, visible water stream; hands covered in white soap lather."
+      ]
+    },
+    {
+      "id": "tidy",
+      "scene": "A real child-sized tidy-room station, fixed wide camera, low shelf with books basket left and toy basket right, safe wooden toy blocks. No child or people. Same camera, furniture and objects in all panels.",
+      "a": "books put away",
+      "b": "toys put away",
+      "states": [
+        "Books lying visibly outside their shelf on left; wooden blocks scattered beside toy basket right.",
+        "Books neatly arranged on shelf left; blocks remain scattered beside toy basket right.",
+        "Books remain outside shelf left; all blocks neatly inside toy basket right.",
+        "Books neatly arranged on shelf; all blocks neatly inside toy basket. Clear tidy floor."
+      ]
+    },
+    {
+      "id": "laundry",
+      "scene": "A real front-loading washing machine with no brand or text in a bright laundry room, fixed wide camera, only machine and folded towels. No people. Door and motion changes must be unmistakable. No water outside machine.",
+      "a": "door closed",
+      "b": "washing",
+      "states": [
+        "Machine door fully open, laundry visible in still drum, no cycle running.",
+        "Door fully closed, laundry visible through glass, drum still, no cycle running.",
+        "Exact repeat of the first safe panel: door open, laundry still, no running motor or water.",
+        "Door fully closed and latched, drum visibly spinning with a subtle photographic motion blur and visible sudsy water behind glass."
+      ]
+    },
+    {
+      "id": "recycle",
+      "scene": "A real sorting table with two simple open collection boxes: blue box left for clean paper, green metal collection box right for safe empty cans without sharp edges. No text or logos, fixed wide camera. No people.",
+      "a": "paper sorted",
+      "b": "cans sorted",
+      "states": [
+        "Clean paper sheets spread outside blue box; three intact empty cans outside green box.",
+        "All paper neatly inside blue box; three cans remain outside green box.",
+        "Paper remains outside blue box; all three cans inside green box.",
+        "All paper inside blue box; all cans inside green box; foreground tabletop clear."
+      ]
+    },
+    {
+      "id": "delivery",
+      "scene": "A real small parcel depot in a sunny courtyard, fixed wide camera. A roller shutter garage door, a small safe parcel trolley with one cardboard parcel, clearly outside the doorway when not delivered. No people or vehicles.",
+      "a": "shutter open",
+      "b": "parcel delivered",
+      "states": [
+        "Shutter fully closed; trolley with parcel parked safely outside and to the side.",
+        "Shutter fully open; trolley with parcel still parked outside.",
+        "Shutter fully closed; trolley and parcel now inside, no trolley outside. A clear side window shows the trolley safely stored inside.",
+        "Shutter fully open; trolley with parcel clearly stored inside the depot behind the doorway."
+      ]
+    },
+    {
+      "id": "harbor",
+      "scene": "Real small canal with a lifting drawbridge in the middle, fixed wide camera looking along the water. A small unoccupied leisure boat, no people. The boat is either clearly on the near side or clearly past the bridge on the far side. Calm daylight.",
+      "a": "bridge raised",
+      "b": "boat passed",
+      "states": [
+        "Bridge fully lowered and closed; boat waiting stationary on near side, far from the bridge.",
+        "Bridge lifted open, water passage clear; boat waiting on near side.",
+        "Bridge lowered and closed; boat already safely past it on the far side.",
+        "Bridge lifted open; boat safely past the bridge on far side."
+      ]
+    },
+    {
+      "id": "access",
+      "scene": "A real community library entrance, fixed wide camera, simple automatic sliding glass door and a clearly visible accessible fold-out ramp over two shallow steps. No people or signs. Real materials and clear geometry.",
+      "a": "ramp deployed",
+      "b": "door open",
+      "states": [
+        "Ramp folded safely to one side; two steps visible; glass door fully closed.",
+        "Wide safe ramp deployed covering the steps; glass door closed.",
+        "Ramp folded to side, steps visible; glass door fully open.",
+        "Wide accessible ramp deployed covering steps; glass door fully open."
+      ]
+    },
+    {
+      "id": "shelter",
+      "scene": "A real sheltered entry courtyard during gentle rain, fixed wide camera. A retractable awning over the path, a clearly visible channel drain with safe protective grate along the path, and a small enclosed drainage pump beside it. No people, no lightning, no flooding.",
+      "a": "awning extended",
+      "b": "drainage working",
+      "states": [
+        "Awning retracted, path exposed to gentle rain; shallow puddles remain near the drain.",
+        "Awning extended over the path; shallow puddles still remain near drain.",
+        "Awning retracted; drain and pump working, visible narrow water flow into channel, puddles mostly drained.",
+        "Awning extended providing cover; water flows safely into channel drain, path mostly clear of puddles."
+      ]
+    },
+    {
+      "id": "crossing",
+      "scene": "A real residential pedestrian crossing, fixed wide camera from behind one adult and a small child holding hands safely on the near sidewalk, no faces visible. A pedestrian signal and two cars. No text or numbers.",
+      "a": "traffic stopped for crossing",
+      "b": "arrived across",
+      "states": [
+        "Adult and child stand together on near sidewalk. Pedestrian signal red. Cars approach on road, well away from people.",
+        "Same adult and child still waiting hand-in-hand on near sidewalk. Pedestrian signal green. Cars fully stopped before zebra crossing with wheels clearly stationary.",
+        "Exact repeat of first safe panel: adult and child remain on near sidewalk, red signal, no child in the road.",
+        "Adult and child have reached opposite sidewalk together hand-in-hand. Pedestrian signal green. Cars remain fully stopped before zebra crossing."
+      ]
+    },
+    {
+      "id": "fire",
+      "scene": "A fire-safety scenario with NO injury and no frightened faces. Photorealistic documentary educational images, calm and clear. Scenes show the safe response, never a child fighting a fire.",
+      "a": "outside",
+      "b": "adult called firefighters",
+      "states": [
+        "Inside a real calm living room: a small fire beginning in a waste bin far from a clear open exit. No people visible. Modest smoke, no dramatic disaster.",
+        "View from a safe outdoor meeting point in a garden, looking toward the distant house entrance; small smoke visible inside. A grown-up and child stand safely outside with their backs to camera. Nobody near the fire.",
+        "Exact repeat of first panel: inside living room with small waste-bin fire and clear open exit; no people, no firefighter inside with a child.",
+        "Same view from safe outdoor meeting point. Adult and child stay outside in foreground at a safe distance; professional adult firefighters at the distant house extinguish the small fire with appropriate equipment; a real full-size fire engine outside. Calm scene, no danger to the child."
+      ]
+    }
+  ]
+}

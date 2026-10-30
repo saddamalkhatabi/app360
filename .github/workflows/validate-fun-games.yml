@@ -83,6 +83,25 @@ jobs:
         with:
           name: balloon-farm-browser-screenshots
           path: /tmp/balloon-screenshots
+  wonder-world-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Wonder World browser tools
+        run: npm install --prefix /tmp/wonder-world-qa --no-audit --no-fund playwright@1.62.1 acorn@8
+      - name: Test all tool panels, photo state atlases, six layouts and actual offline play
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/wonder-world-qa/node_modules node apps/1-4/wonder-machine/tests/world-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wonder-world-browser-screenshots
+          path: /tmp/wonder-world-screenshots
   golf-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 15
