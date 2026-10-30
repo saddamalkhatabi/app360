@@ -1,0 +1,31 @@
+'use strict';
+const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'../apps/1-4/mini-golf');
+const rows=[
+['intro','هَذِهِ لُعْبَةُ الْغُولْفِ. نُوَجِّهُ الْكُرَةَ نَحْوَ الْعَلَمِ، ثُمَّ نَضْرِبُ بِهُدُوءٍ. شَاهِدِ الْيَدَ، ثُمَّ جَرِّبْ بِنَفْسِكَ.','This is mini golf. Aim the ball toward the flag, then putt gently. Watch the hand, then try yourself.'],
+['scroll','لِتَحْرِيكِ الصَّفْحَةِ، اِسْحَبْ مِنَ الْعُشْبِ أَوْ جَانِبِ الْمَلْعَبِ. مَقْبِضُ الْكُرَةِ وَحْدَهُ لِلتَّوْجِيهِ.','Swipe on the grass or beside the course to scroll the page. Only the ball handle is for aiming.'],
+['aim','اِلْمَسِ الْمَقْبِضَ الْأَخْضَرَ، وَحَرِّكْهُ حَوْلَ الْكُرَةِ لِتُدِيرَ الْمِضْرَبَ. الْخَطُّ الْمُنَقَّطُ يُسَاعِدُكَ.','Touch the green handle and move it around the ball to turn the club. The dotted path can help you.'],
+['power','اِخْتَرْ قُوَّةَ الضَّرْبَةِ. الرَّقْمُ الصَّغِيرُ لِضَرْبَةٍ هَادِئَةٍ، وَالْأَكْبَرُ لِمَسَافَةٍ أَطْوَلَ.','Choose your putting strength. A smaller number gives a gentle putt. A larger number goes farther.'],
+['hit','اَلْآنَ اِلْمَسْ زِرَّ اِضْرِبِ الْكُرَةَ، وَرَاقِبْ طَرِيقَهَا.','Now tap Putt the ball and watch where it goes.'],
+['observe','شَاهِدْ أَيْنَ تَسْتَقِرُّ الْكُرَةُ. نُغَيِّرُ الِاتِّجَاهَ أَوِ الْقُوَّةَ وَنُحَاوِلُ مِنْ مَكَانِهَا الْجَدِيدِ.','Watch where the ball stops. Adjust the direction or strength and try from its new position.'],
+['next','وَصَلَتِ الْكُرَةُ! اِلْمَسِ الْمَسَارَ التَّالِيَ لِنُكْمِلَ الْجَوْلَةَ.','The ball reached the hole! Tap Next course to continue the round.'],
+['levels','اِخْتَرْ مُغَامَرَتَكَ مِنْ بَطَاقَاتِ الْمُسْتَوَيَاتِ. يَبْقَى تَقَدُّمُ كُلِّ مُسْتَوًى مَحْفُوظًا.','Choose an adventure from the level cards. Each level keeps its own progress.'],
+['retry','الْمُحَاوَلَةُ جُزْءٌ مِنَ اللَّعِبِ. لِنُغَيِّرْ شَيْئًا وَاحِدًا، ثُمَّ نَرَى مَا يَحْدُثُ.','Trying is part of playing. Let us change one thing, then see what happens.'],
+['try','اَلْآنَ دَوْرُكَ. حَرِّكِ الْمَقْبِضَ وَاخْتَرِ الْقُوَّةَ، ثُمَّ اِضْرِبْ بِنَفْسِكَ.','Your turn. Move the handle, choose the strength, then putt for yourself.'],
+['success','أَحْسَنْتَ! أَدْخَلْتَ الْكُرَةَ بِمُحَاوَلَتِكَ. يُمْكِنُكَ أَنْ تُجَرِّبَ الْآنَ دُونَ الْيَدِ.','Well done! Your own putt reached the hole. Now you can try without the hand.'],
+['independent','جَرِّبْ وَحْدَكَ الْآنَ. اِبْدَأْ بِضَرْبَةٍ هَادِئَةٍ، وَاطْلُبِ الْمُسَاعَدَةَ مَتَى شِئْتَ.','Try on your own now. Start with a gentle putt and ask for help whenever you like.'],
+['auto','لِنُجَرِّبْ خُطْوَةً تُسَاعِدُنَا. سَأَشْرَحُ بِالْيَدِ، وَتَبْقَى جَوْلَتُكَ مَحْفُوظَةً. يُمْكِنُكَ إِيقَافُ التَّدْرِيبِ مَتَى شِئْتَ.','Let us try a helpful step. I will show you with the hand, and your round will stay safe. You can stop practice whenever you like.'],
+['level-1','نَبْدَأُ بِحُفْرَةٍ وَاسِعَةٍ وَضَرْبَةٍ مُسَاعَدَةٍ. اِلْمَسْ زِرَّ الضَّرْبِ وَشَاهِدِ الْكُرَةَ.','Start with a wide hole and a helpful putt. Tap the putt button and watch the ball.'],
+['level-2','نَكْتَشِفُ الِاتِّجَاهَ وَالْقُوَّةَ. وَجِّهِ الْمِضْرَبَ، وَجَرِّبْ قُوَّةً تُنَاسِبُ الْمَسَافَةَ.','Explore direction and strength. Turn the club and choose a strength that fits the distance.'],
+['level-3','هُنَاكَ حَاجِزٌ فِي الطَّرِيقِ. نَبْحَثُ عَنْ طَرِيقٍ حَوْلَهُ، أَوْ نَسْتَعِينُ بِالِارْتِدَادِ.','There is a barrier in the way. Look for a path around it, or try a bounce.'],
+['level-4','نَلْعَبُ بَيْنَ الْمُنْعَطَفَاتِ. يُمْكِنُ أَنْ نَصِلَ بِأَكْثَرَ مِنْ ضَرْبَةٍ، خُطْوَةً خُطْوَةً.','Play between the turns. You can reach the hole in more than one putt, one step at a time.'],
+['level-5','الزُّهُورُ قَرِيبَةٌ وَالْحُفْرَةُ وَاسِعَةٌ. لِنُجَرِّبْ ضَرْبَةً قَصِيرَةً وَهَادِئَةً.','The flowers are nearby and the hole is wide. Try a short, gentle putt.'],
+['level-6','تَتَغَيَّرُ الْمَسَافَةُ فِي رِحْلَةِ الْأَلْوَانِ. اُنْظُرْ إِلَى الْعَلَمِ قَبْلَ اخْتِيَارِ الْقُوَّةِ.','The distance changes along the colour trail. Look at the flag before choosing your strength.'],
+['level-7','اُعْبُرْ بِالْكُرَةِ مِنَ الْفَتْحَةِ بَيْنَ جَانِبَيِ الْبَوَّابَةِ. وَجِّهْ بِهُدُوءٍ.','Putt the ball through the opening between the gate posts. Aim carefully.'],
+['level-8','فِي الْجَزِيرَةِ صَخْرَةٌ. لِنَجِدْ طَرِيقًا حَوْلَهَا نَحْوَ الْعَلَمِ.','There is a rock on the island. Find a way around it toward the flag.'],
+['level-9','هَذَا مَمَرُّ الْجِسْرِ. نُوَجِّهُ الْكُرَةَ بَيْنَ الْحَافَّتَيْنِ، وَنُرَاقِبُ الْخَطَّ الْمُنَقَّطَ.','This is the bridge passage. Aim between the two edges and watch the dotted path.'],
+['level-10','هُنَاكَ بَوَّابَتَانِ. خَطِّطْ لِلْفَتْحَةِ الْأُولَى، ثُمَّ أَعِدِ التَّوْجِيهَ لِلثَّانِيَةِ.','There are two gates. Plan for the first opening, then aim again for the second.'],
+['level-11','يُمْكِنُ لِلْكُرَةِ أَنْ تَرْتَدَّ عَنِ الْجِدَارِ. شَاهِدِ الْمَسَارَ الْمُنَقَّطَ قَبْلَ الضَّرْبِ.','The ball can bounce off a wall. Look at the dotted path before you putt.'],
+['level-12','فِي مَتَاهَةِ الْقَمَرِ نُقَسِّمُ الطَّرِيقَ إِلَى خُطُوَاتٍ. لَا نَحْتَاجُ إِلَى الْوُصُولِ بِضَرْبَةٍ وَاحِدَةٍ.','In the moon maze, break the path into steps. You do not need to reach the hole in one putt.']
+];
+const items=rows.flatMap(([id,ar,en])=>[['ar',ar],['en',en]].map(([language,text])=>({id,language,text,path:'audio/guide/'+language+'/'+id+'.mp3',engine:'silma'})));
+fs.mkdirSync(path.join(root,'data'),{recursive:true});fs.writeFileSync(path.join(root,'data/guidance-scripts.json'),JSON.stringify({schema_version:1,items},null,2)+'\n');
