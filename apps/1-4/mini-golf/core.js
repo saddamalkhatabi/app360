@@ -1,13 +1,22 @@
 (function(root,factory){'use strict';if(typeof module==='object'&&module.exports)module.exports=factory();else root.MiniGolfCore=factory();})(this,function(){
 'use strict';
-var R=3,FRICTION=.97,MAX=80;
+var R=3,FRICTION=.97,MAX=80,LEVELS=12;
 function integer(n,a,b,f){return typeof n==='number'&&isFinite(n)&&n%1===0&&n>=a&&n<=b?n:f;}
 function clone(x){return JSON.parse(JSON.stringify(x));}
-function settings(s){s=s||{};return {level:integer(s.level,1,4,1),players:s.players===2?2:1,theme:['garden','island','moon'].indexOf(s.theme)>=0?s.theme:'garden',language:s.language==='en'?'en':'ar',sound:s.sound===true,motion:s.motion!==false,hints:s.hints!==false};}
-function course(level,index){level=integer(level,1,4,1);index=integer(index,0,2,0);var starts=[{x:50,y:99},{x:27,y:99},{x:73,y:99}],cups=[{x:50,y:28},{x:70,y:31},{x:29,y:31}];var c={start:clone(starts[index]),cup:clone(cups[index]),radius:level===1?8:level===2?6:5,blocks:[]};
+function settings(s){s=s||{};return {level:integer(s.level,1,LEVELS,1),players:s.players===2?2:1,theme:['garden','island','moon'].indexOf(s.theme)>=0?s.theme:'garden',language:s.language==='en'?'en':'ar',sound:s.sound===true,motion:s.motion!==false,hints:s.hints!==false};}
+function course(level,index){level=integer(level,1,LEVELS,1);index=integer(index,0,2,0);var starts=[{x:50,y:99},{x:27,y:99},{x:73,y:99}],cups=[{x:50,y:28},{x:70,y:31},{x:29,y:31}];var c={start:clone(starts[index]),cup:clone(cups[index]),radius:level===1?8:level===2?6:5,blocks:[]};
 if(level===1){c.cup={x:c.start.x,y:31-index*3};}
 if(level===3){c.blocks=index===0?[{x:35,y:57,w:30,h:7}]:index===1?[{x:42,y:55,w:25,h:8}]:[{x:33,y:55,w:25,h:8}];}
 if(level===4){c.blocks=index===0?[{x:9,y:65,w:49,h:7},{x:64,y:36,w:27,h:7}]:index===1?[{x:40,y:66,w:51,h:7},{x:9,y:39,w:36,h:7}]:[{x:9,y:66,w:51,h:7},{x:55,y:39,w:36,h:7}];}
+// Keep the first four courses stable so saved command histories replay unchanged.
+if(level===5){c.radius=9;c.cup={x:[35,57,66][index],y:[66,60,69][index]};}
+if(level===6){c.radius=8;c.cup={x:[26,73,48][index],y:[48,54,36][index]};c.blocks=[{x:index===1?9:77,y:70,w:14,h:10}];}
+if(level===7){c.radius=8;c.cup={x:[50,32,68][index],y:[35,45,45][index]};c.blocks=[{x:9,y:62,w:22,h:8},{x:69,y:62,w:22,h:8}];}
+if(level===8){c.radius=8;c.cup={x:[68,62,38][index],y:42};c.blocks=[{x:index===2?58:24,y:63,w:18,h:9}];}
+if(level===9){c.cup={x:[50,66,34][index],y:26};c.blocks=[{x:9,y:45,w:24,h:30},{x:67,y:45,w:24,h:30}];}
+if(level===10){c.blocks=[{x:9,y:73,w:29,h:7},{x:57,y:73,w:34,h:7},{x:9,y:43,w:47,h:7},{x:77,y:43,w:14,h:7}];if(index===2)c.blocks=c.blocks.map(function(b){return{x:100-b.x-b.w,y:b.y,w:b.w,h:b.h};});}
+if(level===11){c.blocks=[{x:35,y:52,w:30,h:8},{x:index===1?9:75,y:29,w:16,h:8}];c.cup={x:[24,76,25][index],y:22};}
+if(level===12){c.radius=4.5;c.blocks=[{x:9,y:76,w:44,h:7},{x:47,y:49,w:44,h:7},{x:9,y:25,w:23,h:7}];c.cup={x:[68,46,72][index],y:20};}
 return c;}
 function direction(from,to){return Math.atan2(to.x-from.x,from.y-to.y)*180/Math.PI;}
 function simulate(c,start,aim,power,assisted){var a=integer(aim,-180,180,0)*Math.PI/180,speed=[0,1.4,2,2.8,3.6,4.5][integer(power,1,5,3)],x=start.x,y=start.y,frames=[{x:x,y:y}],vx,vy,captured=false,bounces=0;
@@ -29,7 +38,7 @@ for(var tick=0;tick<260;tick++){
  frames.push({x:x,y:y});if(captured)break;vx*=FRICTION;vy*=FRICTION;if(vx*vx+vy*vy<.0009)break;
 }
 return {position:{x:x,y:y},captured:captured,bounces:bounces,frames:frames};}
-function fresh(level,players){return {level:integer(level,1,4,1),players:players===2?2:1,steps:[]};}
+function fresh(level,players){return {level:integer(level,1,LEVELS,1),players:players===2?2:1,steps:[]};}
 function initial(round){var c=course(round.level,0);return {index:0,player:0,course:c,position:clone(c.start),shots:0,captured:false,complete:false,results:[],last:null};}
 function shot(state,round,aim,power){if(state.complete||state.captured||state.shots>=MAX||integer(aim,-180,180,999)===999||integer(power,1,5,99)===99)return false;state.last=simulate(state.course,state.position,aim,power,round.level===1);state.position=clone(state.last.position);state.captured=state.last.captured;state.shots++;return true;}
 function next(state,round,skip){if(state.complete||!state.captured&&skip!==true)return false;state.results.push({player:state.player,hole:Math.floor(state.index/round.players),shots:state.shots,captured:state.captured});if(state.index===round.players*3-1){state.complete=true;return true;}state.index++;state.player=state.index%round.players;state.course=course(round.level,Math.floor(state.index/round.players));state.position=clone(state.course.start);state.shots=0;state.captured=false;state.last=null;return true;}
@@ -38,7 +47,8 @@ function state(round){var out=initial(round);for(var i=0;i<round.steps.length;i+
 function append(round,step){var out=state(round);if(!play(out,round,step))return false;round.steps.push(step.kind==='shot'?{kind:'shot',aim:step.aim,power:step.power}:{kind:'next',skip:step.skip===true});return true;}
 function restore(raw,level,players){var round=fresh(level,players),out=initial(round);if(!raw||raw.level!==round.level||raw.players!==round.players||!Array.isArray(raw.steps)||raw.steps.length>(MAX+1)*6)return round;for(var i=0;i<raw.steps.length;i++){if(!play(out,round,raw.steps[i]))return fresh(level,players);var step=raw.steps[i];round.steps.push(step.kind==='shot'?{kind:'shot',aim:step.aim,power:step.power}:{kind:'next',skip:step.skip===true});}return round;}
 function key(s){return s.level+':'+s.players;}
-function restoreStore(raw,defaults){var store={schema:1,settings:settings(defaults),games:{}};if(raw&&raw.schema===1){store.settings=settings(raw.settings);for(var l=1;l<=4;l++)for(var p=1;p<=2;p++){var k=l+':'+p;if(raw.games&&Object.prototype.hasOwnProperty.call(raw.games,k)){var g=raw.games[k];store.games[k]={round:restore(g&&g.round,l,p),aim:integer(g&&g.aim,-180,180,0),power:integer(g&&g.power,1,5,3)};}}}return store;}
+function restoreStore(raw,defaults){var store={schema:1,settings:settings(defaults),games:{}};if(raw&&raw.schema===1){store.settings=settings(raw.settings);for(var l=1;l<=LEVELS;l++)for(var p=1;p<=2;p++){var k=l+':'+p;if(raw.games&&Object.prototype.hasOwnProperty.call(raw.games,k)){var g=raw.games[k];store.games[k]={round:restore(g&&g.round,l,p),aim:integer(g&&g.aim,-180,180,0),power:integer(g&&g.power,1,5,3)};}}}return store;}
+function ageLevels(age){return age==='4-8'?[3,4,9,10,11,12]:[1,2,5,6,7,8];}
 function undo(round){if(!round.steps.length)return false;round.steps.pop();return true;}
-return {settings:settings,course:course,simulate:simulate,direction:direction,fresh:fresh,state:state,append:append,restore:restore,restoreStore:restoreStore,key:key,undo:undo,clone:clone,maxShots:MAX};
+return {settings:settings,course:course,simulate:simulate,direction:direction,fresh:fresh,state:state,append:append,restore:restore,restoreStore:restoreStore,key:key,undo:undo,clone:clone,maxShots:MAX,levelCount:LEVELS,ageLevels:ageLevels};
 });
