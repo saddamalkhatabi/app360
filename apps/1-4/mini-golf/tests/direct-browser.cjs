@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict');
 module.exports=async function directControls(page){
- await page.locator('#littleLevels').click();
+ if(!await page.locator('#littleLevels').isVisible())await page.locator('#levelsToggle').click();await page.locator('#littleLevels').click();
  assert.equal(await page.locator('.level-card:visible').count(),6);
  await page.locator('#levelCard5').click();
  assert.equal(await page.evaluate(()=>MiniGolf.getState().settings.level),5);
@@ -18,7 +18,7 @@ module.exports=async function directControls(page){
  await page.locator('#previousLevel').click();assert.equal(await page.evaluate(()=>MiniGolf.getState().settings.level),2);
  await page.locator('#nextLevel').click();assert.equal(await page.evaluate(()=>MiniGolf.getState().settings.level),5);
  assert.equal(await page.evaluate(()=>MiniGolf.getState().game.aim),85,'level navigation keeps its aim');
- await page.locator('#explorerLevels').click();await page.locator('#levelCard12').click();
+ if(!await page.locator('#explorerLevels').isVisible())await page.locator('#levelsToggle').click();await page.locator('#explorerLevels').click();await page.locator('#levelCard12').click();
  assert.equal(await page.evaluate(()=>MiniGolf.getState().settings.level),12);
  assert(await page.locator('#nextLevel').isDisabled());
  assert.equal(await page.locator('html').getAttribute('dir'),'ltr');

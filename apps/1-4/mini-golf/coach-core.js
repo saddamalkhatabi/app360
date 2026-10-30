@@ -2,7 +2,7 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory(require('./core.js'));else root.MiniGolfCoachCore=factory(root.MiniGolfCore);})(this,function(C){'use strict';
 function distance(a,b){return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));}
 function planner(course,position,assisted){var beam=[{p:C.clone(position),steps:[]}],next=[],seen={},node=0,angle=-180,power=1,depth=0,count=0,result=null,best=null,done=false;
- function step(budget){budget=Math.max(1,Math.min(120,budget||40));while(budget--&&!done){if(node>=beam.length){depth++;if(depth>=3||!next.length||count>=26000){done=true;break;}next.sort(function(a,b){return a.score-b.score;});beam=next.slice(0,42);next=[];node=0;angle=-180;power=1;}
+ function step(budget){budget=Math.max(1,Math.min(120,budget||40));while(budget--&&!done){if(count>=26000){done=true;break;}if(node>=beam.length){depth++;if(depth>=3||!next.length||count>=26000){done=true;break;}next.sort(function(a,b){return a.score-b.score;});beam=next.slice(0,42);next=[];node=0;angle=-180;power=1;}
  var base=beam[node],out=C.simulate(course,base.p,angle,power,assisted),steps=base.steps.concat([{aim:angle,power:power}]),score=distance(out.position,course.cup);count++;if(!best||score<best.score)best={steps:steps,score:score};if(out.captured){result={steps:steps,captured:true};done=true;break;}var key=Math.round(out.position.x/3)+':'+Math.round(out.position.y/3);if(!seen[key]){seen[key]=true;next.push({p:out.position,steps:steps,score:score});}power++;if(power>5){power=1;angle+=5;}if(angle>180){node++;angle=-180;}}
  return{done:done,result:result||(done&&best?{steps:best.steps,captured:false}:null),simulations:count};}
  return{step:step};}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "app_id": "mini-golf",
+  "age_groups": ["1-4", "4-8"],
+  "levels": {"1-4": [1, 2, 5, 6, 7, 8], "4-8": [3, 4, 9, 10, 11, 12]},
+  "activation": "coachBtn or three consecutive play putts without measurable progress, or six putts without a capture since the last help",
+  "automatic_help": {"enabled_by_default": true, "opt_out": "autoCoachCheck", "respects_mute": true},
+  "steps": ["introduction", "level-specific idea", "scroll on grass", "rotate handle", "choose strength", "putt", "observe", "next course", "level cards", "child practice"],
+  "demonstration": {"isolated_from_play": true, "counts_as_child_attempt": false, "restores_original_round": true},
+  "practice": {"real_child_action_required": true, "independent_retry": true, "pause_preserves_child_attempt": true},
+  "measurement": {"storage": "local per identity, entry age and level", "play_and_practice_separate": true, "comparison_window": [5, 5], "automatic_mastery": false, "claims_causal_impact": false},
+  "audio": {"engine": "SILMA 1.0.5", "languages": ["ar", "en"], "runtime_generation": false, "missing_audio": "visible transcript, replay and hand remain available"},
+  "lifecycle": ["stop on identity change", "stop on hidden page", "stop on level change", "stop on settings", "cancel stale audio and timers"],
+  "api": "window.MiniGolfCoach"
+}
