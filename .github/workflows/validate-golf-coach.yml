@@ -1,0 +1,35 @@
+name: Validate Mini Golf touch and SILMA coach
+on:
+  push:
+    branches: [codex/golf-coach-20261030, main]
+    paths: ['apps/1-4/mini-golf/**', 'tooling/*golf*', '.github/workflows/validate-golf-coach.yml']
+  pull_request:
+    paths: ['apps/1-4/mini-golf/**', 'tooling/*golf*', '.github/workflows/validate-golf-coach.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  golf-coach:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/golf-coach-qa playwright@1.62.1 acorn@8 --no-audit --no-fund
+      - name: Verify deterministic play, incremental coach, real recordings and offline digests
+        run: NODE_PATH=/tmp/golf-coach-qa/node_modules node --test apps/1-4/mini-golf/tests/*.test.cjs
+      - name: Touch scrolling, compact phones, every level and adaptive learner practice
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/golf-coach-qa/node_modules node apps/1-4/mini-golf/tests/coach-browser.cjs
+      - name: Real Arabic and English playback, cancellation and full offline coaching
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/golf-coach-qa/node_modules node apps/1-4/mini-golf/tests/voice-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: golf-coach-browser-evidence
+          path: /tmp/golf-coach-screenshots
