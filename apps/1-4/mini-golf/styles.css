@@ -35,3 +35,4 @@ body #app360HomeBtn{position:static!important;display:flex!important;width:160px
 @media(prefers-reduced-motion:reduce){.coach-hand{transition:none!important}}
 .coaching.coach-navigation #levelsToggle{display:block}.coaching.coach-navigation #levelBrowser{display:block}.coaching.coach-navigation .level-navigation{display:flex;display:-webkit-flex}.coaching.coach-navigation #playground{order:1!important;-webkit-order:1!important}
 .progress-mini{font-size:11px;text-align:center;color:#315f47;margin:6px 0;line-height:1.6}.coach-panel .practice-notice{max-width:100%}
+.coaching #coachPanel{order:-1;-webkit-order:-1;position:-webkit-sticky!important;position:sticky!important;top:4px!important}.coaching.coach-navigation #levelBrowser{order:0;-webkit-order:0}.coaching #coachPanel .coach-controls{direction:inherit}
