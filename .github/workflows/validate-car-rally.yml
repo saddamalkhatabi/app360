@@ -1,0 +1,31 @@
+name: Validate visible car rally stages and steering
+on:
+  push:
+    branches: [main]
+    paths: ['apps/1-4/little-car-race/**', 'tooling/build-race-offline.cjs', '.github/workflows/validate-car-rally.yml']
+  pull_request:
+    paths: ['apps/1-4/little-car-race/**', 'tooling/build-race-offline.cjs', '.github/workflows/validate-car-rally.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rally:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/car-rally-qa playwright@1.62.1 acorn@8 --no-audit --no-fund
+      - name: Rules, old saves, stage isolation, shell and offline digests
+        run: NODE_PATH=/tmp/car-rally-qa/node_modules node --test apps/1-4/little-car-race/tests/*.test.cjs
+      - name: Both ages, all twelve stages, steering wheel and five layouts
+        run: |
+          browser_path=$(command -v google-chrome || command -v chromium || command -v chromium-browser)
+          APP360_RACE_SCREENSHOTS=/tmp/car-rally-results APP360_TEST_CHROMIUM="$browser_path" NODE_PATH=/tmp/car-rally-qa/node_modules node apps/1-4/little-car-race/tests/rally-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: car-rally-stage-evidence
+          path: /tmp/car-rally-results
