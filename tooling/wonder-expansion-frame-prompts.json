@@ -1,0 +1,400 @@
+{
+  "generator": "Built-in image_gen",
+  "date": "2026-10-31",
+  "referenceAtlases": [
+    {
+      "id": "mailbox",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for an Arabic children's tool-panel game. Produce a HIGH RESOLUTION 3328x1872 landscape photograph atlas, exactly 2 columns by 2 rows, four equal 16:9 frames, no gutters, borders, text, symbols, UI, people or watermarks. Identical fixed camera, lighting, object identity and geometry in all four quadrants; change ONLY the requested action. Actual detailed photography, not illustration or 3D render. Scene: One red garden mailbox with a wide hinged front flap. Fixed camera, simple green garden blurred in the background. State top-left: Flap fully closed. Top-right: Flap fully open, empty interior visible. Bottom-left: Same as top-left: flap fully closed. Bottom-right: Same as top-right: flap fully open."
+    },
+    {
+      "id": "blanket",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: One realistic soft teddy bear lying on a small bed, calm daylight, fixed camera. TOP LEFT: Soft blue blanket folded beside teddy. Teddy fully visible. TOP RIGHT: The same blanket neatly covers teddy below its head. BOTTOM LEFT: Same as top-left, blanket folded beside teddy. BOTTOM RIGHT: Same as top-right, teddy covered below head."
+    },
+    {
+      "id": "petwater",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A single clean stainless pet drinking bowl on a kitchen mat. No animals, no people, fixed close camera. TOP LEFT: Empty bowl, clearly dry inside. TOP RIGHT: Bowl half filled with clear fresh water, obvious reflections. BOTTOM LEFT: Same empty dry bowl. BOTTOM RIGHT: Same bowl half full of clear water."
+    },
+    {
+      "id": "train",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real wooden toy train on a short horizontal wooden track with two stations, a tree on left and a little wood shelter on right. Fixed camera. Not a cartoon. TOP LEFT: Train at LEFT end beside tree. TOP RIGHT: Train at RIGHT end beside shelter. BOTTOM LEFT: Train at LEFT end beside tree. BOTTOM RIGHT: Train at RIGHT end beside shelter."
+    },
+    {
+      "id": "musicbox",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real wooden music box with hinged lid and simple interior brass mechanism on a low table. No tiny detachable parts, fixed camera. TOP LEFT: Lid closed. TOP RIGHT: Lid open, brass music mechanism visible. BOTTOM LEFT: Lid closed. BOTTOM RIGHT: Lid open, brass mechanism visible."
+    },
+    {
+      "id": "flower",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: One real pink flower in a terracotta pot on a table, a safe small watering spout points toward soil. Same plant size, fixed camera. TOP LEFT: Spout off, no water flowing. TOP RIGHT: Thin stream of water from spout onto soil, NOT petals. BOTTOM LEFT: No water flowing. BOTTOM RIGHT: Thin stream onto soil."
+    },
+    {
+      "id": "elevator",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: Photorealistic clean two-floor educational lift model behind a clear glass shaft, ground floor at bottom and upper floor above. No people or text, fixed camera. Cabin position and its door clearly visible. TOP LEFT: Cabin on GROUND floor with cabin doors open. TOP RIGHT: Cabin on GROUND floor with cabin doors closed. BOTTOM LEFT: Cabin on UPPER floor with cabin doors open. BOTTOM RIGHT: Cabin on UPPER floor with cabin doors closed."
+    },
+    {
+      "id": "suitcase",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A realistic openable blue suitcase on a bedroom bench, a few clothes folded neatly beside it, fixed camera. No text or people. TOP LEFT: Suitcase wide open and empty; clothes beside it. TOP RIGHT: Suitcase wide open with all clothes neatly packed inside, nothing beside it. BOTTOM LEFT: Suitcase closed, clothes still beside it. BOTTOM RIGHT: Suitcase closed with clothes packed inside and nothing beside it."
+    },
+    {
+      "id": "picnic",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real outdoor picnic table, two folding chairs stored folded beside it, and a folded red checked tablecloth on adjacent ledge. Fixed camera, no people. TOP LEFT: Bare table, tablecloth folded on ledge, chairs folded. TOP RIGHT: Tablecloth spread on table, chairs folded beside it. BOTTOM LEFT: Bare table, cloth folded on ledge, both chairs unfolded at table. BOTTOM RIGHT: Cloth spread, both chairs unfolded at table."
+    },
+    {
+      "id": "bike",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: One real child bicycle stationary on kickstand in a calm closed courtyard, a correctly sized bicycle helmet on a low bench, a visible front lamp. No person, no street, no logos. TOP LEFT: Helmet on bench, front lamp off. TOP RIGHT: Helmet securely placed on a realistic neutral featureless head-shaped helmet stand beside bicycle with chin strap fastened, lamp off. BOTTOM LEFT: Helmet on bench, front lamp on. BOTTOM RIGHT: Helmet on head-shaped helmet stand with chin strap fastened, front lamp on."
+    },
+    {
+      "id": "stage",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real small community stage with red theatre curtains and a central wooden stool, fixed camera from empty audience. No people, no lettering. TOP LEFT: Curtains fully closed; spotlight off, still visible. TOP RIGHT: Curtains fully open revealing stool; spotlight off. BOTTOM LEFT: Curtains fully closed, warm spotlight shining onto curtains. BOTTOM RIGHT: Curtains fully open, warm spotlight clearly lighting stool."
+    },
+    {
+      "id": "aquarium",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: One real clean glass aquarium with water and aquatic plants, NO animals, on a stable cabinet, a safe enclosed filter at right, lamp above tank. Fixed camera. TOP LEFT: Aquarium lamp off; filter off, water surface still. TOP RIGHT: Aquarium lamp on brightening plants; filter off. BOTTOM LEFT: Lamp off; filter operating with visible stream and ripples. BOTTOM RIGHT: Lamp on; filter operating, stream and surface ripples."
+    },
+    {
+      "id": "first-canopy",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real cream patio parasol, fixed wide camera, no people, actual photography. TOP LEFT: Parasol fully folded vertically along pole. TOP RIGHT: Parasol HALF OPEN, clearly between folded and fully spread. BOTTOM LEFT: Parasol fully open wide creating shade. BOTTOM RIGHT: Parasol fully open, same as bottom-left."
+    },
+    {
+      "id": "first-fan",
+      "prompt": "Use case: photorealistic-natural. Asset: photographic state atlas for a children's tool panel. HIGH RESOLUTION 3328x1872 landscape atlas, strict 2 columns x 2 rows, four equal 16:9 frames. NO gutters, borders, lettering, UI, numbers, people or watermarks. Actual detailed natural photography, NOT drawing, cartoon or 3D render. Exactly identical camera, geometry, object identity and lighting in every frame, changing ONLY stated controls. Scene: A real enclosed safe tabletop fan with visible protective grille on left and three long light blue ribbons tied to a fixed ribbon holder on the RIGHT of fan in its airflow. Fixed camera and natural lighting, no hands or people. TOP LEFT: Fan off. Blades still. Ribbons hanging vertically downward. TOP RIGHT: Fan gentle low airflow. Ribbons lifted just slightly, blades slight motion blur. BOTTOM LEFT: Fan medium airflow. Ribbons lifted diagonally, blades medium motion blur. BOTTOM RIGHT: Fan strong airflow. Ribbons streaming almost horizontally to right, blades strong motion blur."
+    }
+  ],
+  "frames": [
+    {
+      "device": "mailbox",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Flap fully closed. Scene: One red garden mailbox with a wide hinged front flap. Fixed camera, simple green garden blurred in the background.",
+      "repeated": false
+    },
+    {
+      "device": "mailbox",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Flap fully open, empty interior visible. Scene: One red garden mailbox with a wide hinged front flap. Fixed camera, simple green garden blurred in the background.",
+      "repeated": false
+    },
+    {
+      "device": "mailbox",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Flap fully closed. Scene: One red garden mailbox with a wide hinged front flap. Fixed camera, simple green garden blurred in the background.",
+      "repeated": true
+    },
+    {
+      "device": "mailbox",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Flap fully open, empty interior visible. Scene: One red garden mailbox with a wide hinged front flap. Fixed camera, simple green garden blurred in the background.",
+      "repeated": true
+    },
+    {
+      "device": "blanket",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Soft blue blanket folded beside teddy. Teddy fully visible. Scene: One realistic soft teddy bear lying on a small bed, calm daylight, fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "blanket",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: The same blanket neatly covers teddy below its head. Scene: One realistic soft teddy bear lying on a small bed, calm daylight, fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "blanket",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Soft blue blanket folded beside teddy. Teddy fully visible. Scene: One realistic soft teddy bear lying on a small bed, calm daylight, fixed camera.",
+      "repeated": true
+    },
+    {
+      "device": "blanket",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: The same blanket neatly covers teddy below its head. Scene: One realistic soft teddy bear lying on a small bed, calm daylight, fixed camera.",
+      "repeated": true
+    },
+    {
+      "device": "petwater",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Empty bowl, clearly dry inside. Scene: A single clean stainless pet drinking bowl on a kitchen mat. No animals, no people, fixed close camera.",
+      "repeated": false
+    },
+    {
+      "device": "petwater",
+      "frame": 1,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Bowl half filled with clear fresh water, obvious reflections.",
+      "repeated": false
+    },
+    {
+      "device": "petwater",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Empty bowl, clearly dry inside. Scene: A single clean stainless pet drinking bowl on a kitchen mat. No animals, no people, fixed close camera.",
+      "repeated": true
+    },
+    {
+      "device": "petwater",
+      "frame": 3,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Bowl half filled with clear fresh water, obvious reflections.",
+      "repeated": true
+    },
+    {
+      "device": "train",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Train at LEFT end beside tree. Scene: A real wooden toy train on a short horizontal wooden track with two stations, a tree on left and a little wood shelter on right. Fixed camera. Not a cartoon.",
+      "repeated": false
+    },
+    {
+      "device": "train",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Train at RIGHT end beside shelter. Scene: A real wooden toy train on a short horizontal wooden track with two stations, a tree on left and a little wood shelter on right. Fixed camera. Not a cartoon.",
+      "repeated": false
+    },
+    {
+      "device": "train",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Train at LEFT end beside tree. Scene: A real wooden toy train on a short horizontal wooden track with two stations, a tree on left and a little wood shelter on right. Fixed camera. Not a cartoon.",
+      "repeated": true
+    },
+    {
+      "device": "train",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Train at RIGHT end beside shelter. Scene: A real wooden toy train on a short horizontal wooden track with two stations, a tree on left and a little wood shelter on right. Fixed camera. Not a cartoon.",
+      "repeated": true
+    },
+    {
+      "device": "musicbox",
+      "frame": 0,
+      "prompt": "EDIT TARGET: supplied four-frame photo. Recreate ONLY the TOP LEFT quadrant as ONE independent full-sized 16:9 photograph at 1664x936 or higher. Wooden music box CLOSED on the same table. Keep exact camera, geometry, wood grain and lighting. No collage, captions, letters, borders, logos or UI.",
+      "repeated": false
+    },
+    {
+      "device": "musicbox",
+      "frame": 1,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Lid open, brass music mechanism visible.",
+      "repeated": false
+    },
+    {
+      "device": "musicbox",
+      "frame": 2,
+      "prompt": "EDIT TARGET: supplied four-frame photo. Recreate ONLY the TOP LEFT quadrant as ONE independent full-sized 16:9 photograph at 1664x936 or higher. Wooden music box CLOSED on the same table. Keep exact camera, geometry, wood grain and lighting. No collage, captions, letters, borders, logos or UI.",
+      "repeated": true
+    },
+    {
+      "device": "musicbox",
+      "frame": 3,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Lid open, brass music mechanism visible.",
+      "repeated": true
+    },
+    {
+      "device": "flower",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Spout off, no water flowing. Scene: One real pink flower in a terracotta pot on a table, a safe small watering spout points toward soil. Same plant size, fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "flower",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Thin stream of water from spout onto soil, NOT petals. Scene: One real pink flower in a terracotta pot on a table, a safe small watering spout points toward soil. Same plant size, fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "flower",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Spout off, no water flowing. Scene: One real pink flower in a terracotta pot on a table, a safe small watering spout points toward soil. Same plant size, fixed camera.",
+      "repeated": true
+    },
+    {
+      "device": "flower",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Thin stream of water from spout onto soil, NOT petals. Scene: One real pink flower in a terracotta pot on a table, a safe small watering spout points toward soil. Same plant size, fixed camera.",
+      "repeated": true
+    },
+    {
+      "device": "elevator",
+      "frame": 0,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Cabin on GROUND floor with cabin doors open.",
+      "repeated": false
+    },
+    {
+      "device": "elevator",
+      "frame": 1,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Cabin on GROUND floor with cabin doors closed.",
+      "repeated": false
+    },
+    {
+      "device": "elevator",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Cabin on UPPER floor with cabin doors open. Scene: Photorealistic clean two-floor educational lift model behind a clear glass shaft, ground floor at bottom and upper floor above. No people or text, fixed camera. Cabin position and its door clearly visible.",
+      "repeated": false
+    },
+    {
+      "device": "elevator",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Cabin on UPPER floor with cabin doors closed. Scene: Photorealistic clean two-floor educational lift model behind a clear glass shaft, ground floor at bottom and upper floor above. No people or text, fixed camera. Cabin position and its door clearly visible.",
+      "repeated": false
+    },
+    {
+      "device": "suitcase",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Suitcase wide open and empty; clothes beside it. Scene: A realistic openable blue suitcase on a bedroom bench, a few clothes folded neatly beside it, fixed camera. No text or people.",
+      "repeated": false
+    },
+    {
+      "device": "suitcase",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Suitcase wide open with all clothes neatly packed inside, nothing beside it. Scene: A realistic openable blue suitcase on a bedroom bench, a few clothes folded neatly beside it, fixed camera. No text or people.",
+      "repeated": false
+    },
+    {
+      "device": "suitcase",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Suitcase closed, clothes still beside it. Scene: A realistic openable blue suitcase on a bedroom bench, a few clothes folded neatly beside it, fixed camera. No text or people.",
+      "repeated": false
+    },
+    {
+      "device": "suitcase",
+      "frame": 3,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Suitcase closed with clothes packed inside and nothing beside it.",
+      "repeated": false
+    },
+    {
+      "device": "picnic",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Bare table, tablecloth folded on ledge, chairs folded. Scene: A real outdoor picnic table, two folding chairs stored folded beside it, and a folded red checked tablecloth on adjacent ledge. Fixed camera, no people.",
+      "repeated": false
+    },
+    {
+      "device": "picnic",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Tablecloth spread on table, chairs folded beside it. Scene: A real outdoor picnic table, two folding chairs stored folded beside it, and a folded red checked tablecloth on adjacent ledge. Fixed camera, no people.",
+      "repeated": false
+    },
+    {
+      "device": "picnic",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Bare table, cloth folded on ledge, both chairs unfolded at table. Scene: A real outdoor picnic table, two folding chairs stored folded beside it, and a folded red checked tablecloth on adjacent ledge. Fixed camera, no people.",
+      "repeated": false
+    },
+    {
+      "device": "picnic",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Cloth spread, both chairs unfolded at table. Scene: A real outdoor picnic table, two folding chairs stored folded beside it, and a folded red checked tablecloth on adjacent ledge. Fixed camera, no people.",
+      "repeated": false
+    },
+    {
+      "device": "bike",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Helmet on bench, front lamp off. Scene: One real child bicycle stationary on kickstand in a calm closed courtyard, a correctly sized bicycle helmet on a low bench, a visible front lamp. No person, no street, no logos.",
+      "repeated": false
+    },
+    {
+      "device": "bike",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Helmet securely placed on a realistic neutral featureless head-shaped helmet stand beside bicycle with chin strap fastened, lamp off. Scene: One real child bicycle stationary on kickstand in a calm closed courtyard, a correctly sized bicycle helmet on a low bench, a visible front lamp. No person, no street, no logos.",
+      "repeated": false
+    },
+    {
+      "device": "bike",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Helmet on bench, front lamp on. Scene: One real child bicycle stationary on kickstand in a calm closed courtyard, a correctly sized bicycle helmet on a low bench, a visible front lamp. No person, no street, no logos.",
+      "repeated": false
+    },
+    {
+      "device": "bike",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Helmet on head-shaped helmet stand with chin strap fastened, front lamp on. Scene: One real child bicycle stationary on kickstand in a calm closed courtyard, a correctly sized bicycle helmet on a low bench, a visible front lamp. No person, no street, no logos.",
+      "repeated": false
+    },
+    {
+      "device": "stage",
+      "frame": 0,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Curtains fully closed; spotlight off, still visible.",
+      "repeated": false
+    },
+    {
+      "device": "stage",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Curtains fully open revealing stool; spotlight off. Scene: A real small community stage with red theatre curtains and a central wooden stool, fixed camera from empty audience. No people, no lettering.",
+      "repeated": false
+    },
+    {
+      "device": "stage",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Curtains fully closed, warm spotlight shining onto curtains. Scene: A real small community stage with red theatre curtains and a central wooden stool, fixed camera from empty audience. No people, no lettering.",
+      "repeated": false
+    },
+    {
+      "device": "stage",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Curtains fully open, warm spotlight clearly lighting stool. Scene: A real small community stage with red theatre curtains and a central wooden stool, fixed camera from empty audience. No people, no lettering.",
+      "repeated": false
+    },
+    {
+      "device": "aquarium",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Aquarium lamp off; filter off, water surface still. Scene: One real clean glass aquarium with water and aquatic plants, NO animals, on a stable cabinet, a safe enclosed filter at right, lamp above tank. Fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "aquarium",
+      "frame": 1,
+      "prompt": "EDIT TARGET: supplied four-frame photographic atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent full-size wide 16:9 detailed photograph, at least 1664x936. Do not create a collage. Preserve exact selected scene geometry, perspective, object identity, lighting and framing. No text, borders, UI, logos or watermarks. Required state: Aquarium lamp on brightening plants; filter off.",
+      "repeated": false
+    },
+    {
+      "device": "aquarium",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Lamp off; filter operating with visible stream and ripples. Scene: One real clean glass aquarium with water and aquatic plants, NO animals, on a stable cabinet, a safe enclosed filter at right, lamp above tank. Fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "aquarium",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Lamp on; filter operating, stream and surface ripples. Scene: One real clean glass aquarium with water and aquatic plants, NO animals, on a stable cabinet, a safe enclosed filter at right, lamp above tank. Fixed camera.",
+      "repeated": false
+    },
+    {
+      "device": "first-canopy",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Parasol fully folded vertically along pole. Scene: A real cream patio parasol, fixed wide camera, no people, actual photography.",
+      "repeated": false
+    },
+    {
+      "device": "first-canopy",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Parasol HALF OPEN, clearly between folded and fully spread. Scene: A real cream patio parasol, fixed wide camera, no people, actual photography.",
+      "repeated": false
+    },
+    {
+      "device": "first-canopy",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Parasol fully open wide creating shade. Scene: A real cream patio parasol, fixed wide camera, no people, actual photography.",
+      "repeated": false
+    },
+    {
+      "device": "first-canopy",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Parasol fully open wide creating shade. Scene: A real cream patio parasol, fixed wide camera, no people, actual photography.",
+      "repeated": true
+    },
+    {
+      "device": "first-fan",
+      "frame": 0,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Fan off. Blades still. Ribbons hanging vertically downward. Scene: A real enclosed safe tabletop fan with visible protective grille on left and three long light blue ribbons tied to a fixed ribbon holder on the RIGHT of fan in its airflow. Fixed camera and natural lighting, no hands or people.",
+      "repeated": false
+    },
+    {
+      "device": "first-fan",
+      "frame": 1,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its TOP RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Fan gentle low airflow. Ribbons lifted just slightly, blades slight motion blur. Scene: A real enclosed safe tabletop fan with visible protective grille on left and three long light blue ribbons tied to a fixed ribbon holder on the RIGHT of fan in its airflow. Fixed camera and natural lighting, no hands or people.",
+      "repeated": false
+    },
+    {
+      "device": "first-fan",
+      "frame": 2,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM LEFT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Fan medium airflow. Ribbons lifted diagonally, blades medium motion blur. Scene: A real enclosed safe tabletop fan with visible protective grille on left and three long light blue ribbons tied to a fixed ribbon holder on the RIGHT of fan in its airflow. Fixed camera and natural lighting, no hands or people.",
+      "repeated": false
+    },
+    {
+      "device": "first-fan",
+      "frame": 3,
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied four-frame photo atlas. Reconstruct ONLY its BOTTOM RIGHT quadrant as ONE independent FULL-SIZE detailed 16:9 photograph (at least 1664x936). NOT a collage. Preserve EXACT camera, scene geometry, object positions and identities of that selected quadrant. No borders, letters, logos, symbols, UI or watermarks. State must be: Fan strong airflow. Ribbons streaming almost horizontally to right, blades strong motion blur. Scene: A real enclosed safe tabletop fan with visible protective grille on left and three long light blue ribbons tied to a fixed ribbon holder on the RIGHT of fan in its airflow. Fixed camera and natural lighting, no hands or people.",
+      "repeated": false
+    }
+  ]
+}
