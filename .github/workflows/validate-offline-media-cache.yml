@@ -1,0 +1,36 @@
+name: Validate offline media cache
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'assets/js/offline-worker-v1.js'
+      - 'tooling/test-offline-media-cache.cjs'
+      - 'tooling/refresh-offline-media-cache.cjs'
+      - 'data/offline/**'
+      - 'data/offline-catalog.json'
+      - '.github/workflows/validate-offline-media-cache.yml'
+  pull_request:
+    paths:
+      - 'assets/js/offline-worker-v1.js'
+      - 'tooling/test-offline-media-cache.cjs'
+      - 'tooling/refresh-offline-media-cache.cjs'
+      - 'data/offline/**'
+      - 'data/offline-catalog.json'
+      - '.github/workflows/validate-offline-media-cache.yml'
+permissions:
+  contents: read
+jobs:
+  media-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/js/offline-worker-v1.js
+      - run: node --test tooling/test-offline-media-cache.cjs
+      - name: Check targeted bundle refresh is reproducible
+        run: |
+          node tooling/refresh-offline-media-cache.cjs
+          git diff --exit-code -- data/offline data/offline-catalog.json
