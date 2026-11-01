@@ -32,7 +32,7 @@ const required=new Function('require','__dirname',bridgeSource.slice(0,bridgeSou
 const inherited=new Map();
 for(const app of catalog.apps){if(app.id===id)continue;const m=JSON.parse(fs.readFileSync(app.manifest));for(const f of m.files)inherited.set(f.path,f);}
 const records=new Map([...new Set(local.concat(shared,options.sharedFiles||[],dir+'/offline-files.json'))].map(p=>[p,record(p)]));
-for(const name of required){const row=fs.existsSync(name)&&changed.has(name)?record(name):inherited.get(name);if(!row)throw Error('Missing required bridge record: '+name);records.set(name,row);}
+for(const name of required){const row=records.get(name)||(fs.existsSync(name)&&changed.has(name)?record(name):inherited.get(name));if(!row)throw Error('Missing required bridge record: '+name);records.set(name,row);}
 const files=[...records.values()].sort((a,b)=>a.path.localeCompare(b.path,'en'));
 const version=hash(JSON.stringify(files)).slice(0,16);
 fs.writeFileSync('data/offline/'+id+'.json',JSON.stringify({schema:1,id,version,files})+'\n');
