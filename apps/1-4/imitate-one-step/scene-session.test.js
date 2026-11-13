@@ -12,3 +12,39 @@ test('published narration covers every scene with verified local MP3 files',{ski
 
 test('narration waits for a loaded five-frame atlas and honors pause while loading',()=>{const h=harness(true),p=h.win.A1ScenePlayer;p.mount(data.experiences[0]);assert.equal(h.audios.length,0);assert.ok(h.nodes.sceneStatus.textContent.includes('تحميل'));p.pause();h.nodes.reelStrip.naturalWidth=4500;h.nodes.reelStrip.naturalHeight=900;h.nodes.reelStrip.onload();assert.equal(h.audios.length,0);p.play();assert.equal(h.audios.length,1);h.audios[0].onended();assert.equal(p.state().frame,1)});
 test('broken or incorrectly proportioned artwork cannot play narration against an empty frame',()=>{const h=harness(true),p=h.win.A1ScenePlayer;p.mount(data.experiences[0]);h.nodes.reelStrip.naturalWidth=900;h.nodes.reelStrip.naturalHeight=900;h.nodes.reelStrip.onload();assert.equal(h.audios.length,0);assert.equal(p.state().paused,true);assert.ok(h.nodes.sceneStatus.textContent.includes('تعذر'));const stale=h.nodes.reelStrip.onload;p.stop();stale();assert.equal(h.audios.length,0)});
+
+test('English covers all activities and advances with the active narration',()=>{
+ const h=harness();
+ vm.runInNewContext(fs.readFileSync('english-content.js','utf8'),{window:h.win});
+ const english=h.win.A1English.experiences;
+ for(const exp of data.experiences){
+  assert.ok(english[exp.id].title);
+  assert.equal(english[exp.id].steps.filter(Boolean).length,5);
+ }
+ const spoken=[];
+ h.win.SpeechSynthesisUtterance=function(text){this.text=text};
+ h.win.speechSynthesis={speak(phrase){spoken.push(phrase)},cancel(){}};
+ const player=h.win.A1ScenePlayer;
+ player.mount(data.experiences[0],null,{language:'en'});
+ assert.equal(h.audios.length,0);
+ assert.equal(spoken[0].text,english['001'].steps[0]);
+ assert.match(h.nodes.sceneCaption.textContent,/Get ready/);
+ spoken[0].onend();
+ assert.equal(player.state().frame,1);
+ const stale=spoken[1].onend;
+ player.pause();
+ stale();
+ assert.equal(player.state().frame,1);
+ player.play();
+ assert.equal(spoken.at(-1).text,english['001'].steps[1]);
+});
+
+test('English instructions stay visible when a device has no speech engine',()=>{
+ const h=harness();
+ vm.runInNewContext(fs.readFileSync('english-content.js','utf8'),{window:h.win});
+ h.win.A1ScenePlayer.mount(data.experiences[0],null,{language:'en'});
+ assert.match(h.nodes.sceneStatus.textContent,/English voice is unavailable/);
+ assert.equal(h.nodes.sceneCaption.hidden,false);
+ h.timers[0]();
+ assert.equal(h.win.A1ScenePlayer.state().frame,1);
+});

@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: نتبادل ونتعاون",
   "age_group": "1-4",
-  "version": 22,
+  "version": 23,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-220-experiences",
@@ -179,10 +179,15 @@
         30
       ],
       "audio_owner": "A1ScenePlayer",
+      "practice_default_seconds": 10,
+      "practice_extension_seconds": 10,
       "routes": "A1AutoCoach.routes"
     },
     "advanced_storyboards": "20 dedicated photographic atlases, five square scenes each",
-    "storyboard_image_loading": "wait-before-narration"
+    "storyboard_image_loading": "wait-before-narration",
+    "supported_languages": ["ar", "en"],
+    "english_scene_narration": "device-speech-synthesis-with-visible-text-fallback",
+    "completion_encouragement": "shared-teacher-encouragement"
   },
   "branding": {
     "icon": "icon.svg",

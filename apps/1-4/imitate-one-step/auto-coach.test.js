@@ -7,10 +7,10 @@ function harness(stored){
  node('reelDots').children=Array.from({length:5},()=>({}));
  const doc={getElementById:node,createElement:()=>node('created'),querySelector:()=>null,querySelectorAll:()=>[],getElementsByClassName:()=>[node('shell')],documentElement:node('html'),body:node('body'),hidden:false,addEventListener:(n,f)=>{listeners[n]=f}};
  const win={document:doc,navigator:{userAgent:'Android 4.4.2'},location:{search:'',href:'https://example.test/'},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>{storage[k]=v}},history:{pushState(){},back(){}},scrollTo(){},addEventListener:(n,f)=>{listeners[n]=f},dispatchEvent(e){events.push(e)},Audio:function(path){this.path=path;this.pause=()=>{};this.play=()=>Promise.resolve();audios.push(this)}};
- const context=vm.createContext({window:win,self:win,document:doc,navigator:win.navigator,history:win.history,location:win.location,CustomEvent:function(type,options){this.type=type;this.detail=options.detail},Date:{now:()=>now},Promise,console,setTimeout:()=>1,clearTimeout(){},setInterval:f=>{timers.push(f);return timers.length},clearInterval(){},fetch:async path=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.split('?')[0],'utf8'))})});
+ const context=vm.createContext({window:win,self:win,document:doc,navigator:win.navigator,history:win.history,location:win.location,CustomEvent:function(type,options){this.type=type;this.detail=options.detail},Date:class extends Date{static now(){return now}},Promise,console,setTimeout:()=>1,clearTimeout(){},setInterval:f=>{timers.push(f);return timers.length},clearInterval:id=>{timers[id-1]=null},fetch:async path=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.split('?')[0],'utf8'))})});
  win.A1RecordedVoice={stop(){},mount(){}};
- for(const file of ['experience-engine.js','activity-store.js','community-engine.js','session-routes.js','scene-voice-map.js','scene-player.js','auto-coach.js','app-v16.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
- return{win,doc,nodes,storage,audios,events,ready:async()=>{for(let i=0;i<20;i++)await Promise.resolve();assert.ok(win.A1TurnTaking)},tick:seconds=>{now+=seconds*1000;for(const f of timers)f()}};
+ for(const file of ['experience-engine.js','activity-store.js','community-engine.js','session-routes.js','scene-voice-map.js','scene-player.js','english-content.js','advance-session.js','auto-coach.js','app-v16.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+ return{win,doc,nodes,storage,audios,events,ready:async()=>{for(let i=0;i<20;i++)await Promise.resolve();assert.ok(win.A1TurnTaking)},tick:seconds=>{now+=seconds*1000;for(const f of timers.slice())if(f)f()}};
 }
 test('coach starts the selected advanced domain, pauses for its panel and explicitly resumes',async()=>{const h=harness();await h.ready();h.nodes.coachBtn.onclick();assert.match(h.nodes.sheetTitle.textContent,/الروضة/);h.nodes.coachAge.value='4-8';h.nodes.coachFamily.value='turns';h.nodes.coachMinutes.value='7';h.nodes.coachAuto.checked=true;h.nodes.coachStart.onclick();const api=h.win.A1TurnTaking,s=api.state();assert.equal(s.age,'4-8');assert.equal(s.auto,true);assert.equal(s.remaining,420);assert.ok(Number(s.experience)>200);const data=JSON.parse(fs.readFileSync('experiences.json'));assert.equal(data.experiences.find(x=>x.id===s.experience).family,'turns');h.nodes.coachBtn.onclick();assert.equal(api.state().paused,true);assert.equal(h.win.A1ScenePlayer.state().paused,true);h.tick(10);assert.equal(api.state().remaining,420);h.nodes.coachResume.onclick();assert.equal(api.state().paused,false);h.tick(2);assert.equal(api.state().remaining,418)});
 test('narrated coach finishes scenes before practice and advances only after the practice interval',async()=>{const h=harness();await h.ready();const api=h.win.A1TurnTaking;api.start({age:'4-8',duration_seconds:600});const first=api.state().experience;for(let i=0;i<5;i++)h.audios[h.audios.length-1].onended();assert.equal(api.state().phase,'practice');const wait=api.state().practice_remaining;h.tick(wait-1);assert.equal(api.state().experience,first);h.tick(1);assert.notEqual(api.state().experience,first);assert.equal(api.state().phase,'explain')});
@@ -19,3 +19,44 @@ test('stopping the coach stops narration and reenables session duration',async()
 test('paused navigation does not resume audio and both planner routes remain available',async()=>{const h=harness();await h.ready();const api=h.win.A1TurnTaking;api.start({age:'4-8'});api.pause();h.nodes.nextExperience.onclick();assert.equal(api.state().paused,true);assert.equal(h.win.A1ScenePlayer.state().paused,true);assert.equal(h.win.A1AutoCoach.routes.length,2);for(const r of h.win.A1AutoCoach.routes){const parsed=h.win.A1SessionRoutes.parse(r.path.split('?')[1]);assert.equal(parsed.age,r.age);assert.equal(parsed.autoplay,true)}});
 
 test('coach time budget ends narration without recording a completed activity',async()=>{const h=harness();await h.ready();h.win.A1TurnTaking.start({age:'1-4',duration_seconds:60});h.tick(60);assert.equal(h.win.A1TurnTaking.state().auto,false);assert.equal(h.win.A1ScenePlayer.state().paused,true);assert.equal(h.events.filter(e=>e.detail.type==='activity-completed').length,0);assert.equal(h.events.filter(e=>e.detail.type==='session-ended'&&e.detail.payload.reason==='time').length,1)});
+
+test('practice defaults to ten seconds, pauses, and allows one ten-second extension', async () => {
+ const h=harness();await h.ready();
+ const api=h.win.A1TurnTaking;
+ api.start({age:'1-4',duration_seconds:60});
+ const first=api.state().experience;
+ for(let i=0;i<5;i++)h.audios.at(-1).onended();
+ assert.equal(api.state().practice_remaining,10);
+ assert.equal(h.nodes.practiceCountdown.hidden,false);
+ h.tick(2);
+ api.pause();
+ h.tick(20);
+ assert.equal(api.state().practice_remaining,8);
+ api.resume();
+ h.nodes.practiceExtend.onclick();
+ h.nodes.practiceExtend.onclick();
+ assert.equal(api.state().practice_remaining,18);
+ assert.equal(h.nodes.practiceExtend.disabled,true);
+ h.tick(17);
+ assert.equal(api.state().experience,first);
+ h.tick(1);
+ assert.notEqual(api.state().experience,first);
+ assert.equal(h.events.some(e=>e.detail.type==='activity-completed'),false);
+});
+
+test('marking an activity done uses the shared guest and named praise player', async () => {
+ const h=harness();await h.ready();
+ const api=h.win.A1TurnTaking,calls=[];
+ const praise={profile:()=>null,stop(){},play(options){calls.push(options);options.caption('Well done!')}};
+ h.win.APP360_TEACHER_ENCOURAGEMENT=praise;
+ h.nodes.appLanguage.value='en';
+ h.nodes.appLanguage.onchange();
+ api.open('001');
+ h.nodes.markDone.onclick();
+ assert.equal(calls[0].language,'en');
+ assert.equal(h.nodes.practicePraise.textContent,'Well done!');
+ praise.profile=()=>({display_name:'نور'});
+ h.nodes.markDone.onclick();
+ assert.equal(calls[1].language,'ar');
+ assert.equal(h.events.filter(event=>event.detail.type==='activity-completed').length,2);
+});
