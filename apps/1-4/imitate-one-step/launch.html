@@ -7,7 +7,7 @@
 <meta property="og:image" content="../../../assets/brand/family-school-360-share.jpg?v=98">
 <meta name="description" content="مدرسة العائلة 360: تطبيقات تعليمية تفاعلية للعائلة في مختلف المراحل العمرية، تجمع اللعب والتعلّم والمهارات والتواصل.">
 </head><body><script src="../../../assets/js/app-link-host.js"></script><script>(function(){'use strict';
-var q=App360LinkHost.query(),parts=[],allowed=['action','item','experience','family','level','launch_age','launch_level','autoplay','duration_seconds','seconds','caller','launch_id','service'];
+var q=App360LinkHost.query(),parts=[],allowed=['action','item','experience','family','level','launch_age','launch_level','autoplay','duration_seconds','seconds','practice_seconds','language','caller','launch_id','service'];
 for(var i=0;i<allowed.length;i++)if(q[allowed[i]])parts.push(encodeURIComponent(allowed[i])+'='+encodeURIComponent(q[allowed[i]]));
 App360LinkHost.mount({appId:'a1-imitate',title:'دوري ودورك',entry:'index.html?'+parts.join('&'),targetRef:function(){return q.item||q.experience||q.family||q.level||q.action||'library'},onReady:function(W,D,query,host){
 var attempts=0,t=setInterval(function(){attempts++;if(W.A1TurnTaking){clearInterval(t);host.ready({age:W.A1TurnTaking.state().age,action:q.action||'library'});if(q.action==='drawing'){var draw=D.getElementById('drawingBtn');if(draw)draw.click()}if(q.action==='helper'){var button=D.getElementById('helpersBtn');if(button)button.click();var tab=D.querySelector('[data-helper-tab="'+(q.service==='whiteboard'?'whiteboard':q.service==='signal'?'signal':'timer')+'"]');if(tab)tab.click()}}else if(attempts>600){clearInterval(t);host.fail('تعذر تجهيز التطبيق')}},100);

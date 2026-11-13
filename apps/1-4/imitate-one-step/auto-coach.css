@@ -1,1 +1,11 @@
 .coach-button{border:2px solid #0f8f8a;background:#e2f8f3;color:#14594f}.coach-button span:first-child{font-size:1.4em}.coach-panel{max-width:620px;margin:auto;line-height:1.8}.coach-panel>label{display:block;margin:14px 0;font-weight:bold}.coach-panel select,.coach-panel input[type=number]{display:block;width:100%;box-sizing:border-box;padding:12px;margin-top:5px;border:1px solid #9bc5bf;border-radius:12px;background:#fff;color:#17343a;font:inherit}.coach-panel .coach-check{padding:12px;border-radius:12px;background:#e2f8f3}.coach-check input{width:22px;height:22px;vertical-align:middle}.coach-hint,.coach-panel small{color:#45645f}.coach-panel #coachCurrent{padding:12px 0;border-bottom:1px solid #cbe0dc;margin-bottom:12px}.coach-panel [hidden]{display:none!important}
+
+.app-language{display:inline-flex;align-items:center;gap:.35rem;font-weight:700}
+.app-language select{min-height:40px;padding:.3rem .55rem;border:1px solid #b8d8d7;border-radius:.65rem;background:#fff;color:#17343a;font:inherit}
+.practice-countdown,.practice-praise{margin:.8rem 0;padding:.7rem;border-radius:12px;background:#e2f8f3;color:#14594f}
+.practice-countdown[hidden],.practice-praise[hidden]{display:none}
+.practice-heading,.practice-meter{display:flex;align-items:center;justify-content:space-between}
+.practice-heading{margin-bottom:.4rem}
+.practice-meter progress{width:62%;height:1rem;accent-color:#08776e}
+.practice-meter button{margin-inline-start:.5rem;flex-shrink:0}
+.practice-praise{text-align:center;font-weight:bold}
