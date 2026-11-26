@@ -1,0 +1,273 @@
+.workshop-open {
+  background: #edf4f7;
+  color: #18394b;
+}
+.workshop-open .top, .workshop-open .nav {
+  background: #fff;
+  max-width: none;
+}
+.workshop-open .top {
+  padding: 12px max(20px, calc((100vw - 1180px) / 2));
+  border-bottom: 1px solid #e3ebef;
+}
+.workshop-open .nav {
+  border-bottom-color: #dce8ec;
+}
+.workshop-open .nav .selected {
+  background: #e1f4ee;
+  border: 1px solid #89bfb4;
+  color: #134e49;
+}
+.workshop-open .top-actions #app360HomeBtn {
+  position: static;
+  box-shadow: none;
+  min-height: 44px;
+  max-width: none;
+  border: 1px solid #ccd8d4;
+}
+.workshop-open #app360ReelsReturn {
+  position: static !important;
+  display: block;
+  margin: 0 auto 14px;
+}
+.workshop-open main {
+  max-width: 1228px;
+}
+.ws {
+  --ws-ink: #18394b;
+  --ws-text: #36596a;
+  --ws-border: #d5e5eb;
+  --ws-teal: #096451;
+  color: #18394b;
+}
+.ws button {
+  border: 1px solid #d5e5eb;
+  border-radius: 11px;
+  min-height: 44px;
+  color: #18394b;
+  background: #fff;
+}
+.ws button:hover { border-color: #69a99e; }
+.ws button[aria-pressed="true"] {
+  background: #e3f6ef;
+  border-color: #70b5a8;
+  box-shadow: inset 0 0 0 1px #70b5a8;
+}
+.ws button:focus { outline-color: #b05713; }
+.ws button > svg, .ws h3 > svg, .ws-board-foot svg, .ws-success strong svg, .ws-status p svg {
+  width: 21px;
+  height: 21px;
+  vertical-align: middle;
+  margin: 0 4px;
+  flex: 0 0 21px;
+}
+.ws-hero {
+  display: flex;
+  min-height: 133px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px;
+  color: #fff;
+  background: #113a51;
+  background: radial-gradient(ellipse at 61% 100%, #176275, #123d54 60%, #102f43);
+  border-radius: 23px;
+  overflow: hidden;
+}
+.ws-hero h1 { font-size: 38px; line-height: 1.25; margin: 3px 0 7px; }
+.ws-hero p { margin: 0; color: #e0f0f4; }
+.ws-eyebrow {
+  display: block;
+  color: #a0efdc;
+  font-size: 14px;
+  font-weight: bold;
+}
+.ws-hero-art { flex: 0 1 245px; padding: 0 12px; min-width: 0; }
+.ws-hero-art svg { width: 100%; height: 112px; display: block; }
+.ws-progress {
+  flex: 0 0 150px;
+  text-align: center;
+  border: 1px solid #478091;
+  border-radius: 14px;
+  background: #153e54;
+  padding: 8px 12px;
+}
+.ws-progress strong { display: block; font-size: 25px; line-height: 1.25; direction: ltr; }
+.ws-progress > span { display: block; font-size: 14px; color: #d0e4eb; }
+.ws-counter { display: inline-flex; direction: ltr; align-items: center; }
+.ws-counter > span { margin: 0 .23em; }
+.ws-progress progress { width: 100%; height: 8px; display: block; margin: 7px 0 3px; direction: ltr; accent-color: #62d7b8; }
+.ws-levels {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px -5px 7px;
+}
+.ws-levels .ws-level {
+  flex: 1 1 200px;
+  margin: 0 5px 7px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  padding: 9px;
+}
+.ws-levels .ws-level > svg {
+  display: block;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  padding: 5px;
+  background: #e9f1fa;
+  color: #275578;
+  border-radius: 8px;
+}
+.ws-levels .ws-level:nth-child(2) > svg { color: #3e4384; background: #edebfc; }
+.ws-levels .ws-level:nth-child(3) > svg { color: #8a3b50; background: #fae9eb; }
+.ws-levels .ws-level:nth-child(4) > svg { color: #7c4e11; background: #fff2d8; }
+.ws-level strong { display: block; font-size: 16px; }
+.ws-level small { display: block; font-size: 14px; color: #416677; }
+.ws-project {
+  background: #fff;
+  border: 1px solid #d5e5eb;
+  border-radius: 22px;
+  box-shadow: 0 8px 20px rgba(21, 59, 80, .07);
+  padding: 17px 20px 19px;
+}
+.ws-brief { display: flex; justify-content: space-between; align-items: center; }
+.ws-brief > button { flex-shrink: 0; margin: 0 7px; }
+.ws-kicker { font-size: 14px; font-weight: bold; color: #0f6856; }
+.ws-brief h2 { font-size: 28px; line-height: 1.3; margin: 3px 0; }
+.ws-brief p { color: #36596a; margin: 0; }
+.ws-missions { display: flex; flex-wrap: wrap; margin: 10px -3px 12px; }
+.ws-missions > button { margin: 2px 3px; padding: 4px 11px; font-size: 14px; }
+.ws-work { display: flex; align-items: flex-start; margin: 0 -8px; }
+.ws-board-area, .ws-work-tools { min-width: 0; margin: 0 8px; }
+.ws-board-area { flex: 1 1 63%; max-width: 640px; }
+.ws-work-tools { flex: 1 1 37%; }
+.ws-board-heading { display: flex; justify-content: space-between; align-items: center; min-height: 33px; }
+.ws-board-heading span { font-weight: bold; color: #27566b; font-size: 14px; }
+.ws h3 { font-size: 17px; margin: 0; line-height: 1.35; }
+.ws .ws-board {
+  border: 1px solid #a9c8d6;
+  position: relative;
+  min-height: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+.ws .ws-board:before { content: ''; display: block; padding-top: 64.583333%; }
+.ws .ws-board > svg { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; margin: 0; }
+.ws-outline { fill: #d9eaf3; stroke: #6b97ad; stroke-width: 2; }
+.ws-guide { fill: none; stroke: #416e86; stroke-width: 2.2; stroke-dasharray: 6 4; pointer-events: none; }
+.ws-board-piece { stroke: #fff; stroke-width: 2.1; cursor: grab; touch-action: none; }
+.ws-board-piece.ws-selected { stroke: #183e57; stroke-width: 3; }
+.ws-gap { fill: #69a6d0; fill-opacity: .19; stroke: #29638d; stroke-width: 2; stroke-dasharray: 5 5; }
+.ws-drop-guide { fill-opacity: .19; stroke: #154d64; stroke-width: 2.4; stroke-dasharray: 5 4; }
+.ws-air-piece { fill-opacity: .88; stroke: #173a4d; stroke-width: 1.5; }
+#ws-drag-preview { pointer-events: none; }
+.ws-board-foot { min-height: 34px; color: #36596a; font-size: 14px; padding: 4px 0; }
+.ws-board-foot svg { color: #1c776a; }
+.ws-tray, .ws-cut {
+  background: #f5f9fc;
+  border: 1px solid #d5e5eb;
+  border-radius: 15px;
+  padding: 10px;
+}
+.ws-tray h3 svg { color: #0e6b59; }
+.ws-pieces { display: flex; flex-wrap: wrap; margin: 4px -3px -3px; }
+.ws .ws-piece {
+  display: flex;
+  flex: 0 1 75px;
+  min-width: 64px;
+  min-height: 74px;
+  padding: 3px 2px;
+  margin: 3px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  cursor: grab;
+  touch-action: none;
+}
+.ws .ws-piece > svg { height: 47px; width: 48px; flex: none; }
+.ws .ws-piece.on-board { background: #edf2f5; }
+.ws-piece > svg, .ws-piece > span, .tray .piece > svg, .tray .piece > small { pointer-events: none; }
+.ws-tools, .ws-actions { display: flex; flex-wrap: wrap; margin: 6px -3px 7px; }
+.ws-tools > button, .ws-actions > button { margin: 3px; padding: 4px 9px; }
+.ws-tools > button { font-size: 14px; }
+.ws-cut { background: #fff7f6; border-color: #eddbdb; }
+.ws-cut h3 > svg { color: #8c3b55; }
+.ws-cut-content { display: flex; align-items: center; }
+.ws-cut-content > div { flex: 1; }
+.ws-cut-content p { font-size: 14px; }
+.ws-stock { display: block; width: 42%; max-width: 120px; flex: 0 0 42%; height: 118px; }
+.ws-cut-options { display: flex; flex-wrap: wrap; margin: 0 -2px 4px; }
+.ws-cut-options > button { padding: 4px 8px; margin: 2px; }
+.ws .ws-action { background: #096451; color: #fff; border-color: #096451; font-weight: bold; }
+.ws .ws-action:hover { background: #084638; }
+.ws-actions { border-top: 1px solid #d5e5eb; padding-top: 10px; margin-top: 6px; }
+.ws-status:empty { display: none; }
+.ws-status, .ws-success { background: #edf6fb; color: #25495c; border-radius: 12px; padding: 7px 11px; margin-top: 7px; }
+.ws-status p, .ws-success p { margin: 4px 0; }
+.ws-status svg { color: #376993; }
+.ws-success { background: #def5eb; color: #125247; }
+.ws-success button { margin: 4px; }
+.ws-hand-piece, .classic-hand-piece {
+  position: fixed;
+  pointer-events: none;
+  z-index: 80;
+  width: 74px;
+  height: 74px;
+  margin: -37px 0 0 -37px;
+  opacity: .87;
+}
+.ws-hand-piece svg, .classic-hand-piece svg { width: 100%; height: 100%; }
+.ws .ws-board, .ws .ws-piece, .tray .piece, .board-wrap .cells button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tray .piece, .board-wrap .cells button { touch-action: none; }
+.board-wrap svg { overflow: visible; }
+@media (max-width: 920px) {
+  .ws-levels .ws-level { flex-basis: calc(25% - 10px); }
+  .ws-work-tools { flex-basis: 44%; }
+}
+@media (max-width: 700px) {
+  .workshop-open .top { padding: 7px 12px; }
+  .workshop-open .top-actions { margin-top: 2px; }
+  .workshop-open .top-actions button, .workshop-open .nav button { min-height: 42px; }
+  .workshop-open .nav { justify-content: flex-start; padding: 5px 7px; gap: 4px; flex-wrap: wrap; }
+  .workshop-open .nav button { min-width: 0; padding: 4px 7px; font-size: 14px; }
+  .workshop-open .brand { display: none; }
+  .ws-hero { min-height: 0; border-radius: 15px; padding: 10px 12px; }
+  .ws-hero h1 { font-size: 25px; margin: 2px 0; }
+  .ws-hero p { display: none; }
+  .ws-eyebrow { font-size: 13px; }
+  .ws-hero-art { display: none; }
+  .ws-progress { flex-basis: 87px; margin: 0 5px; padding: 5px; }
+  .ws-progress strong { font-size: 18px; }
+  .ws-progress > span { font-size: 13px; }
+  .ws-levels { margin-top: 7px; margin-bottom: 2px; }
+  .ws-levels .ws-level { flex-basis: calc(50% - 10px); padding: 4px; }
+  .ws-level strong, .ws-level small { font-size: 14px; }
+  .ws-project { padding: 10px; border-radius: 14px; }
+  .ws-brief h2 { font-size: 24px; }
+  .ws-brief p, .ws-brief button { font-size: 14px; }
+  .ws-brief > button { margin: 0 2px; padding: 4px; }
+  .ws-missions { margin: 3px -3px 4px; flex-wrap: nowrap; overflow-x: auto; padding: 4px; }
+  .ws-missions > button { min-height: 37px; padding: 3px 6px; flex: 0 0 auto; }
+  .ws-work { display: block; margin: 0; }
+  .ws-board-area, .ws-work-tools { margin: 0; }
+  .ws-work > .ws-tray { margin-bottom: 8px; }
+  .ws-tray { padding: 5px; }
+  .ws-pieces { margin-top: 1px; }
+  .ws .ws-piece { flex-basis: 58px; min-width: 52px; min-height: 64px; margin: 2px; }
+  .ws .ws-piece > svg { width: 39px; height: 37px; }
+}
+@media (max-width: 380px) {
+  .ws-hero h1 { font-size: 22px; }
+  .ws-levels .ws-level > svg { margin: 0 2px; width: 25px; height: 25px; flex-basis: 25px; }
+  .ws-project { padding: 7px; }
+}

@@ -10,6 +10,7 @@
   },
   "scripts": {
     "validate": "node -e \"JSON.parse(require('fs').readFileSync('app.json','utf8')); console.log('app.json OK')\"",
-    "test": "node tools/test-model.cjs"
+    "test": "node --test tools/test-model.cjs tools/test-journey-model.cjs",
+    "test:journey:browser": "node tools/test-journey-browser.cjs"
   }
 }

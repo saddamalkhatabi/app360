@@ -1,67 +1,280 @@
 (function(w,doc){'use strict';
-var D=w.STUDIO_CONTENT,M=w.STUDIO_MODEL,P=w.APP360_PENCIL,S,profile='',storageKey='',memory={},storageOK=true,corrupt=false,view='library',savedId='',color='#65519b',penWidth=8,tool='pen',stampKind='heart',drawBinding=null,guideBinding=null,guideOpen=false,guideCommands=[],guideValue='',guideMode='word',audio=new Audio(),audioPath='',audioStatus='idle',speechSerial=0,speechCurrent=null,noticeTimer=null,record=null,recordStream=null,recordTimer=null,recordGeneration=0,db=null,recordURL='',offlineReady=false,pendingDelete='',pendingClear=false,recordPending=false,recordCallbacks=[],profileSwitchPending=false;
-var colors=['#343b52','#65519b','#dd7b68','#e6b24c','#4d9c7c','#568dc0'];
-var stamps=['heart','star','sun','flower','house','book','balloon','leaf','smile'];
+var D=w.STUDIO_CONTENT,M=w.STUDIO_MODEL,P=w.APP360_PENCIL,B=w.STUDIO_BOARD,O=w.STUDIO_OPTIONS;
+var S,profile='',storageKey='',memory={},storageOK=true,corrupt=false,view='library',savedId='';
+var color='#7951be',penWidth=8,tool='pen',stampKind='heart',shapeKind='circle',photoId='',photoGroup=0,drawer='',mirror=false,filled=false,largeBoard=false;
+var drawBinding=null,guideBinding=null,guideOpen=false,guideCommands=[],guideValue='',guideMode='word',saveTimer=null,resizeTimer=null;
+var audio=new Audio(),audioPath='',audioStatus='idle',speechSerial=0,speechCurrent=null,noticeTimer=null,record=null,recordStream=null,recordTimer=null,recordGeneration=0,db=null,recordURL='',offlineReady=false,pendingDelete='',pendingClear=false,recordPending=false,recordCallbacks=[],profileSwitchPending=false;
+var legacy=!w.PointerEvent||/DMTAB|BigTAB|Android [2-5]\./i.test(navigator.userAgent||'');
+
 function $(id){return doc.getElementById(id)}
 function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function t(ar,en){return S&&S.language==='en'?en:ar}
 function api(){try{if(w.parent!==w&&w.parent.APP360_FAMILY_SYNC)return w.parent.APP360_FAMILY_SYNC}catch(e){}return w.APP360_FAMILY_SYNC||null}
 function identity(){var a=api(),p='';try{if(a&&a.getProfileKey)p=a.getProfileKey()}catch(e){}return p&&p!=='name:'?String(p):'local-guest'}
-function learnerName(){var a=api();try{if(a&&a.getName&&a.getName())return a.getName()}catch(e){}return t('متعلم هذا الجهاز','This device learner')}
 function coachAllowed(){var a=api(),s;try{s=a&&a.getSession?a.getSession():null}catch(e){}return !(s&&s.room&&s.role==='guest'&&s.adminRole!=='assistant')}
 function focusState(){var a=api();try{if(a&&a.getReadingFocusState)return a.getReadingFocusState()}catch(e){}return{enabled:true,scope:'local',canManage:false}}
 function focusText(st){return st.scope==='individual'?t('اختيار خاص لهذا المتعلم من مسؤول الجلسة.','An individual choice from the session coach.'):st.scope==='session'?t('يتبع إعداد جلسة المزامنة.','Follows the family session setting.'):t('يحفظ لهذا المستخدم ويستمر بين التطبيقات الداعمة.','Saved for this profile across supported apps.')}
 function syncFocusUI(){var st=focusState();if(readAlong)readAlong.setEnabled(st.enabled);var nodes=doc.querySelectorAll('[data-focus-toggle]'),i;for(i=0;i<nodes.length;i++){nodes[i].checked=st.enabled;nodes[i].disabled=!st.canManage||!coachAllowed()}var notes=doc.querySelectorAll('[data-focus-note]');for(i=0;i<notes.length;i++)notes[i].textContent=focusText(st);if(!st.enabled)clearDynamicFocus()}
 function focusStrip(){var st=focusState();return '<div class="focus-strip"><label><input type="checkbox" data-focus-toggle'+(st.enabled?' checked':'')+(!st.canManage||!coachAllowed()?' disabled':'')+'>'+t('تركيز الكلمات أثناء القراءة','Word focus during reading')+'</label><small data-focus-note>'+focusText(st)+'</small></div>'}
 function b(cmd,label,value,cls,disabled){return '<button type="button" data-do="'+cmd+'"'+(value!==undefined?' data-value="'+esc(value)+'"':'')+' class="'+(cls||'')+'"'+(disabled?' disabled':'')+'>'+label+'</button>'}
-function icon(kind){var paths={sound:'M3 9h4l5-4v14l-5-4H3Z M16 8a6 6 0 0 1 0 8 M19 4a11 11 0 0 1 0 16',pen:'m4 16 11-11 4 4-11 11-5 1Z M13 7l4 4',undo:'M8 5 3 10l5 5 M4 10h9a7 7 0 0 1 0 14',mic:'M9 5a3 3 0 0 1 6 0v7a3 3 0 0 1-6 0Z M5 11v1a7 7 0 0 0 14 0v-1 M12 19v3 M8 22h8',stop:'M6 6h12v12H6Z'};return '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="'+(paths[kind]||paths.sound)+'"/></svg>'}
+function icon(kind){
+  var paths={
+    sound:'M3 9h4l5-4v14l-5-4H3Z M16 8a6 6 0 0 1 0 8 M19 4a11 11 0 0 1 0 16',
+    pen:'m4 16 11-11 4 4-11 11-5 1Z M13 7l4 4',
+    brush:'M10 14 19 4l2 2-9 10 M10 14c-5-2-4 5-7 6 5 1 10 0 9-4Z',
+    chalk:'m4 14 9-9 6 6-9 9H4Z M10 8l6 6 M6 12l6 6',
+    marker:'m4 15 10-10 5 5-10 10H4Z M10 9l5 5 M4 21h15',
+    rainbow:'M3 18a9 9 0 0 1 18 0 M6 18a6 6 0 0 1 12 0 M9 18a3 3 0 0 1 6 0',
+    eraser:'m3 13 8-8a2 2 0 0 1 3 0l6 6a2 2 0 0 1 0 3l-5 5H8Z M8 8l9 9 M14 19h7',
+    undo:'m8 6-5 5 5 5 M3 11h11a6 6 0 0 1 6 6',
+    redo:'m16 6 5 5-5 5 M21 11H10a6 6 0 0 0-6 6',
+    mic:'M9 5a3 3 0 0 1 6 0v7a3 3 0 0 1-6 0Z M5 11v1a7 7 0 0 0 14 0v-1 M12 19v3 M8 22h8',
+    stop:'M6 6h12v12H6Z', star:'m12 3 3 6 7 1-5 5 1 6-6-3-6 3 1-6-5-5 7-1Z',
+    picture:'M3 4h18v16H3Z M3 17l5-5 4 4 3-3 6 6 M15 8h.1',
+    paper:'M6 3h9l4 4v14H6Z M14 3v5h5 M9 13h7 M9 17h5',
+    grid:'M4 4h16v16H4Z M4 12h16 M12 4v16',
+    expand:'M9 4H4v5 M15 4h5v5 M4 15v5h5 M20 15v5h-5',
+    contract:'M4 9h5V4 M20 9h-5V4 M4 15h5v5 M20 15h-5v5',
+    heart:'M12 20 4 12C-1 6 8 1 12 8c4-7 13-2 8 4Z',
+    circles:'M11 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z M11 13h9v8h-9Z',
+    gear:'M3 6h18 M3 12h18 M3 18h18 M8 4v4 M16 10v4 M11 16v4',
+    home:'m3 11 9-7 9 7 M5 10v10h5v-6h4v6h5V10', check:'m5 12 4 4L19 6', arrow:'M5 12h14m-5-5 5 5-5 5'
+  };
+  return '<svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="'+(paths[kind]||paths.sound)+'"/></svg>';
+}
 function textMarkup(text,path){return w.APP360_READ_ALONG.markup(text,path)}
-function instruction(text,path){return '<div class="instruction"><p>'+textMarkup(text,path)+'</p>'+b('read',icon('sound'),path,undefined,false)+'</div>'}
+function instruction(text,path){return '<div class="instruction"><p>'+textMarkup(text,path)+'</p>'+b('read',icon('sound')+' <span class="sr-only">'+t('استمع','Listen')+'</span>',path,undefined,!path)+'</div>'}
 function guidePath(k){return'audio/'+S.language+'-guide-'+k+'.mp3'}
 var readAlong=w.APP360_READ_ALONG.create({resolve:function(path){return path&&path.indexOf('audio/')===0?'data/read-along.json?v=1':''},clock:function(){return{path:audioPath,state:audioStatus,time:audio.currentTime||0}},fallback:$('spokenText'),fallbackBox:$('spokenTextPanel'),onFamilyChange:syncFocusUI});
 function notify(s){$('notice').textContent=s;$('notice').style.display='block';clearTimeout(noticeTimer);noticeTimer=setTimeout(function(){$('notice').style.display='none'},3800)}
 function storageLabel(){var node=$('storageStatus');if(!node)return;node.textContent=corrupt?t('ملف الحفظ يحتاج استعادة؛ لم نستبدله.','Save data needs recovery; it has been preserved.'):storageOK?t('حفظ محلي خاص','Private local save'):t('الحفظ مؤقت في الذاكرة؛ صدّر عملك قبل الإغلاق.','Temporary memory only; export before closing.')}
 function syncUndoUI(){if(!S||!S.draft)return;var undo=doc.querySelector('[data-do=undo]'),redo=doc.querySelector('[data-do=redo]');if(undo)undo.disabled=!page().commands.length;if(redo)redo.disabled=!page().undone.length}
-function save(){if(!S)return;if(drawBinding)drawBinding.finish();memory[profile]=M.copy(S);if(!corrupt)try{localStorage.setItem(storageKey,JSON.stringify(S));storageOK=true}catch(e){storageOK=false}storageLabel();syncUndoUI()}
-function load(p){profile=p;storageKey='app360:a4-draw-write:schema-1:'+encodeURIComponent(p);S=M.blank();corrupt=false;storageOK=true;if(memory[p])S=M.copy(memory[p]);else try{S=M.restore(localStorage.getItem(storageKey))}catch(e){corrupt=e.message!=='SecurityError'&&e.name!=='SecurityError';storageOK=false}view=S.view;if(view==='review-saved')view='saved';guideOpen=false;guideCommands=[];guideValue='';savedId='';openDB();render()}
-function currentMission(){var id=S.draft&&S.draft.source_id,i;for(i=0;i<D.missions.length;i++)if(D.missions[i].id===id)return D.missions[i];for(i=0;i<S.templates.length;i++)if(S.templates[i].id===id)return S.templates[i];return null}
-function missionById(id){var all=D.missions.concat(S.templates);for(var i=0;i<all.length;i++)if(all[i].id===id)return all[i];return null}
+function persist(){
+  clearTimeout(saveTimer);saveTimer=null;if(!S)return;
+  try{if(!corrupt)localStorage.setItem(storageKey,JSON.stringify(S));storageOK=!corrupt}catch(e){storageOK=false}
+  if(!storageOK)memory[profile]=M.copy(S);else delete memory[profile];
+  storageLabel();syncUndoUI();
+}
+function save(){if(drawBinding)drawBinding.finish();if(guideBinding)guideBinding.finish();persist()}
+function inkChanged(){
+  var p=page();p.undone=[];S.draft.updated=Date.now();syncUndoUI();
+  clearTimeout(saveTimer);saveTimer=setTimeout(persist,260);
+}
+function resetTools(){
+  color='#7951be';penWidth=8;tool='pen';drawer='';mirror=false;filled=false;largeBoard=false;photoGroup=0;photoId='';pendingClear=false;
+}
+function load(p){profile=p;storageKey='app360:a4-draw-write:schema-1:'+encodeURIComponent(p);S=M.blank();corrupt=false;storageOK=true;if(memory[p])S=M.copy(memory[p]);else try{S=M.restore(localStorage.getItem(storageKey))}catch(e){corrupt=e.message!=='SecurityError'&&e.name!=='SecurityError';storageOK=false}view=S.view;if(view==='review-saved')view='saved';guideOpen=false;guideCommands=[];guideValue='';savedId='';resetTools();openDB();render()}
+function freeMission(language){
+  var ar=language==='ar';
+  return {id:language+'-free-draw',language:language,level:1,pages:1,stamp:'star',
+    title:ar?'رسمتي الحرّة':'My free drawing',prompt:ar?'ماذا تريد أن ترسم اليوم؟':'What would you like to draw today?',
+    model:ar?'رسمت شيئًا أحبه.':'I drew something I love.',words:ar?['أنا','أحبّ','رسمتي','عائلتي']:['I','love','my picture','my family'],
+    real_world:ar?'اعرض رسمتك على من تحبّ واحكِ له عنها.':'Show your picture to someone you love and tell them about it.'};
+}
+function currentMission(){return S.draft?missionById(S.draft.source_id,S.draft):null}
+function missionById(id,draft){
+  if(id==='ar-free-draw'||id==='en-free-draw')return freeMission(id.slice(0,2));
+  var all=D.missions.concat(S.templates);for(var i=0;i<all.length;i++)if(all[i].id===id)return all[i];
+  // An imported custom project can still be edited without its creator's local template.
+  if(draft){var m=freeMission(draft.language);m.id=id;m.title=draft.title;return m}
+  return null;
+}
 function page(){return S.draft.pages[S.draft.page]}
 function artifactById(id){for(var i=0;i<S.saved.length;i++)if(S.saved[i].id===id)return S.saved[i];return null}
 function selectedArtifact(){return view==='review-saved'?artifactById(savedId):S.draft}
-function levels(){return '<div class="level-row">'+D.levels.map(function(l){return b('level','<span class="level-number">'+l.level+'</span><span><b>'+esc(l.title[S.language])+'</b><small>'+esc(l.age_hint)+' · '+t('عمر إرشادي','age guide')+'</small></span>',l.level,'level'+(S.level===l.level?' selected':''))}).join('')+'</div>'}
-function library(){var missions=D.missions.concat(S.templates).filter(function(m){return m.language===S.language&&m.level===S.level}),lev=D.levels[S.level-1];var out='<section class="hero"><div class="hero-copy"><div class="eyebrow">'+t('مدرسة العائلة 360 · مساحة للتعبير','Family School 360 · A place to express')+'</div><h1>'+t('رسمة منك…<br>ومعنى يصل.','Your picture.<br>Your meaning.')+'</h1><p>'+t('أرسم وأكتب رسالة إلى من تحب. ابدأ بالحكي، ثم اكتشف الكلمات والبطاقات والقصص على مهلك.','Draw and write to someone you care about. Begin by telling, then explore words, cards and stories at your own pace.')+'</p><div class="hero-tags"><span>'+t('أرسم','Draw')+'</span><span>'+t('أحكي','Tell')+'</span><span>'+t('أكتب','Write')+'</span><span>'+t('أشارك المعنى','Share the meaning')+'</span></div></div><img class="hero-art" src="assets/studio.svg" alt=""></section>';
-if(S.draft)out+='<div class="draft-banner"><div><b>'+t('رسمة تنتظرك','Your picture is waiting')+'</b><p class="no-margin muted">'+esc(S.draft.title)+'</p></div>'+b('resume',t('أكمل محاولتي','Continue my work'),undefined,'primary')+'</div>';
-out+=focusStrip()+'<div class="row spread"><h2>'+t('اختر خطوتك','Choose your next step')+'</h2>'+b('read',icon('sound')+' '+t('اسمع التعليمة','Listen'),guidePath('library'),'small')+'</div>'+levels()+'<p class="level-description">'+esc(lev.description[S.language])+'</p><div class="projects">';
-missions.forEach(function(m){out+=b('open','<span class="project-art"><canvas data-stamp="'+m.stamp+'" width="140" height="140"></canvas></span><span class="project-copy"><b>'+textMarkup(m.title,m.title_audio)+'</b><small>'+t(m.pages>1?'قصة من صفحتين':'بطاقة تحمل معنى',m.pages>1?'A two-page story':'A card with meaning')+'</small></span>',m.id,'project')});return out+'</div><p class="hint">'+t('الأعمار اقتراحات. كل المستويات مفتوحة؛ يمكن الاكتفاء بالرسم والحكي في أي مستوى.','Ages are suggestions. All levels are open; drawing and telling are enough at any level.')+'</p>'}
-function pageTabs(d){return '<div class="page-tabs">'+d.pages.map(function(p,i){return b('page',t('صفحة ','Page ')+(i+1),i,d.page===i?'selected':'')}).join('')+'</div>'}
-function toolbar(){var out='<div class="drawing-toolbar">';out+=b('tool',icon('pen')+' '+t('قلم','Pen'),'pen',tool==='pen'?'selected':'')+b('tool',t('ممحاة','Eraser'),'eraser',tool==='eraser'?'selected':'')+b('undo',t('تراجع','Undo'),undefined,undefined,!page().commands.length)+b('redo',t('إعادة','Redo'),undefined,undefined,!page().undone.length);out+='<span class="pen-width"><label for="penWidth">'+t('الحجم','Size')+'</label><select id="penWidth">'+[4,8,14,24].map(function(v){return'<option value="'+v+'"'+(penWidth===v?' selected':'')+'>'+v+'</option>'}).join('')+'</select></span>'+b('clear-board',t('مسح اللوحة','Clear board'),undefined,'small danger')+'</div><div class="row">';colors.forEach(function(c){out+=b('color','<span style="background:'+c+'"></span>',c,'swatch'+(color===c?' selected':'')).replace('<button','<button aria-label="'+t('لون ','Colour ')+c+'"')});return out+'</div>'}
-function stampsUI(){return '<p class="label">'+t('اختر رمزًا ثم اضغط موضعه في الرسم','Choose a stamp, then tap its place on the picture')+'</p><div class="stamp-picker">'+stamps.map(function(s){return b('stamp','<canvas data-stamp="'+s+'" width="74" height="74"></canvas>',s,tool==='stamp'&&stampKind===s?'selected':'').replace('<button','<button aria-label="'+stampName(s)+'"')}).join('')+'</div>'}
-function stampName(k){var names={heart:['قلب','Heart'],star:['نجمة','Star'],sun:['شمس','Sun'],flower:['زهرة','Flower'],house:['بيت','House'],book:['كتاب','Book'],balloon:['بالون','Balloon'],leaf:['ورقة نبات','Leaf'],smile:['ابتسامة','Smile']};return t(names[k][0],names[k][1])}
+function pressed(html,active){return html.replace('<button','<button aria-pressed="'+!!active+'"')}
+function levels(){return '<div class="level-row">'+D.levels.map(function(l){var active=S.level===l.level;return pressed(b('level','<span class="level-number">'+(S.language==='ar'?'١٢٣٤'.charAt(l.level-1):l.level)+'</span><span><b>'+esc(l.title[S.language])+'</b><small>'+esc(l.age_hint)+'</small></span>',l.level,'level'+(active?' selected':'')),active)}).join('')+'</div>'}
+function library(){
+  var missions=D.missions.concat(S.templates).filter(function(m){return m.language===S.language&&m.level===S.level});
+  var out='<section class="hero"><div class="hero-copy"><h1>'+t('ماذا سنرسم اليوم؟','What shall we draw today?')+'</h1><p>'+t('لوحة لك، وألوان وصور من أشيائي. ارسم كما تحب، أو اختر فكرة من المشروعات.','A canvas of your own, colours and pictures from My Things. Draw your way or pick a project.')+'</p><div class="hero-actions">'+b('free',icon('pen')+' '+t('أرسم بحرّية','Draw freely'),undefined,'primary')+b('colouring',icon('brush')+' '+t('ألوّن','Colour in'),undefined,'colouring-button')+b('ideas',t('أختار فكرة','Pick an idea')+' '+icon('arrow'),undefined,'soft-link')+'</div></div><img class="hero-art" src="assets/studio.svg" alt=""></section>';
+  if(S.draft)out+='<div class="draft-banner"><div><b>'+t('لوحتي الأخيرة','My latest picture')+'</b><p class="no-margin muted">'+esc(S.draft.title)+'</p></div>'+b('resume',t('أكمل رسمتي','Keep drawing'),undefined,'primary')+'</div>';
+  out+='<section id="projectIdeas" class="ideas"><div class="row spread"><h2>'+t('أفكار للرسم والحكي','Ideas to draw and tell')+'</h2>'+b('read',icon('sound')+' '+t('استمع','Listen'),guidePath('library'),'small')+'</div>'+levels()+'<div class="projects">';
+  missions.forEach(function(m){out+=b('open','<span class="project-art"><canvas data-stamp="'+esc(m.stamp)+'" width="112" height="112"></canvas></span><span class="project-copy"><b>'+textMarkup(m.title,m.title_audio)+'</b><small>'+t(m.pages>1?'قصة من صفحتين':'بطاقة ورسمة',m.pages>1?'A two-page story':'A picture card')+'</small></span>',m.id,'project')});
+  return out+'</div></section>';
+}
+function pageTabs(d){
+  if(d.pages.length<2)return '';
+  return '<nav class="page-tabs" aria-label="'+t('الصفحات','Pages')+'">'+d.pages.map(function(p,i){return pressed(b('page',t('صفحة ','Page ')+(S.language==='ar'?'١٢٣٤'.charAt(i):i+1),i,d.page===i?'selected':''),d.page===i)}).join('')+'</nav>';
+}
+function optionText(row){return row[S.language==='ar'?1:2]}
+function toolButton(cmd,label,value,active,cls){return pressed(b(cmd,label,value,cls||''),active)}
+function toolbar(){
+  return '<div class="drawing-toolbar" aria-label="'+t('أدوات الرسم','Drawing tools')+'"><div class="quick-tools">'+
+    toolButton('tool',icon('pen')+' '+t('قلم','Pen'),'pen',tool==='pen')+
+    toolButton('tool',icon('brush')+' '+t('فرشاة','Brush'),'brush',tool==='brush')+
+    toolButton('tool',icon('eraser')+' '+t('ممحاة','Eraser'),'eraser',tool==='eraser')+
+    '</div><div class="history-tools">'+b('undo',icon('undo')+' <span>'+t('تراجع','Undo')+'</span>',undefined,'',!page().commands.length)+
+    b('redo',icon('redo')+' <span>'+t('إعادة','Redo')+'</span>',undefined,'',!page().undone.length)+'</div></div>';
+}
+function palette(){
+  return '<div class="palette" role="group" aria-label="'+t('الألوان','Colours')+'">'+O.colors.map(function(c){
+    var name=optionText(c);
+    return toolButton('color','<span style="background:'+c[0]+'"></span><span class="sr-only">'+name+'</span>',c[0],color===c[0],'swatch').replace('<button','<button title="'+name+'"');
+  }).join('')+'</div>';
+}
+function drawers(){
+  var tabs=[['tools','أدوات','Tools','gear'],['shapes','أشكال','Shapes','circles'],['stamps','أختام','Stamps','star'],['photos','صور أشيائي','My Things','picture'],['paper','الورقة','Paper','paper']];
+  return '<div class="drawer-tabs" role="group" aria-label="'+t('خيارات اللوحة','Canvas options')+'">'+tabs.map(function(row){
+    return b('drawer',icon(row[3])+' <span>'+optionText(row)+'</span>',row[0],drawer===row[0]?'selected':'').replace('<button','<button aria-controls="artOptions" aria-expanded="'+(drawer===row[0])+'"');
+  }).join('')+'</div>';
+}
+function sizeOptions(){
+  return '<div class="option-line"><strong>'+t('الحجم','Size')+'</strong><div class="size-options">'+O.sizes.map(function(row){
+    return toolButton('size','<span class="size-dot" style="width:'+Math.max(5,row[0]*.57)+'px;height:'+Math.max(5,row[0]*.57)+'px"></span> '+optionText(row),row[0],penWidth===row[0]);
+  }).join('')+'</div></div>';
+}
+function options(){
+  if(!drawer)return '';
+  if(drawer==='tools')return '<div class="option-line"><strong>'+t('نوع الخط','Brush type')+'</strong><div class="option-items">'+O.tools.map(function(row){
+    return toolButton('tool',icon(row[0])+' '+optionText(row),row[0],tool===row[0]);
+  }).join('')+'</div></div>'+sizeOptions()+'<div class="option-items">'+
+    toolButton('mirror',t('رسم بالمرآة','Mirror drawing'),undefined,mirror)+
+    toolButton('repair',t('وصل انقطاع القلم','Join pen gaps'),undefined,S.pen_repair)+
+    b('guide-open',t('أتدرّب على الكتابة','Practise writing'))+b('checkpoint',t('احتفظ بمحاولة','Keep an attempt'))+
+    b('clear-board',t('مسح اللوحة','Clear canvas'),undefined,'danger')+'</div>';
+  if(drawer==='shapes')return '<div class="option-items">'+O.shapes.map(function(row){
+    var symbols={line:'╱',circle:'○',square:'□',triangle:'△',diamond:'◇',oval:'⬭'};
+    return toolButton('shape','<span class="shape-symbol" aria-hidden="true">'+symbols[row[0]]+'</span> '+optionText(row),row[0],tool==='shape'&&shapeKind===row[0]);
+  }).join('')+'</div><div class="option-line"><strong>'+t('الشكل','Shape style')+'</strong><div class="option-items">'+toolButton('shape-style',t('حدود','Outline'),'outline',!filled)+toolButton('shape-style',t('ممتلئ','Filled'),'fill',filled)+'</div></div>'+sizeOptions();
+  if(drawer==='stamps')return '<div class="stamp-picker">'+O.stamps.map(function(row){
+    return toolButton('stamp','<canvas data-stamp="'+row[0]+'" width="74" height="74" aria-hidden="true"></canvas><span>'+optionText(row)+'</span>',row[0],tool==='stamp'&&stampKind===row[0],'stamp-tile');
+  }).join('')+'</div>'+sizeOptions();
+  if(drawer==='paper')return '<div class="paper-picker">'+O.papers.map(function(row){
+    var active=B.paperKind(page().commands)===row[0];
+    return toolButton('paper','<canvas data-paper="'+row[0]+'" width="120" height="84" aria-hidden="true"></canvas><span>'+optionText(row)+'</span>',row[0],active,'paper-tile');
+  }).join('')+'</div>';
+  return photoOptions();
+}
+function optionsPanel(){
+  return drawer?'<div class="return-to-canvas">'+b('board-top',t('إلى اللوحة','Go to canvas'),undefined,'small')+'</div>'+options():'';
+}
+function photoOptions(){
+  if(!O.photos.groups.length)return '<p>'+t('صور أشيائي غير متاحة حاليًا.','My Things pictures are unavailable right now.')+'</p>';
+  var group=O.photos.groups[photoGroup],out='<div class="option-line photo-categories"><label for="photoGroup">'+t('مجموعة الصور','Picture group')+'</label><select id="photoGroup">'+O.photos.groups.map(function(g,i){
+    return '<option value="'+i+'"'+(i===photoGroup?' selected':'')+'>'+esc(g[S.language])+'</option>';
+  }).join('')+'</select></div><div class="photo-picker">';
+  group.ids.forEach(function(id){
+    var item=O.photos.items[id],label=esc(item[S.language]);
+    out+=toolButton('photo','<img src="../../../'+esc(item.image)+'" alt="" loading="lazy" width="76" height="60"><span>'+label+'</span>',id,tool==='photo'&&photoId===id,'photo-tile');
+  });
+  out+='</div>';
+  if(tool==='photo'&&O.photos.items[photoId])out+='<div class="photo-actions">'+b('photo-listen',icon('sound')+' '+t('اسمع اسم الصورة','Hear the picture name'),photoId)+b('photo-center',icon('check')+' '+t('ضعها وسط اللوحة','Put it in the centre'),photoId)+'</div>';
+  return out+sizeOptions();
+}
+function brushHint(){
+  var names={shape:t('المس اللوحة أو اسحب لرسم الشكل.','Tap or drag to make a shape.'),stamp:t('المس اللوحة لوضع الختم.','Tap the canvas to put down a stamp.'),photo:t('المس اللوحة لوضع الصورة.','Tap the canvas to place your picture.'),eraser:t('اسحب الممحاة فوق الرسم.','Drag over your picture to erase.'),rainbow:t('ارسم وارقب تغيّر الألوان.','Draw and watch the colours change.')};
+  return names[tool]||t('ارسم بقلمك أو بإصبعك.','Draw with your pen or finger.');
+}
+function paintOptions(){
+  $('artOptions').hidden=!drawer;$('artOptions').innerHTML=optionsPanel();paintSwatches($('artOptions'));
+}
+function refreshTools(focus){
+  if(!$('drawingTools'))return;
+  if(drawBinding)drawBinding.finish();
+  var previous=doc.activeElement,command=previous&&previous.getAttribute('data-do'),value=previous&&previous.getAttribute('data-value');
+  $('drawingTools').innerHTML=toolbar()+palette()+drawers();
+  $('boardHelp').textContent=brushHint();
+  $('canvasWorkspace').className='canvas-workspace'+(largeBoard?' studio-expanded':'');
+  $('expandBoard').innerHTML=icon(largeBoard?'contract':'expand')+' '+(largeBoard?t('تصغير','Shrink'):t('كبّر اللوحة','Bigger canvas'));
+  $('expandBoard').setAttribute('aria-pressed',String(largeBoard));
+  paintOptions();
+  if(focus!==false&&command&&previous!==doc.activeElement){
+    var buttons=doc.querySelectorAll('#drawingTools button,#artOptions button');
+    for(var i=0;i<buttons.length;i++)if(buttons[i].getAttribute('data-do')===command&&buttons[i].getAttribute('data-value')===value){buttons[i].focus();break}
+  }
+}
 function guideUI(){if(!guideOpen)return '';var m=currentMission(),v=guideValue||m.words[0];return '<section class="guide-box"><div class="row spread"><h3>'+t('دليل اختياري على لوحة منفصلة','Optional guide on a separate board')+'</h3>'+b('guide-close',t('إغلاق','Close'),undefined,'small')+'</div><p class="muted">'+t('لا يغير رسمك ولا يعطي درجة للخط. الكتابة العربية تبقى متصلة.','Your picture stays untouched. No handwriting score. Arabic letters stay connected.')+'</p><div class="row">'+b('guide-mode',t('كلمة','Word'),'word',guideMode==='word'?'selected':'')+b('guide-mode',t('حركة','Movement'),'movement',guideMode==='movement'?'selected':'')+b('guide-clear',t('أجرب من جديد','Try again'),undefined,'small')+'</div><label class="label" for="guideWord">'+t('الكلمة أو الاسم','Word or name')+'</label><input type="text" id="guideWord" value="'+esc(v)+'" maxlength="35" dir="'+(S.language==='ar'?'rtl':'ltr')+'"><div class="guide-board"><canvas id="guideBase" class="guide-base"></canvas><canvas id="guidePen" aria-label="'+t('لوحة تتبع اختيارية','Optional tracing board')+'"></canvas></div>'+b('read-guide',icon('sound')+' '+t('اسمع الكلمة','Hear the word'))+'</section>'}
-function meaningEditor(m){var p=page(),out='<section class="panel side-panel"><h2>'+t(S.level===1?'أحكي معنى رسمي':'كلماتي على البطاقة',S.level===1?'Tell what my picture means':'My words on the card')+'</h2><label class="label" for="caption">'+t('كلمة أو رسالة · اختيارية','Word or message · optional')+'</label><textarea id="caption" data-field="caption" maxlength="600" dir="'+(S.draft.language==='ar'?'rtl':'ltr')+'">'+esc(p.caption)+'</textarea><div class="word-bank">';m.words.forEach(function(x,i){out+=b('word-add',m.word_audio?textMarkup(x,m.word_audio[i]):esc(x),x)});out+='</div><p class="label">'+t('مثال أستمع إليه ثم أختار عبارتي','Listen to an example, then choose your words')+'</p><p class="model-text">'+textMarkup(m.model,m.model_audio)+'</p><div class="row">'+b('read',icon('sound')+' '+t('اسمع المثال','Hear example'),m.model_audio,'small')+b('read-caption',icon('sound')+' '+t('اقرأ كلامي','Read my words'),undefined,'small')+'</div><p class="muted">'+t('النص الذي تكتبه يُقرأ بصوت محلي إن توفر على الجهاز.','Your own text uses a local voice when available on this device.')+'</p><label class="label" for="dictation">'+t('ما أحكيه للمرافق · بديل للكتابة','What I tell my grown-up · an alternative to writing')+'</label><textarea id="dictation" data-field="dictation" maxlength="600">'+esc(p.dictation)+'</textarea><div class="row">'+b('record',icon('mic')+' '+(record?t('إيقاف التسجيل','Stop recording'):t('أسجل حكايتي','Record my voice')),undefined,record?'recording':'small')+b('play-record',t('أسمع تسجيلي','Play my voice'),undefined,'small',!p.recording_ref)+b('delete-record',t('حذف الصوت','Delete voice'),undefined,'small danger',!p.recording_ref)+'</div><p class="muted">'+t('التسجيل اختياري ومحلي، ولا يخرج مع ملف التصدير.','Recording is optional and local. Export files leave it out.')+'</p></section>';return out}
-function studio(){var d=S.draft,m=currentMission();if(!d||!m){view=S.view='library';return library()}var stage=d.stage;var out='<div class="row spread"><h1>'+esc(d.title)+'</h1>'+b('library',t('المشروعات','Projects'),undefined,'small')+'</div><nav class="journey">'+b('stage',t('1 · أرسم','1 · Draw'),'draw',stage==='draw'?'selected':'')+b('stage',t('2 · أضيف المعنى','2 · Add meaning'),'meaning',stage==='meaning'?'selected':'')+b('stage',t('3 · أراجع وأحفظ','3 · Review & save'),'review',stage==='review'?'selected':'')+'</nav>'+focusStrip()+instruction(stage==='draw'?m.prompt:D.guides[S.language][stage],stage==='draw'?m.prompt_audio:guidePath(stage));
-if(stage==='review')return out+review(d,false);
-out+='<div class="workspace"><section class="drawing-column">'+pageTabs(d)+'<div class="artboard" id="boardShell"><canvas id="drawCanvas" aria-label="'+t('لوحة الرسم؛ اختر القلم وارسم أو استخدم الرموز','Drawing board; draw with the pen or use stamps')+'"></canvas><span class="board-caption">'+t('مساحتك… ارسم بطريقتك','Your space. Draw your way.')+'</span></div>'+toolbar();if(pendingClear)out+='<div class="tip">'+t('تُحفظ المحاولة قبل المسح. هل تريد لوحة فارغة؟','The attempt will be kept. Start with a blank board?')+' '+b('confirm-clear',t('امسح واحفظ الأصل','Clear & keep original'),undefined,'danger')+' '+b('cancel-clear',t('إلغاء','Cancel'))+'</div>';out+=stampsUI()+'<div class="row">'+b('guide-open',t('دليل رسم وكتابة اختياري','Optional drawing & writing guide'),undefined,'small')+b('checkpoint',t('احتفظ بهذه المحاولة','Keep this attempt'),undefined,'small')+'</div>'+guideUI()+'</section><aside class="meaning-column">';
-if(stage==='meaning')out+=meaningEditor(m);else out+='<section class="panel side-panel"><h2>'+t('من الفكرة إلى الرسالة','From idea to message')+'</h2><p>'+t('رسمك هو البداية. يمكنك الحكي أو إضافة كلمة عندما تكون مستعدًا.','Your drawing is the beginning. Tell your idea or add a word whenever you are ready.')+'</p><div class="tip">'+esc(m.easier)+'</div><p class="label">'+t('لمن رسالتي؟','Who is it for?')+'</p><input type="text" data-field="recipient" value="'+esc(d.recipient)+'" maxlength="100" aria-label="'+t('مستلم الرسالة','Message recipient')+'">'+b('stage',t('أضيف معنى رسمي','Add my meaning'),'meaning','primary')+'</section>';
-out+='</aside></div><div class="row stage-actions">'+b('stage',stage==='draw'?t('المشروعات','Projects'):t('أعود للرسم','Back to drawing'),stage==='draw'?'library':'draw')+b('stage',stage==='draw'?t('التالي: أضيف المعنى','Next: add meaning'):t('التالي: أراجع رسالتي','Next: review my message'),stage==='draw'?'meaning':'review','primary')+'</div>';return out}
-function artworkHTML(d){return '<div class="review-pages'+(d.pages.length===1?' single':'')+'">'+d.pages.map(function(p,i){return '<article class="review-page" dir="'+(d.language==='ar'?'rtl':'ltr')+'"><h2>'+esc(d.title)+'</h2>'+(d.recipient?'<p class="review-recipient">'+t('إلى: ','To: ')+esc(d.recipient)+'</p>':'')+'<canvas width="1000" height="700" data-page-art="'+i+'"></canvas><p class="caption">'+textMarkup(p.caption,'dynamic:caption:'+i)+'</p>'+(p.dictation?'<p class="dictation">'+textMarkup(p.dictation,'dynamic:dictation:'+i)+'</p>':'')+(d.pages.length>1?'<small>'+t('صفحة ','Page ')+(i+1)+'</small>':'')+'</article>'}).join('')+'</div>'}
+function meaningEditor(m){var p=page(),out='<section class="panel side-panel"><h2>'+t(S.level===1?'أحكي معنى رسمي':'كلماتي على البطاقة',S.level===1?'Tell what my picture means':'My words on the card')+'</h2><label class="label" for="caption">'+t('كلمة أو رسالة · اختيارية','Word or message · optional')+'</label><textarea id="caption" data-field="caption" maxlength="600" dir="'+(S.draft.language==='ar'?'rtl':'ltr')+'">'+esc(p.caption)+'</textarea><div class="word-bank">';m.words.forEach(function(x,i){out+=b('word-add',m.word_audio?textMarkup(x,m.word_audio[i]):esc(x),x)});out+='</div><p class="label">'+t('مثال أستمع إليه ثم أختار عبارتي','Listen to an example, then choose your words')+'</p><p class="model-text">'+textMarkup(m.model,m.model_audio)+'</p><div class="row">'+b(m.model_audio?'read':'read-model',icon('sound')+' '+t('اسمع المثال','Hear example'),m.model_audio,'small')+b('read-caption',icon('sound')+' '+t('اقرأ كلامي','Read my words'),undefined,'small')+'</div><p class="muted">'+t('النص الذي تكتبه يُقرأ بصوت محلي إن توفر على الجهاز.','Your own text uses a local voice when available on this device.')+'</p><label class="label" for="dictation">'+t('ما أحكيه للمرافق · بديل للكتابة','What I tell my grown-up · an alternative to writing')+'</label><textarea id="dictation" data-field="dictation" maxlength="600">'+esc(p.dictation)+'</textarea><div class="row">'+b('record',icon('mic')+' '+(record?t('إيقاف التسجيل','Stop recording'):t('أسجل حكايتي','Record my voice')),undefined,record?'recording':'small')+b('play-record',t('أسمع تسجيلي','Play my voice'),undefined,'small',!p.recording_ref)+b('delete-record',t('حذف الصوت','Delete voice'),undefined,'small danger',!p.recording_ref)+'</div><p class="muted">'+t('التسجيل اختياري ومحلي، ولا يخرج مع ملف التصدير.','Recording is optional and local. Export files leave it out.')+'</p></section>';return out}
+function studio(){
+  var d=S.draft,m=currentMission();
+  if(!d||!m){view=S.view='library';return library()}
+  var stage=d.stage,free=/^(ar|en)-free-draw$/.test(d.source_id);
+  var out='<div class="studio-heading"><h1>'+esc(d.title)+'</h1>'+b('library',t('أعود للأفكار','Back to ideas'),undefined,'small')+'</div>'+
+    '<nav class="journey" aria-label="'+t('خطوات المشروع','Project steps')+'">'+[
+      ['draw','أرسم','Draw','pen'],['meaning','أضيف كلامي','Add words','mic'],['review','أرى وأحفظ','See & save','check']
+    ].map(function(row){return toolButton('stage',icon(row[3])+' '+optionText(row),row[0],stage===row[0]);}).join('')+'</nav>';
+  if(stage==='review')return out+review(d,false);
+  if(stage==='meaning')return out+
+    '<div class="meaning-layout"><div>'+artworkHTML(d,d.page)+'</div><div>'+pageTabs(d)+meaningEditor(m)+
+    '<label class="label" for="studioRecipient">'+t('لمن الرسمة؟ · اختياري','Who is it for? · Optional')+'</label><input id="studioRecipient" type="text" data-field="recipient" value="'+esc(d.recipient)+'" maxlength="100">'+
+    '<div class="row stage-actions">'+b('stage',t('أعود للرسم','Back to drawing'),'draw')+b('stage',t('أرى وأحفظ','See & save'),'review','primary')+'</div></div></div>';
+  if(!free)out+='<div class="mission-prompt">'+instruction(m.prompt,m.prompt_audio)+'</div>';
+  out+=pageTabs(d)+'<section id="canvasWorkspace" class="canvas-workspace'+(largeBoard?' studio-expanded':'')+'">'+
+    '<div class="canvas-main"><div class="board-top"><p id="boardHelp">'+brushHint()+'</p>'+b('expand',icon(largeBoard?'contract':'expand')+' '+(largeBoard?t('تصغير','Shrink'):t('كبّر اللوحة','Bigger canvas')),undefined,'small').replace('<button','<button id="expandBoard" aria-pressed="'+largeBoard+'"')+'</div>'+
+    '<div id="boardShell" class="artboard"><canvas id="boardPaper" aria-hidden="true"></canvas><canvas id="drawCanvas" aria-label="'+t('لوحة الرسم','Drawing canvas')+'" aria-describedby="boardHelp"></canvas><canvas id="boardPreview" aria-hidden="true"></canvas></div></div>'+
+    '<div class="canvas-controls"><div id="drawingTools">'+toolbar()+palette()+drawers()+'</div><div id="artOptions" class="art-options"'+(drawer?'':' hidden')+'>'+optionsPanel()+'</div></div></section>';
+  if(pendingClear)out+='<div class="tip" role="group" aria-label="'+t('تأكيد مسح الرسم','Confirm clear canvas')+'">'+t('هل تبدأ لوحة فارغة؟ سنحفظ هذه المحاولة.','Start a blank canvas? Your attempt will be kept.')+' '+b('confirm-clear',t('امسح الرسم','Clear picture'),undefined,'danger')+' '+b('cancel-clear',t('إلغاء','Cancel'))+'</div>';
+  out+='<div class="row stage-actions">'+b('stage',t('أضيف كلامي','Add words'),'meaning')+b('stage',icon('check')+' '+t('أرى وأحفظ','See & save'),'review','primary')+(free?b('new-free',t('لوحة جديدة','New canvas'),undefined,'small'):'')+'</div>';
+  return out+guideUI();
+}
+function artworkHTML(d,only){return '<div class="review-pages'+(d.pages.length===1||only!==undefined?' single':'')+'">'+d.pages.map(function(p,i){if(only!==undefined&&only!==i)return '';return '<article class="review-page" dir="'+(d.language==='ar'?'rtl':'ltr')+'"><h2>'+esc(d.title)+'</h2>'+(d.recipient?'<p class="review-recipient">'+t('إلى: ','To: ')+esc(d.recipient)+'</p>':'')+'<canvas width="1000" height="700" data-page-art="'+i+'"></canvas><p class="caption">'+textMarkup(p.caption,'dynamic:caption:'+i)+'</p>'+(p.dictation?'<p class="dictation">'+textMarkup(p.dictation,'dynamic:dictation:'+i)+'</p>':'')+(d.pages.length>1?'<small>'+t('صفحة ','Page ')+(i+1)+'</small>':'')+'</article>'}).join('')+'</div>'}
 function review(d,saved){var m=missionById(d.source_id),out=artworkHTML(d)+'<div class="row">'+b('read-artifact',icon('sound')+' '+t('أسمع رسالتي','Hear my message'))+b('print',t('طباعة','Print'),d.id)+b('png',t('صورة البطاقة','Card image'),d.id)+b('export-one',t('حفظ ملف المشروع','Export project'),d.id)+'</div>';
-if(!saved){out+='<div class="reflection"><h2>'+t('هل وصل المعنى؟','Does the meaning come across?')+'</h2><p>'+t('من سيقرأها؟ ما الذي أريد قوله؟ ما التفصيل الذي أضيفه؟','Who will read it? What do I want to say? What detail could I add?')+'</p><label class="label" for="recipientReview">'+t('إلى من؟','Who is it for?')+'</label><input id="recipientReview" type="text" data-field="recipient" value="'+esc(d.recipient)+'" maxlength="100"><label class="label" for="reflection">'+t('أحكي أو أكتب ما غيرته · اختياري','Tell or write what you changed · optional')+'</label><textarea id="reflection" data-field="reflection" maxlength="500">'+esc(d.reflection)+'</textarea></div><div class="row stage-actions">'+b('stage',t('أعود وأعدل','Back to edit'),'meaning')+b('save-project',t('احفظ محاولتي في المعرض','Save my work to the gallery'),undefined,'primary')+'</div>'}
-if(m)out+='<section class="panel"><h2>'+t('رسالتك في الحياة','Your message in real life')+'</h2><p>'+textMarkup(m.real_world,m.real_world_audio)+'</p>'+b('read',icon('sound')+' '+t('اسمع الفكرة','Hear the idea'),m.real_world_audio,'small')+'</section>';
+if(!saved){out='<div class="review-save row">'+b('stage',t('أعود للرسم','Back to drawing'),'draw')+b('save-project',icon('check')+' '+t('أحفظ في معرضي','Save to my gallery'),undefined,'primary')+'</div>'+out;out+='<div class="reflection"><h2>'+t('هل وصل المعنى؟','Does the meaning come across?')+'</h2><p>'+t('من سيقرأها؟ ما الذي أريد قوله؟ ما التفصيل الذي أضيفه؟','Who will read it? What do I want to say? What detail could I add?')+'</p><label class="label" for="recipientReview">'+t('إلى من؟','Who is it for?')+'</label><input id="recipientReview" type="text" data-field="recipient" value="'+esc(d.recipient)+'" maxlength="100"><label class="label" for="reflection">'+t('أحكي أو أكتب ما غيرته · اختياري','Tell or write what you changed · optional')+'</label><textarea id="reflection" data-field="reflection" maxlength="500">'+esc(d.reflection)+'</textarea></div><div class="row stage-actions">'+b('stage',t('أعود وأعدل','Back to edit'),'meaning')+'</div>'}
+if(m&&m.real_world_audio)out+='<section class="panel"><h2>'+t('رسالتك في الحياة','Your message in real life')+'</h2><p>'+textMarkup(m.real_world,m.real_world_audio)+'</p>'+b('read',icon('sound')+' '+t('اسمع الفكرة','Hear the idea'),m.real_world_audio,'small')+'</section>';
 if(d.original_attempts.length){out+='<section class="panel"><h2>'+t('محاولاتي محفوظة','My attempts are kept')+'</h2><div class="history">';d.original_attempts.forEach(function(a,i){out+='<div class="history-card"><canvas data-history-art="'+i+'" width="400" height="280"></canvas><small>'+t('محاولة ','Attempt ')+(i+1)+' · '+supportName(a.assistance)+'</small>'+b('restore-attempt',t('أفتح نسخة','Open a copy'),i,'small')+'</div>'});out+='</div></section>'}return out}
 function gallery(){var out='<div class="row spread"><h1>'+t('معرضي الصغير','My little gallery')+'</h1>'+b('export-all',t('تصدير مشروعاتي','Export my projects'),undefined,'small',!S.saved.length)+'</div><p class="muted">'+t('أعمالك الأصلية تبقى محفوظة؛ التعديل يبدأ بنسخة جديدة. التسجيل والملاحظات الخاصة لا يدخلان التصدير.','Original work stays saved. Editing starts a new copy. Exports leave out recordings and private notes.')+'</p><label class="label" for="importFile">'+t('استعادة مشروعات من ملف JSON','Restore projects from a JSON file')+'</label><input id="importFile" type="file" accept="application/json,.json">';if(!S.saved.length)return out+'<section class="panel empty"><h2>'+t('أول رسمة تنتظرك','Your first picture is waiting')+'</h2>'+b('library',t('أبدأ مشروعًا','Start a project'),undefined,'primary')+'</section>';out+='<div class="gallery">';S.saved.slice().reverse().forEach(function(d){out+='<article class="gallery-card"><canvas width="600" height="420" data-gallery-art="'+esc(d.id)+'"></canvas><h3 dir="'+(d.language==='ar'?'rtl':'ltr')+'">'+esc(d.title)+'</h3><p class="muted">'+t('المستوى ','Level ')+d.level+' · '+d.pages.length+' '+t('صفحة','page(s)')+'</p><div class="row">'+b('open-saved',t('أفتح','Open'),d.id,'primary')+b('edit-saved',t('أعدل نسخة','Edit copy'),d.id)+b('delete-saved',t('حذف','Delete'),d.id,'danger')+'</div>'+(pendingDelete===d.id?'<div class="tip">'+t('حذف هذه النسخة فقط؟','Delete just this version?')+' '+b('confirm-delete',t('حذف النسخة','Delete version'),d.id,'danger')+b('cancel-delete',t('إلغاء','Cancel'))+'</div>':'')+'</article>'});return out+'</div>'}
 function supportName(v){return v==='independent'?t('أجرب وحدي','I try myself'):v==='hint'?t('تلميح عند الحاجة','A hint if needed'):t('مع المرافق','Together')}
 function coach(){if(!coachAllowed())return '<section class="panel"><h1>'+t('أدوات المرافق','Coach tools')+'</h1><p>'+t('هذه الإعدادات يديرها الأب أو المربي أو المسؤول المساعد في الجلسة.','The parent, teacher or session assistant manages these settings.')+'</p>'+b('library',t('أعود للمشروعات','Back to projects'),undefined,'primary')+'</section>';var out='<h1>'+t('مكتب المرافق','The coach desk')+'</h1>'+focusStrip()+'<p class="tip">'+t('شغّل تركيز الكلمات لتوجيه النظر إلى النص المسموع. أوقفه لتوجيه الانتباه إلى الرسم والاستماع؛ النص والصوت يبقيان متاحين. افتح المزامنة لتعيين الاختيار للجميع أو لمتعلم واحد.','Turn word focus on to guide attention to the spoken text. Turn it off to focus on drawing and listening; text and audio remain available. Family sync can set it for everyone or an individual learner.')+'</p><div class="coach-columns"><section class="panel"><h2>'+t('الاستعداد والمساندة','Readiness & support')+'</h2>'+levels()+'<label class="label" for="supportLevel">'+t('مقدار المساعدة','Support')+'</label><select class="wide" id="supportLevel">'+['together','hint','independent'].map(function(v){return'<option value="'+v+'"'+(S.assistance===v?' selected':'')+'>'+supportName(v)+'</option>'}).join('')+'</select><p>'+t('اترك الرسم للطفل، واكتب عنه فقط ما يمليه عليك. لا درجات للخط أو تشخيص للاستعداد.','Let the child draw. If you write for them, use their own words. There are no handwriting scores or readiness diagnoses.')+'</p>'+b('family',t('افتح مزامنة الأب أو المربي','Open parent or teacher sync'),undefined,'primary')+'</section><section class="panel"><h2>'+t('قالبك الخاص','Your own template')+'</h2><label class="label" for="templateSource">'+t('المشروع الذي أبدأ منه','Start from a project')+'</label><select id="templateSource" class="wide">'+D.missions.filter(function(m){return m.language===S.language}).map(function(m){return'<option value="'+m.id+'">'+esc(m.title)+'</option>'}).join('')+'</select><label class="label" for="templateTitle">'+t('عنوان نسختك','Your template title')+'</label><input type="text" id="templateTitle" maxlength="120"><label class="label" for="templatePrompt">'+t('تعليمتك · يقرأها صوت الجهاز','Your instruction · read by the device voice')+'</label><textarea id="templatePrompt" maxlength="600"></textarea>'+b('template-save',t('احفظ نسخة وافتحها','Save a copy & open it'),undefined,'primary')+'</section><section class="panel"><h2>'+t('ملاحظة وصفية خاصة','A private observation')+'</h2><p>'+t('ماذا قصد الطفل؟ ما المساعدة التي استخدمها؟ وما التغيير الواحد الذي نجربه؟','What did the child mean? What support did they use? What single change could we try next?')+'</p><textarea id="coachNote" data-field="coach-note" maxlength="1000">'+esc(S.notes.observation||'')+'</textarea><p class="muted">'+t('محفوظة لهذا المستخدم محليًا وخارج ملفات التصدير.','Saved locally for this profile, outside export files.')+'</p>'+b('clear-note',t('حذف الملاحظة','Delete note'),undefined,'danger small')+'</section><section class="panel"><h2>'+t('صوت النصوص','Text narration')+'</h2><p>'+t('التعليمات والأمثلة لها صوت عربي مشكل وإنجليزي محلي. رسائل الطفل والقوالب الخاصة تقرأ بصوت الجهاز عند توفره؛ الحكي والتسجيل بديلان.','Instructions and examples have local Arabic and English audio. Child messages and custom templates use an available device voice; telling and recording are alternatives.')+'</p>'+b('voice',S.voice_guidance?t('إيقاف الإرشاد التلقائي','Turn off automatic guidance'):t('تشغيل الإرشاد التلقائي','Turn on automatic guidance'))+'</section></div>';
 if(corrupt)out+='<section class="panel"><h2>'+t('استعادة ملف الحفظ','Save data recovery')+'</h2><p>'+t('احتفظ بنسخة خام قبل بدء ملف جديد.','Keep a raw backup before starting a new save.')+'</p>'+b('raw-backup',t('تنزيل النسخة الخام','Download raw backup'))+b('reset-corrupt',t('أبدأ حفظًا جديدًا','Start a new save'),undefined,'danger')+'</section>';return out}
-function render(){if(drawBinding){drawBinding.destroy();drawBinding=null}if(guideBinding){guideBinding.destroy();guideBinding=null}doc.documentElement.lang=S.language;doc.documentElement.dir=S.language==='ar'?'rtl':'ltr';$('brandTitle').textContent=t('مرسم المعنى','Meaning Studio');$('profileLabel').textContent=learnerName()+' · '+t('مدرسة العائلة 360','Family School 360');$('langAr').className=S.language==='ar'?'selected':'';$('langEn').className=S.language==='en'?'selected':'';$('voiceBtn').innerHTML=icon('sound');$('voiceBtn').setAttribute('aria-pressed',String(S.voice_guidance));$('voiceBtn').setAttribute('aria-label',S.voice_guidance?t('إيقاف الإرشاد التلقائي','Turn off spoken guidance'):t('تشغيل الإرشاد التلقائي','Turn on spoken guidance'));var labels={navLibrary:t('المشروعات','Projects'),navSaved:t('معرضي','My gallery'),navCoach:t('للمرافق','For the coach'),familyBtn:t('المزامنة','Family sync'),installAppBtn:t('تثبيت','Install'),updateAppBtn:t('تحديث','Update')};for(var k in labels)$(k).textContent=labels[k];$('navLibrary').className=view==='library'||view==='studio'?'active':'';$('navSaved').className=view==='saved'||view==='review-saved'?'active':'';$('navCoach').className=view==='coach'?'active':'';$('spokenTextLabel').textContent=t('النص المسموع','Spoken text');$('spokenTextStop').textContent=t('إيقاف','Stop');$('stopAudioBtn').setAttribute('aria-label',t('إيقاف القراءة','Stop reading'));var html=view==='library'?library():view==='saved'?gallery():view==='coach'?coach():view==='review-saved'?'<h1>'+t('رسالة من معرضي','A message from my gallery')+'</h1>'+focusStrip()+review(artifactById(savedId),true):studio();$('app').innerHTML=html;$('footerNote').textContent=t('رسمة منك، ومعنى يصل إلى من تحب.','A picture from you. A meaning shared with someone you care about.');syncFocusUI();paintAll();if(view==='studio'&&S.draft.stage!=='review'){drawBinding=bindCanvas($('drawCanvas'),page().commands,false);if(guideOpen){drawGuide();guideBinding=bindCanvas($('guidePen'),guideCommands,true)}}readAlong.refresh();storageLabel();offlineLabel()}
-function paintAll(){var n=doc.querySelectorAll('[data-stamp]'),i;for(i=0;i<n.length;i++)P.stamp(n[i].getContext('2d'),n[i].getAttribute('data-stamp'),n[i].width/2,n[i].height/2,n[i].width*.62,'#b782b1');var art=selectedArtifact();n=doc.querySelectorAll('[data-page-art]');for(i=0;i<n.length;i++){var p=art.pages[Number(n[i].getAttribute('data-page-art'))];P.artwork(n[i].getContext('2d'),p.commands,n[i].width,n[i].height)}n=doc.querySelectorAll('[data-gallery-art]');for(i=0;i<n.length;i++){var a=artifactById(n[i].getAttribute('data-gallery-art'));if(a)P.artwork(n[i].getContext('2d'),a.pages[0].commands,n[i].width,n[i].height)}n=doc.querySelectorAll('[data-history-art]');for(i=0;i<n.length;i++){var h=art.original_attempts[Number(n[i].getAttribute('data-history-art'))];if(h)P.artwork(n[i].getContext('2d'),h.pages[0].commands,n[i].width,n[i].height)}}
-function bindCanvas(canvas,commands,guide){if(!canvas)return null;var active=null,activeId=null,lastTouch=0,mouseDown=false,disposed=false,raf=null,events=[];function on(el,type,fn,options){el.addEventListener(type,fn,options||false);events.push([el,type,fn,options||false])}function resize(){finish();var shell=canvas.parentNode;if(!guide)shell.style.height=Math.round(shell.clientWidth*.7)+'px';var r=canvas.getBoundingClientRect(),dpr=Math.min(2,w.devicePixelRatio||1);canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));paint()}function paint(){raf=null;P.artwork(canvas.getContext('2d'),commands,canvas.width,canvas.height)}function queuePaint(){if(raf!==null)return;raf=(w.requestAnimationFrame||function(f){return setTimeout(f,16)})(paint)}function pos(e){var r=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y:Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))}}function start(e){if(active||disposed)return;if(commands.length>=600){notify(t('احفظ محاولتك ثم ابدأ صفحة أو نسخة جديدة.','Save this attempt, then start a new page or copy.'));return}if(!guide)stopAudio();var p=pos(e);if(!guide&&tool==='stamp'){commands.push({type:'stamp',kind:stampKind,x:p.x,y:p.y,size:.13,color:color});page().undone=[];paint();save();return}active={type:'stroke',points:[p],color:color,width:guide?7:tool==='eraser'?Math.max(20,penWidth*3):penWidth,erase:!guide&&tool==='eraser'};commands.push(active);if(!guide)page().undone=[];queuePaint()}function move(e){if(!active)return;var p=pos(e),last=active.points[active.points.length-1],dx=p.x-last.x,dy=p.y-last.y;if(dx*dx+dy*dy<.000001)return;if(active.points.length>=1600)return;active.points.push(p);queuePaint()}function finish(){if(!active)return;active=null;if(!guide){memory[profile]=M.copy(S);if(!corrupt)try{localStorage.setItem(storageKey,JSON.stringify(S));storageOK=true}catch(e){storageOK=false}storageLabel();syncUndoUI()}paint()}function touch(list,id){for(var i=0;i<list.length;i++)if(list[i].identifier===id)return list[i];return null}on(canvas,'touchstart',function(e){lastTouch=Date.now();if(e.touches.length!==1||activeId!==null)return;activeId=e.changedTouches[0].identifier;e.preventDefault();start(e.changedTouches[0])},{passive:false});on(canvas,'touchmove',function(e){if(activeId===null)return;var p=touch(e.touches,activeId);if(p){e.preventDefault();move(p)}},{passive:false});on(canvas,'touchend',function(e){if(activeId!==null&&touch(e.changedTouches,activeId)){e.preventDefault();activeId=null;finish()}},{passive:false});on(canvas,'touchcancel',function(){activeId=null;finish()});on(canvas,'mousedown',function(e){if(e.button!==0||Date.now()-lastTouch<800)return;e.preventDefault();mouseDown=true;start(e)});on(doc,'mousemove',function(e){if(mouseDown)move(e)});on(doc,'mouseup',function(){if(mouseDown){mouseDown=false;finish()}});resize();return{finish:finish,resize:resize,paint:paint,destroy:function(){finish();disposed=true;for(var i=0;i<events.length;i++)events[i][0].removeEventListener(events[i][1],events[i][2],events[i][3]);if(raf!==null)(w.cancelAnimationFrame||clearTimeout)(raf)}}}
+function render(){
+  if(drawBinding){drawBinding.destroy();drawBinding=null}
+  if(guideBinding){guideBinding.destroy();guideBinding=null}
+  doc.documentElement.lang=S.language;doc.documentElement.dir=S.language==='ar'?'rtl':'ltr';
+  $('brandTitle').textContent=t('مرسم العائلة','Family Art Studio');
+  $('profileLabel').textContent=t('مدرسة العائلة 360','Family School 360');
+  $('langAr').setAttribute('aria-pressed',String(S.language==='ar'));$('langEn').setAttribute('aria-pressed',String(S.language==='en'));
+  $('homeBtn').innerHTML=icon('home');$('homeBtn').setAttribute('aria-label',t('مدرسة العائلة','Family School'));doc.title=t('مرسم العائلة | مدرسة العائلة 360','Family Art Studio | Family School 360');
+  $('voiceBtn').innerHTML=icon('sound');$('voiceBtn').setAttribute('aria-pressed',String(S.voice_guidance));
+  $('voiceBtn').setAttribute('aria-label',S.voice_guidance?t('إيقاف الإرشاد التلقائي','Turn off spoken guidance'):t('تشغيل الإرشاد التلقائي','Turn on spoken guidance'));
+  var labels={navLibrary:t('الرسم والأفكار','Draw & ideas'),navSaved:t('معرضي','My gallery'),navCoach:t('للمرافق','For the coach'),familyBtn:t('المزامنة','Family sync'),installAppBtn:t('تثبيت','Install'),updateAppBtn:t('تحديث','Update')};
+  for(var k in labels)$(k).textContent=labels[k];
+  $('navLibrary').className=view==='library'||view==='studio'?'active':'';$('navSaved').className=view==='saved'||view==='review-saved'?'active':'';$('navCoach').className=view==='coach'?'active':'';
+  $('spokenTextLabel').textContent=t('النص المسموع','Spoken text');$('spokenTextStop').textContent=t('إيقاف','Stop');
+  $('stopAudioBtn').setAttribute('aria-label',t('إيقاف القراءة','Stop reading'));
+  var html=view==='library'?library():view==='saved'?gallery():view==='coach'?coach():view==='review-saved'?'<h1>'+t('رسمة من معرضي','A picture from my gallery')+'</h1>'+review(artifactById(savedId),true):studio();
+  $('app').innerHTML=html;
+  syncFocusUI();paintAll();
+  if($('drawCanvas')){
+    drawBinding=B.bind($('drawCanvas'),page().commands,{legacy:legacy,paper:$('boardPaper'),overlay:$('boardPreview'),settings:settings,change:inkChanged,start:function(){if(audioStatus!=='idle'||speechCurrent)stopAudio()},limit:inkLimit});
+    if(guideOpen){drawGuide();guideBinding=B.bind($('guidePen'),guideCommands,{legacy:legacy,settings:function(){return{tool:'pen',color:color,width:16,repair:S.pen_repair}},change:function(){},limit:inkLimit})}
+  }
+  readAlong.refresh();storageLabel();offlineLabel();
+}
+function paintSwatches(root){
+  var n=root.querySelectorAll('[data-stamp]'),i;
+  for(i=0;i<n.length;i++)P.stamp(n[i].getContext('2d'),n[i].getAttribute('data-stamp'),n[i].width/2,n[i].height/2,n[i].width*.78,root.id==='artOptions'?color:'#865ec2');
+  n=root.querySelectorAll('[data-paper]');
+  for(i=0;i<n.length;i++)B.paintPaper(n[i].getContext('2d'),n[i].getAttribute('data-paper'),n[i].width,n[i].height);
+}
+function paintCanvas(canvas,p){
+  function loaded(ok){if(ok&&doc.documentElement.contains(canvas))B.picture(canvas,p.commands,loaded)}
+  B.picture(canvas,p.commands,loaded);
+}
+function paintAll(){
+  paintSwatches($('app'));
+  var art=selectedArtifact(),n=doc.querySelectorAll('#app [data-page-art]'),i;
+  for(i=0;i<n.length;i++)paintCanvas(n[i],art.pages[Number(n[i].getAttribute('data-page-art'))]);
+  n=doc.querySelectorAll('[data-gallery-art]');
+  for(i=0;i<n.length;i++){var a=artifactById(n[i].getAttribute('data-gallery-art'));if(a)paintCanvas(n[i],a.pages[0])}
+  n=doc.querySelectorAll('[data-history-art]');
+  for(i=0;i<n.length;i++){var h=art.original_attempts[Number(n[i].getAttribute('data-history-art'))];if(h)paintCanvas(n[i],h.pages[0])}
+}
+function settings(){
+  var width=tool==='eraser'?Math.min(100,Math.max(18,penWidth*2.5)):tool==='marker'?Math.min(100,penWidth*2.7):tool==='brush'||tool==='chalk'?penWidth*1.55:penWidth;
+  return {tool:tool,color:color,width:width,kind:tool==='stamp'?stampKind:tool==='photo'?photoId:shapeKind,
+    size:tool==='photo'?.14+penWidth*.006:.075+penWidth*.0055,mirror:mirror,filled:filled,repair:S.pen_repair};
+}
+function inkLimit(){notify(t('امتلأت اللوحة. احفظها في معرضك وابدأ لوحة جديدة.','This canvas is full. Save it to your gallery and start another.'))}
+function addCommand(cmd){
+  if(drawBinding)drawBinding.finish();
+  if(page().commands.length>=600){inkLimit();return}
+  page().commands.push(cmd);inkChanged();if(drawBinding)drawBinding.refresh();refreshTools();
+}
 function drawGuide(){var c=$('guideBase');if(!c)return;var r=c.parentNode.getBoundingClientRect(),scale=Math.min(2,w.devicePixelRatio||1);c.width=r.width*scale;c.height=r.height*scale;var x=c.getContext('2d'),wid=c.width,h=c.height,v=guideValue||(currentMission()&&currentMission().words[0])||'';x.clearRect(0,0,wid,h);x.strokeStyle='#cfc2df';x.lineWidth=2*scale;x.beginPath();x.moveTo(20,h*.73);x.lineTo(wid-20,h*.73);x.stroke();if(guideMode==='movement'){x.strokeStyle='#cec0e0';x.lineWidth=14*scale;x.lineCap='round';x.beginPath();x.moveTo(wid*.14,h*.65);x.bezierCurveTo(wid*.28,h*.02,wid*.72,h*.02,wid*.86,h*.65);x.stroke();x.fillStyle='#65a386';x.beginPath();x.arc(S.language==='ar'?wid*.86:wid*.14,h*.65,7*scale,0,Math.PI*2);x.fill()}else{x.fillStyle='#d2c3df';x.textAlign='center';x.textBaseline='middle';x.direction=S.language==='ar'?'rtl':'ltr';var sz=Math.min(h*.5,wid*.5);x.font=sz+'px Tahoma,Arial';while(sz>18&&x.measureText(v).width>wid*.88){sz-=2;x.font=sz+'px Tahoma,Arial'}x.fillText(v,wid/2,h*.5)}}
 function clearDynamicFocus(){var nodes=doc.querySelectorAll('.dynamic-active');for(var i=0;i<nodes.length;i++)nodes[i].className=nodes[i].className.replace(/\s*(dynamic-active|ra-active)\b/g,'')}
 function markDynamic(path,index){clearDynamicFocus();if(!focusState().enabled)return;var roots=doc.querySelectorAll('[data-ra-path]');for(var i=0;i<roots.length;i++){if(roots[i].getAttribute('data-ra-path')!==path)continue;var ns=roots[i].querySelectorAll('[data-ra-index]');if(ns[index])ns[index].className+=' dynamic-active ra-active'}}
 function stopAudio(){speechSerial++;readAlong.stop();clearDynamicFocus();audioPath='';audioStatus='idle';audio.onended=audio.onplaying=audio.onerror=null;try{audio.pause();audio.currentTime=0}catch(e){}try{if(w.speechSynthesis)w.speechSynthesis.cancel()}catch(e){}speechCurrent=null;$('stopAudioBtn').hidden=true;$('audioState').textContent='';$('spokenTextPanel').hidden=true}
-function audioItem(path){var m=D.missions.concat(S.templates);for(var i=0;i<m.length;i++)for(var j=0;j<4;j++){var f=['title','prompt','model','real_world'][j];if(m[i][f+'_audio']===path)return{text:m[i][f],language:m[i].language}}for(var k=0;k<m.length;k++)for(var n=0;n<(m[k].word_audio||[]).length;n++)if(m[k].word_audio[n]===path)return{text:m[k].words[n],language:m[k].language};var r=/audio\/(ar|en)-guide-([a-z-]+)\.mp3/.exec(path);return r?{text:D.guides[r[1]][r[2]],language:r[1]}:null}
+function audioItem(path){var photo=tool==='photo'&&O.photos.items[photoId];if(photo&&path==='../../../'+photo.audio[S.language])return{text:photo[S.language],language:S.language};var m=D.missions.concat(S.templates);for(var i=0;i<m.length;i++)for(var j=0;j<4;j++){var f=['title','prompt','model','real_world'][j];if(m[i][f+'_audio']===path)return{text:m[i][f],language:m[i].language}}for(var k=0;k<m.length;k++)for(var n=0;n<(m[k].word_audio||[]).length;n++)if(m[k].word_audio[n]===path)return{text:m[k].words[n],language:m[k].language};var r=/audio\/(ar|en)-guide-([a-z-]+)\.mp3/.exec(path);return r?{text:D.guides[r[1]][r[2]],language:r[1]}:null}
 function play(path){if(!path)return;var item=audioItem(path);if(path.indexOf('dynamic:')===0){if(item)speak(item.text,path,item.language);return}stopAudio();var serial=speechSerial;audioPath=path;audioStatus='waiting';$('stopAudioBtn').hidden=false;audio.src=path;readAlong.follow(path);$('audioState').textContent=t('أستمع…','Listening…');audio.onplaying=function(){if(serial!==speechSerial)return;audioStatus='playing';readAlong.refresh()};audio.onended=function(){if(serial===speechSerial)stopAudio()};audio.onerror=function(){if(serial!==speechSerial)return;if(item)speak(item.text,path,item.language);else{stopAudio();notify(t('الصوت غير متاح؛ يمكنك متابعة الرسم والنص.','Audio is unavailable; you can continue with drawing and text.'))}};try{var p=audio.play();if(p&&p.catch)p.catch(function(){if(serial!==speechSerial)return;if(item)speak(item.text,path,item.language);else stopAudio()})}catch(e){if(item)speak(item.text,path,item.language)}}
 function spokenWord(s,lang){if(lang!=='ar')return s;return s.replace(/(^|\s)عمر(?=\s|[،.!؟?;:]|$)/g,'$1عُمَر').replace(/(^|\s)محمد(?=\s|[،.!؟?;:]|$)/g,'$1مُحَمَّد').replace(/(^|\s)نور(?=\s|[،.!؟?;:]|$)/g,'$1نُور')}
 function latinDigits(s){return String(s).replace(/[٠-٩۰-۹]/g,function(c){var n=c.charCodeAt(0);return String(n>=1776?n-1776:n-1632)})}
@@ -71,29 +284,83 @@ for(var i=0;i<words.length;i++){var word=latinDigits(words[i]),language=/^[a-zA-
 for(var q=0;q<segments.length;q++)if(!localVoice(voices,segments[q].language)){stopAudio();notify(t('لا يوجد صوت محلي مناسب لهذا النص؛ يمكنك تسجيله أو حكايته.','A suitable local voice is unavailable; you can record or tell your words.'));return}
 $('spokenText').innerHTML=textMarkup(text,path);$('spokenText').setAttribute('dir',lang==='ar'?'rtl':'ltr');$('spokenTextPanel').hidden=false;$('audioState').textContent=t('صوت الجهاز','Device voice');
 function say(){if(serial!==speechSerial)return;if(index>=segments.length){stopAudio();return}var seg=segments[index],u=new w.SpeechSynthesisUtterance(spokenWord(seg.text,seg.language));u.lang=seg.language==='ar'?'ar-SA':'en-US';u.rate=.83;u.voice=localVoice(voices,seg.language);speechCurrent=u;u.onstart=function(){if(serial===speechSerial&&wordMode)markDynamic(path,seg.start)};u.onboundary=function(e){if(serial!==speechSerial||wordMode)return;var before=seg.text.slice(0,e.charIndex||0);markDynamic(path,seg.start+(before.match(/\S+/g)||[]).length)};u.onend=function(){if(serial!==speechSerial)return;index++;say()};u.onerror=function(e){if(serial!==speechSerial)return;stopAudio();if(e.error!=='canceled'&&e.error!=='interrupted')notify(t('لا يتوفر صوت مناسب الآن؛ التسجيل والحكي متاحان.','A suitable voice is unavailable now; recording and telling remain available.'))};try{w.speechSynthesis.speak(u)}catch(e){stopAudio()}}say()}
-function go(next,push){save();stopAudio();stopRecording();view=next;S.view=next;pendingDelete='';pendingClear=false;save();if(push!==false)try{history.pushState({studio:true,view:next},'','')}catch(e){}render();w.scrollTo(0,0)}
+function historyState(){return{studio:true,view:view,draft:S.draft&&S.draft.id,stage:S.draft&&S.draft.stage,savedId:savedId}}
+function go(next,push){
+  save();stopAudio();stopRecording();view=next;S.view=next;pendingDelete='';pendingClear=false;
+  persist();
+  if(push!==false)try{history.pushState(historyState(),'','')}catch(e){}
+  render();w.scrollTo(0,0);
+}
 function workSignature(d){return JSON.stringify({source_id:d.source_id,title:d.title,recipient:d.recipient,language:d.language,reflection:d.reflection,pages:d.pages.map(function(p){return{commands:p.commands,caption:p.caption,dictation:p.dictation,recording_ref:p.recording_ref}})})}
 function archiveDraft(){if(!S.draft||!S.draft.pages.some(function(p){return p.commands.length||p.caption||p.dictation||p.recording_ref}))return true;var sig=workSignature(S.draft);for(var i=0;i<S.saved.length;i++)if(workSignature(S.saved[i])===sig)return true;if(S.saved.length>=60){notify(t('المعرض ممتلئ؛ صدّر أعمالًا واحذف نسخة قبل المتابعة.','Your gallery is full; export work and remove a version before continuing.'));return false}M.saveAttempt(S);return true}
-function openMission(id){if(record||recordPending){stopRecording(function(){openMission(id)});return}var m=missionById(id);if(!m)return;if(S.draft&&S.draft.source_id===id){S.language=m.language;S.level=m.level;go('studio');return}if(S.draft){M.checkpoint(S.draft,'project-switch');if(!archiveDraft())return}stopRecording();S.draft=M.start(m,S.assistance);S.language=m.language;S.level=m.level;guideValue='';guideCommands=[];guideOpen=false;go('studio');if(S.voice_guidance)play(m.prompt_audio)}
-function action(cmd,value){if((record||recordPending)&&['home','language','open','resume','page','stage','save-project','edit-saved','restore-attempt','library','saved','coach'].indexOf(cmd)>=0){stopRecording(function(){action(cmd,value)});return}if(cmd==='stop-audio'){stopAudio();return}if(cmd==='read'){play(value);return}if(cmd==='home'){save();stopAudio();stopRecording();try{if(w.parent!==w&&w.parent.APP360_FAMILY_SHELL){w.parent.APP360_FAMILY_SHELL.closeApp();return}}catch(e){}location.href='../../../index.html';return}if(cmd==='family'){var a=api();if(a&&a.open)a.open();else notify(t('جارٍ تجهيز المزامنة.','Family sync is getting ready.'));return}if(cmd==='library'||cmd==='saved'||cmd==='coach'){go(cmd);return}if(cmd==='language'){if(value!=='ar'&&value!=='en')return;save();S.language=value;go('library');return}if(cmd==='voice'){S.voice_guidance=!S.voice_guidance;stopAudio();save();render();return}if(cmd==='level'){var n=Number(value);if(n<1||n>4)return;save();S.level=n;render();save();return}if(cmd==='open'){openMission(value);return}if(cmd==='resume'){if(S.draft){S.language=S.draft.language;S.level=S.draft.level;go('studio')}return}
+function openMission(id,forceNew){if(record||recordPending){stopRecording(function(){openMission(id,forceNew)});return}var m=missionById(id);if(!m)return false;if(!forceNew&&S.draft&&S.draft.source_id===id){S.language=m.language;S.level=m.level;go('studio');return true}if(S.draft){save();if(!archiveDraft())return false}stopRecording();S.draft=M.start(m,S.assistance);resetTools();S.language=m.language;S.level=m.level;guideValue='';guideCommands=[];guideOpen=false;go('studio');if(S.voice_guidance&&m.prompt_audio)play(m.prompt_audio);return true}
+function action(cmd,value){if((record||recordPending)&&['home','language','open','free','new-free','colouring','resume','page','stage','save-project','edit-saved','restore-attempt','library','saved','coach'].indexOf(cmd)>=0){stopRecording(function(){action(cmd,value)});return}if(cmd==='stop-audio'){stopAudio();return}if(cmd==='read'){play(value);return}if(cmd==='home'){save();stopAudio();stopRecording();try{if(w.parent!==w&&w.parent.APP360_FAMILY_SHELL){w.parent.APP360_FAMILY_SHELL.closeApp();return}}catch(e){}location.href='../../../index.html?age=4-8';return}if(cmd==='family'){var a=api();if(a&&a.open)a.open();else notify(t('جارٍ تجهيز المزامنة.','Family sync is getting ready.'));return}if(cmd==='library'||cmd==='saved'||cmd==='coach'){go(cmd);return}if(cmd==='language'){if(value!=='ar'&&value!=='en')return;save();S.language=value;go('library');return}if(cmd==='voice'){S.voice_guidance=!S.voice_guidance;stopAudio();save();render();return}if(cmd==='level'){var n=Number(value);if(n<1||n>4)return;save();S.level=n;render();save();return}if(cmd==='open'){openMission(value);return}
+if(cmd==='free'||cmd==='new-free'||cmd==='colouring'){
+  if(openMission(S.language+'-free-draw',cmd!=='free')&&cmd==='colouring'){
+    drawer='paper';refreshTools(false);
+    if(w.innerWidth<1010)$('artOptions').scrollIntoView();
+  }
+  return;
+}
+if(cmd==='ideas'){var ideas=$('projectIdeas');if(ideas)ideas.scrollIntoView();return}
+if(cmd==='board-top'){if($('boardShell'))$('boardShell').scrollIntoView();return}if(cmd==='resume'){if(S.draft){S.language=S.draft.language;S.level=S.draft.level;go('studio')}return}
 if(cmd==='open-saved'){var art=artifactById(value);if(art){savedId=value;S.language=art.language;go('review-saved')}return}if(cmd==='edit-saved'){var old=artifactById(value);if(old){if(!archiveDraft())return;S.draft=M.copy(old);S.draft.id=M.id();S.draft.stage='draw';S.language=old.language;S.level=old.level;go('studio')}return}if(cmd==='delete-saved'){pendingDelete=value;render();return}if(cmd==='cancel-delete'){pendingDelete='';render();return}if(cmd==='confirm-delete'){if(pendingDelete!==value)return;S.saved=S.saved.filter(function(a){return a.id!==value});pendingDelete='';save();render();cleanupRecordings();return}
 if(cmd==='export-all'){downloadJSON(M.exportData(S.saved),'meaning-studio-projects.json');return}if(cmd==='export-one'){var ex=selectedArtifact();if(ex)downloadJSON(M.exportData([ex]),'meaning-studio-project.json');return}if(cmd==='print'){printArtifact(selectedArtifact());return}if(cmd==='png'){exportPNG(selectedArtifact());return}if(cmd==='raw-backup'){try{downloadText(localStorage.getItem(storageKey)||'','meaning-studio-raw-backup.json','application/json')}catch(e){notify(t('تعذر قراءة النسخة الخام.','Raw backup could not be read.'))}return}if(cmd==='reset-corrupt'&&coachAllowed()){corrupt=false;save();render();return}if(cmd==='clear-note'&&coachAllowed()){S.notes={};save();render();return}
 if(cmd==='template-save'&&coachAllowed()){var src=missionById($('templateSource').value),title=$('templateTitle').value.trim(),prompt=$('templatePrompt').value.trim();if(!title||!prompt){notify(t('أضف عنوانًا وتعليمة.','Add a title and instruction.'));return}if(S.templates.length>=30){notify(t('وصلت إلى حد القوالب في هذه النسخة.','This preview has reached its template limit.'));return}var own=M.copy(src);own.id='template-'+M.id();own.title=title;own.prompt=prompt;own.title_audio='dynamic:'+own.id+'-title';own.prompt_audio='dynamic:'+own.id+'-prompt';S.templates.push(own);save();openMission(own.id);return}
 if(cmd==='read-artifact'){var at=selectedArtifact();if(at){var txt=at.pages.map(function(p){return p.caption||p.dictation}).join(' ');speak(txt,'dynamic:artifact',at.language)}return}if(cmd==='restore-attempt'){var ar=selectedArtifact(),attempt=ar&&ar.original_attempts[Number(value)];if(!attempt)return;if(view==='review-saved'){if(!archiveDraft())return;S.draft=M.copy(ar);S.draft.id=M.id()}else M.checkpoint(S.draft,'before-restore');S.draft.pages=M.copy(attempt.pages);S.draft.page=0;S.draft.stage='draw';S.language=S.draft.language;go('studio');return}
 if(!S.draft)return;
-if(cmd==='stage'){if(value==='library'){go('library');return}if(['draw','meaning','review'].indexOf(value)<0)return;M.checkpoint(S.draft,'stage-'+value);S.draft.stage=value;guideOpen=false;go('studio');if(S.voice_guidance)play(guidePath(value));return}if(cmd==='page'){var pn=Number(value);if(pn<0||pn>=S.draft.pages.length)return;save();stopAudio();stopRecording();S.draft.page=pn;guideCommands=[];save();render();return}
-if(cmd==='tool'){tool=value==='eraser'?'eraser':'pen';render();return}if(cmd==='color'){if(colors.indexOf(value)<0)return;color=value;if(tool==='eraser')tool='pen';render();return}if(cmd==='stamp'){if(stamps.indexOf(value)<0)return;stampKind=value;tool='stamp';render();return}if(cmd==='undo'){save();if(page().commands.length)page().undone.push(page().commands.pop());save();render();return}if(cmd==='redo'){if(page().undone.length)page().commands.push(page().undone.pop());save();render();return}
+if(cmd==='stage'){if(value==='library'){go('library');return}if(['draw','meaning','review'].indexOf(value)<0)return;if(S.draft.stage===value)return;save();if(page().commands.length||page().caption||page().dictation)M.checkpoint(S.draft,'stage-'+value);S.draft.stage=value;guideOpen=false;go('studio');if(S.voice_guidance&&value!=='draw')play(guidePath(value));return}if(cmd==='page'){var pn=Number(value);if(pn<0||pn>=S.draft.pages.length)return;save();stopAudio();stopRecording();S.draft.page=pn;guideCommands=[];save();render();return}
+if(cmd==='expand'){largeBoard=!largeBoard;refreshTools();if(drawBinding)drawBinding.resize();if(largeBoard)$('canvasWorkspace').scrollIntoView();return}
+if(cmd==='drawer'){drawer=drawer===value?'':value;refreshTools();return}
+if(cmd==='tool'&&O.tools.some(function(a){return a[0]===value})){tool=value;refreshTools();return}
+if(cmd==='color'&&O.colors.some(function(a){return a[0]===value})){color=value;if(tool==='eraser'||tool==='photo'||tool==='rainbow')tool='pen';refreshTools();return}
+if(cmd==='size'&&O.sizes.some(function(a){return a[0]===Number(value)})){penWidth=Number(value);refreshTools();return}
+if(cmd==='mirror'){mirror=!mirror;refreshTools();return}
+if(cmd==='repair'){S.pen_repair=!S.pen_repair;save();refreshTools();return}
+if(cmd==='shape-style'){filled=value==='fill';refreshTools();return}
+if(cmd==='shape'&&O.shapes.some(function(a){return a[0]===value})){shapeKind=value;tool='shape';refreshTools();return}
+if(cmd==='stamp'&&O.stamps.some(function(a){return a[0]===value})){stampKind=value;tool='stamp';refreshTools();return}
+if(cmd==='photo'&&O.photos.items[value]){photoId=value;tool='photo';refreshTools();return}
+if(cmd==='photo-listen'&&O.photos.items[value]){play('../../../'+O.photos.items[value].audio[S.language]);return}
+if(cmd==='photo-center'&&O.photos.items[value]){addCommand({type:'photo',kind:value,x:.5,y:.5,size:settings().size,color:color});return}
+if(cmd==='paper'&&O.papers.some(function(a){return a[0]===value})){if(B.paperKind(page().commands)!==value)addCommand({type:'paper',kind:value});return}
+if(cmd==='undo'||cmd==='redo'){
+  save();
+  var from=cmd==='undo'?page().commands:page().undone,to=cmd==='undo'?page().undone:page().commands;
+  if(from.length){to.push(from.pop());if(cmd==='undo'&&to.length>100)to.shift();persist();if(drawBinding)drawBinding.refresh();refreshTools()}
+  return;
+}
 if(cmd==='clear-board'){pendingClear=true;render();return}if(cmd==='cancel-clear'){pendingClear=false;render();return}if(cmd==='confirm-clear'){if(!pendingClear)return;save();M.checkpoint(S.draft,'before-clear');page().commands=[];page().undone=[];pendingClear=false;save();render();return}if(cmd==='checkpoint'){save();M.checkpoint(S.draft,'kept-by-child');save();notify(t('احتفظنا بهذه المحاولة دون تغييرها.','This attempt is kept just as it is.'));return}
 if(cmd==='guide-open'){guideOpen=true;guideValue=guideValue||currentMission().words[0];render();if(S.voice_guidance)play(guidePath('guide'));return}if(cmd==='guide-close'){guideOpen=false;render();return}if(cmd==='guide-mode'){guideMode=value==='movement'?'movement':'word';guideCommands=[];render();return}if(cmd==='guide-clear'){guideCommands=[];render();return}if(cmd==='read-guide'){var gm=currentMission(),gi=gm.words.indexOf(guideValue);if(gm.word_audio&&gm.word_audio[gi])play(gm.word_audio[gi]);else speak(guideValue,'dynamic:guide',S.language);return}
-if(cmd==='word-add'){page().caption=(page().caption+(page().caption?' ':'')+value).slice(0,600);save();render();var mi=currentMission(),wi=mi.words.indexOf(value);if(mi.word_audio&&mi.word_audio[wi])play(mi.word_audio[wi]);else speak(value,'dynamic:word',S.language);return}if(cmd==='read-caption'){speak(page().caption||page().dictation,'dynamic:caption:'+S.draft.page,S.draft.language);return}if(cmd==='record'){if(record)stopRecording();else startRecording();return}if(cmd==='play-record'){playRecording(page().recording_ref);return}if(cmd==='delete-record'){page().recording_ref='';save();cleanupRecordings();render();return}
-if(cmd==='save-project'){if(S.saved.length>=60){notify(t('صدّر مشروعاتك واحذف نسخة قديمة قبل حفظ المزيد.','Export projects and remove an old version before saving more.'));return}var any=S.draft.pages.some(function(p){return p.commands.length||p.caption||p.dictation||p.recording_ref});if(!any){notify(t('ارسم أو أضف كلمة أو حكاية أولًا.','Draw, add a word or tell a story first.'));return}save();stopRecording();var a=M.saveAttempt(S);savedId=a.id;go('saved');if(S.voice_guidance)play(guidePath('ready'));return}}
+if(cmd==='read-model'){speak(currentMission().model,'dynamic:example',S.draft.language);return}
+if(cmd==='word-add'){page().caption=(page().caption+(page().caption?' ':'')+value).slice(0,600);save();render();var mi=currentMission(),wi=mi.words.indexOf(value);if(mi.word_audio&&mi.word_audio[wi])play(mi.word_audio[wi]);else speak(value,'dynamic:word',S.language);return}if(cmd==='read-caption'){speak(page().caption||page().dictation,'dynamic:caption:'+S.draft.page,S.draft.language);return}if(cmd==='record'){if(record)stopRecording();else startRecording();return}if(cmd==='play-record'){playRecording(page().recording_ref);return}if(cmd==='delete-record'){if(!page().recording_ref)return;page().recording_ref='';save();cleanupRecordings();render();return}
+if(cmd==='save-project'){if(S.saved.length>=60){notify(t('صدّر مشروعاتك واحذف نسخة قديمة قبل حفظ المزيد.','Export projects and remove an old version before saving more.'));return}var any=S.draft.pages.some(function(p){return p.commands.length||p.caption||p.dictation||p.recording_ref});if(!any){notify(t('ارسم أو أضف كلمة أو حكاية أولًا.','Draw, add a word or tell a story first.'));return}save();stopRecording();var a=M.saveAttempt(S);savedId=a.id;go('saved');notify(t('وصلت رسمتك إلى معرضك!','Your picture is in your gallery!'));if(S.voice_guidance)play(guidePath('ready'));return}}
 function onInput(e){var el=e.target,field=el.getAttribute&&el.getAttribute('data-field');if(field==='coach-note'){if(coachAllowed()){S.notes.observation=el.value;save()}return}if(el.id==='guideWord'){guideValue=el.value;drawGuide();return}if(!S.draft)return;if(['recipient','reflection','purpose'].indexOf(field)>=0)S.draft[field]=el.value;else if(field==='caption'||field==='dictation')page()[field]=el.value;else return;save()}
 function downloadText(text,filename,type){if(!w.Blob||!w.URL||!URL.createObjectURL){notify(t('استخدم الطباعة أو افتح المشروع في متصفح يدعم التصدير.','Use print, or open the project in a browser that supports export.'));return}var blob=new Blob([text],{type:type}),url=URL.createObjectURL(blob),a=doc.createElement('a');a.href=url;a.download=filename;doc.body.appendChild(a);a.click();a.parentNode.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url)},30000)}
 function downloadJSON(x,name){downloadText(JSON.stringify(x,null,2),name,'application/json')}
 function importFile(file){if(!file)return;if(file.size>12*1024*1024){notify(t('الملف أكبر من الحد المسموح.','The file is too large.'));return}var owner=profile,r=new FileReader();r.onload=function(){if(owner!==profile)return;try{var list=M.importData(r.result);if(S.saved.length+list.length>60)throw Error('too-many');S.saved=S.saved.concat(list);save();render();notify(t('استعدنا المشروعات لهذا المستخدم.','Projects have been restored for this profile.'))}catch(e){notify(t('الملف غير صالح أو يتجاوز حد المعرض؛ لم نغير أعمالك.','Invalid file or gallery limit reached; your work has not been changed.'))}};r.readAsText(file)}
-function printArtifact(d){if(!d)return;save();stopAudio();var container=$('printStudio');container.innerHTML=artworkHTML(d)+'<p class="print-credit">'+(d.language==='ar'?'من رسومي ومعانيّ · مدرسة العائلة 360':'My pictures and meanings · Family School 360')+'</p>';var nodes=container.querySelectorAll('[data-page-art]');for(var i=0;i<nodes.length;i++)P.artwork(nodes[i].getContext('2d'),d.pages[i].commands,1000,700);w.print()}
+function withArt(d,action){
+  if(!d)return;
+  save();stopAudio();
+  var owner=profile;
+  B.ready(d.pages,function(loaded){
+    if(owner!==profile)return;
+    if(!loaded){notify(t('تعذر تحميل صورة من اللوحة. جرّب الطباعة أو التصدير مرة أخرى بعد تحميلها.','A picture could not load. Try printing or exporting again after it loads.'));return}
+    action(d);
+  });
+}
+function printArtifact(d){
+  withArt(d,function(art){
+    var container=$('printStudio');
+    container.innerHTML=artworkHTML(art)+'<p class="print-credit">'+t('رسومي · مدرسة العائلة 360','My pictures · Family School 360')+'</p>';
+    var nodes=container.querySelectorAll('[data-page-art]');
+    for(var i=0;i<nodes.length;i++)B.picture(nodes[i],art.pages[i].commands);
+    w.print();
+  });
+}
 function wrapText(ctx,text,x,y,maxWidth,lineHeight){var words=String(text||'').split(/\s+/),line='';for(var i=0;i<words.length;i++){var next=line+(line?' ':'')+words[i];if(ctx.measureText(next).width>maxWidth&&line){ctx.fillText(line,x,y);y+=lineHeight;line=words[i]}else line=next}if(line){ctx.fillText(line,x,y);y+=lineHeight}return y}
-function exportPNG(d){if(!d)return;for(var i=0;i<d.pages.length;i++){var c=doc.createElement('canvas');c.width=1200;c.height=1400;var x=c.getContext('2d');x.font='30px Tahoma,Arial';var textHeight=wrapText(x,d.pages[i].caption,-5000,0,1000,53);x.font='24px Tahoma,Arial';textHeight+=wrapText(x,d.pages[i].dictation,-5000,0,1000,43);c.height=Math.max(1400,1160+textHeight);x=c.getContext('2d');x.fillStyle='#fffaf1';x.fillRect(0,0,c.width,c.height);var a=doc.createElement('canvas');a.width=1100;a.height=770;P.artwork(a.getContext('2d'),d.pages[i].commands,1100,770);x.drawImage(a,50,190);x.fillStyle='#51407f';x.textAlign='center';x.direction=d.language==='ar'?'rtl':'ltr';x.font='bold 35px Tahoma,Arial';wrapText(x,d.title,600,75,1050,50);x.font='24px Tahoma,Arial';wrapText(x,d.recipient?((d.language==='ar'?'إلى: ':'To: ')+d.recipient):'',600,140,1050,40);x.font='30px Tahoma,Arial';var textEnd=wrapText(x,d.pages[i].caption,600,1030,1000,53);x.font='24px Tahoma,Arial';wrapText(x,d.pages[i].dictation,600,textEnd+10,1000,43);x.font='18px Tahoma,Arial';x.fillStyle='#8b808f';x.fillText(d.language==='ar'?'مدرسة العائلة 360':'Family School 360',600,c.height-40);var link=doc.createElement('a');link.download='meaning-studio-page-'+(i+1)+'.png';link.href=c.toDataURL('image/png');doc.body.appendChild(link);link.click();link.parentNode.removeChild(link)}}
+function exportPNG(d){withArt(d,saveImages)}
+function saveImages(d){for(var i=0;i<d.pages.length;i++){var c=doc.createElement('canvas');c.width=1200;c.height=1400;var x=c.getContext('2d');x.font='30px Tahoma,Arial';var textHeight=wrapText(x,d.pages[i].caption,-5000,0,1000,53);x.font='24px Tahoma,Arial';textHeight+=wrapText(x,d.pages[i].dictation,-5000,0,1000,43);c.height=Math.max(1400,1160+textHeight);x=c.getContext('2d');x.fillStyle='#fffaf1';x.fillRect(0,0,c.width,c.height);var a=doc.createElement('canvas');a.width=1100;a.height=770;B.picture(a,d.pages[i].commands);x.drawImage(a,50,190);x.fillStyle='#51407f';x.textAlign='center';x.direction=d.language==='ar'?'rtl':'ltr';x.font='bold 35px Tahoma,Arial';wrapText(x,d.title,600,75,1050,50);x.font='24px Tahoma,Arial';wrapText(x,d.recipient?((d.language==='ar'?'إلى: ':'To: ')+d.recipient):'',600,140,1050,40);x.font='30px Tahoma,Arial';var textEnd=wrapText(x,d.pages[i].caption,600,1030,1000,53);x.font='24px Tahoma,Arial';wrapText(x,d.pages[i].dictation,600,textEnd+10,1000,43);x.font='18px Tahoma,Arial';x.fillStyle='#8b808f';x.fillText(d.language==='ar'?'مدرسة العائلة 360':'Family School 360',600,c.height-40);var link=doc.createElement('a');link.download='meaning-studio-page-'+(i+1)+'.png';link.href=c.toDataURL('image/png');doc.body.appendChild(link);link.click();link.parentNode.removeChild(link)}}
 function openDB(){if(db){try{db.close()}catch(e){}db=null}if(!w.indexedDB)return;var owner=profile;try{var req=indexedDB.open('app360-meaning-studio-voices',1);req.onupgradeneeded=function(e){e.target.result.createObjectStore('voices')};req.onsuccess=function(){if(owner!==profile){req.result.close();return}db=req.result};req.onerror=function(){db=null}}catch(e){db=null}}
 function settleRecord(){recordPending=false;var callbacks=recordCallbacks;recordCallbacks=[];for(var i=0;i<callbacks.length;i++)callbacks[i]()}
 function stopRecording(done){recordGeneration++;clearTimeout(recordTimer);if(done){if(record||recordPending)recordCallbacks.push(done);else{done();return}}var old=record;record=null;if(old)try{old.stop()}catch(e){settleRecord()}if(recordStream){recordStream.getTracks().forEach(function(track){track.stop()});recordStream=null}var btn=doc.querySelector('[data-do="record"]');if(btn){btn.className='small';btn.innerHTML=icon('mic')+' '+t('أسجل حكايتي','Record my voice')}}
@@ -101,20 +368,43 @@ function startRecording(){stopAudio();if(recordPending){notify(t('جارٍ حف�
 function playRecording(ref){if(!db||!ref)return;var owner=profile;try{var r=db.transaction('voices').objectStore('voices').get(ref);r.onsuccess=function(){if(owner!==profile)return;if(!r.result){notify(t('لم نجد التسجيل على هذا الجهاز.','Recording was not found on this device.'));return}if(recordURL)URL.revokeObjectURL(recordURL);recordURL=URL.createObjectURL(r.result);play(recordURL)}}catch(e){notify(t('تعذر فتح التسجيل.','Recording could not be opened.'))}}
 function deleteRecording(ref){if(!ref||!db)return;try{db.transaction('voices','readwrite').objectStore('voices').delete(ref)}catch(e){}}
 function cleanupRecordings(){if(!db)return;var prefix=encodeURIComponent(profile)+':',used={};function scan(d){if(!d)return;d.pages.forEach(function(p){if(p.recording_ref)used[p.recording_ref]=true});d.original_attempts.forEach(function(a){a.pages.forEach(function(p){if(p.recording_ref)used[p.recording_ref]=true})})}scan(S.draft);S.saved.forEach(scan);try{var tr=db.transaction('voices','readwrite'),req=tr.objectStore('voices').openCursor();req.onsuccess=function(){var c=req.result;if(!c)return;if(String(c.key).indexOf(prefix)===0&&!used[c.key])c.delete();c.continue()}}catch(e){}}
-function offlineLabel(){$('releaseBadge').textContent=t('نسخة تجريبية','Preview');$('offlineStatus').textContent=!navigator.serviceWorker?t('الحفظ المحلي متاح؛ التثبيت دون اتصال غير متاح في هذا المتصفح','Local saves are available; offline installation is unavailable in this browser'):offlineReady?t('الرسم والمحتوى والصوت جاهزة دون اتصال','Drawing, content and audio ready offline'):navigator.onLine===false?t('دون اتصال · تابع المحتوى المتاح','Offline · use available content'):t('تجهيز حزمة الرسم والصوت…','Preparing drawing and audio pack…')}
-function checkOffline(){if(offlineReady||!w.caches)return;try{caches.open('a4-draw-write-preview-1').then(function(c){return c.match('./offline-ready.json')}).then(function(r){offlineReady=!!r;offlineLabel()}).catch(function(){})}catch(e){}}
+function offlineLabel(){
+  $('offlineStatus').textContent=!navigator.serviceWorker?'':offlineReady?t('جاهز للرسم دون اتصال','Ready to draw offline'):navigator.onLine===false?t('دون اتصال','Offline'):'';
+}
+function checkOffline(){
+  if(offlineReady||!w.caches||!w.APP360_OFFLINE_ROOT||!w.URL)return;
+  var root=w.APP360_OFFLINE_ROOT,prefix='app360-offline-'+encodeURIComponent(new URL(root).pathname)+'-';
+  caches.match(root+'__offline_state__',{cacheName:prefix+'meta-v1'}).then(function(r){return r?r.json():{}}).then(function(state){
+    var entry=state['a4-draw-write'];
+    if(entry&&entry.cache)return caches.match(root+'apps/4-8/draw-write-studio/src/board.js',{cacheName:entry.cache});
+  }).then(function(board){
+    offlineReady=!!board;offlineLabel();
+  }).catch(function(){});
+}
 w.APP360_PWA_BEFORE_RELOAD=function(done){save();stopAudio();stopRecording(function(){save();done()})};
 w.APP360_PWA_APPLY_PENDING=function(){return false};
 load(identity());
+try{history.replaceState(historyState(),'','')}catch(e){}
 doc.addEventListener('click',function(e){var n=e.target;while(n&&n!==doc){if(n.getAttribute&&n.getAttribute('data-do')){if(!n.disabled)action(n.getAttribute('data-do'),n.getAttribute('data-value'));return}n=n.parentNode}},false);
 doc.addEventListener('input',onInput,false);
-doc.addEventListener('change',function(e){onInput(e);var n=e.target;if(n.getAttribute&&n.getAttribute('data-focus-toggle')!==null){var a=api();if(!coachAllowed()||!a||!a.setReadingFocus||!a.setReadingFocus(!!n.checked))notify(t('يدير مسؤول الجلسة هذا الاختيار.','The session coach manages this setting.'));syncFocusUI()}if(n.id==='penWidth')penWidth=Number(n.value)||8;if(n.id==='supportLevel'&&coachAllowed()){if(S.draft)M.checkpoint(S.draft,'support-change');S.assistance=n.value;if(S.draft)S.draft.assistance_level=n.value;save()}if(n.id==='importFile')importFile(n.files[0])},false);
-w.addEventListener('resize',function(){save();if(drawBinding)drawBinding.resize();if(guideBinding){drawGuide();guideBinding.resize()}},false);
+doc.addEventListener('change',function(e){onInput(e);var n=e.target;if(n.getAttribute&&n.getAttribute('data-focus-toggle')!==null){var a=api();if(!coachAllowed()||!a||!a.setReadingFocus||!a.setReadingFocus(!!n.checked))notify(t('يدير مسؤول الجلسة هذا الاختيار.','The session coach manages this setting.'));syncFocusUI()}if(n.id==='photoGroup'){var group=Number(n.value);if(O.photos.groups[group]){photoGroup=group;paintOptions();$('photoGroup').focus()}}if(n.id==='supportLevel'&&coachAllowed()){if(S.draft)M.checkpoint(S.draft,'support-change');S.assistance=n.value;if(S.draft)S.draft.assistance_level=n.value;save()}if(n.id==='importFile')importFile(n.files[0])},false);
+w.addEventListener('resize',function(){
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(function(){if(drawBinding)drawBinding.resize();if(guideBinding){drawGuide();guideBinding.resize()}},80);
+},false);
 w.addEventListener('beforeunload',function(){save();stopAudio();stopRecording()},false);
 w.addEventListener('pagehide',function(){save();stopAudio();stopRecording()},false);
 doc.addEventListener('visibilitychange',function(){if(doc.hidden){save();stopAudio();stopRecording()}},false);
-w.addEventListener('popstate',function(){save();stopAudio();stopRecording();if(guideOpen){guideOpen=false;render();return}if(view==='studio'&&S.draft.stage!=='draw'){S.draft.stage=S.draft.stage==='review'?'meaning':'draw';go('studio',false)}else go('library',false)},false);
+w.addEventListener('popstate',function(e){
+  var state=e.state;save();stopAudio();stopRecording();guideOpen=false;
+  if(state&&state.studio){
+    if(state.view==='studio'&&S.draft&&S.draft.id===state.draft){S.draft.stage=state.stage;go('studio',false);return}
+    if(state.view==='review-saved'&&artifactById(state.savedId)){savedId=state.savedId;go('review-saved',false);return}
+    if(state.view==='saved'||state.view==='coach'){go(state.view,false);return}
+  }
+  go('library',false);
+},false);
 setInterval(function(){var p=identity();if(p!==profile&&!profileSwitchPending){profileSwitchPending=true;save();stopAudio();stopRecording(function(){if(recordURL){URL.revokeObjectURL(recordURL);recordURL=''}load(identity());profileSwitchPending=false})}else if(view==='coach'&&!coachAllowed())render();syncFocusUI();checkOffline()},1400);
 setTimeout(checkOffline,1200);
-w.APP360_STUDIO={version:'preview-1',snapshot:function(){return M.copy(S)},profile:function(){return profile},open:openMission,reading:function(){return readAlong.debug()},exportData:function(){return M.exportData(S.saved)},isOfflineReady:function(){return offlineReady},audio:function(){return{path:audioPath,state:audioStatus}},debug:function(){return{storageOK:storageOK,corrupt:corrupt,view:view,recording:!!record}},stop:stopAudio};
+w.APP360_STUDIO={version:'2',snapshot:function(){return M.copy(S)},profile:function(){return profile},open:openMission,reading:function(){return readAlong.debug()},exportData:function(){return M.exportData(S.saved)},isOfflineReady:function(){return offlineReady},audio:function(){return{path:audioPath,state:audioStatus}},debug:function(){return{storageOK:storageOK,corrupt:corrupt,view:view,recording:!!record}},stop:stopAudio};
 })(window,document);
