@@ -90,8 +90,10 @@ function updateBundle(file, pack, entry) {
 }
 
 const files = ['app.js','app.json','index.html','launch.html','links.json','styles.css','icon.svg','icon-192.png','icon-512.png','manifest.webmanifest','data/photos.js','src/model.js','src/options.js','src/board.js'];
-const shared = new Map(['data/catalog.json','data/public-links.json','data/app-links-registry.json','links.html'].map(name => [name, record(name)]));
-for (const name of [...files.map(name => studio + name), ...media]) records.set(name, record(name));
+const studioFiles = files.map(name => studio + name);
+const portals = ['data/catalog.json','data/public-links.json','data/app-links-registry.json','links.html'];
+const shared = new Map(portals.concat(studioFiles).map(name => [name, record(name)]));
+for (const name of [...studioFiles, ...media]) records.set(name, shared.get(name) || record(name));
 for (const row of shared.values()) if (records.has(row.path)) records.set(row.path, row);
 const catalog = json('data/offline-catalog.json');
 const entry = catalog.apps.find(app => app.id === 'a4-draw-write');
@@ -101,7 +103,7 @@ Object.assign(entry, {
   title: 'مرسم العائلة: أرسم وأكتب رسالة', release: '2',
   updateNote: 'رسم حر وأدوات وصور أشيائي، ووصْل الانقطاعات القصيرة للقلم على الأجهزة القديمة.'
 });
-// Other downloads also pin shared portal metadata. Refresh those records in place.
+// Other downloads also pin portal metadata and selected Studio entry files.
 for (const app of catalog.apps) {
   if (app === entry) continue;
   const pack = json(app.manifest);
