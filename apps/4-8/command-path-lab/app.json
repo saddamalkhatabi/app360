@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 7,
+  "version": 8,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -35,7 +35,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "المس المربع أمام الروبوت أو اسحب طريقًا ملاصقًا ← غيّر اتجاهه بالنقر المزدوج أو أزرار الدوران ← بدّل بين اللمس وأزرار الاتجاهات مع بناء البطاقات تلقائيًا ← أعد الطريق واحفظه؛ رسم التوقع أداة اختيارية مستقلة",
+  "practice_model_ar": "حرّك فِتيل بأمر واحد ← ابنِ سلسلة قصيرة وشغّلها ← صحّح بطاقة أو بدّل ترتيبها ← توقّع مكان الوقوف واستخدم بطاقة التكرار في مسار جديد.",
   "blueprint_path": "apps/4-8/command-path-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/command-path-lab/PROMPT_AR.md",
   "branding": {
@@ -54,6 +54,16 @@
     "schema_version": 1,
     "profile_scoped": true,
     "key": "app360:a4-command-path:schema-1:<profile>"
+  },
+  "journey": {
+    "default_entry": true,
+    "worlds": 3,
+    "missions": 15,
+    "mission_narrations": 32,
+    "checkpoint_count": 3,
+    "free_play": true,
+    "workshop_query": "mode=workshop",
+    "progress_key": "app360:a4-command-path:journey-1:<profile>"
   },
   "learning_levels": [
     {

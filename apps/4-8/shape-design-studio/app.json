@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/shape-design-studio/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/shape-design-studio/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 1,
+  "version": 2,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "افهم شرطًا واحدًا مثل ملء الإطار أو صنع شكل متناظر ← اختر قطعًا كبيرة وجرّب التدوير والانعكاس أو بدائل الأزرار ← تحقق من التغطية أو التماثل واعرض تلميحًا عند الطلب ← اصنع حلًا آخر أو لغزًا لصديق ثم ارسمه أو اطبعه",
+  "practice_model_ar": "يسحب الطفل القطع من الدرج، ويديرها ليملأ الشكل، ثم يجمع الزوايا ويختار زاوية قصّ البلاط ويحل مشاريع تبليط تكشف الفراغات والتداخل وتتيح استخدام القصاصات.",
   "blueprint_path": "apps/4-8/shape-design-studio/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/shape-design-studio/PROMPT_AR.md",
   "branding": {
@@ -94,5 +94,11 @@
   "numeral_policy": {
     "ar": "Arabic voice and native Arabic numerals",
     "en": "English voice and numerals"
+  },
+  "workshop": {
+    "levels": 4,
+    "projects": 16,
+    "entry": "index.html",
+    "progress": "app360:a4-shape-workshop:1:<profile>"
   }
 }
