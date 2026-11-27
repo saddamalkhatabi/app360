@@ -48,3 +48,11 @@ test('English instructions stay visible when a device has no speech engine',()=>
  h.timers[0]();
  assert.equal(h.win.A1ScenePlayer.state().frame,1);
 });
+
+test('an explicit age wins over stale age and level parameters',()=>{
+ assert.equal(routes.parse('?launch_age=4-8&level=1').level,5);
+ assert.equal(routes.parse('?launch_age=1-4&age=4-8&launch_level=5').age,'1-4');
+ assert.equal(routes.parse('?launch_age=1-4&launch_level=5').level,0);
+ assert.equal(routes.parse('?age=4-8').age,'4-8');
+ assert.equal(routes.parse('?level=5').age,'4-8');
+});
