@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/shape-design-studio/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/shape-design-studio/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -36,7 +36,7 @@
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "يسحب الطفل القطع من الدرج، ويديرها ليملأ الشكل، ثم يجمع الزوايا ويختار زاوية قصّ البلاط ويحل مشاريع تبليط تكشف الفراغات والتداخل وتتيح استخدام القصاصات.",
+  "practice_model_ar": "يركّب الطفل القطع ويجمع الزوايا ويقصّ البلاط. تتحقق الورشة من اكتمال الشكل تلقائيًا وتحدد موضع الخطأ. يقترح المدرب مساعدة مناسبة، وتتيح خطط الممارسة بدء مهارة محددة واستئنافها.",
   "blueprint_path": "apps/4-8/shape-design-studio/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/shape-design-studio/PROMPT_AR.md",
   "branding": {
@@ -99,6 +99,15 @@
     "levels": 4,
     "projects": 16,
     "entry": "index.html",
-    "progress": "app360:a4-shape-workshop:1:<profile>"
-  }
+    "progress": "app360:a4-shape-workshop:1:<profile>",
+    "practice": {
+      "plans": 5,
+      "verification": "automatic-geometry",
+      "events": {
+        "practiced": "app360:shape-trainer:practice",
+        "complete": "app360:shape-trainer:sessioncomplete"
+      }
+    }
+  },
+  "coach_contract": "data/coach-routes.json"
 }

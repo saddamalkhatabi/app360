@@ -1,1 +1,129 @@
-{"schema_version":"1.1","app_id":"a4-shape-design","title_ar":"مهندسو الأشكال: أبني وأفسّر","base_path":"apps/4-8/shape-design-studio/","app_href":"apps/4-8/shape-design-studio/index.html","launch_path":"apps/4-8/shape-design-studio/launch.html","domain_policy":"relative-only","events":"app360:interop:v1:events","routes":[{"id":"shape-library","kind":"category","label_ar":"تجارب البناء بالأشكال","href":"apps/4-8/shape-design-studio/launch.html"},{"id":"shape-experience","kind":"activity","label_ar":"تجربة بناء جاهزة","href_template":"apps/4-8/shape-design-studio/launch.html?experience={experience}"}],"interop_params":["caller","launch_id","return_to","embedded"]}
+{
+  "schema_version": "1.1",
+  "app_id": "a4-shape-design",
+  "title_ar": "مهندسو الأشكال: أبني وأفسّر",
+  "base_path": "apps/4-8/shape-design-studio/",
+  "app_href": "apps/4-8/shape-design-studio/index.html",
+  "launch_path": "apps/4-8/shape-design-studio/launch.html",
+  "domain_policy": "relative-only",
+  "events": "app360:interop:v1:events",
+  "routes": [
+    {
+      "id": "shape-library",
+      "kind": "category",
+      "label_ar": "تجارب البناء بالأشكال",
+      "href": "apps/4-8/shape-design-studio/launch.html"
+    },
+    {
+      "id": "shape-experience",
+      "kind": "activity",
+      "label_ar": "تجربة بناء جاهزة",
+      "href_template": "apps/4-8/shape-design-studio/launch.html?experience={experience}"
+    },
+    {
+      "id": "shapes-build",
+      "kind": "collection",
+      "label_ar": "تركيب الأشكال وتدويرها",
+      "label_en": "Fit and turn shapes",
+      "age_group": "4-8",
+      "href": "apps/4-8/shape-design-studio/launch.html?action=session&launch_age=4-8&route_ids=shapes-build",
+      "collection_source": "data/coach-routes.json",
+      "params": [
+        "action",
+        "launch_age",
+        "route_ids",
+        "resume",
+        "caller",
+        "launch_id",
+        "return_to"
+      ],
+      "scope": "coach-practice"
+    },
+    {
+      "id": "shapes-angles",
+      "kind": "collection",
+      "label_ar": "جمع الزوايا وقياسها",
+      "label_en": "Measure and combine angles",
+      "age_group": "4-8",
+      "href": "apps/4-8/shape-design-studio/launch.html?action=session&launch_age=4-8&route_ids=shapes-angles",
+      "collection_source": "data/coach-routes.json",
+      "params": [
+        "action",
+        "launch_age",
+        "route_ids",
+        "resume",
+        "caller",
+        "launch_id",
+        "return_to"
+      ],
+      "scope": "coach-practice"
+    },
+    {
+      "id": "shapes-cut",
+      "kind": "collection",
+      "label_ar": "اختيار زاوية القص",
+      "label_en": "Choose the cut angle",
+      "age_group": "4-8",
+      "href": "apps/4-8/shape-design-studio/launch.html?action=session&launch_age=4-8&route_ids=shapes-cut",
+      "collection_source": "data/coach-routes.json",
+      "params": [
+        "action",
+        "launch_age",
+        "route_ids",
+        "resume",
+        "caller",
+        "launch_id",
+        "return_to"
+      ],
+      "scope": "coach-practice"
+    },
+    {
+      "id": "shapes-floors",
+      "kind": "collection",
+      "label_ar": "مشاريع تبليط الأرضيات",
+      "label_en": "Floor tiling projects",
+      "age_group": "4-8",
+      "href": "apps/4-8/shape-design-studio/launch.html?action=session&launch_age=4-8&route_ids=shapes-floors",
+      "collection_source": "data/coach-routes.json",
+      "params": [
+        "action",
+        "launch_age",
+        "route_ids",
+        "resume",
+        "caller",
+        "launch_id",
+        "return_to"
+      ],
+      "scope": "coach-practice"
+    },
+    {
+      "id": "shapes-review",
+      "kind": "collection",
+      "label_ar": "من أول قطعة إلى أرضية",
+      "label_en": "From a first tile to a floor",
+      "age_group": "4-8",
+      "href": "apps/4-8/shape-design-studio/launch.html?action=session&launch_age=4-8&route_ids=shapes-review",
+      "collection_source": "data/coach-routes.json",
+      "params": [
+        "action",
+        "launch_age",
+        "route_ids",
+        "resume",
+        "caller",
+        "launch_id",
+        "return_to"
+      ],
+      "scope": "coach-practice"
+    }
+  ],
+  "interop_params": [
+    "caller",
+    "launch_id",
+    "return_to",
+    "embedded",
+    "action",
+    "launch_age",
+    "route_ids",
+    "resume"
+  ]
+}

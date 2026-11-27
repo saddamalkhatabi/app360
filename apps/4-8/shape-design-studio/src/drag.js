@@ -6,13 +6,14 @@
     var active = null, gate = null, ignoreMouseUntil = 0;
     var options = { capture: true, passive: false };
 
-    function start(event, point, id, source) {
+    function start(event, point, id, source, isTouch) {
       if (active) return;
       gate = null;
       var item = adapter.pick(event.target, point.clientX, point.clientY);
-      if (!item) return;
-      active = { item: item, id: id, source: source, x: point.clientX, y: point.clientY, moved: false };
-      if (source === 'pointer' && event.target.setPointerCapture) {
+      var tap = isTouch && adapter.tapTarget(event.target);
+      if (!item && !tap) return;
+      active = { item: item, tap: tap, id: id, source: source, x: point.clientX, y: point.clientY, moved: false };
+      if (item && source === 'pointer' && event.target.setPointerCapture) {
         try { event.target.setPointerCapture(id); } catch (error) { /* Document listeners still receive moves. */ }
       }
     }
@@ -22,6 +23,7 @@
       var dx = point.clientX - active.x, dy = point.clientY - active.y;
       if (!active.moved && dx * dx + dy * dy < 25) return;
       active.moved = true;
+      if (!active.item) return;
       if (event.cancelable) event.preventDefault();
       adapter.preview(active.item, point.clientX, point.clientY);
     }
@@ -31,8 +33,16 @@
       var gesture = active;
       active = null;
       adapter.clear();
-      if (!gesture.moved) return;
       var x = point ? point.clientX : gesture.x, y = point ? point.clientY : gesture.y;
+      if (!gesture.moved) {
+        if (!cancelled && gesture.tap) {
+          gate = { time: Date.now(), x: x, y: y, fromX: gesture.x, fromY: gesture.y };
+          if (event && event.cancelable) event.preventDefault();
+          adapter.tap(x, y);
+        }
+        return;
+      }
+      if (!gesture.item) return;
       gate = { time: Date.now(), x: x, y: y, fromX: gesture.x, fromY: gesture.y };
       if (event && event.cancelable) event.preventDefault();
       if (!cancelled) adapter.drop(gesture.item, x, y);
@@ -52,7 +62,7 @@
 
     if (root.PointerEvent) {
       doc.addEventListener('pointerdown', function (e) {
-        if (e.button === 0 && e.isPrimary !== false) start(e, e, e.pointerId, 'pointer');
+        if (e.button === 0 && e.isPrimary !== false) start(e, e, e.pointerId, 'pointer', e.pointerType === 'touch');
       }, true);
       doc.addEventListener('pointermove', function (e) { move(e, e, e.pointerId); }, options);
       doc.addEventListener('pointerup', function (e) { end(e, e, e.pointerId, false); }, true);
@@ -61,7 +71,7 @@
     } else {
       doc.addEventListener('touchstart', function (e) {
         if (e.touches.length === 1 && e.changedTouches.length)
-          start(e, e.changedTouches[0], e.changedTouches[0].identifier, 'touch');
+          start(e, e.changedTouches[0], e.changedTouches[0].identifier, 'touch', true);
         else if (active && active.source === 'touch') cancel();
       }, options);
       doc.addEventListener('touchmove', function (e) {

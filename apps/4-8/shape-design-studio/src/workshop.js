@@ -1,4 +1,4 @@
-(function (root, doc, G, content) {
+(function (root, doc, G, content, Coach) {
   'use strict';
 
   var WIDTH = 480, HEIGHT = 310;
@@ -28,7 +28,8 @@
   function mount(host, context) {
     var profile, state, mission, draft, selected, undo, message, check, blade, drag;
     var language, storageOK = true, localMemory = {};
-    var byId = {};
+    var training = null, showPlans = false, prompt = '', heard = '';
+    var byId = Object.create(null);
     var paths = {
       build: 'M5 13h6v6H5z M13 13h6v6h-6z M5 11l7-7 7 7z',
       angle: 'M4 19h16M4 19l11-13M12 19a8 8 0 0 0-3-6',
@@ -40,7 +41,8 @@
       undo: 'M9 6 4 11l5 5m-5-5h10a5 5 0 0 1 0 10',
       check: 'm5 12 4 4L19 6',
       turn: 'M19 11A7 7 0 1 0 17 17m2-11v5h-5',
-      return: 'M5 12v7h14v-7M12 4v11m-4-4 4 4 4-4'
+      return: 'M5 12v7h14v-7M12 4v11m-4-4 4 4 4-4',
+      plan: 'M7 6h13M7 12h13M7 18h13M3 6h.01M3 12h.01M3 18h.01'
     };
     content.missions.forEach(function (item) { byId[item.id] = item; });
 
@@ -72,23 +74,29 @@
     }
     function storageKey() { return 'app360:a4-shape-workshop:1:' + encodeURIComponent(profile); }
     function save() {
-      state.current = mission.id;
-      state.drafts[mission.id] = G.copy(draft);
+      if (training) training.draft = G.copy(draft);
+      else {
+        state.current = mission.id;
+        state.drafts[mission.id] = G.copy(draft);
+      }
       localMemory[profile] = G.copy(state);
       try { root.localStorage.setItem(storageKey(), JSON.stringify(state)); storageOK = true; }
       catch (error) { storageOK = false; }
     }
     function load(id) {
       mission = byId[id];
-      draft = G.restore(mission, state.drafts[id]);
+      draft = G.restore(mission, training ? training.draft : state.drafts[id]);
       selected = null;
       check = null;
-      if (state.completed[id]) {
-        var result = G.evaluate(mission, draft);
-        if (result.ok) check = result;
+      var result = G.evaluate(mission, draft);
+      if (result.ok) {
+        check = result;
+        state.completed[id] = true;
       }
       undo = [];
       message = '';
+      prompt = '';
+      heard = '';
       blade = mission.stock ? (draft.cut === null ? 45 : draft.cut) : null;
     }
     function refresh(owner, locale) {
@@ -102,12 +110,23 @@
           catch (error) { storageOK = false; }
         }
         var object = saved && typeof saved === 'object' ? saved : {};
-        state = { current: 'courtyard', completed: {}, drafts: {} };
+        state = { current: byId[object.current] ? object.current : 'courtyard',
+          completed: {}, drafts: {}, practice: {}, activeRoute: '', coach: object.coach !== false };
         content.missions.forEach(function (item) {
           if (object.completed && object.completed[item.id] === true) state.completed[item.id] = true;
           if (object.drafts && object.drafts[item.id]) state.drafts[item.id] = object.drafts[item.id];
         });
-        load(byId[object.current] ? object.current : state.current);
+        Coach.plans.forEach(function (plan) {
+          var savedRun = object.practice && object.practice[plan.id];
+          if (savedRun) state.practice[plan.id] = Coach.session(plan.id, savedRun, true);
+        });
+        training = Coach.get(object.activeRoute) ? state.practice[object.activeRoute] || null : null;
+        if (training && training.status === 'paused') training = null;
+        showPlans = false;
+        if (training) {
+          state.activeRoute = training.route;
+          load(Coach.get(training.route).unit_ids[training.index]);
+        } else load(state.current);
       }
       render();
     }
@@ -117,14 +136,39 @@
       edit();
       message = '';
       check = null;
-      save();
+      verify(false);
     }
-    function changeMission(id, reset) {
+    function changeMission(id) {
       if (!byId[id]) return;
       save();
-      if (reset) delete state.drafts[id];
+      if (training && training.status === 'active') training.status = 'paused';
+      training = null;
+      state.activeRoute = '';
+      showPlans = false;
       load(id);
       save();
+    }
+    function startPlan(id, resume, narrate) {
+      if (!Coach.get(id)) return false;
+      save();
+      if (training && training.status === 'active') training.status = 'paused';
+      var prior = state.practice[id];
+      training = Coach.session(id, prior, resume && prior && prior.status !== 'complete');
+      if (training.status === 'paused') training.status = 'active';
+      state.practice[id] = training;
+      state.activeRoute = id;
+      showPlans = false;
+      load(Coach.get(id).unit_ids[training.index]);
+      save();
+      if (narrate && state.coach && !check) context.autospeak(mission.id, word(mission.task));
+      return true;
+    }
+    function nextPlanStep() {
+      if (!Coach.advance(training)) return false;
+      load(Coach.get(training.route).unit_ids[training.index]);
+      save();
+      if (state.coach) context.autospeak(mission.id, word(mission.task));
+      return true;
     }
     function placed(item, landing) {
       change(function () {
@@ -169,12 +213,12 @@
     function brief() {
       var group = content.missions.filter(function (m) { return m.level === mission.level; });
       return '<div class="ws-brief"><div><div class="ws-kicker">' + word(content.levels[mission.level].skill) + '</div>' +
-        '<h2>' + word(mission.title) + '</h2><p>' + word(mission.task) + '</p></div>' +
+        '<h2 id="ws-project-title" tabindex="-1">' + word(mission.title) + '</h2><p>' + word(mission.task) + '</p></div>' +
         button('listen', t('أسمع', 'Listen'), { icon: 'audio' }) + '</div>' +
-        '<nav class="ws-missions" aria-label="' + t('مهام المرحلة', 'Stage projects') + '">' + group.map(function (m) {
+        (training ? '' : '<nav class="ws-missions" aria-label="' + t('مهام المرحلة', 'Stage projects') + '">' + group.map(function (m) {
           return button('mission', word(m.title), { value: m.id, pressed: m === mission,
             icon: state.completed[m.id] ? 'check' : null });
-        }).join('') + '</nav>';
+        }).join('') + '</nav>');
     }
 
     function pieceLabel(p, index) {
@@ -283,17 +327,59 @@
       return content.missions[index + 1];
     }
 
+    function practiceBar() {
+      var plan = training && Coach.get(training.route);
+      return '<div class="ws-practice-bar">' +
+        (plan ? '<span>' + t(plan.label_ar, plan.label_en) + ' · ' +
+          counter(training.verified.length, plan.unit_ids.length) + '</span>' : '') +
+        button('plans', t('خطط الممارسة', 'Practice plans'), { icon: 'plan' }) +
+        (plan ? button('leave-plan', training.status === 'complete' ?
+          t('أعود للورشة', 'Back to the workshop') : t('أوقف الخطة مؤقتًا', 'Pause plan')) : '') +
+        (!showPlans ? button('coach-mode', t('المدرب الآلي', 'Automatic coach'), {
+          icon: 'hint', pressed: state.coach
+        }) : '') + '</div>';
+    }
+
+    function planList() {
+      return '<section class="ws-project ws-plans" aria-labelledby="ws-plans-heading">' +
+        '<div class="ws-brief"><div><h2 id="ws-plans-heading" tabindex="-1">' +
+        t('خطط الممارسة', 'Practice plans') + '</h2><p>' +
+        t('اختر المهارة التي تريد التدرّب عليها. كل خطة فيها أربع مهام قصيرة.', 'Choose a skill to practice. Each plan has four short projects.') +
+        '</p></div>' + button('plans-close', t('أعود للورشة', 'Back to the workshop')) + '</div>' +
+        '<div class="ws-plan-grid">' + Coach.plans.map(function (plan) {
+          var existing = state.practice[plan.id];
+          var resumable = existing && existing.status !== 'complete';
+          return '<article class="ws-plan-card"><h3>' + t(plan.label_ar, plan.label_en) + '</h3><p>' +
+            t(plan.goal_ar, plan.goal_en) + '</p><small>' +
+            t('نحو ', 'About ') + num(plan.estimated_minutes) + t(' دقائق', ' minutes') + ' · ' +
+            t('العمر المقترح ', 'Suggested age ') + '<bdi dir="ltr">' + num(plan.age_hint) + '</bdi>' +
+            (resumable ? ' · ' + counter(existing.verified.length, plan.unit_ids.length) : '') + '</small>' +
+            '<details><summary>' + t('مهام الخطة', 'Projects in this plan') + '</summary><ol>' +
+            plan.unit_ids.map(function (id) { return '<li>' + word(byId[id].title) + '</li>'; }).join('') + '</ol></details>' +
+            button('plan-start', resumable ? t('أتابع الخطة', 'Resume plan') :
+              existing ? t('أتمرّن مرة أخرى', 'Practice again') : t('أبدأ الخطة', 'Start plan'),
+              { value: plan.id, className: 'ws-action' }) + '</article>';
+        }).join('') + '</div></section>';
+    }
+
     function outcome() {
       if (!check && !message && !draft.hints) return '<p class="ws-status" aria-live="polite"></p>';
       if (check && check.ok) {
-        var next = nextMission();
+        var next = training ? null : nextMission();
+        var planDone = training && training.status === 'complete';
+        var keepGoing = training && !planDone ?
+          button('plan-next', t('المهمة التالية', 'Next project'), { className: 'ws-action' }) :
+          planDone ? button('plans', t('أختار خطة أخرى', 'Choose another plan'), { className: 'ws-action' }) :
+          next ? button('next', t('المهمة التالية', 'Next project'), { value: next.id, className: 'ws-action' }) :
+          button('first', t('أراجع المشاريع', 'Review projects'), { value: 'courtyard' });
         return '<section class="ws-success" role="status"><strong>' + icon('check') +
-          t('أحسنت، اكتمل المشروع!', 'Well done, project complete!') + '</strong><p>' + word(mission.insight) + '</p>' +
-          (next ? button('next', t('المهمة التالية', 'Next project'), { value: next.id, className: 'ws-action' }) :
-          button('first', t('أراجع المشاريع', 'Review projects'), { value: 'courtyard' })) +
-          button('reset', t('أعيد المحاولة', 'Play again')) + '</section>';
+          (planDone ? t('أحسنت، اكتملت خطة الممارسة!', 'Well done, practice plan complete!') :
+            t('أحسنت، اكتمل المشروع!', 'Well done, project complete!')) + '</strong><p>' + word(mission.insight) + '</p>' +
+          keepGoing + (!training ? button('reset', t('أعيد المحاولة', 'Play again')) : '') + '</section>';
       }
       return '<div class="ws-status" role="status">' + (message ? '<p>' + message + '</p>' : '') +
+        (state.coach && prompt && Coach.text(prompt, language) ? '<p>' + icon('hint') +
+          Coach.text(prompt, language) + button('speak-coach', '', { icon: 'audio', title: t('أسمع المدرب', 'Listen to the coach') }) + '</p>' : '') +
         (draft.hints ? '<p>' + icon('hint') + word(mission.hint) +
         (draft.hints === 2 ? t(' تتبّع حدود القطع المتقطعة على اللوحة.', ' Follow the dashed tile outlines on the board.') : '') +
         '</p>' : '') + '</div>';
@@ -301,6 +387,10 @@
 
     function render() {
       drag = null;
+      if (showPlans) {
+        host.innerHTML = '<div class="ws">' + header() + planList() + '</div>';
+        return;
+      }
       var result = G.evaluate(mission, draft);
       var boardLabel = t('التغطية', 'Coverage') + ' <bdi dir="ltr">' + num(result.coverage) + '%</bdi>';
       if (mission.vertex) {
@@ -309,17 +399,17 @@
           (angles.length > 1 ? angles.join(' + ') + ' = ' : '') + degrees(result.angleSum) + ' / ' +
           degrees(mission.targetAngle) + '</bdi>';
       }
-      host.innerHTML = '<div class="ws">' + header() + levelList() +
+      host.innerHTML = '<div class="ws">' + header() + (training ? '' : levelList()) + practiceBar() +
         '<article class="ws-project">' + brief() + '<div class="ws-work"><section class="ws-board-area">' +
         '<div class="ws-board-heading"><h3>' + t('لوحة العمل', 'Workboard') + '</h3><span>' + boardLabel + '</span></div>' +
         '<button id="ws-board" class="ws-board" type="button" data-ws="board" aria-label="' +
         t('لوحة العمل. اختر قطعة وضعها باللمس أو استخدم الأسهم لتحريكها.', 'Workboard. Select a tile, then tap to place it or use the arrow keys.') +
         '">' + board() + '</button><div class="ws-board-foot"><span>' + icon('hand') +
-        t('اسحب القطعة أو اخترها واضغط مكانها', 'Drag a tile, or select it and tap its place') + '</span></div></section>' +
+        t('اسحب القطعة أو اخترها واضغط مكانها', 'Drag a tile, or select it and tap its place') + '</span></div>' + outcome() + '</section>' +
         '<div class="ws-work-tools">' + tray() + toolBox() + cutGuide() + '</div></div>' +
-        '<div class="ws-actions">' + button('check', t('أتحقّق', 'Check my work'), { icon: 'check', className: 'ws-action' }) +
+        '<div class="ws-actions">' + button('check', t('أتحقّق الآن', 'Check now'), { icon: 'check' }) +
         button('hint', t('تلميح', 'Hint'), { icon: 'hint' }) +
-        button('reset', t('أبدأ من جديد', 'Start again')) + '</div>' + outcome() +
+        (!training || !(check && check.ok) ? button('reset', t('أبدأ من جديد', 'Start again')) : '') + '</div>' +
         (!storageOK ? '<p class="ws-status">' + t('التقدّم محفوظ لهذه الجلسة فقط.', 'Progress is saved for this session only.') + '</p>' : '') +
         '</article></div>';
       layout();
@@ -329,11 +419,15 @@
       var boardArea = host.querySelector('.ws-board-area');
       var trayNode = host.querySelector('.ws-tray');
       var tools = host.querySelector('.ws-work-tools');
+      var project = host.querySelector('.ws-project');
+      var projects = host.querySelector('.ws-missions');
       if (!boardArea || !trayNode || !tools) return;
       if (root.innerWidth <= 700) {
         if (trayNode.parentNode !== boardArea.parentNode) boardArea.parentNode.insertBefore(trayNode, boardArea);
-      } else if (trayNode.parentNode !== tools) {
-        tools.insertBefore(trayNode, tools.firstChild);
+        if (projects) project.insertBefore(projects, project.querySelector('.ws-actions').nextSibling);
+      } else {
+        if (trayNode.parentNode !== tools) tools.insertBefore(trayNode, tools.firstChild);
+        if (projects) project.insertBefore(projects, project.querySelector('.ws-work'));
       }
     }
 
@@ -372,20 +466,57 @@
       var node = actionNode(ev.target);
       return node && !node.disabled && context.active() ? node : null;
     }
-    function verify() {
-      check = G.evaluate(mission, draft);
-      if (check.ok) {
+    function activateBoard(point, usePosition) {
+      if (!onBoard(point)) return;
+      var p = find(selected);
+      var existing = usePosition ? hit(point) : null;
+      if (existing && (!p || p.placed)) selected = existing.id;
+      else if (p) placed(p, candidate(point, grip(p)));
+      else message = t('اختر قطعة من الدرج أولًا.', 'Choose a tile from the tray first.');
+    }
+    function verify(manual) {
+      var result = G.evaluate(mission, draft);
+      prompt = Coach.assessment(mission, draft, result, manual);
+      check = prompt ? result : null;
+      var trained = false, finished = false, report;
+      if (result.ok) {
         state.completed[mission.id] = true;
-        save();
-        return;
+        if (training && training.status === 'active' && training.verified.length === training.index) {
+          finished = Coach.completeStep(training, mission.id);
+          trained = true;
+          report = { app_id: 'a4-shape-design', route_id: training.route, unit_id: mission.id,
+            verified_units: training.verified.slice(), evidence: 'verified-geometry' };
+        }
+      } else if (check) {
+        if (result.needsCut) message = t('قصّ بلاطة لتصنع قطعة تناسب الحافة.', 'Cut a tile to make a piece that fits the edge.');
+        else if (!result.count) message = t('اسحب قطعة من الدرج إلى حدود الشكل.', 'Drag a tile from the tray into the outline.');
+        else if (result.outside > G.epsilon) message = t('الخط الأحمر يحدد قطعة تجاوزت الحافة.', 'A red outline marks a piece that crosses the edge.');
+        else if (result.overlap.length) message = t('الخطوط الحمراء تحدد مكان التداخل.', 'Red stripes show where pieces overlap.');
+        else message = t('المنطقة الزرقاء المتقطعة تحتاج إلى قطعة تناسبها.', 'The dashed blue area still needs a piece that fits.');
       }
-      var notes = [];
-      if (check.needsCut) notes.push(t('جرّب طاولة القص لتصنع قطعة تناسب الحافة.', 'Try the cutting bench to make a piece that fits the edge.'));
-      if (!check.count) notes.push(t('اسحب قطعة من الدرج إلى حدود الشكل.', 'Drag a tile from the tray into the outline.'));
-      if (check.outside > G.epsilon) notes.push(t('جزء من البلاط تجاوز الحد. حرّك القطعة المحددة بخط أحمر.', 'A tile crosses the boundary. Move the piece marked with a red outline.'));
-      if (check.overlap.length) notes.push(t('الخطوط الحمراء تبيّن أين تراكبت القطع.', 'Red stripes show where tiles overlap.'));
-      if (check.count && check.missing > G.epsilon) notes.push(t('المناطق الزرقاء المتقطعة فراغات تحتاج إلى قطع.', 'The dashed blue areas still need tiles.'));
-      message = notes.join(' ');
+      save();
+      var advice = Coach.text(prompt, language);
+      if (state.coach && advice && !(prompt === 'done' && (finished || (!training && !nextMission()))) &&
+          heard !== prompt) {
+        heard = prompt;
+        context.autospeak('coach-' + prompt, advice);
+      }
+      if (trained) context.emit('app360:shape-trainer:practice', report);
+      if (finished) context.emit('app360:shape-trainer:sessioncomplete', report);
+    }
+
+    function focus(id) {
+      var heading = doc.getElementById(id);
+      if (heading) heading.focus();
+    }
+
+    function liftOutcome() {
+      if (!check || !check.ok || root.innerWidth > 700) return;
+      var next = host.querySelector('.ws-success .ws-action');
+      if (next && next.getBoundingClientRect().bottom > root.innerHeight) {
+        try { next.scrollIntoView({ block: 'nearest' }); }
+        catch (error) { next.scrollIntoView(false); }
+      }
     }
 
     host.addEventListener('click', function (ev) {
@@ -393,18 +524,46 @@
       if (!node) return;
       var command = node.getAttribute('data-ws'), value = node.getAttribute('data-value'), p = find(selected);
       if (command === 'listen') { context.speak(mission.id, word(mission.task)); return; }
+      if (command === 'speak-coach') { context.speak('coach-' + prompt, Coach.text(prompt, language)); return; }
+      if (command === 'coach-mode') {
+        state.coach = !state.coach;
+        if (!state.coach) context.stop();
+        else heard = '';
+        save();
+      }
+      if (command === 'plans' || command === 'plans-close') {
+        showPlans = command === 'plans';
+        context.stop();
+        render();
+        focus(showPlans ? 'ws-plans-heading' : 'ws-project-title');
+        return;
+      }
+      if (command === 'leave-plan') {
+        context.stop();
+        changeMission(state.current);
+        render();
+        focus('ws-project-title');
+        return;
+      }
+      if (command === 'plan-start' || command === 'plan-next') {
+        context.stop();
+        if (command === 'plan-next') nextPlanStep();
+        else startPlan(value, !state.practice[value] || state.practice[value].status !== 'complete', true);
+        render();
+        focus('ws-project-title');
+        return;
+      }
       if (command === 'mission' || command === 'next' || command === 'first') {
         context.stop();
         changeMission(value);
+        render();
+        focus('ws-project-title');
+        return;
       }
       if (command === 'select') selected = value;
       if (command === 'board') {
         var point = ev.detail ? logical(ev.clientX, ev.clientY) : [WIDTH / 2, HEIGHT / 2];
-        if (!point) return;
-        var prior = ev.detail ? hit(point) : null;
-        if (prior && (!p || p.placed)) selected = prior.id;
-        else if (p) placed(p, candidate(point, grip(p)));
-        else message = t('اختر قطعة من الدرج أولًا.', 'Choose a tile from the tray first.');
+        activateBoard(point, ev.detail);
       }
       if (command === 'turn' && p) change(function () { p.angle = G.normalize(p.angle + Number(value)); });
       if (command === 'return' && p) change(function () { p.placed = false; });
@@ -414,7 +573,7 @@
         if (!find(selected)) selected = null;
         check = null;
         message = '';
-        save();
+        verify(false);
       }
       if (command === 'blade') blade = Number(value);
       if (command === 'cut' && draft.cut === null) change(function () { G.makeCut(mission, draft, blade); });
@@ -429,7 +588,7 @@
         draft.hints = Math.min(2, draft.hints + 1);
         save();
       }
-      if (command === 'check') verify();
+      if (command === 'check') { message = ''; verify(true); }
       if (command === 'reset') {
         if (message === t('اضغط مرة أخرى لإعادة المحاولة.', 'Press again to restart this project.') || check && check.ok) {
           change(function () { draft = G.create(mission); });
@@ -437,6 +596,7 @@
         } else message = t('اضغط مرة أخرى لإعادة المحاولة.', 'Press again to restart this project.');
       }
       render();
+      if (command === 'board' || command === 'turn' || command === 'check') liftOutcome();
       if (!ev.detail) {
         var buttons = host.querySelectorAll('[data-ws="' + command + '"]');
         for (var i = 0; i < buttons.length; i++) {
@@ -461,7 +621,8 @@
           Math.max(0, Math.min(HEIGHT, y + offset[1] * G.step))));
       }
       render();
-      doc.getElementById('ws-board').focus();
+      var boardControl = check && check.ok && host.querySelector('.ws-success .ws-action');
+      (boardControl || doc.getElementById('ws-board')).focus();
     }, false);
 
     function pick(node, x, y) {
@@ -523,6 +684,7 @@
       if (onBoard(point)) {
         placed(p, candidate(point, item.offset));
         render();
+        liftOutcome();
       } else if (item.fromBoard) {
         var dest = doc.elementFromPoint(x, y), trayNode = host.querySelector('.ws-tray');
         if (trayNode && trayNode.contains(dest)) {
@@ -534,6 +696,21 @@
     }
     return {
       refresh: refresh, layout: layout, pick: pick, preview: preview, drop: drop, clear: clear,
+      tapTarget: function (node) {
+        var action = context.active() && actionNode(node);
+        return !!action && action.getAttribute('data-ws') === 'board';
+      },
+      tap: function (x, y) {
+        if (!context.active()) return;
+        activateBoard(logical(x, y), true);
+        render();
+        liftOutcome();
+      },
+      startPlan: function (id, resume) {
+        if (!state || !startPlan(id, resume, false)) return false;
+        render();
+        return true;
+      },
       open: function (id) {
         if (!byId[id] || !state) return false;
         changeMission(id);
@@ -542,10 +719,12 @@
       },
       snapshot: function () {
         return { mission: mission.id, draft: G.copy(draft), completed: G.copy(state.completed),
-          blade: blade, result: G.evaluate(mission, draft) };
+          blade: blade, result: G.evaluate(mission, draft), feedback: prompt,
+          training: training ? { route: training.route, status: training.status, index: training.index,
+            verified: training.verified.slice() } : null };
       }
     };
   }
 
   root.SHAPE_WORKSHOP = { mount: mount };
-})(window, document, window.SHAPE_WORKSHOP_MODEL, window.SHAPE_WORKSHOP_CONTENT);
+})(window, document, window.SHAPE_WORKSHOP_MODEL, window.SHAPE_WORKSHOP_CONTENT, window.SHAPE_WORKSHOP_COACH);

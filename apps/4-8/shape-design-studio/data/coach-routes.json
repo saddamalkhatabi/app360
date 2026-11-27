@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "app_id": "a4-shape-design",
+  "age_groups": [
+    "4-8"
+  ],
+  "routes": [
+    {
+      "id": "shapes-build",
+      "age_group": "4-8",
+      "age_hint": "4–5",
+      "label_ar": "تركيب الأشكال وتدويرها",
+      "label_en": "Fit and turn shapes",
+      "goal_ar": "يركّب القطع حافة بحافة ثم يدوّرها لتملأ أشكالًا مختلفة.",
+      "goal_en": "Fit edges together, then turn tiles to fill different shapes.",
+      "estimated_minutes": 8,
+      "unit_ids": [
+        "courtyard",
+        "window",
+        "roof",
+        "stairs"
+      ]
+    },
+    {
+      "id": "shapes-angles",
+      "age_group": "4-8",
+      "age_hint": "5–6",
+      "label_ar": "جمع الزوايا وقياسها",
+      "label_en": "Measure and combine angles",
+      "goal_ar": "يجمع زوايا صغيرة لملء زاوية قائمة وحادّة ومنفرجة ومستقيمة.",
+      "goal_en": "Join smaller angles to fill right, acute, obtuse and straight angles.",
+      "estimated_minutes": 9,
+      "unit_ids": [
+        "right",
+        "acute",
+        "obtuse",
+        "straight"
+      ]
+    },
+    {
+      "id": "shapes-cut",
+      "age_group": "4-8",
+      "age_hint": "6–7",
+      "label_ar": "اختيار زاوية القص",
+      "label_en": "Choose the cut angle",
+      "goal_ar": "يطابق خط القص مع الحافة المائلة ويستخدم القطعتين الناتجتين.",
+      "goal_en": "Match a cut to a sloped edge and find uses for both pieces.",
+      "estimated_minutes": 10,
+      "unit_ids": [
+        "diagonal",
+        "shallow",
+        "steep",
+        "two-bays"
+      ]
+    },
+    {
+      "id": "shapes-floors",
+      "age_group": "4-8",
+      "age_hint": "7–8",
+      "label_ar": "مشاريع تبليط الأرضيات",
+      "label_en": "Floor tiling projects",
+      "goal_ar": "يخطّط للقطع الكاملة والقصاصات حول الحواف والعوائق.",
+      "goal_en": "Plan where to use full tiles and offcuts around edges and obstacles.",
+      "estimated_minutes": 12,
+      "unit_ids": [
+        "entry",
+        "terrace",
+        "column",
+        "final"
+      ]
+    },
+    {
+      "id": "shapes-review",
+      "age_group": "4-8",
+      "age_hint": "4–8",
+      "label_ar": "من أول قطعة إلى أرضية",
+      "label_en": "From a first tile to a floor",
+      "goal_ar": "يراجع التركيب وجمع الزوايا والقص وإعادة استخدام القصاصات.",
+      "goal_en": "Review fitting, combining angles, cutting and reusing offcuts.",
+      "estimated_minutes": 10,
+      "unit_ids": [
+        "courtyard",
+        "right",
+        "two-bays",
+        "final"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "courtyard",
+      "age_group": "4-8",
+      "stage": 1,
+      "title_ar": "بلاط الساحة",
+      "title_en": "Courtyard tiles",
+      "goal_ar": "اسحب البلاطات الثلاث إلى الظل حتى تمتلئ الساحة.",
+      "goal_en": "Drag the three tiles into the outline to fill the courtyard.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "window",
+      "age_group": "4-8",
+      "stage": 1,
+      "title_ar": "نافذة من مثلثين",
+      "title_en": "A window from triangles",
+      "goal_ar": "كوّن مربعًا من مثلثين. دوّر قطعة لتملأ النصف الآخر.",
+      "goal_en": "Make a square from two triangles. Turn a piece to fill the other half.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "roof",
+      "age_group": "4-8",
+      "stage": 1,
+      "title_ar": "سقف الكوخ",
+      "title_en": "The cabin roof",
+      "goal_ar": "املأ شكل الكوخ بثلاث قطع. دوّر المثلثين ليكوّنا السقف.",
+      "goal_en": "Fill the cabin with three pieces. Turn the triangles to make the roof.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "stairs",
+      "age_group": "4-8",
+      "stage": 1,
+      "title_ar": "درج الحديقة",
+      "title_en": "Garden steps",
+      "goal_ar": "املأ شكل الدرج. جرّب تدوير المستطيلات حتى تختفي الفجوات.",
+      "goal_en": "Fill the step shape. Turn the rectangles until the gaps disappear.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "right",
+      "age_group": "4-8",
+      "stage": 2,
+      "title_ar": "ركن قائم",
+      "title_en": "A right corner",
+      "goal_ar": "اجمع قطعتين لتملأ فتحة زاوية قائمة قياسها ٩٠°.",
+      "goal_en": "Use two pieces to fill a 90° right angle.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "acute",
+      "age_group": "4-8",
+      "stage": 2,
+      "title_ar": "زاوية السهم",
+      "title_en": "The arrow angle",
+      "goal_ar": "املأ فتحة ٦٠° بقطعتين من الدرج.",
+      "goal_en": "Fill the 60° opening with two pieces from the tray.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "obtuse",
+      "age_group": "4-8",
+      "stage": 2,
+      "title_ar": "زاوية شرفة واسعة",
+      "title_en": "The wide balcony corner",
+      "goal_ar": "املأ زاوية ١٢٠° بقطعتين متجاورتين.",
+      "goal_en": "Fill the 120° angle with two pieces side by side.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "straight",
+      "age_group": "4-8",
+      "stage": 2,
+      "title_ar": "بلاط نصف دائرة",
+      "title_en": "A semicircle of tiles",
+      "goal_ar": "ابنِ زاوية مستقيمة من ثلاث قطع. ما مجموع قياساتها؟",
+      "goal_en": "Build a straight angle with three pieces. What do they add up to?",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "diagonal",
+      "age_group": "4-8",
+      "stage": 3,
+      "title_ar": "قصّ من ركن إلى ركن",
+      "title_en": "Corner-to-corner cut",
+      "goal_ar": "حرّك دليل القص حتى يصل إلى الركن المقابل. قصّ البلاطة ثم املأ الفراغ.",
+      "goal_en": "Move the cut guide to the opposite corner. Cut the tile and fill the gap.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "shallow",
+      "age_group": "4-8",
+      "stage": 3,
+      "title_ar": "حافة قليلة الميل",
+      "title_en": "A shallow edge",
+      "goal_ar": "انظر إلى الحافة المائلة. اختر الدليل الذي يوازيها ثم قصّ القطعة.",
+      "goal_en": "Look at the sloped edge. Find the matching cut guide, then cut the tile.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "steep",
+      "age_group": "4-8",
+      "stage": 3,
+      "title_ar": "حافة شديدة الميل",
+      "title_en": "A steep edge",
+      "goal_ar": "قصّ بلاطة تناسب هذه الحافة ثم جرّب القطعة على اللوحة.",
+      "goal_en": "Cut a tile to fit this edge, then try it on the board.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "two-bays",
+      "age_group": "4-8",
+      "stage": 3,
+      "title_ar": "قطعة لكل ركن",
+      "title_en": "One piece for each corner",
+      "goal_ar": "قصّ بلاطة واحدة واستعمل جزأيها لسدّ الركنين المتباعدين.",
+      "goal_en": "Cut one tile and use both parts to fill the two separate corners.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "entry",
+      "age_group": "4-8",
+      "stage": 4,
+      "title_ar": "مدخل بحافة مائلة",
+      "title_en": "An entry with a sloped edge",
+      "goal_ar": "رصّ البلاطات الكاملة في المدخل. ثم قصّ قطعة تملأ الحافة المائلة.",
+      "goal_en": "Lay the full tiles in the entry, then cut a piece to fill the sloped edge.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "terrace",
+      "age_group": "4-8",
+      "stage": 4,
+      "title_ar": "شرفة بركنين",
+      "title_en": "A terrace with two corners",
+      "goal_ar": "أكمل الشرفة بالبلاطات الكاملة، ثم استعمل جزأَي بلاطة واحدة في الركنين.",
+      "goal_en": "Lay the full tiles, then use both halves of one tile for the terrace corners.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "column",
+      "age_group": "4-8",
+      "stage": 4,
+      "title_ar": "فسيفساء حول عمود",
+      "title_en": "Tiles around a column",
+      "goal_ar": "غطِّ الأرض حول العمود. اترك المربع المظلّل في الوسط فارغًا، واستعمل نصفي القص.",
+      "goal_en": "Tile around the column. Leave the marked square empty and reuse both cut pieces.",
+      "evidence": "verified-geometry"
+    },
+    {
+      "id": "final",
+      "age_group": "4-8",
+      "stage": 4,
+      "title_ar": "مشروع أرضية المعرض",
+      "title_en": "Gallery floor project",
+      "goal_ar": "أكمل أرضية المعرض. قِس ميل الركن، قصّ بلاطة واحدة، واستخدم الجزأين بلا فراغ أو تداخل.",
+      "goal_en": "Finish the gallery floor. Match the slope, cut one tile, and reuse both parts without gaps or overlap.",
+      "evidence": "verified-geometry"
+    }
+  ],
+  "launch": {
+    "path": "launch.html",
+    "params": [
+      "action",
+      "launch_age",
+      "route_ids",
+      "resume",
+      "caller",
+      "launch_id",
+      "return_to"
+    ]
+  },
+  "events": {
+    "practiced": "app360:shape-trainer:practice",
+    "complete": "app360:shape-trainer:sessioncomplete"
+  },
+  "completion": {
+    "demonstrations_are_practice": false,
+    "automatic_mastery": false
+  }
+}

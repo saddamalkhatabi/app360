@@ -30,6 +30,7 @@
   display: block;
   margin: 0 auto 14px;
 }
+.workshop-open #notice { pointer-events: none; }
 .workshop-open main {
   max-width: 1228px;
 }
@@ -132,6 +133,7 @@
   box-shadow: 0 8px 20px rgba(21, 59, 80, .07);
   padding: 17px 20px 19px;
 }
+.ws-brief + .ws-work { margin-top: 10px; }
 .ws-brief { display: flex; justify-content: space-between; align-items: center; }
 .ws-brief > button { flex-shrink: 0; margin: 0 7px; }
 .ws-kicker { font-size: 14px; font-weight: bold; color: #0f6856; }
@@ -212,8 +214,30 @@
 .ws-status, .ws-success { background: #edf6fb; color: #25495c; border-radius: 12px; padding: 7px 11px; margin-top: 7px; }
 .ws-status p, .ws-success p { margin: 4px 0; }
 .ws-status svg { color: #376993; }
+.ws-status p > button { margin: 0 6px; min-height: 38px; padding: 4px 6px; }
 .ws-success { background: #def5eb; color: #125247; }
 .ws-success button { margin: 4px; }
+.ws-practice-bar { display: flex; flex-wrap: wrap; align-items: center; margin: 5px -3px 10px; }
+.ws-practice-bar > span, .ws-practice-bar > button { margin: 3px; }
+.ws-practice-bar > span { font-size: 15px; font-weight: bold; padding: 4px 9px; }
+.ws-practice-bar > button { font-size: 14px; padding: 4px 9px; }
+.ws-plan-grid { display: flex; flex-wrap: wrap; margin: 10px -5px 0; }
+.ws-plan-card {
+  display: flex;
+  flex: 1 1 245px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 14px;
+  border: 1px solid #cfe4e8;
+  border-radius: 14px;
+  background: #f4faf9;
+}
+.ws-plan-card p { flex: 1 auto; }
+.ws-plan-card details summary { min-height: 34px; padding: 4px 0; border: 0; }
+.ws-plan-card details ol { margin: 4px 0; padding-inline-start: 20px; }
+.ws-plan-card button { margin-top: 8px; }
+#ws-project-title, #ws-plans-heading { scroll-margin-top: 14px; }
 .ws-hand-piece, .classic-hand-piece {
   position: fixed;
   pointer-events: none;
@@ -259,8 +283,11 @@
   .ws-missions { margin: 3px -3px 4px; flex-wrap: nowrap; overflow-x: auto; padding: 4px; }
   .ws-missions > button { min-height: 37px; padding: 3px 6px; flex: 0 0 auto; }
   .ws-work { display: block; margin: 0; }
+  .ws-brief + .ws-work { margin-top: 7px; }
   .ws-board-area, .ws-work-tools { margin: 0; }
   .ws-work > .ws-tray { margin-bottom: 8px; }
+  .ws-practice-bar { margin-top: 1px; margin-bottom: 6px; }
+  .ws-practice-bar > button { min-height: 40px; }
   .ws-tray { padding: 5px; }
   .ws-pieces { margin-top: 1px; }
   .ws .ws-piece { flex-basis: 58px; min-width: 52px; min-height: 64px; margin: 2px; }

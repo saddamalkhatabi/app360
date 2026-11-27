@@ -64,9 +64,17 @@ function readWorkshop(text){
   try{speech.speak(utterance)}catch(e){stop();notify(unavailable)}
 }
 function say(id){if(S.voice)read(guide(id).path)}
-function check(){var d=S.draft,e=M.evaluate(d),reason=e.overlap?'overlap-feedback':e.outside?'outside-feedback':e.missing?'gap-feedback':d.task.symmetric&&!e.symmetric?'symmetry-feedback':d.task.exact_count&&e.count!==d.task.exact_count?'count-feedback':'gap-feedback';M.checkpoint(d,'review');if(!e.ok){d.stage='needs_help';feedback=reason;save();render();say(reason);return}var sig=M.signature(d.pieces),exists=d.solutions.some(function(s){return s.signature===sig});if(!exists&&d.solutions.length<4)d.solutions.push({signature:sig,pieces:M.copy(d.pieces),time:Date.now()});if(d.task.require_second&&d.solutions.length<2){feedback=exists?'same':'second';save();render();say(feedback);return}d.stage='review';go('review');say(d.task.mode==='free'?'free-complete':'complete')}
+function check(result){var d=S.draft,e=result||M.evaluate(d),reason=e.overlap?'overlap-feedback':e.outside?'outside-feedback':e.missing?'gap-feedback':d.task.symmetric&&!e.symmetric?'symmetry-feedback':d.task.exact_count&&e.count!==d.task.exact_count?'count-feedback':'gap-feedback';M.checkpoint(d,'review');if(!e.ok){d.stage='needs_help';feedback=reason;save();render();say(reason);return}var sig=M.signature(d.pieces),exists=d.solutions.some(function(s){return s.signature===sig});if(!exists&&d.solutions.length<4)d.solutions.push({signature:sig,pieces:M.copy(d.pieces),time:Date.now()});if(d.task.require_second&&d.solutions.length<2){feedback=exists?'same':'second';save();render();say(feedback);return}d.stage='review';go('review');say(d.task.mode==='free'?'free-complete':'complete')}
 function put(p,x,y){var bounds=G.bounds(M.polygon(p));p.x=Math.max(0,Math.min(6-bounds.w,x));p.y=Math.max(0,Math.min(6-bounds.h,y));p.placed=true}
-function mutate(fn,reason){if(!S.draft)return;M.edit(S.draft,fn,reason);feedback='';save();render()}
+function mutate(fn,reason){
+  var d=S.draft;if(!d)return;
+  M.edit(d,fn,reason);feedback='';
+  if(d.task.mode==='coverage'&&['place','drag','rotate','flip','move'].indexOf(reason)>=0){
+    var result=M.evaluate(d),needed=d.task.exact_count||d.task.solution.length;
+    if(result.ok||result.count>=needed){check(result);return}
+  }
+  save();render();
+}
 function storeDesign(){var d=S.draft,e=M.evaluate(d);if(!e.ok){go('play');check();return}if(d.task.require_second&&d.solutions.length<2){go('play');feedback='second';render();return}if(S.saved.length>=40){notify(t('المعرض ممتلئ. يمكنك تصدير هذا التصميم أو حذف تصميم محفوظ.','The gallery is full. Export this design or delete a saved one.'));return}d.stage='saved';M.checkpoint(d,'saved');var out=M.artifact(d,true);out.id=M.id();S.saved.unshift(out);savedId=out.id;save();notify(storageOK?t('حفظنا تصميمك.','Your design is saved.'):t('التصميم في الذاكرة المؤقتة. صدّره قبل الإغلاق.','The design is in temporary memory. Export it before closing.'));try{var ev=doc.createEvent('CustomEvent');ev.initCustomEvent('app360:shape:saved',false,false,{id:out.id,challenge:d.task.id,solutions:d.solutions.length});doc.dispatchEvent(ev)}catch(e){}go('gallery');if(storageOK)say('save')}
 function download(text,filename,type){try{var blob=new Blob([text],{type:type}),url=URL.createObjectURL(blob),a=doc.createElement('a');a.href=url;a.download=filename;doc.body.appendChild(a);a.click();doc.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url)},5000)}catch(e){var target=$('exportFallback');if(!target){target=doc.createElement('textarea');target.id='exportFallback';$('app').appendChild(target)}target.value=text;target.focus();target.select();notify(t('انسخ المحتوى للحفظ.','Copy the content to save it.'))}}
 function exportList(list){download(JSON.stringify(M.exportData(list),null,2),'shape-designs.json','application/json')}
@@ -164,16 +172,34 @@ function checkOffline(){
       return w.caches.open(saved.cache).then(function(c){return c.match(base.href+'__offline_complete__')});
     }).then(function(r){offlineReady=!!r;offlineLabel()}).catch(function(){offlineReady=false;offlineLabel()});
 }
+function speakWorkshop(id,text){
+  if(S.language==='en'&&id.indexOf('coach-')===0){readWorkshop(text);return}
+  read('audio/workshop/'+S.language+'-'+id+'.mp3',function(){readWorkshop(text)});
+}
+function workshopEvent(name,detail){
+  var event=doc.createEvent('CustomEvent');
+  event.initCustomEvent(name,false,false,detail);
+  doc.dispatchEvent(event);
+}
 var workshop=w.SHAPE_WORKSHOP.mount($('app'),{
   active:function(){return view==='workshop'},
-  speak:function(id,text){read('audio/workshop/'+S.language+'-'+id+'.mp3',function(){readWorkshop(text)})},
+  speak:speakWorkshop,
+  autospeak:function(id,text){if(S.voice)speakWorkshop(id,text)},
+  emit:workshopEvent,
   stop:stop
 });
+function startPractice(id,options){
+  if(!w.SHAPE_WORKSHOP_COACH.get(id))return false;
+  go('workshop');
+  return workshop.startPlan(id,!options||options.resume!==false);
+}
 load(identity());
 gesture=w.SHAPE_DRAG.install({
   pick:function(node,x,y){return view==='workshop'?workshop.pick(node,x,y):pickClassic(node,x,y)},
   preview:function(item,x,y){if(item.mode==='classic')previewClassic(item,x,y);else workshop.preview(item,x,y)},
   drop:function(item,x,y){if(item.mode==='classic')dropClassic(item,x,y);else workshop.drop(item,x,y)},
+  tapTarget:workshop.tapTarget,
+  tap:workshop.tap,
   clear:function(){clearClassic();workshop.clear()}
 });
 // Touch Guard comes from the shared shell; no touchend tap handler is added here.
@@ -181,5 +207,5 @@ doc.addEventListener('click',handle,false);doc.addEventListener('input',function
 doc.addEventListener('keydown',function(e){if(e.key==='Escape'||e.keyCode===27){if(demo)closeDemo();return}if(view!=='play'||!selectedPiece()||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;var dir={37:'-1,0',38:'0,-1',39:'1,0',40:'0,1'}[e.keyCode];if(dir){e.preventDefault();action('move',dir)}});
 w.addEventListener('popstate',function(){if(demo)closeDemo();else if(view==='play'||view==='review'){preserve();view='library';render()}else if(view!=='workshop'){preserve();view='workshop';render()}},false);w.addEventListener('pagehide',function(){preserve();stop()},false);w.addEventListener('beforeunload',save,false);w.addEventListener('resize',function(){save();if(view==='workshop')workshop.layout();else layout()},false);doc.addEventListener('visibilitychange',function(){if(doc.hidden){save();stop()}},false);doc.addEventListener('app360:reading-focus',syncFocus,false);doc.addEventListener('app360:namechange',function(){var p=identity();if(p!==profile){save();stop();if(demo)closeDemo();load(p)}else render()},false);
 w.APP360_PWA_BEFORE_RELOAD=function(done){save();stop();done()};setInterval(function(){var p=identity();if(p!==profile){save();stop();if(demo)closeDemo();load(p)}else if(view==='coach'&&!coachAllowed())render();syncFocus();checkOffline()},1300);
-w.APP360_SHAPES={version:'preview-2',open:function(id){if(C.get(id))return generated(id);if(!w.SHAPE_WORKSHOP_CONTENT.missions.some(function(m){return m.id===id}))return false;go('workshop');return workshop.open(id)},workshop:function(){return view==='workshop'?workshop.snapshot():null},snapshot:function(){return M.copy(S)},profile:function(){return profile},evaluate:function(){return S.draft?M.evaluate(S.draft):null},reading:function(){return reader.debug()},audio:function(){return{path:audioPath,state:audioState,time:playing.currentTime||0}},debug:function(){return{view:view,storageOK:storageOK,corrupt:corrupt,offlineReady:offlineReady}},exportData:function(){return M.exportData(S.saved)},stop:stop};checkOffline();
+w.APP360_SHAPES={version:'preview-3',startPractice:startPractice,practiceCatalog:function(){return w.SHAPE_WORKSHOP_COACH.catalog(w.SHAPE_WORKSHOP_CONTENT.missions)},open:function(id){if(C.get(id))return generated(id);if(!w.SHAPE_WORKSHOP_CONTENT.missions.some(function(m){return m.id===id}))return false;go('workshop');return workshop.open(id)},workshop:function(){return view==='workshop'?workshop.snapshot():null},snapshot:function(){return M.copy(S)},profile:function(){return profile},evaluate:function(){return S.draft?M.evaluate(S.draft):null},reading:function(){return reader.debug()},audio:function(){return{path:audioPath,state:audioState,time:playing.currentTime||0}},debug:function(){return{view:view,storageOK:storageOK,corrupt:corrupt,offlineReady:offlineReady}},exportData:function(){return M.exportData(S.saved)},stop:stop};checkOffline();
 })(window,document);

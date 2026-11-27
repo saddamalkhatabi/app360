@@ -1,1 +1,62 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مهندسو الأشكال | مدرسة العائلة 360</title></head><body><script src="../../../assets/js/app-link-host.js"></script><script>(function(){'use strict';App360LinkHost.mount({appId:'a4-shape-design',title:'مهندسو الأشكال',entry:'index.html',targetRef:function(q){return q.experience||'shapes'},onReady:function(W,D,q,host){var n=0,t=setInterval(function(){if(++n>60){clearInterval(t);host.fail('shape runtime unavailable');return}if(!W.APP360_SHAPES)return;clearInterval(t);if(q.experience&&!W.APP360_SHAPES.open(q.experience)){host.fail('unknown shape activity');return}host.ready({experience:q.experience||''});D.addEventListener('app360:shape:saved',function(e){host.complete({action:'spatial-design-saved',challenge:e.detail.challenge,solutions:e.detail.solutions})},false)},100)}})})();</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>مهندسو الأشكال | مدرسة العائلة 360</title>
+</head>
+<body>
+<script src="../../../assets/js/app-link-host.js"></script>
+<script>
+(function () {
+  'use strict';
+  App360LinkHost.mount({
+    appId: 'a4-shape-design',
+    title: 'مهندسو الأشكال',
+    entry: 'index.html',
+    targetRef: function (q) { return q.route_ids || q.experience || 'shapes'; },
+    onReady: function (win, doc, q, host) {
+      var count = 0;
+      var timer = setInterval(function () {
+        if (++count > 60) {
+          clearInterval(timer);
+          host.fail('shape runtime unavailable');
+          return;
+        }
+        var shapes = win.APP360_SHAPES;
+        if (!shapes) return;
+        clearInterval(timer);
+        if (q.action === 'session' || q.route_ids) {
+          if ((q.launch_age && q.launch_age !== '4-8') || !shapes.startPractice(q.route_ids, { resume: q.resume !== '0' })) {
+            host.fail('unknown shape practice plan');
+            return;
+          }
+          host.ready({ route_id: q.route_ids, mode: 'practice' });
+          doc.addEventListener('app360:shape-trainer:practice', function (event) {
+            if (event.detail.route_id === q.route_ids) host.emit('practice', event.detail);
+          }, false);
+          doc.addEventListener('app360:shape-trainer:sessioncomplete', function (event) {
+            if (event.detail.route_id === q.route_ids) host.complete(event.detail);
+          }, false);
+          return;
+        }
+        if (q.experience && !shapes.open(q.experience)) {
+          host.fail('unknown shape activity');
+          return;
+        }
+        host.ready({ experience: q.experience || '' });
+        doc.addEventListener('app360:shape:saved', function (event) {
+          host.complete({ action: 'spatial-design-saved', challenge: event.detail.challenge, solutions: event.detail.solutions });
+        }, false);
+      }, 100);
+    }
+  });
+  var query = App360LinkHost.query();
+  if (query.action === 'session' || query.route_ids) {
+    var manual = document.querySelector('.app360-link-actions .app360-finish');
+    if (manual) manual.parentNode.removeChild(manual);
+  }
+})();
+</script>
+</body>
+</html>
