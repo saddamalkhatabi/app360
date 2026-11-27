@@ -17,9 +17,17 @@ test('all 220 experiences use a real five-square photographic atlas',()=>{
 test('the reviewed scenes have distinct atlases and square library previews',()=>{
  const report=JSON.parse(fs.readFileSync('storyboards/photo-build-report.json'));
  assert.equal(report.assets.filter(a=>Number(a.id)>=201).length,20);
- assert.equal(new Set(report.assets.map(a=>a.path)).size,21);
- for(const a of report.assets){assert.equal(manifest.assets[a.id],a.path);assert.equal(manifest.previews[a.id],a.preview);assert.deepEqual(size(a.preview),[320,320]);assert.equal(a.placements.length,5);
+ assert.equal(new Set(report.assets.map(a=>a.path)).size,report.assets.length);
+ for(const a of report.assets){assert.equal(manifest.assets[a.id],a.path);if(a.preview){assert.equal(manifest.previews[a.id],a.preview);assert.deepEqual(size(a.preview),[320,320])}assert.equal(a.placements.length,5);
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(a.path)).digest('hex'),a.sha256);
   a.placements.forEach((p,i)=>{const [x,y,w,h]=p.destination_rect;assert.ok(x>=i*900&&x+w<=(i+1)*900&&y>=0&&y+h<=900);const [l,t,r,b]=p.source_rect;assert.ok(Math.abs(w/h-(r-l)/(b-t))<.005,'aspect ratio preserved for '+a.id)});
  }
+});
+
+test('every atlas, including each localized variant, has a square library preview',()=>{
+ const assets=new Set([...Object.values(manifest.assets),...Object.values(manifest.localized_assets).flatMap(Object.values)]);
+ assert.equal(Object.keys(manifest.thumbnails).length,assets.size);
+ for(const path of assets)assert.deepEqual(size(manifest.thumbnails[path]),[320,320],path);
+ for(const id of ['016','086','098','119','166','185','193','195'])assert.equal(manifest.assets[id],'storyboards/turn-'+id+'-photo-v3.webp');
+ assert.equal(manifest.assets['051'],'storyboards/051.webp');
 });

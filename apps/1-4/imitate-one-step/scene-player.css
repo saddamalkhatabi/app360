@@ -1,10 +1,386 @@
-.scene-controls,.session-controls{background:#fff;border:2px solid #c4dfd7;border-radius:18px;padding:16px;margin:14px 0}.scene-caption{font-size:1.25rem;line-height:1.9;color:#17343a;margin:0 0 14px}.scene-controls button,.session-controls button{min-height:48px;white-space:normal}.session-controls strong,.session-controls>span{display:block;margin-bottom:10px}.session-controls input{width:80px;min-height:44px;border:1px solid #8db6ab;border-radius:8px;margin:0 8px}.detail-nav{position:sticky;top:0;z-index:20;background:#edf7f4;padding:8px 0}.scene-controls .action-row,.session-controls .action-row{display:flex;flex-wrap:wrap;gap:8px}.scene-controls [hidden]{display:none!important}@media(max-width:600px){.detail-nav{position:static}.detail-nav-pair{display:flex;flex-wrap:wrap;gap:6px}.detail-nav-pair button{min-height:48px}.scene-controls,.session-controls{padding:12px}.scene-caption{font-size:1.1rem}}@media(max-height:500px){.detail-nav{position:static}}
+.app-shell {
+  padding-left: max(8px, env(safe-area-inset-left));
+  padding-right: max(8px, env(safe-area-inset-right));
+}
 
-.reel-strip{transition:none!important}.recorded-voice summary{cursor:pointer;padding:10px;font-weight:bold;min-height:44px}.recorded-voice details:not([open]){margin:0}.recorded-voice:has(details:not([open])){padding:4px 10px}
+.scene-stage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  padding: 6px 0;
+  padding-top: max(6px, env(safe-area-inset-top));
+  padding-bottom: max(6px, env(safe-area-inset-bottom));
+}
 
-/* Keep square scenes usable on old WebViews without aspect-ratio support. */
-.reel-viewport.frame-mode{height:0;padding-bottom:100%;aspect-ratio:auto}
-.reel-viewport.overview-mode{height:0;padding-bottom:20%;aspect-ratio:auto}
-.reel-viewport .reel-strip{position:absolute;top:0;left:0;height:100%}
-.card-thumb-frame.photo-preview{height:auto;padding-bottom:100%}
-.card-thumb-frame.photo-preview img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:100%;object-fit:contain;transform:none}
+.scene-player {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+html.turn-scene-open #app360HomeBtn {
+  display: none !important;
+}
+
+.scene-entry-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.scene-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 44px;
+  font-size: 1.5rem;
+  color: #15564e;
+  text-decoration: none;
+}
+
+.scene-stage .detail-nav {
+  flex: 0 0 auto;
+  position: static;
+  padding: 0;
+}
+
+.scene-stage .detail-nav-pair {
+  flex-wrap: nowrap;
+}
+
+.scene-stage .detail-nav button {
+  min-height: 44px;
+  margin: 0;
+}
+
+.scene-stage .detail-nav-pair .btn {
+  font-size: .86rem;
+  padding: 4px 8px;
+}
+
+.scene-stage .experience-title {
+  flex: 0 0 auto;
+  padding-top: 4px;
+  min-width: 0;
+  margin: 0;
+  gap: 8px;
+  align-items: center;
+}
+
+.scene-stage .experience-title .big-icon {
+  width: 42px;
+  height: 42px;
+  font-size: 24px;
+  flex: 0 0 auto;
+}
+
+.scene-stage .experience-title h2 {
+  font-size: 1.15rem;
+  font-size: clamp(1rem, 3vw, 1.65rem);
+  line-height: 1.25;
+  margin: 2px 0;
+}
+
+.scene-stage .detail-meta {
+  margin: 2px 0 0;
+  font-size: .78rem;
+}
+
+.scene-stage .reel {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 4px;
+  border-radius: 16px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-viewport .reel-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: none;
+}
+
+/* Explicit width and height are supplied to older WebViews by the scene player. */
+.scene-stage .reel-viewport {
+  flex: 0 0 auto;
+  border-radius: 12px;
+}
+
+.scene-controls,
+.session-controls {
+  background: #fff;
+  border: 1px solid #c4dfd7;
+  border-radius: 14px;
+  padding: 8px;
+  min-width: 0;
+}
+
+.scene-controls {
+  flex: 0 0 auto;
+  margin-top: 6px;
+}
+
+.scene-stage .symbol-placeholder {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+}
+
+.session-controls {
+  margin: 14px 0;
+}
+
+.scene-controls [hidden],
+.card-thumb-frame [hidden] {
+  display: none !important;
+}
+
+.scene-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+}
+
+.scene-progress > span {
+  font-size: .82rem;
+  white-space: nowrap;
+}
+
+.scene-progress .reel-dots {
+  order: 0;
+  flex: 0 1 auto;
+  gap: 0;
+}
+
+.scene-dot {
+  width: 34px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.scene-dot::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  border: 1px solid #528077;
+  border-radius: 50%;
+  background: #d9eee9;
+}
+
+.scene-dot.on::before {
+  background: #08776e;
+}
+
+.scene-copy {
+  box-sizing: border-box;
+  max-height: 72px;
+  max-height: clamp(3rem, 11vh, 6rem);
+  min-height: 1.8em;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 2px 4px;
+}
+
+.scene-caption {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #17343a;
+  margin: 0;
+}
+
+#sceneStatus {
+  font-size: .85rem;
+  margin: 4px 0 0;
+}
+
+#sceneStatus:empty {
+  display: none;
+}
+
+.scene-main-actions,
+.scene-options {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.scene-controls button.btn {
+  flex: 1 1 0;
+  padding: 4px 3px;
+  min-width: 0;
+  min-height: 44px;
+  line-height: 1.2;
+  font-size: .86rem;
+  white-space: normal;
+}
+
+.scene-main-actions .btn:disabled {
+  opacity: .48;
+}
+
+.scene-options .btn {
+  background: #e5f4f0;
+  color: #15564e;
+}
+
+.session-controls strong,
+.session-controls > span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.session-controls input {
+  width: 80px;
+  min-height: 44px;
+  border: 1px solid #8db6ab;
+  border-radius: 8px;
+  margin: 0 8px;
+}
+
+.session-controls .action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recorded-voice summary {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  min-height: 44px;
+}
+
+.recorded-voice details:not([open]) {
+  margin: 0;
+}
+
+.recorded-voice:has(details:not([open])) {
+  padding: 4px 10px;
+}
+
+/* The library shows the same first square, at its original proportions. */
+.experience-grid .card-thumb-frame {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.experience-grid .card-thumb-frame img {
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+
+.experience-grid .card-thumb-frame .scene-thumbnail {
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-thumb-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 1140px) {
+  .experience-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 380px) {
+  .scene-stage .detail-nav-pair .btn,
+  .scene-controls button.btn {
+    font-size: .78rem;
+  }
+
+  .scene-stage .detail-nav,
+  .scene-stage .detail-nav-pair {
+    gap: 4px;
+  }
+}
+
+@supports (width: 1cqh) and (container-type: size) {
+  .scene-stage .reel {
+    container-type: size;
+  }
+
+  .scene-stage .reel-viewport.frame-mode {
+    width: min(100cqw, 100cqh, 840px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .scene-stage .reel-viewport.overview-mode {
+    width: min(100cqw, 500cqh, 1180px);
+    height: auto;
+    aspect-ratio: 5 / 1;
+  }
+}
+
+@media (min-width: 760px) and (orientation: landscape),
+       (min-width: 420px) and (max-height: 560px) and (orientation: landscape) {
+  .scene-player {
+    flex-direction: row;
+  }
+
+  .scene-stage .reel {
+    width: 0;
+  }
+
+  .scene-controls {
+    flex: 0 0 36%;
+    min-width: 210px;
+    min-width: clamp(210px, 44vw, 252px);
+    align-self: center;
+    margin: 0 6px;
+  }
+
+  .scene-copy {
+    max-height: 18vh;
+  }
+}
+
+@media (max-height: 460px) {
+  .scene-stage .experience-title .detail-meta,
+  .scene-stage .experience-title .card-kicker {
+    display: none;
+  }
+
+  .scene-stage .experience-title .big-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 17px;
+  }
+
+  .scene-stage .scene-controls {
+    padding: 4px;
+  }
+
+  .scene-stage .scene-progress,
+  .scene-stage .scene-dot {
+    min-height: 30px;
+    height: 30px;
+  }
+}

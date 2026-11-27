@@ -4,7 +4,7 @@
   "slug": "imitate-one-step",
   "title_ar": "دوري ودورك: نتبادل ونتعاون",
   "age_group": "1-4",
-  "version": 23,
+  "version": 24,
   "status": "live",
   "scaffold_state": "live",
   "implementation_state": "live-220-experiences",
@@ -74,19 +74,17 @@
         "replay",
         "jump-to-frame"
       ],
-      "runtime_fix": "restored renderReel, setupReel and clearReel as one tested block",
+      "library_thumbnail": "320 px first panel from the playing atlas, including localized variants",
       "responsive_size": {
-        "phone": "near full width",
-        "tablet_portrait": "capped around 660px and 72vh",
-        "tablet_landscape": "capped around 620px and 68vh",
-        "desktop": "capped around 640px and 70vh",
-        "legacy_fallback": "vw + max-width",
-        "overview": "wide full five-panel image after playback; compact sizing applies only to one-frame playback"
+        "portrait": "scene and controls stacked within the visible screen",
+        "landscape": "scene and controls side by side on wide or short screens",
+        "legacy_fallback": "explicit image dimensions measured within the available viewport",
+        "overview": "five-panel image with preserved proportions"
       },
       "advancement": "narration-ended; silent playback only uses text reading duration"
     },
     "runtime": "app-v16.js",
-    "hq_storyboard_reference": "storyboards/001.webp",
+    "hq_storyboard_reference": "storyboards/turn-001-photo-v2.webp",
     "next_experience_button": true,
     "feedback_collapsible": true,
     "collaborative_drawing": {

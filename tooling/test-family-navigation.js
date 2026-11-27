@@ -135,3 +135,19 @@ test('home follows the same active-session and disconnect grace rules as app nav
  const api=r.window.APP360_FAMILY_SYNC;r.load('app360-family-shell-v1.js');const sh=r.window.APP360_FAMILY_SHELL;sh.openApp('a1-first-words');r.window.navFixture(true,Date.now());assert.equal(api.canNavigate('app360-home'),false);assert.equal(sh.closeApp(),false);
  r.window.navFixture(false,Date.now());assert.equal(sh.closeApp(),false,'a brief disconnect must preserve the trainer lock');r.window.navFixture(false,Date.now()-20000);assert.equal(api.canNavigate('app360-home'),true);assert.equal(sh.closeApp(),true,'an expired disconnected session must not trap the user');assert.equal(api.canNavigate('unknown-app'),false);
 });
+
+test('a shared app keeps the explicit link age through the family shell and its navigation guard',()=>{
+ const r=runtime();
+ r.document.readyState='complete';
+ r.window.location.search='?age=1-4';
+ for(const script of ['app360-age-launch-v1.js','app360-family-core-v2.js','app360-family-shell-v1.js','app360-family-navigation-safety-v1.js'])r.load(script);
+ const sh=r.window.APP360_FAMILY_SHELL;
+ function click(age){
+  const link={tagName:'A',parentNode:r.document,getAttribute:key=>key==='href'?'apps/1-4/imitate-one-step/index.html?launch_age='+age:null};
+  r.document.dispatchEvent({type:'click',target:link,preventDefault(){},stopImmediatePropagation(){}});
+  return new URL(sh.getFrame().src).searchParams;
+ }
+ assert.equal(click('4-8').get('launch_level'),'5');
+ assert.equal(click('1-4').get('launch_level'),'1');
+ assert.equal(click('4-8').get('launch_age'),'4-8');
+});
