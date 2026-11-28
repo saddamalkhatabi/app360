@@ -242,6 +242,26 @@ body.jr-mode {
 }
 .journey .jr-play:hover:not(:disabled), .journey .jr-next:hover { background: #6d48bd; }
 .jr-feedback { background: #f3eadb; border: 1px solid #ded0c4; padding: 9px 11px; color: #4a3b55; border-radius: 11px; margin: 12px 0 0; }
+.jr-coach-tip {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 8px 10px; margin: 0 0 13px; border: 1px solid #dcc0f4;
+  background: #f4eaff; border-radius: 13px; color: #412473;
+}
+.jr-coach-tip p { margin: 0; font-weight: bold; }
+.jr-coach-tip button { flex: 0 0 auto; min-width: 44px; }
+.jr-coach-target {
+  position: relative; outline: 3px solid #8848cb !important; outline-offset: 2px;
+  z-index: 4;
+}
+.jr-stage .jr-coach-target { outline-color: #ffe28c !important; }
+.jr-coach-finger {
+  position: absolute; z-index: 5; bottom: -15px; inset-inline-end: -2px;
+  display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: #fff7d8; border: 2px solid #7140a7; color: #40216c; font: 1.34rem/1 sans-serif;
+  box-shadow: 0 4px 9px #38275655; pointer-events: none;
+  animation: jr-finger 1s ease 2;
+}
+@keyframes jr-finger { 50% { transform: translateY(6px); } }
 .jr-win-panel {
   display: flex; flex-direction: column; gap: 8px; margin-top: 14px; border-top: 1px solid #ddcbae; padding-top: 14px;
 }
@@ -271,6 +291,7 @@ body.jr-mode {
 .jr-coach ul { padding-inline-start: 22px; }
 .jr-coach li { margin-bottom: 5px; }
 .jr-coach li span { margin-inline-start: 8px; color: #dbd8fa; }
+.jr-coach button[aria-pressed="true"] { border-color: #ffdc85; }
 @supports not (aspect-ratio: 1) {
   .jr-cell { height: 85px; }
   .jr-size-4 .jr-cell { height: 72px; }

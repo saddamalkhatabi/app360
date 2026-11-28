@@ -450,6 +450,7 @@
     resize(); render();
     return {
       finish:function () { finish(null,true,true); },
+      isDrawing:function () { return !!input; },
       resize:resize,
       refresh:function () { finish(null,true,true); render(); },
       destroy:function () {

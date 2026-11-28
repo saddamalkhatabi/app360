@@ -61,9 +61,15 @@ async function main() {
     await page.reload();
     await next();
     await tap('open:wake-the-firefly');
+    await page.locator('.jr-top-actions [data-do="sound"]').tap();
+    const coachAudio = page.waitForResponse(r => r.url().endsWith('/journey-audio/ar-coach-undo.mp3'));
     await tap('add:e');
     assert.match(await status(), /تراجع/);
+    await action('undo').locator('.jr-coach-finger').waitFor();
+    assert.equal((await coachAudio).status(), 200);
+    await page.locator('.jr-top-actions [data-do="sound"]').tap();
     await tap('undo');
+    await action('add:n').locator('.jr-coach-finger').waitFor();
     await tap('add:n');
     await page.locator('.light.jr-glowing').waitFor();
     await page.reload();
@@ -101,10 +107,12 @@ async function main() {
         else {
           if (i === 5) {
             assert.equal(await page.locator('.jr-error[data-slot="1"]').count(), 1);
+            await action('select:1').locator('.jr-coach-finger').waitFor();
             if (photos) await page.screenshot({ path: path.join(photos, 'journey-repair.png'), fullPage: true });
           }
           const slot = card.starter.findIndex((op, index) => op !== card.answer[index]);
           await tap('select:' + slot);
+          await action('add:' + card.answer[slot]).locator('.jr-coach-finger').waitFor();
           await tap('add:' + card.answer[slot]);
         }
         await tap('play');
@@ -159,6 +167,51 @@ async function main() {
     assert.equal(await action('open:wake-the-firefly').isDisabled(), true);
     assert.deepEqual(pageErrors, []);
     console.log('PASS all 15 missions by touch, feedback, replay, step-through, bilingual navigation, profile isolation and classic links');
+
+    const planner = await context.newPage();
+    await planner.addInitScript(() => {
+      if (window !== window.top || !location.pathname.includes('/session-planner-4-8/')) return;
+      localStorage.setItem('app360:profile:name', 'المرافق التجريبي');
+      localStorage.setItem('app360:profile:role', 'parent');
+      localStorage.setItem('app360:profile:age', '4-8');
+      localStorage.setItem('app360:profile:age-owner', 'name:المرافق التجريبي');
+    });
+    await planner.goto(new URL('/apps/4-8/session-planner-4-8/index.html', url).href);
+    await planner.locator('#adultGateCheck').check();
+    await planner.locator('#adultGateAccept').click();
+    await planner.locator('[data-action="enter"]').click();
+    await planner.locator('[data-action="template0"]').click();
+    assert.equal(await planner.locator('#activity option').filter({ hasText: /مسار الأوامر ·/ }).count(), 3);
+    const riverOption = planner.locator('#activity option').filter({ hasText: 'نهر البلّور' });
+    await planner.locator('#activity').selectOption(await riverOption.getAttribute('value'));
+    await planner.locator('[data-action="addDigital"]').click();
+    for (let i = 0; i < 4; i++) await planner.locator('[data-action="remove0"]').click();
+    await planner.locator('[data-action="start"]').click();
+    await planner.locator('[data-action="launch"]').click();
+    await planner.waitForURL(/launch\.html.*[?&]track=river/);
+    assert.equal(await planner.getByRole('button', { name: /أنجزنا النشاط/ }).count(), 0);
+    const river = planner.frameLocator('iframe.app360-link-frame');
+    const riverAction = action => river.locator('[data-j="' + action + '"]');
+    await river.getByRole('heading', { name: 'الجسر ينتظر' }).waitFor();
+    assert.equal(await river.locator('.jr-score b').textContent(), '٠ / ٥');
+    await riverAction('play').tap(); await riverAction('select:1').tap();
+    await riverAction('add:n').tap(); await riverAction('play').tap();
+    await riverAction('open:swap-order').tap();
+    await riverAction('play').tap(); await riverAction('swap').tap(); await riverAction('play').tap();
+    await riverAction('open:point-ahead').tap();
+    await riverAction('add:r').tap(); await riverAction('add:f').tap();
+    await riverAction('open:make-a-bend').tap();
+    for (const op of ['f', 'l', 'f']) await riverAction('add:' + op).tap();
+    await riverAction('play').tap();
+    await riverAction('open:predict-landing').tap();
+    await riverAction('guess:2:1').tap(); await riverAction('play').tap();
+    await riverAction('chart').last().waitFor();
+    await planner.getByRole('button', { name: 'العودة للخطة', exact: true }).click();
+    await planner.waitForURL(/session-planner-4-8\/index\.html.*app360_result=completed/);
+    const completion = await planner.evaluate(() => JSON.parse(localStorage.getItem('app360:interop:v1:events') || '[]')
+      .find(event => event.type === 'completed' && event.target_ref === 'track:river'));
+    assert.deepEqual(completion.payload, { action: 'track-completed', track: 'river', missions_completed: 5 });
+    console.log('PASS selecting a track in the 4–8 planner, coached play and structured completion on return');
 
     const offline = await browser.newContext({ reducedMotion: 'reduce' });
     const local = await offline.newPage();

@@ -37,12 +37,13 @@ function act(r,d,k,n,players){var reason=guard(d,r.machine,k,n);if(reason)return
 function undo(r){var old=r.history.pop();if(!old)return false;r.machine=old.machine;r.turn=old.turn;return true;}
 function progress(m,t){var count=0,total=0,next=null;if(!t.goal)return {count:0,total:0,done:false,next:null};for(var k in t.goal)if(Object.prototype.hasOwnProperty.call(t.goal,k)){total++;if(m[k]===t.goal[k])count++;else if(!next)next={tool:k,value:t.goal[k]};}return {count:count,total:total,done:count===total,next:next};}
 function frame(d,m){var n=m[d.photoKeys[0]]+(d.photoKeys.length>1?2*m[d.photoKeys[1]]:0);return d.frames?d.frames[n]:n;}
-function plan(d,m,t){if(!t.goal){for(var freeIndex=0;freeIndex<d.tools.length;freeIndex++){var freeKey=d.tools[freeIndex].key,freeValue=1-m[freeKey];if(!guard(d,m,freeKey,freeValue))return [{tool:freeKey,value:freeValue}];}return [];}var queue=[{m:copy(m),path:[]}],seen={};
+function plan(d,m,t,order){if(!t.goal){for(var freeIndex=0;freeIndex<d.tools.length;freeIndex++){var freeKey=d.tools[freeIndex].key,freeValue=1-m[freeKey];if(!guard(d,m,freeKey,freeValue))return [{tool:freeKey,value:freeValue}];}return [];}var queue=[{m:copy(m),path:[]}],seen={},tools=order||d.tools.map(function(tool){return tool.key;});
  while(queue.length){var item=queue.shift(),signature=d.tools.map(function(x){return item.m[x.key];}).join('');if(seen[signature])continue;seen[signature]=true;if(progress(item.m,t).done)return item.path;
-  for(var i=0;i<d.tools.length;i++){var k=d.tools[i].key,n=1-item.m[k];if(guard(d,item.m,k,n))continue;var next=copy(item.m);next[k]=n;queue.push({m:next,path:item.path.concat([{tool:k,value:n}])});}
+  for(var i=0;i<tools.length;i++){var k=tools[i],n=1-item.m[k];if(guard(d,item.m,k,n))continue;var next=copy(item.m);next[k]=n;queue.push({m:next,path:item.path.concat([{tool:k,value:n}])});}
  }return [];
 }
 function store(raw,age){var result={schema:3,level:1,selected:{},tasks:{},rounds:{},photo:true};if(raw&&raw.schema===3){if(typeof raw.level==='number'&&raw.level%1===0&&raw.level>=1&&raw.level<=4)result.level=raw.level;result.photo=raw.photo!==false;}
+ if(age==='4-8'){var guide=raw&&raw.schema===3&&raw.guide||{};result.guide={enabled:guide.enabled!==false,auto:guide.auto===true,voice:guide.voice!==false};}
  for(var level=1;level<=4;level++){var choices=list(age,level);result.selected[level]=choices[0].id;for(var i=0;i<choices.length;i++){var d=choices[i];if(raw&&raw.schema===3&&raw.selected&&raw.selected[level]===d.id)result.selected[level]=d.id;var selected=task(d,raw&&raw.schema===3&&raw.tasks&&raw.tasks[d.id]);result.tasks[d.id]=selected.id;
    for(var j=-1;j<d.tasks.length;j++){var id=j<0?'free':d.tasks[j].id,k=key(d,id);if(raw&&raw.schema===3&&raw.rounds&&Object.prototype.hasOwnProperty.call(raw.rounds,k))result.rounds[k]=restore(raw.rounds[k],d,id);}
  }}if(raw&&raw.legacyYoung)result.legacyYoung=copy(raw.legacyYoung);else if(age==='1-4'&&raw&&raw.schema===3&&raw.rounds&&Object.keys(raw.rounds).some(function(k){return k.indexOf('little-')!==0;}))result.legacyYoung=copy(raw);return result;

@@ -1,0 +1,91 @@
+name: Build public School Arabic voices
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/build-school-arabic-voices.yml'
+      - 'tooling/arabic-voice/**'
+      - 'data/arabic-voice-releases.json'
+  workflow_dispatch:
+    inputs:
+      app:
+        description: Voice source to render
+        type: choice
+        options:
+          - all
+          - toy-city-crane
+          - a4-family-market
+          - a1-sensory
+          - a4-session-planner
+        default: all
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tooling/arabic-voice/verify.cjs
+  render:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    concurrency:
+      group: school-arabic-voices-${{ github.ref }}-${{ inputs.app }}
+      cancel-in-progress: false
+    env:
+      SCHOOL_VOICE_TARGET: ${{ inputs.app }}
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned SILMA runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install torch==2.6.0+cpu torchaudio==2.6.0+cpu torchvision==0.21.0+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install torchcodec==0.2.1 --index-url https://download.pytorch.org/whl/cpu
+          printf 'torch==2.6.0+cpu\ntorchaudio==2.6.0+cpu\ntorchvision==0.21.0+cpu\ntorchcodec==0.2.1\ntransformers==4.51.3\nhuggingface-hub==0.36.0\n' > voice-constraints.txt
+          version=$(node -p 'require("./tooling/arabic-voice/profile.json").version')
+          python -m pip install -c voice-constraints.txt "silma-tts==$version"
+      - name: Prepare public weights and authored scripts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from huggingface_hub import snapshot_download
+
+          profile = json.loads(Path('tooling/arabic-voice/profile.json').read_text())
+          folder = Path('voice-weights')
+          snapshot_download('silma-ai/silma-tts', revision=profile['model_revision'],
+                            local_dir=folder, allow_patterns=['model.pt', 'vocab.txt'])
+          snapshot_download('charactr/vocos-mel-24khz', revision=profile['vocoder_revision'],
+                            local_dir=folder / 'vocoder', allow_patterns=['config.yaml', 'pytorch_model.bin'])
+          (folder / 'revision.txt').write_text(profile['model_revision'])
+          PY
+          node tooling/arabic-voice/plan.cjs voice-plan.json "$SCHOOL_VOICE_TARGET"
+      - name: Render and verify public Arabic audio
+        run: |
+          python -u tooling/arabic-voice/render.py --plan voice-plan.json --weights voice-weights --output voice-output --cache voice-cache --device cpu
+          node tooling/arabic-voice/apply.cjs voice-output "$SCHOOL_VOICE_TARGET"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: school-arabic-voices-${{ inputs.app }}-${{ github.sha }}
+          path: voice-output/
+          if-no-files-found: error
+          retention-days: 14

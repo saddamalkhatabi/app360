@@ -8,7 +8,7 @@
   "prebuild_path": "apps/4-8/command-path-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/command-path-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 8,
+  "version": 9,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -60,10 +60,13 @@
     "worlds": 3,
     "missions": 15,
     "mission_narrations": 32,
+    "coach_narrations": 32,
     "checkpoint_count": 3,
     "free_play": true,
     "workshop_query": "mode=workshop",
-    "progress_key": "app360:a4-command-path:journey-1:<profile>"
+    "progress_key": "app360:a4-command-path:journey-1:<profile>",
+    "track_progress_suffix": ":track:<track>",
+    "tracks": ["garden", "river", "sky"]
   },
   "learning_levels": [
     {
@@ -80,19 +83,20 @@
     }
   ],
   "audio": {
-    "clips": 298,
+    "clips": 362,
+    "engine": "SILMA TTS 1.0.5",
     "languages": [
       "ar",
       "en"
     ],
-    "timings": "actual-word-boundaries"
+    "timings": "acoustic-forced-alignment-for-workshop",
+    "manifest": "data/silma-recordings.json"
   },
   "resource_index": "resources/early-child-market-objects/manifest.json",
   "direct_execution": {
     "on_command": true,
     "full_replay": true,
-    "name_cheer_resource": "resources/early-child-name-audio/audio/registry.json",
-    "fallback": "google-tts-then-device-then-recorded-arrival",
+    "celebration_audio": "local-silma-recording",
     "touch_tiles": true,
     "drag_path": true,
     "double_tap_robot": "turn-right-in-place",
@@ -114,7 +118,7 @@
     "deterministic": true,
     "knowledge_scenes": 72,
     "illustration_atlas": "assets/knowledge-atlas.jpg",
-    "completion": "name-cheer-then-knowledge",
+    "completion": "silma-cheer-then-knowledge",
     "knowledge_objects": 36,
     "paper_image": "assets/writing-paper.svg"
   }

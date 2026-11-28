@@ -18,6 +18,12 @@
 
   function point(pair) { return { x: pair[0], y: pair[1] }; }
   function indexOf(id) { return cards.map(function (card) { return card.id; }).indexOf(id); }
+  function track(id) {
+    return content.worlds.filter(function (world) { return world.id === id; })[0] || null;
+  }
+  function missions(scope) {
+    return scope ? cards.filter(function (card) { return content.worlds[card.world].id === scope.id; }) : cards;
+  }
   function isDirect(card) { return card.mode === 'touch' || card.mode === 'facing'; }
   function limit(card) {
     return isDirect(card) ? touchLimit : card.mode === 'studio' ? 8 : card.answer.length;
@@ -75,43 +81,47 @@
     };
   }
 
-  function empty() { return { version: 1, wins: {}, drafts: {}, current: cards[0].id, finished: '' }; }
-
-  function unlocked(progress) {
-    for (var i = 0; i < cards.length; i++) {
-      if (!progress.wins[cards[i].id]) return i;
-    }
-    return cards.length;
+  function empty(scope) {
+    return { version: 1, wins: {}, drafts: {}, current: missions(scope)[0].id, finished: '', coach: true };
   }
 
-  function restore(value) {
-    var progress = empty();
+  function unlocked(progress, scope) {
+    var playlist = missions(scope);
+    for (var i = 0; i < playlist.length; i++) {
+      if (!progress.wins[playlist[i].id]) return i;
+    }
+    return playlist.length;
+  }
+
+  function restore(value, scope) {
+    var playlist = missions(scope), progress = empty(scope);
     if (!value || value.version !== 1) return progress;
-    for (var i = 0; i < cards.length; i++) {
-      var id = cards[i].id;
+    progress.coach = value.coach !== false;
+    for (var i = 0; i < playlist.length; i++) {
+      var id = playlist[i].id;
       var win = value.wins && value.wins[id];
       if (win !== 'solo' && win !== 'guided') break;
       progress.wins[id] = win;
     }
-    var highest = unlocked(progress);
-    cards.concat(highest >= 5 ? [studio] : []).forEach(function (card, i) {
+    var highest = unlocked(progress, scope);
+    playlist.concat(!scope && highest >= 5 ? [studio] : []).forEach(function (card, i) {
       if (i <= highest || card === studio) {
         if (value.drafts && value.drafts[card.id]) progress.drafts[card.id] = restoreDraft(value.drafts[card.id], card);
       }
     });
-    var current = indexOf(value.current);
-    progress.current = current >= 0 && current <= highest ? value.current : cards[Math.min(highest, cards.length - 1)].id;
-    if (value.current === studio.id && highest >= 5) progress.current = studio.id;
+    var current = playlist.map(function (card) { return card.id; }).indexOf(value.current);
+    progress.current = current >= 0 && current <= highest ? value.current : playlist[Math.min(highest, playlist.length - 1)].id;
+    if (!scope && value.current === studio.id && highest >= 5) progress.current = studio.id;
     if (value.finished === progress.current && progress.wins[value.finished] && progress.drafts[value.finished]) {
       var draft = progress.drafts[value.finished];
-      if (route(cards[current], draft.tape, draft.guess).status === 'arrived') progress.finished = value.finished;
+      if (route(playlist[current], draft.tape, draft.guess).status === 'arrived') progress.finished = value.finished;
     }
     return progress;
   }
 
-  function mark(progress, card, draft, result) {
-    var index = indexOf(card.id);
-    if (result.status !== 'arrived' || index < 0 || index > unlocked(progress)) return false;
+  function mark(progress, card, draft, result, scope) {
+    var index = missions(scope).indexOf(card);
+    if (result.status !== 'arrived' || index < 0 || index > unlocked(progress, scope)) return false;
     if (!progress.wins[card.id] || !draft.helped) progress.wins[card.id] = draft.helped ? 'guided' : 'solo';
     progress.finished = card.id;
     progress.drafts[card.id] = draft;
@@ -120,7 +130,7 @@
 
   return {
     cards: cards, worlds: content.worlds, studio: studio, commands: commands,
-    point: point, indexOf: indexOf, direct: isDirect, route: route, limit: limit,
+    point: point, indexOf: indexOf, track: track, missions: missions, direct: isDirect, route: route, limit: limit,
     fresh: fresh, empty: empty, restore: restore, restoreDraft: restoreDraft, unlocked: unlocked, mark: mark
   };
 }));
