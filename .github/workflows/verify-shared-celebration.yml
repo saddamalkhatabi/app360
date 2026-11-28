@@ -3,8 +3,11 @@ on:
   pull_request:
     paths:
       - 'resources/celebration-audio/player-v1.js'
+      - 'assets/js/school-voice-feedback-v1.js'
+      - 'assets/js/teacher-encouragement-v1.js'
       - 'apps/1-4/picture-puzzles/**'
       - 'apps/1-4/tangram-builder/**'
+      - 'apps/4-8/command-path-lab/src/celebration.js'
       - 'tooling/test-shared-celebration*.cjs'
       - 'tooling/test-picture-puzzles*.cjs'
       - 'tooling/test-picture-puzzle-learning.cjs'
@@ -13,6 +16,8 @@ on:
     branches: [main]
     paths:
       - 'resources/celebration-audio/player-v1.js'
+      - 'assets/js/school-voice-feedback-v1.js'
+      - 'assets/js/teacher-encouragement-v1.js'
       - 'apps/1-4/picture-puzzles/**'
       - 'apps/1-4/tangram-builder/**'
       - 'apps/1-4/drawing-writing-foundations/audio-v21.js'
