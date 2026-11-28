@@ -54,6 +54,7 @@ footer { border-top: 1px solid #e6ddeb; padding: 8px 0 22px; display: -webkit-fl
 .hero-actions .primary { min-height: 55px; padding: 10px 21px; font-size: 17px; box-shadow: 0 4px 0 #4f2c81; }
 .hero-actions .colouring-button { min-height: 53px; padding: 9px 15px; background: #ffe9b8; border-color: #e8c783; color: #5c4024; font-weight: bold; }
 .hero-actions .colouring-button:hover { background: #ffdfa1; }
+.coach-entry { min-height: 53px; border-color: #bda9d8; background: #fff; color: #503181; font-weight: bold; }
 .soft-link { display: inline-block; border: 1px solid transparent; border-radius: 12px; padding: 11px 12px; background: transparent; color: #542981; font-weight: bold; }
 html[dir=rtl] .soft-link .ui-icon { transform: scaleX(-1); }
 .draft-banner { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; padding: 12px 18px; margin-bottom: 18px; background: #fff3dc; border: 1px solid #f3dbb0; border-radius: 17px; }
@@ -74,6 +75,29 @@ html[dir=rtl] .level, html[dir=rtl] .project { text-align: right; }
 .project-copy { display: block; padding: 9px 12px 11px; }
 .project-copy b { display: block; font-size: 16px; }
 .project-copy small { color: #6e5f7d; font-size: 12px; }
+.studio-coach-routes { margin: 12px 0; padding: 12px 15px; border: 1px solid #dac8ed; border-radius: 20px; background: #f7effe; }
+.studio-coach-routes h2 { margin-bottom: 5px; }
+.coach-paths { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+.coach-path { width: calc(25% - 8px); min-height: 62px; margin: 4px; padding: 7px; color: #4c326c; font-weight: bold; }
+.coach-path .ui-icon { margin: 3px; }
+.coach-path:nth-child(1) { background: #fff; }
+.coach-path:nth-child(2) { background: #fff4d7; border-color: #e1c687; }
+.coach-path:nth-child(3) { background: #e7f5ed; border-color: #afd3bd; }
+.coach-path:nth-child(4) { background: #ffecf0; border-color: #e6b7c7; }
+.coach-path small { display: block; font-size: 12px; font-weight: normal; }
+.resume-path { border: 2px solid #7952a9; }
+.studio-coach-slot { position: -webkit-sticky; position: sticky; top: 0; z-index: 6; }
+.studio-coach-slot:empty { display: none; }
+.studio-coach-card, .coach-finished { padding: 8px 11px; margin: 7px 0; border: 1px solid #bdacd9; border-radius: 16px; background: #fbf6ff; }
+.studio-coach-card.coach-paused { background: #fcfaf6; border-color: #e8dccb; }
+.coach-card-heading { color: #55327e; }
+.coach-position { display: inline-block; margin: 0 7px; padding: 1px 7px; border-radius: 10px; background: #ede0fa; color: #53337d; font-size: 12px; }
+.studio-coach-card p { margin: 3px 0; }
+.coach-card-actions button, .coach-finished button { margin: 2px; padding: 5px 7px; font-size: 13px; }
+.studio-cue-target { outline: 3px solid #a76d0b; outline-offset: 2px; box-shadow: 0 0 0 5px rgba(249,204,112,.42); }
+.palette.studio-cue-target, .photo-picker.studio-cue-target { border-radius: 9px; }
+.coach-finished h2 { margin-bottom: 2px; }
+.coach-finished p { margin-bottom: 7px; }
 
 .studio-heading { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; }
 .studio-heading h1 { margin: 0 0 3px; }
@@ -162,6 +186,7 @@ textarea { min-height: 76px; resize: vertical; }
   .meaning-layout > div { width: 50%; padding: 0 8px; }
 }
 @media (max-width: 850px) {
+  .coach-path { width: calc(50% - 8px); }
   .level { width: calc(50% - 8px); }
   .hero h1 { font-size: 36px; }
 }
@@ -185,6 +210,9 @@ textarea { min-height: 76px; resize: vertical; }
   .hero-art { position: absolute; bottom: 24px; left: -37px; width: 154px; opacity: .72; }
   html[dir=ltr] .hero-art { left: auto; right: -37px; }
   .hero-actions .primary { font-size: 15px; }
+  .coach-entry { min-height: 48px; }
+  .studio-coach-card { padding: 5px 7px; border-radius: 12px; }
+  .coach-card-actions button { font-size: 12px; }
   .ideas { padding: 8px; }
   .level { min-height: 55px; padding: 6px 4px; }
   .level b { font-size: 13px; }

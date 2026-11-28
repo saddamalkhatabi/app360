@@ -1,8 +1,8 @@
 <!-- Generated from data/catalog.json by tooling/build-blueprints.js; edit the catalog, then regenerate. -->
 
-# مطالبة بناء: سوق العائلة: أعدّ وأقسم وأوازن
+# مطالبة بناء: سوق العائلة
 
-اعمل في مستودع saddamalkhatabi/app360 على سوق العائلة: أعدّ وأقسم وأوازن للفئة 4-8، بهوية a4-family-market ومسار apps/4-8/family-market-lab/ فقط.
+اعمل في مستودع saddamalkhatabi/app360 على سوق العائلة للفئة 4-8، بهوية a4-family-market ومسار apps/4-8/family-market-lab/ فقط.
 
 اقرأ docs/FRAMEWORK_AR.md وdocs/ARCHITECTURE_AR.md وdocs/DEPENDENCY_POLICY_AR.md وdocs/PWA_OFFLINE_POLICY_AR.md وdocs/APP_SPEC_TEMPLATE_AR.md ثم data/catalog.json وdata/goals.json وdata/capabilities.json وعقد التطبيق ومواصفاته التالية.
 

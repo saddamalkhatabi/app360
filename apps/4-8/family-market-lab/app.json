@@ -2,13 +2,13 @@
   "schema_version": "1.1",
   "id": "a4-family-market",
   "slug": "family-market-lab",
-  "title_ar": "سوق العائلة: أعدّ وأقسم وأوازن",
+  "title_ar": "سوق العائلة",
   "audience": "shared",
   "audience_note_ar": "الطفل صاحب المحاولة والتعبير؛ المدرب يجهز ويكيّف ويراجع مقدار المساعدة.",
   "prebuild_path": "apps/4-8/family-market-lab/PREBUILD_REQUIREMENTS_AR.md",
   "content_seed_path": "apps/4-8/family-market-lab/CONTENT_SEEDS.json",
   "age_group": "4-8",
-  "version": 2,
+  "version": 3,
   "status": "live",
   "scaffold_state": "implemented-preview",
   "kind": "goal_aligned",
@@ -30,17 +30,16 @@
     "compat.legacy-web",
     "ui.responsive-maturity",
     "practice.core",
-    "audio.recorded",
-    "audio.tts"
+    "audio.recorded"
   ],
   "bundles": [
     "static-core"
   ],
-  "practice_model_ar": "اختر سلة وطلبًا قابلًا للتمثيل وليس ورقة عمليات مجردة ← كوّن الكمية أو قارن أو وزع على أشخاص افتراضيين ← جرّب تمثيلًا آخر وافحص النتيجة بالعد أو المطابقة ← بدّل الدور أو صمّم طلبًا جديدًا وفسر حلّك للمدرب",
+  "practice_model_ar": "طابق الرقم والكمية، ثم جهّز سلة من صنف واحد وصنفين، واجمع مجموعتين، وأعِد الزائد، وادفع بالنقود. تُظهر المساعدة خطوة واحدة على اللوحة ويكمل الطفل الطلب.",
   "blueprint_path": "apps/4-8/family-market-lab/BUILD_SPEC.md",
   "prompt_path": "apps/4-8/family-market-lab/PROMPT_AR.md",
   "branding": {
-    "theme_color": "#287a65",
+    "theme_color": "#124838",
     "accent_color": "#e4b768",
     "raster_icons": [
       "apps/4-8/family-market-lab/icon-192.png",
@@ -50,28 +49,43 @@
   "release_channel": "preview",
   "acceptance_state": "technical-preview-family-pilot-pending",
   "launch_path": "apps/4-8/family-market-lab/launch.html",
+  "classic_entry_path": "apps/4-8/family-market-lab/classic.html",
   "links_path": "apps/4-8/family-market-lab/links.json",
   "storage": {
     "schema_version": 1,
     "profile_scoped": true,
-    "key": "app360:a4-family-market:schema-1:<profile>"
+    "key": "app360:a4-family-market:journey-1:<profile>"
   },
   "learning_levels": [
     {
       "level": 1,
-      "age_hint": "4-5"
+      "age_hint": "4-5",
+      "skill": "recognize"
     },
     {
       "level": 2,
-      "age_hint": "5-6"
+      "age_hint": "4-6",
+      "skill": "count"
     },
     {
       "level": 3,
-      "age_hint": "6-7"
+      "age_hint": "5-6",
+      "skill": "mixed"
     },
     {
       "level": 4,
-      "age_hint": "7-8"
+      "age_hint": "6-7",
+      "skill": "add"
+    },
+    {
+      "level": 5,
+      "age_hint": "6-8",
+      "skill": "subtract"
+    },
+    {
+      "level": 6,
+      "age_hint": "7-8",
+      "skill": "pay"
     }
   ],
   "ready_exercise_types": [
@@ -87,8 +101,8 @@
     "measure"
   ],
   "numeral_policy": {
-    "ar": "Arabic voice and native Arabic numerals",
-    "en": "English voice and numerals"
+    "ar": "Local SILMA recordings and Arabic-Indic digits",
+    "en": "Local SILMA recordings and Western digits"
   },
   "resource_index": "resources/early-child-market-objects/manifest.json",
   "variation_policy": "bounded recent history; vary picture and quantity; optional coach ascending quantities",

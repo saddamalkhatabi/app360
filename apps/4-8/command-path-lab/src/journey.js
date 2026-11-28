@@ -1,4 +1,4 @@
-(function (w, doc, M) {
+(function (w, doc, M, Coach) {
   'use strict';
   var faces = ['↑', '→', '↓', '←'];
   var numbers = '٠١٢٣٤٥٦٧٨٩';
@@ -14,12 +14,13 @@
 
   function mount(host, options) {
     var language = options.language, sound = options.sound;
-    var key = 'app360:a4-command-path:journey-1:' + encodeURIComponent(options.profile);
+    var scope = M.track(options.track), playlist = M.missions(scope);
+    var key = 'app360:a4-command-path:journey-1:' + encodeURIComponent(options.profile) + (scope ? ':track:' + scope.id : '');
     var progress = memory[key], card, draft, result, timer, execution, selected = -1, chart = false;
-    var won, message, hint, audio, voice, chimes, speech, soundToken = 0, playing = false, grownups = false;
+    var won, message, hint, audio, chimes, idleTimer, playing = false, grownups = false, guiding = false;
     var reduced = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!progress) {
-      try { progress = M.restore(JSON.parse(w.localStorage.getItem(key))); } catch (e) { progress = M.empty(); }
+      try { progress = M.restore(JSON.parse(w.localStorage.getItem(key)), scope); } catch (e) { progress = M.empty(scope); }
     }
 
     function t(ar, en) { return language === 'ar' ? ar : en; }
@@ -35,6 +36,7 @@
     function ready(id, replay) {
       stopAudio();
       clearTimeout(timer);
+      clearTimeout(idleTimer);
       var index = M.indexOf(id);
       var repeatCompleted = progress.current !== id && !!progress.wins[id];
       card = index < 0 ? M.studio : M.cards[index];
@@ -46,8 +48,8 @@
       draft = M.restoreDraft(progress.drafts[id], card);
       won = progress.finished === id;
       result = won || M.direct(card) ? M.route(card, draft.tape, draft.guess) : null;
-      if (!won && result && M.mark(progress, card, draft, result)) won = true;
-      playing = false; execution = null; selected = -1; hint = null; message = null; chart = false;
+      if (!won && result && M.mark(progress, card, draft, result, scope)) won = true;
+      playing = false; execution = null; selected = -1; hint = null; message = null; chart = false; guiding = false;
       save();
     }
     function tone(frequencies) {
@@ -68,34 +70,30 @@
       } catch (e) { /* Motion and cues carry the same information. */ }
     }
     function stopAudio() {
-      soundToken++;
       if (audio) { audio.pause(); audio.onerror = null; audio = null; }
-      if (voice && speech) speech.cancel();
-      voice = null;
     }
-    function listen() {
+    function speak(id) {
       stopAudio();
-      if (!sound) { message = ['فعّل الصوت للاستماع.', 'Turn sound on to listen.']; render(); return; }
-      var token = soundToken;
-      audio = new w.Audio('assets/journey-audio/' + language + '-' + card.id + '.mp3');
-      function fallback() {
-        if (token !== soundToken) return;
-        stopAudio();
-        speech = w.speechSynthesis;
-        var voices = speech && speech.getVoices();
-        var match = voices && voices.filter(function (voiceOption) {
-          return voiceOption.lang.toLowerCase().indexOf(language) === 0;
-        })[0];
-        if (match && w.SpeechSynthesisUtterance) {
-          voice = new w.SpeechSynthesisUtterance(pair(card.prompt));
-          voice.voice = match; voice.lang = match.lang; voice.rate = .88; speech.speak(voice);
-        } else {
-          message = ['اقرأ المهمة أو اتبع الرسم المضيء.', 'Read the mission or follow the glowing cue.'];
-          render();
-        }
-      }
-      audio.onerror = fallback;
-      try { var play = audio.play(); if (play && play.catch) play.catch(fallback); } catch (e) { fallback(); }
+      if (!sound) return;
+      audio = new w.Audio('assets/journey-audio/' + language + '-' + id + '.mp3');
+      try {
+        var play = audio.play();
+        if (play && play.catch) play.catch(function () {});
+      } catch (e) { /* The visual cue stays readable. */ }
+    }
+    function armCoach() {
+      clearTimeout(idleTimer);
+      if (!progress.coach || doc.hidden || chart || won || execution || hint) return;
+      idleTimer = setTimeout(function () { showCoach(false); }, 18000);
+    }
+    function showCoach(manual) {
+      if ((!manual && !progress.coach) || chart || won || execution) return;
+      guiding = true;
+      hint = Coach.choose(card, draft, result, selected);
+      draft.helped = true;
+      storeDraft();
+      render();
+      speak('coach-' + hint.id);
     }
     function button(action, text, klass, settings) {
       return '<button type="button"' + (action ? ' data-j="' + action + '"' : '') +
@@ -115,7 +113,8 @@
         button(null, icon(sound ? '♪' : '×') + ' <span>' + t('الصوت', 'Sound') + '</span>', 'jr-glass',
           ' data-do="sound" aria-pressed="' + sound + '" aria-label="' + t('صوت اللعبة', 'Game sound') + '"') +
         button(null, t('EN', 'عربي'), 'jr-glass', ' data-do="language" aria-label="' + t('English', 'العربية') + '" lang="' + t('en', 'ar') + '"') +
-        button(null, icon('⌂'), 'jr-glass jr-home', ' data-do="home" aria-label="' + t('الرئيسية', 'Home') + '"') + '</div></header>';
+        (options.fromPlanner ? '' :
+          button(null, icon('⌂'), 'jr-glass jr-home', ' data-do="home" aria-label="' + t('الرئيسية', 'Home') + '"')) + '</div></header>';
     }
     function locationId(x, y) { return x + ':' + y; }
     function tileType(key) {
@@ -154,10 +153,12 @@
       var html = '<aside class="jr-console' + (direct ? ' jr-direct' : '') + '" aria-label="' + t('لوحة الأوامر', 'Command controls') + '">';
       if (!won || !direct) html += '<div class="jr-console-heading"><h2>' +
         t(direct ? 'حرّك فِتيل' : 'صندوق الأوامر', direct ? 'Move Wick' : 'Command Box') + '</h2>' +
-        (won ? '' : button('hint', icon('✧') + ' ' + t('تلميح', 'Hint'), 'jr-quiet', usable ? '' : ' disabled')) + '</div>';
+        (won ? '' : button('hint', icon('☝') + ' ' + t('ساعدني', 'Help me'), 'jr-quiet', usable ? '' : ' disabled')) + '</div>';
+      if (hint && !won) html += '<div class="jr-coach-tip"><p>' + pair(Coach.phrases[hint.id]) + '</p>' +
+        button('coach-listen', icon('♫'), 'jr-quiet', ' aria-label="' + t('أعد سماع المدرب', 'Hear the coach again') + '"') + '</div>';
       if (direct && !won) {
         html += '<div class="jr-palette">' + card.keys.map(function (op) {
-          var guide = guidedCommand() === op || (hint && hint.op === op);
+          var guide = !hint && guidedCommand() === op;
           return button('add:' + op, command(op) + '<span>' + pair(M.commands[op].name) + '</span>',
             'jr-command jr-' + op + (guide && !won ? ' jr-guide' : ''), canAdd && (!result || result.status !== 'blocked') ? '' : ' disabled');
         }).join('') + '</div>';
@@ -171,8 +172,7 @@
           var op = draft.tape[i], editable = usable && repair && draft.tried && card.edit.indexOf(i) >= 0;
           var label = t('البطاقة ', 'Card ') + num(i + 1) + (op ? '، ' + pair(M.commands[op].name) : t('، فارغة', ', empty'));
           var chip = '<span class="jr-slot-num">' + num(i + 1) + '</span>' + (op ? command(op) : icon('·'));
-          var style = 'jr-slot ' + (op ? 'jr-' + op : 'jr-empty') +
-            (i === selected ? ' jr-selected' : '') + (hint && hint.slot === i ? ' jr-guide' : '');
+          var style = 'jr-slot ' + (op ? 'jr-' + op : 'jr-empty') + (i === selected ? ' jr-selected' : '');
           html += '<li data-slot="' + i + '">' + (editable ? button('select:' + i, chip, style,
             ' aria-label="' + label + '" aria-pressed="' + (selected === i) + '"') :
             '<span class="' + style + '" aria-label="' + label + '">' + chip + '</span>') + '</li>';
@@ -181,12 +181,12 @@
         if (!won && !swap && !predict) {
           html += '<div class="jr-palette">' + card.keys.map(function (op) {
             return button('add:' + op, command(op) + '<span>' + pair(M.commands[op].name) + '</span>',
-              'jr-command jr-' + op + (hint && hint.op === op ? ' jr-guide' : ''), canAdd ? '' : ' disabled');
+              'jr-command jr-' + op, canAdd ? '' : ' disabled');
           }).join('') + '</div>';
         }
         if (!won && (swap || (!repair && !predict))) {
           html += '<div class="jr-tools">' + (swap ? button('swap', icon('⇄') + ' ' + t('بدّل البطاقتين', 'Swap cards'),
-            'jr-quiet' + (hint ? ' jr-guide' : ''), usable && draft.tried ? '' : ' disabled') :
+            'jr-quiet', usable && draft.tried ? '' : ' disabled') :
             button('undo', icon('↶') + ' ' + t('تراجع', 'Undo'), 'jr-quiet', usable && draft.tape.length ? '' : ' disabled') +
             button('reset', t('امسح', 'Clear'), 'jr-quiet', usable && draft.tape.length ? '' : ' disabled')) + '</div>';
         }
@@ -199,10 +199,11 @@
         }
       }
       if (won) {
-        var next = M.cards[current + 1];
+        var next = playlist[playlist.indexOf(card) + 1];
         html += '<div class="jr-win-panel"><strong>' + pair(card.win) + '</strong>' +
-          button(next ? 'open:' + next.id : 'open:' + M.studio.id,
-            t(next ? 'المهمة التالية' : 'العب بحرّية', next ? 'Next mission' : 'Free play'), 'jr-next') +
+          (next ? button('open:' + next.id, t('المهمة التالية', 'Next mission'), 'jr-next') :
+            scope ? button('chart', t('خريطة المسار', 'Track map'), 'jr-next') :
+              button('open:' + M.studio.id, t('العب بحرّية', 'Free play'), 'jr-next')) +
           button('replay', t('ألعبها من جديد', 'Play it again'), 'jr-quiet') + '</div>';
       } else {
         var status = message || (result && reactions[result.status]);
@@ -211,12 +212,12 @@
       return html + '</aside>';
     }
     function mapScreen() {
-      var count = M.unlocked(progress);
+      var count = M.unlocked(progress, scope);
       return '<section class="jr-chart"><h1 tabindex="-1">' + t('خريطة الأضواء', 'Map of Lights') + '</h1><div class="jr-worlds">' +
-        M.worlds.map(function (world, index) {
+        (scope ? [scope] : M.worlds).map(function (world) {
           return '<section class="jr-world jr-world-' + world.id + '"><h2>' + icon(world.icon) + ' ' + pair(world.name) + '</h2><ol>' +
-            M.cards.map(function (mission, i) {
-              if (mission.world !== index) return '';
+            playlist.map(function (mission, i) {
+              if (M.worlds[mission.world] !== world) return '';
               var mark = i < count ? '✓' : i === count ? '✦' : '·';
               var label = '<b aria-hidden="true">' + mark + '</b><span>' + num(i % 5 + 1) + '. ' + pair(mission.title) + '</span>' +
                 (i > count ? '<span class="jr-sr">' + t('مقفلة', 'Locked') + '</span>' : '');
@@ -224,8 +225,8 @@
                 (mission.id === card.id ? ' aria-current="step"' : '')) + '</li>';
             }).join('') + '</ol></section>';
         }).join('') + '</div><div class="jr-chart-actions">' +
-        (count >= 5 ? button('open:' + M.studio.id, icon('✦') + ' ' + pair(M.studio.title), 'jr-next') : '') +
-        button(null, t('الخرائط ومصمّم الألغاز', 'Classic maps & puzzle maker'), 'jr-glass', ' data-do="library"') +
+        (!scope && count >= 5 ? button('open:' + M.studio.id, icon('✦') + ' ' + pair(M.studio.title), 'jr-next') : '') +
+        (!scope ? button(null, t('الخرائط ومصمّم الألغاز', 'Classic maps & puzzle maker'), 'jr-glass', ' data-do="library"') : '') +
         button('grownups', t('للمربي', 'For grown-ups'), 'jr-glass', ' aria-expanded="' + grownups + '" aria-controls="journeyCoach"') +
         '</div>' + coach() + '</section>';
     }
@@ -238,33 +239,38 @@
       return '<section class="jr-coach" id="journeyCoach"' + (grownups ? '' : ' hidden') + '><h2>' +
         t('كيف أتابع التعلّم؟', 'How can I follow their learning?') + '</h2><p>' +
         t('ابدأ من المهمة الأولى في أي عمر. عندما يتردّد الطفل، اسأله ماذا ستفعل هذه البطاقة ودعه يجرّب.', 'Start at the first mission at any age. If your child hesitates, ask what the card will do and let them try.') +
-        '</p><ul>' + M.cards.filter(function (mission) { return mission.checkpoint; }).map(function (mission, i) {
+        '</p>' + button('coach-toggle', t('المساعدة التلقائية', 'Automatic help'), 'jr-glass',
+          ' aria-pressed="' + progress.coach + '"') + '<ul>' +
+        playlist.filter(function (mission) { return mission.checkpoint; }).map(function (mission) {
           var result = progress.wins[mission.id];
-          return '<li><strong>' + pair(checks[i]) + '</strong><span>' +
+          return '<li><strong>' + pair(checks[mission.world]) + '</strong><span>' +
             (result === 'solo' ? t('أُنجزت دون تلميح داخل اللعبة', 'Completed without an in-game hint') :
               result === 'guided' ? t('أُنجزت بعد تلميح', 'Completed after a hint') : t('بانتظار التجربة', 'Ready to try later')) +
             '</span></li>';
-        }).join('') + '</ul>' + button(null, t('أدوات المربي', 'Coach tools'), 'jr-glass', ' data-do="coach"') + '</section>';
+        }).join('') + '</ul>' + (!scope ? button(null, t('أدوات المربي', 'Coach tools'), 'jr-glass', ' data-do="coach"') : '') + '</section>';
     }
     function scene() {
-      var world = M.worlds[card.world], i = M.indexOf(card.id), count = M.unlocked(progress);
+      var world = M.worlds[card.world], i = M.indexOf(card.id), count = M.unlocked(progress, scope);
       return '<section class="jr-mission"><div class="jr-intro"><div class="jr-mission-info"><div class="jr-location">' +
         icon(world.icon) + ' ' + pair(world.name) + (i < 0 ? '' : ' <span aria-hidden="true">·</span> ' + t('مهمة ', 'Mission ') + num(i % 5 + 1)) +
         '</div><h1 tabindex="-1">' + pair(card.title) + '</h1></div><div class="jr-score" aria-label="' +
-        t('المهمات المكتملة ', 'Missions completed ') + num(count) + t(' من ', ' of ') + num(M.cards.length) +
-        '">' + icon('✦') + '<b dir="ltr"><span>' + num(count) + '</span> / <span>' + num(M.cards.length) + '</span></b></div></div><div class="jr-game">' +
+        t('المهمات المكتملة ', 'Missions completed ') + num(count) + t(' من ', ' of ') + num(playlist.length) +
+        '">' + icon('✦') + '<b dir="ltr"><span>' + num(count) + '</span> / <span>' + num(playlist.length) + '</span></b></div></div><div class="jr-game">' +
         '<section class="jr-stage jr-world-' + world.id + (won ? ' jr-lit' : '') + '"><div class="jr-prompt"><p>' + pair(card.prompt) + '</p>' +
         button('listen', icon('♫'), 'jr-glass jr-listen', ' aria-label="' + t('استمع إلى المهمة', 'Listen to the mission') + '"') +
         '</div><div class="jr-field">' + board() + '</div></section>' + deck() + '</div></section>';
     }
     function announcement() {
-      return won ? pair(card.win) : message ? pair(message) : result && reactions[result.status] ? pair(reactions[result.status]) : '';
+      return won ? pair(card.win) : hint ? pair(Coach.phrases[hint.id]) :
+        message ? pair(message) : result && reactions[result.status] ? pair(reactions[result.status]) : '';
     }
     function render(focus) {
       var active = doc.activeElement, command = host.contains(active) && active.getAttribute('data-j');
       var external = host.contains(active) && active.getAttribute('data-do');
       host.innerHTML = header() + (chart ? mapScreen() : scene()) + '<div class="jr-sr" role="status" aria-live="polite"></div>';
       paint();
+      if (hint && !chart) drawCoach();
+      armCoach();
       var status = host.querySelector('[role="status"]'), copy = chart ? '' : announcement();
       if (copy) setTimeout(function () { if (host.contains(status)) status.textContent = copy; }, 25);
       var action = focus || (command && '[data-j="' + command + '"]') || (external && '[data-do="' + external + '"]');
@@ -273,6 +279,17 @@
         if (!node || node.disabled) node = host.querySelector(won ? '.jr-next' : '.jr-play:not(:disabled), .jr-command:not(:disabled)');
         if (node && node !== active) { try { node.focus({ preventScroll: true }); } catch (e) { node.focus(); } }
       }
+    }
+    function drawCoach() {
+      var target = hint.action === 'board' ? host.querySelector('#journeyBoard') :
+        host.querySelector('[data-j="' + hint.action + '"]:not(:disabled)');
+      if (!target) return;
+      var hand = doc.createElement('span');
+      hand.className = 'jr-coach-finger';
+      hand.textContent = '👆';
+      hand.setAttribute('aria-hidden', 'true');
+      target.classList.add('jr-coach-target');
+      target.appendChild(hand);
     }
     function paint() {
       var rover = host.querySelector('#journeyRobot');
@@ -293,7 +310,6 @@
         var cell = cells[i], id = cell.getAttribute('data-cell'), lit = seen[id] && cell.classList.contains('light');
         cell.classList.toggle('jr-trail', !!seen[id]);
         cell.classList.toggle('jr-glowing', !!lit || (won && id === card.goal.join(':')));
-        cell.classList.toggle('jr-target-guess', !!(hint && hint.guess === id));
         cell.classList.toggle('jr-chosen', draft.guess === id);
       }
       var slots = host.querySelectorAll('[data-slot]');
@@ -307,8 +323,8 @@
     function finish() {
       result = execution.result;
       execution = null; playing = false; draft.tried = true;
-      if (M.mark(progress, card, draft, result)) {
-        won = true; hint = null; message = null;
+      if (M.mark(progress, card, draft, result, scope)) {
+        won = true; hint = null; message = null; guiding = false;
         tone([587, 740, 880, 1175]);
       } else if (M.direct(card) && result.status === 'away') {
         message = guidedCommand() ? (card.mode === 'facing' ?
@@ -320,6 +336,14 @@
       render(won ? '.jr-next' : card.mode === 'predict' ? '.jr-guess' :
         card.mode === 'repair' ? '.jr-error button, .jr-tape button' :
           card.mode === 'swap' ? '[data-j="swap"]' : null);
+      if (won && scope && M.unlocked(progress, scope) === playlist.length) {
+        speak('coach-track-complete');
+        if (options.complete) options.complete(scope.id, playlist.length);
+      } else if (!won) {
+        var correctDirectStep = M.direct(card) && result.status === 'away' && guidedCommand();
+        if ((guiding && correctDirectStep) ||
+            (result.status !== 'studio' && !correctDirectStep)) showCoach(guiding);
+      }
     }
     function advance(auto) {
       clearTimeout(timer);
@@ -337,6 +361,8 @@
       }
     }
     function play(single, offset) {
+      clearTimeout(idleTimer);
+      stopAudio();
       if (!execution) {
         execution = { result: M.route(card, draft.tape, draft.guess), cursor: offset || 0 };
       }
@@ -345,6 +371,7 @@
       timer = setTimeout(function () { advance(!single); }, reduced ? 40 : 135);
     }
     function suspend() {
+      clearTimeout(idleTimer);
       stopAudio();
       if (!playing && !execution) return;
       clearTimeout(timer);
@@ -352,7 +379,7 @@
       if (M.direct(card)) {
         execution = null;
         result = M.route(card, draft.tape, draft.guess);
-        if (M.mark(progress, card, draft, result)) won = true;
+        if (M.mark(progress, card, draft, result, scope)) won = true;
         storeDraft();
       }
       render();
@@ -361,48 +388,12 @@
       if (card.id !== M.cards[0].id && !card.guide) return '';
       return card.answer.slice(0, draft.tape.length).join() === draft.tape.join() ? card.answer[draft.tape.length] : '';
     }
-    function giveHint() {
-      draft.helped = true;
-      message = null;
-      hint = {};
-      if (card.mode === 'predict') {
-        hint.guess = card.goal.join(':');
-        message = ['تتبّع اتجاه السهم بعد كل بطاقة. جرّب المربع المحدّد.', 'Follow the arrow after each card. Try the outlined square.'];
-      } else if ((card.mode === 'repair' || card.mode === 'swap') && !draft.tried) {
-        message = ['شغّل البطاقات أولًا وراقب أين يتوقّف الروبوت.', 'Play the cards first and see where the robot stops.'];
-      } else if (card.mode === 'repair') {
-        hint.slot = card.edit.filter(function (i) { return draft.tape[i] !== card.answer[i]; })[0];
-        if (M.route(card, draft.tape).status === 'arrived') {
-          hint.slot = null;
-          message = ['شغّل خطتك وشاهد ما يحدث.', 'Play your plan and see what happens.'];
-        } else {
-          hint.op = selected === hint.slot ? card.answer[hint.slot] : null;
-          message = ['المس البطاقة المحدّدة لتبدّلها.', 'Tap the outlined card to change it.'];
-        }
-      } else if (card.mode === 'swap') {
-        message = ['أي بطاقة توصل الروبوت إلى اليراعة أولًا؟', 'Which card will take Wick to the firefly first?'];
-      } else if (card !== M.studio) {
-        for (var i = 0; i < draft.tape.length && draft.tape[i] === card.answer[i]; i++) {}
-        if (i < draft.tape.length) {
-          hint.slot = i;
-          message = ['تراجع حتى هذه البطاقة، ثم جرّب اتجاهًا آخر.', 'Undo back to this card, then try a different direction.'];
-        } else {
-          hint.op = card.answer[i];
-          hint.slot = i;
-          message = hint.op ? ['جرّب البطاقة المضيئة.', 'Try the glowing card.'] :
-            ['شغّل خطتك وشاهد ما يحدث.', 'Play your plan and see what happens.'];
-        }
-      } else {
-        message = ['جرّب دورانًا بين خطوتين وارسم منعطفًا.', 'Try putting a turn between two moves to draw a bend.'];
-      }
-      storeDraft();
-      render();
-    }
     function changeTape(action, value) {
       var direct = M.direct(card);
       var previous = direct && result ? result.trace.length : 0;
       var replace = card.mode === 'repair';
       var added = action === 'add';
+      stopAudio();
       hint = null; message = null;
       if (added) {
         if (replace) { draft.tape[selected] = value; selected = -1; }
@@ -418,14 +409,20 @@
       }
       render();
       if (added) tone([660]);
+      if (guiding) showCoach(true);
     }
     function click(event) {
       var target = event.target;
       while (target && target !== host && !(target.getAttribute && target.getAttribute('data-j'))) target = target.parentNode;
       if (!target || target === host || target.disabled) return;
       var parts = target.getAttribute('data-j').split(':'), action = parts.shift(), value = parts.join(':');
-      if (action === 'listen') { listen(); return; }
+      if (action === 'listen') { speak(card.id); return; }
+      if (action === 'coach-listen' && hint) { speak('coach-' + hint.id); return; }
       if (action === 'grownups') { grownups = !grownups; render(); return; }
+      if (action === 'coach-toggle') {
+        progress.coach = !progress.coach;
+        hint = null; guiding = false; save(); render(); return;
+      }
       if (action === 'chart' || action === 'return') {
         if (action === 'chart') suspend();
         chart = action === 'chart';
@@ -433,24 +430,34 @@
       }
       if (action === 'replay' || action === 'open') {
         if (action === 'open' && value === card.id) { chart = false; render('h1'); return; }
+        if (action === 'open' && !playlist.slice(0, M.unlocked(progress, scope) + 1).some(function (mission) {
+          return mission.id === value;
+        }) && (scope || value !== M.studio.id || M.unlocked(progress) < 5)) return;
         ready(action === 'replay' ? card.id : value, action === 'replay');
         render('h1'); return;
       }
       if (action === 'pause') { suspend(); return; }
       if (action === 'play' || action === 'step') { play(action === 'step'); return; }
-      if (action === 'hint') { giveHint(); return; }
+      if (action === 'hint') { showCoach(true); return; }
       if (action === 'select') {
         selected = Number(value);
-        if (hint) hint.op = card.answer[selected];
         message = ['اختر أمرًا جديدًا لهذه البطاقة.', 'Choose a new command for this card.'];
-        render(); return;
+        if (guiding) showCoach(true); else render();
+        return;
       }
-      if (action === 'guess') { draft.guess = value; message = null; hint = null; result = null; storeDraft(); render('[data-j="play"]'); return; }
+      if (action === 'guess') {
+        stopAudio(); draft.guess = value; message = null; hint = null; result = null;
+        storeDraft(); render('[data-j="play"]');
+        if (guiding) showCoach(true);
+        return;
+      }
       changeTape(action, value);
     }
 
     ready(progress.current, false);
     host.addEventListener('click', click, false);
+    function watchVisibility() { if (!doc.hidden) armCoach(); }
+    doc.addEventListener('visibilitychange', watchVisibility, false);
     render();
     return {
       configure: function (newLanguage, newSound) {
@@ -459,11 +466,15 @@
         language = newLanguage; sound = newSound; render();
       },
       suspend: suspend,
+      status: function () {
+        return { track: scope && scope.id, completed: M.unlocked(progress, scope), total: playlist.length };
+      },
       destroy: function () {
-        stopAudio(); clearTimeout(timer); host.removeEventListener('click', click, false);
+        stopAudio(); clearTimeout(timer); clearTimeout(idleTimer); host.removeEventListener('click', click, false);
+        doc.removeEventListener('visibilitychange', watchVisibility, false);
         if (chimes && chimes.close) chimes.close().catch(function () {});
       }
     };
   }
   w.APP360_COMMAND_JOURNEY = { mount: mount };
-}(window, document, window.COMMAND_JOURNEY));
+}(window, document, window.COMMAND_JOURNEY, window.COMMAND_JOURNEY_COACH));

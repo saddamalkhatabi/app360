@@ -89,8 +89,9 @@ function updateBundle(file, pack, entry) {
   });
 }
 
-const files = ['app.js','app.json','index.html','launch.html','links.json','styles.css','icon.svg','icon-192.png','icon-512.png','manifest.webmanifest','data/photos.js','src/model.js','src/options.js','src/board.js'];
-const studioFiles = files.map(name => studio + name);
+const files = ['app.js','app.json','index.html','launch.html','links.json','styles.css','icon.svg','icon-192.png','icon-512.png','manifest.webmanifest','data/photos.js','data/coach.js','data/audio-manifest.json','data/read-along.json','src/coach.js','src/model.js','src/options.js','src/board.js'];
+const clips = json(studio + 'data/audio-manifest.json').items.map(clip => clip.path);
+const studioFiles = files.concat(clips).map(name => studio + name);
 const portals = ['data/catalog.json','data/public-links.json','data/app-links-registry.json','links.html'];
 const shared = new Map(portals.concat(studioFiles).map(name => [name, record(name)]));
 for (const name of [...studioFiles, ...media]) records.set(name, shared.get(name) || record(name));
@@ -100,8 +101,8 @@ const entry = catalog.apps.find(app => app.id === 'a4-draw-write');
 bundle.files = [...records.values()].sort((a, b) => a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
 updateBundle(manifest, bundle, entry);
 Object.assign(entry, {
-  title: 'مرسم العائلة: أرسم وأكتب رسالة', release: '2',
-  updateNote: 'رسم حر وأدوات وصور أشيائي، ووصْل الانقطاعات القصيرة للقلم على الأجهزة القديمة.'
+  title: 'مرسم العائلة: أرسم وأكتب رسالة', release: '3',
+  updateNote: 'المدرّب الآلي بأربعة مسارات. إرشاد SILMA بالعربية والإنجليزية وتركيز تلقائي على أدوات الرسم واللوحة والحفظ.'
 });
 // Other downloads also pin portal metadata and selected Studio entry files.
 for (const app of catalog.apps) {

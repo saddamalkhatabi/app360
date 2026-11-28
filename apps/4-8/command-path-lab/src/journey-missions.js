@@ -5,9 +5,12 @@
   'use strict';
 
   var worlds = [
-    { id: 'garden', name: ['حديقة الفوانيس', 'Lantern Garden'], goal: ['فانوس', 'lantern'], icon: '🏮' },
-    { id: 'river', name: ['نهر البلّور', 'Crystal River'], goal: ['جسر', 'bridge'], icon: '🌉' },
-    { id: 'sky', name: ['جزيرة النجوم', 'Star Island'], goal: ['نجمة', 'star'], icon: '🌟' }
+    { id: 'garden', name: ['حديقة الفوانيس', 'Lantern Garden'], goal: ['فانوس', 'lantern'], icon: '🏮',
+      skill: ['أول أمر وترتيب البطاقات', 'First command and card order'] },
+    { id: 'river', name: ['نهر البلّور', 'Crystal River'], goal: ['جسر', 'bridge'], icon: '🌉',
+      skill: ['تصحيح الخطأ والتوقّع', 'Debugging and prediction'] },
+    { id: 'sky', name: ['جزيرة النجوم', 'Star Island'], goal: ['نجمة', 'star'], icon: '🌟',
+      skill: ['تكرار الأوامر', 'Repeating commands'] }
   ];
 
   // Each route introduces or checks one idea. Coordinates are screen coordinates in both languages.

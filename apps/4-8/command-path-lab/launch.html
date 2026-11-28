@@ -1,1 +1,62 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مسار الأوامر</title></head><body><script src="../../../assets/js/app-link-host.js"></script><script>(function(){'use strict';App360LinkHost.mount({appId:'a4-command-path',title:'مسار الأوامر',entry:'index.html',targetRef:function(q){return q.id||q.item||'library';},onReady:function(W,D,q,host){var n=0,t=setInterval(function(){if(++n>60){clearInterval(t);host.fail('runtime unavailable');return;}if(!W.APP360_COMMAND)return;clearInterval(t);var id=q.id||q.item;if(id&&!W.APP360_COMMAND.open(id)){host.fail('unknown map');return;}host.ready({item:id||''});D.addEventListener('app360:command:saved',function(e){host.complete({action:'route-saved',item:e.detail&&e.detail.map||id||''});},false);},100);}});})();</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مسار الأوامر</title>
+</head>
+<body>
+<script src="../../../assets/js/app-link-host.js"></script>
+<script src="src/journey-missions.js?v=2"></script>
+<script>
+(function () {
+  'use strict';
+  var query = App360LinkHost.query();
+  var track = COMMAND_JOURNEY_MISSIONS.worlds.filter(function (world) { return world.id === query.track; })[0];
+  var launchTitle = track ? 'مسار الأوامر · ' + track.name[0] : 'مسار الأوامر';
+  var planned = !!track && query.caller === 'a4-session-planner';
+  App360LinkHost.mount({
+    appId: 'a4-command-path',
+    title: launchTitle,
+    entry: 'index.html' + (track ? '?track=' + track.id + (planned ? '&from=planner' : '') : ''),
+    targetRef: function (q) { return track ? 'track:' + track.id : q.id || q.item || 'library'; },
+    onReady: function (child, document, q, host) {
+      var count = 0;
+      var pending = setInterval(function () {
+        if (++count > 60) { clearInterval(pending); host.fail('runtime unavailable'); return; }
+        if (!child.APP360_COMMAND) return;
+        clearInterval(pending);
+        if (q.track && !track) { host.fail('unknown track'); return; }
+        if (track) {
+          function complete(e) {
+            var data = e.detail;
+            if (data && data.track === track.id) {
+              host.complete({ action: 'track-completed', track: track.id, missions_completed: data.missions_completed });
+            }
+          }
+          document.addEventListener('app360:command:track-complete', complete, false);
+          host.ready({ track: track.id });
+          var status = child.APP360_COMMAND.journeyStatus();
+          if (status && status.track === track.id && status.completed === status.total) {
+            complete({ detail: { track: track.id, missions_completed: status.total } });
+          }
+          return;
+        }
+        var id = q.id || q.item;
+        if (id && !child.APP360_COMMAND.open(id)) { host.fail('unknown map'); return; }
+        if (q.action === 'library') child.APP360_COMMAND.openLibrary();
+        host.ready({ item: id || '' });
+        document.addEventListener('app360:command:saved', function (event) {
+          host.complete({ action: 'route-saved', item: event.detail && event.detail.map || id || '' });
+        }, false);
+      }, 100);
+    }
+  });
+  if (track) {
+    var manual = document.querySelector('.app360-link-actions .app360-finish');
+    if (manual) manual.hidden = true;
+  }
+}());
+</script>
+</body>
+</html>

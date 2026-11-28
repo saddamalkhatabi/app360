@@ -1,8 +1,22 @@
-# سوق العائلة: أعدّ وأقسم وأوازن
+# سوق العائلة
 
-معاينة 2 في فرع `family-school-360-preview`. يعمل التطبيق مستقلًا أو داخل بوابة مدرسة العائلة 360. التجربة الأسرية ومراجعة الصوت على الأجهزة الفعلية ما زالتا قيد الانتظار.
+يدخل الطفل من `index.html` مباشرة إلى طلب الزبون ويمارس ٢٠ طلبًا في ستة مستويات. يبدأ بمطابقة الأرقام من ١ إلى ٥، ثم يعدّ في السلة ويجهّز قائمة من نوعين ويجمع مجموعتين ويعيد الزائد ويدفع بالنقود. ينتقل بين المستويات بحرية، وتستأنف اللعبة الطلب والتقدم من حفظ محلي لكل ملف.
 
-## دخول الطفل
+يمكن لمس المنتجات أو سحبها. يضيء «ساعدني» المصدر والوجهة ويحرّك نسخة من القطعة إلى الخانة الفعلية، ثم يجرّب الطفل الحركة بنفسه. مع تفضيل تقليل الحركة، تظهر الإضاءة وحدها.
+
+تستخدم الرحلة تسجيلات SILMA TTS 1.0.5 المحلية للأرقام والإرشاد باللغتين. يحتوي `data/journey-voice-plan.json` على النصوص، ويحتوي `data/journey-recordings.json` على البصمات ومصدر الصوت. يعيد `tools/render_journey_voice.py` تجميعها من النموذج والمرجع العام.
+
+الطلبات القديمة وأدوات المرافق متاحة من «رحلتي»، والروابط التي تحدد طلبًا أو تمرينًا قديمًا ما زالت تفتح النشاط المقصود.
+
+### خلفية ساحة السوق
+
+أُنشئت `assets/market-courtyard.webp` باستخدام ImageGen المدمج. استُخدم الوصف التالي لتوليد الخلفية.
+
+> Use case: children's book landscape background for an Arabic family market mathematics game, wide landscape composition around 2.7:1 cropping-safe. A sunlit neighborhood produce market courtyard, storybook gouache with finely tactile paper, muted pale warm peach and apricot stucco, muted olive foliage and soft sage plant details, minimal, elegant and cheerful. At left and far right edges: soft outdoor market architectural arches, tiny pots, subtle stone paving, understated distant stands. Central 70 percent horizontally must be very quiet, wide open warm plaster and pale golden paving, especially at middle and bottom, because a fully coded bright interactive shop stand and wicker basket will be placed on top. Soft morning sunlight diffused, front view low-detail, no photos, no people or characters, no lettering signs numbers branding typography, no foreground stall or basket, no frames, no dark edges. It must support a highly legible HTML game interface layered over it.
+
+## معاينة السوق السابقة
+
+### دخول الطفل
 
 اختر عالم الصور ثم اضغط بطاقة تجربة كاملة. تتوفر عشر تجارب واضحة: العد، إكمال الناقص، إعادة الزائد، التوزيع بالتساوي، التقسيم، ضم مجموعتين، طلب من صورتين، المقارنة، النمط، والقياس. لا توجد بوابة درجات. يغير زر «تجربة جديدة» الصورة والكميات ضمن المجال المناسب؛ يتجنب المحرك التكرارات الحديثة متى سمح مجال الصور والأعداد بذلك.
 

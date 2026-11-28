@@ -1,1 +1,44 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>سوق العائلة | مدرسة العائلة 360</title></head><body><script src="../../../assets/js/app-link-host.js"></script><script>(function(){'use strict';App360LinkHost.mount({appId:'a4-family-market',title:'سوق العائلة',entry:'index.html',targetRef:function(q){return q.experience||q.item||'orders'},onReady:function(W,D,q,host){var n=0,t=setInterval(function(){if(++n>60){clearInterval(t);host.fail('market runtime unavailable');return}if(!W.APP360_MARKET)return;clearInterval(t);if(q.experience&&!W.APP360_MARKET.openExperience(q.experience,q.market)){host.fail('unknown market activity');return}if(!q.experience&&q.item&&!W.APP360_MARKET.open(q.item)){host.fail('unknown market task');return}host.ready({item:q.item||'',experience:q.experience||'',market:q.market||''});D.addEventListener('app360:market:saved',function(){host.complete({action:'market-order-authored',item:q.item||''})},false)},100)}})})();</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>سوق العائلة | مدرسة العائلة 360</title>
+</head>
+<body>
+<script src="../../../assets/js/app-link-host.js"></script>
+<script>
+(function () {
+  'use strict';
+  var query = App360LinkHost.query();
+  var legacy = !!(query.item || query.experience);
+  App360LinkHost.mount({
+    appId: 'a4-family-market',
+    title: 'سوق العائلة',
+    entry: (legacy ? 'classic.html' : 'index.html') + '?embed=1',
+    targetRef: function (q) { return q.experience || q.item || 'orders'; },
+    onReady: function (frame, doc, q, host) {
+      var market = frame.APP360_MARKET;
+      if (!market) { host.fail('market runtime unavailable'); return; }
+      if (q.experience && !market.openExperience(q.experience, q.market)) {
+        host.fail('unknown market activity'); return;
+      }
+      if (!q.experience && q.item && !market.open(q.item)) {
+        host.fail('unknown market task'); return;
+      }
+      host.ready({ item: q.item || '', experience: q.experience || '', market: q.market || '' });
+      doc.addEventListener('app360:market:saved', function (event) {
+        var details = event.detail || {};
+        host.complete({
+          action: legacy ? 'market-order-authored' : 'market-order-delivered',
+          item: q.item || '',
+          level: details.level || null,
+          round: details.round || null
+        });
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

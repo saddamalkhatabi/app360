@@ -1,0 +1,2547 @@
+{
+  "schema_version": 1,
+  "engine": "SILMA TTS",
+  "engine_version": "1.0.5",
+  "model": "silma-ai/silma-tts",
+  "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+  "seed": 360,
+  "steps": 16,
+  "speed": 0.97,
+  "voice_reference": "Publisher’s bundled demonstration audio",
+  "items": [
+    {
+      "path": "assets/journey-audio/ar-first-light.mp3",
+      "language": "ar",
+      "text": "اِلْمَسِ السَّهْمَ، وَأَضِئِ الْفَانُوسَ!",
+      "sha256": "40651169832ef597c100435cfbc00a12a57128601ca9ae38cc9f7c8cc54e5b07",
+      "duration_ms": 2990
+    },
+    {
+      "path": "assets/journey-audio/en-first-light.mp3",
+      "language": "en",
+      "text": "Tap the arrow to light the lantern!",
+      "sha256": "0a3b4bb0d7559efc05bead63a59dba3f6a1e509188c76b3ac15f984d12dd6584",
+      "duration_ms": 2488
+    },
+    {
+      "path": "assets/journey-audio/ar-wake-the-firefly.mp3",
+      "language": "ar",
+      "text": "أَيْقِظِ الْيَرَاعَةَ فِي طَرِيقِكَ إِلَى الْفَانُوسِ.",
+      "sha256": "66c52ec7d8b0a8f445f3da9f84e2decc83cd509aea1966845d2b483b02a1869a",
+      "duration_ms": 4183
+    },
+    {
+      "path": "assets/journey-audio/en-wake-the-firefly.mp3",
+      "language": "en",
+      "text": "Wake the firefly on your way to the lantern.",
+      "sha256": "0391efc86c8d548890dd629ecbeb2de41a3d883783144aa1f7cdb1835cbe1f70",
+      "duration_ms": 3305
+    },
+    {
+      "path": "assets/journey-audio/ar-two-cards.mp3",
+      "language": "ar",
+      "text": "ضَعْ بِطَاقَتَيْنِ، ثُمَّ الْمَسْ زِرَّ التَّشْغِيلِ.",
+      "sha256": "a3127dc7cdba66c26837b1619d7182d59ba73e698778a76398c0c8d7fd58f4f7",
+      "duration_ms": 4144
+    },
+    {
+      "path": "assets/journey-audio/en-two-cards.mp3",
+      "language": "en",
+      "text": "Add two cards, then tap Play.",
+      "sha256": "4753b3e8ed7bd50eabf6a3ed851c6e3848469c112f45f6ca44e167f2925672e7",
+      "duration_ms": 2331
+    },
+    {
+      "path": "assets/journey-audio/ar-first-then.mp3",
+      "language": "ar",
+      "text": "مُرَّ عَلَى الْيَرَاعَةِ أَوَّلًا، ثُمَّ أَضِئِ الْفَانُوسَ.",
+      "sha256": "b80d73b40d2417a5d18687c8706b083af9f8676b507f8c54d7c95b4f4811376a",
+      "duration_ms": 4779
+    },
+    {
+      "path": "assets/journey-audio/en-first-then.mp3",
+      "language": "en",
+      "text": "Visit the firefly first, then light the lantern.",
+      "sha256": "d94d257fcea098fd313d179328b3c31477da9435143407bd08226ccaddadb922",
+      "duration_ms": 3689
+    },
+    {
+      "path": "assets/journey-audio/ar-garden-trail.mp3",
+      "language": "ar",
+      "text": "اِبْنِ طَرِيقًا مِنْ ثَلَاثِ بِطَاقَاتٍ حَوْلَ السِّيَاجِ.",
+      "sha256": "f0c8e20b8c44351ee83b612748fa4014201b1f28c6ab98471708d77a506815cb",
+      "duration_ms": 4537
+    },
+    {
+      "path": "assets/journey-audio/en-garden-trail.mp3",
+      "language": "en",
+      "text": "Build a three-card path around the fence.",
+      "sha256": "b7f5ad54545921e9117d843579fca378dc3c96fb31eb19147de1edb3439f9006",
+      "duration_ms": 3003
+    },
+    {
+      "path": "assets/journey-audio/ar-one-card-fix.mp3",
+      "language": "ar",
+      "text": "شَغِّلِ الْخُطَّةَ، وَشَاهِدِ الْبِطَاقَةَ الَّتِي تَحْتَاجُ إِلَى تَغْيِيرٍ.",
+      "sha256": "ccf24bc896d7d48be14757fae712938667182917c25d5d87562f6cc662f92e35",
+      "duration_ms": 5901
+    },
+    {
+      "path": "assets/journey-audio/en-one-card-fix.mp3",
+      "language": "en",
+      "text": "Run the plan and watch for the card that needs changing.",
+      "sha256": "a7d96f768107059c1c784a81c6802b99385f1812a9b335110e4c150091151a7b",
+      "duration_ms": 4412
+    },
+    {
+      "path": "assets/journey-audio/ar-swap-order.mp3",
+      "language": "ar",
+      "text": "شَغِّلِ الْخُطَّةَ. بَدِّلْ تَرْتِيبَ الْبِطَاقَتَيْنِ لِتَمُرَّ عَلَى الْيَرَاعَةِ أَوَّلًا.",
+      "sha256": "b9a4f9271ab57a57cf91971012614d6cccfb6bb97890fc6c78cf641bd87982da",
+      "duration_ms": 7552
+    },
+    {
+      "path": "assets/journey-audio/en-swap-order.mp3",
+      "language": "en",
+      "text": "Run the plan. Swap the cards to visit the firefly first.",
+      "sha256": "63462f8e3f022138832832e53918b91e7ecc8b92d88527d86c9a0cd7e57f15e9",
+      "duration_ms": 4442
+    },
+    {
+      "path": "assets/journey-audio/ar-point-ahead.mp3",
+      "language": "ar",
+      "text": "أَدِرْ وَجْهَ الرُّوبُوتِ نَحْوَ الْجِسْرِ، ثُمَّ تَقَدَّمْ.",
+      "sha256": "6399897dc466260d9069a7e2fea028c5e6c32efd126ea1ca31857dbb93f7a8af",
+      "duration_ms": 4735
+    },
+    {
+      "path": "assets/journey-audio/en-point-ahead.mp3",
+      "language": "en",
+      "text": "Turn the robot to face the bridge, then move forward.",
+      "sha256": "a0d406ea9034e0e7fa5c4a712a7da32317f987a2a34bd2468e61938e0213cbdb",
+      "duration_ms": 4087
+    },
+    {
+      "path": "assets/journey-audio/ar-make-a-bend.mp3",
+      "language": "ar",
+      "text": "تَقَدَّمْ إِلَى الْمُنْعَطَفِ، ثُمَّ اخْتَرْ أَمْرَ الدَّوَرَانِ.",
+      "sha256": "d065c7612494745d171a14ff359a4edade5d5d3bafabb73c9737d804cbc6192d",
+      "duration_ms": 4556
+    },
+    {
+      "path": "assets/journey-audio/en-make-a-bend.mp3",
+      "language": "en",
+      "text": "Move to the bend, then choose a turn.",
+      "sha256": "4268b03fdb634254bdddd67c7f5a39791f5a6066f6e1aa42f928b5e62ced6e8b",
+      "duration_ms": 2700
+    },
+    {
+      "path": "assets/journey-audio/ar-predict-landing.mp3",
+      "language": "ar",
+      "text": "اُنْظُرْ إِلَى الْبِطَاقَاتِ. اِلْمَسِ الْمَكَانَ الَّذِي تَتَوَقَّعُ أَنْ يَصِلَ إِلَيْهِ الرُّوبُوتُ.",
+      "sha256": "5ffb9bd340d861aef1cd5a3670b80d94fb22fd612de6ea9aba1fdb20d42dc52d",
+      "duration_ms": 8275
+    },
+    {
+      "path": "assets/journey-audio/en-predict-landing.mp3",
+      "language": "en",
+      "text": "Look at the cards. Tap the square where you think the robot will stop.",
+      "sha256": "dee915dc061aa65a0de9b9148ece83d387e58dcfd7219c8d778fbd44b862c957",
+      "duration_ms": 5189
+    },
+    {
+      "path": "assets/journey-audio/ar-echo.mp3",
+      "language": "ar",
+      "text": "جَرِّبْ بِطَاقَةَ تَقَدَّمْ مَرَّتَيْنِ، وَأَيْقِظِ الْيَرَاعَةَ فِي الطَّرِيقِ.",
+      "sha256": "35ca9b5996dc615fbb06a41c8947d50db7eb4a7dbcf53e3b9cae17c58a2e0089",
+      "duration_ms": 5954
+    },
+    {
+      "path": "assets/journey-audio/en-echo.mp3",
+      "language": "en",
+      "text": "Try the Forward Twice card and wake the firefly on the way.",
+      "sha256": "52eb5e0942d4da9a5008bdd36e881132cad96aecd0afb4d37382ea390bee3f15",
+      "duration_ms": 4630
+    },
+    {
+      "path": "assets/journey-audio/ar-echo-and-turn.mp3",
+      "language": "ar",
+      "text": "كَرِّرِ التَّقَدُّمَ نَحْوَ الْيَرَاعَةِ، ثُمَّ خُذِ الْمُنْعَطَفَ.",
+      "sha256": "84829c60f85f5df4baa8650b3c5f893168a05f676b81d1fecdc478b4d1855b27",
+      "duration_ms": 5367
+    },
+    {
+      "path": "assets/journey-audio/en-echo-and-turn.mp3",
+      "language": "en",
+      "text": "Repeat forward to reach the firefly, then take the turn.",
+      "sha256": "7a1ad552bc7b677af97add3510d6d8c616253def4c9826ce491e8f31b23da756",
+      "duration_ms": 4395
+    },
+    {
+      "path": "assets/journey-audio/ar-repeat-repair.mp3",
+      "language": "ar",
+      "text": "شَغِّلِ الْبِطَاقَتَيْنِ، ثُمَّ غَيِّرْ إِحْدَاهُمَا لِتَصِلَ إِلَى النَّجْمَةِ.",
+      "sha256": "a85d23f5e2ba99e2e89010b3e99b7ed8af008dc1cde459207231440a2f9ebef1",
+      "duration_ms": 6596
+    },
+    {
+      "path": "assets/journey-audio/en-repeat-repair.mp3",
+      "language": "en",
+      "text": "Run the two cards, then change one to reach the star.",
+      "sha256": "ad4432171561c68585ce8a504df4fb40d4198f8d7e4365b0d4499f097822bf3f",
+      "duration_ms": 4133
+    },
+    {
+      "path": "assets/journey-audio/ar-two-fireflies.mp3",
+      "language": "ar",
+      "text": "مُرَّ عَلَى الْيَرَاعَتَيْنِ، ثُمَّ أَضِئِ النَّجْمَةَ.",
+      "sha256": "d14f75ba5f464318a6daa44253730c18702ab4504f98c0a02e46c59c637ea766",
+      "duration_ms": 4330
+    },
+    {
+      "path": "assets/journey-audio/en-two-fireflies.mp3",
+      "language": "en",
+      "text": "Visit both fireflies, then light the star.",
+      "sha256": "18dfed5e113ff29dffbeb6a9ba5d850ac001985d7b06a8e0a40a4a9040354289",
+      "duration_ms": 3157
+    },
+    {
+      "path": "assets/journey-audio/ar-big-light.mp3",
+      "language": "ar",
+      "text": "اِبْنِ خُطَّتَكَ حَوْلَ الصُّخُورِ، وَمُرَّ عَلَى الْيَرَاعَتَيْنِ.",
+      "sha256": "cf2ee287a673d616364c99bf5ca1acfdb92c26d390a76bb2d062db9932cfaf82",
+      "duration_ms": 5356
+    },
+    {
+      "path": "assets/journey-audio/en-big-light.mp3",
+      "language": "en",
+      "text": "Build a plan around the rocks and visit both fireflies.",
+      "sha256": "b057b36726066864eff34a951458c4ad5225be45f6273b4013165e0d5938686e",
+      "duration_ms": 4331
+    },
+    {
+      "path": "assets/journey-audio/ar-free-lights.mp3",
+      "language": "ar",
+      "text": "اِخْتَرْ أَيَّ طَرِيقٍ، وَأَضِئْ مَا شِئْتَ مِنَ الْيَرَاعَاتِ.",
+      "sha256": "3770f17e5327c62ef79c1caec8e848be1adba781f5e0c6404a10a596a960c9bc",
+      "duration_ms": 4612
+    },
+    {
+      "path": "assets/journey-audio/en-free-lights.mp3",
+      "language": "en",
+      "text": "Make any path and light as many fireflies as you like.",
+      "sha256": "92dc9bbb386a71cf8461ee4ef77e1c6bdaea75fd755838e273eb42271d148cd2",
+      "duration_ms": 4226
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-move.mp3",
+      "language": "ar",
+      "text": "اِلْمَسِ السَّهْمَ الْمُشَارَ إِلَيْهِ.",
+      "sha256": "c211a3eac681d0657a49cda8cd4ba1efb1f9e01f35978e51686b4d8e1dcd33e7",
+      "duration_ms": 2780
+    },
+    {
+      "path": "assets/journey-audio/en-coach-move.mp3",
+      "language": "en",
+      "text": "Tap the arrow I am pointing to.",
+      "sha256": "e3bd527c21bcea608662111260c2c7ab9ca496e8b3b040519e51bc3b7a72bf9c",
+      "duration_ms": 2275
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-turn.mp3",
+      "language": "ar",
+      "text": "أَدِرْ فِتِيلًا نَحْوَ الطَّرِيقِ.",
+      "sha256": "1329ece47fb0cb3eeb5a0a26acff61fa378699952bed038c86c10a4e8ec7b09b",
+      "duration_ms": 2339
+    },
+    {
+      "path": "assets/journey-audio/en-coach-turn.mp3",
+      "language": "en",
+      "text": "Turn Wick toward the path.",
+      "sha256": "e4bde014e4a67e4995a1dbd2201a95baa9c65534cfe04f25b3ddc526659afa0d",
+      "duration_ms": 1613
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-forward.mp3",
+      "language": "ar",
+      "text": "أَصْبَحَ وَجْهُهُ نَحْوَ الطَّرِيقِ. اِلْمَسْ تَقَدَّمْ.",
+      "sha256": "8baadaa9aa562bde7838cf882c08bb2d6703eb3ae8c9b08b680977c75e4bae53",
+      "duration_ms": 4375
+    },
+    {
+      "path": "assets/journey-audio/en-coach-forward.mp3",
+      "language": "en",
+      "text": "Wick is facing the path. Tap forward.",
+      "sha256": "cfb90295b9da70b4a137091011d44febbbbb663e8f13aafe9288111a5fb60a51",
+      "duration_ms": 2668
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-add.mp3",
+      "language": "ar",
+      "text": "ضَعْ هَذِهِ الْبِطَاقَةَ فِي خُطَّتِكَ.",
+      "sha256": "08d563bf935fc5a988b96a235a5c665d96afaf198402c612f85810c197dd62f0",
+      "duration_ms": 2837
+    },
+    {
+      "path": "assets/journey-audio/en-coach-add.mp3",
+      "language": "en",
+      "text": "Put this card in your plan.",
+      "sha256": "35038e928b33d01c260cb9dbb76c4bc4e860b727d912b121506804ec8c10832e",
+      "duration_ms": 1712
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-repeat.mp3",
+      "language": "ar",
+      "text": "جَرِّبْ هَذِهِ الْبِطَاقَةَ. هِيَ تُعْطِيكَ خُطْوَتَيْنِ.",
+      "sha256": "04062924c6ae02edf8942836ef2ca58da934b0421a2f6537b35f7cf67ee57f1f",
+      "duration_ms": 4495
+    },
+    {
+      "path": "assets/journey-audio/en-coach-repeat.mp3",
+      "language": "en",
+      "text": "Try this card. It makes Wick take two steps.",
+      "sha256": "66d1364d859d3b98562c54767f6ae873f904694b67b349db298ef176e5adb270",
+      "duration_ms": 3447
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-play.mp3",
+      "language": "ar",
+      "text": "اِلْمَسْ شَغِّلْ لِنَشَاهِدَ مَا سَيَحْدُثُ.",
+      "sha256": "7a76242fd6972c73f575aa483de8b8a824816f3fbea3420389a20c52eb730a34",
+      "duration_ms": 3074
+    },
+    {
+      "path": "assets/journey-audio/en-coach-play.mp3",
+      "language": "en",
+      "text": "Tap play and let us see what happens.",
+      "sha256": "ecfad8f94b8e85294a3590b253b6e5b2b553f817719b2e02d70f602571e43cae",
+      "duration_ms": 2668
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-watch.mp3",
+      "language": "ar",
+      "text": "شَغِّلِ الْبِطَاقَاتِ وَرَاقِبْ أَيْنَ يَتَوَقَّفُ فِتِيلٌ.",
+      "sha256": "a6db6a7a52ddf8a5a31edb463ba21aa2ad8c6821650cd5cf83efa20e603239c2",
+      "duration_ms": 4655
+    },
+    {
+      "path": "assets/journey-audio/en-coach-watch.mp3",
+      "language": "en",
+      "text": "Play the cards and watch where Wick stops.",
+      "sha256": "95fbe75ffe73a4d322a78e3033261c5a206cc891b989bf2c179329b1873de1b1",
+      "duration_ms": 3085
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-undo.mp3",
+      "language": "ar",
+      "text": "اِلْمَسْ تَرَاجَعْ لِتُغَيِّرَ آخِرَ خُطْوَةٍ.",
+      "sha256": "3ae04fdc8d23446185e609c00f7c4a13f65e45a5394538ec220c88135409ec41",
+      "duration_ms": 3439
+    },
+    {
+      "path": "assets/journey-audio/en-coach-undo.mp3",
+      "language": "en",
+      "text": "Tap undo to change your last step.",
+      "sha256": "25c454f1020da3d7063f404459dbf834098f71107432f5dfe88caac9cd3e42dd",
+      "duration_ms": 2396
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-repair.mp3",
+      "language": "ar",
+      "text": "اِلْمَسْ هَذِهِ الْبِطَاقَةَ لِتُبَدِّلَهَا.",
+      "sha256": "144d8502aa741b8e2d9998bf3efcbcdfb9a42de94f9f9d9afd0129b238431d32",
+      "duration_ms": 3076
+    },
+    {
+      "path": "assets/journey-audio/en-coach-repair.mp3",
+      "language": "en",
+      "text": "Tap this card so you can change it.",
+      "sha256": "42928ddaf32c4c909c449b538ee7b49605e82ef7d0e27a52f1c536a8b73dfa95",
+      "duration_ms": 2454
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-replace.mp3",
+      "language": "ar",
+      "text": "اِخْتَرْ هَذَا الْأَمْرَ مَكَانَ الْبِطَاقَةِ.",
+      "sha256": "6182fc9974d3e53630c944c432467ea1759cf0fb8c4d4abf3cc4471eb54b83e8",
+      "duration_ms": 2821
+    },
+    {
+      "path": "assets/journey-audio/en-coach-replace.mp3",
+      "language": "en",
+      "text": "Choose this command to replace the card.",
+      "sha256": "30ef47efa43f0b841cc389abbe820fcc1de7b3cb312b67bf4321e0393ee3d1c1",
+      "duration_ms": 2936
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-swap.mp3",
+      "language": "ar",
+      "text": "اِلْمَسْ هُنَا لِتُبَدِّلَ تَرْتِيبَ الْبِطَاقَتَيْنِ.",
+      "sha256": "df741c360925816538d3f628fb53748f31286a3ddd3a8c9dcc910ef75167b4ad",
+      "duration_ms": 4170
+    },
+    {
+      "path": "assets/journey-audio/en-coach-swap.mp3",
+      "language": "en",
+      "text": "Tap here to swap the order of the cards.",
+      "sha256": "2db83d44edc0b3169fefecaeac3a2cc370d4c5fb16d63ebed1d77824af2f1d81",
+      "duration_ms": 2935
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-guess.mp3",
+      "language": "ar",
+      "text": "تَتَبَّعِ الْبِطَاقَاتِ، ثُمَّ اخْتَرْ مُرَبَّعًا بِعَلَامَةِ سُؤَالٍ.",
+      "sha256": "a5277412b79520c47613cef70545514eb42dbd189346b2e252263072b4f4d14f",
+      "duration_ms": 5623
+    },
+    {
+      "path": "assets/journey-audio/en-coach-guess.mp3",
+      "language": "en",
+      "text": "Follow the cards, then choose a square with a question mark.",
+      "sha256": "ba320adbbecf37ea0e0eacf0b7e1e0f66766e576b14c71f7c77634a33f9641ec",
+      "duration_ms": 4310
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-landing.mp3",
+      "language": "ar",
+      "text": "هُنَا تَوَقَّفَ فِتِيلٌ. جَرِّبْ هَذَا الْمُرَبَّعَ.",
+      "sha256": "de1b411b46979bf748ef278c1c2ef8b7651bf5db44d9c9850419a755fe4d9e85",
+      "duration_ms": 4119
+    },
+    {
+      "path": "assets/journey-audio/en-coach-landing.mp3",
+      "language": "en",
+      "text": "Wick stopped here. Try this square.",
+      "sha256": "cd6c029f2a17f997be29a03eda49016d27c44b15603945e9c51da6264731c55f",
+      "duration_ms": 2537
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-explore.mp3",
+      "language": "ar",
+      "text": "جَرِّبْ بِطَاقَةً، وَارْسُمْ طَرِيقَكَ.",
+      "sha256": "c454291fb9ec92acc92bbccd9a4657dde07ec774545a000044f8034438ebdc44",
+      "duration_ms": 2857
+    },
+    {
+      "path": "assets/journey-audio/en-coach-explore.mp3",
+      "language": "en",
+      "text": "Try a card and make a path of your own.",
+      "sha256": "fb2373e1f85bdfb12f96a5826e48d7f0d16966a48d5e214defedbe7b4c725db1",
+      "duration_ms": 2820
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-cheer.mp3",
+      "language": "ar",
+      "text": "أَحْسَنْتَ! وَصَلْتَ إِلَى الْهَدَفِ.",
+      "sha256": "a78a4791e84e1211376e326ecedd4ba04dd26ca2540862f6d2caab5f1801e703",
+      "duration_ms": 2678
+    },
+    {
+      "path": "assets/journey-audio/en-coach-cheer.mp3",
+      "language": "en",
+      "text": "Well done! You reached the goal.",
+      "sha256": "dd190d3185cfb52f467299cf0768c98ded7736f8cde1be38e22be6912b4d9cff",
+      "duration_ms": 2354
+    },
+    {
+      "path": "assets/journey-audio/ar-coach-track-complete.mp3",
+      "language": "ar",
+      "text": "أَحْسَنْتَ! أَكْمَلْتَ مَهَامَّ هَذَا الْمَسَارِ.",
+      "sha256": "03576a299e178f532e411ebfc55019634a184eaa3011a2a3c54fdd3e2197bb4c",
+      "duration_ms": 3777
+    },
+    {
+      "path": "assets/journey-audio/en-coach-track-complete.mp3",
+      "language": "en",
+      "text": "Well done! You finished all the missions in this track.",
+      "sha256": "4a1ba51fe39282963619bb364207d8eb33f9ac6d35d1f0711c5b860ef59f2420",
+      "duration_ms": 4301
+    },
+    {
+      "path": "audio/ar-library.mp3",
+      "language": "ar",
+      "text": "اخْتَرْ خَرِيطَةً، ثُمَّ سَاعِدِ الرُّوبُوتَ عَلَى الْوُصُولِ.",
+      "sha256": "518e4dec0cef5330f6f0763cdaaba5956f4a3aebcfab0dcd57c0430cabfde0fc",
+      "duration_ms": 4513
+    },
+    {
+      "path": "audio/en-library.mp3",
+      "language": "en",
+      "text": "Choose a map, then help the robot reach its destination.",
+      "sha256": "d7c71ce20b6f8a7d0719bfab2c741fd31c5f825614c7243015f128de3b4f8ca2",
+      "duration_ms": 4410
+    },
+    {
+      "path": "audio/ar-predict.mp3",
+      "language": "ar",
+      "text": "كَيْفَ سَيَسِيرُ الرُّوبُوتُ؟ الْمَسِ الْمُرَبَّعَ التَّالِي لِتَرْسُمَ تَوَقُّعَكَ.",
+      "sha256": "3165b6aeeed0fb1aff0aca089ba2ced46d6c862da67f464aebfca3fd15a33c42",
+      "duration_ms": 6924
+    },
+    {
+      "path": "audio/en-predict.mp3",
+      "language": "en",
+      "text": "How will the robot travel? Touch the next square to draw your prediction.",
+      "sha256": "471849cd709ccfe27ed01fa2003b489559eedc278709f2187a7add50ea3f9edd",
+      "duration_ms": 5940
+    },
+    {
+      "path": "audio/ar-plan.mp3",
+      "language": "ar",
+      "text": "الْمَسِ الْأَوَامِرَ لِتَرْتِيبِ الطَّرِيقِ. ثُمَّ شَغِّلْ خُطْوَةً وَشَاهِدْ.",
+      "sha256": "f5684c498e4a7f20f938f68c7cd54cf73ee967aa3cac67d0008d4085a64efb39",
+      "duration_ms": 6358
+    },
+    {
+      "path": "audio/en-plan.mp3",
+      "language": "en",
+      "text": "Touch commands to build the route. Then run a step and watch.",
+      "sha256": "77c50dc40070469fdd7e3351e57d05fb0e5e4c5495f20ae3fee18aa0a8fd6159",
+      "duration_ms": 4818
+    },
+    {
+      "path": "audio/ar-n.mp3",
+      "language": "ar",
+      "text": "إِلَى أَعْلَى الْخَرِيطَةِ.",
+      "sha256": "d9aa03178f555b27cd44208d8bc295c028f197bcc0bdb7aa01abe00129e12e05",
+      "duration_ms": 1767
+    },
+    {
+      "path": "audio/en-n.mp3",
+      "language": "en",
+      "text": "Move up the map.",
+      "sha256": "95930e6f81f39e78083bce9b9a6cb20db0a07b543aab7a65878d4ca06bb0116a",
+      "duration_ms": 1186
+    },
+    {
+      "path": "audio/ar-e.mp3",
+      "language": "ar",
+      "text": "إِلَى يَمِينِ الْخَرِيطَةِ.",
+      "sha256": "05bce6dc465853bb3612de919d41904b46788f9674619a07ac7ebce159142fe4",
+      "duration_ms": 1774
+    },
+    {
+      "path": "audio/en-e.mp3",
+      "language": "en",
+      "text": "Move right on the map.",
+      "sha256": "1a93ae6f43798be21cdbc0814ec89149dc57b1a9909ad03927e62a5c68363906",
+      "duration_ms": 1580
+    },
+    {
+      "path": "audio/ar-s.mp3",
+      "language": "ar",
+      "text": "إِلَى أَسْفَلِ الْخَرِيطَةِ.",
+      "sha256": "a4a7288764c34bba0bfcdda40c137d1d2b1f73ff2996ea5cc4a2b046f290ccfc",
+      "duration_ms": 1816
+    },
+    {
+      "path": "audio/en-s.mp3",
+      "language": "en",
+      "text": "Move down the map.",
+      "sha256": "cfa542c495947a5237d51e2b0ed879d287aed2fe1d16a5e398f4cde20609ac4b",
+      "duration_ms": 1195
+    },
+    {
+      "path": "audio/ar-w.mp3",
+      "language": "ar",
+      "text": "إِلَى يَسَارِ الْخَرِيطَةِ.",
+      "sha256": "a520db790a897ef26d2f8c0b6213b95d28ec3991f8ee2f26a6c8146fbe779b07",
+      "duration_ms": 1750
+    },
+    {
+      "path": "audio/en-w.mp3",
+      "language": "en",
+      "text": "Move left on the map.",
+      "sha256": "9546b36a6534ac9d4e9a1dd19b674c45022dff6747c39deb43a83b22c194cef5",
+      "duration_ms": 1463
+    },
+    {
+      "path": "audio/ar-f.mp3",
+      "language": "ar",
+      "text": "تَقَدَّمْ إِلَى الْمُرَبَّعِ التَّالِي أَمَامَ الرُّوبُوتِ.",
+      "sha256": "c4abb6d4e0ebf91544fcd0abc4e303c9d07f9c5de22e6ed09813427a03229741",
+      "duration_ms": 4619
+    },
+    {
+      "path": "audio/en-f.mp3",
+      "language": "en",
+      "text": "Move to the next square in front of the robot.",
+      "sha256": "8de2d76f4ffc94681d43ce5f4004126b413b732d935c56a3dc94cc6b95b8f7fc",
+      "duration_ms": 3516
+    },
+    {
+      "path": "audio/ar-l.mp3",
+      "language": "ar",
+      "text": "دُرْ إِلَى يَسَارِكَ فِي مَكَانِكَ.",
+      "sha256": "8557a67ad68f590474ffc549cec371d1b83f76dd096759e0d76647c00a770111",
+      "duration_ms": 2495
+    },
+    {
+      "path": "audio/en-l.mp3",
+      "language": "en",
+      "text": "Turn left in place.",
+      "sha256": "05c0fa96112b5911cefe09f95ada4446a2246bcf6db97759f6b9d4717ec17cb6",
+      "duration_ms": 1496
+    },
+    {
+      "path": "audio/ar-r.mp3",
+      "language": "ar",
+      "text": "دُرْ إِلَى يَمِينِكَ فِي مَكَانِكَ.",
+      "sha256": "02513b7d3cb86ec2323f65cef08ffb95cc9f6aff7580a96aab48007a61ff1fcc",
+      "duration_ms": 2488
+    },
+    {
+      "path": "audio/en-r.mp3",
+      "language": "en",
+      "text": "Turn right in place.",
+      "sha256": "dd3bf992e7419c64554ddfdfbc8d35d19558c14f7c86c7c56b95c3dc4ca28305",
+      "duration_ms": 1612
+    },
+    {
+      "path": "audio/ar-repeat.mp3",
+      "language": "ar",
+      "text": "كَرِّرْ هَذِهِ الْمَجْمُوعَةَ مِنَ الْأَوَامِرِ.",
+      "sha256": "798f95caf3b7b050255f64c827595989128dbc47fc43145364f2e9793d8a6caa",
+      "duration_ms": 3630
+    },
+    {
+      "path": "audio/en-repeat.mp3",
+      "language": "en",
+      "text": "Repeat this group of commands.",
+      "sha256": "c18e5828aaeb30a7e2561157a64b5fc2a14c4a59a6b87abe79f49314e3c616e9",
+      "duration_ms": 2081
+    },
+    {
+      "path": "audio/ar-if.mp3",
+      "language": "ar",
+      "text": "إِذَا كَانَ أَمَامَكَ حَاجِزٌ أَوْ حَافَّةٌ، دُرْ يَمِينًا. وَإِلَّا، تَقَدَّمْ.",
+      "sha256": "0c5030f3fd8c3acf91c7a4537d1c93664c15b92af1f418bdbd7650413c9057dd",
+      "duration_ms": 6559
+    },
+    {
+      "path": "audio/en-if.mp3",
+      "language": "en",
+      "text": "If there is a barrier or edge ahead, turn right. Otherwise, move forward.",
+      "sha256": "e62a9e91019a9eb8e4f6dc71cccacfe9abc5c4695c53f39ad0c18f9ae13c7b03",
+      "duration_ms": 5912
+    },
+    {
+      "path": "audio/ar-blocked.mp3",
+      "language": "ar",
+      "text": "تَوَقَّفْنَا عِنْدَ حَاجِزٍ أَوْ حَافَّةٍ. أَيُّ أَمْرٍ نُغَيِّرُ؟",
+      "sha256": "d515f8338915e339ca93289feb2eddfeba363458af46277c39d8cb8a16cf5727",
+      "duration_ms": 5249
+    },
+    {
+      "path": "audio/en-blocked.mp3",
+      "language": "en",
+      "text": "We stopped at a barrier or edge. Which command could we change?",
+      "sha256": "0a575df4c9f2ebc610b27e16b272c51c62f72aeea6f3535dcc2e5802e0eb6ac0",
+      "duration_ms": 4993
+    },
+    {
+      "path": "audio/ar-arrived.mp3",
+      "language": "ar",
+      "text": "وَصَلْنَا. شَاهِدْ طَرِيقَكَ، ثُمَّ احْفَظْهُ إِنْ شِئْتَ.",
+      "sha256": "6dd15b4e7b7aed21b425c7112b85f89835598b9fda0b4cbc3abf02b765e6f184",
+      "duration_ms": 4737
+    },
+    {
+      "path": "audio/en-arrived.mp3",
+      "language": "en",
+      "text": "We arrived. Look at your route, then save it if you wish.",
+      "sha256": "f8895283d83f4f40e5bf9de0862c17f00ffd172d9efb3344982023068d0a6555",
+      "duration_ms": 4542
+    },
+    {
+      "path": "audio/ar-away.mp3",
+      "language": "ar",
+      "text": "انْتَهَتِ الْأَوَامِرُ هُنَا. هَلْ نُضِيفُ أَمْرًا أَمْ نُغَيِّرُ أَمْرًا؟",
+      "sha256": "b765cb2db387dc4d03b8c4729ad65b56e810e3526e7eb6ebc2e2435fc8266476",
+      "duration_ms": 5994
+    },
+    {
+      "path": "audio/en-away.mp3",
+      "language": "en",
+      "text": "The commands ended here. Could we add a command or change one?",
+      "sha256": "6303c037d955cf5da128e8e5b3e3ace0775031432d28700e64d986c42e3c1432",
+      "duration_ms": 4898
+    },
+    {
+      "path": "audio/ar-step.mp3",
+      "language": "ar",
+      "text": "نُجَرِّبُ أَمْرًا وَاحِدًا، ثُمَّ نَتَوَقَّفُ لِنَرَى.",
+      "sha256": "fcf02b26e3d6396043af0ebed42f1ea88accaf3f280167c6c5d10693221c2b22",
+      "duration_ms": 4232
+    },
+    {
+      "path": "audio/en-step.mp3",
+      "language": "en",
+      "text": "Try one command, then stop and look.",
+      "sha256": "4fc7085ee6d7d58b0fbb1381c6b9d2f8ef23448dc2499939a347a58eea02f620",
+      "duration_ms": 2696
+    },
+    {
+      "path": "audio/ar-paused.mp3",
+      "language": "ar",
+      "text": "تَوَقَّفْنَا. يَبْقَى طَرِيقُكَ مَحْفُوظًا لِتُكْمِلَ.",
+      "sha256": "5f48a484e433f42add9efce2ff5f1d0391412ed0e98fa8dcaafae0ecf8fdb93f",
+      "duration_ms": 4214
+    },
+    {
+      "path": "audio/en-paused.mp3",
+      "language": "en",
+      "text": "We paused. Your route stays here so you can continue.",
+      "sha256": "836bd5fabc9a8acb5ae9fb8926c421e7e6450b646c496003eb685c4bb9a78d8e",
+      "duration_ms": 4251
+    },
+    {
+      "path": "audio/ar-saved.mp3",
+      "language": "ar",
+      "text": "حَفِظْنَا طَرِيقَكَ. يُمْكِنُكَ فَتْحُ نُسْخَةٍ وَتَجْرِبَةُ فِكْرَةٍ أُخْرَى.",
+      "sha256": "1e478533d19c73cd2f6f0d2185d49eb7cacfbf7da5aa1ebec0990dc87b589df3",
+      "duration_ms": 6423
+    },
+    {
+      "path": "audio/en-saved.mp3",
+      "language": "en",
+      "text": "We saved your route. Open a copy to try another idea.",
+      "sha256": "71727aebdb3387baa3c9d9634397128e28bc3ce4dd4a59abf1301d8f1a710571",
+      "duration_ms": 4158
+    },
+    {
+      "path": "audio/ar-hint.mp3",
+      "language": "ar",
+      "text": "شَاهِدْ أَوَّلَ مُرَبَّعٍ لَمْ يَسِرْ كَمَا تَوَقَّعْتَ. عَدِّلْ أَمْرًا وَجَرِّبْ.",
+      "sha256": "ea7382200764e97535140471dfd3639e2813ad3c2cd5b0ba9e7077614f48ce71",
+      "duration_ms": 6883
+    },
+    {
+      "path": "audio/en-hint.mp3",
+      "language": "en",
+      "text": "Look at the first square that differed from your prediction. Change a command and try again.",
+      "sha256": "a6f78e689c78fdcd6c00220673ee201bdeaf51617d4f46dca8e0c3d1d4620a80",
+      "duration_ms": 7086
+    },
+    {
+      "path": "audio/ar-predictSkip.mp3",
+      "language": "ar",
+      "text": "يُمْكِنُكَ أَنْ تَتَوَقَّعَ أَوْ تَكْتَشِفَ بِالْمُشَاهَدَةِ.",
+      "sha256": "1a1fe21f39ab66fe66c83ce0d15eac708f45d432b0db038aec59a359d3379aad",
+      "duration_ms": 4853
+    },
+    {
+      "path": "audio/en-predictSkip.mp3",
+      "language": "en",
+      "text": "You can predict first or discover by watching.",
+      "sha256": "083e1ab513a91e7586405de81c8b3fc22d65375cff11477df58c3bbdb2735fc7",
+      "duration_ms": 3425
+    },
+    {
+      "path": "audio/ar-designer.mp3",
+      "language": "ar",
+      "text": "اخْتَرِ الْبِدَايَةَ أَوِ الْمَقْصِدَ أَوِ الْحَاجِزَ، ثُمَّ الْمَسِ الْمُرَبَّعَ.",
+      "sha256": "b0351834150476eec9fd53387aa74722e47475932beec61c78a90157e1c91ce5",
+      "duration_ms": 6744
+    },
+    {
+      "path": "audio/en-designer.mp3",
+      "language": "en",
+      "text": "Choose start, destination or barrier, then touch a square.",
+      "sha256": "7c9c9499845847e2e9083182b0bdcb0e648a9a137ddc9add39dba3250a47c4e3",
+      "duration_ms": 4590
+    },
+    {
+      "path": "audio/ar-start.mp3",
+      "language": "ar",
+      "text": "اخْتَرْ مُرَبَّعَ الْبِدَايَةِ.",
+      "sha256": "db2ad1ca9004c10b0299c554527497afaa41ca2e8f1f0b024a57c056d93d29ce",
+      "duration_ms": 2118
+    },
+    {
+      "path": "audio/en-start.mp3",
+      "language": "en",
+      "text": "Choose the starting square.",
+      "sha256": "a17a4e3e4831a977ac9f659e8dd3812af01fbb8c1658b01cde33edcf306466b5",
+      "duration_ms": 1796
+    },
+    {
+      "path": "audio/ar-goal.mp3",
+      "language": "ar",
+      "text": "اخْتَرْ مُرَبَّعَ الْمَقْصِدِ.",
+      "sha256": "cdaaafb1b93dd63801d730929a5a61ca88aa3d45a5cee8710f8da956cfae4bd8",
+      "duration_ms": 1998
+    },
+    {
+      "path": "audio/en-goal.mp3",
+      "language": "en",
+      "text": "Choose the destination square.",
+      "sha256": "451018a0c2a001282a6268b13dc3ad93033237fc7f5ca57bab7b1f037c0082e2",
+      "duration_ms": 2031
+    },
+    {
+      "path": "audio/ar-wall.mp3",
+      "language": "ar",
+      "text": "ضَعْ حَاجِزًا فِي مُرَبَّعٍ فَارِغٍ.",
+      "sha256": "4a1f4eefd13b1483d191270084b3e2d3d0acf342f1439799f862cef489a68897",
+      "duration_ms": 2582
+    },
+    {
+      "path": "audio/en-wall.mp3",
+      "language": "en",
+      "text": "Place a barrier in an empty square.",
+      "sha256": "de6917514ecb6254a9d5b23a422f9fdf22815a4133ab5864a7faab5190433819",
+      "duration_ms": 2488
+    },
+    {
+      "path": "audio/ar-erase.mp3",
+      "language": "ar",
+      "text": "الْمَسْ حَاجِزًا لِتُزِيلَهُ.",
+      "sha256": "c15d9dd0b5fb35043147d67f4340c44450d19c306aef0c9b8ed3bedcbe369f2f",
+      "duration_ms": 2064
+    },
+    {
+      "path": "audio/en-erase.mp3",
+      "language": "en",
+      "text": "Touch a barrier to remove it.",
+      "sha256": "47956864a4993d9f0620e7a3b35db7ac60f39e050e62126f38b2f970bda6bf53",
+      "duration_ms": 1899
+    },
+    {
+      "path": "audio/ar-demo.mp3",
+      "language": "ar",
+      "text": "شَاهِدْ هَذَا الْمِثَالَ. نُرَتِّبُ الْأَوَامِرَ ثُمَّ نُجَرِّبُ خُطْوَةً خُطْوَةً.",
+      "sha256": "a54ae16b9c4cc8da711df47345d801ee0f35d0bfc8116f1b9923ea581a2ef024",
+      "duration_ms": 6874
+    },
+    {
+      "path": "audio/en-demo.mp3",
+      "language": "en",
+      "text": "Watch this separate example. Arrange the commands, then try them one step at a time.",
+      "sha256": "d7c8cb84b1f05860915220344c42d9620ceadb2d096bd2652d253a73513c3973",
+      "duration_ms": 6971
+    },
+    {
+      "path": "audio/ar-rotation.mp3",
+      "language": "ar",
+      "text": "مُقَدِّمَةُ الرُّوبُوتِ تَدُلُّ عَلَى اتِّجَاهِهِ. الدَّوَرَانُ يُغَيِّرُ اتِّجَاهَهُ دُونَ أَنْ يَنْتَقِلَ.",
+      "sha256": "919664730643bdc075141b314a77d3888df777d16587064f8a212b4587851e0c",
+      "duration_ms": 9115
+    },
+    {
+      "path": "audio/en-rotation.mp3",
+      "language": "en",
+      "text": "The robot points in its facing direction. Turning changes its direction without changing its square.",
+      "sha256": "4fa1d910ead36b06832491cc906cf787ab51fc52bcb8af889d1aa2e970fb1222",
+      "duration_ms": 7759
+    },
+    {
+      "path": "audio/ar-real.mp3",
+      "language": "ar",
+      "text": "ضَعْ بَطَاقَاتِ الْأَوَامِرِ عَلَى طَاوِلَةٍ أَوْ فِي مَسَاحَةٍ آمِنَةٍ مَعَ الْمُرَبِّي.",
+      "sha256": "31873fabc5a940779fe8bf16d8f18398e1555664afb334dda8b590f1c1777e3e",
+      "duration_ms": 7420
+    },
+    {
+      "path": "audio/en-real.mp3",
+      "language": "en",
+      "text": "Use command cards on a table or in a safe space with your coach.",
+      "sha256": "620faca7e8db726fc4fdd288041fe4a317fa9460c4d3caf14bc87e0b22016a33",
+      "duration_ms": 5088
+    },
+    {
+      "path": "audio/ar-touch-help.mp3",
+      "language": "ar",
+      "text": "الْمَسِ الْمُرَبَّعَ أَمَامَ الرُّوبُوتِ، أَوِ اسْحَبْ مِنَ الرُّوبُوتِ إِلَيْهِ. لِتَغْيِيرِ اتِّجَاهِهِ، انْقُرِ الرُّوبُوتَ مَرَّتَيْنِ، أَوِ اسْتَخْدِمْ زِرَّ الدَّوَرَانِ.",
+      "sha256": "2565cbfdeffa37aa7460bd63b506343d7fe1154e5ead62937964b9daeb606a5c",
+      "duration_ms": 15456
+    },
+    {
+      "path": "audio/en-touch-help.mp3",
+      "language": "en",
+      "text": "Tap the square in front of the robot, or drag from the robot to it. To change direction, double tap the robot, or use a turn button.",
+      "sha256": "62d8283b9c1dcce6fc9e6fd34bb4748180f2aba860ae6a131f692364b20606d9",
+      "duration_ms": 12791
+    },
+    {
+      "path": "audio/ar-touch-step.mp3",
+      "language": "ar",
+      "text": "نَتَحَرَّكُ إِلَى مُرَبَّعٍ مُلَاصِقٍ فَقَطْ. اخْتَرِ الْمُرَبَّعَ التَّالِي أَمَامَ الرُّوبُوتِ، ثُمَّ الَّذِي يَلِيهِ.",
+      "sha256": "ee9b65bcbd264b918648d41ea2fa1230557dbf065cb5ea92104c4c84ee2ea848",
+      "duration_ms": 10167
+    },
+    {
+      "path": "audio/en-touch-step.mp3",
+      "language": "en",
+      "text": "We move to an adjacent square only. Choose the next square in front of the robot, then the next one.",
+      "sha256": "e3ab5c7454b82ad6f6fc9586c8bd5aa9aeba58247d12b054fdb3496b8cf0afea",
+      "duration_ms": 8353
+    },
+    {
+      "path": "audio/ar-touch-turn.mp3",
+      "language": "ar",
+      "text": "هَذَا الْمُرَبَّعُ لَيْسَ أَمَامَ الرُّوبُوتِ. غَيِّرِ اتِّجَاهَهُ أَوَّلًا. انْقُرِ الرُّوبُوتَ مَرَّتَيْنِ لِيَدُورَ يَمِينًا، أَوِ اسْتَخْدِمْ زِرَّ الدَّوَرَانِ، ثُمَّ الْمَسِ الْمُرَبَّعَ.",
+      "sha256": "8ee628f31d8b9bcf3ac87d96443eb08e0ada9f705c42825879ae46701af7e97b",
+      "duration_ms": 17722
+    },
+    {
+      "path": "audio/en-touch-turn.mp3",
+      "language": "en",
+      "text": "That square is not in front of the robot. Turn first. Double tap the robot to turn right, or use a turn button, then tap the square.",
+      "sha256": "cd7c5afef00fccaacb6bb2c97fd5f04521e92844482c3d13bf1ecd94b2b13699",
+      "duration_ms": 12449
+    },
+    {
+      "path": "audio/ar-touch-rotate.mp3",
+      "language": "ar",
+      "text": "انْقُرِ الرُّوبُوتَ مَرَّتَيْنِ بِسُرْعَةٍ لِيَدُورَ يَمِينًا فِي مَكَانِهِ. يُمْكِنُكَ أَيْضًا اسْتِخْدَامُ زِرِّ الدَّوَرَانِ.",
+      "sha256": "8ee5f0b2b144be06af68b6a81b5255ccc52f7ad71f421894d67d7bbad8800e51",
+      "duration_ms": 10805
+    },
+    {
+      "path": "audio/en-touch-rotate.mp3",
+      "language": "en",
+      "text": "Double tap the robot quickly to turn right in place. You can also use a turn button.",
+      "sha256": "fbf9b22f9b1376afea465208e3b9c7591e29b5b01348da322a990166e2479170",
+      "duration_ms": 6949
+    },
+    {
+      "path": "audio/ar-touch-wait.mp3",
+      "language": "ar",
+      "text": "نُكْمِلُ الْأَمْرَ الْحَالِيَّ، ثُمَّ نَخْتَارُ الْخُطْوَةَ التَّالِيَةَ. يُمْكِنُكَ إِيقَافُ الْعَرْضِ لِتُكْمِلَ بِنَفْسِكَ.",
+      "sha256": "e7d8d69e1bffee7d37653b1682480312fdfe0adf71d8fc80d18d50a142a536bb",
+      "duration_ms": 10520
+    },
+    {
+      "path": "audio/en-touch-wait.mp3",
+      "language": "en",
+      "text": "Let the current command finish, then choose the next step. You can pause the replay to continue yourself.",
+      "sha256": "08b48e315fae74c2369f52c2ea4adcb39cbd6c743d5cac30300700e212654324",
+      "duration_ms": 8885
+    },
+    {
+      "path": "audio/ar-touch-limit.mp3",
+      "language": "ar",
+      "text": "الطَّرِيقُ طَوِيلٌ. جَرِّبْ طَرِيقًا أَقْصَرَ أَوْ ابْدَأْ أَوَامِرَ جَدِيدَةً.",
+      "sha256": "2fd52da76555c18742b6e30c99d8a7473f49040a02c2423ab8071d203a52720c",
+      "duration_ms": 6467
+    },
+    {
+      "path": "audio/en-touch-limit.mp3",
+      "language": "en",
+      "text": "The route is long. Try a shorter route or start new commands.",
+      "sha256": "1e3cba47329290ebd9e32a7d11af2f62b0d31b959d8b03ef1d1c7249cfb85206",
+      "duration_ms": 4841
+    },
+    {
+      "path": "audio/ar-adventure-help.mp3",
+      "language": "ar",
+      "text": "مُغَامَرَةٌ جَدِيدَةٌ! الْمَسِ الْمُرَبَّعَ أَمَامَ الرُّوبُوتِ أَوِ اسْتَخْدِمِ الْأَوَامِرَ. الصَّنَادِيقُ تُخْفِي مُفَاجَآتٍ، وَالْبِرَكُ قَدْ تُعِيدُنَا لِلْبِدَايَةِ.",
+      "sha256": "3a3016309849dec0bbb5dea6c83fef02a640cab0b9fabe75716ca82b5d0129e0",
+      "duration_ms": 15422
+    },
+    {
+      "path": "audio/en-adventure-help.mp3",
+      "language": "en",
+      "text": "A new adventure! Tap the square in front of the robot or use commands. Boxes hide surprises, and puddles may send us back to the start.",
+      "sha256": "39332cb45d5d7a6095001b44ae5b5a44f20df1b72964a473d0f922790a6cf2c6",
+      "duration_ms": 12148
+    },
+    {
+      "path": "audio/ar-box-shield.mp3",
+      "language": "ar",
+      "text": "مُفَاجَأَةٌ! وَجَدْنَا دِرْعًا. يَحْمِينَا مِنْ بِرْكَةٍ وَاحِدَةٍ، ثُمَّ يَخْتَفِي.",
+      "sha256": "55bc459dce75907d22b59aea6db2a8a0ff43c4f19b93930bbb98a0da33477df0",
+      "duration_ms": 7080
+    },
+    {
+      "path": "audio/en-box-shield.mp3",
+      "language": "en",
+      "text": "Surprise! We found a shield. It protects us from one puddle, then disappears.",
+      "sha256": "fb3562dc6f9e7866e6b695f870539c7596117de05048df36b3e9989cde3772be",
+      "duration_ms": 6509
+    },
+    {
+      "path": "audio/ar-box-hop.mp3",
+      "language": "ar",
+      "text": "مُفَاجَأَةٌ! النَّابِضُ سَاعَدَنَا عَلَى الْقَفْزِ مُرَبَّعًا إِضَافِيًّا إِلَى الْأَمَامِ.",
+      "sha256": "21ecc0c7a000ee7f0d2a474b2af3af97f96c7fafb5525b53fa6ed07470e9179d",
+      "duration_ms": 7539
+    },
+    {
+      "path": "audio/en-box-hop.mp3",
+      "language": "en",
+      "text": "Surprise! A spring helped us hop one extra square forward.",
+      "sha256": "22f7beae20ee46641a94668caf3f008ea4efef2eb034067982a0dc361716bedb",
+      "duration_ms": 4785
+    },
+    {
+      "path": "audio/ar-box-reset.mp3",
+      "language": "ar",
+      "text": "هَذَا الصُّنْدُوقُ أَعَادَنَا إِلَى الْبِدَايَةِ. الصُّنْدُوقُ مَفْتُوحٌ الْآنَ، وَيُمْكِنُنَا الْمُحَاوَلَةُ مُجَدَّدًا.",
+      "sha256": "ba3426c8d39d89ea18bcbfb062db1af2efd60c02993a21ba964662c741dabf77",
+      "duration_ms": 11040
+    },
+    {
+      "path": "audio/en-box-reset.mp3",
+      "language": "en",
+      "text": "This box sent us back to the start. The box is open now, and we can try again.",
+      "sha256": "72d4ea7fad880d407745d50b53c718319fa62ace3dc8810e86c8896758b7f159",
+      "duration_ms": 6415
+    },
+    {
+      "path": "audio/ar-puddle-reset.mp3",
+      "language": "ar",
+      "text": "هَذِهِ الْبِرْكَةُ أَعَادَتِ الرُّوبُوتَ إِلَى الْبِدَايَةِ. نُجَرِّبُ طَرِيقًا آخَرَ، أَوْ نَبْحَثُ عَنْ دِرْعٍ.",
+      "sha256": "e430dc4037df9856a00b02119705b1f5635c81f876aef86162bbe1dc4416f596",
+      "duration_ms": 9590
+    },
+    {
+      "path": "audio/en-puddle-reset.mp3",
+      "language": "en",
+      "text": "This puddle sent the robot back to the start. Try another route, or look for a shield.",
+      "sha256": "2a7dacdc2c448c7bac48075dcd8f0c663003f2174f91b41ec676f3e11a8bd72a",
+      "duration_ms": 6716
+    },
+    {
+      "path": "audio/ar-puddle-safe.mp3",
+      "language": "ar",
+      "text": "الدِّرْعُ حَمَانَا مِنَ الْبِرْكَةِ! اسْتَخْدَمْنَاهُ، وَنُكْمِلُ الطَّرِيقَ.",
+      "sha256": "b80155f0578bfae6c6b73c970392708b1f9667e57ef5718c16958bf0b0b39472",
+      "duration_ms": 6282
+    },
+    {
+      "path": "audio/en-puddle-safe.mp3",
+      "language": "en",
+      "text": "The shield protected us from the puddle! We used it, and can continue our route.",
+      "sha256": "96d8ad594acb9bb66b81882cf5159bfa513199f9898a41f5b68295a05a6737d6",
+      "duration_ms": 6186
+    },
+    {
+      "path": "audio/ar-knowledge-intro.mp3",
+      "language": "ar",
+      "text": "وَصَلْتَ! لِنَكْتَشِفْ كَيْفَ نَسْتَخْدِمُ هَذَا الشَّيْءَ فِي حَيَاتِنَا.",
+      "sha256": "801159df2de32c9c2c0cc5aad63c825f3cb2a5c3694d2a79afa6e8f4aba1afc4",
+      "duration_ms": 6032
+    },
+    {
+      "path": "audio/en-knowledge-intro.mp3",
+      "language": "en",
+      "text": "You arrived! Let us discover how we use this in our daily life.",
+      "sha256": "449d4e31324981467b3951edd8dcfd2b92d85b3784a6c268084141ceee8fa59a",
+      "duration_ms": 5092
+    },
+    {
+      "path": "audio/ar-learn-book-0.mp3",
+      "language": "ar",
+      "text": "الْكِتَابُ يَحْمِلُ صُوَرًا وَحِكَايَاتٍ. نَنْظُرُ إِلَى صُوَرِهِ وَنَسْأَلُ عَمَّا نَرَاهُ.",
+      "sha256": "f226fc76bc1c6aff65f07a734c2cebec256430a3a8b9d26a4d0fcfde6d15251e",
+      "duration_ms": 7629
+    },
+    {
+      "path": "audio/en-learn-book-0.mp3",
+      "language": "en",
+      "text": "A book holds pictures and stories. We look at its pictures and ask about what we see.",
+      "sha256": "2e2a73087edda272f28f28c5a1ca9f1b8337d020038bad5e7f4dfb9193a88ce9",
+      "duration_ms": 6964
+    },
+    {
+      "path": "audio/ar-learn-book-1.mp3",
+      "language": "ar",
+      "text": "نَقْرَأُ مَعَ شَخْصٍ نُحِبُّهُ، وَنَتَحَدَّثُ عَنِ الْحِكَايَةِ. مَاذَا تَتَوَقَّعُ أَنْ يَحْدُثَ بَعْدَ ذَلِكَ؟",
+      "sha256": "495c91940ede4c73e1c278c2e8d596c94d83a6229faaba7ec7019900dbff6e6b",
+      "duration_ms": 9130
+    },
+    {
+      "path": "audio/en-learn-book-1.mp3",
+      "language": "en",
+      "text": "We read with someone we love and talk about the story. What do you think will happen next?",
+      "sha256": "71cfd34ce4ce7b1f94e820cf66547765780606c11a85ced445e00d605c8c9f4d",
+      "duration_ms": 7529
+    },
+    {
+      "path": "audio/ar-learn-ball-0.mp3",
+      "language": "ar",
+      "text": "نَلْعَبُ بِالْكُرَةِ فِي مَكَانٍ آمِنٍ. نَتَحَرَّكُ وَنُجَرِّبُ الرَّمْيَ وَالْإِمْسَاكَ.",
+      "sha256": "0f25f728183738aa2d265afbe275651d24fbd8545bba673f9868091b5e8b752e",
+      "duration_ms": 7373
+    },
+    {
+      "path": "audio/en-learn-ball-0.mp3",
+      "language": "en",
+      "text": "We play with a ball in a safe place. We move and practise throwing and catching.",
+      "sha256": "f3bd433146ea6ea5896bcdda2d1e43969762eb6360247b5e6b72348f443912d7",
+      "duration_ms": 6380
+    },
+    {
+      "path": "audio/ar-learn-ball-1.mp3",
+      "language": "ar",
+      "text": "نُمَرِّرُ الْكُرَةَ إِلَى صَدِيقٍ وَنَنْتَظِرُ دَوْرَنَا. اللَّعِبُ مَعًا يَحْتَاجُ إِلَى تَعَاوُنٍ.",
+      "sha256": "eec05aad4b6622a7eb4209d3f44b5ff6008d8633b0328263d025661d0f1bd904",
+      "duration_ms": 8388
+    },
+    {
+      "path": "audio/en-learn-ball-1.mp3",
+      "language": "en",
+      "text": "We pass the ball to a friend and wait for our turn. Playing together takes cooperation.",
+      "sha256": "6bc063e50763237029cc193320fa69624c0f8069cf2d659f751ed9b6f13e2044",
+      "duration_ms": 7201
+    },
+    {
+      "path": "audio/ar-learn-apple-0.mp3",
+      "language": "ar",
+      "text": "التُّفَّاحُ فَاكِهَةٌ. لِلْفَوَاكِهِ أَلْوَانٌ وَطُعُومٌ مُخْتَلِفَةٌ، وَهِيَ جُزْءٌ مِنْ طَعَامِنَا الْمُتَنَوِّعِ.",
+      "sha256": "591267f127ed0ad766081b43c331fef7d17ae421e5b8b6d4eb5b66c446ce05bd",
+      "duration_ms": 9858
+    },
+    {
+      "path": "audio/en-learn-apple-0.mp3",
+      "language": "en",
+      "text": "An apple is a fruit. Fruits have different colours and flavours, and are part of the varied food we eat.",
+      "sha256": "e9c690044690329a89a19c80affd704c66042413f3082f0e41d2087bf625f030",
+      "duration_ms": 8728
+    },
+    {
+      "path": "audio/ar-learn-apple-1.mp3",
+      "language": "ar",
+      "text": "نَغْسِلُ التُّفَّاحَ قَبْلَ أَكْلِهِ. نَطْلُبُ مِنَ الْكَبِيرِ مُسَاعَدَتَنَا فِي تَقْطِيعِهِ وَتَجْهِيزِهِ.",
+      "sha256": "6e693da5b3acf991540dd75566667c3c725e48b75bcbae242b841089276078bb",
+      "duration_ms": 8875
+    },
+    {
+      "path": "audio/en-learn-apple-1.mp3",
+      "language": "en",
+      "text": "We wash an apple before eating it. We ask an adult to help us cut and prepare it.",
+      "sha256": "59c5eee792da02de20c515699bcdc76898f0aa19888d1030486ebb59bec64a07",
+      "duration_ms": 6598
+    },
+    {
+      "path": "audio/ar-learn-bear-0.mp3",
+      "language": "ar",
+      "text": "هَذَا دُبٌّ مِنَ الْقُمَاشِ، وَلَيْسَ حَيَوَانًا حَقِيقِيًّا. نَلْعَبُ بِهِ وَنَبْتَكِرُ لَهُ حِكَايَةً.",
+      "sha256": "a431a263d3ea0dde27d84151ad0a4e346e091c1184c9321ae521b4e4a03945d7",
+      "duration_ms": 8760
+    },
+    {
+      "path": "audio/en-learn-bear-0.mp3",
+      "language": "en",
+      "text": "This is a soft toy bear, not a real animal. We play with it and invent a story for it.",
+      "sha256": "72c26bc9d6746d5b803188929d1ed7ff9c62ac6b7b0d00484f9db95e778ae3fe",
+      "duration_ms": 7100
+    },
+    {
+      "path": "audio/ar-learn-bear-1.mp3",
+      "language": "ar",
+      "text": "يُمْكِنُنَا احْتِضَانُ لُعْبَتِنَا وَالْجُلُوسُ بِهُدُوءٍ. ثُمَّ نُعِيدُهَا إِلَى مَكَانِهَا بَعْدَ اللَّعِبِ.",
+      "sha256": "eedbd3fa55d19deb024062e087d1eab50c31068b0ca0d4eb95d8ecdcbaadecf4",
+      "duration_ms": 9102
+    },
+    {
+      "path": "audio/en-learn-bear-1.mp3",
+      "language": "en",
+      "text": "We can hug our toy and sit quietly. Then we put it back in its place after playing.",
+      "sha256": "615ff2859446999218ca171215db282ee99915d0c25ba8e122f6813607451d05",
+      "duration_ms": 6828
+    },
+    {
+      "path": "audio/ar-learn-cat-0.mp3",
+      "language": "ar",
+      "text": "الْقِطَّةُ كَائِنٌ حَيٌّ. تَحْتَاجُ إِلَى مَاءٍ وَطَعَامٍ وَرِعَايَةٍ، وَلَيْسَتْ لُعْبَةً.",
+      "sha256": "823081e46b654185fbdb14910132d9ccc817c4e118d02db203f507763998eee7",
+      "duration_ms": 7597
+    },
+    {
+      "path": "audio/en-learn-cat-0.mp3",
+      "language": "en",
+      "text": "A cat is a living animal. It needs water, food and care. It is not a toy.",
+      "sha256": "43640e8f913129d0827d87ac6b20ebd7c283ab5d9206ea78c151c683c488eb97",
+      "duration_ms": 6039
+    },
+    {
+      "path": "audio/ar-learn-cat-1.mp3",
+      "language": "ar",
+      "text": "نَرْعَى الْقِطَّةَ بِرِفْقٍ وَبِمُسَاعَدَةِ شَخْصٍ كَبِيرٍ. لَا نَشُدُّ ذَيْلَهَا، وَنَغْسِلُ أَيْدِيَنَا بَعْدَ اللَّعِبِ مَعَهَا.",
+      "sha256": "e3fb6bd21543db47fd8502cfda46fd3fce21b1d86a51b24604e93cbdface6012",
+      "duration_ms": 11538
+    },
+    {
+      "path": "audio/en-learn-cat-1.mp3",
+      "language": "en",
+      "text": "We care for a cat gently with an adult helping us. We do not pull its tail, and we wash our hands after playing with it.",
+      "sha256": "2c5171de9673851a348c7b89c0c2e8d7b140222a08897607c05829d78a6ceb50",
+      "duration_ms": 9922
+    },
+    {
+      "path": "audio/ar-learn-car-0.mp3",
+      "language": "ar",
+      "text": "السَّيَّارَةُ تُسَاعِدُ النَّاسَ عَلَى الْوُصُولِ إِلَى أَمَاكِنَ مُخْتَلِفَةٍ. يَقُودُهَا شَخْصٌ كَبِيرٌ قَادِرٌ عَلَى الْقِيَادَةِ.",
+      "sha256": "979893900814e21a91eaf7649cd41f108e2798f07b962c1fac74fcab9a0584c3",
+      "duration_ms": 12265
+    },
+    {
+      "path": "audio/en-learn-car-0.mp3",
+      "language": "en",
+      "text": "A car helps people reach different places. It is driven by an adult who can drive.",
+      "sha256": "db8ea8b249fd15202bb74a4d8c235f26d9754c724668e61d357b4f231e864b9f",
+      "duration_ms": 6706
+    },
+    {
+      "path": "audio/ar-learn-car-1.mp3",
+      "language": "ar",
+      "text": "يُسَاعِدُنَا الْكَبِيرُ عَلَى الْجُلُوسِ فِي مَقْعَدٍ مُنَاسِبٍ وَرَبْطِ الْحِزَامِ. نَبْقَى جَالِسِينَ حَتَّى تَتَوَقَّفَ السَّيَّارَةُ.",
+      "sha256": "d3a94b0b493f243fb87c4764a02bbbbe3e130afa2212d65747b7041a2d9c7734",
+      "duration_ms": 11841
+    },
+    {
+      "path": "audio/en-learn-car-1.mp3",
+      "language": "en",
+      "text": "An adult helps us sit in a suitable seat and fasten the belt. We stay seated until the car stops.",
+      "sha256": "40ab65387700f9f56c59b43d5941f0dbf87c88f5e9ac5438fa1b3ecc3840367e",
+      "duration_ms": 8097
+    },
+    {
+      "path": "audio/ar-learn-banana-0.mp3",
+      "language": "ar",
+      "text": "الْمَوْزُ فَاكِهَةٌ لَهَا قِشْرَةٌ نَنْزِعُهَا قَبْلَ الْأَكْلِ. نَجِدُهُ أَخْضَرَ أَوْ أَصْفَرَ.",
+      "sha256": "415deba49b52b3af0bbd937fb1d26f1b217b704f06c1bbdfa9b47ecd5be95a26",
+      "duration_ms": 8106
+    },
+    {
+      "path": "audio/en-learn-banana-0.mp3",
+      "language": "en",
+      "text": "A banana is a fruit with a peel that we remove before eating. It can be green or yellow.",
+      "sha256": "036e027dc8f890902bdbe8d071b945bb6a41004ed8127308705ad0c2583ebdfc",
+      "duration_ms": 7265
+    },
+    {
+      "path": "audio/ar-learn-banana-1.mp3",
+      "language": "ar",
+      "text": "فِي النُّزْهَةِ، فَتَحْنَا عُلْبَةَ الطَّعَامِ وَأَخَذْنَا مَوْزَةً. بَعْدَ أَكْلِهَا وَضَعْنَا الْقِشْرَةَ فِي سَلَّةِ الْمُهْمَلَاتِ.",
+      "sha256": "c19916e8b33a8c5659929e258e455f40828ac3fd3bedf8223d72cc4b37c8e056",
+      "duration_ms": 12367
+    },
+    {
+      "path": "audio/en-learn-banana-1.mp3",
+      "language": "en",
+      "text": "On our picnic, we opened the lunch box and took a banana. After eating it, we put the peel in the rubbish bin.",
+      "sha256": "e5e17d68167cbe8ae50070ae64ade71eef89df89367e55edaf6b97f818384fc3",
+      "duration_ms": 9310
+    },
+    {
+      "path": "audio/ar-goal-banana.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: موز.",
+      "sha256": "5f85da1264df4f996cb2e1505d3b02ac685984a0d88dfb039b6b3d1636c3fd58",
+      "duration_ms": 3084
+    },
+    {
+      "path": "audio/en-goal-banana.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the banana.",
+      "sha256": "a2fb06469b03729e799149ea40c21212d376f52fcda1bee4df5693ecfc20c26e",
+      "duration_ms": 3092
+    },
+    {
+      "path": "audio/ar-learn-orange-0.mp3",
+      "language": "ar",
+      "text": "الْبُرْتُقَالُ فَاكِهَةٌ مُسْتَدِيرَةٌ. تَحْتَ قِشْرَتِهِ فُصُوصٌ صَغِيرَةٌ نَأْكُلُهَا.",
+      "sha256": "3ea0cb28275973011c7af7550feec4d2016d9342e0fdfd77ce85c498158b85e6",
+      "duration_ms": 7324
+    },
+    {
+      "path": "audio/en-learn-orange-0.mp3",
+      "language": "en",
+      "text": "An orange is a round fruit. Under its peel are small segments that we eat.",
+      "sha256": "0da752e0d07713c44569895d867505be681988627cd4e4ea64fbd5151f963697",
+      "duration_ms": 6018
+    },
+    {
+      "path": "audio/ar-learn-orange-1.mp3",
+      "language": "ar",
+      "text": "أَحْضَرْنَا بُرْتُقَالَةً إِلَى الْمَائِدَةِ. سَاعَدَنَا شَخْصٌ كَبِيرٌ فِي تَقْشِيرِهَا، ثُمَّ تَقَاسَمْنَا فُصُوصَهَا.",
+      "sha256": "8318777e573f528776b34d64527797558a52889c661dfcf6346bcbc9deb323a9",
+      "duration_ms": 10240
+    },
+    {
+      "path": "audio/en-learn-orange-1.mp3",
+      "language": "en",
+      "text": "We brought an orange to the table. An adult helped us peel it, then we shared its segments.",
+      "sha256": "592c81f33c96c9b443f7bcd00729f3e661f3082a62c9924f4857e9db5be95fb0",
+      "duration_ms": 7552
+    },
+    {
+      "path": "audio/ar-goal-orange.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: برتقال.",
+      "sha256": "2ca0a7a9021cc1a5193cf70d0d5dbb4860b36f888b709dd2b913a3b3a8c6d00f",
+      "duration_ms": 3353
+    },
+    {
+      "path": "audio/en-goal-orange.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the orange.",
+      "sha256": "a8d076af3c83f7f381c063249a0c6ef82586633ce939530f9a1388f19952479e",
+      "duration_ms": 3094
+    },
+    {
+      "path": "audio/ar-learn-strawberry-0.mp3",
+      "language": "ar",
+      "text": "الْفَرَاوِلَةُ فَاكِهَةٌ حَمْرَاءُ عِنْدَ نُضْجِهَا. عَلَى سَطْحِهَا نُقَطٌ صَغِيرَةٌ.",
+      "sha256": "aa2f2ee8b9f06dde49f78fe7111f6ccea75a30730af2cba84a65f767e9bf2fb2",
+      "duration_ms": 7117
+    },
+    {
+      "path": "audio/en-learn-strawberry-0.mp3",
+      "language": "en",
+      "text": "A strawberry is red when ripe. It has tiny dots on its surface.",
+      "sha256": "f9b57fa137e5bdb2a7c2d30b19ebd3404e3805b9bd648f039883dddef0c020ab",
+      "duration_ms": 5023
+    },
+    {
+      "path": "audio/ar-learn-strawberry-1.mp3",
+      "language": "ar",
+      "text": "غَسَلْنَا الْفَرَاوِلَةَ وَوَضَعْنَاهَا فِي طَبَقٍ. صَارَتْ مَعَ الْفَوَاكِهِ الْأُخْرَى وَجْبَةً مُلَوَّنَةً. أَيَّ لَوْنٍ تَرَى؟",
+      "sha256": "a9fe4d180ed4890e9551bd7e3d6f575862960015f8701d5757147aae4feb81e3",
+      "duration_ms": 12191
+    },
+    {
+      "path": "audio/en-learn-strawberry-1.mp3",
+      "language": "en",
+      "text": "We washed the strawberries and put them on a plate. With other fruit, they made a colourful snack. Which colour can you see?",
+      "sha256": "6c3fcda3fa0228c4492acc349eddbc2edf036aa4c97c3f688426430a81435c67",
+      "duration_ms": 11578
+    },
+    {
+      "path": "audio/ar-goal-strawberry.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: فراولة.",
+      "sha256": "24f82628eedd865b999236826ed077598cc956a17192400eaaa8eaac63b30109",
+      "duration_ms": 3319
+    },
+    {
+      "path": "audio/en-goal-strawberry.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the strawberry.",
+      "sha256": "222c5724860fc84835ce7c2084888009d9c10533ef70753c8f51278bfa16b347",
+      "duration_ms": 3458
+    },
+    {
+      "path": "audio/ar-learn-watermelon-0.mp3",
+      "language": "ar",
+      "text": "الْبِطِّيخُ فَاكِهَةٌ كَبِيرَةٌ لَهَا قِشْرَةٌ سَمِيكَةٌ. دَاخِلَهَا لُبٌّ نَأْكُلُهُ.",
+      "sha256": "034cd41210152ef48fff44a0b8533e46021ae494c207c0f52c97d782041b4fee",
+      "duration_ms": 7240
+    },
+    {
+      "path": "audio/en-learn-watermelon-0.mp3",
+      "language": "en",
+      "text": "A watermelon is a large fruit with a thick rind. Inside is the flesh that we eat.",
+      "sha256": "b93d2353dd6a57ef8e6cf74ca78bba6488cdd1e31015bb095bc2b5546c5efc5b",
+      "duration_ms": 6635
+    },
+    {
+      "path": "audio/ar-learn-watermelon-1.mp3",
+      "language": "ar",
+      "text": "فِي يَوْمٍ دَافِئٍ، قَطَعَ شَخْصٌ كَبِيرٌ الْبِطِّيخَ. وَضَعْنَا الْقِطَعَ فِي الْأَطْبَاقِ وَتَقَاسَمْنَاهَا مَعَ الْعَائِلَةِ.",
+      "sha256": "8e9e8e049db198b3e7344e468058b0c65c4938c90daf39e7a110d0bd20025857",
+      "duration_ms": 11731
+    },
+    {
+      "path": "audio/en-learn-watermelon-1.mp3",
+      "language": "en",
+      "text": "On a warm day, an adult cut the watermelon. We put the pieces on plates and shared them with our family.",
+      "sha256": "cf73e60ed53e55b0110330a73d1772a9adca8a5134b11e14033d56ec67dc66cb",
+      "duration_ms": 8754
+    },
+    {
+      "path": "audio/ar-goal-watermelon.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: بطيخ.",
+      "sha256": "4b2b8cc5b9d0a052a8846274ec0bb9709649f5e5a0e582e10f9e9804118a9c9d",
+      "duration_ms": 3192
+    },
+    {
+      "path": "audio/en-goal-watermelon.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the watermelon.",
+      "sha256": "8389d613dfb19c925fe838c95392019d9bbfd8e7c454d4c62ec03d9ba7361de9",
+      "duration_ms": 3457
+    },
+    {
+      "path": "audio/ar-learn-carrot-0.mp3",
+      "language": "ar",
+      "text": "الْجَزَرُ جَذْرٌ يَنْمُو تَحْتَ التُّرْبَةِ. نَأْكُلُهُ بَعْدَ تَنْظِيفِهِ، وَنَجِدُهُ غَالِبًا بُرْتُقَالِيًّا.",
+      "sha256": "3f2ed059e9ba9647f18ef3ddde98cb6771f255d3cf825e58fb8150356ccf6c7f",
+      "duration_ms": 9493
+    },
+    {
+      "path": "audio/en-learn-carrot-0.mp3",
+      "language": "en",
+      "text": "A carrot is a root that grows under the soil. We eat it after cleaning it, and it is often orange.",
+      "sha256": "3924f74d379e4c458c61ca70684ef36c74689cfdca5aa932c2ac2912c737fb17",
+      "duration_ms": 8200
+    },
+    {
+      "path": "audio/ar-learn-carrot-1.mp3",
+      "language": "ar",
+      "text": "جَمَعْنَا الْجَزَرَ لِإِعْدَادِ الْحَسَاءِ. غَسَلْنَاهُ، وَتَوَلَّى شَخْصٌ كَبِيرٌ تَقْطِيعَهُ وَطَهْيَهُ.",
+      "sha256": "6bef0d50236551ee124c3a282785d1e45026f217c836745ffd1e6af71c69a93b",
+      "duration_ms": 8948
+    },
+    {
+      "path": "audio/en-learn-carrot-1.mp3",
+      "language": "en",
+      "text": "We gathered carrots to make soup. We washed them, and an adult did the cutting and cooking.",
+      "sha256": "57026d379effb3aa9665bdd2ad6ac8d38d92666c7e0997eca9f076199a4f87ef",
+      "duration_ms": 7273
+    },
+    {
+      "path": "audio/ar-goal-carrot.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: جزر.",
+      "sha256": "f42de05bb14eee22d82d897058091d129be7377f0b777728a8e38164fa19705f",
+      "duration_ms": 3095
+    },
+    {
+      "path": "audio/en-goal-carrot.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the carrot.",
+      "sha256": "267419b83fbeb7aa43d755714a8b352d29b6546c18ce2a8ecdc278a4cb3e9db1",
+      "duration_ms": 3094
+    },
+    {
+      "path": "audio/ar-learn-tomato-0.mp3",
+      "language": "ar",
+      "text": "الطَّمَاطِمُ تَنْمُو عَلَى نَبَاتٍ. نَسْتَخْدِمُهَا فِي السَّلَطَةِ وَفِي أَطْبَاقٍ مَطْبُوخَةٍ.",
+      "sha256": "44fe99626f5936e3db02b210184af06eb5dc838bdc942eb52206e3ad8fca5baf",
+      "duration_ms": 8002
+    },
+    {
+      "path": "audio/en-learn-tomato-0.mp3",
+      "language": "en",
+      "text": "Tomatoes grow on a plant. We use them in salads and cooked dishes.",
+      "sha256": "04cf8dd1f90bde66828f1f2aaff9e4169f30140ecbcbdcb83e27c9cc3eaf284a",
+      "duration_ms": 5316
+    },
+    {
+      "path": "audio/ar-learn-tomato-1.mp3",
+      "language": "ar",
+      "text": "سَاعَدْنَا فِي تَجْهِيزِ السَّلَطَةِ بِغَسْلِ الطَّمَاطِمِ. قَطَعَهَا شَخْصٌ كَبِيرٌ، ثُمَّ وَضَعْنَاهَا مَعَ الْخِيَارِ.",
+      "sha256": "e4cf4c0792da70c3a14c899e1c556faf9e1fac5917c9b557ed837afe9a4bedc9",
+      "duration_ms": 10675
+    },
+    {
+      "path": "audio/en-learn-tomato-1.mp3",
+      "language": "en",
+      "text": "We helped prepare a salad by washing the tomatoes. An adult cut them, then we added them to the cucumber.",
+      "sha256": "30d6cf34e8f1074c5fa776ef4ef843786ad86576ed920824fe7afbcf37073eb9",
+      "duration_ms": 8790
+    },
+    {
+      "path": "audio/ar-goal-tomato.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: طماطم.",
+      "sha256": "8f44b5e1405e2589fa4d6b35c20c87042024586425852bf945f81ceaee2d98e3",
+      "duration_ms": 3259
+    },
+    {
+      "path": "audio/en-goal-tomato.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the tomato.",
+      "sha256": "1d46e455f7fd7987e11cc64f20bb8f273cac33788b463c0ab7f57ae3f413a695",
+      "duration_ms": 3115
+    },
+    {
+      "path": "audio/ar-learn-cucumber-0.mp3",
+      "language": "ar",
+      "text": "الْخِيَارُ أَخْضَرُ وَطَوِيلٌ غَالِبًا. نَأْكُلُهُ بَعْدَ غَسْلِهِ وَنَسْتَخْدِمُهُ فِي السَّلَطَةِ.",
+      "sha256": "cb9aae37c6aa001db1e228f5a416a696fffde935661bba7718df85d5ea17137f",
+      "duration_ms": 8336
+    },
+    {
+      "path": "audio/en-learn-cucumber-0.mp3",
+      "language": "en",
+      "text": "A cucumber is usually green and long. We eat it after washing it and use it in salads.",
+      "sha256": "1b4488d4ee0d71f34cfae6786879f2258b2ec078ec09c3ea6807e166388344f7",
+      "duration_ms": 7105
+    },
+    {
+      "path": "audio/ar-learn-cucumber-1.mp3",
+      "language": "ar",
+      "text": "فِي الْمَطْبَخِ، غَسَلْنَا الْخِيَارَ. جَهَّزَ شَخْصٌ كَبِيرٌ قِطَعَهُ، وَوَضَعْنَاهَا بِجَانِبِ الطَّمَاطِمِ فِي الطَّبَقِ.",
+      "sha256": "0f5de87d2f44871376ae25a4e36bb91f2a3a06f73ac7b2729c66ab4120e14fb9",
+      "duration_ms": 11420
+    },
+    {
+      "path": "audio/en-learn-cucumber-1.mp3",
+      "language": "en",
+      "text": "In the kitchen, we washed a cucumber. An adult prepared the pieces, and we put them beside the tomatoes on the plate.",
+      "sha256": "7a8ea0feb6fc96b21be4c89c1225b8327420ff9443220b1487b2253a5baf2c0e",
+      "duration_ms": 9923
+    },
+    {
+      "path": "audio/ar-goal-cucumber.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: خيار.",
+      "sha256": "b8dc7d063d4ffaaa6b246b1610bfed25bf81e8764d7c069d60d4d6ca93c75b26",
+      "duration_ms": 3095
+    },
+    {
+      "path": "audio/en-goal-cucumber.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the cucumber.",
+      "sha256": "083babe6038a11c5ae36b1f6f10159b5dba81509cfc89f28ecabbac800935b10",
+      "duration_ms": 3276
+    },
+    {
+      "path": "audio/ar-learn-potato-0.mp3",
+      "language": "ar",
+      "text": "الْبَطَاطِسُ تَنْمُو تَحْتَ التُّرْبَةِ. نَغْسِلُهَا وَنَطْهُوهَا قَبْلَ أَنْ نَأْكُلَهَا.",
+      "sha256": "69efbea3d97c60c24693a1ea388b8fc545b584ff50afcf3c3bc2b2c22377aad9",
+      "duration_ms": 7465
+    },
+    {
+      "path": "audio/en-learn-potato-0.mp3",
+      "language": "en",
+      "text": "Potatoes grow under the soil. We wash and cook them before eating them.",
+      "sha256": "21aca0fcde5707c76a4b853fb47f6ae3fcbb47d23da58a32fd4df109db3fd57c",
+      "duration_ms": 5772
+    },
+    {
+      "path": "audio/ar-learn-potato-1.mp3",
+      "language": "ar",
+      "text": "سَاعَدْنَا فِي غَسْلِ الْبَطَاطِسِ. بَعْدَ أَنْ طَهَاهَا شَخْصٌ كَبِيرٌ وَبَرَدَتْ، هَرَسْنَاهَا بِمِلْعَقَةٍ.",
+      "sha256": "32f94d6bf8df17001835a192028ec7c6cd8789195d577707964e21f3bccb57d2",
+      "duration_ms": 9342
+    },
+    {
+      "path": "audio/en-learn-potato-1.mp3",
+      "language": "en",
+      "text": "We helped wash the potatoes. After an adult cooked them and they cooled, we mashed them with a spoon.",
+      "sha256": "93a19f94ad60ba257572e4b7f53d61d0e66cbe9fc11fcc71f666531fc05b721e",
+      "duration_ms": 8089
+    },
+    {
+      "path": "audio/ar-goal-potato.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: بطاطس.",
+      "sha256": "635147bcfb34402ba3d5b328b2ce8a5907e64caafd19c6f9c19d532666dcad6c",
+      "duration_ms": 3265
+    },
+    {
+      "path": "audio/en-goal-potato.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the potatoes.",
+      "sha256": "45f14b1d8b8cf8573ee9f6195176a23c7e3340f5fd9357bafdf4e2e4bfd26736",
+      "duration_ms": 3279
+    },
+    {
+      "path": "audio/ar-learn-pepper-0.mp3",
+      "language": "ar",
+      "text": "الْفِلْفِلُ لَهُ أَلْوَانٌ مُخْتَلِفَةٌ. هَذَا فِلْفِلٌ حُلْوٌ نَسْتَخْدِمُهُ فِي الطَّعَامِ.",
+      "sha256": "188af3e2dea74eefdf409e8275a7eb073cf19f4343d0df71472ee4f7123c2b31",
+      "duration_ms": 7509
+    },
+    {
+      "path": "audio/en-learn-pepper-0.mp3",
+      "language": "en",
+      "text": "Peppers come in different colours. This is a sweet pepper that we use in food.",
+      "sha256": "dc7aa55065e24b171b49bdc3d8b2e726460965d0b902e7d7c88f9b16c7f34fbc",
+      "duration_ms": 6382
+    },
+    {
+      "path": "audio/ar-learn-pepper-1.mp3",
+      "language": "ar",
+      "text": "غَسَلْنَا الْفِلْفِلَ الْحُلْوَ، وَجَهَّزَ شَخْصٌ كَبِيرٌ قِطَعَهُ. أَضَافَتْ أَلْوَانُهُ بَهْجَةً إِلَى طَبَقِ السَّلَطَةِ.",
+      "sha256": "e0d7b077bbf79375e3cf25b6c6ebd3074eaf1e707360e64cde2e0fb92b4f3543",
+      "duration_ms": 10784
+    },
+    {
+      "path": "audio/en-learn-pepper-1.mp3",
+      "language": "en",
+      "text": "We washed the sweet pepper, and an adult prepared the pieces. Its colours brightened our salad plate.",
+      "sha256": "c2426fc079aea034365c1b6df0a3e7433918ea343a5c2b48459a6330f5d0b6ec",
+      "duration_ms": 7898
+    },
+    {
+      "path": "audio/ar-goal-pepper.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: فلفل.",
+      "sha256": "9db1acc04ba204fb1593fdfae8f972727be32239b9ce52942f229822f0e27d66",
+      "duration_ms": 3179
+    },
+    {
+      "path": "audio/en-goal-pepper.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the pepper.",
+      "sha256": "453313845c325a4d7a294a927c5c44f814c44e6930798862af9c24c03fe2a6a8",
+      "duration_ms": 3092
+    },
+    {
+      "path": "audio/ar-learn-cube-0.mp3",
+      "language": "ar",
+      "text": "الْمُكَعَّبُ لُعْبَةٌ لِلْبِنَاءِ. نَرُصُّ الْمُكَعَّبَاتِ فَوْقَ بَعْضِهَا لِنَصْنَعَ أَشْكَالًا.",
+      "sha256": "2e11d1183d0a236d82e232131ef4e14c50872bb749f8eafc3650e77472db7a00",
+      "duration_ms": 8201
+    },
+    {
+      "path": "audio/en-learn-cube-0.mp3",
+      "language": "en",
+      "text": "A block is a toy for building. We stack blocks to make shapes.",
+      "sha256": "ad278317c142a87c211b13c12ede34203ba1b6c77692bbfd7e678c6cb6317364",
+      "duration_ms": 4907
+    },
+    {
+      "path": "audio/ar-learn-cube-1.mp3",
+      "language": "ar",
+      "text": "بَنَيْنَا بُرْجًا، لَكِنَّهُ مَالَ. وَسَّعْنَا قَاعِدَتَهُ وَجَرَّبْنَا مَرَّةً أُخْرَى. أَيُّ بُرْجٍ يَبْقَى وَاقِفًا؟",
+      "sha256": "5f31db13c1e506a3da54ea64a4e00c1c0ce3ee7fc16991d6eb8a3993c1dcc163",
+      "duration_ms": 10180
+    },
+    {
+      "path": "audio/en-learn-cube-1.mp3",
+      "language": "en",
+      "text": "We built a tower, but it leaned. We made its base wider and tried again. Which tower stays standing?",
+      "sha256": "d931d5a1863265295f5b5585fcf7e84de9092ff16e0179197b0be7fa7add4f3c",
+      "duration_ms": 8371
+    },
+    {
+      "path": "audio/ar-goal-cube.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: مكعب.",
+      "sha256": "9928993b3b403600b351feec53c9708cc2ad0dec8f8ae2a0c858558ef06afc88",
+      "duration_ms": 3179
+    },
+    {
+      "path": "audio/en-goal-cube.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the cube.",
+      "sha256": "d92c1b2b7842b33177c8650fb971b189ce404f5fc33e16ade422d539c08ff99d",
+      "duration_ms": 2909
+    },
+    {
+      "path": "audio/ar-learn-doll-0.mp3",
+      "language": "ar",
+      "text": "الدُّمْيَةُ لُعْبَةٌ نَصْنَعُ لَهَا قِصَصًا. نَسْتَطِيعُ تَخَيُّلَ أَدْوَارٍ وَمَوَاقِفَ مُخْتَلِفَةٍ مَعَهَا.",
+      "sha256": "9d33fc57b32bf8da77019d37467f443fdfdfd15d3b6c50e2fee97d3f19f3514e",
+      "duration_ms": 9291
+    },
+    {
+      "path": "audio/en-learn-doll-0.mp3",
+      "language": "en",
+      "text": "A doll is a toy for making stories. We can imagine different roles and situations with it.",
+      "sha256": "9dd1410d14b4b0b9e655bec3ed9cf141fb32eb3ae40e5862bc00d2faaaa3b0c5",
+      "duration_ms": 7446
+    },
+    {
+      "path": "audio/ar-learn-doll-1.mp3",
+      "language": "ar",
+      "text": "تَخَيَّلْنَا أَنَّ الدُّمْيَةَ تَزُورُ صَدِيقًا. قُلْنَا مَرْحَبًا، وَأَعْطَيْنَاهَا مَقْعَدًا. مَاذَا سَتَقُولُ بَعْدَ ذَلِكَ؟",
+      "sha256": "1d4f2fec787213c5a027cc3f81f2e923c586145e1115cee5446faef2ed02f560",
+      "duration_ms": 11517
+    },
+    {
+      "path": "audio/en-learn-doll-1.mp3",
+      "language": "en",
+      "text": "We imagined the doll visiting a friend. We said hello and gave it a seat. What will it say next?",
+      "sha256": "b90b5501d75e76b67b95ad6f72d00da43c66557ee822ceecf9b2f4aeed0c6eac",
+      "duration_ms": 7976
+    },
+    {
+      "path": "audio/ar-goal-doll.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: دمية.",
+      "sha256": "aa02bb8e891039493e91c87e2ce81010d534bf02c985268c3958ff4f966463ba",
+      "duration_ms": 3184
+    },
+    {
+      "path": "audio/en-goal-doll.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the doll.",
+      "sha256": "c9e76142092c8b7e528ff34afbeaaee4d1201db9d99814236d9aab634a297e65",
+      "duration_ms": 2902
+    },
+    {
+      "path": "audio/ar-learn-puzzle-0.mp3",
+      "language": "ar",
+      "text": "الْأُحْجِيَّةُ لُعْبَةٌ مِنْ قِطَعٍ تَجْتَمِعُ لِتُكَوِّنَ صُورَةً. نُقَارِنُ أَشْكَالَهَا وَأَلْوَانَهَا.",
+      "sha256": "9e1bb14ea9b71374c0d0ee88d26261aaa2351cb98a31bce6414981d727333692",
+      "duration_ms": 8908
+    },
+    {
+      "path": "audio/en-learn-puzzle-0.mp3",
+      "language": "en",
+      "text": "A puzzle has pieces that fit together to make a picture. We compare their shapes and colours.",
+      "sha256": "b82aeda70270c2b02d8f61853a252d748d24159d453b3af3986201591729b73c",
+      "duration_ms": 7724
+    },
+    {
+      "path": "audio/ar-learn-puzzle-1.mp3",
+      "language": "ar",
+      "text": "لَمْ تَدْخُلِ الْقِطْعَةُ فِي مَكَانِهَا. أَدَرْنَاهَا وَبَحَثْنَا عَنْ حَافَّةٍ تُنَاسِبُهَا، فَظَهَرَ جُزْءٌ جَدِيدٌ مِنَ الصُّورَةِ.",
+      "sha256": "adfca4dfce7aefd37675c819834d27d3611c280b1470da654870a86f1468eff1",
+      "duration_ms": 11880
+    },
+    {
+      "path": "audio/en-learn-puzzle-1.mp3",
+      "language": "en",
+      "text": "The piece did not fit. We turned it and looked for a matching edge, and a new part of the picture appeared.",
+      "sha256": "35f6ce8e40211c4a852a85a5fa9c380ce282776bbbe37e8a389e6d222323327f",
+      "duration_ms": 8832
+    },
+    {
+      "path": "audio/ar-goal-puzzle.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: أحجية.",
+      "sha256": "9d39ec99812439d7d94e87986f6b0ebbc4cb53fbcccc19606b70194492ca2079",
+      "duration_ms": 3316
+    },
+    {
+      "path": "audio/en-goal-puzzle.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the puzzle.",
+      "sha256": "f99af6029bf0b9fe1510bed102c46300f047036abe2b0a99d49a0e4154584ec9",
+      "duration_ms": 3093
+    },
+    {
+      "path": "audio/ar-learn-pencil-0.mp3",
+      "language": "ar",
+      "text": "الْقَلَمُ الرَّصَاصُ يَتْرُكُ خَطًّا عَلَى الْوَرَقِ. نَسْتَخْدِمُهُ لِلرَّسْمِ وَالْكِتَابَةِ.",
+      "sha256": "18321df17a6f8d64c5a3d48d0765ad8206e2c98c16fa76e07d8adafea7317e41",
+      "duration_ms": 7692
+    },
+    {
+      "path": "audio/en-learn-pencil-0.mp3",
+      "language": "en",
+      "text": "A pencil leaves a line on paper. We use it for drawing and writing.",
+      "sha256": "1072069da143239cc0071a9360e32547558f8ec747bb161c2f8447fbc200443f",
+      "duration_ms": 5170
+    },
+    {
+      "path": "audio/ar-learn-pencil-1.mp3",
+      "language": "ar",
+      "text": "رَسَمْنَا بَيْتًا بِالْقَلَمِ. لَمْ يُعْجِبْنَا مَكَانُ الْبَابِ، فَمَسَحْنَاهُ وَرَسَمْنَاهُ مِنْ جَدِيدٍ.",
+      "sha256": "240ff2bf0f3c10c225940791a52bdfabd37b80081d721a9c05b12f50dc93c8df",
+      "duration_ms": 9007
+    },
+    {
+      "path": "audio/en-learn-pencil-1.mp3",
+      "language": "en",
+      "text": "We drew a house with a pencil. We wanted the door in another place, so we erased it and drew it again.",
+      "sha256": "3ec1bb72f3c5fedae20e0e92314b1d8220160b07d93af2222ec7c8cdb284696b",
+      "duration_ms": 8533
+    },
+    {
+      "path": "audio/ar-goal-pencil.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: قلم.",
+      "sha256": "f76d58676ac001d7358b8b37c5ca87d04358a74a06173b3e3c5212a040d37b5c",
+      "duration_ms": 3042
+    },
+    {
+      "path": "audio/en-goal-pencil.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the pen.",
+      "sha256": "9280b4c9d1a0d56080efb11a9561b542cfb12603b3e52bdde541eb8bb58e571d",
+      "duration_ms": 2825
+    },
+    {
+      "path": "audio/ar-learn-paper-0.mp3",
+      "language": "ar",
+      "text": "الْوَرَقُ سَطْحٌ نَرْسُمُ وَنَكْتُبُ عَلَيْهِ. يُمْكِنُ أَنْ نَطْوِيَهُ لِنَصْنَعَ أَشْكَالًا.",
+      "sha256": "e82e10b499c6198b2ad71dc92d9de0f3676899f0adcc109bc28c7331f6d910aa",
+      "duration_ms": 7834
+    },
+    {
+      "path": "audio/en-learn-paper-0.mp3",
+      "language": "en",
+      "text": "Paper is a surface for drawing and writing. We can also fold it to make shapes.",
+      "sha256": "7588278ce8dd7815856fbeb2b016076e87aa0c42b3483c63407570dd111a6300",
+      "duration_ms": 6522
+    },
+    {
+      "path": "audio/ar-learn-paper-1.mp3",
+      "language": "ar",
+      "text": "طَوَيْنَا وَرَقَةً لِنَصْنَعَ بِطَاقَةً. رَسَمْنَا عَلَيْهَا زَهْرَةً وَأَهْدَيْنَاهَا لِشَخْصٍ نُحِبُّهُ.",
+      "sha256": "7d84a0aab1b96a698b41f183b328f9d90d329b89ad63c3297f73c9fed7df9c3d",
+      "duration_ms": 8714
+    },
+    {
+      "path": "audio/en-learn-paper-1.mp3",
+      "language": "en",
+      "text": "We folded a sheet of paper to make a card. We drew a flower on it and gave it to someone we love.",
+      "sha256": "04c5ab3a1e244b94bc6d8a3854c6ff98e242f2ee45cea6f037bfc5469fa4c100",
+      "duration_ms": 8093
+    },
+    {
+      "path": "audio/ar-goal-paper.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: ورقة.",
+      "sha256": "d511be4af83bd0684c5582f6c611ce849f9a3b9b18e2dbed02d725042252f493",
+      "duration_ms": 3180
+    },
+    {
+      "path": "audio/en-goal-paper.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the paper.",
+      "sha256": "d69ff92bf4b91ea935e1203b03446462813f8aa1ab6e87c0599c30fc1bb41caa",
+      "duration_ms": 2996
+    },
+    {
+      "path": "audio/ar-learn-bag-0.mp3",
+      "language": "ar",
+      "text": "الْحَقِيبَةُ تَجْمَعُ أَشْيَاءَنَا وَتُسَاعِدُنَا عَلَى حَمْلِهَا. نَخْتَارُ مَا نَحْتَاجُهُ قَبْلَ الْخُرُوجِ.",
+      "sha256": "d7f1d73cdab88ce8613e8bd73bcbb89eca0a4a30bb15e656c4b0df202d0ad5bd",
+      "duration_ms": 8759
+    },
+    {
+      "path": "audio/en-learn-bag-0.mp3",
+      "language": "en",
+      "text": "A bag holds our things and helps us carry them. We choose what we need before going out.",
+      "sha256": "82bed95410784a750b57f9007ba2ace26e9f554b78d2497fc94cb599d63fb1af",
+      "duration_ms": 6875
+    },
+    {
+      "path": "audio/ar-learn-bag-1.mp3",
+      "language": "ar",
+      "text": "قَبْلَ الذَّهَابِ، وَضَعْنَا الْكِتَابَ وَالْقَلَمَ فِي الْحَقِيبَةِ. فَحَصْنَاهَا مَرَّةً أَخِيرَةً، ثُمَّ أَغْلَقْنَاهَا.",
+      "sha256": "448542b695b0a5b58de275a44d8b4e1a23b9c08b42ce8dadd9e41d2cccd90576",
+      "duration_ms": 11702
+    },
+    {
+      "path": "audio/en-learn-bag-1.mp3",
+      "language": "en",
+      "text": "Before leaving, we put a book and pencil in the bag. We checked it one last time, then closed it.",
+      "sha256": "9f680b5292c3653197da77fc657b9fe865318443fb92113006f7e4002008201b",
+      "duration_ms": 8149
+    },
+    {
+      "path": "audio/ar-goal-bag.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: حقيبة.",
+      "sha256": "3127f18cd6b6949ce3b5e7c210bc27f839bf1d122958f67ee99e218ae2d9fed2",
+      "duration_ms": 3276
+    },
+    {
+      "path": "audio/en-goal-bag.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bag.",
+      "sha256": "ea23acb8fff1a37b7f0fbed7b7188eed4b981af70a2c56b9c88f6823481bc67a",
+      "duration_ms": 2814
+    },
+    {
+      "path": "audio/ar-learn-ruler-0.mp3",
+      "language": "ar",
+      "text": "الْمِسْطَرَةُ تُسَاعِدُنَا عَلَى رَسْمِ خَطٍّ مُسْتَقِيمٍ وَقِيَاسِ الطُّولِ. عَلَيْهَا عَلامَاتٌ نَقْرَأُهَا.",
+      "sha256": "7d50db11e476a38390883f527e72b5570d4d031129d7f04bc246a78e4ac5a713",
+      "duration_ms": 9272
+    },
+    {
+      "path": "audio/en-learn-ruler-0.mp3",
+      "language": "en",
+      "text": "A ruler helps us draw straight lines and measure length. It has marks that we can read.",
+      "sha256": "eb85e9d20f42b99b4a7124bce2eb0eb4c9d3bef000a49fb908ce2cbc158f10fb",
+      "duration_ms": 7159
+    },
+    {
+      "path": "audio/ar-learn-ruler-1.mp3",
+      "language": "ar",
+      "text": "أَرَدْنَا رَسْمَ طَرِيقٍ مُسْتَقِيمٍ. ثَبَّتْنَا الْمِسْطَرَةَ عَلَى الْوَرَقِ، وَمَرَّرْنَا الْقَلَمَ بِجَانِبِهَا.",
+      "sha256": "e954c63bc96690e88884046cc2ca19e44df53ceffc3b244befaa5c8ecdfb7316",
+      "duration_ms": 9247
+    },
+    {
+      "path": "audio/en-learn-ruler-1.mp3",
+      "language": "en",
+      "text": "We wanted to draw a straight road. We held the ruler on the paper and moved the pencil along its edge.",
+      "sha256": "b21ad91c831bfc7fbb777dae6b0f7c800a4ae19fb8b3352edf83bc380e398a03",
+      "duration_ms": 8382
+    },
+    {
+      "path": "audio/ar-goal-ruler.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: مسطرة.",
+      "sha256": "e0c16dcee0fc7401706db34249000f3f70dd31e872cd44c5f2f4e5eaab8e4cdf",
+      "duration_ms": 3298
+    },
+    {
+      "path": "audio/en-goal-ruler.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the ruler.",
+      "sha256": "df1c4dc56022d6fee45940d1680dc54af64102571671f0134629742916506abd",
+      "duration_ms": 2997
+    },
+    {
+      "path": "audio/ar-learn-eraser-0.mp3",
+      "language": "ar",
+      "text": "الْمِمْحَاةُ تُزِيلُ أَثَرَ الْقَلَمِ الرَّصَاصِ. تُسَاعِدُنَا عَلَى تَغْيِيرِ الرَّسْمِ وَتَصْحِيحِ الْكِتَابَةِ.",
+      "sha256": "97c303dfebec3d9824bf6a2290e87f49a1e86f6430282e61e9bc12ae74944277",
+      "duration_ms": 9665
+    },
+    {
+      "path": "audio/en-learn-eraser-0.mp3",
+      "language": "en",
+      "text": "An eraser removes pencil marks. It helps us change a drawing and correct writing.",
+      "sha256": "47a23716d00b1bdcf4be6ba7c4d8b0ad48ddbfb442f16da74f89b898eee13a37",
+      "duration_ms": 6625
+    },
+    {
+      "path": "audio/ar-learn-eraser-1.mp3",
+      "language": "ar",
+      "text": "رَسَمْنَا دَائِرَةً كَبِيرَةً جِدًّا. مَسَحْنَا جُزْءًا مِنْهَا بِرِفْقٍ وَجَرَّبْنَا دَائِرَةً أَصْغَرَ. الْخَطَأُ يُسَاعِدُنَا عَلَى التَّعَلُّمِ.",
+      "sha256": "18bbdcdf2916013beec26ea9c23a7b5af66d71196270623d73e40f19d155b18a",
+      "duration_ms": 13989
+    },
+    {
+      "path": "audio/en-learn-eraser-1.mp3",
+      "language": "en",
+      "text": "We drew a circle that was too big. We gently erased part of it and tried a smaller circle. Mistakes help us learn.",
+      "sha256": "1bb2f22ba8f8a19064758ff0c9254695191528bd2b7eda4b735758212fa9e39b",
+      "duration_ms": 9655
+    },
+    {
+      "path": "audio/ar-goal-eraser.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: ممحاة.",
+      "sha256": "0aafd1bc63f5373179c21ebd458e4784ef589262bb135ddd4038319c6e2a243e",
+      "duration_ms": 3269
+    },
+    {
+      "path": "audio/en-goal-eraser.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the eraser.",
+      "sha256": "16f57df699a540242d73b50dcfd3b0e89275d11ad2450c819b90a03321ce3d45",
+      "duration_ms": 3116
+    },
+    {
+      "path": "audio/ar-learn-cup-0.mp3",
+      "language": "ar",
+      "text": "الْكُوبُ وَعَاءٌ نَشْرَبُ مِنْهُ. نَضَعُهُ عَلَى سَطْحٍ ثَابِتٍ كَيْ لَا يَنْسَكِبَ مَا فِيهِ.",
+      "sha256": "e2b26e4ffabab40c18c3ce755db8b15e1adc0fe4cbee05d02c9456ee53e13b4f",
+      "duration_ms": 7828
+    },
+    {
+      "path": "audio/en-learn-cup-0.mp3",
+      "language": "en",
+      "text": "A cup is a container we drink from. Keep it on a steady surface to prevent spills.",
+      "sha256": "d88435d8ba6fe341260ceaf86569b77f2d69d84e629c52fea747ec273001e9e7",
+      "duration_ms": 6282
+    },
+    {
+      "path": "audio/ar-learn-cup-1.mp3",
+      "language": "ar",
+      "text": "بَعْدَ اللَّعِبِ، مَلَأْنَا الْكُوبَ بِالْمَاءِ. شَرِبْنَا، ثُمَّ أَعَدْنَاهُ إِلَى الْمَطْبَخِ لِغَسْلِهِ.",
+      "sha256": "9fcf5bc4516d8c24ccc738203191ea9640dcea3d8bfdde00b80f04316f6c4e4f",
+      "duration_ms": 9064
+    },
+    {
+      "path": "audio/en-learn-cup-1.mp3",
+      "language": "en",
+      "text": "After playing, we filled a cup with water. We drank, then took it back to the kitchen to wash it.",
+      "sha256": "a608a0cdad1052fcb9fd086ff01652f72ce88324548b77f426e2cb55fb67fae6",
+      "duration_ms": 8116
+    },
+    {
+      "path": "audio/ar-goal-cup.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كوب.",
+      "sha256": "743ded01a7ec4fe52e805990126a28a188538c862d2220da33cce52db4bba98e",
+      "duration_ms": 2986
+    },
+    {
+      "path": "audio/en-goal-cup.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the cup.",
+      "sha256": "a34ee9673e6e5d2c769f1c14303094137b7d89bd234b8a8e79b11c28e1748d9b",
+      "duration_ms": 2803
+    },
+    {
+      "path": "audio/ar-learn-plate-0.mp3",
+      "language": "ar",
+      "text": "الطَّبَقُ يَحْمِلُ الطَّعَامَ عَلَى الْمَائِدَةِ. نَسْتَخْدِمُهُ لِنَرْتِّبَ وَجْبَتَنَا.",
+      "sha256": "bf2511ada5f3605fa8f0608ce4fa4881436380a89df4e67282fce25c471c67e9",
+      "duration_ms": 6912
+    },
+    {
+      "path": "audio/en-learn-plate-0.mp3",
+      "language": "en",
+      "text": "A plate holds food on the table. We use it to arrange our meal.",
+      "sha256": "60dd07c0c6a129b9c6ce8fb006b4d150cb0daba1e13af59c2a9755b4c3782b0f",
+      "duration_ms": 5014
+    },
+    {
+      "path": "audio/ar-learn-plate-1.mp3",
+      "language": "ar",
+      "text": "جَهَّزْنَا الْمَائِدَةَ، وَوَضَعْنَا طَبَقًا لِكُلِّ شَخْصٍ. بَعْدَ الْأَكْلِ، سَاعَدْنَا فِي جَمْعِ الْأَطْبَاقِ.",
+      "sha256": "cd379cdd99ba91d4cc7eb08aeb6b3837009f06b5876f0ac84b159f2909472b6d",
+      "duration_ms": 9467
+    },
+    {
+      "path": "audio/en-learn-plate-1.mp3",
+      "language": "en",
+      "text": "We set the table and put out a plate for each person. After eating, we helped collect the plates.",
+      "sha256": "dc3e3a01441c877de7099486dc14b67fcfde47312b0fbdeaf6b1e391cef1d543",
+      "duration_ms": 8120
+    },
+    {
+      "path": "audio/ar-goal-plate.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: طبق.",
+      "sha256": "70e59eb1589688de4ea6ffcfecad24343c52e3275554e3ea79c8a02da94a50ed",
+      "duration_ms": 3040
+    },
+    {
+      "path": "audio/en-goal-plate.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the plate.",
+      "sha256": "0a212040686495eb63f96f9e70436cbd65fa6848fa7a6c0771fce6887c2b0e4f",
+      "duration_ms": 2998
+    },
+    {
+      "path": "audio/ar-learn-spoon-0.mp3",
+      "language": "ar",
+      "text": "الْمِلْعَقَةُ تُسَاعِدُنَا عَلَى تَنَاوُلِ بَعْضِ الْأَطْعِمَةِ وَتَقْلِيبِهَا. لَهَا مِقْبَضٌ نُمْسِكُهُ.",
+      "sha256": "9c0697665fc50a26ae4032b0ecceacf30db0a8e6d033da18d598f0d4bd17c84c",
+      "duration_ms": 8477
+    },
+    {
+      "path": "audio/en-learn-spoon-0.mp3",
+      "language": "en",
+      "text": "A spoon helps us eat and stir some foods. It has a handle that we hold.",
+      "sha256": "9209bbc3ab6d7a4c11d5822adb1152fc2e57dd4a1135812e051a8b7d69cb07b7",
+      "duration_ms": 5686
+    },
+    {
+      "path": "audio/ar-learn-spoon-1.mp3",
+      "language": "ar",
+      "text": "وَضَعْنَا الزَّبَادِيَ فِي وَعَاءٍ، وَقَلَّبْنَاهُ بِمِلْعَقَةٍ. ثُمَّ اسْتَخْدَمْنَاهَا لِأَكْلِ وَجْبَتِنَا.",
+      "sha256": "ea3777ab43a48a1e79822e6f43371444d6ab09ac35b73e2b92f0ac296ef99ee6",
+      "duration_ms": 8829
+    },
+    {
+      "path": "audio/en-learn-spoon-1.mp3",
+      "language": "en",
+      "text": "We put yoghurt in a bowl and stirred it with a spoon. Then we used the spoon to eat our snack.",
+      "sha256": "92e407e5cf4d5cbbe166348f31ed8d37639270bf77a8e853b43026f0b8ad8b2b",
+      "duration_ms": 7816
+    },
+    {
+      "path": "audio/ar-goal-spoon.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: ملعقة.",
+      "sha256": "86aec8d68488f50ecc94a28e715b03295eff921a47f964307d1ec1f62e51032c",
+      "duration_ms": 3263
+    },
+    {
+      "path": "audio/en-goal-spoon.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the spoon.",
+      "sha256": "bc7b4fcad1d7bfccb9464c6cb86d7af1a969b5566cd04675dce723e3c5292e66",
+      "duration_ms": 3007
+    },
+    {
+      "path": "audio/ar-learn-bottle-0.mp3",
+      "language": "ar",
+      "text": "الْقَارُورَةُ تَحْفَظُ السَّائِلَ، وَلَهَا غِطَاءٌ نُغْلِقُهُ. قَارُورَةُ الْمَاءِ تُرَافِقُنَا فِي الْخُرُوجِ.",
+      "sha256": "65f7e827cb4ed8345e445d048d7f4e770d86819b49b032d0b2b0c6f130aa61db",
+      "duration_ms": 9390
+    },
+    {
+      "path": "audio/en-learn-bottle-0.mp3",
+      "language": "en",
+      "text": "A bottle holds liquid and has a cap that we close. A water bottle can come with us when we go out.",
+      "sha256": "71d37033d592a9233fc622ffea77c034c63d6eb364bda6309bcad61354845a33",
+      "duration_ms": 7576
+    },
+    {
+      "path": "audio/ar-learn-bottle-1.mp3",
+      "language": "ar",
+      "text": "مَلَأْنَا قَارُورَةَ الْمَاءِ قَبْلَ النُّزْهَةِ. أَغْلَقْنَا غِطَاءَهَا وَوَضَعْنَاهَا فِي الْحَقِيبَةِ.",
+      "sha256": "9212812cd2b4079e24fa09ad8d5d45b4306093c1a4ddd173976d2eb6af178aeb",
+      "duration_ms": 8894
+    },
+    {
+      "path": "audio/en-learn-bottle-1.mp3",
+      "language": "en",
+      "text": "We filled our water bottle before the picnic. We closed its cap and put it in the bag.",
+      "sha256": "744a8f50bc8e8efccfb63f8d1b4864ce7d21879b691c7e7b39ef29b9a525c333",
+      "duration_ms": 6803
+    },
+    {
+      "path": "audio/ar-goal-bottle.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: زجاجة.",
+      "sha256": "972d549eba90780ddf7e17f43b223586f2ef00ee236333765b0f768e8d3019c1",
+      "duration_ms": 3300
+    },
+    {
+      "path": "audio/en-goal-bottle.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bottle.",
+      "sha256": "76985c20a8e116e26381ccf2fdccc5432b3fb88f9b95e3c8e476ca18e03a305b",
+      "duration_ms": 3073
+    },
+    {
+      "path": "audio/ar-learn-chair-0.mp3",
+      "language": "ar",
+      "text": "الْكُرْسِيُّ يُسَاعِدُنَا عَلَى الْجُلُوسِ. نَسْتَخْدِمُهُ عِنْدَ الْمَائِدَةِ أَوْ أَثْنَاءَ الْقِرَاءَةِ.",
+      "sha256": "a953de0356c1c5169178e815bdfd2e4070b390b6bc3a9142e46c30274ecae201",
+      "duration_ms": 9015
+    },
+    {
+      "path": "audio/en-learn-chair-0.mp3",
+      "language": "en",
+      "text": "A chair helps us sit. We use it at a table or while reading.",
+      "sha256": "c6f871050a258077b95dc1405d4c1bae51ba86f8e2e999f67e19f47a600982e9",
+      "duration_ms": 4735
+    },
+    {
+      "path": "audio/ar-learn-chair-1.mp3",
+      "language": "ar",
+      "text": "اخْتَرْنَا كُرْسِيًّا ثَابِتًا لِلْقِرَاءَةِ. جَلَسْنَا عَلَيْهِ وَفَتَحْنَا الْكِتَابَ. نُبْقِي أَرْجُلَ الْكُرْسِيِّ عَلَى الْأَرْضِ.",
+      "sha256": "6f40ffa56765bb652be42b4923805de562f5a5ed45d138e8bff2fe04b171e466",
+      "duration_ms": 12208
+    },
+    {
+      "path": "audio/en-learn-chair-1.mp3",
+      "language": "en",
+      "text": "We chose a steady chair for reading. We sat down and opened a book. We keep the chair legs on the floor.",
+      "sha256": "a88264c91089edc50a4d4e1bd834f594f391609ff2f878db721d08dd798b1364",
+      "duration_ms": 8736
+    },
+    {
+      "path": "audio/ar-goal-chair.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كرسي.",
+      "sha256": "6489fd312ea277e9b653f511e8128804aa48c5c32825dbe8e4236651f5ac25d3",
+      "duration_ms": 3182
+    },
+    {
+      "path": "audio/en-goal-chair.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the chair.",
+      "sha256": "e65f57831829e58513f4a6a9c9610092937c9191f94d43480c21e90b00492d3f",
+      "duration_ms": 3000
+    },
+    {
+      "path": "audio/ar-learn-box-0.mp3",
+      "language": "ar",
+      "text": "الصُّنْدُوقُ يَحْفَظُ الْأَشْيَاءَ وَيُسَاعِدُنَا عَلَى تَرْتِيبِهَا. نَسْتَطِيعُ جَمْعَ الْأَشْيَاءِ الْمُتَشَابِهَةِ فِيهِ.",
+      "sha256": "4c316d53fe4ff302f0c6dcbb0b68b3e3f1b3f41156602072189467d75d109b92",
+      "duration_ms": 10558
+    },
+    {
+      "path": "audio/en-learn-box-0.mp3",
+      "language": "en",
+      "text": "A box holds things and helps us organise them. We can collect similar things inside it.",
+      "sha256": "0aed8ca444d204045c5c21604a2690449fb46468f246711a3b2a2a2f32c1c09b",
+      "duration_ms": 7139
+    },
+    {
+      "path": "audio/ar-learn-box-1.mp3",
+      "language": "ar",
+      "text": "بَعْدَ اللَّعِبِ، جَمَعْنَا الْمُكَعَّبَاتِ فِي صُنْدُوقٍ. صَارَ مَكَانُ اللَّعِبِ مُرَتَّبًا، وَسَنَجِدُهَا بِسُهُولَةٍ لَاحِقًا.",
+      "sha256": "b8657f87722e050d8b56f18f55dc6ef9ecd4ef46714b7ac8a828d313049f4c2f",
+      "duration_ms": 11990
+    },
+    {
+      "path": "audio/en-learn-box-1.mp3",
+      "language": "en",
+      "text": "After playing, we collected the blocks in a box. Our play space became tidy, and we can find them easily later.",
+      "sha256": "10e901dbf964db9bd03e06eb0650162da28a0e61596301922c1b0e139c7957a9",
+      "duration_ms": 9396
+    },
+    {
+      "path": "audio/ar-goal-box.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: صندوق.",
+      "sha256": "9c55a90af6e9ea54906d0f7a2fcb4474bcc8c55eb0590945e373fe18797784cd",
+      "duration_ms": 3223
+    },
+    {
+      "path": "audio/en-goal-box.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the box.",
+      "sha256": "554e891d188504f8536c34ab86203cdbcbeee77ae15b00e795e7f16e9e89c06b",
+      "duration_ms": 2815
+    },
+    {
+      "path": "audio/ar-learn-rabbit-0.mp3",
+      "language": "ar",
+      "text": "الْأَرْنَبُ حَيَوَانٌ لَهُ أُذُنَانِ طَوِيلَتَانِ. يَحْتَاجُ إِلَى طَعَامٍ مُنَاسِبٍ وَمَاءٍ وَمَكَانٍ آمِنٍ.",
+      "sha256": "60078dd1170d7b3d97590ff50e9665fe24a13d77969d02ecc3e2bdc1f89e9988",
+      "duration_ms": 9251
+    },
+    {
+      "path": "audio/en-learn-rabbit-0.mp3",
+      "language": "en",
+      "text": "A rabbit is an animal with long ears. It needs suitable food, water, and a safe place.",
+      "sha256": "bd8ad0f5ab79222b2e728a2f0b40b3b2240c60e3dcdb0ce92d63177f5790105f",
+      "duration_ms": 7136
+    },
+    {
+      "path": "audio/ar-learn-rabbit-1.mp3",
+      "language": "ar",
+      "text": "رَاقَبْنَا الْأَرْنَبَ بِهُدُوءٍ مَعَ شَخْصٍ كَبِيرٍ. تَرَكْنَا لَهُ مَسَاحَةً لِيَتَحَرَّكَ، وَلَمْ نَشُدَّ أُذُنَيْهِ.",
+      "sha256": "94767aa5c6db0d05c0da9e52d5438243915389b545e9384a830f7eb7c1d962c2",
+      "duration_ms": 10242
+    },
+    {
+      "path": "audio/en-learn-rabbit-1.mp3",
+      "language": "en",
+      "text": "We quietly watched a rabbit with an adult. We gave it space to move and did not pull its ears.",
+      "sha256": "c0367648d9a3fc8b5778fe22d980dcac83b86a975b0dbdb8405a547e4af39697",
+      "duration_ms": 7656
+    },
+    {
+      "path": "audio/ar-goal-rabbit.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: أرنب.",
+      "sha256": "03cb607fc42103b2867ee8118f2997e44be8e3b5e37e64dc96bcc4b04b698030",
+      "duration_ms": 3130
+    },
+    {
+      "path": "audio/en-goal-rabbit.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the rabbit.",
+      "sha256": "1c1ff3928aec555b3b09a4193f146ac96b1cf583efcbc9ddab68c844b6161b4f",
+      "duration_ms": 3092
+    },
+    {
+      "path": "audio/ar-learn-bird-0.mp3",
+      "language": "ar",
+      "text": "الطَّائِرُ لَهُ رِيشٌ وَمِنْقَارٌ. طُيُورٌ كَثِيرَةٌ تَطِيرُ، وَنَسْمَعُ أَصْوَاتَهَا حَوْلَنَا.",
+      "sha256": "8858c502e927cf3fced317c5f6b1266a6b7bc7ae86c75e4d7eb8e5e88d9c04e1",
+      "duration_ms": 8010
+    },
+    {
+      "path": "audio/en-learn-bird-0.mp3",
+      "language": "en",
+      "text": "A bird has feathers and a beak. Many birds fly, and we can hear their sounds around us.",
+      "sha256": "6a04bd53294c583e6a391bd04763564ac030107f88f431804cb0b5190fce4f95",
+      "duration_ms": 7164
+    },
+    {
+      "path": "audio/ar-learn-bird-1.mp3",
+      "language": "ar",
+      "text": "فِي الْحَدِيقَةِ، سَمِعْنَا طَائِرًا. تَوَقَّفْنَا لِنَرَاهُ مِنْ بَعِيدٍ، وَتَرَكْنَا عُشَّهُ دُونَ لَمْسٍ.",
+      "sha256": "c7980a46d999877549d6fb490be7e2d24264e3d278f271464d68637a3452f391",
+      "duration_ms": 9162
+    },
+    {
+      "path": "audio/en-learn-bird-1.mp3",
+      "language": "en",
+      "text": "In the garden, we heard a bird. We stopped to watch it from a distance and left its nest untouched.",
+      "sha256": "31a56410d56c909f916dcfe1dd53dabfcb1abdb9bce6fdadf51baa500bdc43d1",
+      "duration_ms": 8260
+    },
+    {
+      "path": "audio/ar-goal-bird.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: طائر.",
+      "sha256": "6e9f10a1978555b319e5f3c3321048451d79dafe2eeade13e5bd1dc25f04a59b",
+      "duration_ms": 3172
+    },
+    {
+      "path": "audio/en-goal-bird.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bird.",
+      "sha256": "a0961ba031a712b4dc19b587d96d8770114adaa00948cfe5fcc7e643cd339aef",
+      "duration_ms": 2901
+    },
+    {
+      "path": "audio/ar-learn-fish-0.mp3",
+      "language": "ar",
+      "text": "السَّمَكَةُ تَعِيشُ فِي الْمَاءِ. تَسْتَخْدِمُ زَعَانِفَهَا وَذَيْلَهَا لِتَتَحَرَّكَ.",
+      "sha256": "c162c4e897a7c6735be0fd3864b51f66e80f928043240455915bafda258c840b",
+      "duration_ms": 7112
+    },
+    {
+      "path": "audio/en-learn-fish-0.mp3",
+      "language": "en",
+      "text": "A fish lives in water. It uses its fins and tail to move.",
+      "sha256": "44c18f4f8187f5e46a9016152215bdf50f0628f1b9a232cb8087c913580c3460",
+      "duration_ms": 4545
+    },
+    {
+      "path": "audio/ar-learn-fish-1.mp3",
+      "language": "ar",
+      "text": "شَاهَدْنَا السَّمَكَةَ فِي الْحَوْضِ. لَاحَظْنَا كَيْفَ تَسْبَحُ، وَلَمْ نَطْرُقِ الزُّجَاجَ أَوْ نُخْرِجْهَا مِنَ الْمَاءِ.",
+      "sha256": "9079ab5d5de6ba4b4f3156f942fa86595f92ee7daf8e408b23dfd9033e9dfd04",
+      "duration_ms": 11016
+    },
+    {
+      "path": "audio/en-learn-fish-1.mp3",
+      "language": "en",
+      "text": "We watched a fish in a tank. We noticed how it swims and did not tap the glass or take it out of the water.",
+      "sha256": "b8aef68ea54c6fad1e23ab4d22e2d83a862403c79ec86491019def8fd90113da",
+      "duration_ms": 8979
+    },
+    {
+      "path": "audio/ar-goal-fish.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: سمكة.",
+      "sha256": "f579c2eb0e7416cc75c0abdc8c4f44591ab3b1c2749c4f97f5638c1dc72c97ab",
+      "duration_ms": 3137
+    },
+    {
+      "path": "audio/en-goal-fish.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the fish.",
+      "sha256": "ad828223a9fba40f3e3fdac089e08b6704a2845c62b150abfe4782aa3d194a3c",
+      "duration_ms": 2900
+    },
+    {
+      "path": "audio/ar-learn-bus-0.mp3",
+      "language": "ar",
+      "text": "الْحَافِلَةُ تَنْقُلُ أَشْخَاصًا كَثِيرِينَ مَعًا. نَرَاهَا فِي الطُّرُقِ وَعِنْدَ مَحَطَّاتِ الرُّكُوبِ.",
+      "sha256": "2104dc9e25d4b871ac7fd523d5c1363ff8cc9eeb9c634ca72be6fe42a63a0b8a",
+      "duration_ms": 8842
+    },
+    {
+      "path": "audio/en-learn-bus-0.mp3",
+      "language": "en",
+      "text": "A bus carries many people together. We see it on roads and at bus stops.",
+      "sha256": "14a550c4906bc991649d97f26d4c32119ee3eb5ba7d3be8baa26c04e5d89b421",
+      "duration_ms": 5811
+    },
+    {
+      "path": "audio/ar-learn-bus-1.mp3",
+      "language": "ar",
+      "text": "انْتَظَرْنَا الْحَافِلَةَ مَعَ شَخْصٍ كَبِيرٍ. صَعِدْنَا بَعْدَ تَوَقُّفِهَا، وَجَلَسْنَا فِي مَقَاعِدِنَا.",
+      "sha256": "5de4f4b293e333c15ee3af953093443761007fe7a8fe6d60f51a865d7ae71ee3",
+      "duration_ms": 9006
+    },
+    {
+      "path": "audio/en-learn-bus-1.mp3",
+      "language": "en",
+      "text": "We waited for the bus with an adult. We boarded after it stopped and sat in our seats.",
+      "sha256": "34e56e4fa524be059e6cf437554c72cb4a5158baf2387a8f3c1edfa0dc01399c",
+      "duration_ms": 7138
+    },
+    {
+      "path": "audio/ar-goal-bus.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: حافلة.",
+      "sha256": "a2d4d5ae0b535ac46a5bb3b062bb3970b736b1d9706d38c719fd0a8a1e82e93f",
+      "duration_ms": 3264
+    },
+    {
+      "path": "audio/en-goal-bus.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bus.",
+      "sha256": "1b1569293987dfb02d1910e96adc425365f7057643ccf5ef089d0c39f2ae95e9",
+      "duration_ms": 2814
+    },
+    {
+      "path": "audio/ar-learn-bicycle-0.mp3",
+      "language": "ar",
+      "text": "الدَّرَّاجَةُ لَهَا عَجَلَتَانِ وَدَوَّاسَتَانِ. نُحَرِّكُ الدَّوَّاسَتَيْنِ لِتَدُورَ الْعَجَلَاتُ.",
+      "sha256": "8028aba36fbeb2f09d0dcacb9f86824f545f58c8d19609426e10d8811711647b",
+      "duration_ms": 8375
+    },
+    {
+      "path": "audio/en-learn-bicycle-0.mp3",
+      "language": "en",
+      "text": "A bicycle has two wheels and pedals. We move the pedals to turn the wheels.",
+      "sha256": "4f6b5cc05376b696dbc3d95f63a3912024cc15dad18dd8f90047e3f2201079bf",
+      "duration_ms": 5910
+    },
+    {
+      "path": "audio/ar-learn-bicycle-1.mp3",
+      "language": "ar",
+      "text": "ارْتَدَيْنَا خُوذَةً مُنَاسِبَةً وَتَدَرَّبْنَا مَعَ شَخْصٍ كَبِيرٍ فِي مَكَانٍ آمِنٍ. بَدَأْنَا بِبُطْءٍ وَتَعَلَّمْنَا التَّوَقُّفَ.",
+      "sha256": "adedd6bb1538013cb733c7573a820efc3d3b4d7df6b4d14947289f87a012ffe9",
+      "duration_ms": 11800
+    },
+    {
+      "path": "audio/en-learn-bicycle-1.mp3",
+      "language": "en",
+      "text": "We wore a suitable helmet and practised with an adult in a safe place. We started slowly and learned to stop.",
+      "sha256": "77304b6369eeb930bc0ca8507b09c9b91b0ca17dcac5670790b45a5b13da1d51",
+      "duration_ms": 8641
+    },
+    {
+      "path": "audio/ar-goal-bicycle.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: دراجة.",
+      "sha256": "b8eb4b566b56321d4ee903e6bf6e48284bcfe8e58c414be7bf706e4ebc4128ec",
+      "duration_ms": 3263
+    },
+    {
+      "path": "audio/en-goal-bicycle.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bicycle.",
+      "sha256": "5280d0493b3218526c1a0a76c3e6d74753c128feb9bf8047966035718a1c568b",
+      "duration_ms": 3212
+    },
+    {
+      "path": "audio/ar-learn-train-0.mp3",
+      "language": "ar",
+      "text": "الْقِطَارُ يَسِيرُ عَلَى سِكَّةٍ. عَرَبَاتُهُ مُتَّصِلَةٌ وَتَحْمِلُ رُكَّابًا أَوْ أَشْيَاءَ.",
+      "sha256": "da944eaec14bfcaa1bb891df2bcd65307b7bfa98965a66ebdd29c4871c80eb7a",
+      "duration_ms": 7834
+    },
+    {
+      "path": "audio/en-learn-train-0.mp3",
+      "language": "en",
+      "text": "A train travels on a track. Its connected carriages carry passengers or goods.",
+      "sha256": "ab17f16a019d327b840b47f55d37992f8721eb959fe324b151b4e5c533bdd396",
+      "duration_ms": 6320
+    },
+    {
+      "path": "audio/ar-learn-train-1.mp3",
+      "language": "ar",
+      "text": "فِي الْمَحَطَّةِ، بَقِينَا بِجَانِبِ شَخْصٍ كَبِيرٍ وَبَعِيدًا عَنِ الْحَافَّةِ. رَأَيْنَا الْقِطَارَ يَصِلُ وَعَرَبَاتِهِ تَتْبَعُهُ.",
+      "sha256": "ccd0e5310f009375ba9975fbf41cc5266d5c5f44f91b7b128c55e6d7e963d0f5",
+      "duration_ms": 12361
+    },
+    {
+      "path": "audio/en-learn-train-1.mp3",
+      "language": "en",
+      "text": "At the station, we stayed beside an adult and away from the edge. We watched the train arrive with its carriages following.",
+      "sha256": "e37c4407dfc1fe6fd1dce5467a93806d137f36a76f5b88aeaa7a02dc925a9b20",
+      "duration_ms": 11778
+    },
+    {
+      "path": "audio/ar-goal-train.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: قطار.",
+      "sha256": "96afdb18472488d3bd57776e6654cbc84a2f5091f124b2f9fab55b6c8481db85",
+      "duration_ms": 3138
+    },
+    {
+      "path": "audio/en-goal-train.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the train.",
+      "sha256": "c2c57ead983e67588a19c190df9f7056fc1a79389d03943e68f226855c0f58ba",
+      "duration_ms": 3032
+    },
+    {
+      "path": "audio/ar-learn-boat-0.mp3",
+      "language": "ar",
+      "text": "الْقَارِبُ وَسِيلَةٌ لِلتَّنَقُّلِ عَلَى الْمَاءِ. نَسْتَخْدِمُهُ فِي بَحْرٍ أَوْ نَهْرٍ أَوْ بُحَيْرَةٍ.",
+      "sha256": "0ea6d8b1d38a9d914cdd4996984d08b6cebfa05624f91999d532131827fea215",
+      "duration_ms": 8845
+    },
+    {
+      "path": "audio/en-learn-boat-0.mp3",
+      "language": "en",
+      "text": "A boat is a way to travel on water. We use it on a sea, river, or lake.",
+      "sha256": "1ba41abb12334fadebc1e6cfcbc2fd6ec2dffa823a8445bd11bd2fc0b62a2e52",
+      "duration_ms": 5739
+    },
+    {
+      "path": "audio/ar-learn-boat-1.mp3",
+      "language": "ar",
+      "text": "شَاهَدْنَا الْقَارِبَ مَعَ شَخْصٍ كَبِيرٍ. عِنْدَ رُكُوبِهِ نَتَّبِعُ تَعْلِيمَاتِهِ وَنَرْتَدِي سُتْرَةَ نَجَاةٍ مُنَاسِبَةً.",
+      "sha256": "122e39160f5097d11567dce6b3f406efa13f636319c4fb393c9102f3675c004e",
+      "duration_ms": 11408
+    },
+    {
+      "path": "audio/en-learn-boat-1.mp3",
+      "language": "en",
+      "text": "We watched a boat with an adult. When boarding, we follow their instructions and wear a suitable life jacket.",
+      "sha256": "52cd3b42b58f3fbe0d55c94bb9b1be9fac3dfbdb0a95efc3ebfead30e29a3d44",
+      "duration_ms": 9209
+    },
+    {
+      "path": "audio/ar-goal-boat.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: قارب.",
+      "sha256": "b7efb130badcc7d0a4358f63c862b915ac7d17052b267f3b789a5d7ac95b5d70",
+      "duration_ms": 3170
+    },
+    {
+      "path": "audio/en-goal-boat.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the boat.",
+      "sha256": "92af1018a94584045cdbeb8d5abfe85964c426901f272c2427ec58e8b2ee9913",
+      "duration_ms": 2873
+    },
+    {
+      "path": "audio/ar-goal-book.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كِتَاب.",
+      "sha256": "cb88ca8bdaf4b16c73686d61f0535ac050f77faf9c17ad6c21c55e92fa8cad88",
+      "duration_ms": 3270
+    },
+    {
+      "path": "audio/en-goal-book.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the book.",
+      "sha256": "658527cf5421212b22ea83e89acdd80ff550e51510802051c8cc450da5d11c17",
+      "duration_ms": 2862
+    },
+    {
+      "path": "audio/ar-goal-ball.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: كُرَة.",
+      "sha256": "650d18e4a23349bf8721f4da0db964df4a82cc85876ef8e48eb10b1905f759ac",
+      "duration_ms": 3171
+    },
+    {
+      "path": "audio/en-goal-ball.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the ball.",
+      "sha256": "7c7d988ed3f1d52c77caac0c055d903a83998d78e4fcde730ad77ea66bc9dc77",
+      "duration_ms": 2871
+    },
+    {
+      "path": "audio/ar-goal-apple.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: تُفَّاح.",
+      "sha256": "e879cce85a4096b776c7f03d5d90e906a958727d157ba37aa647177745fa3311",
+      "duration_ms": 3402
+    },
+    {
+      "path": "audio/en-goal-apple.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the apple.",
+      "sha256": "b2ce0632beeca7935e9a4e90bde72151294ed927e82af78b3c1575aa617bff2b",
+      "duration_ms": 2998
+    },
+    {
+      "path": "audio/ar-goal-bear.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: دُبّ.",
+      "sha256": "5cb6ce680d4fa07386deb0390fc69481cc457c13efd8d947ccb8b6e5f489bc13",
+      "duration_ms": 3063
+    },
+    {
+      "path": "audio/en-goal-bear.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the bear.",
+      "sha256": "b78c7acfe987d60282e44e09a1cf40b993b3b5649094424b28d43427b6987224",
+      "duration_ms": 2903
+    },
+    {
+      "path": "audio/ar-goal-cat.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: قِطَّة.",
+      "sha256": "b937499d290a9741fc0013843930fedd3b60b129515fb869b7754e43c6408079",
+      "duration_ms": 3255
+    },
+    {
+      "path": "audio/en-goal-cat.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the cat.",
+      "sha256": "1facb500fdf8daaf29df9005c52d047d4c6709f1acd8b1bd1edf088d2229b69b",
+      "duration_ms": 2817
+    },
+    {
+      "path": "audio/ar-goal-car.mp3",
+      "language": "ar",
+      "text": "الْمَقْصِدُ فِي هَذِهِ الْخَرِيطَةِ: سَيَّارَة.",
+      "sha256": "06e058a1a4aefae1f89c578264938ac6287b9abbf924867a92a6006954f4fab6",
+      "duration_ms": 3527
+    },
+    {
+      "path": "audio/en-goal-car.mp3",
+      "language": "en",
+      "text": "Our destination on this map is the car.",
+      "sha256": "f8007f0ce385337d90cd3b338f648d5c04daab2aececf5251e3ca6fd701f1e52",
+      "duration_ms": 2817
+    }
+  ]
+}

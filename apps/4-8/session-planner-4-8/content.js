@@ -6,6 +6,9 @@ window.SessionActivities=[
 {slug:'wonder-experiment-lab',title:'مختبر لماذا',scene:'plant'},
 {slug:'command-path-lab',title:'مسار الأوامر',scene:'plan'}
 ];
+if(window.COMMAND_JOURNEY_MISSIONS)window.COMMAND_JOURNEY_MISSIONS.worlds.forEach(function(world){
+  window.SessionActivities.push({slug:'command-path-lab',track:world.id,title:'مسار الأوامر · '+world.name[0]+' — '+world.skill[0],scene:'plan'});
+});
 window.SessionTemplates=[
 {title:'حكاية ثم رسم',goal:'أحكي فكرة من قصة ثم أعبر عنها برسمة.',digital:0,real:'نختار صورة من القصة ونرسم رسالة أو شخصية على ورقة.'},
 {title:'سوق في الواقع',goal:'أمثل طلبًا بعدد من الأشياء الكبيرة.',digital:2,real:'نرتب سوقًا صغيرًا بقطع كبيرة ونمثل طلبًا نتفق عليه.'},

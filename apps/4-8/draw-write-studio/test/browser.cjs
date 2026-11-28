@@ -163,9 +163,17 @@ async function legacyPen(browser) {
   await page.reload();
   assert.equal((await ink(page)).length, 3);
   assert.equal((await snapshot(page)).pen_repair, false);
+  await click(page,'library');
+  await click(page,'coach-start','draw');
+  await click(page,'color','#7951be');
+  const coachBoard = page.locator('#drawCanvas');
+  await coachBoard.scrollIntoViewIfNeeded();
+  const coachBox = await coachBoard.boundingBox();
+  await page.touchscreen.tap(coachBox.x+coachBox.width*.55,coachBox.y+coachBox.height*.62);
+  assert.equal((await snapshot(page)).coach_run.step,2);
   assert.deepEqual(errors, []);
   await page.close();
-  console.log('PASS old tablet session, fragmented end/cancel, palm rejection, separate dots, undo and restart');
+  console.log('PASS old tablet session, fragmented end/cancel, palm rejection, separate dots, undo, restart and coach input');
 }
 
 async function mobile(browser) {
@@ -202,6 +210,87 @@ async function mobile(browser) {
   console.log('PASS narrow English guided project, modern touch, mirror, resize, browser back and colouring entrance');
 }
 
+async function automaticCoach(browser) {
+  const { page, errors } = await open(browser, { viewport:{ width:390, height:840 }, hasTouch:true, isMobile:true });
+  const session = async () => (await snapshot(page)).coach_run;
+  const step = async n => assert.equal((await session()).step,n);
+  async function tapBoard() {
+    const board = page.locator('#drawCanvas');
+    await board.scrollIntoViewIfNeeded();
+    const box = await board.boundingBox();
+    await page.touchscreen.tap(box.x+box.width*.54,box.y+box.height*.66);
+  }
+  await click(page, 'coach-ideas');
+  assert.equal(await page.locator('.coach-path').count(),4);
+  await click(page, 'coach-start', 'draw');
+  await page.waitForFunction(() => APP360_STUDIO.audio().path==='audio/coach/ar-color.mp3' && APP360_STUDIO.audio().state==='playing');
+  assert.equal(await page.locator('.palette.studio-cue-target').count(),1);
+  await tapBoard(); // a mark alone does not complete the choice step
+  await step(0);
+  await click(page, 'color', '#d94145');
+  await step(1);
+  assert.equal(await page.locator('#boardShell.studio-cue-target').count(),1);
+  await click(page, 'coach-pause');
+  await tapBoard();
+  await step(1);
+  assert.ok((await session()).paused);
+  await click(page, 'coach-resume');
+  await tapBoard();
+  await step(2);
+  await click(page, 'stage', 'review');
+  await step(3);
+  await click(page, 'save-project');
+  assert.ok((await session()).complete);
+  await page.locator('.coach-finished').waitFor();
+  assert.equal((await snapshot(page)).saved.length,1);
+
+  await click(page, 'coach-ideas');
+  await click(page, 'coach-start', 'colour');
+  assert.equal(await page.locator('.paper-tile.studio-cue-target').count(),3);
+  if (process.env.STUDIO_SCREENSHOTS) await page.screenshot({ path:path.join(process.env.STUDIO_SCREENSHOTS,'studio-coach-colouring.png') });
+  await click(page, 'paper', 'fish');
+  await step(1);
+  await click(page, 'color', '#55b7e7');
+  await tapBoard();
+  await step(3);
+  await click(page, 'stage', 'review');
+  await click(page, 'save-project');
+  assert.equal((await snapshot(page)).saved.at(-1).pages[0].commands[0].kind,'fish');
+
+  await click(page, 'coach-ideas');
+  await click(page, 'coach-start', 'photos');
+  assert.equal(await page.locator('.photo-picker.studio-cue-target').count(),1);
+  await page.locator('.photo-tile').first().tap();
+  await step(1);
+  const photo = (await session()).photo;
+  await page.reload();
+  assert.ok((await session()).paused);
+  await click(page, 'coach-resume');
+  await tapBoard();
+  await step(2);
+  assert.equal((await ink(page)).at(-1).kind,photo);
+  await click(page, 'stage', 'review');
+  await click(page, 'save-project');
+
+  await click(page, 'language', 'en');
+  await click(page, 'coach-start', 'card');
+  await page.waitForFunction(() => APP360_STUDIO.audio().path==='audio/coach/en-draw.mp3' && APP360_STUDIO.audio().state==='playing');
+  await tapBoard();
+  await click(page, 'stage', 'meaning');
+  await step(2);
+  assert.equal(await page.locator('#caption.studio-cue-target').count(),1);
+  await page.locator('#caption').fill('Thank you for playing with me');
+  await page.locator('#caption').blur();
+  await step(3);
+  await click(page, 'stage', 'review');
+  await step(4);
+  await click(page, 'save-project');
+  assert.equal((await snapshot(page)).saved.length,4);
+  assert.deepEqual(errors,[]);
+  await page.close();
+  console.log('PASS all four coach routes, focused actions, Arabic and English playback, pause, resume and gallery');
+}
+
 async function offline(browser) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   await page.goto(url + base + 'index.html');
@@ -215,8 +304,8 @@ async function offline(browser) {
   await page.context().setOffline(true);
   await page.reload();
   await page.waitForFunction(() => APP360_STUDIO.isOfflineReady());
-  await click(page, 'free');
-  await click(page, 'drawer', 'photos');
+  await click(page, 'coach-start', 'photos');
+  await page.waitForFunction(() => APP360_STUDIO.audio().path==='audio/coach/ar-choose-photo.mp3' && APP360_STUDIO.audio().state==='playing');
   await page.locator('#photoGroup').selectOption('4');
   const tile = page.getByRole('button', { name:'تفاح', exact:true });
   await tile.locator('img').evaluate(img => img.decode());
@@ -243,6 +332,7 @@ let url;
     await entranceAndGallery(browser);
     await legacyPen(browser);
     await mobile(browser);
+    await automaticCoach(browser);
     if (process.argv.includes('--offline')) await offline(browser);
   } finally {
     await browser.close();
