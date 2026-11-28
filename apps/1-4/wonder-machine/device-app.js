@@ -22,7 +22,8 @@ function guideInstruction(){
   }
   return G.instruction(device,task,round.machine,language,store.guide.enabled||!!helpTool);
 }
-function stopGuideAudio(){if(guideAudio)guideAudio.pause();}
+var schoolFeedback=w.APP360_SCHOOL_VOICE_FEEDBACK&&w.APP360_SCHOOL_VOICE_FEEDBACK.create();
+function stopGuideAudio(){if(schoolFeedback)schoolFeedback.stop();if(guideAudio)guideAudio.pause();}
 function cancelAdvance(){w.clearTimeout(advanceTimer);advanceTimer=null;}
 function stopGuide(){cancelAdvance();stopGuideAudio();}
 function startVoice(){
@@ -228,15 +229,19 @@ function act(k,value){
   if(!tool)return false;
   var before=C.progress(round.machine,task).done;
   var n=value===undefined?1-round.machine[k]:value,result=C.act(round,device,k,n,prefs().settings.players);
+  var praise=false;
   if(result.changed){
     feedback=loc(tool.verb)+' ← '+loc(tool.states[n]);feedbackBad=false;helpTool=null;
     var done=C.progress(round.machine,task).done;
     if(w.WonderMachine.effect)w.WonderMachine.effect(done);
-    if(done&&!before)scheduleAdvance();
+    if(done&&!before){
+      praise=guided()&&store.guide.enabled&&store.guide.voice&&schoolFeedback&&schoolFeedback.play({language:language},scheduleAdvance);
+      if(!praise)scheduleAdvance();
+    }
     save();
   }else{feedback=t(result.reason);feedbackBad=true;helpTool=guided()?null:k;}
   if(guided()&&store.guide.enabled&&store.guide.voice)guideVoiceArmed=true;
-  render();if(task.goal)speakGuide(false);
+  render();if(task.goal&&!praise)speakGuide(false);
   var button=d.querySelector('[data-device-tool="'+k+'"]');
   if(button&&!button.disabled)button.focus();
   return result.changed;

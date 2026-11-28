@@ -1,0 +1,1247 @@
+{
+  "schema": 1,
+  "apps": {
+    "toy-city-crane": {
+      "profile": {
+        "id": "silma-ar-1",
+        "engine": "silma-tts",
+        "version": "1.0.5",
+        "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+        "vocoder_revision": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+        "seed": 360,
+        "speed": 0.97,
+        "steps": 16,
+        "reference": {
+          "sha256": "b6b88232c3b851a3d9833c66349c71b2527de346b467ccba944809bad776c7ae",
+          "text": "ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام."
+        }
+      },
+      "clips": [
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/welcome.mp3",
+          "text": "مَرْحَبًا! هَيَّا نَلْعَبُ بِالرَّافِعَةِ. شَاهِدِ الْيَدَ، ثُمَّ جَرِّبْ بِنَفْسِكَ.",
+          "sha256": "025d8a6fb823c267e1eea73e1dacd95ee170ac10750f16c02670413cd3699971",
+          "duration_ms": 5756
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/move-source.mp3",
+          "text": "حَرِّكْ مِقْبَضَ الرَّافِعَةِ إِلَى الْقِطْعَةِ الَّتِي تُشِيرُ إِلَيْهَا الْيَدُ.",
+          "sha256": "e9bb64b018894d2f436e65ff544c5b24b9915b22c48ff7af7c0352d31bdfd1c7",
+          "duration_ms": 5179
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/pick.mp3",
+          "text": "اِضْغَطْ زِرَّ الْتَقِطْ عَلَى الرَّافِعَةِ لِتَحْمِلَ الْقِطْعَةَ.",
+          "sha256": "8a0a48b64caae7419b76ca39d71f17ec2ae247d9ceb217ac4e99235fcff6c6b4",
+          "duration_ms": 4047
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/move-target.mp3",
+          "text": "اِسْحَبْ مِقْبَضَ الرَّافِعَةِ إِلَى الْمَكَانِ الْمُطَابِقِ. اِنْتَظِرْ حَتَّى يَسْتَقِرَّ الْحِمْلُ.",
+          "sha256": "1f7631ac80e50573729c5f833f93cf23cbdc2f20a8d2af2911127fa7a9921a94",
+          "duration_ms": 6558
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/rotate.mp3",
+          "text": "اِضْغَطْ زِرَّ التَّدْوِيرِ حَتَّى يُطَابِقَ اتِّجَاهُ الْقِطْعَةِ شَكْلَ الْمَكَانِ.",
+          "sha256": "7b1e8d4cf9b70ef83af5cb47fb9e8458ce0898199cbd5c9c7d0a203076aff9dd",
+          "duration_ms": 5326
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/drop.mp3",
+          "text": "اِضْغَطْ زِرَّ أَسْقِطْ لِتَضَعَ الْقِطْعَةَ فِي مَكَانِهَا.",
+          "sha256": "239a671f9e36386052cdbfc694606a194adfe59b14b9e44d68b795544a099bc9",
+          "duration_ms": 3728
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/retry.mp3",
+          "text": "كُلُّ مُحَاوَلَةٍ تُعَلِّمُنَا. اِتَّبِعِ الْيَدَ، ثُمَّ جَرِّبْ مَرَّةً أُخْرَى.",
+          "sha256": "2109b672e2b052329bee0a416893ddc19e95033d3184e49b9bb014752ff991ed",
+          "duration_ms": 5503
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/shapes-0.mp3",
+          "text": "بَيْتْ",
+          "seconds": 0.85,
+          "sha256": "3a4d9700865e405b09a45ad79f45f4fdf406884e16aa60d4194565307d854ea6",
+          "duration_ms": 652
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/shapes-1.mp3",
+          "text": "شَجَرَةْ",
+          "seconds": 0.85,
+          "sha256": "fb165a80fc4b134b9fafac1be71fd8f6b5796fd4cc5c15b6adbb9719aa2b8423",
+          "duration_ms": 739
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/shapes-2.mp3",
+          "text": "قَارِبْ",
+          "seconds": 0.85,
+          "sha256": "78cc7d434f2c44a5882ae6f626978bf773e77286160c61fabb3d315cf03285e0",
+          "duration_ms": 654
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/shapes-3.mp3",
+          "text": "صَارُوخْ",
+          "seconds": 0.85,
+          "sha256": "eb6e1d55ee1d6552cad05ccfbbb8c696458a36eacca76dc60509f3ac9c159bd5",
+          "duration_ms": 747
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/shapes-4.mp3",
+          "text": "قَوْسْ",
+          "seconds": 0.85,
+          "sha256": "267d9e2e36d4a1da2a75135acc5bbb27cf1f4070ba2fa7b214c35710d2a43cb9",
+          "duration_ms": 662
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/numbers-0.mp3",
+          "text": "وَاحِدٌ",
+          "seconds": 0.85,
+          "sha256": "f2af125eefd9e2b2f203b8502d16811bdff05a3af5b3fd7d1a1695b9fec44f09",
+          "duration_ms": 644
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/numbers-1.mp3",
+          "text": "اِثْنَانِ",
+          "seconds": 0.85,
+          "sha256": "6e4e9dcc970ef5dc765762c907bd088b68f5de2aad9b7078de82d5bf40a2d28f",
+          "duration_ms": 651
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/numbers-2.mp3",
+          "text": "ثَلَاثَةٌ",
+          "seconds": 0.85,
+          "sha256": "a00a1a1cd41a1afc575fd31ce0eaf142e5831024068eec4433e58d45f1a519bc",
+          "duration_ms": 666
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/numbers-3.mp3",
+          "text": "أَرْبَعَةٌ",
+          "seconds": 0.85,
+          "sha256": "07062c1939f61824171c1d8b13a8c54dd03af109d714a9169223655974c2d620",
+          "duration_ms": 664
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/numbers-4.mp3",
+          "text": "خَمْسَةٌ",
+          "seconds": 0.85,
+          "sha256": "5de57efd924824df028943f56290f19ee92fce20b5b33d00b97e13cb2fcc8f47",
+          "duration_ms": 749
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/letters-0.mp3",
+          "text": "أَلِفْ",
+          "seconds": 0.85,
+          "sha256": "d171a86e4a73621cb6b8378e610c57044a44f9132273cf5e01d527e182daa82a",
+          "duration_ms": 414
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/letters-1.mp3",
+          "text": "بَاءْ",
+          "seconds": 0.85,
+          "sha256": "14092fefded4f92b193d5c9a1e9354dc9c6c44c9baeb9d75fa44873ed259507e",
+          "duration_ms": 526
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/letters-2.mp3",
+          "text": "تَاءْ",
+          "seconds": 0.85,
+          "sha256": "6f16b705878078ddb8aa9da401f9f953225825319b33c16c557eea4db21464e5",
+          "duration_ms": 497
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/letters-3.mp3",
+          "text": "جِيمْ",
+          "seconds": 0.85,
+          "sha256": "be124d96b957ccb9badc4dace38867cefe29fc944161ec5347b616336a33ffd5",
+          "duration_ms": 615
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/letters-4.mp3",
+          "text": "دَالْ",
+          "seconds": 0.85,
+          "sha256": "5722241d436b81bde00bcbd0c4d6024d6f769bb639b72feaa09c23252e59740e",
+          "duration_ms": 612
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/words-0.mp3",
+          "text": "بَيْتْ",
+          "seconds": 0.85,
+          "sha256": "3a4d9700865e405b09a45ad79f45f4fdf406884e16aa60d4194565307d854ea6",
+          "duration_ms": 652
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/words-1.mp3",
+          "text": "بَابْ",
+          "seconds": 0.85,
+          "sha256": "eed8a75978c6509bf49b4f58733dcd6e9a9c1e12a75d4dc1383d6d57e8df3d4c",
+          "duration_ms": 612
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/words-2.mp3",
+          "text": "قَمَرْ",
+          "seconds": 0.85,
+          "sha256": "b9a54818a7574394ac6ca1d7008020fa54e3f538cabd135dcda27d2280e982d3",
+          "duration_ms": 616
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/words-3.mp3",
+          "text": "وَرْدْ",
+          "seconds": 0.85,
+          "sha256": "7be7c10fb039d5bd6c3b8776d3e6498ba3d2cb2008c6570ae7a8cffc161280b0",
+          "duration_ms": 612
+        },
+        {
+          "app": "toy-city-crane",
+          "path": "apps/1-4/toy-city-crane/audio/coach/ar/words-4.mp3",
+          "text": "نَجْمْ",
+          "seconds": 0.85,
+          "sha256": "47c2ac39fdd02ff8bd9d5c677de20cbcf2ca1446e2f4f28287e72f2325a7bdbd",
+          "duration_ms": 622
+        }
+      ],
+      "retired": []
+    },
+    "a1-sensory": {
+      "profile": {
+        "id": "silma-ar-1",
+        "engine": "silma-tts",
+        "version": "1.0.5",
+        "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+        "vocoder_revision": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+        "seed": 360,
+        "speed": 0.97,
+        "steps": 16,
+        "reference": {
+          "sha256": "b6b88232c3b851a3d9833c66349c71b2527de346b467ccba944809bad776c7ae",
+          "text": "ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام."
+        }
+      },
+      "clips": [
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/inside.mp3",
+          "text": "الْآنَ فِي السَّلَّةِ.",
+          "sha256": "60dc11f535df4825f147f191c966c739a8adf8b26c3496100cd87f8464757ebf",
+          "duration_ms": 1444
+        },
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/outside.mp3",
+          "text": "الْآنَ خَارِجَ السَّلَّةِ.",
+          "sha256": "6ae08136e0ec5a21b648632113a673a8ffbdbc7061bada77033fb914fab5a7cf",
+          "duration_ms": 1622
+        },
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/look.mp3",
+          "text": "لِنَرَ مَا فِي السَّلَّةِ.",
+          "sha256": "b5c7056a4c8103026807bde49593a7b71c2b67e3a457281d3f969dc017dd905b",
+          "duration_ms": 1602
+        },
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/empty.mp3",
+          "text": "السَّلَّةُ فَارِغَةٌ.",
+          "sha256": "51e220f6b5adddf427f9378f1ae07b9bd19bdb154c4d6970c94b42e1aa9021d8",
+          "duration_ms": 1599
+        },
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/retry.mp3",
+          "text": "جَرِّبْ مَرَّةً أُخْرَى.",
+          "sha256": "c36e563700856f8d6f291515a75be64f26c86f67c815aff5c83171fe0192a1c5",
+          "duration_ms": 1710
+        },
+        {
+          "app": "a1-sensory",
+          "path": "apps/1-4/sensory-motion-missions/audio/silma-ar/sound.mp3",
+          "text": "الصَّوْتُ يَعْمَلُ.",
+          "sha256": "5f55c52f9e32b965452835a9455d28bcb4e8613c5d9ccbcf4570dfd04380f8c6",
+          "duration_ms": 1266
+        }
+      ],
+      "retired": []
+    },
+    "a4-family-market": {
+      "profile": {
+        "id": "silma-ar-1",
+        "engine": "silma-tts",
+        "version": "1.0.5",
+        "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+        "vocoder_revision": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+        "seed": 360,
+        "speed": 0.97,
+        "steps": 16,
+        "reference": {
+          "sha256": "b6b88232c3b851a3d9833c66349c71b2527de346b467ccba944809bad776c7ae",
+          "text": "ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام."
+        }
+      },
+      "clips": [
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-little-order-title.mp3",
+          "text": "سَلَّةُ التُّفَّاحِ",
+          "sha256": "4995418f628356d92006508bd3f33750c870f0b6f8d9a508b78e3fdc03666a06",
+          "duration_ms": 1430
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-little-order-prompt.mp3",
+          "text": "ضَعْ ثَلَاثَ بَطَاقَاتِ تُفَّاحٍ فِي السَّلَّةِ.",
+          "sha256": "4eed84298a9a7cff14f0f69c84df76c118da165813c2d6f9168f62e8f58d23c1",
+          "duration_ms": 3178
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-little-order-hint.mp3",
+          "text": "لِكُلِّ بَطَاقَةٍ مَكَانٌ. أَشِرْ إِلَيْهَا وَأَنْتَ تَعُدُّ.",
+          "sha256": "c1e5d9c301b9fe144e07529c0358cc22bddb95f459170985392b5389550f3e09",
+          "duration_ms": 4066
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-little-order-real.mp3",
+          "text": "اِصْنَعْ طَلَبًا صَغِيرًا بِبَطَاقَاتٍ وَرَقِيَّةٍ.",
+          "sha256": "13dbf30fae7701ff2ff9f560ea7ea68a8d147afb03d2e3507b90b53343f4480b",
+          "duration_ms": 3379
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-cups-for-friends-title.mp3",
+          "text": "كُوبٌ لِكُلِّ صَدِيقٍ",
+          "sha256": "95c3644950e278a90e565d066264690f6007c2ccf27e63e315910dd1a458ba3c",
+          "duration_ms": 1677
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-cups-for-friends-prompt.mp3",
+          "text": "وَزِّعْ أَرْبَعَ بَطَاقَاتِ أَكْوَابٍ عَلَى سَلَّتَيْنِ بِالتَّسَاوِي.",
+          "sha256": "c6d69de315a920d8dd2bb2729d1b78f99f46574a2ad0aac79fc9e72a938a75f2",
+          "duration_ms": 4684
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-cups-for-friends-hint.mp3",
+          "text": "ضَعْ بَطَاقَةً هُنَا، ثُمَّ بَطَاقَةً هُنَاكَ. هَلْ تَتَقَابَلُ الْبَطَاقَاتُ؟",
+          "sha256": "84a8b3ac53c398b64f0895320461582171cfe824b78135131f494163b7d8b085",
+          "duration_ms": 5322
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-cups-for-friends-real.mp3",
+          "text": "رَتِّبْ بَطَاقَاتِ أَكْوَابٍ لِشَخْصَيْنِ عَلَى الطَّاوِلَةِ.",
+          "sha256": "37d1b6965b035b30228f47d555ef74f2bead27ea9b788536b18b15e3e9f60879",
+          "duration_ms": 3820
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-more-or-longer-title.mp3",
+          "text": "أَكْثَرُ أَمْ أَطْوَلُ؟",
+          "sha256": "7e4885b3cc64d7c1973f40b2a4b3e924aba997fd3b112e954f8515e0eb371347",
+          "duration_ms": 1480
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-more-or-longer-prompt.mp3",
+          "text": "أَيُّ صَفٍّ فِيهِ بَطَاقَاتٌ أَكْثَرُ؟ لَا تَعْتَمِدْ عَلَى طُولِهِ.",
+          "sha256": "7d1f1ce408036bdaeda1ab443b716f16dcb0f19e2dc3d48b53502c62f1bf4af2",
+          "duration_ms": 4576
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-more-or-longer-hint.mp3",
+          "text": "جَرِّبْ عَرْضَ بَطَاقَةٍ مُقَابِلَ بَطَاقَةٍ. هَلْ تَبْقَى بَطَاقَةٌ؟",
+          "sha256": "590c18ef8e7221dcb6fa436436a4a5e44834077732139b341627fa404bdef5ad",
+          "duration_ms": 4636
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-more-or-longer-real.mp3",
+          "text": "قَارِنْ صَفَّيْنِ مِنْ بَطَاقَاتِ الْوَرَقِ، ثُمَّ بَاعِدْ بَيْنَهُمَا.",
+          "sha256": "5759809e85b9b2f2c89c6edc3e41487a5e07801926652e7d242f4bf20a04a5e5",
+          "duration_ms": 4530
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-small-pattern-title.mp3",
+          "text": "رَفٌّ مُتَنَاوِبٌ",
+          "sha256": "979e4defff0162bae900daf1187e2733fd7a8f417c9af626c2a1a3b506b61907",
+          "duration_ms": 1268
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-small-pattern-prompt.mp3",
+          "text": "أَكْمِلْ نَمَطَ الرَّفِ. تَابِعْ نَفْسَ التَّرْتِيبِ.",
+          "sha256": "72733ae43752031ee39d26483fdab8a343c3aeb530eb3602b46e65971c365034",
+          "duration_ms": 3271
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-small-pattern-hint.mp3",
+          "text": "اِسْمَعْ أَسْمَاءَ الْبَطَاقَاتِ الْمَوْجُودَةِ، ثُمَّ جَرِّبْ تَكْرَارَهَا.",
+          "sha256": "c7551093432300e17adcb89c495652515659f6dc078ffae150e487dd0e64ce29",
+          "duration_ms": 4730
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-small-pattern-real.mp3",
+          "text": "اِصْنَعْ نَمَطًا بِبَطَاقَتَيْنِ مُخْتَلِفَتَيْنِ.",
+          "sha256": "3112108adcb55ad4ffe9c19d66eeefe5f61dbdff262f29dfb1f252c500c4d202",
+          "duration_ms": 3047
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-missing-order-title.mp3",
+          "text": "طَلَبٌ نَاقِصٌ",
+          "sha256": "463cdbc20fd6594710511dc2c34c737c1c7dcdd33d206ed56da26ec3ded41f45",
+          "duration_ms": 1250
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-missing-order-prompt.mp3",
+          "text": "الطَّلَبُ خَمْسُ بَطَاقَاتِ جَزَرٍ. فِي السَّلَّةِ ثَلَاثٌ. أَكْمِلِ الطَّلَبَ.",
+          "sha256": "3b8a325bd0175a8b0fa5e3e6a1034dfec922d63ca3a729aef25a1a9f36eed2f3",
+          "duration_ms": 5355
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-missing-order-hint.mp3",
+          "text": "عُدَّ مَا فِي السَّلَّةِ، ثُمَّ اِمْلَأِ الْأَمَاكِنَ الْفَارِغَةَ حَتَّى يَكْتَمِلَ الطَّلَبُ.",
+          "sha256": "b3600e4e36e9f55e52b94d7a4d9626504dfeed483f5083252f4fe53480b440e1",
+          "duration_ms": 6110
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-missing-order-real.mp3",
+          "text": "أَخْفِ بَعْضَ بَطَاقَاتِ طَلَبٍ، وَدَعِ الْمَرَافِقَ يُكْمِلُهُ.",
+          "sha256": "c3262a2e2f9070fe44b248e632601d9dfa0b71b2b5f555f857fb4d21b246c2b7",
+          "duration_ms": 4274
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-ways-title.mp3",
+          "text": "الْعَدَدُ بِطَرِيقَتَيْنِ",
+          "sha256": "251a412c4f991cb12a3dea3abd312d7e959df9f595db2287e4e2e302816c4104",
+          "duration_ms": 1665
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-ways-prompt.mp3",
+          "text": "قَسِّمْ ثَمَانِيَ بَطَاقَاتٍ بَيْنَ سَلَّتَيْنِ. ضَعْ بَطَاقَاتٍ فِي كِلْتَيْهِمَا.",
+          "sha256": "ee3cd2eddfb5ed616282047fb79857ed862c75436a1aed87a86c6bd2b948179c",
+          "duration_ms": 5628
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-ways-hint.mp3",
+          "text": "غَيِّرْ تَقْسِيمَ السَّلَّتَيْنِ. هَلْ تَغَيَّرَ الْمَجْمُوعُ؟",
+          "sha256": "222b74c9631a688f94c8dda88b3852e93fe46fe47b88e68a75a57989fdbc7e88",
+          "duration_ms": 3938
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-ways-real.mp3",
+          "text": "رَتِّبْ نَفْسَ الْبَطَاقَاتِ فِي مَجْمُوعَتَيْنِ، ثُمَّ غَيِّرْ تَقْسِيمَهَا.",
+          "sha256": "474cdcf7ad04d6c3c9591be93553fa3636717f9c074085990af382eed6f75bd3",
+          "duration_ms": 4783
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-friends-title.mp3",
+          "text": "سَلَّةٌ لِصَدِيقَيْنِ",
+          "sha256": "6225a32576c7ca4933ee11391a74ca19563bb913d8323a245839a7ce49c43ab9",
+          "duration_ms": 1670
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-friends-prompt.mp3",
+          "text": "وَزِّعْ سِتَّ بَطَاقَاتِ فَرَاوْلَةٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+          "sha256": "fd60428149e42ec3f2c9da722c2f0886df331e0559ab8ddf22a632c58a376ec8",
+          "duration_ms": 4698
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-friends-hint.mp3",
+          "text": "وَزِّعْ بِالدَّوْرِ، ثُمَّ قَابِلْ كُلَّ بَطَاقَةٍ بِبَطَاقَةٍ.",
+          "sha256": "685d40f3efb24444676547e9c643c9ad2da6758e988713ed17c2620ad3578e7c",
+          "duration_ms": 4217
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-two-friends-real.mp3",
+          "text": "اِسْتَخْدِمْ بَطَاقَاتٍ كَبِيرَةً لِتَقْسِيمِ طَلَبٍ بَيْنَ صَدِيقَيْنِ.",
+          "sha256": "f2b37d1654ed0f9af4d793300aa712cc8726ca802b48774f90955c680d7dc202",
+          "duration_ms": 4830
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-shelf-pattern-title.mp3",
+          "text": "نَمَطُ الرَّفِ",
+          "sha256": "2a59844abffdcb9c6bdc6e9e7a02e2b438f3fc89d7b44aa65ca70435f6ddf3f7",
+          "duration_ms": 898
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-shelf-pattern-prompt.mp3",
+          "text": "أَكْمِلْ نَمَطَ الرَّفِ، ثُمَّ اِحْكِ الْقَاعِدَةَ.",
+          "sha256": "51562ca4e0200bfe565eceee1258c16e0c2a25d88acbd9c5eba161cd387e78e1",
+          "duration_ms": 3357
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-shelf-pattern-hint.mp3",
+          "text": "اِبْحَثْ عَنِ الْجُزْءِ الَّذِي يَتَكَرَّرُ. اِبْدَأْ مِنْ أَوَّلِ الرَّفِ.",
+          "sha256": "8fa3e22ed726c394765410ba2b959668902f93551201115bef37eb84ce6efb1c",
+          "duration_ms": 4747
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-shelf-pattern-real.mp3",
+          "text": "اِخْتَرْ صُوَرًا جَدِيدَةً وَطَبِّقْ نَفْسَ الْقَاعِدَةِ.",
+          "sha256": "36b2e2363c5f6e68faab889203a660f6bb4a3016fb355b6025d8f8120842b8a0",
+          "duration_ms": 3573
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-join-order-title.mp3",
+          "text": "نَجْمَعُ الطَّلَبَ",
+          "sha256": "546fa493ce170d6e1237f575f5fbc71d3579d48c1af3131b0e20b408fedf6cc5",
+          "duration_ms": 1223
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-join-order-prompt.mp3",
+          "text": "اِنْقُلْ بَطَاقَاتِ السَّلَّتَيْنِ إِلَى سَلَّةِ الطَّلَبِ. كَمْ بَطَاقَةً أَصْبَحَ لَدَيْكَ؟",
+          "sha256": "2f2d993b935300eace29d1f0989b5db1b6ce9c1fff24741a190ad3c228fbd79b",
+          "duration_ms": 6053
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-join-order-hint.mp3",
+          "text": "اِنْقُلْ كُلَّ بَطَاقَةٍ مَرَّةً وَاحِدَةً، ثُمَّ عُدَّ السَّلَّةَ الْجَدِيدَةَ.",
+          "sha256": "da010c55bbfa5941beb2117de075fddcc019927086f0c7db12f09e7055de0085",
+          "duration_ms": 5191
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-join-order-real.mp3",
+          "text": "اِجْمَعْ مَجْمُوعَتَيْنِ مِنْ بَطَاقَاتٍ كَبِيرَةٍ فِي طَلَبٍ وَاحِدٍ.",
+          "sha256": "8c46bef3e1ff94cf1bd789bdebb4eb0e5b46d6528c78704440cd926cfefb3145",
+          "duration_ms": 4581
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-return-extras-title.mp3",
+          "text": "نُعِيدُ الزَّائِدَ",
+          "sha256": "68b8f7a4ff07dfbbdf0910c221e26ca6bb3e3de3d6240cbf2b4127726b392d82",
+          "duration_ms": 1241
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-return-extras-prompt.mp3",
+          "text": "فِي السَّلَّةِ تِسْعُ بَطَاقَاتٍ. الطَّلَبُ سِتٌّ. أَعِدِ الزَّائِدَ إِلَى الرَّفِّ.",
+          "sha256": "4c5c0906a61cf5fb7f7e8f8a55d920d8bfaf4fe60a7f6a4909736678d71aac9f",
+          "duration_ms": 5673
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-return-extras-hint.mp3",
+          "text": "قَارِنْ بَطَاقَاتِ السَّلَّةِ بِبَطَاقَةِ الطَّلَبِ. اِضْغَطْ عَلَى بَطَاقَةٍ لِإِعَادَتِهَا.",
+          "sha256": "5072defa572fe6f83b4fd8ee84f2895136b41564b9acf7a0c48a350bf9a86880",
+          "duration_ms": 6250
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-return-extras-real.mp3",
+          "text": "اِطْلُبْ كَمِّيَّةً أَقَلَّ مِمَّا عَلَى الطَّاوِلَةِ، ثُمَّ أَعِدِ الزَّائِدَ.",
+          "sha256": "4963ce9ff2c8e35072b7e6dbb94328a6ae4fd451db13775ab6441d439b676735",
+          "duration_ms": 4901
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-mixed-order-title.mp3",
+          "text": "طَلَبٌ مُنَوَّعٌ",
+          "sha256": "05c36ef15b6245bd6dddf9b3c187702768f2f44bc19de0011f06a6b3de7d47de",
+          "duration_ms": 1186
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-mixed-order-prompt.mp3",
+          "text": "جَهِّزْ بَطَاقَتَيْنِ مِنَ الْجَزَرِ وَثَلَاثَ بَطَاقَاتٍ مِنَ الطَّمَاطِمِ.",
+          "sha256": "b16d277fa2cca7689f228c0a383358f831a837b9d92de7d9f2beece1112e0a94",
+          "duration_ms": 4923
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-mixed-order-hint.mp3",
+          "text": "قَارِنْ كُلَّ نَوْعٍ بِطَلَبِهِ. الْمَجْمُوعُ وَحْدَهُ لَا يَكْفِي.",
+          "sha256": "58b13aab303951b8148f21ad045c6ddfce7837884c06b80784460e52b1807baf",
+          "duration_ms": 4498
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-mixed-order-real.mp3",
+          "text": "اِصْنَعْ طَلَبًا بِصُورَتَيْنِ مُخْتَلِفَتَيْنِ وَتَبَادَلِ الدَّوْرَ.",
+          "sha256": "bda882e3567b80e73348093662543c79f34cb79a3f2f818de80daddb1b2e1404",
+          "duration_ms": 4356
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-fair-eight-title.mp3",
+          "text": "لُعَبٌ بِالتَّسَاوِي",
+          "sha256": "fe61855249d56ea8e477287a92c297d8ec4d427e3e34f2dc8a240f4d89a46add",
+          "duration_ms": 1711
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-fair-eight-prompt.mp3",
+          "text": "وَزِّعْ ثَمَانِيَ بَطَاقَاتِ كُرَاتٍ بِالتَّسَاوِي بَيْنَ سَلَّتَيْنِ.",
+          "sha256": "116655b47bf3631704fca02e860df1f8ed1b721eada42eea6d9f17087946cbfa",
+          "duration_ms": 4699
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-fair-eight-hint.mp3",
+          "text": "هَلْ لِكُلِّ بَطَاقَةٍ فِي السَّلَّةِ مُقَابِلَةٌ فِي الْأُخْرَى؟",
+          "sha256": "a05dda05fb07893bb4fad7db9bd15c5105432455d8747bc0e5c4fd24c95e4395",
+          "duration_ms": 4101
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-fair-eight-real.mp3",
+          "text": "قَسِّمْ بَطَاقَاتِ اللُّعَبِ بِالتَّسَاوِي عَلَى شَخْصَيْنِ.",
+          "sha256": "b988238699399acc0e777846919563b8d8280e46e35150cbb940f83175ba75f7",
+          "duration_ms": 3752
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-three-baskets-title.mp3",
+          "text": "سَلَالٌ لِأَصْدِقَائِي",
+          "sha256": "7e4e89944ab3d3b657f1b71eda9eea721b2e2887df0da8beed0a9fadc71fa784",
+          "duration_ms": 1839
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-three-baskets-prompt.mp3",
+          "text": "وَزِّعْ اِثْنَتَيْ عَشْرَةَ بَطَاقَةً بِالتَّسَاوِي بَيْنَ ثَلَاثِ سِلَالٍ.",
+          "sha256": "7dbd1f8f7d6ecaca743e565dc59ab963a1fb6d4e363ffb14fd0b2d45d7426348",
+          "duration_ms": 4909
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-three-baskets-hint.mp3",
+          "text": "وَزِّعْ بِالدَّوْرِ عَلَى السَّلَالِ. اِفْحَصْهَا بِالْمُطَابَقَةِ وَالْعَدِّ.",
+          "sha256": "07be215e5f2514d2bb6475180464f59f57aba1a2ca559836d6313559e24171ab",
+          "duration_ms": 5066
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-three-baskets-real.mp3",
+          "text": "صَمِّمْ طَلَبًا يُقْسَمُ بِالتَّسَاوِي عَلَى أَكْثَرَ مِنْ شَخْصٍ.",
+          "sha256": "9a596696c3f676a90ddda80379d01606bff95aa0c097ed170c76678ea08f8d43",
+          "duration_ms": 4181
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-double-pattern-title.mp3",
+          "text": "قَاعِدَةٌ جَدِيدَةٌ",
+          "sha256": "f1b238742dab7f0c71fc59eab6e15a58aaf184b1e05dbad4301f40d26b4817e5",
+          "duration_ms": 1490
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-double-pattern-prompt.mp3",
+          "text": "أَكْمِلِ النَّمَطَ. اِكْتَشِفْ مَا يَتَكَرَّرُ وَاحْكِهِ.",
+          "sha256": "59fc71ea0c20d3fadd71d7193aafb05f90b105287feece7a434c177edef3bd4b",
+          "duration_ms": 3773
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-double-pattern-hint.mp3",
+          "text": "أَشِرْ إِلَى الْجُزْءِ الْمُتَكَرِّرِ. جَرِّبْ نَفْسَ الْقَاعِدَةِ بِصُوَرٍ أُخْرَى.",
+          "sha256": "a7407633007ec745be67a46dcbf9579a5f7c35d97ce6a6ab0bfd35775bbd5f7a",
+          "duration_ms": 5445
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-double-pattern-real.mp3",
+          "text": "اِرْسُمْ رَمْزَيْنِ جَدِيدَيْنِ وَابْنِ بِهِمَا نَفْسَ النَّمَطِ.",
+          "sha256": "3422435df9751936aa4ba4de82675198315e3dc4f2db2e40cbbbfc3010ebe9e9",
+          "duration_ms": 3944
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-measure-shelf-title.mp3",
+          "text": "نَقِيسُ الرَّفَّ",
+          "sha256": "ea8a703d022d695c0c8abde485dfb7ee405a85167246ccd11aa714af29274084",
+          "duration_ms": 1180
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-measure-shelf-prompt.mp3",
+          "text": "غَطِّ طُولَ الرَّفِّ بِبَطَاقَاتِ كُتُبٍ مُتَسَاوِيَةٍ، بِدُونِ فَرَاغٍ أَوْ تَدَاخُلٍ.",
+          "sha256": "7d703e0d0076a24332a4f896e0c565e67398e8502a67a5036486df1c3f4a2571",
+          "duration_ms": 5910
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-measure-shelf-hint.mp3",
+          "text": "اِسْتَخْدِمْ نَفْسَ الْوَحْدَةِ فِي كُلِّ مَكَانٍ، ثُمَّ عُدَّ الْوَحَدَاتِ.",
+          "sha256": "0e343dac3f7398fe8d78ad7329a8ba58f59b5ce8cd37ea99b627ebe3f2a3a741",
+          "duration_ms": 4878
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-measure-shelf-real.mp3",
+          "text": "قِسْ طُولَ كِتَابٍ بِوَحْدَاتٍ وَرَقِيَّةٍ مُتَسَاوِيَةٍ.",
+          "sha256": "19eef6a7f4465932b807a20cdfe28b2f68b10c3af18127b08e88735a7859c67f",
+          "duration_ms": 3807
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-seller-today-title.mp3",
+          "text": "بَائِعُ الْيَوْمِ",
+          "sha256": "4a7809c83e32d6c2a201cd7acea2ac2adb8281e304222a60c0872c8bbf039e24",
+          "duration_ms": 1146
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-seller-today-prompt.mp3",
+          "text": "صَمِّمْ طَلَبَكَ، ثُمَّ دَعِ الْمَرَافِقَ يُجَهِّزُهُ وَافْحَصْهُ مَعَهُ.",
+          "sha256": "7cdd092031e4d0e560d4e252f7f5ab41748a6b50dac35a339396aa975d927731",
+          "duration_ms": 4941
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-seller-today-hint.mp3",
+          "text": "اِجْعَلِ الطَّلَبَ وَاضِحًا: نَوْعُ الْبَطَاقَةِ وَعَدَدُهَا.",
+          "sha256": "e849bb1ddbe3fffff4b52037a11b23f682c951d04e8aef54954b751a396feaa1",
+          "duration_ms": 3890
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-seller-today-real.mp3",
+          "text": "تَبَادَلَا دَوْرَ الْبَائِعِ وَالْمُشْتَرِي فِي سُوقٍ وَرَقِيٍّ.",
+          "sha256": "55cba537cb69ddd46f2596b3b23aff674dc712a17d1fc06f5776a6f526391df0",
+          "duration_ms": 4038
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-library.mp3",
+          "text": "اِخْتَرْ تَجْرِبَةً وَالْعَبْ. فِي كُلِّ مَرَّةٍ طَلَبٌ جَدِيدٌ وَصُوَرٌ مُخْتَلِفَةٌ.",
+          "sha256": "54caa96a3dd37602992974e4d79d7e1c7757a081b8d386f74ae4e6e44cbe5474",
+          "duration_ms": 5829
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-count.mp3",
+          "text": "اِضْغَطْ عَلَى الصُّورَةِ لِتَضَعَ بَطَاقَةً فِي السَّلَّةِ.",
+          "sha256": "6e906e786931b5f2d522089e24f94b1a300be14b3f1e34a72bc1039bc5906c8e",
+          "duration_ms": 3736
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-share.mp3",
+          "text": "اِخْتَرْ سَلَّةً، ثُمَّ اضْغَطْ عَلَى الصُّورَةِ. وَزِّعْ كُلَّ الْبَطَاقَاتِ بِالتَّسَاوِي.",
+          "sha256": "bf24740d4436d88173af9d78158fe5d274bdfbe0bc8dea203b4e3fbe3525da12",
+          "duration_ms": 6026
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-combine.mp3",
+          "text": "اِضْغَطْ عَلَى صُوَرِ الْمَجْمُوعَتَيْنِ لِتَضُمَّهَا فِي سَلَّةٍ وَاحِدَةٍ.",
+          "sha256": "665118cfbeaaae7509ab35e4f3bcd64401d8d6240eaa36acdde43e3630eda35a",
+          "duration_ms": 4868
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-compare.mp3",
+          "text": "أَيُّ صَفٍّ فِيهِ بَطَاقَاتٌ أَكْثَرُ؟ الْعَدَدُ هُوَ الْمُهِمُّ، وَلَيْسَ التَّبَاعُدَ.",
+          "sha256": "954c4c46f005a595ea32f77cbd5b719e4a7b350a10bfa214b9d65f022c719df4",
+          "duration_ms": 5775
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-pattern.mp3",
+          "text": "اُنْظُرْ إِلَى تَرْتِيبِ الصُّوَرِ. اِخْتَرِ الصُّورَةَ التَّالِيَةَ.",
+          "sha256": "1c2eb7c0bf27379fd9c9c31a2c4cf4a9bdf9a62326b538ec5055407cdb13ae9b",
+          "duration_ms": 4494
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-review.mp3",
+          "text": "اِحْكِ كَيْفَ حَلَلْتَ الطَّلَبَ. يُمْكِنُكَ حِفْظُهُ أَوْ طِبَاعَتُهُ وَتَبَادُلُ الدَّوْرِ.",
+          "sha256": "405081422aa3238773db326ab4dcaad6a3f122798c3f625243c0ed19f1f610e2",
+          "duration_ms": 6109
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-match.mp3",
+          "text": "عَدَدُ الْبَطَاقَاتِ يَطَابِقُ الطَّلَبَ. اِحْكِ طَرِيقَتَكَ.",
+          "sha256": "fd0c276a3e0b6e9d401b4e5de7b5b8ca9dd0ef87bd8dfe144559478aebeed7a8",
+          "duration_ms": 4102
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-retry.mp3",
+          "text": "لِنُعِدِ الْفَحْصَ بِهُدُوءٍ. قَارِنِ الْبَطَاقَاتِ بِالطَّلَبِ، أَوِ اِطْلُبْ تَلْمِيحًا.",
+          "sha256": "b771a46db6422282bc51e34d953d46cba6b06b0888754e5b6427e1e5232cc225",
+          "duration_ms": 5869
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-pause.mp3",
+          "text": "حَفِظْنَا مَكَانَكَ إِنْ كَانَ الْحَفْظُ مُتَاحًا. خُذْ وَقْتَكَ وَعُدْ عِنْدَمَا تَكُونُ مُسْتَعِدًّا.",
+          "sha256": "6dfb1d49cc2c7850bb3e86d70af380d1862ebbef78acd910c7b69d0821420e61",
+          "duration_ms": 6815
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-role.mp3",
+          "text": "أَنَا الْبَائِعُ الْآنَ. أَصْنَعُ طَلَبًا وَاضِحًا وَأَفْحَصُهُ مَعَ الْمَرَافِقِ.",
+          "sha256": "ed2dd443e3bd861ae6817eb6a00da69c5d6d3c4f72e99198d4a6d60bae4883d9",
+          "duration_ms": 5434
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-safety.mp3",
+          "text": "اِسْتَخْدِمْ بَطَاقَاتٍ أَوْ قِطَعًا كَبِيرَةً آمِنَةً مَعَ الْمَرَافِقِ. لَا يَلْزَمُ طَعَامٌ حَقِيقِيٌّ.",
+          "sha256": "7c5e875378109c264d687dfc15e593cd5e1e5abdb75bf728db1412f5c6234bb8",
+          "duration_ms": 7231
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-fill.mp3",
+          "text": "أَكْمِلِ السَّلَّةَ حَتَّى تُطَابِقَ بَطَاقَةَ الطَّلَبِ.",
+          "sha256": "c18548c5748032b33b3fa5c6c6d01ee0d0c0dfee00517d3c2802da812495a325",
+          "duration_ms": 3569
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-return.mp3",
+          "text": "اِضْغَطْ عَلَى بَطَاقَةٍ فِي السَّلَّةِ لِإِعَادَةِ الزَّائِدِ.",
+          "sha256": "1a88d33d92ef3b8151dd97833c02ce07e7119d48604e431204781cf922c7aaff",
+          "duration_ms": 3951
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-split.mp3",
+          "text": "اِخْتَرْ سَلَّةً، ثُمَّ ضَعْ بَطَاقَةً. اصْنَعْ مَجْمُوعَتَيْنِ بِطَرِيقَتِكَ.",
+          "sha256": "6b4ef64caad853916e4dac81c0a971b4d5bb7990ea7893b39b9677d7070e045a",
+          "duration_ms": 5258
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-mixed.mp3",
+          "text": "عُدَّ بَطَاقَاتِ كُلِّ صُورَةٍ وَطَابِقْهَا بِالطَّلَبِ.",
+          "sha256": "4dbaa125b931a0fb7c14389060749709d3f6d29442a35563df34aa997f7a3de5",
+          "duration_ms": 3707
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-measure.mp3",
+          "text": "ضَعِ الْبَطَاقَاتِ الْمُتَسَاوِيَةَ عَلَى الْخَطِّ دُونَ فَرَاغٍ أَوْ تَدَاخُلٍ.",
+          "sha256": "eb7d013ee8134ccc3623ab4608dc420bcc41d9bca39f488941d97c207178d6bf",
+          "duration_ms": 5167
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-order.mp3",
+          "text": "الْمَطْلُوبُ",
+          "seconds": 0.85,
+          "sha256": "05608bb974d7de4ed9e00688212050209fd5c36c39964b7a91c0b8337eb7135e",
+          "duration_ms": 666
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-total.mp3",
+          "text": "عَدَدُ الْبَطَاقَاتِ",
+          "sha256": "ba9dddc92f19d985484231ee1f2cdd4079b3d0bb81850540a371a12b2ae0dc60",
+          "duration_ms": 1443
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-baskets.mp3",
+          "text": "عَدَدُ السَّلَالِ",
+          "sha256": "edb2eef06787e63ecf1009008866d93dff6bba93f8404fdd9bc596c36e4b0848",
+          "duration_ms": 1250
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-picture.mp3",
+          "text": "الصُّورَةُ",
+          "seconds": 0.85,
+          "sha256": "60746e1241400413cee0581e944d0773dea4389380f52e81672f9c2d55ef0ca7",
+          "duration_ms": 762
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-demo.mp3",
+          "text": "هَذَا مِثَالٌ لِلطَّرِيقَةِ. طَلَبُكَ الْأَصْلِيُّ يَنْتَظِرُكَ.",
+          "sha256": "420f772070c48c83261f28aeef83883ada714c38323089fb0666b02a976d6e72",
+          "duration_ms": 4309
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-guide-coach.mp3",
+          "text": "اِخْتَرْ نَمَطًا وَصُوَرًا وَمَدَى الْعَدَدِ. نُجَهِّزُ طَلَبًا مُخْتَلِفًا كُلَّ مَرَّةٍ.",
+          "sha256": "103e39b3dcc671a309aa43eee0f99dbe7920b9432cc1299c08347110aba9451d",
+          "duration_ms": 6099
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-11.mp3",
+          "text": "أَحَدَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "c53669a79af3d03f027be65346bc945ae1d773813583d7a02365ff847dd55ed0",
+          "duration_ms": 778
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-12.mp3",
+          "text": "اِثْنَا عَشَر",
+          "seconds": 0.85,
+          "sha256": "50c401d35339c90df6f62844e7b702541572e2023d4839c74ef50a164fe94967",
+          "duration_ms": 783
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-13.mp3",
+          "text": "ثَلَاثَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "ab4b57e05278679aff65564b6102f4e71416c9628c817935eb3c19d71c401e84",
+          "duration_ms": 757
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-14.mp3",
+          "text": "أَرْبَعَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "b2579cbed4c4378e58431cb1141bf3484d69cdfe95591617bf1397abf8e480ef",
+          "duration_ms": 741
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-15.mp3",
+          "text": "خَمْسَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "966d525e80e8bebfd3ca4ffc290d27fc430931c3793d4f0db7a7d9064fdd5175",
+          "duration_ms": 776
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-16.mp3",
+          "text": "سِتَّةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "2d6cf43fefe07878373043021e1d4dd7a0785a79a298263cdfa781d5519b554a",
+          "duration_ms": 746
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-17.mp3",
+          "text": "سَبْعَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "6e3f1f367fa229e3d5a6ed5064f38693e841246adeeee69b0646530b4b2d0bdf",
+          "duration_ms": 752
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-18.mp3",
+          "text": "ثَمَانِيَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "64fb16a5e98fc143496f0217a6f6afc428e419fd0b35358c352bd527f0d41968",
+          "duration_ms": 742
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-19.mp3",
+          "text": "تِسْعَةَ عَشَر",
+          "seconds": 0.85,
+          "sha256": "9f6ff930510ac4346e52df8a245a8685fe540fbd7404cf415cddb6860267a6d9",
+          "duration_ms": 805
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-20.mp3",
+          "text": "عِشْرُون",
+          "seconds": 0.85,
+          "sha256": "657d33bfddb302f1d8bd84e593f63b8af97fa5435c51288b4305fdd0bab579f8",
+          "duration_ms": 699
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-21.mp3",
+          "text": "وَاحِد وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "f33aee18259255722a2ddcb8ce5781571ba48eb749a3063415b51476de46fb9d",
+          "duration_ms": 703
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-22.mp3",
+          "text": "اِثْنَان وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "d0c1fe117ce3d0dcd22d2c64681f9b96bfeb6e15dccc07d808c364a34b269d94",
+          "duration_ms": 656
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-23.mp3",
+          "text": "ثَلَاثَة وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "0019963d3cbe338d5afd875facc251488670852b0c5d698621d35f6c6e43eac1",
+          "duration_ms": 820
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-24.mp3",
+          "text": "أَرْبَعَة وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "5d6bcc26551b90bf87a81093d7320af243ace7f8a2806ca6d70b95e43b282a9e",
+          "duration_ms": 702
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-25.mp3",
+          "text": "خَمْسَة وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "02c13fa9f20915d1e9f5e72c0d7b3001d555d0dba76951cc0ef17463b4a9cd1f",
+          "duration_ms": 775
+        },
+        {
+          "app": "a4-family-market",
+          "path": "apps/4-8/family-market-lab/audio/ar-number-26.mp3",
+          "text": "سِتَّة وَعِشْرُون",
+          "seconds": 0.85,
+          "sha256": "768421d37a07ae1b20b7675d51cfd81627c571126b7e82e9c88d2d4e12b2988f",
+          "duration_ms": 738
+        }
+      ],
+      "retired": []
+    },
+    "a4-session-planner": {
+      "profile": {
+        "id": "silma-ar-1",
+        "engine": "silma-tts",
+        "version": "1.0.5",
+        "model_revision": "226dd7a65cadf51f9a6dbe3953fc89003b3844d5",
+        "vocoder_revision": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+        "seed": 360,
+        "speed": 0.97,
+        "steps": 16,
+        "reference": {
+          "sha256": "b6b88232c3b851a3d9833c66349c71b2527de346b467ccba944809bad776c7ae",
+          "text": "ويدقق النظر في القرآن الكريم وسائر الكتب السماوية ويتبع مسالك الرسل العظام عليهم الصلاة والسلام."
+        }
+      },
+      "clips": [
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/intro.mp3",
+          "text": "هذا مكان المدرب. اختر مع الطفل هدفًا واحدًا. رتب نشاطًا وخطوة في الواقع واستراحة ومراجعة. أثناء التنفيذ نعرض للطفل خطوة واحدة، وتبقى ملاحظاتك في شاشة المدرب.",
+          "display_text": "هذا مكان المدرب. اختر مع الطفل هدفًا واحدًا. رتب نشاطًا وخطوة في الواقع واستراحة ومراجعة. أثناء التنفيذ نعرض للطفل خطوة واحدة، وتبقى ملاحظاتك في شاشة المدرب.",
+          "sha256": "87f71c3499ea82a1d14f1a465140f486eba66c12ed97d957ed8149f12ea365ce",
+          "duration_ms": 15593
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/rest.mp3",
+          "text": "نستريح بالقدر الذي نريد، بعيدًا عن الشاشة.",
+          "display_text": "نستريح بالقدر الذي نريد، بعيدًا عن الشاشة.",
+          "sha256": "23683c99780f9fbe85ad1cf84fed0103e4be23f3c6d5a9caa1b1ddf54764c82e",
+          "duration_ms": 3611
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/review.mp3",
+          "text": "نحكي ما جربناه ونختار تغييرًا واحدًا.",
+          "display_text": "نحكي ما جربناه ونختار تغييرًا واحدًا.",
+          "sha256": "58e35806fea371143bac04549043fd7bb9c898fa831da698f40eaa44b16045e4",
+          "duration_ms": 3156
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/help.mp3",
+          "text": "يمكنك طلب مساعدة من مرافقك أو اختيار خطوة أصغر.",
+          "display_text": "يمكنك طلب مساعدة من مرافقك أو اختيار خطوة أصغر.",
+          "sha256": "3906207e70c62f411e1b6a335444fe5a09cd505dfeb984e5fca65ec4b5708008",
+          "duration_ms": 4127
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/pause.mp3",
+          "text": "أستريح ثم أقرر العودة أو التوقف.",
+          "display_text": "أستريح ثم أقرر العودة أو التوقف.",
+          "sha256": "aa8cd8d971d14c1da9a4e41ed4165353efa3279222ba373d18c691d2819476b0",
+          "duration_ms": 2718
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/coach.mp3",
+          "text": "هذا مكان المدرب.",
+          "display_text": "هذا مكان المدرب.",
+          "sha256": "b7b65b0cfea81c897d1fd7f5ecc37e024d4b8e9911bd33edda1d4af4f21ef640",
+          "duration_ms": 1445
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/saved.mp3",
+          "text": "أحسنتم. جربتم وراجعتم ما تعلمتم.",
+          "display_text": "أحسنتم. جربتم وراجعتم ما تعلمتم.",
+          "sha256": "2ece318f548a0704abef56893f38923f420ba93400911469464e210088ebe408",
+          "duration_ms": 2815
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-1.mp3",
+          "text": "حكاية وكلمة",
+          "display_text": "حكاية وكلمة",
+          "sha256": "30a4a3a9ccedc745e5fb390ac415d170c28888db19e2e1effa5da956b4c307db",
+          "duration_ms": 1346
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-2.mp3",
+          "text": "مرسم المعنى",
+          "display_text": "مرسم المعنى",
+          "sha256": "38673a5359abf9faea645f48a47035398a859d8472acb39bc52e026f57c04039",
+          "duration_ms": 1060
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-3.mp3",
+          "text": "سوق العائلة",
+          "display_text": "سوق العائلة",
+          "sha256": "5442167e3e45bfd4aeb13e09503e637a7933d7a4534891e6c9bc303d0bee5d6a",
+          "duration_ms": 1083
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-4.mp3",
+          "text": "مهندسو الأشكال",
+          "display_text": "مهندسو الأشكال",
+          "sha256": "5ba8100cc2ef4ad0e00e8993318011abe0611d9a4aa01bc0aa6d3020670155ac",
+          "duration_ms": 1427
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-5.mp3",
+          "text": "مختبر لماذا",
+          "display_text": "مختبر لماذا",
+          "sha256": "7aa580491c2055455ce12e0dc9ce99d09b550205cf469727ac0dfbdba892c0e9",
+          "duration_ms": 1308
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-6.mp3",
+          "text": "مسار الأوامر",
+          "display_text": "مسار الأوامر",
+          "sha256": "495f44ac1dad6a900792de7dc30f981058a58c5d9697f7bea073832d198bcc41",
+          "duration_ms": 1298
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-7.mp3",
+          "text": "حديقة الفوانيس.",
+          "display_text": "مسار الأوامر · حديقة الفوانيس — أول أمر وترتيب البطاقات",
+          "sha256": "af40779f3835b37166f52ab6b264c5542b9ae05f3eb7b0491bd1d8367b91fcce",
+          "duration_ms": 1580
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-8.mp3",
+          "text": "نهر البلّور.",
+          "display_text": "مسار الأوامر · نهر البلّور — تصحيح الخطأ والتوقّع",
+          "sha256": "4485e53eea20a5a1fa57e9fdd8bf006f6f3da1ad0fd8c42280f6b7eabc3e8c8c",
+          "duration_ms": 959
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/activity-9.mp3",
+          "text": "جزيرة النجوم.",
+          "display_text": "مسار الأوامر · جزيرة النجوم — تكرار الأوامر",
+          "sha256": "5199e5230b9ff33996e9ee490ed82a44c75061fa3c0814a79ac9b897ac79572f",
+          "duration_ms": 1203
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-1.mp3",
+          "text": "نختار صورة من القصة ونرسم رسالة أو شخصية على ورقة.",
+          "display_text": "نختار صورة من القصة ونرسم رسالة أو شخصية على ورقة.",
+          "sha256": "0dd0ba1d54dcce9b32bdee11618dafe5bc659fb9faa54dcedd7cff7e9e8f7755",
+          "duration_ms": 4387
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-2.mp3",
+          "text": "نرتب سوقًا صغيرًا بقطع كبيرة ونمثل طلبًا نتفق عليه.",
+          "display_text": "نرتب سوقًا صغيرًا بقطع كبيرة ونمثل طلبًا نتفق عليه.",
+          "sha256": "09e469f58b04d8b3d0ec2f2df711fe648004ab3dbb90f21569792984761ae497",
+          "duration_ms": 4504
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-3.mp3",
+          "text": "نختار مواد آمنة مع المرافق، ونجرب تغييرًا واحدًا ونحكي ما لاحظناه.",
+          "display_text": "نختار مواد آمنة مع المرافق، ونجرب تغييرًا واحدًا ونحكي ما لاحظناه.",
+          "sha256": "1aa0948a1aed4c36dcc459a7916b40cfaad01638bacfdf80ca2475d62db04986",
+          "duration_ms": 5810
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-4.mp3",
+          "text": "نبني بمكعبات كبيرة ثم نحكي أو نشير إلى جزء نريد تحسينه.",
+          "display_text": "نبني بمكعبات كبيرة ثم نحكي أو نشير إلى جزء نريد تحسينه.",
+          "sha256": "d88a647036a63cf2d549d6067419253fb6915e834f8f3dc064b68b28c8471630",
+          "duration_ms": 4838
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-5.mp3",
+          "text": "نتفق على حركة مريحة، ثم يتبادل كل مشارك قيادة إشارة واحدة.",
+          "display_text": "نتفق على حركة مريحة، ثم يتبادل كل مشارك قيادة إشارة واحدة.",
+          "sha256": "d517300086386a0c47710ee58afe4042f831339d743b3eedea6626921c0d34d9",
+          "duration_ms": 5189
+        },
+        {
+          "app": "a4-session-planner",
+          "path": "apps/4-8/session-planner-4-8/audio/silma-ar/template-6.mp3",
+          "text": "يختار الطفل أن يحكي الفكرة أو يرسمها بمواد متاحة، ويمكنه التوقف.",
+          "display_text": "يختار الطفل أن يحكي الفكرة أو يرسمها بمواد متاحة، ويمكنه التوقف.",
+          "sha256": "a87a5ad8850a02ffd1fbead8486b0c917e503f6c5ccde36ad106f7b78d3bc696",
+          "duration_ms": 5625
+        }
+      ],
+      "retired": []
+    }
+  }
+}

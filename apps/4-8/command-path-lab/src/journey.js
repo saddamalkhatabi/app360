@@ -69,7 +69,9 @@
         });
       } catch (e) { /* Motion and cues carry the same information. */ }
     }
+    var schoolFeedback = w.APP360_SCHOOL_VOICE_FEEDBACK && w.APP360_SCHOOL_VOICE_FEEDBACK.create();
     function stopAudio() {
+      if (schoolFeedback) schoolFeedback.stop();
       if (audio) { audio.pause(); audio.onerror = null; audio = null; }
     }
     function speak(id) {
@@ -336,9 +338,11 @@
       render(won ? '.jr-next' : card.mode === 'predict' ? '.jr-guess' :
         card.mode === 'repair' ? '.jr-error button, .jr-tape button' :
           card.mode === 'swap' ? '[data-j="swap"]' : null);
-      if (won && scope && M.unlocked(progress, scope) === playlist.length) {
-        speak('coach-track-complete');
-        if (options.complete) options.complete(scope.id, playlist.length);
+      if (won) {
+        var trackDone = scope && M.unlocked(progress, scope) === playlist.length;
+        var praised = sound && schoolFeedback && schoolFeedback.play({language: language});
+        if (trackDone && !praised) speak('coach-track-complete');
+        if (trackDone && options.complete) options.complete(scope.id, playlist.length);
       } else if (!won) {
         var correctDirectStep = M.direct(card) && result.status === 'away' && guidedCommand();
         if ((guiding && correctDirectStep) ||

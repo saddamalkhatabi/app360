@@ -76,7 +76,9 @@
     render();
   }
 
+  var schoolFeedback = w.APP360_SCHOOL_VOICE_FEEDBACK && w.APP360_SCHOOL_VOICE_FEEDBACK.create();
   function stopAudio() {
+    if (schoolFeedback) schoolFeedback.stop();
     audioQueue = [];
     audioPlaying = false;
     audioEnd = null;
@@ -90,6 +92,8 @@
       stopAudio();
       return;
     }
+    if ((id === 'success' || id === 'finish') && schoolFeedback &&
+        schoolFeedback.play({ language: state.language, enabled: state.sound }, stopAudio)) return;
     var source = 'audio/journey/' + state.language + '-' + id + '.mp3';
     audioPlaying = true;
     player.src = source;
