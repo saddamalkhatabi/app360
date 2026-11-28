@@ -12,6 +12,7 @@
     function stopAudio() {
       w.clearTimeout(timer);
       if (schoolFeedback) schoolFeedback.stop();
+      if (source === 'shared-recorded') w.App360Celebration.stop();
       if (audio) {
         audio.onended = audio.onerror = null;
         audio.pause();
@@ -19,7 +20,7 @@
       }
       source = '';
       state = 'idle';
-      options.onAudioEnd();
+      if (options.onAudioEnd) options.onAudioEnd();
     }
 
     function hide() {
@@ -64,7 +65,17 @@
       })) {
         source = 'school-personalized';
         state = 'playing';
-        options.onAudioStart();
+        if (options.onAudioStart) options.onAudioStart();
+        return;
+      }
+      if (w.App360Celebration) {
+        source = 'shared-recorded';
+        state = 'playing';
+        if (options.onAudioStart) options.onAudioStart();
+        w.App360Celebration.play({ language: options.getLanguage(), signedInName: false }, function () {
+          stopAudio();
+          if (done) done();
+        });
         return;
       }
       source = 'assets/journey-audio/' + options.getLanguage() + '-coach-cheer.mp3';
@@ -80,7 +91,7 @@
       function started() {
         if (audio !== active) return;
         state = 'playing';
-        options.onAudioStart();
+        if (options.onAudioStart) options.onAudioStart();
       }
       active.onended = active.onerror = finish;
       timer = w.setTimeout(finish, 10000);
